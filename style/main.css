@@ -1,0 +1,35 @@
+#header {
+  height: 120px;
+  margin-bottom: 50px;
+  border: 0;
+}
+
+.pagename {
+  color: transparent;
+}
+
+.pagename a {
+  position: absolute;
+  top: 77px;
+  font-size: 36px;
+  color: #fff;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: lowercase;
+  margin-left: 3px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.pagename a:hover {
+  color: #448aff;
+  text-decoration: none;
+}
+
+* {
+  font-family: "Arial", sans-serif;
+}
+/*# sourceMappingURL=main.css.map */

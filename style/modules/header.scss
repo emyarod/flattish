@@ -1,0 +1,26 @@
+@import "../_utils/vars";
+@import "../_utils/mixins";
+
+#header {
+  height: 120px;
+  margin-bottom: 50px;
+  border: 0;
+}
+
+.pagename {
+  color: transparent;
+
+  a {
+    position: absolute;
+    top: 77px;
+    font-size: 36px;
+    color: #fff;
+    font-variant: normal;
+    font-weight: normal;
+    text-transform: lowercase;
+    margin-left: 3px;
+    @include transitions(all 0.5s ease);
+    
+    &:hover { color: $accent; text-decoration: none; }
+  }
+}

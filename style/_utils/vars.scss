@@ -1,0 +1,21 @@
+@import "color-list";
+
+
+@function get-color($color-hue, $color-shade: "500") {
+  $color: map-get(map-get($colors, $color-hue), $color-shade);
+  @if $color {
+    @return $color;
+  } @else { @error "=> ERROR"; }
+}
+
+$font-stack: "Arial", sans-serif;
+
+$primary: get-color("green", "500");
+$dark-primary: get-color("green", "700");
+$light-primary: get-color("green", "100");
+$accent: get-color("blue", "A200");
+$dark-accent: get-color("blue", "A400");
+$light-accent: get-color("blue", "A100");
+
+$upvote: #c60c30;
+$downvote: #063c6d;
