@@ -1,10 +1,42 @@
 @import "../_utils/vars";
 @import "../_utils/mixins";
 
+@-webkit-keyframes moveheader {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@-moz-keyframes moveheader {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@-ms-keyframes moveheader {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@-o-keyframes moveheader {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes moveheader {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
 #header {
-  height: 120px;
-  margin-bottom: 50px;
+  height: 150px;
+  // margin-bottom: 50px;
   border: 0;
+  background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
+  @include vendor-prefix-property(animation, moveheader 20s ease 0s normal none infinite running);
 }
 
 .pagename {
@@ -12,14 +44,14 @@
 
   a {
     position: absolute;
-    top: 77px;
+    top: 107px;
     font-size: 36px;
     color: #fff;
     font-variant: normal;
     font-weight: normal;
     text-transform: lowercase;
     margin-left: 3px;
-    @include transitions(all 0.5s ease);
+    @include vendor-prefix-property(transition, all 0.5s ease);
     
     &:hover { color: $accent; text-decoration: none; }
   }
