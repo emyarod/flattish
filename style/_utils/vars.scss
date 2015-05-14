@@ -1,6 +1,6 @@
 @import "color-list";
 
-
+// get color hue and shade from color list
 @function get-color($color-hue, $color-shade: "500") {
   $color: map-get(map-get($colors, $color-hue), $color-shade);
   @if $color {
@@ -8,14 +8,15 @@
   } @else { @error "=> ERROR"; }
 }
 
-$font-stack: "Arial", sans-serif;
-
+// define colors
 $primary: get-color("green", "500");
 $dark-primary: get-color("green", "700");
 $light-primary: get-color("green", "100");
 $accent: get-color("blue", "A200");
 $dark-accent: get-color("blue", "A400");
 $light-accent: get-color("blue", "A100");
+
+$font-stack: "Arial", sans-serif;
 
 $upvote: #c60c30;
 $downvote: #063c6d;
