@@ -35,8 +35,10 @@
   .dropdown.srdrop .selected {
     // position arrow
     margin: 0 1em 0 0.5em;
-    padding: 0 1em;
+    // padding: 0 1em;
+    padding: 0;
     text-indent: -999em; // remove "my subreddits" text
+    @include burger(25px, 3px, 5px, #444);
   }
 
   // menu list
