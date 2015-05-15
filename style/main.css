@@ -1,15 +1,3 @@
-@-webkit-keyframes moveheader {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
 #sr-header-area {
   background-color: rgba(200, 230, 201, 0.3);
   border: 0;
@@ -145,30 +133,6 @@
   }
 }
 
-@-ms-keyframes moveheader {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@-o-keyframes moveheader {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
 @keyframes moveheader {
   0% {
     background-position: 0 0;
@@ -185,11 +149,11 @@
   height: 200px;
   border: 0;
   background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0%/600% 100%;
-  -webkit-animation: moveheader 20s ease 0s normal none infinite running;
-  -moz-animation: moveheader 20s ease 0s normal none infinite running;
-  -ms-animation: moveheader 20s ease 0s normal none infinite running;
-  -o-animation: moveheader 20s ease 0s normal none infinite running;
-  animation: moveheader 20s ease 0s normal none infinite running;
+  -webkit-animation: moveheader 20s infinite;
+  -moz-animation: moveheader 20s infinite;
+  -ms-animation: moveheader 20s infinite;
+  -o-animation: moveheader 20s infinite;
+  animation: moveheader 20s infinite;
 }
 
 .pagename {
