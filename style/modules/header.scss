@@ -19,13 +19,13 @@
 
   // anchor opacity
   .sr-bar a {
-    opacity: 0.54;
+    color: $secondary-text;
     @include transition;
   }
   
   // subreddit link behavior when hovering over sr bar
   &:hover .sr-bar a {
-    opacity: 0.87;
+    color: $text;
   }
 
   // "my subreddits" menu
@@ -98,8 +98,26 @@
 }
 
 // user bar
+.res #header-bottom-right,
 #header-bottom-right {
   background-color: transparent;
+  position: absolute;
+  top: 17.1em;
+
+  a {
+    color: $secondary-text;
+    @include transition;
+  }
+
+  &:hover a {
+    color: $text;
+  }
+}
+
+#userbarToggle {
+  background-color: transparent;
+  border: 0;
+  color: $secondary-text;
 }
 
 // animate header
