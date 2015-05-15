@@ -17,7 +17,7 @@
 }
 
 #sr-header-area .sr-bar a {
-  opacity: 0.54;
+  color: rgba(0, 0, 0, 0.54);
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
@@ -26,7 +26,7 @@
 }
 
 #sr-header-area:hover .sr-bar a {
-  opacity: 0.87;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 #sr-header-area .dropdown.srdrop {
@@ -151,8 +151,32 @@
   padding: 1em;
 }
 
+.res #header-bottom-right,
 #header-bottom-right {
   background-color: transparent;
+  position: absolute;
+  top: 17.1em;
+}
+
+.res #header-bottom-right a,
+#header-bottom-right a {
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.res #header-bottom-right:hover a,
+#header-bottom-right:hover a {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+#userbarToggle {
+  background-color: transparent;
+  border: 0;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 @-webkit-keyframes moveheader {
