@@ -18,7 +18,7 @@
 }
 
 // autoprefixer mixin for properties and selectors
-@mixin vendor-prefix-property($property, $value) {
+@mixin vendor-prefix($property, $value) {
   -webkit-#{$property}: #{$value};
   -moz-#{$property}: #{$value};
   -ms-#{$property}: #{$value};
