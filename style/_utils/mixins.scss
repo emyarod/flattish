@@ -1,3 +1,5 @@
+@import "../../lib/bourbon/bourbon";
+
 // shadows
 @mixin drop-shadow($depth) {
   @if $depth == 1 {
@@ -18,7 +20,8 @@
 }
 
 // autoprefixer mixin for properties and selectors
-@mixin vendor-prefix($property, $value) {
+
+@mixin vendor-prefix-property($property, $value) {
   -webkit-#{$property}: #{$value};
   -moz-#{$property}: #{$value};
   -ms-#{$property}: #{$value};
@@ -26,8 +29,15 @@
   #{$property}: #{$value};
 }
 
-@mixin vendor-prefix-transitions($property: transition, $value: all 0.5s ease 0s) {
-  @include vendor-prefix($property, $value);
+@mixin transition($value: all 0.5s ease 0s) {
+  @include prefixer(transition, $value, webkit moz ms o spec);
+}
+
+
+@-webkit-keyframes moveheader {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
 }
 
 // burger
@@ -41,7 +51,7 @@
     width: $width;
     height: $height;
     background-color: $color;
-    @include vendor-prefix-transitions;
+    @include transition;
     @if $border-radius != 0 {
       border-radius: $border-radius;
     }
