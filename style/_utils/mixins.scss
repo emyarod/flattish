@@ -19,25 +19,13 @@
   }
 }
 
-// autoprefixer mixin for properties and selectors
-
-@mixin vendor-prefix-property($property, $value) {
-  -webkit-#{$property}: #{$value};
-  -moz-#{$property}: #{$value};
-  -ms-#{$property}: #{$value};
-  -o-#{$property}: #{$value};
-  #{$property}: #{$value};
-}
-
+// autoprefixers
 @mixin transition($value: all 0.5s ease 0s) {
   @include prefixer(transition, $value, webkit moz ms o spec);
 }
 
-
-@-webkit-keyframes moveheader {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
+@mixin animation($value) {
+  @include prefixer(animation, $value, webkit moz ms o spec);
 }
 
 // burger

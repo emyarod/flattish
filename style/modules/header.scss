@@ -8,7 +8,7 @@
   font-size: 100%;
   height: 3em;
   line-height: 1em;
-  @include vendor-prefix-transitions;
+  @include transition;
   // text-transform: lowercase;
   
   // positions text
@@ -20,7 +20,7 @@
   // anchor opacity
   .sr-bar a {
     opacity: 0.54;
-    @include vendor-prefix-transitions;
+    @include transition;
   }
   
   // subreddit link behavior when hovering over subreddits bar
@@ -57,15 +57,16 @@
   .drop-choices.srdrop {
     background-color: $white;
     border: 0;
-    margin-left: 1em;
+    margin: 0.5em 0 1em 1em;
     @include drop-shadow(1);
+    border-radius: 0.2em;
   }
 
   // menu list choices
   .drop-choices a.choice {
     color: $text;
     padding: 1em;
-    @include vendor-prefix-transitions;
+    @include transition;
 
     &:hover { background-color: $med-grey; }
   }
@@ -83,31 +84,8 @@
   background-color: transparent;
 }
 
-@-webkit-keyframes moveheader {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
-
-@-moz-keyframes moveheader {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
-
-@-ms-keyframes moveheader {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
-
-@-o-keyframes moveheader {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
-
-@keyframes moveheader {
+// animate header
+@include keyframes(moveheader) {
   0% { background-position: 0 0; }
   50% { background-position: 100% 0; }
   100% { background-position: 0 0; }
@@ -117,9 +95,10 @@
   height: 200px;
   border: 0;
   background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
-  @include vendor-prefix(animation, moveheader 20s ease 0s normal none infinite running);
+  @include animation(moveheader 20s infinite);
 }
 
+// subreddit name
 .pagename {
   color: transparent;
 
@@ -132,7 +111,7 @@
     font-weight: normal;
     text-transform: lowercase;
     margin-left: 3px;
-    @include vendor-prefix(transition, all 0.5s ease);
+    @include transition;
     
     &:hover { color: $accent; text-decoration: none; }
   }
