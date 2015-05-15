@@ -16,6 +16,20 @@ $accent: get-color("blue", "A200");
 $dark-accent: get-color("blue", "A400");
 $light-accent: get-color("blue", "A100");
 
+// grayscale
+$dark-grey: get-color("grey", "600");
+$med-grey: get-color("grey", "300");
+$light-grey: get-color("grey", "200");
+$white: get-color("grey", "50");
+
+// link color (can be any hue from color list)
+$link-color: blue;
+
+// :link
+// :hover
+// :active
+// :visited
+
 $font-stack: "Arial", sans-serif;
 
 $upvote: #c60c30;
