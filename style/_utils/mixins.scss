@@ -26,33 +26,25 @@
   #{$property}: #{$value};
 }
 
+@mixin vendor-prefix-transitions($property: transition, $value: all 0.5s ease 0s) {
+  @include vendor-prefix($property, $value);
+}
+
 // burger
-@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+@mixin burger($width, $height, $gutter, $color, $border-radius) {
   $burger-height: $height !global;
   $burger-gutter: $gutter !global;
-
   position: relative;
-  margin-top: $height + $gutter;
-  margin-bottom: $height + $gutter;
 
   &, &:before, &:after {
     display: block;
     width: $width;
     height: $height;
     background-color: $color;
+    @include vendor-prefix-transitions;
     @if $border-radius != 0 {
       border-radius: $border-radius;
     }
-    
-    -webkit-transition-property: background-color, -webkit-transform;
-    -moz-transition-property: background-color, -moz-transform;
-    -o-transition-property: background-color, -o-transform;
-    transition-property: background-color, transform;
-
-    -webkit-transition-duration: $transition-duration;
-    -moz-transition-duration: $transition-duration;
-    -o-transition-duration: $transition-duration;
-    transition-duration: $transition-duration;
   }
 
   &:before, &:after {
@@ -60,41 +52,9 @@
     content: "";
   }
 
-  &:before {
-    top: -($height + $gutter);
-  }
+  &:before { top: -($height + $gutter); }
 
-  &:after {
-    top: $height + $gutter;
-  }
-}
-
-/**
- * Select parts of the burger
- */
-
-@mixin burger-parts {
-  &, &:before, &:after {
-    @content;
-  }
-}
-
-@mixin burger-top {
-  &:before {
-    @content;
-  }
-}
-
-@mixin burger-middle {
-  & {
-    @content;
-  }
-}
-
-@mixin burger-bottom {
-  &:after {
-    @content;
-  }
+  &:after { top: $height + $gutter; }
 }
 
 // @mixin transitions {
