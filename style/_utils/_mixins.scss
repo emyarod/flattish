@@ -1,5 +1,10 @@
 @import "../../vendors/bourbon/bourbon";
 
+// px to em converter
+@function calc-px-to-em($target-px, $context-font-size) {
+  @return ($target-px / $context-font-size) * 1em;
+}
+
 // shadows
 @mixin drop-shadow($depth) {
   @if $depth == 1 {
