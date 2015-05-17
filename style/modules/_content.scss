@@ -1,0 +1,8 @@
+.content {
+	// margin: 1.5em 0 1.5em 1.5em;
+	// padding: 2.5em;
+	margin: 0;
+	padding: 0;
+	width: 75%;
+	@include drop-shadow (1);
+}
