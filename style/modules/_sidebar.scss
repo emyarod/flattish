@@ -1,0 +1,7 @@
+.side {
+	margin: 0;
+	padding: 0;
+	// padding: 2em;
+	width: 25%;
+	@include drop-shadow(1);
+}
