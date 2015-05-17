@@ -6,7 +6,8 @@
   background-color: rgba($light-primary, 0.3);
   border: 0;
   font-size: 100%; // 10px
-  height: 3em;
+  // height: 3em;
+  height: calc-px-to-em(30px, 10px);
   line-height: 1em;
   @include transition;
   // text-transform: lowercase;
@@ -105,7 +106,8 @@
   position: absolute;
   margin: 0;
   padding: 0;
-  top: 16.3em;
+  // top: 16.3em;
+  top: calc-px-to-em(163px, 10px);
 
   a {
     color: $light-secondary-text;
@@ -141,7 +143,8 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   font-size: 170%; // 17px
-  height: 3em;
+  // height: 3em;
+  height: calc-px-to-em(51px, 17px);
   position: relative;
   top: 6.941em; // 118px
 
