@@ -15,20 +15,36 @@ $light-primary: get-color("green", "100");
 $accent: get-color("blue", "A200");
 $dark-accent: get-color("blue", "A400");
 $light-accent: get-color("blue", "A100");
+$black: #000;
+$white: #fff;
 
 // light theme
-$dark-grey: get-color("grey", "600");
-$med-grey: get-color("grey", "300");
-$light-grey: get-color("grey", "200");
-$white: get-color("grey", "50");
+$light-status-bar: get-color("grey", "600");
+$light-app-bar: get-color("grey", "300");
+$light-background: get-color("grey", "200");
+$light-cards: get-color("grey", "50");
 
 // light theme text
-$divider-text: rgba(#000, 0.12);
-$disabled-text: rgba(#000, 0.26);
-$hint-text: rgba(#000, 0.26);
-$secondary-text: rgba(#000, 0.54);
-$icons: rgba(#000, 0.54);
-$text: rgba(#000, 0.87);
+$light-divider-text: rgba($black, 0.12);
+$light-disabled-text: rgba($black, 0.26);
+$light-hint-text: rgba($black, 0.26);
+$light-secondary-text: rgba($black, 0.54);
+$light-icons: rgba($black, 0.54);
+$light-text: rgba($black, 0.87);
+
+// dark theme
+$dark-status-bar: $black;
+$dark-app-bar: get-color("grey", "900");
+$dark-background: #303030;
+$dark-cards: get-color("grey", "800");
+
+// dark theme text
+$dark-divider-text: rgba($white, 0.12);
+$dark-disabled-text: rgba($white, 0.3);
+$dark-hint-text: rgba($white, 0.3);
+$dark-secondary-text: rgba($white, 0.70);
+$dark-icons: rgba($white, 1);
+$dark-text: rgba($white, 1);
 
 // link color (can be any hue from color list)
 $link-color: blue;
