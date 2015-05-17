@@ -230,6 +230,18 @@
         color: rgba(0, 0, 0, 0.87);
         box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
+.content {
+  margin: 0;
+  padding: 0;
+  width: 75%;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+
+.side {
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+
 * {
   font-family: "Arial", sans-serif; }
 
