@@ -6,7 +6,6 @@
   background-color: rgba($light-primary, 0.3);
   border: 0;
   font-size: 100%; // 10px
-  // height: 3em;
   height: calc-px-to-em(30px, 10px);
   line-height: 1em;
   @include transition;
@@ -106,7 +105,6 @@
   position: absolute;
   margin: 0;
   padding: 0;
-  // top: 16.3em;
   top: calc-px-to-em(163px, 10px);
 
   a {
@@ -167,7 +165,7 @@
     display: inline-block;
     font-size: inherit;
     height: 100%;
-    left: -0.235em; // -4px
+    left: calc-px-to-em(-4px, 17px);
     line-height: 3em;
     margin: 0;
     position: relative;
