@@ -59,24 +59,3 @@
 
   &:after { top: $height + $gutter; }
 }
-
-// @mixin transitions {
-//   -webkit-transition: all 0.5s ease;
-//   -moz-transition: all 0.5s ease;
-//   -o-transition: all 0.5s ease;
-//   transition: all 0.5s ease;
-// }
-
-// @mixin transitions-shadow {
-//   -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-//   -moz-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-//   -o-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-//   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-// }
-
-// @mixin transitions-shadow-hover {
-//   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28);
-//   -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28);
-//   -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28);
-//   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28);
-// }
