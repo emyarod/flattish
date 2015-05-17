@@ -5,7 +5,7 @@
 #sr-header-area {
   background-color: rgba($light-primary, 0.3);
   border: 0;
-  font-size: 100%;
+  font-size: 100%; // 10px
   height: 3em;
   line-height: 1em;
   @include transition;
@@ -30,9 +30,10 @@
 
   // "my subreddits" menu
   .dropdown.srdrop {
-    margin-bottom: 0.5em;
-    padding: 0;
+    // margin-bottom: 0.5em;
     cursor: pointer;
+    height: 3em;
+    padding: 0;
 
     .selected {
       // replace "my subreddits" with burger
@@ -102,7 +103,9 @@
 #header-bottom-right {
   background-color: transparent;
   position: absolute;
-  top: 17.1em;
+  margin: 0;
+  padding: 0;
+  top: 16.3em;
 
   a {
     color: $secondary-text;
@@ -114,6 +117,7 @@
   }
 }
 
+.res #userbarToggle,
 #userbarToggle {
   background-color: transparent;
   border: 0;
@@ -134,21 +138,39 @@
   @include animation(moveheader 20s infinite);
 }
 
-// subreddit name
-.pagename {
-  color: transparent;
+// header image, pagename, tabmenu
+#header-bottom-left {
+  font-size: 170%; // 17px
+  height: 3em;
+  position: relative;
+  top: 7.059em; // 120px
 
-  a {
-    position: absolute;
-    top: 107px;
-    font-size: 36px;
-    color: #fff;
-    font-variant: normal;
-    font-weight: normal;
-    text-transform: lowercase;
-    margin-left: 3px;
-    @include transition;
-    
-    &:hover { color: $accent; text-decoration: none; }
+  // subreddit name
+  .pagename {
+    color: transparent;
+    font-size: inherit;
+    margin: 0;
+    position: relative;
+    top: -0.647em; // -11px
+
+    a {
+      font-variant: normal;
+      text-transform: lowercase;
+      @include transition;
+      
+      &:hover {
+        color: $accent;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .tabmenu {
+    @extend .pagename;
+
+    // li a {
+    //   padding: 1em;
+    //   font-size: inherit;
+    // }
   }
 }
