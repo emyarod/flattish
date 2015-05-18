@@ -1,12 +1,28 @@
 @import "../_utils/vars";
 @import "../_utils/mixins";
 
+// animate header
+@include keyframes(moveheader) {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+#header {
+  height: 200px;
+  border: 0;
+  background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
+  margin-bottom: em(15, 10);
+  // @include drop-shadow(1);
+  @include animation(moveheader 20s infinite);
+}
+
 // subreddits bar
 #sr-header-area {
   background-color: rgba($light-primary, 0.3);
   border: 0;
   font-size: 100%; // 10px
-  height: calc-px-to-em(30px, 10px);
+  height: em(30, 10);
   line-height: 1em;
   @include transition;
   // text-transform: lowercase;
@@ -105,7 +121,7 @@
   position: absolute;
   margin: 0;
   padding: 0;
-  top: calc-px-to-em(163px, 10px);
+  top: em(165, 10);
 
   a {
     color: $light-secondary-text;
@@ -124,25 +140,11 @@
   color: $light-secondary-text;
 }
 
-// animate header
-@include keyframes(moveheader) {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
-
-#header {
-  height: 200px;
-  border: 0;
-  background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
-  @include animation(moveheader 20s infinite);
-}
-
 // header image, pagename, tabmenu
 #header-bottom-left {
-  font-size: 170%; // 17px
+  font-size: em(17, 10); // 17px
   // height: 3em;
-  height: calc-px-to-em(51px, 17px);
+  height: em(51, 17);
   position: relative;
   top: 6.941em; // 118px
 
@@ -165,7 +167,7 @@
     display: inline-block;
     font-size: inherit;
     height: 100%;
-    left: calc-px-to-em(-4px, 17px);
+    left: em(-4, 17);
     line-height: 3em;
     margin: 0;
     position: relative;
