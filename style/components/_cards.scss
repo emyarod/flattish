@@ -1,0 +1,8 @@
+@import "../_utils/mixins";
+
+@mixin card {
+	border-radius: em(2, 10);
+	margin: 0 1.5em;
+	padding: 1.5em;
+	@include drop-shadow (1);
+}
