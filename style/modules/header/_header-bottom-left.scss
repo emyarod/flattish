@@ -59,12 +59,8 @@
     margin: 0;
 
     &>a[href$="/rising/"],
-    &>a[href$="/rising/"],
     &>a[href$="/controversial/"],
-    &>a[href$="/controversial/"],
-    &>a[href$="/promoted/"],
-    &>a[href$="/promoted/"],
-    &>a[href$="/gilded/"],
+    &>a[href$="/ads/"],
     &>a[href$="/gilded/"] {
       display: none;
     }
