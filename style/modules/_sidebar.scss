@@ -1,7 +1,7 @@
+@import "../components/cards.scss";
+
 .side {
-	margin: 0;
-	padding: 0;
-	// padding: 2em;
 	width: 25%;
-	@include drop-shadow(1);
+	max-width: em(300, 10);
+	@include card;
 }
