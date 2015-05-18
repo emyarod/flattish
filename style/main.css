@@ -214,7 +214,7 @@
         text-decoration: none; }
   #header-bottom-left .tabmenu li {
     margin: 0; }
-    #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/promoted/"], #header-bottom-left .tabmenu li > a[href$="/promoted/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
+    #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/ads/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
       display: none; }
     #header-bottom-left .tabmenu li a {
       color: rgba(0, 0, 0, 0.54);
