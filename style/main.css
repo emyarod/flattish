@@ -231,20 +231,64 @@
         color: rgba(0, 0, 0, 0.87);
         box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
-.content {
-  width: 67.4%;
-  border-radius: 0.2em;
-  margin: 0 1.5em;
-  padding: 1.5em;
-  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
-
+@media (min-width: 1200px) {
+  div.content {
+    max-width: calc(100% - 35.5em);
+    width: 75%;
+    border-radius: 0.2em;
+    margin: 0 1.5em;
+    padding: 1.5em;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@media (max-width: 768px) {
+  .side {
+    margin: 0 -33em;
+    padding: 1.5em;
+    position: relative;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
+    .side:before {
+      content: "";
+      display: block;
+      height: 3.6em;
+      width: 5.1em;
+      opacity: 0.25;
+      position: fixed;
+      right: 0;
+      top: 21.5em;
+      background: url(%%kebab%%) no-repeat;
+      -webkit-transition: all 1s ease 0s;
+      -moz-transition: all 1s ease 0s;
+      -ms-transition: all 1s ease 0s;
+      -o-transition: all 1s ease 0s;
+      transition: all 1s ease 0s; }
+    .side:hover {
+      margin: 0;
+      background-color: #fff; }
+      .side:hover:before {
+        opacity: 0; } }
+@media (min-width: 1200px) {
+  .side {
+    max-width: 35em;
+    width: 100%;
+    border-radius: 0.2em;
+    margin: 0 1.5em;
+    padding: 1.5em;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; } }
 .side {
-  width: 25%;
-  max-width: 30em;
-  border-radius: 0.2em;
-  margin: 0 1.5em;
-  padding: 1.5em;
-  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
 
 * {
   font-family: "Arial", sans-serif; }
