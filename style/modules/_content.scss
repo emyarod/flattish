@@ -1,8 +1,12 @@
 @import "../components/cards.scss";
 
-.content {
-	// margin: 1.5em 0 1.5em 1.5em;
-	// padding: 2.5em;
-	width: 67.4%;
-	@include card;
+@media (min-width: $screen-lg-min) {
+	div.content {
+		// margin: 1.5em 0 1.5em 1.5em;
+		// padding: 2.5em;
+		// max-width: em(380, 10);
+		max-width: calc(100% - 35.5em);
+		width: 75%;
+		@include card;
+	}
 }
