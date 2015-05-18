@@ -1,7 +1,51 @@
-@import "../components/cards.scss";
+@import "../_utils/vars";
+@import "../_utils/mixins";
+@import "../components/cards";
+
+
+// smaller than 768px in width
+@media (max-width: $screen-sm-min) {
+	.side {
+		margin: 0 -33em;
+		padding: 1.5em;
+		position: relative;
+		@include transition;
+
+		&:before {
+	    content: "";
+	    display: block;
+	    height: em(36, 10);
+	    width: em(36, 10) + 1.5em;
+	    opacity: 0.25;
+	    position: fixed;
+	    right: 0;
+	    top: em(215, 10);
+	    background: url(%%kebab%%) no-repeat;
+			@include transition(all 1s ease 0s);
+		}
+
+		&:hover {
+			margin: 0;
+			background-color: $white;
+
+			&:before {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+// at least 1200px in width
+@media (min-width: $screen-lg-min) {
+	.side {
+		max-width: em(350, 10);
+		width: 100%;
+		@include card;
+		@include transition;
+	}
+}
 
 .side {
-	width: 25%;
-	max-width: em(300, 10);
-	@include card;
+	@include drop-shadow(1);
+  @include transition;
 }
