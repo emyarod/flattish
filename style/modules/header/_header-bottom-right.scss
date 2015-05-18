@@ -1,0 +1,28 @@
+@import "../../_utils/vars";
+@import "../../_utils/mixins";
+
+// user bar
+.res #header-bottom-right,
+#header-bottom-right {
+  background-color: transparent;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: em(165, 10);
+
+  a {
+    color: $light-secondary-text;
+    @include transition;
+  }
+
+  &:hover a {
+    color: $light-text;
+  }
+}
+
+.res #userbarToggle,
+#userbarToggle {
+  background-color: transparent;
+  border: 0;
+  color: $light-secondary-text;
+}

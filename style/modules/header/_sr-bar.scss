@@ -1,0 +1,98 @@
+@import "../../_utils/vars";
+@import "../../_utils/mixins";
+
+// subreddits bar
+#sr-header-area {
+  background-color: rgba($light-primary, 0.3);
+  border: 0;
+  font-size: 100%; // 10px
+  height: em(30, 10);
+  line-height: 1em;
+  @include transition;
+  
+  // positions text
+  .sr-list {
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  // anchor opacity
+  .sr-bar a {
+    color: $light-secondary-text;
+    @include transition;
+  }
+  
+  // subreddit link behavior when hovering over sr bar
+  &:hover .sr-bar a {
+    color: $light-text;
+  }
+
+  // "my subreddits" menu
+  .dropdown.srdrop {
+    // margin-bottom: 0.5em;
+    cursor: pointer;
+    height: 3em;
+    padding: 0;
+
+    .selected {
+      // replace "my subreddits" with burger
+      background: none;
+      margin: 1.4em 1em 1em 1em;
+      padding: 0;
+      text-indent: -999em;
+      @include burger(2em, 0.2em, 0.4em, $light-hint-text, 0);
+    }
+    
+    // change burger color on mouseover
+    &:hover {
+      .selected,
+      .selected:after,
+      .selected:before {
+        background-color: $light-icons;
+      }
+    }
+  }
+
+  @include keyframes(menu-fadein) {
+    from {
+      // @include transform(scaleY(0));
+      opacity: 0;
+      // max-height: 0;
+      // max-width: 0%;
+      @include transform(translate(-78.5px, -837.5px) scale(0));
+    }
+    to {
+      // @include transform(scaleY(1));
+      opacity: 1;
+      // max-height: 2000px;
+      // max-width: 100%;
+      @include transform(scale(1));
+    }
+  }
+
+  // menu list
+  .drop-choices.srdrop {
+    background-color: $light-cards;
+    border: 0;
+    margin: 0.5em 0 1em 1em;
+    @include drop-shadow(1);
+    border-radius: 0.2em;
+    @include animation(menu-fadein 0.57s ease);
+  }
+
+  // menu list choices
+  .drop-choices a.choice {
+    color: $light-text;
+    padding: 1em;
+    @include transition;
+
+    &:hover { background-color: $light-app-bar; }
+  }
+
+  // right side edit button
+  #sr-more-link {
+    background-color: $light-primary;
+    margin: 0;
+    padding: 1em;
+  }
+}
