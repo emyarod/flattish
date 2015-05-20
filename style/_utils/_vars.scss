@@ -47,9 +47,9 @@ $dark-icons: rgba($white, 1);
 $dark-text: rgba($white, 1);
 
 // mediaqueries
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
+$screen-sm-min: em(768, 16);
+$screen-md-min: em(992, 16);
+$screen-lg-min: em(1200, 16);
 
 // link color (can be any hue from color list)
 $link-color: blue;
