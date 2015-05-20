@@ -1,84 +1,125 @@
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
 
+@mixin header-bottom-left {
+  font-size: em(17, 10);
+  height: em(51, 17);
+  position: relative;
+  top: em(118, 17); // 118px
+}
+
+@mixin tabmenu {
+  .tabmenu li {
+    margin: 0;
+
+    &>a[href$="/rising/"],
+    &>a[href$="/controversial/"],
+    &>a[href$="/ads/"],
+    &>a[href$="/gilded/"] {
+      display: none;
+    }
+
+    a {
+      color: $light-secondary-text;
+      background-color: transparent;
+      border: 0;
+      font-weight: normal;
+      padding: 0.9em; // why is it not 1em?!?!?
+      @include transition;
+
+      &:hover {
+        color: $light-text;
+        @include drop-shadow(1);
+      }
+    }
+  }
+}
+
 // header image, pagename, tabmenu
-// @media (min-width: $screen-lg-min) {
-  #header-bottom-left {
-    font-size: em(17, 10); // 17px
-    // height: 3em;
-    height: em(51, 17);
+#header-bottom-left {
+  @include header-bottom-left;
+  left: -3em;
+
+  // reduces reddit.com header to just snoo image
+  #header-img {
+    background: url(%%snoo-color%%) 50% 50% no-repeat;
+    height: 3em;
+    width: 4em;
+    margin: 0 0 0 3em;
+    padding: 0;
+    @include transition;
+
+    &:hover {
+      @include drop-shadow(1);
+    }
+  }
+
+  // subreddit name
+  .pagename,
+  .tabmenu {
+    display: inline-block;
+    font-size: inherit;
+    height: 100%;
+    left: em(-4, 17);
+    line-height: 3em;
+    margin: 0;
     position: relative;
-    top: 6.941em; // 118px
+  }
+
+  .pagename {
+    padding-right: 1em;
+    @include transition;
+
+    &:hover {
+      @include drop-shadow(1);
+    }
+
+    a {
+      color: $light-secondary-text;
+      font-variant: normal;
+      padding: 1em 0 1em 1em;
+      text-transform: lowercase;
+      @include transition;
+      
+      &:hover {
+        color: $light-text;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include tabmenu;
+}
+
+@media (min-width: $screen-md-min) {
+  #header-bottom-left {
+    @include header-bottom-left;
+    left: 0;
 
     #header-img {
-      background: url(%%snoo-color%%) 50% 50% no-repeat;
+      background-image: none;
+      color: transparent;
       height: 3em;
       width: 4em;
       margin: 0 0 0 3em;
       padding: 0;
-      @include transition;
 
-      &:hover {
-        @include drop-shadow(1);
-      }
-    }
-
-    // subreddit name
-    .pagename,
-    .tabmenu {
-      display: inline-block;
-      font-size: inherit;
-      height: 100%;
-      left: em(-4, 17);
-      line-height: 3em;
-      margin: 0;
-      position: relative;
-    }
-
-    .pagename {
-      @include transition;
-
-      &:hover {
-        @include drop-shadow(1);
-      }
-
-      a {
+      &::after {
         color: $light-secondary-text;
-        font-variant: normal;
-        padding: 1em;
-        text-transform: lowercase;
-        @include transition;
-        
-        &:hover {
-          color: $light-text;
-          text-decoration: none;
-        }
-      }
-    }
-
-    .tabmenu li {
-      margin: 0;
-
-      &>a[href$="/rising/"],
-      &>a[href$="/controversial/"],
-      &>a[href$="/ads/"],
-      &>a[href$="/gilded/"] {
-        display: none;
-      }
-
-      a {
-        color: $light-secondary-text;
-        background-color: transparent;
-        border: 0;
-        font-weight: normal;
-        padding: 0.9em; // why is it not 1em?!?!?
+        content: "reddit";
+        font-weight: bold;
+        left: em(62.9, 17);
+        top: em(15, 17);
+        position: absolute;
+        text-indent: 0;
         @include transition;
 
         &:hover {
           color: $light-text;
-          @include drop-shadow(1);
         }
       }
     }
+
+    @include tabmenu;
   }
-// }
+}
