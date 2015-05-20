@@ -1,5 +1,6 @@
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
+@import "../../components/menus";
 
 // subreddits bar
 #sr-header-area {
@@ -53,40 +54,15 @@
     }
   }
 
-  @include keyframes(menu-fadein) {
-    from {
-      // @include transform(scaleY(0));
-      opacity: 0;
-      // max-height: 0;
-      // max-width: 0%;
-      @include transform(translate(-78.5px, -837.5px) scale(0));
-    }
-    to {
-      // @include transform(scaleY(1));
-      opacity: 1;
-      // max-height: 2000px;
-      // max-width: 100%;
-      @include transform(scale(1));
-    }
-  }
 
   // menu list
   .drop-choices.srdrop {
-    background-color: $light-cards;
-    border: 0;
-    margin: 0.5em 0 1em 1em;
-    @include drop-shadow(1);
-    border-radius: 0.2em;
-    @include animation(menu-fadein 0.57s ease);
+    @include menu;
   }
 
   // menu list choices
   .drop-choices a.choice {
-    color: $light-text;
-    padding: 1em;
-    @include transition;
-
-    &:hover { background-color: $light-app-bar; }
+    @include menu-items;
   }
 
   // right side edit button

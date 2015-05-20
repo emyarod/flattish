@@ -9,7 +9,7 @@
 }
 
 #header {
-  height: 200px;
+  height: em(200, 10);
   border: 0;
   background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
   margin-bottom: em(15, 10);

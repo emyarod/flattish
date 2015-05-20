@@ -1,5 +1,21 @@
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
+@import "../../components/menus";
+
+@mixin userbar-buttons {
+  height: em(16, 10);
+  width: em(16, 10);
+  color: transparent;
+  display: inline-block;
+  opacity: 0.54;
+  position: relative;
+  top: em(-3, 10);
+  @include transition;
+
+  &:hover {
+    opacity: 1;
+  }
+}
 
 // user bar
 .res #header-bottom-right,
@@ -10,12 +26,12 @@
   padding: 0;
   top: em(165, 10);
 
-  a {
+  span a {
     color: $light-secondary-text;
     @include transition;
   }
 
-  &:hover a {
+  &:hover span a {
     color: $light-text;
   }
 }
@@ -25,4 +41,60 @@
   background-color: transparent;
   border: 0;
   color: $light-secondary-text;
+}
+
+// preferences button
+.pref-lang.choice {
+  background-image: url("%%prefs%%");
+  @include userbar-buttons;
+}
+
+// RES gear button
+.gearIcon {
+  background: transparent url("%%settings%%") no-repeat !important;
+  opacity: 0.54;
+  position: relative;
+  right: em(1, 10);
+  top: em(1, 10);
+  @include transition;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// RES gear button on mouseover
+#RESMainGearOverlay {
+  background-color: transparent !important;
+  border: 0 !important;
+  top: em(163, 10) !important;
+}
+
+// RES settings dropdown menu
+#RESPrefsDropdown {
+  @include menu;
+
+  #RESDropdownOptions {
+    li {
+      border: 0;
+      font-style: normal;
+      padding: 0;
+      @include menu-items;
+      @include transition;
+
+      a {
+        color: $light-text;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+// logout button
+.logout a {
+  background-image: url("%%logout%%");
+  @include userbar-buttons;
 }
