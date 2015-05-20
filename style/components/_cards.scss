@@ -4,5 +4,6 @@
 	border-radius: em(2, 10);
 	margin: 0 1.5em;
 	padding: 1.5em;
+	background-color: $light-cards;
 	@include drop-shadow (1);
 }
