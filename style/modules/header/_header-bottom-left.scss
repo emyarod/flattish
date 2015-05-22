@@ -101,10 +101,10 @@
       color: transparent;
       height: 3em;
       width: 4em;
-      margin: 0 0 0 3em;
-      padding: 0;
+      margin: 0;
+      padding-right: em(51, 17);
 
-      &::after {
+      &:after {
         color: $light-secondary-text;
         content: "reddit";
         font-weight: bold;
@@ -116,6 +116,21 @@
 
         &:hover {
           color: $light-text;
+        }
+      }
+
+      &:before {
+        background: url(%%snoo-color%%) no-repeat;
+        content: "";
+        display: block;
+        height: 3em;
+        width: 4em;
+        left: 0;
+        position: absolute;
+        @include transition;
+
+        &:hover {
+          @include drop-shadow(1);
         }
       }
     }
