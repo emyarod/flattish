@@ -10,6 +10,7 @@
   opacity: 0.54;
   position: relative;
   top: em(-3, 10);
+  text-indent: em(-999, 10);
   @include transition;
 
   &:hover {
@@ -45,7 +46,7 @@
 
   // preferences button
   .pref-lang.choice {
-    background-image: url("%%prefs%%");
+    background: url("%%prefs%%") no-repeat;
     @include userbar-buttons;
   }
 
@@ -95,7 +96,7 @@
 
   // logout button
   .logout a {
-    background-image: url("%%logout%%");
+    background: url("%%logout%%") no-repeat;
     @include userbar-buttons;
   }
 }
