@@ -508,9 +508,9 @@
       color: transparent;
       height: 3em;
       width: 4em;
-      margin: 0 0 0 3em;
-      padding: 0; }
-      #header-bottom-left #header-img::after {
+      margin: 0;
+      padding-right: 3em; }
+      #header-bottom-left #header-img:after {
         color: rgba(0, 0, 0, 0.54);
         content: "reddit";
         font-weight: bold;
@@ -523,8 +523,23 @@
         -ms-transition: all 0.5s ease 0s;
         -o-transition: all 0.5s ease 0s;
         transition: all 0.5s ease 0s; }
-        #header-bottom-left #header-img::after:hover {
+        #header-bottom-left #header-img:after:hover {
           color: rgba(0, 0, 0, 0.87); }
+      #header-bottom-left #header-img:before {
+        background: url(%%snoo-color%%) no-repeat;
+        content: "";
+        display: block;
+        height: 3em;
+        width: 4em;
+        left: 0;
+        position: absolute;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
+        #header-bottom-left #header-img:before:hover {
+          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
     #header-bottom-left .tabmenu li {
       margin: 0; }
       #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/ads/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
@@ -552,36 +567,6 @@
     padding: 1.5em;
     background-color: #fafafa;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-.side {
-  margin: 0 -33em;
-  padding: 1.5em;
-  position: relative;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s; }
-  .side:before {
-    content: "";
-    display: block;
-    height: 3.6em;
-    width: 5.1em;
-    opacity: 0.25;
-    position: fixed;
-    right: 0;
-    top: 21.5em;
-    background: url(%%kebab%%) no-repeat;
-    -webkit-transition: all 1s ease 0s;
-    -moz-transition: all 1s ease 0s;
-    -ms-transition: all 1s ease 0s;
-    -o-transition: all 1s ease 0s;
-    transition: all 1s ease 0s; }
-  .side:hover {
-    margin: 0;
-    background-color: #fff; }
-    .side:hover:before {
-      opacity: 0; }
-
 * {
   font-family: "Arial", sans-serif; }
 
