@@ -164,7 +164,7 @@
   color: rgba(0, 0, 0, 0.54); }
 
 .pref-lang.choice {
-  background-image: url("%%prefs%%");
+  background: url("%%prefs%%") no-repeat;
   height: 1.6em;
   width: 1.6em;
   color: transparent;
@@ -172,6 +172,7 @@
   opacity: 0.54;
   position: relative;
   top: -0.3em;
+  text-indent: -99.9em;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
@@ -263,7 +264,7 @@
         background-color: transparent; }
 
 .logout a {
-  background-image: url("%%logout%%");
+  background: url("%%logout%%") no-repeat;
   height: 1.6em;
   width: 1.6em;
   color: transparent;
@@ -271,6 +272,7 @@
   opacity: 0.54;
   position: relative;
   top: -0.3em;
+  text-indent: -99.9em;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
@@ -309,7 +311,7 @@
     color: rgba(0, 0, 0, 0.54); }
 
   .pref-lang.choice {
-    background-image: url("%%prefs%%");
+    background: url("%%prefs%%") no-repeat;
     height: 1.6em;
     width: 1.6em;
     color: transparent;
@@ -317,6 +319,7 @@
     opacity: 0.54;
     position: relative;
     top: -0.3em;
+    text-indent: -99.9em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -408,7 +411,7 @@
           background-color: transparent; }
 
   .logout a {
-    background-image: url("%%logout%%");
+    background: url("%%logout%%") no-repeat;
     height: 1.6em;
     width: 1.6em;
     color: transparent;
@@ -416,6 +419,7 @@
     opacity: 0.54;
     position: relative;
     top: -0.3em;
+    text-indent: -99.9em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -436,9 +440,9 @@
   #header-bottom-left #header-img {
     background: url(%%snoo-color%%) 50% 50% no-repeat;
     height: 3em;
-    width: 4em;
+    width: 0;
     margin: 0 0 0 3em;
-    padding: 0;
+    padding-right: 3em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -448,15 +452,12 @@
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
   #header-bottom-left .pagename,
   #header-bottom-left .tabmenu {
-    display: inline-block;
     font-size: inherit;
-    height: 100%;
     left: -0.23529em;
-    line-height: 3em;
     margin: 0;
-    position: relative; }
+    position: relative;
+    top: -1em; }
   #header-bottom-left .pagename {
-    padding-right: 1em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -467,7 +468,6 @@
     #header-bottom-left .pagename a {
       color: rgba(0, 0, 0, 0.54);
       font-variant: normal;
-      padding: 1em 0 1em 1em;
       text-transform: lowercase;
       -webkit-transition: all 0.5s ease 0s;
       -moz-transition: all 0.5s ease 0s;
@@ -486,7 +486,6 @@
       background-color: transparent;
       border: 0;
       font-weight: normal;
-      padding: 0.9em;
       -webkit-transition: all 0.5s ease 0s;
       -moz-transition: all 0.5s ease 0s;
       -ms-transition: all 0.5s ease 0s;
@@ -496,68 +495,6 @@
         color: rgba(0, 0, 0, 0.87);
         box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
-@media (min-width: 62em) {
-  #header-bottom-left {
-    font-size: 1.7em;
-    height: 3em;
-    position: relative;
-    top: 6.94118em;
-    left: 0; }
-    #header-bottom-left #header-img {
-      background-image: none;
-      color: transparent;
-      height: 3em;
-      width: 4em;
-      margin: 0;
-      padding-right: 3em; }
-      #header-bottom-left #header-img:after {
-        color: rgba(0, 0, 0, 0.54);
-        content: "reddit";
-        font-weight: bold;
-        left: 3.6em;
-        top: 0.88235em;
-        position: absolute;
-        text-indent: 0;
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s; }
-        #header-bottom-left #header-img:after:hover {
-          color: rgba(0, 0, 0, 0.87); }
-      #header-bottom-left #header-img:before {
-        background: url(%%snoo-color%%) no-repeat;
-        content: "";
-        display: block;
-        height: 3em;
-        width: 4em;
-        left: 0;
-        position: absolute;
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s; }
-        #header-bottom-left #header-img:before:hover {
-          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
-    #header-bottom-left .tabmenu li {
-      margin: 0; }
-      #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/ads/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
-        display: none; }
-      #header-bottom-left .tabmenu li a {
-        color: rgba(0, 0, 0, 0.54);
-        background-color: transparent;
-        border: 0;
-        font-weight: normal;
-        padding: 0.9em;
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s; }
-        #header-bottom-left .tabmenu li a:hover {
-          color: rgba(0, 0, 0, 0.87);
-          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
 @media (min-width: 75em) {
   div.content {
     max-width: calc(100% - 35.5em);
@@ -567,30 +504,6 @@
     padding: 1.5em;
     background-color: #fafafa;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-.side {
-  padding: 1.5em;
-  position: relative;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s; }
-  .side:before {
-    content: "";
-    display: block;
-    height: 3.6em;
-    width: 5.1em;
-    opacity: 0.25;
-    position: fixed;
-    right: 0;
-    top: 21.5em;
-    background: url(%%kebab%%) no-repeat;
-    -webkit-transition: all 1s ease 0s;
-    -moz-transition: all 1s ease 0s;
-    -ms-transition: all 1s ease 0s;
-    -o-transition: all 1s ease 0s;
-    transition: all 1s ease 0s; }
-
 * {
   font-family: "Arial", sans-serif; }
 
