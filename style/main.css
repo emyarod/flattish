@@ -454,6 +454,7 @@
   #header-bottom-left .tabmenu {
     font-size: inherit;
     left: -0.23529em;
+    line-height: 3em;
     margin: 0;
     position: relative;
     top: -1em; }
