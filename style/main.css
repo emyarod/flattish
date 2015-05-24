@@ -432,17 +432,17 @@
   #header-bottom-right {
     top: 16.5em; } }
 #header-bottom-left {
-  font-size: 1.7em;
+  font-size: 1.6em;
   height: 3em;
   position: relative;
-  top: 6.94118em;
+  top: 7.5625em;
   left: -3em; }
   #header-bottom-left #header-img {
-    background: url(%%snoo-color%%) 50% 50% no-repeat;
+    background: url(%%snoo-color%%) no-repeat;
     height: 3em;
     width: 0;
     margin: 0 0 0 3em;
-    padding-right: 3em;
+    padding-right: 3.1875em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -453,11 +453,10 @@
   #header-bottom-left .pagename,
   #header-bottom-left .tabmenu {
     font-size: inherit;
-    left: -0.23529em;
-    line-height: 3em;
+    left: -0.25em;
     margin: 0;
     position: relative;
-    top: -1em; }
+    top: -0.875em; }
   #header-bottom-left .pagename {
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
@@ -496,6 +495,49 @@
         color: rgba(0, 0, 0, 0.87);
         box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
+@media (min-width: 62em) {
+  #header-bottom-left {
+    font-size: 1.6em;
+    height: 3em;
+    position: relative;
+    top: 7.5625em;
+    left: 0; }
+    #header-bottom-left #header-img {
+      margin: 0;
+      padding-right: 6.9375em; }
+      #header-bottom-left #header-img:after {
+        color: rgba(0, 0, 0, 0.54);
+        content: "reddit";
+        font-weight: bold;
+        left: 3.1875em;
+        top: 0.875em;
+        position: absolute;
+        text-indent: 0;
+        margin-right: 1em;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
+        #header-bottom-left #header-img:after:hover {
+          color: rgba(0, 0, 0, 0.87); }
+    #header-bottom-left .tabmenu li {
+      margin: 0; }
+      #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/ads/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
+        display: none; }
+      #header-bottom-left .tabmenu li a {
+        color: rgba(0, 0, 0, 0.54);
+        background-color: transparent;
+        border: 0;
+        font-weight: normal;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
+        #header-bottom-left .tabmenu li a:hover {
+          color: rgba(0, 0, 0, 0.87);
+          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
 @media (min-width: 75em) {
   div.content {
     max-width: calc(100% - 35.5em);
