@@ -2,10 +2,10 @@
 @import "../../_utils/mixins";
 
 @mixin header-bottom-left {
-  font-size: em(17, 10);
-  height: em(51, 17);
+  font-size: em(16, 10);
+  height: 3em;
   position: relative;
-  top: em(118, 17); // 118px
+  top: em(121, 16); // 121px
 }
 
 @mixin tabmenu {
@@ -42,11 +42,11 @@
 
   // reduces reddit.com header to just snoo image
   #header-img {
-    background: url(%%snoo-color%%) 50% 50% no-repeat;
+    background: url(%%snoo-color%%) no-repeat;
     height: 3em;
     width: 0;
     margin: 0 0 0 3em;
-    padding-right: em(51, 17);
+    padding-right: em(51, 16);
     @include transition;
 
     &:hover {
@@ -60,11 +60,11 @@
     // display: inline-block;
     font-size: inherit;
     // height: 100%;
-    left: em(-4, 17);
-    // line-height: 3em;
+    left: em(-4, 16);
+    // line-height: 1.6em;
     margin: 0;
     position: relative;
-    top: em(-17, 17);
+    top: em(-14, 16);
   }
 
   .pagename {
@@ -92,50 +92,51 @@
   @include tabmenu;
 }
 
-// @media (min-width: $screen-md-min) {
-//   #header-bottom-left {
-//     @include header-bottom-left;
-//     left: 0;
+@media (min-width: $screen-md-min) {
+  #header-bottom-left {
+    @include header-bottom-left;
+    left: 0;
 
-//     #header-img {
-//       background: url(%%snoo-color%%) no-repeat;
-//       color: transparent;
-//       height: 3em;
-//       width: 0;
-//       margin: 0;
-//       padding-right: em(51, 17);
+    #header-img {
+      // background: url(%%snoo-color%%) no-repeat;
+      // color: transparent;
+      // height: 3em;
+      // width: 0;
+      margin: 0;
+      padding-right: em(111, 16);
 
-//       &:after {
-//         color: $light-secondary-text;
-//         content: "reddit";
-//         font-weight: bold;
-//         left: em(61.2, 17);
-//         top: em(15, 17);
-//         position: absolute;
-//         text-indent: 0;
-//         @include transition;
+      &:after {
+        color: $light-secondary-text;
+        content: "reddit";
+        font-weight: bold;
+        left: em(51, 16);
+        top: em(14, 16);
+        position: absolute;
+        text-indent: 0;
+        margin-right: 1em;
+        @include transition;
 
-//         &:hover {
-//           color: $light-text;
-//         }
-//       }
+        &:hover {
+          color: $light-text;
+        }
+      }
 
-//       // &:before {
-//       //   background: url(%%snoo-color%%) no-repeat;
-//       //   content: "";
-//       //   display: block;
-//       //   height: 3em;
-//       //   width: 4em;
-//       //   left: 0;
-//       //   position: absolute;
-//       //   @include transition;
+      // &:before {
+      //   background: url(%%snoo-color%%) no-repeat;
+      //   content: "";
+      //   display: block;
+      //   height: 3em;
+      //   width: 4em;
+      //   left: 0;
+      //   position: absolute;
+      //   @include transition;
 
-//       //   &:hover {
-//       //     @include drop-shadow(1);
-//       //   }
-//       // }
-//     }
+      //   &:hover {
+      //     @include drop-shadow(1);
+      //   }
+      // }
+    }
 
-//     @include tabmenu;
-//   }
-// }
+    @include tabmenu;
+  }
+}
