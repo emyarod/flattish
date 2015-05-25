@@ -24,7 +24,7 @@
       background-color: transparent;
       border: 0;
       font-weight: normal;
-      // padding: 0.9em; // why is it not 1em?!?!?
+      padding: em(14.5, 16);
       @include transition;
 
       &:hover {
@@ -68,7 +68,7 @@
   }
 
   .pagename {
-    // padding-right: 1em;
+    padding: em(14.5, 16);
     @include transition;
 
     &:hover {
