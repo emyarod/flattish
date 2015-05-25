@@ -10,7 +10,7 @@
   opacity: 0.54;
   position: relative;
   top: em(-3, 10);
-  text-indent: em(-999, 10);
+  text-indent: em(-9999, 10);
   @include transition;
 
   &:hover {
