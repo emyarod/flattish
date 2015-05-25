@@ -172,7 +172,7 @@
   opacity: 0.54;
   position: relative;
   top: -0.3em;
-  text-indent: -99.9em;
+  text-indent: -999.9em;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
@@ -272,7 +272,7 @@
   opacity: 0.54;
   position: relative;
   top: -0.3em;
-  text-indent: -99.9em;
+  text-indent: -999.9em;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
@@ -319,7 +319,7 @@
     opacity: 0.54;
     position: relative;
     top: -0.3em;
-    text-indent: -99.9em;
+    text-indent: -999.9em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -419,7 +419,7 @@
     opacity: 0.54;
     position: relative;
     top: -0.3em;
-    text-indent: -99.9em;
+    text-indent: -999.9em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -458,6 +458,7 @@
     position: relative;
     top: -0.875em; }
   #header-bottom-left .pagename {
+    padding: 0.90625em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -486,6 +487,7 @@
       background-color: transparent;
       border: 0;
       font-weight: normal;
+      padding: 0.90625em;
       -webkit-transition: all 0.5s ease 0s;
       -moz-transition: all 0.5s ease 0s;
       -ms-transition: all 0.5s ease 0s;
@@ -530,6 +532,7 @@
         background-color: transparent;
         border: 0;
         font-weight: normal;
+        padding: 0.90625em;
         -webkit-transition: all 0.5s ease 0s;
         -moz-transition: all 0.5s ease 0s;
         -ms-transition: all 0.5s ease 0s;
