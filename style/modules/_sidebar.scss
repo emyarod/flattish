@@ -1,48 +1,83 @@
 @import "../_utils/vars";
-@import "../_utils/mixins";
 @import "../components/cards";
+@import "../components/buttons";
 
+.side,
+.side * {
+	@include transition;
+}
 
-// .side {
-// 	// margin: 0 -33em;
-// 	padding: 1.5em;
-// 	position: relative;
-// 	@include transition;
+// hide sidebar items
+.side * {
+	background-color: transparent;
+	opacity: 0;
+	@include transform(scaleX(0));
+}
 
-// 	&:before {
-//     content: "";
-//     display: block;
-//     height: em(36, 10);
-//     width: em(36, 10) + 1.5em;
-//     opacity: 0.25;
-//     position: fixed;
-//     right: 0;
-//     top: em(215, 10);
-//     background: url(%%kebab%%) no-repeat;
-// 		@include transition(all 1s ease 0s);
-// 	}
+.side {
+	height: 0;
+	width: 0;
+	background-color: $light-cards;
 
-// 	// &:hover {
-// 	// 	margin: 0;
-// 	// 	background-color: $white;
+	// kebab menu
+	&:before {
+    content: "";
+    display: block;
+    height: em(36, 10);
+    width: em(36, 10) + 1.5em;
+    opacity: 0.25;
+    position: fixed;
+    right: 0;
+    top: em(215, 10);
+    background: url(%%kebab%%) no-repeat;
+		@include transition;
+	}
 
-// 	// 	&:before {
-// 	// 		opacity: 0;
-// 	// 	}
-// 	// }
-// }
+	&:hover {
+		height: 100%;
+		width: em(300, 10);
+		@include card;
+		margin-left: 0;
+		
+		// show hidden sidebar items
+		* {
+			opacity: 1;
+			@include transform(scaleX(1));
+		}
 
-// // // at least 1200px in width
-// // @media (min-width: $screen-lg-min) {
-// // 	.side {
-// // 		max-width: em(350, 10);
-// // 		width: 100%;
-// // 		@include card;
-// // 		@include transition;
-// // 	}
-// // }
+		// make kebab disappear on hover
+		&:before {
+			opacity: 0;
+		}
+	}
 
-// // .side {
-// // 	@include drop-shadow(1);
-// //   @include transition;
-// // }
+	.submit{
+
+		* {
+			@include button;
+		}
+
+		.nub {
+			display: none;
+		}
+	}
+}
+
+@media (min-width: $screen-md-min) {
+	.side {
+		height: 100%;
+		width: em(300, 10);
+		// width: 100%;
+		@include animate-card;
+		margin-left: 0;
+
+		* {
+			opacity: 1;
+			@include transform(scaleX(1));
+		}
+
+		&:before {
+			display: none;
+		}
+	}
+}
