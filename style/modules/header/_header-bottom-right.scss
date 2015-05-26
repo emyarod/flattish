@@ -109,7 +109,7 @@
   top: em(135, 10);
 }
 
-@media (min-width: $screen-sm-min) {
+@media (min-width: $screen-md-min) {
   @include userbar;
   
   // moves userbar down in larger screen widths
