@@ -435,13 +435,12 @@
   font-size: 1.6em;
   height: 3em;
   position: relative;
-  top: 7.5625em;
-  left: -3em; }
+  top: 7.5625em; }
   #header-bottom-left #header-img {
     background: url(%%snoo-color%%) no-repeat;
     height: 3em;
     width: 0;
-    margin: 0 0 0 3em;
+    margin: 0;
     padding-right: 3.1875em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
@@ -480,10 +479,7 @@
         text-decoration: none; }
   #header-bottom-left .tabmenu li {
     margin: 0; }
-    #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/ads/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
-      display: none; }
     #header-bottom-left .tabmenu li a {
-      color: rgba(0, 0, 0, 0.54);
       background-color: transparent;
       border: 0;
       font-weight: normal;
@@ -496,6 +492,52 @@
       #header-bottom-left .tabmenu li a:hover {
         color: rgba(0, 0, 0, 0.87);
         box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+  #header-bottom-left .tabmenu li a#viewImagesButton:after {
+    content: "vi";
+    color: rgba(0, 0, 0, 0.54);
+    background-color: transparent;
+    border: 0;
+    font-size: initial;
+    font-weight: normal;
+    padding: 0.90625em;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
+  #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+  #header-bottom-left .tabmenu li a {
+    color: transparent;
+    font-size: 0; }
+    #header-bottom-left .tabmenu li a[href$="/rising/"], #header-bottom-left .tabmenu li a[href$="/controversial/"], #header-bottom-left .tabmenu li a[href$="/ads/"], #header-bottom-left .tabmenu li a[href$="/gilded/"] {
+      display: none; }
+    #header-bottom-left .tabmenu li a[href$="/flattish/"]:after {
+      content: "h"; }
+    #header-bottom-left .tabmenu li a[href$="/new/"]:after {
+      content: "n"; }
+    #header-bottom-left .tabmenu li a[href$="/top/"]:after {
+      content: "t"; }
+    #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
+      content: "w"; }
+    #header-bottom-left .tabmenu li a[href$="/flattish/"]:after, #header-bottom-left .tabmenu li a[href$="/new/"]:after, #header-bottom-left .tabmenu li a[href$="/top/"]:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:after,
+    #header-bottom-left .tabmenu li a #viewImagesButton:after {
+      color: rgba(0, 0, 0, 0.54);
+      background-color: transparent;
+      border: 0;
+      font-size: initial;
+      font-weight: normal;
+      padding: 0.90625em;
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      -ms-transition: all 0.5s ease 0s;
+      -o-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s; }
+    #header-bottom-left .tabmenu li a[href$="/flattish/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/new/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/top/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:hover:after,
+    #header-bottom-left .tabmenu li a #viewImagesButton:hover:after {
+      color: rgba(0, 0, 0, 0.87);
+      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
 @media (min-width: 62em) {
   #header-bottom-left {
@@ -525,10 +567,7 @@
           color: rgba(0, 0, 0, 0.87); }
     #header-bottom-left .tabmenu li {
       margin: 0; }
-      #header-bottom-left .tabmenu li > a[href$="/rising/"], #header-bottom-left .tabmenu li > a[href$="/controversial/"], #header-bottom-left .tabmenu li > a[href$="/ads/"], #header-bottom-left .tabmenu li > a[href$="/gilded/"] {
-        display: none; }
       #header-bottom-left .tabmenu li a {
-        color: rgba(0, 0, 0, 0.54);
         background-color: transparent;
         border: 0;
         font-weight: normal;
@@ -540,7 +579,12 @@
         transition: all 0.5s ease 0s; }
         #header-bottom-left .tabmenu li a:hover {
           color: rgba(0, 0, 0, 0.87);
-          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+    #header-bottom-left .tabmenu li a {
+      color: rgba(0, 0, 0, 0.54);
+      font-size: 1em; }
+      #header-bottom-left .tabmenu li a:after {
+        display: none; } }
 @media (min-width: 75em) {
   div.content {
     max-width: calc(100% - 35.5em);
