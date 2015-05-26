@@ -106,6 +106,7 @@
 
 .res #header-bottom-right,
 #header-bottom-right {
+  margin-right: em(16, 10);
   top: em(135, 10);
 }
 
@@ -115,6 +116,7 @@
   // moves userbar down in larger screen widths
   .res #header-bottom-right,
   #header-bottom-right {
+    margin-right: em(16, 10);
     top: em(165, 10);
   }
 }
