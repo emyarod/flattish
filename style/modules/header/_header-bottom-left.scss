@@ -12,15 +12,7 @@
   .tabmenu li {
     margin: 0;
 
-    &>a[href$="/rising/"],
-    &>a[href$="/controversial/"],
-    &>a[href$="/ads/"],
-    &>a[href$="/gilded/"] {
-      display: none;
-    }
-
     a {
-      color: $light-secondary-text;
       background-color: transparent;
       border: 0;
       font-weight: normal;
@@ -38,14 +30,13 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   @include header-bottom-left;
-  left: -3em;
 
   // reduces reddit.com header to just snoo image
   #header-img {
     background: url(%%snoo-color%%) no-repeat;
     height: 3em;
     width: 0;
-    margin: 0 0 0 3em;
+    margin: 0;
     padding-right: em(51, 16);
     @include transition;
 
@@ -90,6 +81,76 @@
   }
 
   @include tabmenu;
+  .tabmenu li {
+
+    a#viewImagesButton {
+      &:after {
+        content: "vi";
+        color: $light-secondary-text;
+        background-color: transparent;
+        border: 0;
+        font-size: initial;
+        font-weight: normal;
+        padding: em(14.5, 16);
+        @include transition;
+      }
+
+      &:hover:after {
+        color: $light-text;
+        @include drop-shadow(1);
+      }
+    }
+
+    a {
+      color: transparent;
+      font-size: 0;
+      
+      // hides "rising", "controversial", "ads", and "gilded" tabs
+      &[href$="/rising/"],
+      &[href$="/controversial/"],
+      &[href$="/ads/"],
+      &[href$="/gilded/"] {
+        display: none;
+      }
+      
+      // shortens visible tabs
+      &[href$="/flattish/"]:after {
+        content: "h";
+      }
+      &[href$="/new/"]:after {
+        content: "n";
+      }
+      &[href$="/top/"]:after {
+        content: "t";
+      }
+      &[href$="/wiki/"]:after {
+        content: "w";
+      }
+      
+      // style visible tabs
+      &[href$="/flattish/"],
+      &[href$="/new/"],
+      &[href$="/top/"],
+      &[href$="/wiki/"],
+      #viewImagesButton {
+
+        &:after {
+          color: $light-secondary-text;
+          background-color: transparent;
+          border: 0;
+          font-size: initial;
+          font-weight: normal;
+          padding: em(14.5, 16);
+          @include transition;
+        }
+
+        &:hover:after {
+          color: $light-text;
+          @include drop-shadow(1);
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: $screen-md-min) {
@@ -98,10 +159,6 @@
     left: 0;
 
     #header-img {
-      // background: url(%%snoo-color%%) no-repeat;
-      // color: transparent;
-      // height: 3em;
-      // width: 0;
       margin: 0;
       padding-right: em(111, 16);
 
@@ -120,23 +177,17 @@
           color: $light-text;
         }
       }
-
-      // &:before {
-      //   background: url(%%snoo-color%%) no-repeat;
-      //   content: "";
-      //   display: block;
-      //   height: 3em;
-      //   width: 4em;
-      //   left: 0;
-      //   position: absolute;
-      //   @include transition;
-
-      //   &:hover {
-      //     @include drop-shadow(1);
-      //   }
-      // }
     }
 
     @include tabmenu;
+
+    .tabmenu li a {
+      color: $light-secondary-text;
+      font-size: 1em;
+
+      &:after {
+        display: none;
+      }
+    }
   }
 }
