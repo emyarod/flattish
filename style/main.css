@@ -285,7 +285,7 @@
 #header-bottom-right {
   top: 13.5em; }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .res #header-bottom-right,
   #header-bottom-right {
     background-color: transparent;
@@ -539,15 +539,38 @@
       color: rgba(0, 0, 0, 0.87);
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
-@media (min-width: 62em) {
+@media (min-width: 30em) {
+  #header-bottom-left .tabmenu li a#viewImagesButton:after {
+    content: "vi";
+    color: rgba(0, 0, 0, 0.54);
+    background-color: transparent;
+    border: 0;
+    font-size: initial;
+    font-weight: normal;
+    padding: 0.90625em;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
+  #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+  #header-bottom-left .tabmenu li a[href$="/flattish/"],
+  #header-bottom-left .tabmenu li a[href$="/new/"],
+  #header-bottom-left .tabmenu li a[href$="/top/"],
+  #header-bottom-left .tabmenu li a[href$="/wiki/"] {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1em; }
+    #header-bottom-left .tabmenu li a[href$="/flattish/"]:after,
+    #header-bottom-left .tabmenu li a[href$="/new/"]:after,
+    #header-bottom-left .tabmenu li a[href$="/top/"]:after,
+    #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
+      display: none; } }
+@media (min-width: 48em) {
   #header-bottom-left {
-    font-size: 1.6em;
-    height: 3em;
-    position: relative;
-    top: 7.5625em;
     left: 0; }
     #header-bottom-left #header-img {
-      margin: 0;
       padding-right: 6.9375em; }
       #header-bottom-left #header-img:after {
         color: rgba(0, 0, 0, 0.54);
@@ -563,23 +586,8 @@
         -ms-transition: all 0.5s ease 0s;
         -o-transition: all 0.5s ease 0s;
         transition: all 0.5s ease 0s; }
-        #header-bottom-left #header-img:after:hover {
-          color: rgba(0, 0, 0, 0.87); }
-    #header-bottom-left .tabmenu li {
-      margin: 0; }
-      #header-bottom-left .tabmenu li a {
-        background-color: transparent;
-        border: 0;
-        font-weight: normal;
-        padding: 0.90625em;
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s; }
-        #header-bottom-left .tabmenu li a:hover {
-          color: rgba(0, 0, 0, 0.87);
-          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+      #header-bottom-left #header-img:hover:after {
+        color: rgba(0, 0, 0, 0.87); }
     #header-bottom-left .tabmenu li a {
       color: rgba(0, 0, 0, 0.54);
       font-size: 1em; }
