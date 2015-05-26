@@ -153,13 +153,49 @@
   }
 }
 
-@media (min-width: $screen-md-min) {
+@media (min-width: $screen-xs-min) {
   #header-bottom-left {
-    @include header-bottom-left;
+
+    .tabmenu li {
+      a#viewImagesButton {
+        &:after {
+          content: "vi";
+          color: $light-secondary-text;
+          background-color: transparent;
+          border: 0;
+          font-size: initial;
+          font-weight: normal;
+          padding: em(14.5, 16);
+          @include transition;
+        }
+
+        &:hover:after {
+          color: $light-text;
+          @include drop-shadow(1);
+        }
+      }
+
+      a[href$="/flattish/"],
+      a[href$="/new/"],
+      a[href$="/top/"],
+      a[href$="/wiki/"] {
+        color: $light-secondary-text;
+        font-size: 1em;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  #header-bottom-left {
     left: 0;
 
     #header-img {
-      margin: 0;
+      // makes space for "reddit" text
       padding-right: em(111, 16);
 
       &:after {
@@ -173,20 +209,21 @@
         margin-right: 1em;
         @include transition;
 
-        &:hover {
-          color: $light-text;
-        }
+      }
+
+      &:hover:after {
+        color: $light-text;
       }
     }
 
-    @include tabmenu;
+    .tabmenu li {
+      a {
+        color: $light-secondary-text;
+        font-size: 1em;
 
-    .tabmenu li a {
-      color: $light-secondary-text;
-      font-size: 1em;
-
-      &:after {
-        display: none;
+        &:after {
+          display: none;
+        }
       }
     }
   }
