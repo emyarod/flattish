@@ -14,7 +14,7 @@
   @include transition;
 
   &:hover {
-    opacity: 1;
+    opacity: 0.87;
   }
 }
 
@@ -46,7 +46,7 @@
 
   // preferences button
   .pref-lang.choice {
-    background: url("%%prefs%%") no-repeat;
+    @include background(url("%%prefs%%") no-repeat);
     @include userbar-buttons;
   }
 
@@ -96,7 +96,7 @@
 
   // logout button
   .logout a {
-    background: url("%%logout%%") no-repeat;
+    @include background(url("%%logout%%") no-repeat);
     @include userbar-buttons;
   }
 }
