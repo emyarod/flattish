@@ -681,12 +681,58 @@ div.content {
       transform: scaleX(1); }
     .side:hover:before {
       opacity: 0; }
+  .side #search input[type="text"] {
+    color: rgba(0, 0, 0, 0.87);
+    font-family: "Arial", sans-serif;
+    border-width: 0 0 0.07692em;
+    border-bottom-color: rgba(0, 0, 0, 0.54); }
+    .side #search input[type="text"]::-webkit-input-placeholder {
+      color: transparent; }
+    .side #search input[type="text"]:-moz-placeholder {
+      color: transparent; }
+    .side #search input[type="text"]::-moz-placeholder {
+      color: transparent; }
+    .side #search input[type="text"]:-ms-input-placeholder {
+      color: transparent; }
+    .side #search input[type="text"]:focus {
+      border-bottom: 0.07692em solid #448aff; }
+  .side #search input[type="submit"] {
+    -webkit-transition: background-image 0s;
+    -moz-transition: background-image 0s;
+    -ms-transition: background-image 0s;
+    -o-transition: background-image 0s;
+    transition: background-image 0s; }
+  .side #search:before {
+    content: "search";
+    color: transparent;
+    font-size: 1.3em;
+    left: 0;
+    margin: 0.53846em 0 0 0.76923em;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+  .side #search:hover:before {
+    color: #448aff;
+    margin: 0;
+    top: -1.15385em;
+    left: -0.30769em;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85); }
   .side .submit .morelink {
     background: none; }
     .side .submit .morelink a {
       color: rgba(0, 0, 0, 0.54);
       font-size: 1.06667em;
-      font-weight: normal; }
+      font-weight: normal;
+      letter-spacing: normal;
+      text-transform: lowercase; }
       .side .submit .morelink a:hover {
         color: inherit; }
   .side .submit .nub {
@@ -739,5 +785,9 @@ div.content {
 
 body {
   background-color: #eeeeee; }
+  body a:link {
+    color: #3f51b5; }
+    body a:link:visited {
+      color: #9c27b0; }
 
 /*# sourceMappingURL=main.css.map */
