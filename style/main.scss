@@ -8,4 +8,12 @@
 
 body {
 	background-color: $light-background;
+
+	a:link {
+		color: $link-color;
+
+		&:visited {
+			color: $link-color-visited;
+		}
+	}
 }
