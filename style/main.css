@@ -165,6 +165,7 @@
 
 .pref-lang.choice {
   background: url("%%prefs%%") no-repeat;
+  background: url("%%prefs%%") no-repeat;
   height: 1.6em;
   width: 1.6em;
   color: transparent;
@@ -179,7 +180,7 @@
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s; }
   .pref-lang.choice:hover {
-    opacity: 1; }
+    opacity: 0.87; }
 
 .gearIcon {
   background: transparent url("%%settings%%") no-repeat !important;
@@ -265,6 +266,7 @@
 
 .logout a {
   background: url("%%logout%%") no-repeat;
+  background: url("%%logout%%") no-repeat;
   height: 1.6em;
   width: 1.6em;
   color: transparent;
@@ -279,7 +281,7 @@
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s; }
   .logout a:hover {
-    opacity: 1; }
+    opacity: 0.87; }
 
 .res #header-bottom-right,
 #header-bottom-right {
@@ -313,6 +315,7 @@
 
   .pref-lang.choice {
     background: url("%%prefs%%") no-repeat;
+    background: url("%%prefs%%") no-repeat;
     height: 1.6em;
     width: 1.6em;
     color: transparent;
@@ -327,7 +330,7 @@
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s; }
     .pref-lang.choice:hover {
-      opacity: 1; }
+      opacity: 0.87; }
 
   .gearIcon {
     background: transparent url("%%settings%%") no-repeat !important;
@@ -413,6 +416,7 @@
 
   .logout a {
     background: url("%%logout%%") no-repeat;
+    background: url("%%logout%%") no-repeat;
     height: 1.6em;
     width: 1.6em;
     color: transparent;
@@ -427,7 +431,7 @@
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s; }
     .logout a:hover {
-      opacity: 1; }
+      opacity: 0.87; }
 
   .res #header-bottom-right,
   #header-bottom-right {
@@ -697,19 +701,22 @@ div.content {
     .side #search input[type="text"]:focus {
       border-bottom: 0.07692em solid #448aff; }
   .side #search input[type="submit"] {
-    -webkit-transition: background-image 0s;
-    -moz-transition: background-image 0s;
-    -ms-transition: background-image 0s;
-    -o-transition: background-image 0s;
-    transition: background-image 0s; }
+    height: 1em;
+    width: 1em;
+    opacity: 0.54;
+    position: relative;
+    background: url("%%search%%") no-repeat;
+    background: url("%%search%%") no-repeat; }
+    .side #search input[type="submit"]:hover {
+      opacity: 0.87; }
   .side #search:before {
     content: "search";
     color: transparent;
     font-size: 1.3em;
+    top: 0;
     left: 0;
     margin: 0.53846em 0 0 0.76923em;
     position: absolute;
-    top: 0;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
