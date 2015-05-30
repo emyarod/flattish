@@ -688,15 +688,16 @@ div.content {
   .side #search input[type="text"] {
     color: rgba(0, 0, 0, 0.87);
     font-family: "Arial", sans-serif;
+    height: 3em;
     border-width: 0 0 0.07692em;
     border-bottom-color: rgba(0, 0, 0, 0.54); }
-    .side #search input[type="text"]::-webkit-input-placeholder {
+    .side #search input[type="text"]:hover::-webkit-input-placeholder {
       color: transparent; }
-    .side #search input[type="text"]:-moz-placeholder {
+    .side #search input[type="text"]:hover:-moz-placeholder {
       color: transparent; }
-    .side #search input[type="text"]::-moz-placeholder {
+    .side #search input[type="text"]:hover::-moz-placeholder {
       color: transparent; }
-    .side #search input[type="text"]:-ms-input-placeholder {
+    .side #search input[type="text"]:hover:-ms-input-placeholder {
       color: transparent; }
     .side #search input[type="text"]:focus {
       border-bottom: 0.07692em solid #448aff; }
@@ -733,12 +734,19 @@ div.content {
     -o-transform: scale(0.85);
     transform: scale(0.85); }
   .side .submit .morelink {
-    background: none; }
+    background: none;
+    border: 0;
+    border-radius: 0.15385em;
+    height: 3.2em;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+    .side .submit .morelink:hover {
+      box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3), 0 10px 50px rgba(0, 0, 0, 0.12); }
     .side .submit .morelink a {
       color: rgba(0, 0, 0, 0.54);
       font-size: 1.06667em;
       font-weight: normal;
       letter-spacing: normal;
+      line-height: 3em;
       text-transform: lowercase; }
       .side .submit .morelink a:hover {
         color: inherit; }
