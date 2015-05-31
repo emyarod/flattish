@@ -453,8 +453,6 @@
     -ms-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s; }
-    #header-bottom-left #header-img:hover {
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
   #header-bottom-left .pagename,
   #header-bottom-left .tabmenu {
     font-size: inherit;
@@ -470,11 +468,6 @@
     -ms-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s; }
-    #header-bottom-left .pagename:hover {
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
-      #header-bottom-left .pagename:hover a {
-        color: rgba(0, 0, 0, 0.87);
-        text-decoration: none; }
     #header-bottom-left .pagename a {
       color: rgba(0, 0, 0, 0.54);
       font-variant: normal;
@@ -484,18 +477,26 @@
       -ms-transition: all 0.5s ease 0s;
       -o-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s; }
+      #header-bottom-left .pagename a:hover {
+        color: rgba(0, 0, 0, 0.87);
+        text-decoration: none; }
   #header-bottom-left .tabmenu li.selected a {
-    border: none; }
+    border-width: 0 0 0.125em;
+    border-bottom-color: transparent; }
   #header-bottom-left .tabmenu li {
     height: 3em;
     margin: 0; }
     #header-bottom-left .tabmenu li:hover a {
       color: rgba(0, 0, 0, 0.87); }
+      #header-bottom-left .tabmenu li:hover a:after {
+        border-bottom: 0.125em solid #448aff; }
     #header-bottom-left .tabmenu li a {
+      font-size: 0;
       background-color: transparent;
+      border-bottom: 0.125em solid transparent;
+      color: rgba(0, 0, 0, 0.54);
       font-weight: normal;
       padding: 0.90625em 1em;
-      font-size: 0;
       -webkit-transition: all 0.5s ease 0s;
       -moz-transition: all 0.5s ease 0s;
       -ms-transition: all 0.5s ease 0s;
@@ -511,29 +512,29 @@
         content: "t"; }
       #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
         content: "w"; }
-      #header-bottom-left .tabmenu li a[href$="/flattish/"]:after, #header-bottom-left .tabmenu li a[href$="/new/"]:after, #header-bottom-left .tabmenu li a[href$="/top/"]:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:after,
-      #header-bottom-left .tabmenu li a #viewImagesButton:after {
-        color: rgba(0, 0, 0, 0.54);
-        background-color: transparent;
+      #header-bottom-left .tabmenu li a[href$="/flattish/"]:after, #header-bottom-left .tabmenu li a[href$="/new/"]:after, #header-bottom-left .tabmenu li a[href$="/top/"]:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
         font-size: initial;
+        background-color: transparent;
+        border-bottom: 0.125em solid transparent;
+        color: rgba(0, 0, 0, 0.54);
         font-weight: normal;
-        padding: 0.90625em;
+        padding: 0.90625em 1em;
         -webkit-transition: all 0.5s ease 0s;
         -moz-transition: all 0.5s ease 0s;
         -ms-transition: all 0.5s ease 0s;
         -o-transition: all 0.5s ease 0s;
         transition: all 0.5s ease 0s; }
-      #header-bottom-left .tabmenu li a[href$="/flattish/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/new/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/top/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:hover:after,
-      #header-bottom-left .tabmenu li a #viewImagesButton:hover:after {
+      #header-bottom-left .tabmenu li a[href$="/flattish/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/new/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/top/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:hover:after {
         color: rgba(0, 0, 0, 0.87);
-        box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+        border-bottom: 0.125em solid #448aff; }
     #header-bottom-left .tabmenu li a#viewImagesButton:after {
       content: "vi";
-      color: rgba(0, 0, 0, 0.54);
-      background-color: transparent;
       font-size: initial;
+      background-color: transparent;
+      border-bottom: 0.125em solid transparent;
+      color: rgba(0, 0, 0, 0.54);
       font-weight: normal;
-      padding: 0.90625em;
+      padding: 0.90625em 1em;
       -webkit-transition: all 0.5s ease 0s;
       -moz-transition: all 0.5s ease 0s;
       -ms-transition: all 0.5s ease 0s;
@@ -541,24 +542,27 @@
       transition: all 0.5s ease 0s; }
     #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
       color: rgba(0, 0, 0, 0.87);
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+      border-bottom: 0.125em solid #448aff; }
 
 @media (min-width: 30em) {
+  #header-bottom-left .tabmenu li:hover a, #header-bottom-left .tabmenu li:hover a[href$="/flattish/"], #header-bottom-left .tabmenu li:hover a[href$="/new/"], #header-bottom-left .tabmenu li:hover a[href$="/top/"], #header-bottom-left .tabmenu li:hover a[href$="/wiki/"] {
+    color: rgba(0, 0, 0, 0.87);
+    border-bottom: 0.125em solid #448aff; }
   #header-bottom-left .tabmenu li a#viewImagesButton:after {
     content: "vi";
-    color: rgba(0, 0, 0, 0.54);
-    background-color: transparent;
     font-size: initial;
+    background-color: transparent;
+    border-bottom: 0.125em solid transparent;
+    color: rgba(0, 0, 0, 0.54);
     font-weight: normal;
-    padding: 0.90625em;
+    padding: 0.90625em 1em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s; }
   #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
-    color: rgba(0, 0, 0, 0.87);
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+    color: rgba(0, 0, 0, 0.87); }
   #header-bottom-left .tabmenu li a[href$="/flattish/"],
   #header-bottom-left .tabmenu li a[href$="/new/"],
   #header-bottom-left .tabmenu li a[href$="/top/"],
@@ -593,15 +597,10 @@
         color: rgba(0, 0, 0, 0.87); }
     #header-bottom-left .tabmenu li:hover a {
       color: rgba(0, 0, 0, 0.87);
-      border-bottom: 2px solid #448aff; }
+      border-bottom: 0.125em solid #448aff; }
     #header-bottom-left .tabmenu li a {
       color: rgba(0, 0, 0, 0.54);
-      font-size: 1em;
-      -webkit-transition: all 0.5s ease 0s;
-      -moz-transition: all 0.5s ease 0s;
-      -ms-transition: all 0.5s ease 0s;
-      -o-transition: all 0.5s ease 0s;
-      transition: all 0.5s ease 0s; }
+      font-size: 1em; }
       #header-bottom-left .tabmenu li a:after {
         display: none; } }
 div.content {
