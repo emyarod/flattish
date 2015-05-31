@@ -1,27 +1,96 @@
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
 
-@mixin header-bottom-left {
-  font-size: em(16, 10);
-  height: 3em;
-  position: relative;
-  top: em(121, 16); // 121px
+@mixin tabs {
+  background-color: transparent;
+  border-bottom: em(2, 16) solid transparent;
+  color: $light-secondary-text;
+  font-weight: normal;
+  padding: em(14.5, 16) 1em; // to equal 48px in height
 }
 
 @mixin tabmenu {
-  .tabmenu li {
-    margin: 0;
+  .tabmenu {
 
-    a {
-      background-color: transparent;
-      border: 0;
-      font-weight: normal;
-      padding: em(14.5, 16);
-      @include transition;
+    li.selected a {
+      @include border-width(0 0 em(2, 16) 0);
+      @include border-color(null null transparent null);
+    }
 
-      &:hover {
+    li {
+      height: 3em;
+      margin: 0;
+
+      &:hover a {
         color: $light-text;
-        @include drop-shadow(1);
+
+        &:after {
+          border-bottom: em(2, 16) solid $accent;
+        }
+      }
+
+      a {
+        font-size: 0;
+        @include tabs;
+        @include transition;
+        
+        // hides "rising", "controversial", "ads", and "gilded" tabs
+        &[href$="/rising/"],
+        &[href$="/controversial/"],
+        &[href$="/ads/"],
+        &[href$="/gilded/"] {
+          display: none;
+        }
+        
+        // shortens visible tabs
+        &[href$="/flattish/"]:after {
+          content: "h";
+        }
+
+        &[href$="/new/"]:after {
+          content: "n";
+        }
+
+        &[href$="/top/"]:after {
+          content: "t";
+        }
+
+        &[href$="/wiki/"]:after {
+          content: "w";
+        }
+        
+        // style visible tabs
+        &[href$="/flattish/"],
+        &[href$="/new/"],
+        &[href$="/top/"],
+        &[href$="/wiki/"] {
+
+          &:after {
+            font-size: initial;
+            @include tabs;
+            @include transition;
+          }
+
+          &:hover:after {
+            color: $light-text;
+            border-bottom: em(2, 16) solid $accent;
+          }
+        }
+      }
+
+      a#viewImagesButton {
+
+        &:after {
+          content: "vi";
+          font-size: initial;
+          @include tabs;
+          @include transition;
+        }
+
+        &:hover:after {
+          color: $light-text;
+          border-bottom: em(2, 16) solid $accent;
+        }
       }
     }
   }
@@ -29,7 +98,10 @@
 
 // header image, pagename, tabmenu
 #header-bottom-left {
-  @include header-bottom-left;
+  font-size: em(16, 10);
+  height: 3em;
+  position: relative;
+  top: em(121, 16); // 121px
 
   // reduces reddit.com header to just snoo image
   #header-img {
@@ -48,130 +120,63 @@
   // subreddit name
   .pagename,
   .tabmenu {
-    // display: inline-block;
     font-size: inherit;
-    // height: 100%;
+    height: 3em;
     left: em(-4, 16);
-    // line-height: 1.6em;
+    line-height: 3em;
     margin: 0;
     position: relative;
-    top: em(-14, 16);
   }
 
   .pagename {
-    padding: em(14.5, 16);
+    padding: em(14.5, 16) 1em;
     @include transition;
 
     &:hover {
       @include drop-shadow(1);
+
+      a {
+        color: $light-text;
+        text-decoration: none;
+      }
     }
 
     a {
       color: $light-secondary-text;
       font-variant: normal;
-      // padding: 1em 0 1em 1em;
       text-transform: lowercase;
       @include transition;
-      
-      &:hover {
-        color: $light-text;
-        text-decoration: none;
-      }
     }
   }
 
   @include tabmenu;
-  .tabmenu li {
-
-    a#viewImagesButton {
-      &:after {
-        content: "vi";
-        color: $light-secondary-text;
-        background-color: transparent;
-        border: 0;
-        font-size: initial;
-        font-weight: normal;
-        padding: em(14.5, 16);
-        @include transition;
-      }
-
-      &:hover:after {
-        color: $light-text;
-        @include drop-shadow(1);
-      }
-    }
-
-    a {
-      color: transparent;
-      font-size: 0;
-      
-      // hides "rising", "controversial", "ads", and "gilded" tabs
-      &[href$="/rising/"],
-      &[href$="/controversial/"],
-      &[href$="/ads/"],
-      &[href$="/gilded/"] {
-        display: none;
-      }
-      
-      // shortens visible tabs
-      &[href$="/flattish/"]:after {
-        content: "h";
-      }
-      &[href$="/new/"]:after {
-        content: "n";
-      }
-      &[href$="/top/"]:after {
-        content: "t";
-      }
-      &[href$="/wiki/"]:after {
-        content: "w";
-      }
-      
-      // style visible tabs
-      &[href$="/flattish/"],
-      &[href$="/new/"],
-      &[href$="/top/"],
-      &[href$="/wiki/"],
-      #viewImagesButton {
-
-        &:after {
-          color: $light-secondary-text;
-          background-color: transparent;
-          border: 0;
-          font-size: initial;
-          font-weight: normal;
-          padding: em(14.5, 16);
-          @include transition;
-        }
-
-        &:hover:after {
-          color: $light-text;
-          @include drop-shadow(1);
-        }
-      }
-    }
-  }
 }
 
 @media (min-width: $screen-xs-min) {
   #header-bottom-left {
 
     .tabmenu li {
+
+      &:hover a,
+      &:hover a[href$="/flattish/"],
+      &:hover a[href$="/new/"],
+      &:hover a[href$="/top/"],
+      &:hover a[href$="/wiki/"] {
+        color: $light-text;
+        border-bottom: em(2, 16) solid $accent;
+      }
+
       a#viewImagesButton {
+
         &:after {
           content: "vi";
-          color: $light-secondary-text;
-          background-color: transparent;
-          border: 0;
           font-size: initial;
-          font-weight: normal;
-          padding: em(14.5, 16);
+          @include tabs;
           @include transition;
         }
 
         &:hover:after {
           color: $light-text;
-          @include drop-shadow(1);
         }
       }
 
@@ -203,7 +208,7 @@
         content: "reddit";
         font-weight: bold;
         left: em(51, 16);
-        top: em(14, 16);
+        padding: em(14, 16) 0;
         position: absolute;
         text-indent: 0;
         margin-right: 1em;
@@ -217,10 +222,16 @@
     }
 
     .tabmenu li {
+
+      &:hover a {
+        color: $light-text;
+        border-bottom: em(2, 16) solid $accent;
+      }
+
       a {
         color: $light-secondary-text;
         font-size: 1em;
-
+ 
         &:after {
           display: none;
         }
