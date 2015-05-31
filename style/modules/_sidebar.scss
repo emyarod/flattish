@@ -53,38 +53,9 @@
 
 	// search
 	@import "sidebar/search";
-
-	.submit{
-
-		.morelink {
-			background: none;
-			border: 0;
-			border-radius: em(2, 13);
-			height: em(48, 15);
-			@include drop-shadow(1);
-
-			&:hover {
-				@include drop-shadow(2);
-			}
-
-			a {
-				color: $light-icons;
-				font-size: em(16, 15);
-				font-weight: normal;
-				letter-spacing: normal;
-				line-height: 3em;
-				text-transform: lowercase;
-
-				&:hover {
-					color: inherit;
-				}
-			}
-		}
-
-		.nub {
-			display: none;
-		}
-	}
+	
+	// submit buttons
+	@import "sidebar/submit";
 }
 
 @media (min-width: $screen-md-min) {
