@@ -460,10 +460,11 @@
     font-size: inherit;
     height: 3em;
     left: -0.25em;
+    line-height: 3em;
     margin: 0;
     position: relative; }
   #header-bottom-left .pagename {
-    padding: 0.90625em;
+    padding: 0.90625em 1em;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -ms-transition: all 0.5s ease 0s;
@@ -471,6 +472,9 @@
     transition: all 0.5s ease 0s; }
     #header-bottom-left .pagename:hover {
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+      #header-bottom-left .pagename:hover a {
+        color: rgba(0, 0, 0, 0.87);
+        text-decoration: none; }
     #header-bottom-left .pagename a {
       color: rgba(0, 0, 0, 0.54);
       font-variant: normal;
@@ -480,58 +484,53 @@
       -ms-transition: all 0.5s ease 0s;
       -o-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s; }
-      #header-bottom-left .pagename a:hover {
-        color: rgba(0, 0, 0, 0.87);
-        text-decoration: none; }
+  #header-bottom-left .tabmenu li.selected a {
+    border: none; }
   #header-bottom-left .tabmenu li {
+    height: 3em;
     margin: 0; }
+    #header-bottom-left .tabmenu li:hover a {
+      color: rgba(0, 0, 0, 0.87); }
     #header-bottom-left .tabmenu li a {
       background-color: transparent;
-      border: 0;
       font-weight: normal;
-      padding: 0.90625em;
+      padding: 0.90625em 1em;
+      font-size: 0;
       -webkit-transition: all 0.5s ease 0s;
       -moz-transition: all 0.5s ease 0s;
       -ms-transition: all 0.5s ease 0s;
       -o-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s; }
-      #header-bottom-left .tabmenu li a:hover {
+      #header-bottom-left .tabmenu li a[href$="/rising/"], #header-bottom-left .tabmenu li a[href$="/controversial/"], #header-bottom-left .tabmenu li a[href$="/ads/"], #header-bottom-left .tabmenu li a[href$="/gilded/"] {
+        display: none; }
+      #header-bottom-left .tabmenu li a[href$="/flattish/"]:after {
+        content: "h"; }
+      #header-bottom-left .tabmenu li a[href$="/new/"]:after {
+        content: "n"; }
+      #header-bottom-left .tabmenu li a[href$="/top/"]:after {
+        content: "t"; }
+      #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
+        content: "w"; }
+      #header-bottom-left .tabmenu li a[href$="/flattish/"]:after, #header-bottom-left .tabmenu li a[href$="/new/"]:after, #header-bottom-left .tabmenu li a[href$="/top/"]:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:after,
+      #header-bottom-left .tabmenu li a #viewImagesButton:after {
+        color: rgba(0, 0, 0, 0.54);
+        background-color: transparent;
+        font-size: initial;
+        font-weight: normal;
+        padding: 0.90625em;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
+      #header-bottom-left .tabmenu li a[href$="/flattish/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/new/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/top/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:hover:after,
+      #header-bottom-left .tabmenu li a #viewImagesButton:hover:after {
         color: rgba(0, 0, 0, 0.87);
         box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
-  #header-bottom-left .tabmenu li a#viewImagesButton:after {
-    content: "vi";
-    color: rgba(0, 0, 0, 0.54);
-    background-color: transparent;
-    border: 0;
-    font-size: initial;
-    font-weight: normal;
-    padding: 0.90625em;
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s; }
-  #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
-    color: rgba(0, 0, 0, 0.87);
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
-  #header-bottom-left .tabmenu li a {
-    color: transparent;
-    font-size: 0; }
-    #header-bottom-left .tabmenu li a[href$="/rising/"], #header-bottom-left .tabmenu li a[href$="/controversial/"], #header-bottom-left .tabmenu li a[href$="/ads/"], #header-bottom-left .tabmenu li a[href$="/gilded/"] {
-      display: none; }
-    #header-bottom-left .tabmenu li a[href$="/flattish/"]:after {
-      content: "h"; }
-    #header-bottom-left .tabmenu li a[href$="/new/"]:after {
-      content: "n"; }
-    #header-bottom-left .tabmenu li a[href$="/top/"]:after {
-      content: "t"; }
-    #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
-      content: "w"; }
-    #header-bottom-left .tabmenu li a[href$="/flattish/"]:after, #header-bottom-left .tabmenu li a[href$="/new/"]:after, #header-bottom-left .tabmenu li a[href$="/top/"]:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:after,
-    #header-bottom-left .tabmenu li a #viewImagesButton:after {
+    #header-bottom-left .tabmenu li a#viewImagesButton:after {
+      content: "vi";
       color: rgba(0, 0, 0, 0.54);
       background-color: transparent;
-      border: 0;
       font-size: initial;
       font-weight: normal;
       padding: 0.90625em;
@@ -540,8 +539,7 @@
       -ms-transition: all 0.5s ease 0s;
       -o-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s; }
-    #header-bottom-left .tabmenu li a[href$="/flattish/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/new/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/top/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:hover:after,
-    #header-bottom-left .tabmenu li a #viewImagesButton:hover:after {
+    #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
       color: rgba(0, 0, 0, 0.87);
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
 
@@ -550,7 +548,6 @@
     content: "vi";
     color: rgba(0, 0, 0, 0.54);
     background-color: transparent;
-    border: 0;
     font-size: initial;
     font-weight: normal;
     padding: 0.90625em;
@@ -582,7 +579,6 @@
         color: rgba(0, 0, 0, 0.54);
         content: "reddit";
         font-weight: bold;
-        height: 3em;
         left: 3.1875em;
         padding: 0.875em 0;
         position: absolute;
@@ -595,9 +591,17 @@
         transition: all 0.5s ease 0s; }
       #header-bottom-left #header-img:hover:after {
         color: rgba(0, 0, 0, 0.87); }
+    #header-bottom-left .tabmenu li:hover a {
+      color: rgba(0, 0, 0, 0.87);
+      border-bottom: 2px solid #448aff; }
     #header-bottom-left .tabmenu li a {
       color: rgba(0, 0, 0, 0.54);
-      font-size: 1em; }
+      font-size: 1em;
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      -ms-transition: all 0.5s ease 0s;
+      -o-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s; }
       #header-bottom-left .tabmenu li a:after {
         display: none; } }
 div.content {
