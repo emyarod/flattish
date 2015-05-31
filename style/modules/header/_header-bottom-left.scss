@@ -111,10 +111,6 @@
     margin: 0;
     padding-right: em(51, 16);
     @include transition;
-
-    &:hover {
-      @include drop-shadow(1);
-    }
   }
 
   // subreddit name
@@ -132,20 +128,16 @@
     padding: em(14.5, 16) 1em;
     @include transition;
 
-    &:hover {
-      @include drop-shadow(1);
-
-      a {
-        color: $light-text;
-        text-decoration: none;
-      }
-    }
-
     a {
       color: $light-secondary-text;
       font-variant: normal;
       text-transform: lowercase;
       @include transition;
+
+      &:hover {
+        color: $light-text;
+        text-decoration: none;
+      }
     }
   }
 
