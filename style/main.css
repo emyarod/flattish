@@ -458,10 +458,10 @@
   #header-bottom-left .pagename,
   #header-bottom-left .tabmenu {
     font-size: inherit;
+    height: 3em;
     left: -0.25em;
     margin: 0;
-    position: relative;
-    top: -0.875em; }
+    position: relative; }
   #header-bottom-left .pagename {
     padding: 0.90625em;
     -webkit-transition: all 0.5s ease 0s;
@@ -582,8 +582,9 @@
         color: rgba(0, 0, 0, 0.54);
         content: "reddit";
         font-weight: bold;
+        height: 3em;
         left: 3.1875em;
-        top: 0.875em;
+        padding: 0.875em 0;
         position: absolute;
         text-indent: 0;
         margin-right: 1em;
