@@ -1,0 +1,72 @@
+#search {
+		
+	// search bar
+	input[type="text"] {
+		color: $light-text;
+		font-family: $font-stack;
+		height: 3em;
+		@include border-width(0 0 em(1, 13) 0);
+		@include border-color(null null $light-secondary-text null);
+
+		&:hover {
+
+			// style placeholder text
+			&::-webkit-input-placeholder {
+	   		color: transparent;
+			}
+
+			&:-moz-placeholder {
+			  color: transparent;
+			}
+
+			&::-moz-placeholder {
+			  color: transparent;
+			}
+
+			&:-ms-input-placeholder {
+			  color: transparent;
+			}
+		}
+		
+		&:focus {
+			border-bottom: em(1, 13) solid $accent;
+		}
+	}
+	
+	// magnifying glass icon
+	input[type="submit"] {
+		height: 1em;
+		width: 1em;
+		opacity: 0.54;
+		position: relative;
+		@include background(url("%%search%%") no-repeat);
+
+		&:hover {
+			opacity: 0.87;
+		}
+	}
+	
+	// label
+	&:before {
+		content: "search";
+		color: transparent;
+		font-size: em(13, 10);
+		top: 0;
+		left: 0;
+		margin: em(7, 13) 0 0 em(10, 13);
+		position: absolute;
+		@include transition(all 0.2s ease);
+	}
+
+	&:hover {
+		
+		// label hover behavior
+		&:before {
+			color: $accent;
+			margin: 0;
+			top: em(-15, 13);
+			left: em(-4, 13);
+	    @include transform(scale(0.85));
+		}
+	}
+}
