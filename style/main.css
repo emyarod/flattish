@@ -738,13 +738,27 @@ div.content {
     -o-transform: scale(0.85);
     transform: scale(0.85); }
   .side .submit .morelink {
-    background: none;
+    background: none #f0f0f0;
     border: 0;
+    border-bottom: 4px solid transparent;
     border-radius: 0.15385em;
     height: 3.2em;
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+    box-shadow: 0;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease; }
     .side .submit .morelink:hover {
-      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.23), 0 8px 25px rgba(0, 0, 0, 0.05); }
+      background-color: #f5f5f5;
+      border-bottom: 4px solid #ccc;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15); }
+    .side .submit .morelink:active {
+      top: 0px;
+      height: 3.33333em;
+      border: 1px solid #ccc;
+      background-color: #ededed;
+      box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15); }
     .side .submit .morelink a {
       color: rgba(0, 0, 0, 0.54);
       font-size: 1.06667em;
