@@ -1,14 +1,26 @@
 .submit{
 
 	.morelink {
-		background: none;
+		background: none #f0f0f0;
 		border: 0;
+		border-bottom: 4px solid transparent;
 		border-radius: em(2, 13);
 		height: em(48, 15);
-		@include drop-shadow(1);
+		box-shadow: 0;
+		@include transition(all 0.25s ease);
 
 		&:hover {
-			@include drop-shadow(2);
+			background-color: #f5f5f5;
+			border-bottom: 4px solid #ccc;
+			box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+		}
+
+		&:active {
+			top: 0px;
+  		height: em(50, 15);
+  		border: 1px solid #ccc;
+  		background-color: #ededed;
+  		box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15);
 		}
 
 		a {
