@@ -17,7 +17,13 @@
 .side {
 	height: 0;
 	width: 0;
-	background-color: $light-cards;
+	background-color: transparent;
+
+	.sidecontentbox, .titlebox, #moderation_tools {
+		font-size: 100%;
+		@include animate-card;
+		margin: 0 0 em(15, 10) 0;
+	}
 
 	// kebab menu
 	&:before {
@@ -35,8 +41,7 @@
 
 	&:hover {
 		height: 100%;
-		width: em(300, 10);
-		@include card;
+		width: em(330, 10);
 		margin-left: 0;
 		
 		// show hidden sidebar items
@@ -56,14 +61,24 @@
 	
 	// submit buttons
 	@import "sidebar/submit";
+
+
+	// hide create subreddit button
+	.sidebox.create {
+		display: none;
+	}
+
+	// .spacer {
+	// 	@include animate-card;
+	// }
 }
 
 @media (min-width: $screen-md-min) {
 	.side {
 		height: 100%;
-		width: em(300, 10);
-		@include animate-card;
+		width: em(330, 10);
 		margin-left: 0;
+		margin-right: 1.5em;
 
 		* {
 			opacity: 1;
