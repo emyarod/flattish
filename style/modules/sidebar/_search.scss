@@ -5,6 +5,7 @@
 		color: $light-text;
 		font-family: $font-stack;
 		height: 3em;
+		width: 100%;
 		@include border-width(0 0 em(1, 13) 0);
 		@include border-color(null null $light-secondary-text null);
 
