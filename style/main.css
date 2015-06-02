@@ -165,7 +165,6 @@
 
 .pref-lang.choice {
   background: url("%%prefs%%") no-repeat;
-  background: url("%%prefs%%") no-repeat;
   height: 1.6em;
   width: 1.6em;
   color: transparent;
@@ -266,7 +265,6 @@
 
 .logout a {
   background: url("%%logout%%") no-repeat;
-  background: url("%%logout%%") no-repeat;
   height: 1.6em;
   width: 1.6em;
   color: transparent;
@@ -289,150 +287,6 @@
   top: 13.5em; }
 
 @media (min-width: 62em) {
-  .res #header-bottom-right,
-  #header-bottom-right {
-    background-color: transparent;
-    position: absolute;
-    margin: 0;
-    padding: 0; }
-    .res #header-bottom-right span a,
-    #header-bottom-right span a {
-      color: rgba(0, 0, 0, 0.54);
-      -webkit-transition: all 0.5s ease 0s;
-      -moz-transition: all 0.5s ease 0s;
-      -ms-transition: all 0.5s ease 0s;
-      -o-transition: all 0.5s ease 0s;
-      transition: all 0.5s ease 0s; }
-    .res #header-bottom-right:hover span a,
-    #header-bottom-right:hover span a {
-      color: rgba(0, 0, 0, 0.87); }
-
-  .res #userbarToggle,
-  #userbarToggle {
-    background-color: transparent;
-    border: 0;
-    color: rgba(0, 0, 0, 0.54); }
-
-  .pref-lang.choice {
-    background: url("%%prefs%%") no-repeat;
-    background: url("%%prefs%%") no-repeat;
-    height: 1.6em;
-    width: 1.6em;
-    color: transparent;
-    display: inline-block;
-    opacity: 0.54;
-    position: relative;
-    top: -0.3em;
-    text-indent: -999.9em;
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s; }
-    .pref-lang.choice:hover {
-      opacity: 0.87; }
-
-  .gearIcon {
-    background: transparent url("%%settings%%") no-repeat !important;
-    opacity: 0.54;
-    position: relative;
-    right: 0.1em;
-    top: 0.1em;
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s; }
-    .gearIcon:hover {
-      opacity: 1; }
-
-  #RESMainGearOverlay {
-    background-color: transparent !important;
-    border: 0 !important;
-    top: 16.3em !important; }
-
-  #RESPrefsDropdown {
-    background-color: #fafafa;
-    border: 0;
-    margin: 0.5em 0 1em 1em;
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 0.2em;
-    -webkit-animation: menu-fadein 0.57s ease;
-    -moz-animation: menu-fadein 0.57s ease;
-    -ms-animation: menu-fadein 0.57s ease;
-    -o-animation: menu-fadein 0.57s ease;
-    animation: menu-fadein 0.57s ease; }
-  @-webkit-keyframes menu-fadein {
-    from {
-      opacity: 0;
-      -webkit-transform: translate(-78.5px, -837.5px) scale(0); }
-    to {
-      opacity: 1;
-      -webkit-transform: scale(1); } }
-  @-moz-keyframes menu-fadein {
-    from {
-      opacity: 0;
-      -moz-transform: translate(-78.5px, -837.5px) scale(0); }
-    to {
-      opacity: 1;
-      -moz-transform: scale(1); } }
-  @keyframes menu-fadein {
-    from {
-      opacity: 0;
-      -webkit-transform: translate(-78.5px, -837.5px) scale(0);
-      -moz-transform: translate(-78.5px, -837.5px) scale(0);
-      -ms-transform: translate(-78.5px, -837.5px) scale(0);
-      -o-transform: translate(-78.5px, -837.5px) scale(0);
-      transform: translate(-78.5px, -837.5px) scale(0); }
-    to {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      -moz-transform: scale(1);
-      -ms-transform: scale(1);
-      -o-transform: scale(1);
-      transform: scale(1); } }
-    #RESPrefsDropdown #RESDropdownOptions li {
-      border: 0;
-      font-style: normal;
-      padding: 0;
-      color: rgba(0, 0, 0, 0.87);
-      padding: 1em;
-      -webkit-transition: all 0.5s ease 0s;
-      -moz-transition: all 0.5s ease 0s;
-      -ms-transition: all 0.5s ease 0s;
-      -o-transition: all 0.5s ease 0s;
-      transition: all 0.5s ease 0s;
-      -webkit-transition: all 0.5s ease 0s;
-      -moz-transition: all 0.5s ease 0s;
-      -ms-transition: all 0.5s ease 0s;
-      -o-transition: all 0.5s ease 0s;
-      transition: all 0.5s ease 0s; }
-      #RESPrefsDropdown #RESDropdownOptions li:hover {
-        background-color: #e0e0e0; }
-      #RESPrefsDropdown #RESDropdownOptions li a {
-        color: rgba(0, 0, 0, 0.87); }
-        #RESPrefsDropdown #RESDropdownOptions li a:hover {
-          background-color: transparent; }
-
-  .logout a {
-    background: url("%%logout%%") no-repeat;
-    background: url("%%logout%%") no-repeat;
-    height: 1.6em;
-    width: 1.6em;
-    color: transparent;
-    display: inline-block;
-    opacity: 0.54;
-    position: relative;
-    top: -0.3em;
-    text-indent: -999.9em;
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s; }
-    .logout a:hover {
-      opacity: 0.87; }
-
   .res #header-bottom-right,
   #header-bottom-right {
     margin-right: 1.6em;
@@ -655,7 +509,38 @@ div.content {
 .side {
   height: 0;
   width: 0;
-  background-color: #fafafa; }
+  background-color: transparent; }
+  .side .sidecontentbox, .side .titlebox, .side #moderation_tools {
+    font-size: 100%;
+    border-radius: 0.2em;
+    margin: 0 1.5em;
+    padding: 1.5em;
+    background-color: #fafafa;
+    -webkit-animation: depthup 0.75s ease;
+    -moz-animation: depthup 0.75s ease;
+    -ms-animation: depthup 0.75s ease;
+    -o-animation: depthup 0.75s ease;
+    animation: depthup 0.75s ease;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+    margin: 0 0 1.5em 0; }
+@-webkit-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@-moz-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side:before {
     content: "";
     display: block;
@@ -673,12 +558,7 @@ div.content {
     transition: all 0.5s ease 0s; }
   .side:hover {
     height: 100%;
-    width: 30em;
-    border-radius: 0.2em;
-    margin: 0 1.5em;
-    padding: 1.5em;
-    background-color: #fafafa;
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+    width: 33em;
     margin-left: 0; }
     .side:hover * {
       opacity: 1;
@@ -693,6 +573,7 @@ div.content {
     color: rgba(0, 0, 0, 0.87);
     font-family: "Arial", sans-serif;
     height: 3em;
+    width: 100%;
     border-width: 0 0 0.07692em;
     border-bottom-color: rgba(0, 0, 0, 0.54); }
     .side #search input[type="text"]:hover::-webkit-input-placeholder {
@@ -770,40 +651,15 @@ div.content {
         color: inherit; }
   .side .submit .nub {
     display: none; }
+  .side .sidebox.create {
+    display: none; }
 
 @media (min-width: 62em) {
   .side {
     height: 100%;
-    width: 30em;
-    border-radius: 0.2em;
-    margin: 0 1.5em;
-    padding: 1.5em;
-    background-color: #fafafa;
-    -webkit-animation: depthup 0.75s ease;
-    -moz-animation: depthup 0.75s ease;
-    -ms-animation: depthup 0.75s ease;
-    -o-animation: depthup 0.75s ease;
-    animation: depthup 0.75s ease;
-    -webkit-animation-iteration-count: 1;
-    -moz-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
-    margin-left: 0; }
-  @-webkit-keyframes depthup {
-    from {
-      box-shadow: none; }
-    to {
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-  @-moz-keyframes depthup {
-    from {
-      box-shadow: none; }
-    to {
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-  @keyframes depthup {
-    from {
-      box-shadow: none; }
-    to {
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+    width: 33em;
+    margin-left: 0;
+    margin-right: 1.5em; }
     .side * {
       opacity: 1;
       -webkit-transform: scaleX(1);
