@@ -46,7 +46,7 @@
 
   // preferences button
   .pref-lang.choice {
-    @include background(url("%%prefs%%") no-repeat);
+    background: url("%%prefs%%") no-repeat;
     @include userbar-buttons;
   }
 
@@ -96,11 +96,10 @@
 
   // logout button
   .logout a {
-    @include background(url("%%logout%%") no-repeat);
+    background: url("%%logout%%") no-repeat;
     @include userbar-buttons;
   }
 }
-
 
 @include userbar;
 
@@ -111,8 +110,6 @@
 }
 
 @media (min-width: $screen-md-min) {
-  @include userbar;
-  
   // moves userbar down in larger screen widths
   .res #header-bottom-right,
   #header-bottom-right {
