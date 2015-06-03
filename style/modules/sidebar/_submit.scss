@@ -1,4 +1,5 @@
-.submit {
+.submit-link,
+.submit-text {
 	position: absolute;
 	right: 3em;
 	width: 0;
@@ -47,9 +48,11 @@
 }
 
 .submit-link {
-	top: em(200 + 15 + 15 + 39 + 15, 10);
+	// 200 + 15 + 15 + 39 + 15 + 15 + 1
+	top: em(300, 10);
 }
 
 .submit-text {
-	top: em(200 + 15 + 15 + 39 + 15 + 52 + 15, 10);
+	// 300 + 52 + 15
+	top: em(367, 10);
 }
