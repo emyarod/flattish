@@ -1,4 +1,7 @@
 .submit {
+	position: absolute;
+	right: 3em;
+	width: 0;
 
 	.morelink {
 		background: none #f0f0f0;
@@ -44,9 +47,9 @@
 }
 
 .submit-link {
-	top: em(215 + 15 + 39, 10);
+	top: em(200 + 15 + 15 + 39 + 15, 10);
 }
 
 .submit-text {
-	top: em(215 + 15 + 39 + 15 + 52, 10);
+	top: em(200 + 15 + 15 + 39 + 15 + 52 + 15, 10);
 }
