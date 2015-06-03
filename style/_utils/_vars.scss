@@ -19,10 +19,10 @@ $black: #000;
 $white: #fff;
 
 // light theme
-$light-status-bar: get-color("grey", "600");
-$light-app-bar: get-color("grey", "300");
-$light-background: get-color("grey", "200");
-$light-cards: get-color("grey", "50");
+$light-status-bar: get-color("grey", "300");
+$light-app-bar: get-color("grey", "100");
+$light-background: get-color("grey", "50");
+$light-cards: $white;
 
 // light theme text
 $light-divider-text: rgba($black, 0.12);
