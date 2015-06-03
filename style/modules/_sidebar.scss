@@ -1,4 +1,5 @@
 @import "../_utils/vars";
+@import "../_utils/mixins";
 @import "../components/cards";
 @import "../components/buttons";
 
@@ -11,18 +12,22 @@
 .side * {
 	background-color: transparent;
 	opacity: 0;
-	@include transform(scaleX(0));
 }
 
 .side {
+	background-color: transparent;
 	height: 0;
 	width: 0;
-	background-color: transparent;
+	margin-top: 188px;
+
+	.spacer {
+		margin: 0 0 em(15, 10) 0;
+	}
 
 	.sidecontentbox, .titlebox, #moderation_tools {
 		font-size: 100%;
 		@include animate-card;
-		margin: 0 0 em(15, 10) 0;
+		margin: 0;
 	}
 
 	// kebab menu
@@ -47,7 +52,6 @@
 		// show hidden sidebar items
 		* {
 			opacity: 1;
-			@include transform(scaleX(1));
 		}
 
 		// make kebab disappear on hover
@@ -62,15 +66,17 @@
 	// submit buttons
 	@import "sidebar/submit";
 
+	#search,
+	.submit {
+		position: absolute;
+		right: 1.5em;
+		width: 33em;
+	}
 
 	// hide create subreddit button
 	.sidebox.create {
 		display: none;
 	}
-
-	// .spacer {
-	// 	@include animate-card;
-	// }
 }
 
 @media (min-width: $screen-md-min) {
@@ -82,11 +88,15 @@
 
 		* {
 			opacity: 1;
-			@include transform(scaleX(1));
 		}
 
 		&:before {
 			display: none;
+		}
+
+		#search,
+		.submit {
+			width: 33em;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-.submit{
+.submit {
 
 	.morelink {
 		background: none #f0f0f0;
@@ -40,4 +40,13 @@
 	.nub {
 		display: none;
 	}
+
+}
+
+.submit-link {
+	top: em(215 + 15 + 39, 10);
+}
+
+.submit-text {
+	top: em(215 + 15 + 39 + 15 + 52, 10);
 }
