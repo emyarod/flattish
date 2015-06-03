@@ -4,13 +4,12 @@
 @import "../components/buttons";
 
 .side,
-.side * {
+.side *:not(#searchexpando) {
 	@include transition;
 }
 
 // hide sidebar items
 .side * {
-	background-color: transparent;
 	opacity: 0;
 }
 
@@ -19,7 +18,7 @@
 	height: 0;
 	width: 0;
 	margin-top: em(204, 10);
-	margin-right: 1.5em;
+	margin-right: em(15, 10);
 
 	.spacer {
 		margin: 0 0 em(15, 10);
@@ -33,18 +32,20 @@
 		}
 	}
 
-	.sidecontentbox,
+	.spacer:first-of-type,
+	#ad_sponsorship,
 	.titlebox,
 	#moderation_tools,
-	.spacer:first-of-type {
+	#ad_main,
+	.sidecontentbox {
 		@include animate-card;
-	}
-
-	.sidecontentbox,
-	.titlebox,
-	#moderation_tools {
 		font-size: 100%;
 		margin: 0;
+	}
+
+	.titlebox,
+	#moderation_tools,
+	.sidecontentbox {
 	}
 
 	// kebab menu
@@ -84,8 +85,8 @@
 
 		// change width of first card (containing search and submit) on sidebar hover
 		.spacer:first-of-type {
+			height: em(39, 10);
 			width: em(300, 10);
-			height: em(173, 10);
 		}
 	}
 
@@ -95,9 +96,18 @@
 	// submit buttons
 	@import "sidebar/submit";
 
-	// hide create subreddit button
-	.sidebox.create {
+	// hide create subreddit button and account activity div
+	.sidebox.create,
+	.account-activity-box {
 		display: none;
+	}
+
+	// login form
+	@import "sidebar/login";
+
+	// advertisement
+	#ad_main {
+		position: relative;
 	}
 }
 
@@ -115,16 +125,16 @@
 		}
 
 		.spacer:first-of-type {
-			// @include animate-card;
 			position: absolute;
 			top: em(215, 10);
-			right: 0;
+			right: em(15, 10);
+			height: em(39, 10);
 			width: em(300, 10);
-			height: em(173, 10);
 		}
 
 		#search,
-		.submit {
+		.submit-link,
+		.submit-text {
 			width: 30em;
 		}
 	}
