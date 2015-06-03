@@ -18,15 +18,32 @@
 	background-color: transparent;
 	height: 0;
 	width: 0;
-	margin-top: 188px;
+	margin-top: em(204, 10);
+	margin-right: 1.5em;
 
 	.spacer {
-		margin: 0 0 em(15, 10) 0;
+		margin: 0 0 em(15, 10);
+
+		&:first-of-type {
+			position: absolute;
+			top: em(215, 10);
+			right: 0;
+			height: 0;
+			width: 0;
+		}
 	}
 
-	.sidecontentbox, .titlebox, #moderation_tools {
-		font-size: 100%;
+	.sidecontentbox,
+	.titlebox,
+	#moderation_tools,
+	.spacer:first-of-type {
 		@include animate-card;
+	}
+
+	.sidecontentbox,
+	.titlebox,
+	#moderation_tools {
+		font-size: 100%;
 		margin: 0;
 	}
 
@@ -58,6 +75,18 @@
 		&:before {
 			opacity: 0;
 		}
+
+		// change width of submit buttons on sidebar hover
+		.submit-link,
+		.submit-text {
+			width: em(300, 10);
+		}
+
+		// change width of first card (containing search and submit) on sidebar hover
+		.spacer:first-of-type {
+			width: em(300, 10);
+			height: em(173, 10);
+		}
 	}
 
 	// search
@@ -65,13 +94,6 @@
 	
 	// submit buttons
 	@import "sidebar/submit";
-
-	#search,
-	.submit {
-		position: absolute;
-		right: 1.5em;
-		width: 33em;
-	}
 
 	// hide create subreddit button
 	.sidebox.create {
@@ -83,8 +105,6 @@
 	.side {
 		height: 100%;
 		width: em(330, 10);
-		margin-left: 0;
-		margin-right: 1.5em;
 
 		* {
 			opacity: 1;
@@ -94,9 +114,18 @@
 			display: none;
 		}
 
+		.spacer:first-of-type {
+			// @include animate-card;
+			position: absolute;
+			top: em(215, 10);
+			right: 0;
+			width: em(300, 10);
+			height: em(173, 10);
+		}
+
 		#search,
 		.submit {
-			width: 33em;
+			width: 30em;
 		}
 	}
 }
