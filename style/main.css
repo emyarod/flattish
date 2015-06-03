@@ -511,7 +511,6 @@ div.content {
     .side .spacer:first-of-type {
       position: absolute;
       top: 21.5em;
-      right: 0;
       height: 0;
       width: 0; }
   .side .spacer:first-of-type,
@@ -628,8 +627,20 @@ div.content {
     -o-transform: scale(0.85);
     transform: scale(0.85); }
   .side #search #searchexpando {
+    border: 0;
+    font-size: 100%;
     position: relative;
-    z-index: 999; }
+    right: 1.5em;
+    top: 1.6em;
+    width: 30em;
+    z-index: 999;
+    border-radius: 0.2em;
+    margin: 0 1.5em;
+    padding: 1.5em;
+    background-color: #fff;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 0.2em 0.2em;
+    margin: 0; }
   .side .submit-link,
   .side .submit-text {
     position: absolute;
