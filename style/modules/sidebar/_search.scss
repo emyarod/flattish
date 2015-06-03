@@ -69,8 +69,17 @@
 		}
 	}
 
+	// style searchexpando
 	#searchexpando {
+		border: 0;
+		font-size: 100%;
 		position: relative;
+		right: em(15, 10);
+		top: em(16, 10);
+		width: em(300, 10);
 		z-index: 999;
+		@include card;
+		border-radius: 0 0 0.2em 0.2em;
+		margin: 0;
 	}
 }
