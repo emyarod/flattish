@@ -513,40 +513,6 @@ div.content {
       top: 21.5em;
       height: 0;
       width: 0; }
-  .side .spacer:first-of-type,
-  .side #ad_sponsorship,
-  .side .titlebox,
-  .side #moderation_tools,
-  .side #ad_main,
-  .side .sidecontentbox {
-    border-radius: 0.2em;
-    padding: 1.5em;
-    background-color: #fff;
-    -webkit-animation: depthup 0.75s ease;
-    -moz-animation: depthup 0.75s ease;
-    -ms-animation: depthup 0.75s ease;
-    -o-animation: depthup 0.75s ease;
-    animation: depthup 0.75s ease;
-    -webkit-animation-iteration-count: 1;
-    -moz-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
-    font-size: 100%; }
-@-webkit-keyframes depthup {
-  from {
-    box-shadow: none; }
-  to {
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-@-moz-keyframes depthup {
-  from {
-    box-shadow: none; }
-  to {
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-@keyframes depthup {
-  from {
-    box-shadow: none; }
-  to {
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side:before {
     content: "";
     display: block;
@@ -576,6 +542,40 @@ div.content {
     .side:hover .spacer:first-of-type {
       height: 3.9em;
       width: 30em; }
+  .side .spacer:first-of-type,
+  .side #ad_sponsorship,
+  .side .titlebox,
+  .side #moderation_tools,
+  .side #ad_main,
+  .side .sidecontentbox {
+    font-size: 100%;
+    border-radius: 0.2em;
+    padding: 1.5em;
+    background-color: #fff;
+    -webkit-animation: depthup 0.75s ease;
+    -moz-animation: depthup 0.75s ease;
+    -ms-animation: depthup 0.75s ease;
+    -o-animation: depthup 0.75s ease;
+    animation: depthup 0.75s ease;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+@-webkit-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@-moz-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side #search input[type="text"] {
     color: rgba(0, 0, 0, 0.87);
     font-family: "Arial", sans-serif;
