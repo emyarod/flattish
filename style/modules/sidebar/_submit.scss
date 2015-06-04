@@ -48,11 +48,21 @@
 }
 
 .submit-link {
-	// 200 + 15 + 15 + 39 + 15 + 15 + 1
-	top: em(300, 10);
+	// 200 + 15 + (15 + 39 + 15) + 15 + 1 + 15
+	top: em(315, 10);
+
+	&:before {
+		content: "";
+		height: em(119, 10);
+		position: absolute;
+		left: em(-15, 10);
+		top: em(-15, 10);
+		width: em(300, 10);
+		@include animate-card;
+	}
 }
 
 .submit-text {
-	// 300 + 52 + 15
-	top: em(367, 10);
+	// 300 + 15 + 52 + 15
+	top: em(382, 10);
 }
