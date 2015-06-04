@@ -1,6 +1,7 @@
 @import "../components/cards.scss";
 
 div.content {
+	margin: 0 em(15, 10);
 	@include animate-card;
 }
 
