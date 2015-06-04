@@ -458,8 +458,8 @@
       #header-bottom-left .tabmenu li a:after {
         display: none; } }
 div.content {
-  border-radius: 0.2em;
   margin: 0 1.5em;
+  border-radius: 0.2em;
   padding: 1.5em;
   background-color: #fff;
   -webkit-animation: depthup 0.75s ease;
@@ -504,8 +504,8 @@ div.content {
   background-color: transparent;
   height: 0;
   width: 0;
-  margin-top: 20.4em;
-  margin-right: 1.5em; }
+  margin: 0 1.5em 0 0;
+  padding-top: 23.5em; }
   .side .spacer {
     margin: 0 0 1.5em; }
     .side .spacer:first-of-type {
@@ -520,7 +520,6 @@ div.content {
   .side #ad_main,
   .side .sidecontentbox {
     border-radius: 0.2em;
-    margin: 0 1.5em;
     padding: 1.5em;
     background-color: #fff;
     -webkit-animation: depthup 0.75s ease;
@@ -532,8 +531,7 @@ div.content {
     -moz-animation-iteration-count: 1;
     animation-iteration-count: 1;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
-    font-size: 100%;
-    margin: 0; }
+    font-size: 100%; }
 @-webkit-keyframes depthup {
   from {
     box-shadow: none; }
@@ -635,7 +633,6 @@ div.content {
     width: 30em;
     z-index: 999;
     border-radius: 0.2em;
-    margin: 0 1.5em;
     padding: 1.5em;
     background-color: #fff;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
@@ -686,16 +683,49 @@ div.content {
     .side .submit-text .nub {
       display: none; }
   .side .submit-link {
-    top: 30em; }
+    top: 31.5em; }
+    .side .submit-link:before {
+      content: "";
+      height: 11.9em;
+      position: absolute;
+      left: -1.5em;
+      top: -1.5em;
+      width: 30em;
+      border-radius: 0.2em;
+      padding: 1.5em;
+      background-color: #fff;
+      -webkit-animation: depthup 0.75s ease;
+      -moz-animation: depthup 0.75s ease;
+      -ms-animation: depthup 0.75s ease;
+      -o-animation: depthup 0.75s ease;
+      animation: depthup 0.75s ease;
+      -webkit-animation-iteration-count: 1;
+      -moz-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+@-webkit-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@-moz-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side .submit-text {
-    top: 36.7em; }
+    top: 38.2em; }
   .side .sidebox.create,
   .side .account-activity-box {
     display: none; }
   .side #login_login-main {
     border: 0;
     border-radius: 0.2em;
-    margin: 0 1.5em;
     padding: 1.5em;
     background-color: #fff;
     -webkit-animation: depthup 0.75s ease;
