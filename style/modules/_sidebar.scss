@@ -26,26 +26,9 @@
 		&:first-of-type {
 			position: absolute;
 			top: em(215, 10);
-			// right: 0;
 			height: 0;
 			width: 0;
 		}
-	}
-
-	.spacer:first-of-type,
-	#ad_sponsorship,
-	.titlebox,
-	#moderation_tools,
-	#ad_main,
-	.sidecontentbox {
-		@include animate-card;
-		font-size: 100%;
-		// margin: 0;
-	}
-
-	.titlebox,
-	#moderation_tools,
-	.sidecontentbox {
 	}
 
 	// kebab menu
@@ -88,6 +71,17 @@
 			height: em(39, 10);
 			width: em(300, 10);
 		}
+	}
+
+	// place cards beneath sidebar boxes
+	.spacer:first-of-type,
+	#ad_sponsorship,
+	.titlebox,
+	#moderation_tools,
+	#ad_main,
+	.sidecontentbox {
+		font-size: 100%;
+		@include animate-card;
 	}
 
 	// search
