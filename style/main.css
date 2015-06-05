@@ -336,7 +336,7 @@
         text-decoration: none; }
   #header-bottom-left .tabmenu li.selected a {
     border-width: 0 0 0.125em;
-    border-bottom-color: transparent; }
+    border-bottom-color: #448aff; }
   #header-bottom-left .tabmenu li {
     height: 3em;
     margin: 0; }
