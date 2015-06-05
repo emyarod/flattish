@@ -63,7 +63,7 @@
       padding: 0;
       text-indent: -999em;
       position: relative; }
-      #sr-header-area .dropdown.srdrop .selected, #sr-header-area .dropdown.srdrop .selected:before, #sr-header-area .dropdown.srdrop .selected:after {
+      #sr-header-area .dropdown.srrop .selected, #sr-header-area .dropdown.srdrop .selected:before, #sr-header-area .dropdown.srdrop .selected:after {
         display: block;
         width: 2em;
         height: 0.2em;
