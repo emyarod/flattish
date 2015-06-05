@@ -14,7 +14,7 @@
 
     li.selected a {
       @include border-width(0 0 em(2, 16) 0);
-      @include border-color(null null transparent null);
+      @include border-color(null null $accent null);
     }
 
     li {
