@@ -1,13 +1,13 @@
 .submit-link,
 .submit-text {
 	position: absolute;
-	right: 3em;
+	// right: 3em;
 	width: 0;
 
 	.morelink {
 		background: none #f0f0f0;
 		border: 0;
-		border-bottom: 4px solid transparent;
+		// border-bottom: 4px solid transparent;
 		border-radius: em(2, 13);
 		height: em(48, 15);
 		box-shadow: 0;
@@ -53,16 +53,23 @@
 
 	&:before {
 		content: "";
-		height: em(119, 10);
+		height: em(52, 10);
 		position: absolute;
-		left: em(-15, 10);
+		// left: em(-15, 10);
+		// left: em(-180, 10);
 		top: em(-15, 10);
 		width: em(300, 10);
 		@include animate-card;
+	}
+
+	.morelink {
+		left: em(15, 15);
 	}
 }
 
 .submit-text {
 	// 300 + 15 + 52 + 15
-	top: em(382, 10);
+	// top: em(382, 10);
+	top: em(315, 10);
+	right: 3em;
 }
