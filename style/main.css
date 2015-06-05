@@ -538,7 +538,7 @@ div.content {
       opacity: 0; }
     .side:hover .submit-link,
     .side:hover .submit-text {
-      width: 30em; }
+      width: 13.5em; }
     .side:hover .spacer:first-of-type {
       height: 3.9em;
       width: 30em; }
@@ -641,7 +641,6 @@ div.content {
   .side .submit-link,
   .side .submit-text {
     position: absolute;
-    right: 3em;
     width: 0; }
     .side .submit-link .morelink,
     .side .submit-text .morelink {
@@ -688,7 +687,6 @@ div.content {
       content: "";
       height: 11.9em;
       position: absolute;
-      left: -1.5em;
       top: -1.5em;
       width: 30em;
       border-radius: 0.2em;
@@ -719,7 +717,8 @@ div.content {
   to {
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side .submit-text {
-    top: 38.2em; }
+    top: 38.2em;
+    right: 3em; }
   .side .sidebox.create,
   .side .account-activity-box {
     display: none; }
@@ -770,10 +769,11 @@ div.content {
       right: 1.5em;
       height: 3.9em;
       width: 30em; }
-    .side #search,
+    .side #search {
+      width: 30em; }
     .side .submit-link,
     .side .submit-text {
-      width: 30em; } }
+      width: 13.5em; } }
 * {
   font-family: "Arial", sans-serif; }
 
