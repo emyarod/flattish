@@ -18,7 +18,7 @@
 	height: 0;
 	width: 0;
 	margin: 0 em(15, 10) 0 0;
-	padding-top: em(235, 10);
+	padding-top: em(169, 10); // 69 + 
 
 	.spacer {
 		margin: 0 0 em(15, 10);
@@ -63,7 +63,7 @@
 		// change width of submit buttons on sidebar hover
 		.submit-link,
 		.submit-text {
-			width: em(300, 10);
+			width: em(143, 10);
 		}
 
 		// change width of first card (containing search and submit) on sidebar hover
@@ -126,10 +126,13 @@
 			width: em(300, 10);
 		}
 
-		#search,
+		#search {
+			width: 30em;
+		}
+
 		.submit-link,
 		.submit-text {
-			width: 30em;
+			width: em(143, 10);
 		}
 	}
 }
