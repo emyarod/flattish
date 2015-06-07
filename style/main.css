@@ -639,7 +639,8 @@ div.content {
     border-radius: 0 0 0.2em 0.2em;
     margin: 0; }
     .side #search #searchexpando label {
-      font-size: 13px; }
+      font-size: 1.3em;
+      text-transform: lowercase; }
   .side .submit-link,
   .side .submit-text {
     position: absolute;
