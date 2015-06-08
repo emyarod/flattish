@@ -630,6 +630,7 @@ div.content {
     position: relative;
     right: 1.5em;
     top: 1.6em;
+    text-align: center;
     width: 30em;
     z-index: 999;
     border-radius: 0.2em;
@@ -641,6 +642,12 @@ div.content {
     .side #search #searchexpando label {
       font-size: 1.3em;
       text-transform: lowercase; }
+    .side #search #searchexpando input[type="checkbox"] {
+      color: #f00; }
+      .side #search #searchexpando input[type="checkbox"]:checked {
+        color: #0f0; }
+    .side #search #searchexpando p {
+      margin-bottom: 0; }
   .side .submit-link,
   .side .submit-text {
     position: absolute;
