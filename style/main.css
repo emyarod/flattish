@@ -293,9 +293,8 @@
     top: 16.5em; } }
 #header-bottom-left {
   font-size: 1.6em;
-  height: 3em;
   position: absolute;
-  top: 9.5em; }
+  top: 9.1875em; }
   #header-bottom-left #header-img {
     background: url(%%snoo-color%%) no-repeat;
     height: 3em;
@@ -310,18 +309,12 @@
   #header-bottom-left .pagename,
   #header-bottom-left .tabmenu {
     font-size: inherit;
-    height: 3em;
-    line-height: 3em;
     margin: 0; }
   #header-bottom-left .pagename {
-    padding: 0.90625em 1em;
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s; }
+    font-size: 0; }
     #header-bottom-left .pagename a {
       color: rgba(0, 0, 0, 0.54);
+      font-size: 16px;
       font-variant: normal;
       text-transform: lowercase;
       -webkit-transition: all 0.5s ease 0s;
@@ -427,32 +420,14 @@
     #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
       display: none; } }
 @media (min-width: 48em) {
-  #header-bottom-left {
-    left: 0; }
-    #header-bottom-left #header-img {
-      padding-right: 6.9375em; }
-      #header-bottom-left #header-img:after {
-        color: rgba(0, 0, 0, 0.54);
-        content: "reddit";
-        font-weight: bold;
-        left: 3.1875em;
-        padding: 0.875em 0;
-        position: absolute;
-        text-indent: 0;
-        margin-right: 1em;
-        -webkit-transition: all 0.5s ease 0s;
-        -moz-transition: all 0.5s ease 0s;
-        -ms-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s; }
-      #header-bottom-left #header-img:hover:after {
-        color: rgba(0, 0, 0, 0.87); }
-    #header-bottom-left #header-img-a:after {
+  #header-bottom-left #header-img {
+    padding-right: 6.9375em; }
+    #header-bottom-left #header-img:after {
       color: rgba(0, 0, 0, 0.54);
       content: "reddit";
       font-weight: bold;
       left: 3.1875em;
-      padding: 0.875em 0;
+      padding: 1em 0;
       position: absolute;
       text-indent: 0;
       margin-right: 1em;
@@ -461,16 +436,32 @@
       -ms-transition: all 0.5s ease 0s;
       -o-transition: all 0.5s ease 0s;
       transition: all 0.5s ease 0s; }
-    #header-bottom-left #header-img-a:hover:after {
+    #header-bottom-left #header-img:hover:after {
       color: rgba(0, 0, 0, 0.87); }
-    #header-bottom-left .tabmenu li:hover a {
-      color: rgba(0, 0, 0, 0.87);
-      border-bottom: 0.125em solid #448aff; }
-    #header-bottom-left .tabmenu li a {
-      color: rgba(0, 0, 0, 0.54);
-      font-size: 1em; }
-      #header-bottom-left .tabmenu li a:after {
-        display: none; } }
+  #header-bottom-left #header-img-a:after {
+    color: rgba(0, 0, 0, 0.54);
+    content: "reddit";
+    font-weight: bold;
+    left: 3.1875em;
+    padding: 1em 0;
+    position: absolute;
+    text-indent: 0;
+    margin-right: 1em;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
+  #header-bottom-left #header-img-a:hover:after {
+    color: rgba(0, 0, 0, 0.87); }
+  #header-bottom-left .tabmenu li:hover a {
+    color: rgba(0, 0, 0, 0.87);
+    border-bottom: 0.125em solid #448aff; }
+  #header-bottom-left .tabmenu li a {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1em; }
+    #header-bottom-left .tabmenu li a:after {
+      display: none; } }
 div.content {
   margin: 0 1.5em;
   border-radius: 0.2em;
