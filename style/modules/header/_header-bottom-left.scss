@@ -1,6 +1,18 @@
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
 
+@mixin reddit {
+  color: $light-secondary-text;
+  content: "reddit";
+  font-weight: bold;
+  left: em(51, 16);
+  padding: em(16, 16) 0;
+  position: absolute;
+  text-indent: 0;
+  margin-right: 1em;
+  @include transition;
+}
+
 @mixin tabs {
   background-color: transparent;
   border-bottom: em(2, 16) solid transparent;
@@ -99,9 +111,8 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   font-size: em(16, 10);
-  height: 3em;
-  position: relative;
-  top: em(121, 16); // 121px
+  position: absolute;
+  top: em(147, 16); // 121px
 
   // reduces reddit.com header to just snoo image
   #header-img {
@@ -117,22 +128,27 @@
   .pagename,
   .tabmenu {
     font-size: inherit;
-    height: 3em;
-    left: em(-4, 16);
-    line-height: 3em;
+    // height: 3em;
+    // left: em(-4, 16);
+    // line-height: 3em;
     margin: 0;
-    position: relative;
+    // position: relative;
   }
 
   .pagename {
-    padding: em(14.5, 16) 1em;
-    @include transition;
+    font-size: 0;
 
     a {
       color: $light-secondary-text;
+      font-size: 16px;
       font-variant: normal;
       text-transform: lowercase;
       @include transition;
+      // padding: em(14.5, 16) 1em;
+      // position: relative;
+      // display: inline-block;
+      // height: 3em;
+      // line-height: 3em;
 
       &:hover {
         color: $light-text;
@@ -189,23 +205,24 @@
 
 @media (min-width: $screen-sm-min) {
   #header-bottom-left {
-    left: 0;
+    // left: 0;
 
     #header-img {
       // makes space for "reddit" text
       padding-right: em(111, 16);
 
       &:after {
-        color: $light-secondary-text;
-        content: "reddit";
-        font-weight: bold;
-        left: em(51, 16);
-        padding: em(14, 16) 0;
-        position: absolute;
-        text-indent: 0;
-        margin-right: 1em;
-        @include transition;
+        @include reddit;
+      }
 
+      &:hover:after {
+        color: $light-text;
+      }
+    }
+
+    #header-img-a {
+      &:after {
+        @include reddit;
       }
 
       &:hover:after {
