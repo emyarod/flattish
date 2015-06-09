@@ -76,6 +76,7 @@
 		position: relative;
 		right: em(15, 10);
 		top: em(16, 10);
+		text-align: center;
 		width: em(300, 10);
 		z-index: 999;
 		@include card;
@@ -85,6 +86,18 @@
 		label {
 			font-size: 1.3em;
 			text-transform: lowercase;
+		}
+
+		input[type="checkbox"] {
+			color: #f00;
+
+			&:checked {
+				color: #0f0;
+			}
+		}
+
+		p {
+			margin-bottom: 0;
 		}
 	}
 }
