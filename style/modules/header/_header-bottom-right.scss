@@ -106,7 +106,7 @@
 .res #header-bottom-right,
 #header-bottom-right {
   margin-right: em(16, 10);
-  top: em(135, 10);
+  top: em(104, 10);
 }
 
 @media (min-width: $screen-md-min) {
@@ -114,6 +114,6 @@
   .res #header-bottom-right,
   #header-bottom-right {
     margin-right: em(16, 10);
-    top: em(165, 10);
+    top: em(161, 10);
   }
 }
