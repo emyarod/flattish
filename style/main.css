@@ -657,6 +657,18 @@ div.content {
       margin-bottom: 0.38462em;
       position: relative;
       top: 0.38462em; }
+    .side #searchexpando select {
+      background: transparent;
+      border: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none; }
+    .side #searchexpando label:not(:first-of-type) {
+      background: url("%%dropdown%%") no-repeat right;
+      height: 19px;
+      width: 19px; }
   .side #moresearchinfo {
     border-color: #448aff;
     margin-top: 1em; }
