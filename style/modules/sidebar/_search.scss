@@ -89,19 +89,25 @@
 		text-transform: lowercase;
 	}
 
-	// input[type="checkbox"] {
-	// 	color: #f00;
-
-	// 	&:checked {
-	// 		color: #0f0;
-	// 	}
-	// }
-
 	p {
 		font-size: 130%;
 		margin-bottom: em(5, 13);
 		position: relative;
 		top: em(5, 13);
+	}
+
+	// dropdown menus
+	select {
+		background: transparent;
+		border: 0;
+		@include appearance(none);
+	}
+
+	label:not(:first-of-type) {
+		background: url("%%dropdown%%") no-repeat right;
+		height: 19px;
+		width: 19px;
+		// overflow: hidden;
 	}
 }
 
