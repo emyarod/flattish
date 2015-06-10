@@ -499,7 +499,8 @@ div.content {
   div.content {
     max-width: calc(100% - 40.6em); } }
 .side,
-.side *:not(#searchexpando) {
+.side:not(#searchexpando),
+.side:not(#search_hidemore) {
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
@@ -633,7 +634,7 @@ div.content {
     -ms-transform: scale(0.85);
     -o-transform: scale(0.85);
     transform: scale(0.85); }
-  .side #search #searchexpando {
+  .side #searchexpando {
     border: 0;
     font-size: 100%;
     position: relative;
@@ -648,15 +649,17 @@ div.content {
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
     border-radius: 0 0 0.2em 0.2em;
     margin: 0; }
-    .side #search #searchexpando label {
+    .side #searchexpando label {
       font-size: 1.3em;
       text-transform: lowercase; }
-    .side #search #searchexpando input[type="checkbox"] {
-      color: #f00; }
-      .side #search #searchexpando input[type="checkbox"]:checked {
-        color: #0f0; }
-    .side #search #searchexpando p {
-      margin-bottom: 0; }
+    .side #searchexpando p {
+      font-size: 130%;
+      margin-bottom: 0.38462em;
+      position: relative;
+      top: 0.38462em; }
+  .side #moresearchinfo {
+    border-color: #448aff;
+    margin-top: 1em; }
   .side .submit-link,
   .side .submit-text {
     position: absolute;
