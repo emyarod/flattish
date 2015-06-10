@@ -4,7 +4,8 @@
 @import "../components/buttons";
 
 .side,
-.side *:not(#searchexpando) {
+.side:not(#searchexpando),
+.side:not(#search_hidemore) {
 	@include transition;
 }
 
