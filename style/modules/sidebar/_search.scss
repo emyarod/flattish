@@ -68,36 +68,44 @@
 	    @include transform(scale(0.85));
 		}
 	}
+}
 
-	// style searchexpando
-	#searchexpando {
-		border: 0;
-		font-size: 100%;
-		position: relative;
-		right: em(15, 10);
-		top: em(16, 10);
-		text-align: center;
-		width: em(300, 10);
-		z-index: 999;
-		@include card;
-		border-radius: 0 0 0.2em 0.2em;
-		margin: 0;
+// style searchexpando
+#searchexpando {
+	border: 0;
+	font-size: 100%;
+	position: relative;
+	right: em(15, 10);
+	top: em(16, 10);
+	text-align: center;
+	width: em(300, 10);
+	z-index: 999;
+	@include card;
+	border-radius: 0 0 0.2em 0.2em;
+	margin: 0;
 
-		label {
-			font-size: 1.3em;
-			text-transform: lowercase;
-		}
-
-		input[type="checkbox"] {
-			color: #f00;
-
-			&:checked {
-				color: #0f0;
-			}
-		}
-
-		p {
-			margin-bottom: 0;
-		}
+	label {
+		font-size: 1.3em;
+		text-transform: lowercase;
 	}
+
+	// input[type="checkbox"] {
+	// 	color: #f00;
+
+	// 	&:checked {
+	// 		color: #0f0;
+	// 	}
+	// }
+
+	p {
+		font-size: 130%;
+		margin-bottom: em(5, 13);
+		position: relative;
+		top: em(5, 13);
+	}
+}
+
+#moresearchinfo {
+	border-color: $accent;
+	margin-top: em(10, 10);
 }
