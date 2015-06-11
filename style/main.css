@@ -198,7 +198,7 @@
 #RESMainGearOverlay {
   background-color: transparent !important;
   border: 0 !important;
-  top: 16.3em !important; }
+  top: 15.9em !important; }
 
 #RESPrefsDropdown {
   background-color: #fff;
@@ -590,6 +590,7 @@ div.content {
     color: rgba(0, 0, 0, 0.87);
     font-family: "Arial", sans-serif;
     height: 3em;
+    outline: none;
     width: 100%;
     border-width: 0 0 0.07692em;
     border-bottom-color: rgba(0, 0, 0, 0.54); }
@@ -640,7 +641,6 @@ div.content {
     position: relative;
     right: 1.5em;
     top: 1.6em;
-    text-align: center;
     width: 30em;
     z-index: 999;
     border-radius: 0.2em;
@@ -659,16 +659,24 @@ div.content {
       top: 0.38462em; }
     .side #searchexpando select {
       background: transparent;
-      border: 0;
+      margin: 0 0 0 0.5em;
+      outline: none;
+      width: 6.7em;
+      border-bottom-color: rgba(0, 0, 0, 0.26);
+      border-width: 0 0 0.07692em;
       -webkit-appearance: none;
       -moz-appearance: none;
       -ms-appearance: none;
       -o-appearance: none;
       appearance: none; }
+      .side #searchexpando select option:hover {
+        background-color: #f5f5f5; }
     .side #searchexpando label:not(:first-of-type) {
       background: url("%%dropdown%%") no-repeat right;
-      height: 19px;
-      width: 19px; }
+      font-weight: bold;
+      margin: 0 0.38462em 0 0;
+      height: 1.46154em;
+      width: 1.46154em; }
   .side #moresearchinfo {
     border-color: #448aff;
     margin-top: 1em; }
@@ -787,6 +795,8 @@ div.content {
     box-shadow: none; }
   to {
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+  .side .titlebox a.hover {
+    font-size: 1em; }
   .side #ad_main {
     position: relative; }
 
