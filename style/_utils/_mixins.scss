@@ -19,15 +19,6 @@
   }
 }
 
-// autoprefixers
-@mixin transition($value: all 0.5s ease 0s) {
-  @include prefixer(transition, $value, webkit moz ms o spec);
-}
-
-@mixin animation($value) {
-  @include prefixer(animation, $value, webkit moz ms o spec);
-}
-
 // burger
 @mixin burger($width, $height, $gutter, $color, $border-radius) {
   $burger-height: $height !global;
