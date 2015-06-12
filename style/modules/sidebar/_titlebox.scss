@@ -1,0 +1,36 @@
+.titlebox {
+	// title
+	a.hover {
+		font-size: em(19, 19);
+	}
+
+	// subscribers
+	.subscribers {
+		.number {
+			font-weight: bold;
+			font-size: em(24, 10);
+		}
+
+		.word {
+			font-size: em(13, 10);
+		}
+	}
+
+	.users-online {
+		font-size: em(13, 10);
+
+		// hide online user green orb
+		&:before {
+			// display: none;
+			background: url(%%users%%) no-repeat;
+			height: 16px;
+			width: 16px;
+		}
+	}
+
+	.leavemoderator,
+	.toggle,
+	.tagline {
+		font-size: em(10, 10);
+	}
+}
