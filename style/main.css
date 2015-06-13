@@ -754,6 +754,8 @@ div.content {
   .side .titlebox .toggle,
   .side .titlebox .tagline {
     font-size: 1em; }
+  .side .titlebox .bottom {
+    font-size: 100%; }
   .side #ad_main {
     position: relative; }
 
