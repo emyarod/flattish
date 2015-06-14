@@ -469,7 +469,7 @@ div.content {
   height: 0;
   width: 0;
   margin: 0 1.5em 0 0;
-  padding-top: 16.9em; }
+  padding-top: 19.6em; }
   .side .spacer {
     margin: 0 0 1.5em; }
     .side .spacer:first-of-type {
@@ -631,61 +631,61 @@ div.content {
   .side .submit-link,
   .side .submit-text {
     position: absolute;
+    top: 31.5em;
     width: 0; }
     .side .submit-link .morelink,
     .side .submit-text .morelink {
-      background: none #f0f0f0;
+      background: none;
       border: 0;
-      border-radius: 0.15385em;
-      height: 3.2em;
-      box-shadow: 0;
-      -webkit-transition: all 0.25s ease;
-      -moz-transition: all 0.25s ease;
-      transition: all 0.25s ease; }
-      .side .submit-link .morelink:hover,
-      .side .submit-text .morelink:hover {
-        background-color: #f5f5f5;
-        border-bottom: 4px solid #ccc;
-        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15); }
-      .side .submit-link .morelink:active,
-      .side .submit-text .morelink:active {
-        top: 0px;
-        height: 3.33333em;
-        border: 1px solid #ccc;
-        background-color: #ededed;
-        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15); }
+      height: 0; }
       .side .submit-link .morelink a,
       .side .submit-text .morelink a {
+        background: none #f5f5f5;
+        border: 0;
         color: rgba(0, 0, 0, 0.54);
-        font-size: 1.06667em;
-        font-weight: normal;
+        font-weight: bold;
+        font-family: "Arial", sans-serif;
+        font-size: 0.93333em;
+        height: 0.93333em;
+        line-height: 0.93333em;
         letter-spacing: normal;
-        line-height: 3em;
-        text-transform: lowercase; }
+        padding: 0.7em 0.57em;
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: 0.1875em;
+        padding-right: 0;
+        padding-left: 0;
+        position: relative;
+        top: 35px;
+        -webkit-transition: all 0.15s ease-out 0s;
+        -moz-transition: all 0.15s ease-out 0s;
+        transition: all 0.15s ease-out 0s; }
         .side .submit-link .morelink a:hover,
         .side .submit-text .morelink a:hover {
-          color: inherit; }
+          box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
     .side .submit-link .nub,
     .side .submit-text .nub {
       display: none; }
-  .side .submit-link {
-    top: 31.5em; }
-    .side .submit-link:before {
-      content: "";
-      height: 5.2em;
-      position: absolute;
-      top: -1.5em;
-      width: 30em;
-      border-radius: 0.2em;
-      padding: 1.5em;
-      background-color: #fff;
-      -webkit-animation: depthup 0.75s ease;
-      -moz-animation: depthup 0.75s ease;
-      animation: depthup 0.75s ease;
-      -webkit-animation-iteration-count: 1;
-      -moz-animation-iteration-count: 1;
-      animation-iteration-count: 1;
-      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+  .side .submit-link:before {
+    color: rgba(0, 0, 0, 0.54);
+    content: "Submit a new:";
+    font-size: 1.4em;
+    font-weight: bold;
+    height: 5.35714em;
+    position: absolute;
+    top: -1.07143em;
+    width: 21.42857em;
+    border-radius: 0.14286em;
+    padding: 1.07143em;
+    background-color: #fff;
+    -webkit-animation: depthup 0.75s ease;
+    -moz-animation: depthup 0.75s ease;
+    animation: depthup 0.75s ease;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+    padding-top: 1.42857em; }
 @-webkit-keyframes depthup {
   from {
     box-shadow: none; }
@@ -701,10 +701,9 @@ div.content {
     box-shadow: none; }
   to {
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-    .side .submit-link .morelink {
-      left: 1em; }
+  .side .submit-link .morelink {
+    left: 1em; }
   .side .submit-text {
-    top: 31.5em;
     right: 3em; }
   .side .sidebox.create,
   .side .account-activity-box {
@@ -739,6 +738,9 @@ div.content {
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side .titlebox a.hover {
     font-size: 1em; }
+  .side .titlebox .subscribers,
+  .side .titlebox .users-online {
+    color: rgba(0, 0, 0, 0.87); }
   .side .titlebox .subscribers .number {
     font-weight: bold;
     font-size: 2.4em; }
@@ -748,14 +750,23 @@ div.content {
     font-size: 1.3em; }
     .side .titlebox .users-online:before {
       background: url(%%users%%) no-repeat;
-      height: 16px;
-      width: 16px; }
+      opacity: 0.87;
+      height: 1.23077em;
+      width: 1.23077em; }
   .side .titlebox .leavemoderator,
   .side .titlebox .toggle,
   .side .titlebox .tagline {
     font-size: 1em; }
   .side .titlebox .bottom {
-    font-size: 100%; }
+    font-size: 100%;
+    display: none; }
+  .side #moderation_tools,
+  .side .sidecontentbox {
+    position: relative; }
+  .side #moderation_tools {
+    top: 0.1em; }
+  .side .sidecontentbox {
+    top: 0.2em; }
   .side #ad_main {
     position: relative; }
 
