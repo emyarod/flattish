@@ -4,6 +4,18 @@
 		font-size: em(19, 19);
 	}
 
+	// subscribe and dashboard buttons
+	.fancy-toggle-button .add,
+	.fancy-toggle-button .remove,
+	.RESDashboardToggle {
+		// @include button($light-app-bar, $light-secondary-text, 10, 10);
+	}
+
+	.subscribers,
+	.users-online {
+		color: $light-text;
+	}
+
 	// subscribers
 	.subscribers {
 		.number {
@@ -19,12 +31,12 @@
 	.users-online {
 		font-size: em(13, 10);
 
-		// hide online user green orb
+		// replace online user green orb
 		&:before {
-			// display: none;
 			background: url(%%users%%) no-repeat;
-			height: 16px;
-			width: 16px;
+			opacity: 0.87;
+			height: em(16, 13);
+			width: em(16, 13);
 		}
 	}
 
@@ -36,5 +48,6 @@
 
 	.bottom {
 		font-size: 100%;
+		display: none;
 	}
 }
