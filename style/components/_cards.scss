@@ -1,16 +1,13 @@
-@import "../_utils/vars";
-@import "../_utils/mixins";
-
-@mixin card {
-	border-radius: em(2, 10);
-	padding: 1.5em;
+@mixin card($orig-font-size: 10) {
+	border-radius: em(2, $orig-font-size);
+	padding: em(15, $orig-font-size);
 	background-color: $light-cards;
 	@include drop-shadow(1);
 }
 
-@mixin animate-card {
-	border-radius: em(2, 10);
-	padding: 1.5em;
+@mixin animate-card($orig-font-size: 10) {
+	border-radius: em(2, $orig-font-size);
+	padding: em(15, $orig-font-size);
 	background-color: $light-cards;
 
 	@include keyframes(depthup) {
