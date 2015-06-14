@@ -19,7 +19,7 @@
 	height: 0;
 	width: 0;
 	margin: 0 em(15, 10) 0 0;
-	padding-top: em(169, 10); // 69 + 
+	padding-top: em(196, 10);
 
 	.spacer {
 		margin: 0 0 em(15, 10);
@@ -102,6 +102,9 @@
 
 	// titlebox
 	@import "sidebar/titlebox";
+
+	// sidecontentbox
+	@import "sidebar/sidecontentbox";
 
 	// advertisement
 	#ad_main {
