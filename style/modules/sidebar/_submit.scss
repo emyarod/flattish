@@ -1,42 +1,28 @@
 .submit-link,
 .submit-text {
 	position: absolute;
-	// right: 3em;
+	top: em(315, 10);
 	width: 0;
 
 	.morelink {
-		background: none #f0f0f0;
+		background: none;
 		border: 0;
-		// border-bottom: 4px solid transparent;
-		border-radius: em(2, 13);
-		height: em(48, 15);
-		box-shadow: 0;
-		@include transition(all 0.25s ease);
-
-		&:hover {
-			background-color: #f5f5f5;
-			border-bottom: 4px solid #ccc;
-			box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
-		}
-
-		&:active {
-			top: 0px;
-  		height: em(50, 15);
-  		border: 1px solid #ccc;
-  		background-color: #ededed;
-  		box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15);
-		}
+		height: 0;
 
 		a {
-			color: $light-icons;
-			font-size: em(16, 15);
-			font-weight: normal;
-			letter-spacing: normal;
-			line-height: 3em;
-			text-transform: lowercase;
+			@include button($light-app-bar, $light-icons, 14, 15);
+			border-radius: em(3, 16);
+			// padding: em(14, 15) 0;
+			@include padding(null 0);
+			position: relative;
+			top: 35px;
+			@include transition;
 
 			&:hover {
-				color: inherit;
+				@include drop-shadow(1);
+			}
+
+			&:active {
 			}
 		}
 	}
@@ -48,18 +34,18 @@
 }
 
 .submit-link {
-	// 200 + 15 + (15 + 39 + 15) + 15 + 1 + 15
-	top: em(315, 10);
 
 	&:before {
-		content: "";
-		height: em(52, 10);
+		color: $light-secondary-text;
+		content: "Submit a new:";
+		font-size: em(14, 10);
+		font-weight: bold;
+		height: em(75, 14);
 		position: absolute;
-		// left: em(-15, 10);
-		// left: em(-180, 10);
-		top: em(-15, 10);
-		width: em(300, 10);
-		@include animate-card;
+		top: em(-15, 14);
+		width: em(300, 14);
+		@include animate-card(14);
+		padding-top: em(20, 14);
 	}
 
 	.morelink {
@@ -68,8 +54,5 @@
 }
 
 .submit-text {
-	// 300 + 15 + 52 + 15
-	// top: em(382, 10);
-	top: em(315, 10);
 	right: 3em;
 }
