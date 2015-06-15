@@ -1,12 +1,12 @@
 @mixin button($background-color, $text-color, $desired-font-size, $orig-font-size) {
 	background: none $background-color;
 	border: 0;
+	border-radius: em(3, $desired-font-size);
 	color: $text-color;
 	font-weight: bold;
 	font-family: $font-stack;
 	font-size: em($desired-font-size, $orig-font-size);
 	height: em($desired-font-size, $orig-font-size);
-	line-height: em($desired-font-size, $orig-font-size);
 	letter-spacing: normal;
 	padding: 0.7em 0.57em;
 	text-align: center;
