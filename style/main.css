@@ -753,8 +753,8 @@ div.content {
     padding: 0.7em 0.57em;
     text-align: center;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.54);
     background: none #f5f5f5;
+    color: rgba(0, 0, 0, 0.54);
     line-height: 2.7em;
     margin-right: 0.5em;
     position: relative;
@@ -767,7 +767,8 @@ div.content {
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
   .side .titlebox .subscribers,
   .side .titlebox .users-online {
-    color: rgba(0, 0, 0, 0.87); }
+    color: rgba(0, 0, 0, 0.87);
+    display: block; }
   .side .titlebox .subscribers .number {
     font-weight: bold;
     font-size: 2.4em; }
