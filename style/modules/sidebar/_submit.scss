@@ -11,11 +11,11 @@
 
 		a {
 			@include button($light-app-bar, $light-icons, 14, 15);
-			border-radius: em(3, 16);
-			// padding: em(14, 15) 0;
-			@include padding(null 0);
+			line-height: 15px;
 			position: relative;
 			top: 35px;
+			// padding: em(14, 15) 0;
+			@include padding(null 0);
 			@include transition;
 
 			&:hover {
@@ -40,7 +40,7 @@
 		content: "Submit a new:";
 		font-size: em(14, 10);
 		font-weight: bold;
-		height: em(75, 14);
+		height: em(63, 14);
 		position: absolute;
 		top: em(-15, 14);
 		width: em(300, 14);
