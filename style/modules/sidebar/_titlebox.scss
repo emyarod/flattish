@@ -9,8 +9,8 @@
 	a.option,
 	.RESDashboardToggle {
 		@include button($light-app-bar, $light-secondary-text, 10, 10);
-		color: $light-secondary-text;
 		background: none $light-app-bar;
+		color: $light-secondary-text;
 		line-height: em(27, 10);
 		margin-right: em(5, 10);
 		position: relative;
@@ -25,6 +25,7 @@
 	.subscribers,
 	.users-online {
 		color: $light-text;
+		display: block;
 	}
 
 	// subscribers
