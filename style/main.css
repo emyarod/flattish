@@ -469,7 +469,7 @@ div.content {
   height: 0;
   width: 0;
   margin: 0 1.5em 0 0;
-  padding-top: 19.6em; }
+  padding-top: 18.4em; }
   .side .spacer {
     margin: 0 0 1.5em; }
     .side .spacer:first-of-type {
@@ -642,21 +642,21 @@ div.content {
       .side .submit-text .morelink a {
         background: none #f5f5f5;
         border: 0;
+        border-radius: 0.21429em;
         color: rgba(0, 0, 0, 0.54);
         font-weight: bold;
         font-family: "Arial", sans-serif;
         font-size: 0.93333em;
         height: 0.93333em;
-        line-height: 0.93333em;
         letter-spacing: normal;
         padding: 0.7em 0.57em;
         text-align: center;
         text-transform: uppercase;
-        border-radius: 0.1875em;
-        padding-right: 0;
-        padding-left: 0;
+        line-height: 15px;
         position: relative;
         top: 35px;
+        padding-right: 0;
+        padding-left: 0;
         -webkit-transition: all 0.15s ease-out 0s;
         -moz-transition: all 0.15s ease-out 0s;
         transition: all 0.15s ease-out 0s; }
@@ -671,7 +671,7 @@ div.content {
     content: "Submit a new:";
     font-size: 1.4em;
     font-weight: bold;
-    height: 5.35714em;
+    height: 4.5em;
     position: absolute;
     top: -1.07143em;
     width: 21.42857em;
@@ -737,7 +737,34 @@ div.content {
   to {
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   .side .titlebox a.hover {
+    color: rgba(0, 0, 0, 0.54);
     font-size: 1em; }
+  .side .titlebox a.option,
+  .side .titlebox .RESDashboardToggle {
+    background: none #f5f5f5;
+    border: 0;
+    border-radius: 0.3em;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    font-size: 1em;
+    height: 1em;
+    letter-spacing: normal;
+    padding: 0.7em 0.57em;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.54);
+    background: none #f5f5f5;
+    line-height: 2.7em;
+    margin-right: 0.5em;
+    position: relative;
+    top: 0.25em;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s; }
+    .side .titlebox a.option:hover,
+    .side .titlebox .RESDashboardToggle:hover {
+      box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
   .side .titlebox .subscribers,
   .side .titlebox .users-online {
     color: rgba(0, 0, 0, 0.87); }
@@ -763,6 +790,9 @@ div.content {
   .side #moderation_tools,
   .side .sidecontentbox {
     position: relative; }
+    .side #moderation_tools ul.content,
+    .side .sidecontentbox ul.content {
+      padding: 0; }
   .side #moderation_tools {
     top: 0.1em; }
   .side .sidecontentbox {
