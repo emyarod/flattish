@@ -1,14 +1,25 @@
 .titlebox {
 	// title
 	a.hover {
+		color: $light-secondary-text;
 		font-size: em(19, 19);
 	}
 
 	// subscribe and dashboard buttons
-	.fancy-toggle-button .add,
-	.fancy-toggle-button .remove,
+	a.option,
 	.RESDashboardToggle {
-		// @include button($light-app-bar, $light-secondary-text, 10, 10);
+		@include button($light-app-bar, $light-secondary-text, 10, 10);
+		color: $light-secondary-text;
+		background: none $light-app-bar;
+		line-height: em(27, 10);
+		margin-right: em(5, 10);
+		position: relative;
+		top: em(2.5, 10);
+		@include transition;
+
+		&:hover {
+			@include drop-shadow(1);
+		}
 	}
 
 	.subscribers,
