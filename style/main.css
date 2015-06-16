@@ -767,7 +767,7 @@ div.content {
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
   .side .titlebox .subscribers,
   .side .titlebox .users-online {
-    color: rgba(0, 0, 0, 0.87);
+    color: rgba(0, 0, 0, 0.54);
     display: block; }
   .side .titlebox .subscribers .number {
     font-weight: bold;
@@ -791,13 +791,26 @@ div.content {
   .side #moderation_tools,
   .side .sidecontentbox {
     position: relative; }
+    .side #moderation_tools .title,
+    .side .sidecontentbox .title {
+      margin-bottom: 1em; }
+      .side #moderation_tools .title h1,
+      .side .sidecontentbox .title h1 {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 1.4em;
+        font-weight: bold;
+        text-transform: lowercase; }
     .side #moderation_tools ul.content,
     .side .sidecontentbox ul.content {
+      border: 0;
       padding: 0; }
   .side #moderation_tools {
     top: 0.1em; }
   .side .sidecontentbox {
     top: 0.2em; }
+    .side .sidecontentbox .collapse-button {
+      border-radius: 0.3em;
+      line-height: 0.8em; }
   .side #ad_main {
     position: relative; }
 
