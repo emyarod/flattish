@@ -424,6 +424,15 @@
     font-size: 1em; }
     #header-bottom-left .tabmenu li a:after {
       display: none; } }
+.rank {
+  display: none; }
+
+.midcol {
+  margin-left: 0; }
+
+.thing {
+  padding: 0; }
+
 div.content {
   margin: 0 1.5em;
   border-radius: 0.2em;
