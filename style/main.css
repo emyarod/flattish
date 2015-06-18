@@ -428,10 +428,20 @@
   display: none; }
 
 .midcol {
+  margin-right: 1.15385em;
   margin-left: 0; }
 
 .thing {
   padding: 0; }
+  .thing .title {
+    color: #3f51b5; }
+    .thing .title:visited {
+      color: #9c27b0; }
+  .thing .domain,
+  .thing .domain a,
+  .thing .tagline,
+  .thing .entry .buttons li a {
+    color: rgba(0, 0, 0, 0.54); }
 
 div.content {
   margin: 0 1.5em;
