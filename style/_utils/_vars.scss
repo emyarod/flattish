@@ -63,5 +63,5 @@ $link-color-visited: get-color("purple", "500");
 
 $font-stack: "Arial", sans-serif;
 
-$upvote: #c60c30;
-$downvote: #063c6d;
+$upvote: get-color("deep-orange", "500");
+$downvote: get-color("blue", "500");
