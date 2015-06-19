@@ -3,12 +3,99 @@
 	display: none;
 }
 
-// vote arrow/score column
+// vote arrow/score column & thumbnail margin
 .midcol {
-	margin-left: 0;
+	@include margin(null em(15, 13) null 0);
+	width: 24px !important; // ;_; gotta override inline styling
 }
 
-// individual post listings
-.thing {
-	padding: 0;
+// also affects sidebar vote arrows
+.arrow {
+	// height: 12px;
+	height: 18px;
+	width: 24px;
+
+	&.upmod {
+		background: url(%%light-upvote-pressed%%) 0 no-repeat;
+	}
+
+	&.downmod {
+		background: url(%%light-downvote-pressed%%) 0 no-repeat;
+	}
+
+	&.up {
+		background: url(%%light-upvote%%) 0 no-repeat;
+		opacity: 0.26;
+	}
+
+	&.down {
+		background: url(%%light-downvote%%) 0 no-repeat;
+		opacity: 0.26;
+	}
+}
+
+// aligns score between new arrows
+#siteTable {
+	&>.likes .score,
+	&>.dislikes .score,
+	&>.link .score {
+		font-size: 14px;
+		position: relative;
+		// left: -1px;
+	}
+
+	// individual post listings
+	&>.thing {
+		@include padding(em(15, 10) 0 em(15, 10) 0);
+		// @include border-width(em(1, 10) null);
+		// @include border-style(solid null);
+		// @include border-color($light-app-bar);
+		margin: 0;
+
+		&:first-of-type {
+			padding-top: 0;
+			border-top: 0;
+		}
+
+		.title {
+			color: $link-color;
+
+			&:visited {
+				color: $link-color-visited;
+			}
+		}
+
+		.domain,
+		.domain a,
+		.tagline,
+		.entry .buttons li a {
+			color: $light-secondary-text;
+		}
+	}
+}
+
+.link .score {
+
+	&.likes {
+		color: $upvote;
+	}
+
+	&.dislikes {
+		color: $downvote;
+	}
+}
+
+.thumbnail {
+	font-size: inherit;
+	margin: 0 em(15, 10) 0 0;
+
+	&.self,
+	&.default {
+		@extend .thumbnail;
+	}
+
+	&.self {
+		background: url(%%light-thumbnail-self%%) 0 no-repeat;
+		opacity: 0.26;
+	}
 }
