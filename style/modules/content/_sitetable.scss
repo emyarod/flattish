@@ -86,16 +86,41 @@
 }
 
 .thumbnail {
+	border: em(1, 10) solid $light-hint-text;
+	border-radius: 50%;
 	font-size: inherit;
 	margin: 0 em(15, 10) 0 0;
+	max-height: em(70, 10);
+	@include transition;
+
+	&:hover {
+		border-color: $light-secondary-text;
+	}
+
+	img {
+		height: auto;
+		width: auto;
+		max-height: em(70, 10);
+	}
 
 	&.self,
 	&.default {
 		@extend .thumbnail;
+		border-color: $black;
+		height: em(70, 10);
+		width: em(70, 10);
+		opacity: 0.26;
+
+		&:hover {
+			opacity: 0.54;
+		}
 	}
 
 	&.self {
 		background: url(%%light-thumbnail-self%%) 0 no-repeat;
-		opacity: 0.26;
+	}
+
+	&.default {
+		background: url(%%light-thumbnail-default%%) 0 no-repeat;
 	}
 }
