@@ -471,11 +471,31 @@
   color: #2196f3; }
 
 .thumbnail, .thumbnail.self, .thumbnail.default {
+  border: 0.1em solid rgba(0, 0, 0, 0.26);
+  border-radius: 50%;
   font-size: inherit;
-  margin: 0 1.5em 0 0; }
-  .thumbnail.self {
-    background: url(%%light-thumbnail-self%%) 0 no-repeat;
+  margin: 0 1.5em 0 0;
+  max-height: 7em;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s; }
+  .thumbnail:hover {
+    border-color: rgba(0, 0, 0, 0.54); }
+  .thumbnail img, .thumbnail.self img, .thumbnail.default img {
+    height: auto;
+    width: auto;
+    max-height: 7em; }
+  .thumbnail.self, .thumbnail.default {
+    border-color: #000;
+    height: 7em;
+    width: 7em;
     opacity: 0.26; }
+    .thumbnail.self:hover, .thumbnail.default:hover {
+      opacity: 0.54; }
+  .thumbnail.self {
+    background: url(%%light-thumbnail-self%%) 0 no-repeat; }
+  .thumbnail.default {
+    background: url(%%light-thumbnail-default%%) 0 no-repeat; }
 
 div.content {
   margin: 0 1.5em;
