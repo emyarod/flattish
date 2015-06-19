@@ -41,7 +41,7 @@
 		width: 1em;
 		opacity: 0.54;
 		position: relative;
-		@include background(url("%%search%%") no-repeat);
+		background: url(%%search%%) no-repeat;
 
 		&:hover {
 			opacity: 0.87;
@@ -116,7 +116,7 @@
 
 	// dropdown menu labels
 	label:not(:first-of-type) {
-		background: url("%%dropdown%%") no-repeat right;
+		background: url(%%dropdown%%) no-repeat right;
 		font-weight: bold;
 		margin: 0 em(5, 13) 0 0;
 		height: em(19, 13);
