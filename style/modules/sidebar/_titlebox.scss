@@ -16,7 +16,7 @@
 		margin-right: em(5, 10);
 		position: relative;
 		top: em(2.5, 10);
-		@include transition;
+		@include transition-default;
 
 		&:hover {
 			@include drop-shadow(1);

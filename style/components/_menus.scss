@@ -23,7 +23,7 @@
 @mixin menu-items {
   color: $light-text;
   padding: 1em;
-  @include transition;
+  @include transition-default;
 
   &:hover { background-color: $light-app-bar; }
 }

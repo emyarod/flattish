@@ -16,5 +16,5 @@
 @mixin raised-button($background-color, $text-color) {
 	@include button($background-color, $text-color);
 	@include drop-shadow(1);
-	@include transition;
+	@include transition-default;
 }

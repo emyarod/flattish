@@ -10,7 +10,7 @@
   position: absolute;
   text-indent: 0;
   margin-right: 1em;
-  @include transition;
+  @include transition-default;
 }
 
 @mixin tabs {
@@ -43,7 +43,7 @@
       a {
         font-size: 0;
         @include tabs;
-        @include transition;
+        @include transition-default;
         
         // hides "rising", "controversial", "ads", and "gilded" tabs
         &[href$="/rising/"],
@@ -79,7 +79,7 @@
           &:after {
             font-size: initial;
             @include tabs;
-            @include transition;
+            @include transition-default;
           }
 
           &:hover:after {
@@ -95,7 +95,7 @@
           content: "vi";
           font-size: initial;
           @include tabs;
-          @include transition;
+          @include transition-default;
         }
 
         &:hover:after {
@@ -121,7 +121,7 @@
     width: 0;
     margin: 0;
     padding-right: em(60, 16);
-    @include transition;
+    @include transition-default;
   }
 
   // position pagename and tabmenu
@@ -141,7 +141,7 @@
       font-variant: normal;
       padding: em(20, 15) 1em;
       text-transform: lowercase;
-      @include transition;
+      @include transition-default;
 
       &:hover {
         color: $light-text;
@@ -180,7 +180,7 @@
           content: "vi";
           font-size: initial;
           @include tabs;
-          @include transition;
+          @include transition-default;
         }
 
         &:hover:after {

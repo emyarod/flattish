@@ -91,7 +91,7 @@
 	font-size: inherit;
 	margin: 0 em(15, 10) 0 0;
 	max-height: em(70, 10);
-	@include transition;
+	@include transition-default;
 
 	&:hover {
 		border-color: $light-secondary-text;

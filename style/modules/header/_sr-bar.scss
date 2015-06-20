@@ -9,7 +9,7 @@
   font-size: 100%; // 10px
   height: em(30, 10);
   line-height: 1em;
-  @include transition;
+  @include transition-default;
   
   // positions text
   .sr-list {
@@ -20,7 +20,7 @@
   // anchor opacity
   .sr-bar a {
     color: $light-secondary-text;
-    @include transition;
+    @include transition-default;
   }
   
   // subreddit link behavior when hovering over sr bar

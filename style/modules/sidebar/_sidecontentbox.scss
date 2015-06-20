@@ -32,4 +32,19 @@
 		border-radius: em(3, 10);
 		line-height: em(8, 10);
 	}
+
+	// recently viewed links
+	.gadget {
+
+		// add margin to vote arrows
+		.midcol {
+			margin-right: em(15, 13);
+		}
+
+		// align top edges of links
+		.reddit-entry {
+			position: relative;
+			top: em(4, 13);
+		}
+	}
 }

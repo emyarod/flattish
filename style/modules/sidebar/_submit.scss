@@ -16,7 +16,7 @@
 			top: 35px;
 			// padding: em(14, 15) 0;
 			@include padding(null 0);
-			@include transition;
+			@include transition-default;
 
 			&:hover {
 				@include drop-shadow(1);

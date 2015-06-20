@@ -11,7 +11,7 @@
   position: relative;
   top: em(-3, 10);
   text-indent: em(-9999, 10);
-  @include transition;
+  @include transition-default;
 
   &:hover {
     opacity: 0.87;
@@ -29,7 +29,7 @@
 
     span a {
       color: $light-secondary-text;
-      @include transition;
+      @include transition-default;
     }
 
     &:hover span a {
@@ -57,7 +57,7 @@
     position: relative;
     right: em(1, 10);
     top: em(1, 10);
-    @include transition;
+    @include transition-default;
 
     &:hover {
       opacity: 1;
@@ -81,7 +81,7 @@
         font-style: normal;
         padding: 0;
         @include menu-items;
-        @include transition;
+        @include transition-default;
 
         a {
           color: $light-text;
