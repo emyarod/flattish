@@ -19,6 +19,10 @@
   }
 }
 
+@mixin transition-default($value: all 0.5s ease 0s) {
+  @include transition($value);
+}
+
 // burger
 @mixin burger($width, $height, $gutter, $color, $border-radius) {
   $burger-height: $height !global;
@@ -30,7 +34,7 @@
     width: $width;
     height: $height;
     background-color: $color;
-    @include transition;
+    @include transition-default;
     @if $border-radius != 0 {
       border-radius: $border-radius;
     }
