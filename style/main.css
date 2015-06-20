@@ -34,17 +34,17 @@
   font-size: 100%;
   height: 3em;
   line-height: 1em;
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
   #sr-header-area .sr-list {
     margin: 1em 0;
     padding: 0; }
   #sr-header-area .sr-bar a {
     color: rgba(0, 0, 0, 0.54);
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   #sr-header-area:hover .sr-bar a {
     color: rgba(0, 0, 0, 0.87); }
   #sr-header-area .dropdown.srdrop {
@@ -62,9 +62,9 @@
         width: 2em;
         height: 0.2em;
         background-color: rgba(0, 0, 0, 0.26);
-        -webkit-transition: all 0.15s ease-out 0s;
-        -moz-transition: all 0.15s ease-out 0s;
-        transition: all 0.15s ease-out 0s; }
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
       #sr-header-area .dropdown.srdrop .selected:before, #sr-header-area .dropdown.srdrop .selected:after {
         position: absolute;
         content: ""; }
@@ -117,9 +117,9 @@
   #sr-header-area .drop-choices a.choice {
     color: rgba(0, 0, 0, 0.87);
     padding: 1em;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
     #sr-header-area .drop-choices a.choice:hover {
       background-color: #f5f5f5; }
   #sr-header-area #sr-more-link {
@@ -136,9 +136,9 @@
   .res #header-bottom-right span a,
   #header-bottom-right span a {
     color: rgba(0, 0, 0, 0.54);
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   .res #header-bottom-right:hover span a,
   #header-bottom-right:hover span a {
     color: rgba(0, 0, 0, 0.87); }
@@ -159,9 +159,9 @@
   position: relative;
   top: -0.3em;
   text-indent: -999.9em;
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
   .pref-lang.choice:hover {
     opacity: 0.87; }
 
@@ -171,9 +171,9 @@
   position: relative;
   right: 0.1em;
   top: 0.1em;
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
   .gearIcon:hover {
     opacity: 1; }
 
@@ -226,12 +226,12 @@
     padding: 0;
     color: rgba(0, 0, 0, 0.87);
     padding: 1em;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
     #RESPrefsDropdown #RESDropdownOptions li:hover {
       background-color: #f5f5f5; }
     #RESPrefsDropdown #RESDropdownOptions li a {
@@ -249,9 +249,9 @@
   position: relative;
   top: -0.3em;
   text-indent: -999.9em;
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
   .logout a:hover {
     opacity: 0.87; }
 
@@ -276,9 +276,9 @@
     width: 0;
     margin: 0;
     padding-right: 3.75em;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   #header-bottom-left .pagename a,
   #header-bottom-left .tabmenu {
     position: relative;
@@ -291,9 +291,9 @@
       font-variant: normal;
       padding: 1.33333em 1em;
       text-transform: lowercase;
-      -webkit-transition: all 0.15s ease-out 0s;
-      -moz-transition: all 0.15s ease-out 0s;
-      transition: all 0.15s ease-out 0s; }
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s; }
       #header-bottom-left .pagename a:hover {
         color: rgba(0, 0, 0, 0.87);
         text-decoration: none; }
@@ -316,9 +316,9 @@
       color: rgba(0, 0, 0, 0.54);
       font-weight: normal;
       padding: 0 1em 1.1875em;
-      -webkit-transition: all 0.15s ease-out 0s;
-      -moz-transition: all 0.15s ease-out 0s;
-      transition: all 0.15s ease-out 0s; }
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s; }
       #header-bottom-left .tabmenu li a[href$="/rising/"], #header-bottom-left .tabmenu li a[href$="/controversial/"], #header-bottom-left .tabmenu li a[href$="/ads/"], #header-bottom-left .tabmenu li a[href$="/gilded/"] {
         display: none; }
       #header-bottom-left .tabmenu li a[href$="/flattish/"]:after {
@@ -336,9 +336,9 @@
         color: rgba(0, 0, 0, 0.54);
         font-weight: normal;
         padding: 0 1em 1.1875em;
-        -webkit-transition: all 0.15s ease-out 0s;
-        -moz-transition: all 0.15s ease-out 0s;
-        transition: all 0.15s ease-out 0s; }
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
       #header-bottom-left .tabmenu li a[href$="/flattish/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/new/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/top/"]:hover:after, #header-bottom-left .tabmenu li a[href$="/wiki/"]:hover:after {
         color: rgba(0, 0, 0, 0.87);
         border-bottom: 0.125em solid #448aff; }
@@ -350,9 +350,9 @@
       color: rgba(0, 0, 0, 0.54);
       font-weight: normal;
       padding: 0 1em 1.1875em;
-      -webkit-transition: all 0.15s ease-out 0s;
-      -moz-transition: all 0.15s ease-out 0s;
-      transition: all 0.15s ease-out 0s; }
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s; }
     #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
       color: rgba(0, 0, 0, 0.87);
       border-bottom: 0.125em solid #448aff; }
@@ -369,9 +369,9 @@
     color: rgba(0, 0, 0, 0.54);
     font-weight: normal;
     padding: 0 1em 1.1875em;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   #header-bottom-left .tabmenu li a#viewImagesButton:hover:after {
     color: rgba(0, 0, 0, 0.87); }
   #header-bottom-left .tabmenu li a[href$="/flattish/"],
@@ -397,9 +397,9 @@
       position: absolute;
       text-indent: 0;
       margin-right: 1em;
-      -webkit-transition: all 0.15s ease-out 0s;
-      -moz-transition: all 0.15s ease-out 0s;
-      transition: all 0.15s ease-out 0s; }
+      -webkit-transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s; }
     #header-bottom-left #header-img:hover:after {
       color: rgba(0, 0, 0, 0.87); }
   #header-bottom-left #header-img-a:after {
@@ -411,9 +411,9 @@
     position: absolute;
     text-indent: 0;
     margin-right: 1em;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   #header-bottom-left #header-img-a:hover:after {
     color: rgba(0, 0, 0, 0.87); }
   #header-bottom-left .tabmenu li:hover a {
@@ -476,9 +476,9 @@
   font-size: inherit;
   margin: 0 1.5em 0 0;
   max-height: 7em;
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
   .thumbnail:hover {
     border-color: rgba(0, 0, 0, 0.54); }
   .thumbnail img, .thumbnail.self img, .thumbnail.default img {
@@ -530,14 +530,15 @@ div.content {
 .side,
 .side:not(#searchexpando),
 .side:not(#search_hidemore) {
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
 
 .side * {
   opacity: 0; }
 
 .side {
+  float: right;
   background-color: transparent;
   height: 0;
   width: 0;
@@ -560,14 +561,14 @@ div.content {
     right: 0;
     top: 21.5em;
     background: url(%%kebab%%) no-repeat;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   .side:hover {
     height: 100%;
     width: 33em;
     margin-left: 0; }
-    .side:hover * {
+    .side:hover *:not(.arrow) {
       opacity: 1; }
     .side:hover:before {
       opacity: 0; }
@@ -729,9 +730,9 @@ div.content {
         top: 35px;
         padding-right: 0;
         padding-left: 0;
-        -webkit-transition: all 0.15s ease-out 0s;
-        -moz-transition: all 0.15s ease-out 0s;
-        transition: all 0.15s ease-out 0s; }
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s; }
         .side .submit-link .morelink a:hover,
         .side .submit-text .morelink a:hover {
           box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
@@ -831,9 +832,9 @@ div.content {
     margin-right: 0.5em;
     position: relative;
     top: 0.25em;
-    -webkit-transition: all 0.15s ease-out 0s;
-    -moz-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
     .side .titlebox a.option:hover,
     .side .titlebox .RESDashboardToggle:hover {
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
@@ -883,6 +884,11 @@ div.content {
     .side .sidecontentbox .collapse-button {
       border-radius: 0.3em;
       line-height: 0.8em; }
+    .side .sidecontentbox .gadget .midcol {
+      margin-right: 1.15385em; }
+    .side .sidecontentbox .gadget .reddit-entry {
+      position: relative;
+      top: 0.30769em; }
   .side #ad_main {
     position: relative; }
 
