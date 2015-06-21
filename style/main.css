@@ -498,6 +498,10 @@
   .thumbnail.default {
     background: url(%%light-thumbnail-default%%) 0 no-repeat; }
 
+.entry .buttons li.nsfw-stamp,
+.nsfw-stamp acronym {
+  border: 0 !important; }
+
 div.content {
   margin: 0 1.5em;
   border-radius: 0.2em;
