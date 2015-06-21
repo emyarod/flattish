@@ -456,7 +456,8 @@
     padding-top: 0;
     border-top: 0; }
   #siteTable > .thing .title {
-    color: #3f51b5; }
+    color: #3f51b5;
+    line-height: 1.35; }
     #siteTable > .thing .title:visited {
       color: #9c27b0; }
   #siteTable > .thing .domain,
