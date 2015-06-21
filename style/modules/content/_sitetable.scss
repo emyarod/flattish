@@ -52,6 +52,7 @@
 		// @include border-color($light-app-bar);
 		margin: 0;
 
+		// remove padding from topmost post
 		&:first-of-type {
 			padding-top: 0;
 			border-top: 0;
@@ -75,6 +76,7 @@
 	}
 }
 
+// color of post score
 .link .score {
 
 	&.likes {
@@ -86,6 +88,7 @@
 	}
 }
 
+// thumbnail
 .thumbnail {
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: 50%;
@@ -124,4 +127,10 @@
 	&.default {
 		background: url(%%light-thumbnail-default%%) 0 no-repeat;
 	}
+}
+
+// nsfw stamp
+.entry .buttons li.nsfw-stamp,
+.nsfw-stamp acronym {
+	border: 0 !important; // ;_; thx reddit css
 }
