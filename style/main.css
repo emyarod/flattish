@@ -498,6 +498,30 @@
   .thumbnail.default {
     background: url(%%light-thumbnail-default%%) 0 no-repeat; }
 
+.domain,
+.approval-checkmark {
+  float: right; }
+
+.expando-button.video.collapsed {
+  background: url(%%play%%) 0 no-repeat;
+  border: 1px solid black;
+  border-radius: 0; }
+  .expando-button.video.collapsed:before, .expando-button.video.collapsed:after {
+    background-color: #000;
+    content: "";
+    position: relative;
+    display: block; }
+  .expando-button.video.collapsed:before {
+    width: 0.7em;
+    height: 0.1em;
+    top: 1.6em;
+    left: 1.3em; }
+  .expando-button.video.collapsed:after {
+    width: 0.1em;
+    height: 0.7em;
+    top: 1.2em;
+    left: 1.6em; }
+
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
   border: 0 !important; }
