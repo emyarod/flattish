@@ -129,6 +129,46 @@
 	}
 }
 
+.domain,
+.approval-checkmark {
+	float: right;
+}
+
+// media and self post expansion buttons
+.expando-button {
+
+	&.video {
+
+		&.collapsed {
+			background: url(%%play%%) 0 no-repeat;
+			border: 1px solid black;
+			border-radius: 0;
+
+			&:before,
+			&:after {
+				background-color: $black;
+				content: "";
+				position: relative;
+				display: block;
+			}
+
+			&:before {
+				width: em(7, 10);
+				height: em(1, 10);
+				top: em(16, 10);
+				left: em(13, 10);
+			}
+			
+			&:after {
+				width: em(1, 10);
+				height: em(7, 10);
+				top: em(12, 10);
+				left: em(16, 10);
+			}
+		}
+	}
+}
+
 // nsfw stamp
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
