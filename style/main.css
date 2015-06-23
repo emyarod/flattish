@@ -525,29 +525,6 @@
     -ms-transform: rotate(0);
     -o-transform: rotate(0);
     transform: rotate(0); } }
-@-webkit-keyframes plustominus {
-  0% {
-    -webkit-transform: rotate(0); }
-  100% {
-    -webkit-transform: rotate(90deg); } }
-@-moz-keyframes plustominus {
-  0% {
-    -moz-transform: rotate(0); }
-  100% {
-    -moz-transform: rotate(90deg); } }
-@keyframes plustominus {
-  0% {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -o-transform: rotate(0);
-    transform: rotate(0); }
-  100% {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg); } }
 .expando-button.video {
   border: 1px solid black;
   border-radius: 0.2em;
