@@ -557,13 +557,13 @@
   transition: all 0.5s ease 0s; }
   .expando-button.video:hover {
     opacity: 0.87; }
-  .expando-button.video.collapsed:before, .expando-button.video.collapsed:after, .expando-button.video.expanded:before, .expando-button.video.expanded:after {
-    background-color: #000;
-    content: "";
-    position: relative;
-    display: block; }
   .expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
     background: url(%%play%%) 0 no-repeat; }
+    .expando-button.video.collapsed:before, .expando-button.video.collapsed:after, .expando-button.video.collapsed:hover:before, .expando-button.video.collapsed:hover:after, .expando-button.video.expanded:before, .expando-button.video.expanded:after, .expando-button.video.expanded:hover:before, .expando-button.video.expanded:hover:after {
+      background-color: #000;
+      content: "";
+      position: relative;
+      display: block; }
     .expando-button.video.collapsed:before, .expando-button.video.collapsed:hover:before, .expando-button.video.expanded:before, .expando-button.video.expanded:hover:before {
       width: 0.7em;
       height: 0.1em;
@@ -574,10 +574,19 @@
       height: 0.7em;
       top: 1.2em;
       left: 1.6em; }
+  .expando-button.video.collapsed:after, .expando-button.video.expanded:after {
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s; }
   .expando-button.video.collapsed:after {
     -webkit-animation: minustoplus 0.5s ease-in 1;
     -moz-animation: minustoplus 0.5s ease-in 1;
     animation: minustoplus 0.5s ease-in 1; }
+  .expando-button.video.expanded:after {
+    -webkit-animation: minustoplus 0.5s ease-in 1 reverse;
+    -moz-animation: minustoplus 0.5s ease-in 1 reverse;
+    animation: minustoplus 0.5s ease-in 1 reverse;
+    transform: rotate(90deg); }
 
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
