@@ -142,15 +142,6 @@
 	}
 }
 
-@include keyframes(plustominus) {
-	0% {
-		@include transform(rotate(0));
-	}
-	100% {
-		@include transform(rotate(90deg));
-	}
-}
-
 // media and self post expansion buttons
 .expando-button {
 
@@ -169,6 +160,7 @@
 		&.expanded,
 		&.expanded:hover {
 			background: url(%%play%%) 0 no-repeat;
+
 			&:before,
 			&:after {
 				background-color: $black;
