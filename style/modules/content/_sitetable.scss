@@ -172,15 +172,15 @@
 			&:before {
 				width: em(7, 10);
 				height: em(1, 10);
-				top: em(16, 10);
-				left: em(13, 10);
+				top: em(17, 10);
+				left: em(14, 10);
 			}
 			
 			&:after {
 				width: em(1, 10);
 				height: em(7, 10);
-				top: em(12, 10);
-				left: em(16, 10);
+				top: em(13, 10);
+				left: em(17, 10);
 			}
 		}
 
@@ -190,12 +190,23 @@
 		}
 
 		&.collapsed:after {
-			@include animation(minustoplus 0.5s ease-in 1);
+			@include animation(minustoplus 0.5s ease 1);
 		}
 
 		&.expanded:after {
-			@include animation(minustoplus 0.5s ease-in 1 reverse);
+			@include animation(minustoplus 0.5s ease 1 reverse);
 			transform: rotate(90deg);
+		}
+	}
+
+	// image expandos
+	&.image {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%camera%%) 0 no-repeat;
 		}
 	}
 }
