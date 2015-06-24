@@ -8,6 +8,7 @@
 
 body {
 	background-color: $light-background;
+	overflow-x: hidden; // hmm
 
 	a:link {
 		color: $link-color;
