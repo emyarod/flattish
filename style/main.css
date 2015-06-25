@@ -451,10 +451,32 @@
   position: relative; }
 
 #siteTable > .thing {
-  padding: 1.5em 0;
-  margin: 0; }
-  #siteTable > .thing:first-of-type {
-    padding-top: 0; }
+  margin-bottom: 1.5em;
+  border-radius: 0.2em;
+  padding: 1.5em;
+  background-color: #fff;
+  -webkit-animation: depthup 0.75s ease;
+  -moz-animation: depthup 0.75s ease;
+  animation: depthup 0.75s ease;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
+@-webkit-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@-moz-keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+@keyframes depthup {
+  from {
+    box-shadow: none; }
+  to {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
   #siteTable > .thing .title {
     color: #3f51b5;
     line-height: 1.35;
@@ -599,35 +621,11 @@
   padding: 0 0.2em; }
 
 div.content {
-  margin: 0 1.5em;
-  border-radius: 0.2em;
-  padding: 1.5em;
-  background-color: #fff;
-  -webkit-animation: depthup 0.75s ease;
-  -moz-animation: depthup 0.75s ease;
-  animation: depthup 0.75s ease;
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); }
-@-webkit-keyframes depthup {
-  from {
-    box-shadow: none; }
-  to {
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-@-moz-keyframes depthup {
-  from {
-    box-shadow: none; }
-  to {
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
-@keyframes depthup {
-  from {
-    box-shadow: none; }
-  to {
-    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05); } }
+  margin: 0 1.5em; }
+
 @media (min-width: 62em) {
   div.content {
-    max-width: calc(100% - 40.6em); } }
+    max-width: calc(100% - 37.5em); } }
 .side,
 .side:not(#searchexpando),
 .side:not(#search_hidemore) {
