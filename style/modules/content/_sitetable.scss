@@ -137,9 +137,11 @@
 .thing.over18 > .thumbnail.self {
 	background: url(%%nsfw%%) 0 no-repeat;
 	border-color: $nsfw;
+	opacity: 0.54;
 
 	&:hover {
 		border-color: rgba($nsfw, 0.54);
+		opacity: 1;
 	}
 }
 
