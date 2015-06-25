@@ -3,12 +3,12 @@
 
 div.content {
 	margin: 0 em(15, 10);
-	@include animate-card;
+	// @include animate-card;
 }
 
 @media (min-width: $screen-md-min) {
 	div.content {
 		// float: left;
-		max-width: calc(100% - 40.6em); // may need to recalc
+		max-width: calc(100% - 37.5em); // may need to recalc
 	}
 }
