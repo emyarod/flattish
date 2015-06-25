@@ -161,6 +161,7 @@
 .expando-button {
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
+	cursor: pointer;
 	margin-right: em(6, 10);
 	opacity: 0.54;
 	position: relative;
