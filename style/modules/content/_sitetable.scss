@@ -140,7 +140,7 @@
 	opacity: 0.54;
 
 	&:hover {
-		border-color: rgba($nsfw, 0.54);
+		border-color: $nsfw;
 		opacity: 1;
 	}
 }
