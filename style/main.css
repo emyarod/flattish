@@ -430,11 +430,11 @@
 .midcol {
   margin-right: 1.15385em;
   margin-left: 0;
-  width: 24px !important; }
+  width: 1.84615em !important; }
 
 .arrow {
-  height: 18px;
-  width: 24px; }
+  height: 1.38462em;
+  width: 1.84615em; }
   .arrow.upmod {
     background: url(%%light-upvote-pressed%%) 0 no-repeat; }
   .arrow.downmod {
@@ -447,17 +447,18 @@
     opacity: 0.26; }
 
 #siteTable > .likes .score, #siteTable > .dislikes .score, #siteTable > .link .score {
-  font-size: 14px;
+  font-size: 1.07692em;
   position: relative; }
+
 #siteTable > .thing {
   padding: 1.5em 0;
   margin: 0; }
   #siteTable > .thing:first-of-type {
-    padding-top: 0;
-    border-top: 0; }
+    padding-top: 0; }
   #siteTable > .thing .title {
     color: #3f51b5;
-    line-height: 1.35; }
+    line-height: 1.35;
+    margin: 0 0 0.3125em 0; }
     #siteTable > .thing .title:visited {
       color: #9c27b0; }
   #siteTable > .thing .domain,
@@ -498,6 +499,12 @@
   .thumbnail.default {
     background: url(%%light-thumbnail-default%%) 0 no-repeat; }
 
+.thing.over18 > .thumbnail.self {
+  background: url(%%nsfw%%) 0 no-repeat;
+  border-color: #ff5252; }
+  .thing.over18 > .thumbnail.self:hover {
+    border-color: rgba(255, 82, 82, 0.54); }
+
 .domain,
 .approval-checkmark {
   float: right; }
@@ -525,51 +532,71 @@
     -ms-transform: rotate(0);
     -o-transform: rotate(0);
     transform: rotate(0); } }
-.expando-button.video {
-  border: 1px solid black;
+.expando-button {
+  border: 0.1em solid rgba(0, 0, 0, 0.26);
   border-radius: 0.2em;
+  margin-right: 0.6em;
   opacity: 0.54;
+  position: relative;
+  top: 0.2em;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s; }
-  .expando-button.video:hover {
-    opacity: 0.87; }
-  .expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
-    background: url(%%play%%) 0 no-repeat; }
-    .expando-button.video.collapsed:before, .expando-button.video.collapsed:after, .expando-button.video.collapsed:hover:before, .expando-button.video.collapsed:hover:after, .expando-button.video.expanded:before, .expando-button.video.expanded:after, .expando-button.video.expanded:hover:before, .expando-button.video.expanded:hover:after {
-      background-color: #000;
-      content: "";
-      position: relative;
-      display: block; }
-    .expando-button.video.collapsed:before, .expando-button.video.collapsed:hover:before, .expando-button.video.expanded:before, .expando-button.video.expanded:hover:before {
-      width: 0.7em;
-      height: 0.1em;
-      top: 1.7em;
-      left: 1.4em; }
-    .expando-button.video.collapsed:after, .expando-button.video.collapsed:hover:after, .expando-button.video.expanded:after, .expando-button.video.expanded:hover:after {
-      width: 0.1em;
-      height: 0.7em;
-      top: 1.3em;
-      left: 1.7em; }
-  .expando-button.video.collapsed:after, .expando-button.video.expanded:after {
+  .expando-button:hover {
+    border-color: rgba(0, 0, 0, 0.54); }
+  .expando-button.collapsed:before, .expando-button.collapsed:after, .expando-button.collapsed:hover:before, .expando-button.collapsed:hover:after, .expando-button.expanded:before, .expando-button.expanded:after, .expando-button.expanded:hover:before, .expando-button.expanded:hover:after {
+    background-color: #000;
+    content: "";
+    position: relative;
+    display: block; }
+  .expando-button.collapsed:before, .expando-button.collapsed:hover:before, .expando-button.expanded:before, .expando-button.expanded:hover:before {
+    width: 0.7em;
+    height: 0.1em;
+    top: 1.7em;
+    left: 1.4em; }
+  .expando-button.collapsed:after, .expando-button.collapsed:hover:after, .expando-button.expanded:after, .expando-button.expanded:hover:after {
+    width: 0.1em;
+    height: 0.7em;
+    top: 1.3em;
+    left: 1.7em; }
+  .expando-button.collapsed:after, .expando-button.expanded:after {
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s; }
-  .expando-button.video.collapsed:after {
+  .expando-button.collapsed:after {
     -webkit-animation: minustoplus 0.5s ease 1;
     -moz-animation: minustoplus 0.5s ease 1;
     animation: minustoplus 0.5s ease 1; }
-  .expando-button.video.expanded:after {
+  .expando-button.expanded:after {
     -webkit-animation: minustoplus 0.5s ease 1 reverse;
     -moz-animation: minustoplus 0.5s ease 1 reverse;
     animation: minustoplus 0.5s ease 1 reverse;
     transform: rotate(90deg); }
-.expando-button.image.collapsed, .expando-button.image.collapsed:hover, .expando-button.image.expanded, .expando-button.image.expanded:hover {
-  background: url(%%camera%%) 0 no-repeat; }
+  .expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
+    background: url(%%play%%) 0 no-repeat; }
+  .expando-button.image {
+    width: 2.5em;
+    height: 2.5em; }
+    .expando-button.image.collapsed, .expando-button.image.collapsed:hover, .expando-button.image.expanded, .expando-button.image.expanded:hover {
+      background: url(%%camera%%) 0 no-repeat !important; }
+      .expando-button.image.collapsed:after, .expando-button.image.collapsed:hover:after, .expando-button.image.expanded:after, .expando-button.image.expanded:hover:after {
+        top: -0.1em; }
+  .expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
+    background: url(%%text%%) 0 no-repeat; }
+
+.tagline {
+  left: 0.2em;
+  position: relative; }
 
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
-  border: 0 !important; }
+  border: 0 !important;
+  border-radius: 0.2em;
+  background-color: #ff5252;
+  color: #fff;
+  font-weight: bold;
+  line-height: 0;
+  padding: 0 0.2em; }
 
 div.content {
   margin: 0 1.5em;
@@ -989,7 +1016,8 @@ div.content {
   font-family: "Arial", sans-serif; }
 
 body {
-  background-color: #fafafa; }
+  background-color: #fafafa;
+  overflow-x: hidden; }
   body a:link {
     color: #3f51b5; }
     body a:link:visited {
