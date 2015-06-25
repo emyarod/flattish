@@ -37,7 +37,7 @@
 #siteTable {
 	&>.likes .score,
 	&>.dislikes .score,
-	&>.link .score {
+	&>.thing .score {
 		font-size: em(14, 13);
 		position: relative;
 	}
@@ -81,7 +81,7 @@
 }
 
 // color of post score
-.link .score {
+.thing .score {
 
 	&.likes {
 		color: $upvote;
@@ -254,9 +254,18 @@
 	}
 }
 
+.tagline,
+.flat-list.buttons {
+	font-size: em(12, 10);
+}
+
 .tagline {
 	left: em(2, 10);
 	position: relative;
+}
+
+.flat-list.buttons {
+	clear: left;
 }
 
 // nsfw stamp
@@ -269,4 +278,6 @@
 	font-weight: bold;
 	line-height: 0;
 	padding: 0 em(2, 10);
+	position: relative;
+	top: em(-1, 10);
 }
