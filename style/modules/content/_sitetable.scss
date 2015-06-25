@@ -6,13 +6,13 @@
 // vote arrow/score column & thumbnail margin
 .midcol {
 	@include margin(null em(15, 13) null 0);
-	width: 24px !important; // ;_; gotta override inline styling
+	width: em(24, 13) !important; // ;_; gotta override inline styling
 }
 
 // also affects sidebar vote arrows
 .arrow {
-	height: 18px;
-	width: 24px;
+	height: em(18, 13);
+	width: em(24, 13);
 
 	&.upmod {
 		background: url(%%light-upvote-pressed%%) 0 no-repeat;
@@ -38,28 +38,33 @@
 	&>.likes .score,
 	&>.dislikes .score,
 	&>.link .score {
-		font-size: 14px;
+		font-size: em(14, 13);
 		position: relative;
-		// left: -1px;
 	}
+}
 
+#siteTable {
 	// individual post listings
 	&>.thing {
 		@include padding(em(15, 10) 0 em(15, 10) 0);
+
 		// @include border-width(em(1, 10) null);
 		// @include border-style(solid null);
 		// @include border-color($light-app-bar);
+
 		margin: 0;
 
 		// remove padding from topmost post
 		&:first-of-type {
 			padding-top: 0;
-			border-top: 0;
+
+			// border-top: 0;
 		}
 
 		.title {
 			color: $link-color;
 			line-height: 1.35;
+			margin: 0 0 em(5, 16) 0;
 
 			&:visited {
 				color: $link-color-visited;
@@ -128,6 +133,16 @@
 	}
 }
 
+// nsfw thumbnail styling
+.thing.over18 > .thumbnail.self {
+	background: url(%%nsfw%%) 0 no-repeat;
+	border-color: $nsfw;
+
+	&:hover {
+		border-color: rgba($nsfw, 0.54);
+	}
+}
+
 .domain,
 .approval-checkmark {
 	float: right;
@@ -144,75 +159,114 @@
 
 // media and self post expansion buttons
 .expando-button {
+	border: em(1, 10) solid $light-hint-text;
+	border-radius: em(2, 10);
+	margin-right: em(6, 10);
+	opacity: 0.54;
+	position: relative;
+	top: em(2, 10);
+	@include transition-default;
 
-	&.video {
-		border: 1px solid black;
-		border-radius: em(2, 10);
-		opacity: 0.54;
-		@include transition-default;
+	&:hover {
+		border-color: $light-secondary-text;
+	}
 
-		&:hover {
-			opacity: 0.87;
+	&.collapsed,
+	&.collapsed:hover,
+	&.expanded,
+	&.expanded:hover {
+
+		&:before,
+		&:after {
+			background-color: $black;
+			content: "";
+			position: relative;
+			display: block;
 		}
+
+		&:before {
+			width: em(7, 10);
+			height: em(1, 10);
+			top: em(17, 10);
+			left: em(14, 10);
+		}
+		
+		&:after {
+			width: em(1, 10);
+			height: em(7, 10);
+			top: em(13, 10);
+			left: em(17, 10);
+		}
+	}
+
+	// animate expand/collapse
+	&.collapsed:after,
+	&.expanded:after {
+		@include transition-default;
+	}
+
+	&.collapsed:after {
+		@include animation(minustoplus 0.5s ease 1);
+	}
+
+	&.expanded:after {
+		@include animation(minustoplus 0.5s ease 1 reverse);
+		transform: rotate(90deg);
+	}
+
+	// video expandos
+	&.video {
 
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
 			background: url(%%play%%) 0 no-repeat;
-
-			&:before,
-			&:after {
-				background-color: $black;
-				content: "";
-				position: relative;
-				display: block;
-			}
-
-			&:before {
-				width: em(7, 10);
-				height: em(1, 10);
-				top: em(17, 10);
-				left: em(14, 10);
-			}
-			
-			&:after {
-				width: em(1, 10);
-				height: em(7, 10);
-				top: em(13, 10);
-				left: em(17, 10);
-			}
-		}
-
-		&.collapsed:after,
-		&.expanded:after {
-			@include transition-default;
-		}
-
-		&.collapsed:after {
-			@include animation(minustoplus 0.5s ease 1);
-		}
-
-		&.expanded:after {
-			@include animation(minustoplus 0.5s ease 1 reverse);
-			transform: rotate(90deg);
 		}
 	}
 
 	// image expandos
 	&.image {
+		width: em(25, 10);
+		height: em(25, 10);
 
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera%%) 0 no-repeat;
+			background: url(%%camera%%) 0 no-repeat !important; // ;_; thx res
+			
+			// reposition horizontal line in plus/minus
+			&:after {
+				top: em(-1, 10); // why, sway???
+			}
 		}
 	}
+
+	&.selftext {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%text%%) 0 no-repeat;
+		}
+	}
+}
+
+.tagline {
+	left: em(2, 10);
+	position: relative;
 }
 
 // nsfw stamp
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
 	border: 0 !important; // ;_; thx reddit css
+	border-radius: em(2, 10);
+	background-color: $nsfw;
+	color: $white;
+	font-weight: bold;
+	line-height: 0;
+	padding: 0 em(2, 10);
 }
