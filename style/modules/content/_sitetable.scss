@@ -164,7 +164,7 @@
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
 	cursor: pointer;
-	margin-right: em(6, 10);
+	@include margin(null em(6, 10) em(6, 10) null);
 	opacity: 0.54;
 	position: relative;
 	top: em(2, 10);
