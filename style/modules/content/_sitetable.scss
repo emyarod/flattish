@@ -260,12 +260,9 @@
 	font-size: em(12, 10);
 }
 
-.tagline {
-	left: em(2, 12);
-	position: relative;
-}
-
 .expando-button ~ .tagline {
+	position: relative;
+	left: em(2, 12);
 	top: em(8, 12);
 }
 
