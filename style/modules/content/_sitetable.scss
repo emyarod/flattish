@@ -46,20 +46,8 @@
 #siteTable {
 	// individual post listings
 	&>.thing {
-		@include padding(em(15, 10) 0 em(15, 10) 0);
-
-		// @include border-width(em(1, 10) null);
-		// @include border-style(solid null);
-		// @include border-color($light-app-bar);
-
-		margin: 0;
-
-		// remove padding from topmost post
-		&:first-of-type {
-			padding-top: 0;
-
-			// border-top: 0;
-		}
+		margin-bottom: em(15, 10);
+		@include animate-card;
 
 		.title {
 			color: $link-color;
