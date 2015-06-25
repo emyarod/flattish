@@ -446,7 +446,7 @@
     background: url(%%light-downvote%%) 0 no-repeat;
     opacity: 0.26; }
 
-#siteTable > .likes .score, #siteTable > .dislikes .score, #siteTable > .link .score {
+#siteTable > .likes .score, #siteTable > .dislikes .score, #siteTable > .thing .score {
   font-size: 1.07692em;
   position: relative; }
 
@@ -467,9 +467,9 @@
   #siteTable > .thing .entry .buttons li a {
     color: rgba(0, 0, 0, 0.54); }
 
-.link .score.likes {
+.thing .score.likes {
   color: #ff5722; }
-.link .score.dislikes {
+.thing .score.dislikes {
   color: #2196f3; }
 
 .thumbnail, .thumbnail.self, .thumbnail.default {
@@ -535,6 +535,7 @@
 .expando-button {
   border: 0.1em solid rgba(0, 0, 0, 0.26);
   border-radius: 0.2em;
+  cursor: pointer;
   margin-right: 0.6em;
   opacity: 0.54;
   position: relative;
@@ -584,9 +585,16 @@
   .expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
     background: url(%%text%%) 0 no-repeat; }
 
+.tagline,
+.flat-list.buttons {
+  font-size: 1.2em; }
+
 .tagline {
   left: 0.2em;
   position: relative; }
+
+.flat-list.buttons {
+  clear: left; }
 
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
@@ -596,7 +604,9 @@
   color: #fff;
   font-weight: bold;
   line-height: 0;
-  padding: 0 0.2em; }
+  padding: 0 0.2em;
+  position: relative;
+  top: -0.1em; }
 
 div.content {
   margin: 0 1.5em;
