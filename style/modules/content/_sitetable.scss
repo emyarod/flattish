@@ -261,8 +261,12 @@
 }
 
 .tagline {
-	left: em(2, 10);
+	left: em(2, 12);
 	position: relative;
+}
+
+.expando-button ~ .tagline {
+	top: em(8, 12);
 }
 
 .flat-list.buttons {
