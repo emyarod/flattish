@@ -1,0 +1,17 @@
+@mixin tooltips {
+  position: relative;
+  // right: 34px;
+  display: block;
+  height: 32px;
+  // width: 52px;
+  margin-top: 14px;
+  padding: 0 16px;
+  // content: "Clear all";
+  font-size: 14px;
+  line-height: 2.3;
+  color: $dark-text;
+  text-align: center;
+  background-color: $tooltip;
+  border-radius: 2px;
+  opacity: 0.9;
+}
