@@ -44,7 +44,7 @@
         font-size: 0;
         @include tabs;
         @include transition-default;
-        
+
         // hides "rising", "controversial", "ads", and "gilded" tabs
         &[href$="/rising/"],
         &[href$="/controversial/"],
@@ -52,7 +52,7 @@
         &[href$="/gilded/"] {
           display: none;
         }
-        
+
         // shortens visible tabs
         &[href$="/flattish/"]:after {
           content: "h";
@@ -69,7 +69,7 @@
         &[href$="/wiki/"]:after {
           content: "w";
         }
-        
+
         // style visible tabs
         &[href$="/flattish/"],
         &[href$="/new/"],
@@ -125,7 +125,7 @@
   }
 
   // position pagename and tabmenu
-  .pagename a,
+  // .pagename a,
   .tabmenu {
     position: relative;
     top: em(-19, 16);
@@ -241,7 +241,7 @@
       a {
         color: $light-secondary-text;
         font-size: 1em;
- 
+
         &:after {
           display: none;
         }
