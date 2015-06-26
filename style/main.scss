@@ -3,9 +3,11 @@
 @import "modules/header";
 @import "modules/content";
 @import "modules/sidebar";
+
 * {
   font-family: $font-stack;
 }
+
 body {
   background-color: $light-background;
   overflow-x: hidden; // hmm
