@@ -1,3 +1,5 @@
+// main: ../../main.scss
+
 // post rank
 .rank {
 	display: none;
@@ -47,18 +49,11 @@
 	// individual post listings
 	&>.thing {
 		@include padding(em(15, 10) 0 em(15, 10) 0);
-
-		// @include border-width(em(1, 10) null);
-		// @include border-style(solid null);
-		// @include border-color($light-app-bar);
-
 		margin: 0;
 
 		// remove padding from topmost post
 		&:first-of-type {
 			padding-top: 0;
-
-			// border-top: 0;
 		}
 
 		.title {
@@ -194,7 +189,7 @@
 			top: em(17, 10);
 			left: em(14, 10);
 		}
-		
+
 		&:after {
 			width: em(1, 10);
 			height: em(7, 10);
@@ -239,7 +234,7 @@
 		&.expanded,
 		&.expanded:hover {
 			background: url(%%camera%%) 0 no-repeat !important; // ;_; thx res
-			
+
 			// reposition horizontal line in plus/minus
 			&:after {
 				top: em(-1, 10); // why, sway???
