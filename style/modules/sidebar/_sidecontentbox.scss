@@ -82,5 +82,24 @@
 		.reddit-link-end {
 			padding: 0;
 		}
+
+		.right {
+			height: em(20, 10);
+
+			a {
+				display: block;
+				float: right;
+				height: em(20, 10);
+				width: em(20, 10);
+				color: transparent;
+				background: url(%%clear%%) 0 no-repeat;
+				opacity: 0.26;
+				@include transition-default;
+
+				&:hover {
+					opacity: 0.54;
+				}
+			}
+		}
 	}
 }
