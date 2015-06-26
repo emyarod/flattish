@@ -1,13 +1,14 @@
-@mixin tooltips {
+@mixin tooltip-mobile {
   position: relative;
-  // right: 34px;
+  // right: 35px; // [(width + padding-left + padding-right) - width of object hovering] / 2
   display: block;
   height: 32px;
-  // width: 52px;
+  // width: 58px;
   margin-top: 14px;
   padding: 0 16px;
   // content: "Clear all";
   font-size: 14px;
+  font-weight: bold;
   line-height: 2.3;
   color: $dark-text;
   text-align: center;
