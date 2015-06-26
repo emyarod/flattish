@@ -1,3 +1,5 @@
+// main: ../../main.scss
+
 .submit-link,
 .submit-text {
 	position: absolute;
@@ -11,9 +13,9 @@
 
 		a {
 			@include button($light-app-bar, $light-icons, 14, 15);
-			line-height: 15px;
+			line-height: em(15, 14);
 			position: relative;
-			top: 35px;
+			top: em(35, 14);
 			// padding: em(14, 15) 0;
 			@include padding(null 0);
 			@include transition-default;
@@ -35,24 +37,27 @@
 
 .submit-link {
 
+	// card underneath submit buttons
 	&:before {
-		color: $light-secondary-text;
-		content: "Submit a new:";
-		font-size: em(14, 10);
-		font-weight: bold;
-		height: em(63, 14);
 		position: absolute;
 		top: em(-15, 14);
+		height: em(63, 14);
 		width: em(300, 14);
+		font-size: em(14, 10);
+		font-weight: bold;
+		color: $light-secondary-text;
+		content: "Submit a new:";
 		@include animate-card(14);
 		padding-top: em(20, 14);
 	}
 
+	// position submit link button
 	.morelink {
 		left: em(15, 15);
 	}
 }
 
+// position submit text post button
 .submit-text {
 	right: 3em;
 }
