@@ -68,8 +68,8 @@
 
 		.domain,
 		.domain a,
-		.tagline,
-		.entry .buttons li a {
+		.tagline {
+		// .entry .buttons li a {
 			color: $light-secondary-text;
 		}
 	}
@@ -276,21 +276,89 @@
 	clear: left;
 	left: em(-1, 12);
 	position: relative;
+
+	li {
+		line-height: em(14, 12);
+	}
 }
 
 // nsfw stamp
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
 	border: 0 !important; // ;_; thx reddit css
-	border-radius: em(2, 10);
+	border-radius: em(2, 12);
 	background-color: $nsfw;
 	color: $white;
+	font-size: em(12, 12);
 	font-weight: bold;
 	line-height: 0;
-	padding: 0 em(2, 10);
-	position: relative;
-	top: em(-1, 10);
+	padding: 0 em(2, 12);
 }
+
+.entry .buttons li a:not(.comments) {
+	// position: relative;
+	// top: -4px;
+	// color: transparent;
+	// font-size: 0;
+}
+
+.share,
+.save-button {
+	// width: 14px;
+	// height: 14px;
+
+	a {
+		// display: block;
+		// width: 14px;
+		// height: 14px;
+	}
+}
+
+// .share a {
+// 	background: url(%%share%%) 0 no-repeat;
+// }
+//
+// .link-save-button a {
+// 	background: url(%%save%%) 0 no-repeat;
+// }
+//
+// .link-unsave-button a {
+// 	background: url(%%unsave%%) 0 no-repeat;
+// }
+//
+// .hide-button span > a[action="hide"] {
+// 	background: url(%%hide%%) 0 no-repeat;
+// }
+//
+// .hide-button span > a[action="unhide"] {
+// 	background: url(%%unhide%%) 0 no-repeat;
+// }
+//
+// .report-button a {
+// 	background: url(%%report%%) 0 no-repeat;
+// }
+//
+// .del-button span > a {
+// 	background: url(%%delete%%) 0 no-repeat;
+//
+// 	&.yes,
+// 	&.no {
+// 		background: none;
+// 	}
+// }
+//
+// .remove-button input[value="spammed"] + span > a {
+// 	background: url(%%spam%%) 0 no-repeat;
+// }
+//
+// .remove-button input[value="removed"] ~ span > a {
+// 	background: url(%%remove%%) 0 no-repeat;
+//
+// 	&.yes,
+// 	&.no {
+// 		background: none;
+// 	}
+// }
 
 .error {
 	color: $nsfw;
