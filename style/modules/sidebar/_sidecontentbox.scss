@@ -10,7 +10,7 @@
 		// style card titles
 		h1 {
 			color: $light-secondary-text;
-			font-size: em(16, 10);
+			font-size: em(14, 10);
 			font-weight: bold;
 			text-transform: lowercase;
 		}
@@ -39,10 +39,6 @@
 	// recently viewed links
 	.gadget {
 
-		.click-gadget {
-			font-size: 14px;
-		}
-
 		.thing {
 			padding: em(10, 14) 0;
 
@@ -66,6 +62,7 @@
 			}
 		}
 
+		// remove unnecessary trailing padding
 		.reddit-link-end {
 			padding: 0;
 		}
