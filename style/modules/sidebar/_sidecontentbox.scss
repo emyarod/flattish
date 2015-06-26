@@ -1,3 +1,5 @@
+// main: ../../main.scss
+
 #moderation_tools,
 .sidecontentbox {
 	position: relative;
@@ -5,9 +7,10 @@
 	.title {
 		margin-bottom: em(10, 10);
 
+		// style card titles
 		h1 {
 			color: $light-secondary-text;
-			font-size: em(14, 10);
+			font-size: em(16, 10);
 			font-weight: bold;
 			text-transform: lowercase;
 		}
@@ -36,6 +39,37 @@
 	// recently viewed links
 	.gadget {
 
+		.click-gadget {
+			font-size: 14px;
+		}
+
+		.thing {
+			padding: em(10, 14) 0;
+
+			span.score {
+
+				&.unvoted {
+					color: $light-secondary-text;
+				}
+
+				&.likes {
+					color: $upvote;
+				}
+
+				&.dislikes {
+					color: $downvote;
+				}
+			}
+
+			a.reddit-comment-link.may-blank {
+				color: $light-secondary-text;
+			}
+		}
+
+		.reddit-link-end {
+			padding: 0;
+		}
+
 		// add margin to vote arrows
 		.midcol {
 			margin-right: em(15, 13);
@@ -45,6 +79,10 @@
 		.reddit-entry {
 			position: relative;
 			top: em(4, 13);
+
+			a {
+				line-height: 1.35;
+			}
 		}
 	}
 }
