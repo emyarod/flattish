@@ -1,20 +1,18 @@
+// out: main.css
+
 @import "modules/header";
 @import "modules/content";
 @import "modules/sidebar";
-
 * {
-	font-family: $font-stack;
+  font-family: $font-stack;
 }
-
 body {
-	background-color: $light-background;
-	overflow-x: hidden; // hmm
-
-	a:link {
-		color: $link-color;
-
-		&:visited {
-			color: $link-color-visited;
-		}
-	}
+  background-color: $light-background;
+  overflow-x: hidden; // hmm
+  a:link {
+    color: $link-color;
+    &:visited {
+      color: $link-color-visited;
+    }
+  }
 }
