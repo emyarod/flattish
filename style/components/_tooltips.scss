@@ -1,18 +1,40 @@
-@mixin tooltip-mobile {
-  position: relative;
-  // right: 35px; // [(width + padding-left + padding-right) - width of object hovering] / 2
-  display: block;
-  height: 32px;
-  // width: 58px;
-  margin-top: 14px;
-  padding: 0 16px;
-  // content: "Clear all";
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 2.3;
-  color: $dark-text;
-  text-align: center;
-  background-color: $tooltip;
-  border-radius: 2px;
-  opacity: 0.9;
+// need to provide width of tooltip after content is added
+// need to provide width of parent object
+// need to provide text within tooltip
+
+@mixin tooltip($width-tooltip, $width-parent, $content-tooltip, $screen-type: mobile) {
+  @if $screen-type == desktop {
+    $height-tooltip: em(32, 14);
+    $padding-tooltip: em(16, 14);
+    $font-size-tooltip: 14px;
+  } @else {
+    $height-tooltip: em(22, 10);
+    $padding-tooltip: em(8, 10);
+    $font-size-tooltip: 10px;
+  }
+
+  &:after {
+    position: relative;
+    right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
+    display: block;
+    visibility: hidden;
+    height: $height-tooltip;
+    width: $width-tooltip;
+    padding: 0 $padding-tooltip;
+    content: $content-tooltip;
+    font-size: $font-size-tooltip;
+    font-weight: bold;
+    line-height: $height-tooltip / 1em;
+    color: $dark-text;
+    text-align: center;
+    background-color: rgba($tooltip, 0);
+    border-radius: em(2, $font-size-tooltip);
+    @include transition-default(all .25s);
+  }
+
+  &:hover::after {
+    margin-top: em(14, $font-size-tooltip);
+    visibility: visible;
+    background-color: $tooltip;
+  }
 }
