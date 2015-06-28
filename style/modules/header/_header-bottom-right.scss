@@ -96,7 +96,7 @@
 
   // logout button
   .logout a {
-    top: em(-3, 10);
+    top: em(-2, 10);
     background: url("%%logout%%") no-repeat;
     @include userbar-buttons;
   }
