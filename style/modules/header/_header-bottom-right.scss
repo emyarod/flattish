@@ -1,6 +1,4 @@
-@import "../../_utils/vars";
-@import "../../_utils/mixins";
-@import "../../components/menus";
+// main: ../../main.scss
 
 @mixin userbar-buttons {
   height: em(16, 10);
@@ -52,11 +50,13 @@
 
   // RES gear button
   .gearIcon {
-    background: transparent url("%%settings%%") no-repeat !important;
-    opacity: 0.54;
     position: relative;
     right: em(1, 10);
     top: em(1, 10);
+    height: em(16, 10) !important;
+    width: em(16, 10) !important;
+    background: transparent url("%%settings%%") no-repeat !important;
+    opacity: 0.54;
     @include transition-default;
 
     &:hover {
