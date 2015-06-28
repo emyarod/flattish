@@ -117,7 +117,8 @@
 	}
 
 	img {
-		height: auto;
+		// height: auto;
+		height: em(70, 10);
 		width: auto;
 		max-height: em(70, 10);
 	}
