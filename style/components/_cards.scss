@@ -9,15 +9,6 @@
 	border-radius: em(2, $orig-font-size);
 	padding: em(15, $orig-font-size);
 	background-color: $light-cards;
-
-	@include keyframes(depthup) {
-		from {
-			box-shadow: none;
-		}
-		to {
-			@include drop-shadow(1);
-		}
-	}
 	@include animation(depthup 0.75s ease);
 	@include animation-iteration-count(1);
 	@include drop-shadow(1);
