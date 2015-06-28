@@ -1,0 +1,53 @@
+@import "mixins";
+
+// card elevation change animation
+@include keyframes(depthup) {
+  from {
+    box-shadow: none;
+  }
+  to {
+    @include drop-shadow(1);
+  }
+}
+
+// menu fade in/appear from button press
+// fix required
+@include keyframes(menu-fadein) {
+  from {
+    opacity: 0;
+    @include transform(translate(-78.5px, -837.5px) scale(0));
+  }
+  to {
+    opacity: 1;
+    @include transform(scale(1));
+  }
+}
+
+// ripple effect on tooltip press
+@include keyframes(button-ripple) {
+	0% {
+		@include transform(scale(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(scale(2));
+		opacity: 0;
+	}
+}
+
+// expando button +/- animation
+@include keyframes(minustoplus) {
+	0% {
+		@include transform(rotate(90deg));
+	}
+	100% {
+		@include transform(rotate(0));
+	}
+}
+
+// animate header
+@include keyframes(moveheader) {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
