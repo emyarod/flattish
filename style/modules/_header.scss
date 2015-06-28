@@ -1,6 +1,3 @@
-@import "../_utils/vars";
-@import "../_utils/mixins";
-
 // animate header
 @include keyframes(moveheader) {
   0% { background-position: 0 0; }
