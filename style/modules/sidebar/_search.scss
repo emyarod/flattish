@@ -29,16 +29,16 @@
 			  color: transparent;
 			}
 		}
-		
+
 		&:focus {
 			border-bottom: em(1, 13) solid $accent;
 		}
 	}
-	
+
 	// magnifying glass icon
 	input[type="submit"] {
-		height: 1em;
-		width: 1em;
+		height: em(16, 14);
+		width: em(16, 14);
 		opacity: 0.54;
 		position: relative;
 		background: url(%%search%%) no-repeat;
@@ -47,7 +47,7 @@
 			opacity: 0.87;
 		}
 	}
-	
+
 	// search label
 	&:before {
 		content: "search";
@@ -60,7 +60,7 @@
 	}
 
 	&:hover {
-		
+
 		// search label hover behavior
 		&:before {
 			color: $accent;
