@@ -20,11 +20,63 @@
   border-bottom: em(2, 16) solid transparent;
   color: $light-secondary-text;
   font-weight: normal;
-  padding: 0 1em em(19, 16);
+  padding: 1em 1em em(19, 16);
 }
 
-@mixin tabmenu {
+// header image, pagename, tabmenu
+#header-bottom-left {
+  font-size: em(16, 10);
+  height: em(60, 16);
+  position: absolute;
+  top: em(140, 16);
+
+  // reduces reddit.com header to just snoo image
+  #header-img {
+    background: url(%%snoo-color%%) no-repeat;
+    height: em(60, 16);
+    width: 0;
+    margin: 0;
+    padding-right: em(60, 16);
+    @include transition-default;
+  }
+
+  // position pagename and tabmenu
+  // .pagename a,
+  // .tabmenu {
+  //   position: relative;
+  //   top: em(-19, 16);
+  // }
+
+  // subreddit name
+  .pagename {
+    font-size: 0;
+
+    a {
+      // position: relative;
+      // top: em(-2, 16);
+      position: absolute;
+      display: inline-block;
+      padding: em(20, 15) 1em;
+      font-size: 16px; // b/c parent font-size is 0
+      font-variant: normal;
+      color: $light-secondary-text;
+      text-transform: lowercase;
+      @include transition-default;
+
+      &:hover {
+        color: $light-text;
+        text-decoration: none;
+      }
+    }
+  }
+
+  // tabmenu
   .tabmenu {
+    position: absolute;
+    top: em(21, 16);
+    // margin: 0;
+    @include margin(0 null null em(85, 16));
+    font-size: inherit;
 
     li.selected a {
       @include border-width(0 0 em(2, 16) 0);
@@ -107,59 +159,6 @@
       }
     }
   }
-}
-
-// header image, pagename, tabmenu
-#header-bottom-left {
-  font-size: em(16, 10);
-  height: em(60, 16);
-  position: absolute;
-  top: em(140, 16);
-
-  // reduces reddit.com header to just snoo image
-  #header-img {
-    background: url(%%snoo-color%%) no-repeat;
-    height: em(60, 16);
-    width: 0;
-    margin: 0;
-    padding-right: em(60, 16);
-    @include transition-default;
-  }
-
-  // position pagename and tabmenu
-  // .pagename a,
-  .tabmenu {
-    position: relative;
-    top: em(-19, 16);
-  }
-
-  // subreddit name
-  .pagename {
-    font-size: 0;
-
-    a {
-      color: $light-secondary-text;
-      font-size: 16px;
-      font-variant: normal;
-      padding: em(20, 15) 1em;
-      text-transform: lowercase;
-      @include transition-default;
-
-      &:hover {
-        color: $light-text;
-        text-decoration: none;
-      }
-    }
-  }
-
-  // tabmenu
-  .tabmenu {
-    font-size: inherit;
-    margin: 0;
-  }
-
-  // tabmenu list items mixin
-  @include tabmenu;
 }
 
 @media (min-width: $screen-xs-min) {

@@ -44,10 +44,3 @@
 		@include transform(rotate(0));
 	}
 }
-
-// animate header
-@include keyframes(moveheader) {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
