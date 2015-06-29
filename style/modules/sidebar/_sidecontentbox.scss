@@ -100,7 +100,7 @@
 				// @include tooltip(em(58, 14), em(20, 14), "Clear all", $screen-type: desktop);
 				@include tooltip(em(42, 10), em(20, 10), "Clear all");
 
-				&:active::before {
+				&:focus::before {
 					@include button-ripple-circle(right, 16, bottom, 15, 20, 10);
 				}
 			}
