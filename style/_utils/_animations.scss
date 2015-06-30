@@ -25,6 +25,20 @@
   }
 }
 
+@include keyframes(papersplit) {
+  0% { margin-bottom: 0; }
+  30% { margin-bottom: 0; }
+  40% { margin-bottom: em(16, 10); }
+  50% {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  100% {
+    @include drop-shadow(1);
+    border-radius: em(2, 10);
+  }
+}
+
 // ripple effect on tooltip press
 @include keyframes(button-ripple) {
 	0% {
