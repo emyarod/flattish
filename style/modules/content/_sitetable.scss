@@ -8,7 +8,8 @@
 // vote arrow/score column & thumbnail margin
 .midcol {
 	@include margin(null em(15, 13) null 0);
-	width: em(24, 13) !important; // ;_; gotta override inline styling
+	// width: em(24, 13) !important;
+	width: em(32, 13) !important; // ;_; gotta override inline styling
 }
 
 // also affects sidebar vote arrows
@@ -64,12 +65,13 @@
 #siteTable {
 	// individual post listings
 	&>.thing {
-		@include padding(em(15, 10) 0 em(15, 10) 0);
-		margin: 0;
+		// @include padding(em(15, 10) 0 em(15, 10) 0);
+		// margin: 0;
+		@include animate-card;
 
 		// remove padding from topmost post
 		&:first-of-type {
-			padding-top: 0;
+			// padding-top: 0;
 		}
 
 		.title {
@@ -90,6 +92,8 @@
 		}
 	}
 }
+
+.link { margin-bottom: em(16, 10); }
 
 // color of post score
 .thing .link .score {
@@ -301,75 +305,75 @@
 	padding: 0 em(2, 12);
 }
 
-.entry .buttons li a {
-	color: $light-secondary-text;
-
-	&:not(.comments):not(.flairselectbtn):not(.yes):not(.no) {
-		display: inline-block;
-		text-indent: -9999em;
-		color: transparent;
-	}
-}
-
-// set width of share, report, save, remove, and nsfw/un-nsfw buttons
-.share a,
-.report-button a,
-.link-save-button a,
-.remove-button input[value="removed"] ~ span > a,
-.marknsfw-button input[value="marked"] ~ span > a,
-.unmarknsfw-button input[value="unmarked"] ~ span > a {
-	width: em(14, 12);
-}
-
-// set width of delete and remove icons
-.del-button span > a,
-.remove-button input[value="spammed"] ~ span > a {
-	width: em(12, 12);
-}
-
-// share, save/unsave, report
-@each $link-button in share, link-save-button, link-unsave-button, report-button {
-	.#{$link-button} a { background: url(%%#{$link-button}%%) 0 no-repeat; }
-}
-
-// hide and unhide
-@each $link-buttons in hide, unhide {
-	.hide-button span > a[action="#{$link-buttons}"] {
-		width: em(16, 12); // width of hide/unhide icons
-		background: url(%%#{$link-buttons}%%) 0 no-repeat;
-	}
-}
-
-// spam
-.remove-button input[value="spammed"] ~ span > a { background: url(%%spam%%) 0 no-repeat; }
-
-// delete
-.del-button span > a { background: url(%%delete%%) 0 no-repeat; }
-
-// remove
-.remove-button input[value="removed"] ~ span > a { background: url(%%remove%%) 0 no-repeat; }
-
-// nsfw
-.marknsfw-button input[value="marked"] ~ span > a { background: url(%%marked-nsfw%%) 0 no-repeat; }
-
-// un-nsfw
-.unmarknsfw-button input[value="unmarked"] ~ span > a { background: url(%%unmarked-nsfw%%) 0 no-repeat; }
-
-// remove images from yes/no for delete, remove, and nsfw buttons
-.del-button span > a,
-.remove-button input[value="removed"] ~ span > a,
-.unmarknsfw-button input[value="unmarked"] ~ span > a {
-	&.yes,
-	&.no {
-		background: none;
-	}
-}
-
-// approve post button
-.approve-button span > a {
-	width: em(15, 12);
-	background: url(%%approve%%) 0 no-repeat;
-}
+// .entry .buttons li a {
+// 	color: $light-secondary-text;
+//
+// 	&:not(.comments):not(.flairselectbtn):not(.yes):not(.no) {
+// 		display: inline-block;
+// 		text-indent: -9999em;
+// 		color: transparent;
+// 	}
+// }
+//
+// // set width of share, report, save, remove, and nsfw/un-nsfw buttons
+// .share a,
+// .report-button a,
+// .link-save-button a,
+// .remove-button input[value="removed"] ~ span > a,
+// .marknsfw-button input[value="marked"] ~ span > a,
+// .unmarknsfw-button input[value="unmarked"] ~ span > a {
+// 	width: em(14, 12);
+// }
+//
+// // set width of delete and remove icons
+// .del-button span > a,
+// .remove-button input[value="spammed"] ~ span > a {
+// 	width: em(12, 12);
+// }
+//
+// // share, save/unsave, report
+// @each $link-button in share, link-save-button, link-unsave-button, report-button {
+// 	.#{$link-button} a { background: url(%%#{$link-button}%%) 0 no-repeat; }
+// }
+//
+// // hide and unhide
+// @each $link-buttons in hide, unhide {
+// 	.hide-button span > a[action="#{$link-buttons}"] {
+// 		width: em(16, 12); // width of hide/unhide icons
+// 		background: url(%%#{$link-buttons}%%) 0 no-repeat;
+// 	}
+// }
+//
+// // spam
+// .remove-button input[value="spammed"] ~ span > a { background: url(%%spam%%) 0 no-repeat; }
+//
+// // delete
+// .del-button span > a { background: url(%%delete%%) 0 no-repeat; }
+//
+// // remove
+// .remove-button input[value="removed"] ~ span > a { background: url(%%remove%%) 0 no-repeat; }
+//
+// // nsfw
+// .marknsfw-button input[value="marked"] ~ span > a { background: url(%%marked-nsfw%%) 0 no-repeat; }
+//
+// // un-nsfw
+// .unmarknsfw-button input[value="unmarked"] ~ span > a { background: url(%%unmarked-nsfw%%) 0 no-repeat; }
+//
+// // remove images from yes/no for delete, remove, and nsfw buttons
+// .del-button span > a,
+// .remove-button input[value="removed"] ~ span > a,
+// .unmarknsfw-button input[value="unmarked"] ~ span > a {
+// 	&.yes,
+// 	&.no {
+// 		background: none;
+// 	}
+// }
+//
+// // approve post button
+// .approve-button span > a {
+// 	width: em(15, 12);
+// 	background: url(%%approve%%) 0 no-repeat;
+// }
 
 .error {
 	color: $nsfw;
