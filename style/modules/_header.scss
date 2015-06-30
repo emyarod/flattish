@@ -16,6 +16,11 @@
   background: transparent linear-gradient(to right, $primary, $light-accent, $primary, $light-accent) repeat scroll 0% 0% / 600% 100%;
   margin-bottom: em(15, 10);
   @include animation(moveheader 20s infinite);
+  // max-width: unset !important;
+  // display: block;
+  width: 125%;
+  left: -12.5%;
+
 }
 
 
