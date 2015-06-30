@@ -9,6 +9,9 @@
   &:hover {
     font-size: 0;
 
-    &::after { content: "<3 57"; }
+    &::after {
+      content: "<3 57";
+      font-size: 16px;
+    }
   }
 }
