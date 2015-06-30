@@ -19,7 +19,7 @@
   }
 }
 
-@mixin transition-default($value: all 0.5s ease 0s) {
+@mixin transition-default($value: all 0.5s ease-out) {
   @include transition($value);
 }
 
