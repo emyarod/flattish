@@ -1,0 +1,14 @@
+// main: ../main.scss
+
+.submit-page .content {
+  // margin: 0 auto;
+}
+
+.submit-page .side {
+  padding-top: em(70, 10);
+}
+
+.formtabs-content {
+  @include animate-card;
+  border: none;
+}

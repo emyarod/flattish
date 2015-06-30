@@ -1,109 +1,34 @@
+// main: ../../main.scss
+
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
 
 @mixin reddit {
-  color: $light-secondary-text;
-  content: "reddit";
-  font-weight: bold;
-  left: em(70, 16);
-  padding-top: em(16, 12);
   position: absolute;
+  left: em(70, 16);
+  // margin-right: 1em;
+  // padding-top: em(16, 12);
+  content: "reddit";
+  color: $light-secondary-text;
+  font-weight: bold;
+  line-height: em(60, 16);
   text-indent: 0;
-  margin-right: 1em;
   @include transition-default;
 }
 
 @mixin tabs {
-  background-color: transparent;
+  display: inline-block;
+  // height: em(60, 16);
   border-bottom: em(2, 16) solid transparent;
+  padding: 0 em(16, 16);
   color: $light-secondary-text;
   font-weight: normal;
-  padding: 0 1em em(19, 16);
-}
+  background: transparent radial-gradient(circle, rgba($accent, .25) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
+  @include transition(background 0.35s cubic-bezier(.64, .09, .08, 1), border-bottom .5s ease-out, color .5s ease-out);
 
-@mixin tabmenu {
-  .tabmenu {
-
-    li.selected a {
-      @include border-width(0 0 em(2, 16) 0);
-      @include border-color(null null $accent null);
-    }
-
-    li {
-      margin: 0;
-
-      &:hover a {
-        color: $light-text;
-
-        &:after {
-          border-bottom: em(2, 16) solid $accent;
-        }
-      }
-
-      a {
-        font-size: 0;
-        @include tabs;
-        @include transition-default;
-        
-        // hides "rising", "controversial", "ads", and "gilded" tabs
-        &[href$="/rising/"],
-        &[href$="/controversial/"],
-        &[href$="/ads/"],
-        &[href$="/gilded/"] {
-          display: none;
-        }
-        
-        // shortens visible tabs
-        &[href$="/flattish/"]:after {
-          content: "h";
-        }
-
-        &[href$="/new/"]:after {
-          content: "n";
-        }
-
-        &[href$="/top/"]:after {
-          content: "t";
-        }
-
-        &[href$="/wiki/"]:after {
-          content: "w";
-        }
-        
-        // style visible tabs
-        &[href$="/flattish/"],
-        &[href$="/new/"],
-        &[href$="/top/"],
-        &[href$="/wiki/"] {
-
-          &:after {
-            font-size: initial;
-            @include tabs;
-            @include transition-default;
-          }
-
-          &:hover:after {
-            color: $light-text;
-            border-bottom: em(2, 16) solid $accent;
-          }
-        }
-      }
-
-      a#viewImagesButton {
-
-        &:after {
-          content: "vi";
-          font-size: initial;
-          @include tabs;
-          @include transition-default;
-        }
-
-        &:hover:after {
-          color: $light-text;
-          border-bottom: em(2, 16) solid $accent;
-        }
-      }
-    }
+  &:focus {
+    outline: 0;
+    background-size: 1000%;
   }
 }
 
@@ -124,22 +49,19 @@
     @include transition-default;
   }
 
-  // position pagename and tabmenu
-  .pagename a,
-  .tabmenu {
-    position: relative;
-    top: em(-19, 16);
-  }
-
   // subreddit name
   .pagename {
     font-size: 0;
 
     a {
-      color: $light-secondary-text;
-      font-size: 16px;
+      position: relative;
+      display: inline-block;
+      height: em(60, 16);
+      padding: 0 em(16, 16);
+      font-size: 16px; // b/c parent font-size is 0
       font-variant: normal;
-      padding: em(20, 15) 1em;
+      color: $light-secondary-text;
+      line-height: em(60, 16);
       text-transform: lowercase;
       @include transition-default;
 
@@ -152,12 +74,91 @@
 
   // tabmenu
   .tabmenu {
+    // position: relative;
+    // top: em(-19, 16);
+    height: em(60, 16);
+    @include margin(0 null null null);
     font-size: inherit;
-    margin: 0;
-  }
+    line-height: em(60, 16);
 
-  // tabmenu list items mixin
-  @include tabmenu;
+    li.selected a {
+      @include border-width(0 0 em(2, 16) 0);
+      @include border-color(null null $accent null);
+    }
+
+    li {
+      margin: 0;
+
+      &:hover a {
+        color: $light-text;
+
+        &:after {
+          border-bottom: em(2, 16) solid $accent;
+        }
+      }
+
+      a {
+        font-size: 0;
+        @include tabs;
+
+        // hides "rising", "controversial", "ads", and "gilded" tabs
+        &[href$="/rising/"],
+        &[href$="/controversial/"],
+        &[href$="/ads/"],
+        &[href$="/gilded/"] {
+          display: none;
+        }
+
+        // shortens visible tabs
+        &[href$="/flattish/"]:after {
+          content: "h";
+        }
+
+        &[href$="/new/"]:after {
+          content: "n";
+        }
+
+        &[href$="/top/"]:after {
+          content: "t";
+        }
+
+        &[href$="/wiki/"]:after {
+          content: "w";
+        }
+
+        // style visible tabs
+        &[href$="/flattish/"],
+        &[href$="/new/"],
+        &[href$="/top/"],
+        &[href$="/wiki/"] {
+
+          &:after {
+            font-size: initial;
+            @include tabs;
+          }
+
+          &:hover:after {
+            color: $light-text;
+            border-bottom: em(2, 16) solid $accent;
+          }
+        }
+      }
+
+      a#viewImagesButton {
+
+        &:after {
+          content: "vi";
+          font-size: initial;
+          @include tabs;
+        }
+
+        &:hover:after {
+          color: $light-text;
+          border-bottom: em(2, 16) solid $accent;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: $screen-xs-min) {
@@ -180,7 +181,6 @@
           content: "vi";
           font-size: initial;
           @include tabs;
-          @include transition-default;
         }
 
         &:hover:after {
@@ -222,6 +222,7 @@
 
     // fix for when reddit pushes a different header image
     #header-img-a {
+
       &:after {
         @include reddit;
       }
@@ -241,8 +242,12 @@
       a {
         color: $light-secondary-text;
         font-size: 1em;
- 
+
         &:after {
+          display: none;
+        }
+
+        &#viewImagesButton::after {
           display: none;
         }
       }

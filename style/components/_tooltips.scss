@@ -1,0 +1,54 @@
+// need to provide width of tooltip after content is added
+// need to provide width of parent object
+// need to provide text within tooltip
+
+@mixin tooltip($width-tooltip, $width-parent, $content-tooltip, $screen-type: mobile) {
+  @if $screen-type == desktop {
+    $height-tooltip: em(32, 14);
+    $padding-tooltip: em(16, 14);
+    $font-size-tooltip: 14px;
+  } @else {
+    $height-tooltip: em(22, 10);
+    $padding-tooltip: em(8, 10);
+    $font-size-tooltip: 10px;
+  }
+
+  &:after {
+    position: relative;
+    right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
+    display: block;
+    visibility: hidden;
+    height: $height-tooltip;
+    width: $width-tooltip;
+    padding: 0 $padding-tooltip;
+    content: $content-tooltip;
+    font-size: $font-size-tooltip;
+    font-weight: bold;
+    line-height: $height-tooltip / 1em;
+    color: $dark-text;
+    text-align: center;
+    background-color: rgba($tooltip, 0);
+    border-radius: em(2, $font-size-tooltip);
+    @include transition-default(all .25s);
+  }
+
+  &:hover::after {
+    margin-top: em(14, $font-size-tooltip);
+    visibility: visible;
+    background-color: $tooltip;
+  }
+}
+
+@mixin button-ripple-circle($direction-1, $direction-1-value, $direction-2, $direction-2-value, $desired-size, $orig-font-size) {
+	position: absolute;
+	$direction-1: em($direction-1-value, $orig-font-size);
+	$direction-2: em($direction-2-value, $orig-font-size);
+	z-index: -1;
+	height: em($desired-size, $orig-font-size);
+	width: em($desired-size, $orig-font-size);
+	content: " ";
+	background-color: $tooltip;
+	border-radius: 50%;
+	opacity: 1;
+	@include animation(button-ripple .35s ease forwards);
+}

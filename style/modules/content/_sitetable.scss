@@ -1,3 +1,5 @@
+// main: ../../main.scss
+
 // post rank
 .rank {
 	display: none;
@@ -6,7 +8,8 @@
 // vote arrow/score column & thumbnail margin
 .midcol {
 	@include margin(null em(15, 13) null 0);
-	width: em(24, 13) !important; // ;_; gotta override inline styling
+	// width: em(24, 13) !important;
+	width: em(32, 13) !important; // ;_; gotta override inline styling
 }
 
 // also affects sidebar vote arrows
@@ -35,24 +38,59 @@
 
 // aligns score between new arrows
 #siteTable {
+
+	.score {
+
+		&.unvoted {
+			color: $light-disabled-text;
+		}
+
+		&.likes {
+			color: $upvote;
+		}
+
+		&.dislikes {
+			color: $downvote;
+		}
+	}
+
 	&>.likes .score,
 	&>.dislikes .score,
-	&>.link .score {
+	&>.thing .score {
 		font-size: em(14, 13);
 		position: relative;
 	}
 }
 
 #siteTable {
+
 	// individual post listings
 	&>.thing {
-		margin-bottom: em(15, 10);
-		@include animate-card;
+		@include animation(papersplit 5s ease-out);
+		@include card;
+		margin-bottom: em(16, 10);
+
+		// remove padding from topmost post
+		&:first-of-type {
+			// padding-top: 0;
+		}
+
+		// a.title {
+		// 	background: linear-gradient(to top, rgba($light-accent, 0.8) 50%, transparent 50%);
+		// 	background-size: 100% 200%;
+		// 	background-position: 0 0;
+		// 	background-repeat: no-repeat;
+		// 	text-decoration: none;
+		// 	color: inherit;
+		// 	transition: background-position .3s cubic-bezier(.64, .09, .08, 1);
+		//
+		// 	&:hover {	background-position: 0 100%; }
+		// }
 
 		.title {
 			color: $link-color;
 			line-height: 1.35;
-			margin: 0 0 em(5, 16) 0;
+			margin: 0;
 
 			&:visited {
 				color: $link-color-visited;
@@ -61,15 +99,15 @@
 
 		.domain,
 		.domain a,
-		.tagline,
-		.entry .buttons li a {
+		.tagline {
+			// .entry .buttons li a {
 			color: $light-secondary-text;
 		}
 	}
 }
 
 // color of post score
-.link .score {
+.thing .link .score {
 
 	&.likes {
 		color: $upvote;
@@ -94,7 +132,8 @@
 	}
 
 	img {
-		height: auto;
+		// height: auto;
+		height: em(70, 10);
 		width: auto;
 		max-height: em(70, 10);
 	}
@@ -125,9 +164,11 @@
 .thing.over18 > .thumbnail.self {
 	background: url(%%nsfw%%) 0 no-repeat;
 	border-color: $nsfw;
+	opacity: 0.54;
 
 	&:hover {
-		border-color: rgba($nsfw, 0.54);
+		border-color: $nsfw;
+		opacity: 1;
 	}
 }
 
@@ -136,23 +177,16 @@
 	float: right;
 }
 
-@include keyframes(minustoplus) {
-	0% {
-		@include transform(rotate(90deg));
-	}
-	100% {
-		@include transform(rotate(0));
-	}
-}
-
 // media and self post expansion buttons
 .expando-button {
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
-	margin-right: em(6, 10);
+	cursor: pointer;
+	@include margin(null em(6, 10) em(6, 10) null);
 	opacity: 0.54;
 	position: relative;
 	top: em(2, 10);
+	z-index: 1;
 	@include transition-default;
 
 	&:hover {
@@ -178,7 +212,7 @@
 			top: em(17, 10);
 			left: em(14, 10);
 		}
-		
+
 		&:after {
 			width: em(1, 10);
 			height: em(7, 10);
@@ -223,7 +257,7 @@
 		&.expanded,
 		&.expanded:hover {
 			background: url(%%camera%%) 0 no-repeat !important; // ;_; thx res
-			
+
 			// reposition horizontal line in plus/minus
 			&:after {
 				top: em(-1, 10); // why, sway???
@@ -242,19 +276,116 @@
 	}
 }
 
+.tagline,
+.flat-list.buttons {
+	font-size: em(12, 10);
+}
+
+// "submitted by"
 .tagline {
-	left: em(2, 10);
+	margin: em(8, 12) 0;
+}
+
+// target only taglines where expandos are also present
+.expando-button ~ .tagline {
 	position: relative;
+	left: em(2, 12);
+	top: em(9, 12);
+	margin: 0;
+	z-index: 0;
+}
+
+.flat-list.buttons {
+	clear: left;
+	left: em(-1, 12);
+	position: relative;
+
+	li { line-height: em(14, 12); }
 }
 
 // nsfw stamp
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
 	border: 0 !important; // ;_; thx reddit css
-	border-radius: em(2, 10);
+	border-radius: em(2, 12);
 	background-color: $nsfw;
 	color: $white;
+	font-size: em(12, 12);
 	font-weight: bold;
 	line-height: 0;
-	padding: 0 em(2, 10);
+	padding: 0 em(2, 12);
+}
+
+// .entry .buttons li a {
+// 	color: $light-secondary-text;
+//
+// 	&:not(.comments):not(.flairselectbtn):not(.yes):not(.no) {
+// 		display: inline-block;
+// 		text-indent: -9999em;
+// 		color: transparent;
+// 	}
+// }
+//
+// // set width of share, report, save, remove, and nsfw/un-nsfw buttons
+// .share a,
+// .report-button a,
+// .link-save-button a,
+// .remove-button input[value="removed"] ~ span > a,
+// .marknsfw-button input[value="marked"] ~ span > a,
+// .unmarknsfw-button input[value="unmarked"] ~ span > a {
+// 	width: em(14, 12);
+// }
+//
+// // set width of delete and remove icons
+// .del-button span > a,
+// .remove-button input[value="spammed"] ~ span > a {
+// 	width: em(12, 12);
+// }
+//
+// // share, save/unsave, report
+// @each $link-button in share, link-save-button, link-unsave-button, report-button {
+// 	.#{$link-button} a { background: url(%%#{$link-button}%%) 0 no-repeat; }
+// }
+//
+// // hide and unhide
+// @each $link-buttons in hide, unhide {
+// 	.hide-button span > a[action="#{$link-buttons}"] {
+// 		width: em(16, 12); // width of hide/unhide icons
+// 		background: url(%%#{$link-buttons}%%) 0 no-repeat;
+// 	}
+// }
+//
+// // spam
+// .remove-button input[value="spammed"] ~ span > a { background: url(%%spam%%) 0 no-repeat; }
+//
+// // delete
+// .del-button span > a { background: url(%%delete%%) 0 no-repeat; }
+//
+// // remove
+// .remove-button input[value="removed"] ~ span > a { background: url(%%remove%%) 0 no-repeat; }
+//
+// // nsfw
+// .marknsfw-button input[value="marked"] ~ span > a { background: url(%%marked-nsfw%%) 0 no-repeat; }
+//
+// // un-nsfw
+// .unmarknsfw-button input[value="unmarked"] ~ span > a { background: url(%%unmarked-nsfw%%) 0 no-repeat; }
+//
+// // remove images from yes/no for delete, remove, and nsfw buttons
+// .del-button span > a,
+// .remove-button input[value="removed"] ~ span > a,
+// .unmarknsfw-button input[value="unmarked"] ~ span > a {
+// 	&.yes,
+// 	&.no {
+// 		background: none;
+// 	}
+// }
+//
+// // approve post button
+// .approve-button span > a {
+// 	width: em(15, 12);
+// 	background: url(%%approve%%) 0 no-repeat;
+// }
+
+.error {
+	color: $nsfw;
 }

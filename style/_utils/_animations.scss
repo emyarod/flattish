@@ -1,0 +1,62 @@
+// main: ../main.scss
+
+@import "mixins";
+
+// card elevation change animation
+@include keyframes(depthup) {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    @include drop-shadow(1);
+  }
+}
+
+// menu fade in/appear from button press
+// fix required
+@include keyframes(menu-fadein) {
+  0% {
+    opacity: 0;
+    @include transform(translate(-78.5px, -837.5px) scale(0));
+  }
+  100% {
+    opacity: 1;
+    @include transform(scale(1));
+  }
+}
+
+@include keyframes(papersplit) {
+  0% { margin-bottom: 0; }
+  30% { margin-bottom: 0; }
+  40% { margin-bottom: em(16, 10); }
+  50% {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  100% {
+    @include drop-shadow(1);
+    border-radius: em(2, 10);
+  }
+}
+
+// ripple effect on tooltip press
+@include keyframes(button-ripple) {
+	0% {
+		@include transform(scale(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(scale(2));
+		opacity: 0;
+	}
+}
+
+// expando button +/- animation
+@include keyframes(minustoplus) {
+	0% {
+		@include transform(rotate(90deg));
+	}
+	100% {
+		@include transform(rotate(0));
+	}
+}

@@ -1,8 +1,10 @@
+// main: ../../main.scss
+
 .submit-link,
 .submit-text {
-	position: absolute;
-	top: em(315, 10);
+	position: relative;
 	width: 0;
+	height: 0;
 
 	.morelink {
 		background: none;
@@ -11,48 +13,55 @@
 
 		a {
 			@include button($light-app-bar, $light-icons, 14, 15);
-			line-height: 15px;
+			line-height: em(15, 14);
 			position: relative;
-			top: 35px;
-			// padding: em(14, 15) 0;
+			top: em(35, 14);
 			@include padding(null 0);
 			@include transition-default;
 
-			&:hover {
-				@include drop-shadow(1);
-			}
+			&:hover { @include drop-shadow(1); }
 
 			&:active {
 			}
 		}
 	}
 
-	.nub {
-		display: none;
-	}
-
+	.nub { display: none; }
 }
 
 .submit-link {
 
+	// card underneath submit buttons
 	&:before {
-		color: $light-secondary-text;
-		content: "Submit a new:";
+		position: relative;
+		top: em(-15, 14);
+		display: block;
+		height: em(63, 14);
+		width: em(300, 14);
 		font-size: em(14, 10);
 		font-weight: bold;
-		height: em(63, 14);
-		position: absolute;
-		top: em(-15, 14);
-		width: em(300, 14);
+		color: $light-secondary-text;
+		content: "Submit a new:";
 		@include animate-card(14);
 		padding-top: em(20, 14);
 	}
 
+	// position submit link button
 	.morelink {
 		left: em(15, 15);
 	}
 }
 
+// position submit post buttons
+.submit-link {
+	top: em(-69, 10);
+
+	.morelink {
+		top: em(-65, 10);
+	}
+}
+
 .submit-text {
-	right: 3em;
+	top: em(-84, 10);
+	left: em(170, 10);
 }

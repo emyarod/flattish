@@ -1,3 +1,7 @@
+// main: ../../main.scss
+
+@import "../../components/tooltips";
+
 #moderation_tools,
 .sidecontentbox {
 	position: relative;
@@ -5,10 +9,11 @@
 	.title {
 		margin-bottom: em(10, 10);
 
+		// style card titles
 		h1 {
-			color: $light-secondary-text;
 			font-size: em(14, 10);
 			font-weight: bold;
+			color: $light-secondary-text;
 			text-transform: lowercase;
 		}
 
@@ -25,7 +30,8 @@
 }
 
 .sidecontentbox {
-	top: em(2, 10);
+	// top: em(2, 10);
+	z-index: 0;
 
 	// mod tools collapse button
 	.collapse-button {
@@ -45,6 +51,59 @@
 		.reddit-entry {
 			position: relative;
 			top: em(4, 13);
+
+			a {
+				line-height: 1.35;
+			}
+		}
+
+		.thing {
+			padding: em(10, 14) 0;
+
+			span.score {
+
+				&.unvoted {
+					color: $light-secondary-text;
+				}
+
+				&.likes {
+					color: $upvote;
+				}
+
+				&.dislikes {
+					color: $downvote;
+				}
+			}
+
+			// recolor comment count
+			a.reddit-comment-link.may-blank {
+				color: $light-secondary-text;
+			}
+		}
+
+		// remove unnecessary trailing padding
+		.reddit-link-end {
+			padding: 0;
+		}
+
+		.right {
+			height: em(20, 10);
+
+			a {
+				display: block;
+				float: right;
+				height: em(20, 10);
+				width: em(20, 10);
+				color: transparent;
+				background: url(%%clear%%) 0 no-repeat;
+
+				// @include tooltip(em(58, 14), em(20, 14), "Clear all", $screen-type: desktop);
+				@include tooltip(em(42, 10), em(20, 10), "Clear all");
+
+				&:focus::before {
+					@include button-ripple-circle(right, 16, bottom, 15, 20, 10);
+				}
+			}
 		}
 	}
 }

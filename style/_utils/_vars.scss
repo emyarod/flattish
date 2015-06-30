@@ -9,12 +9,12 @@
 }
 
 // define colors
-$primary: get-color("green", "500");
-$dark-primary: get-color("green", "700");
-$light-primary: get-color("green", "100");
-$accent: get-color("blue", "A200");
-// $dark-accent: get-color("blue", "A400");
-// $light-accent: get-color("blue", "A100");
+$primary: get-color("yellow", "500");
+$dark-primary: get-color("yellow", "700");
+$light-primary: get-color("yellow", "100");
+$accent: get-color("orange", "A200");
+// $dark-accent: get-color("orange", "A400");
+$light-accent: get-color("orange", "A100");
 $black: #000;
 $white: #fff;
 
@@ -25,12 +25,12 @@ $light-background: get-color("grey", "50");
 $light-cards: $white;
 
 // light theme text
-$light-divider-text: rgba($black, 0.12);
-$light-disabled-text: rgba($black, 0.26);
-$light-hint-text: rgba($black, 0.26);
-$light-secondary-text: rgba($black, 0.54);
-$light-icons: rgba($black, 0.54);
-$light-text: rgba($black, 0.87);
+$light-divider-text: rgba($black, .12);
+$light-disabled-text: rgba($black, .26);
+$light-hint-text: rgba($black, .26);
+$light-secondary-text: rgba($black, .54);
+$light-icons: rgba($black, .54);
+$light-text: rgba($black, .87);
 
 // dark theme
 $dark-status-bar: $black;
@@ -39,10 +39,10 @@ $dark-background: #303030;
 $dark-cards: get-color("grey", "800");
 
 // dark theme text
-$dark-divider-text: rgba($white, 0.12);
-$dark-disabled-text: rgba($white, 0.3);
-$dark-hint-text: rgba($white, 0.3);
-$dark-secondary-text: rgba($white, 0.70);
+$dark-divider-text: rgba($white, .12);
+$dark-disabled-text: rgba($white, .3);
+$dark-hint-text: rgba($white, .3);
+$dark-secondary-text: rgba($white, .70);
 $dark-icons: rgba($white, 1);
 $dark-text: rgba($white, 1);
 
@@ -66,3 +66,4 @@ $font-stack: "Arial", sans-serif;
 $upvote: get-color("deep-orange", "500");
 $downvote: get-color("blue", "500");
 $nsfw: get-color("red", "A200");
+$tooltip: rgba(get-color("grey", "700"), .9);

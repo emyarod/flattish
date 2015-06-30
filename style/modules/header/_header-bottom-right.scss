@@ -1,6 +1,4 @@
-@import "../../_utils/vars";
-@import "../../_utils/mixins";
-@import "../../components/menus";
+// main: ../../main.scss
 
 @mixin userbar-buttons {
   height: em(16, 10);
@@ -9,7 +7,6 @@
   display: inline-block;
   opacity: 0.54;
   position: relative;
-  top: em(-3, 10);
   text-indent: em(-9999, 10);
   @include transition-default;
 
@@ -46,17 +43,20 @@
 
   // preferences button
   .pref-lang.choice {
+    top: em(-1, 10);
     background: url("%%prefs%%") no-repeat;
     @include userbar-buttons;
   }
 
   // RES gear button
   .gearIcon {
-    background: transparent url("%%settings%%") no-repeat !important;
-    opacity: 0.54;
     position: relative;
     right: em(1, 10);
-    top: em(1, 10);
+    top: em(3, 10);
+    height: em(16, 10) !important;
+    width: em(16, 10) !important;
+    background: transparent url("%%settings%%") no-repeat !important;
+    opacity: 0.54;
     @include transition-default;
 
     &:hover {
@@ -68,7 +68,7 @@
   #RESMainGearOverlay {
     background-color: transparent !important;
     border: 0 !important;
-    top: em(159, 10) !important;
+    top: em(162, 10) !important; // also positions gear icon when hovered
   }
 
   // RES settings dropdown menu
@@ -96,6 +96,7 @@
 
   // logout button
   .logout a {
+    top: em(-2, 10);
     background: url("%%logout%%") no-repeat;
     @include userbar-buttons;
   }
@@ -105,8 +106,9 @@
 
 .res #header-bottom-right,
 #header-bottom-right {
-  margin-right: em(16, 10);
   top: em(104, 10);
+  height: em(20, 10);
+  margin-right: em(16, 10);
 }
 
 @media (min-width: $screen-md-min) {

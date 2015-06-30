@@ -1,20 +1,26 @@
+// out: main.css
+@import "_utils/animations";
+
 @import "modules/header";
 @import "modules/content";
 @import "modules/sidebar";
+@import "modules/footer";
+@import "pages/comments-page";
+@import "pages/search-page";
+@import "pages/submit-page";
 
 * {
-	font-family: $font-stack;
+  font-family: $font-stack;
 }
 
 body {
-	background-color: $light-background;
-	overflow-x: hidden; // hmm
+  background-color: $light-background;
+  overflow-x: hidden; // hmm
 
-	a:link {
-		color: $link-color;
-
-		&:visited {
-			color: $link-color-visited;
-		}
-	}
+  a:link {
+    color: $link-color;
+    &:visited {
+      color: $link-color-visited;
+    }
+  }
 }

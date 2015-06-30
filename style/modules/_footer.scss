@@ -1,0 +1,17 @@
+.footer {
+  @include animate-card;
+}
+
+.flat-vert.title {
+  color: $light-secondary-text;
+  font-size: em(16, 12);
+
+  &:hover {
+    font-size: 0;
+
+    &::after {
+      content: "<3 57";
+      font-size: 16px;
+    }
+  }
+}
