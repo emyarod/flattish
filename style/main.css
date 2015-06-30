@@ -179,7 +179,9 @@
   margin-bottom: 1.5em;
   -webkit-animation: moveheader 20s infinite;
   -moz-animation: moveheader 20s infinite;
-  animation: moveheader 20s infinite; }
+  animation: moveheader 20s infinite;
+  width: 125%;
+  left: -12.5%; }
 
 #sr-header-area {
   background-color: rgba(255, 249, 196, 0.3);
@@ -1254,6 +1256,8 @@ div.content {
   font-family: "Arial", sans-serif; }
 
 body {
+  margin: 0 auto;
+  max-width: 80%;
   background-color: #fafafa;
   overflow-x: hidden; }
   body a:link {
