@@ -2,9 +2,9 @@
 
 .submit-link,
 .submit-text {
-	position: absolute;
-	top: em(315, 10);
+	position: relative;
 	width: 0;
+	height: 0;
 
 	.morelink {
 		background: none;
@@ -16,31 +16,26 @@
 			line-height: em(15, 14);
 			position: relative;
 			top: em(35, 14);
-			// padding: em(14, 15) 0;
 			@include padding(null 0);
 			@include transition-default;
 
-			&:hover {
-				@include drop-shadow(1);
-			}
+			&:hover { @include drop-shadow(1); }
 
 			&:active {
 			}
 		}
 	}
 
-	.nub {
-		display: none;
-	}
-
+	.nub { display: none; }
 }
 
 .submit-link {
 
 	// card underneath submit buttons
 	&:before {
-		position: absolute;
+		position: relative;
 		top: em(-15, 14);
+		display: block;
 		height: em(63, 14);
 		width: em(300, 14);
 		font-size: em(14, 10);
@@ -57,7 +52,16 @@
 	}
 }
 
-// position submit text post button
+// position submit post buttons
+.submit-link {
+	top: em(-69, 10);
+
+	.morelink {
+		top: em(-65, 10);
+	}
+}
+
 .submit-text {
-	right: 3em;
+	top: em(-84, 10);
+	left: em(170, 10);
 }
