@@ -22,14 +22,14 @@
 	height: 0;
 	width: 0;
 	margin: 0 em(15, 10) 0 0;
-	padding-top: em(115, 10);
+	padding-top: em(85, 10);
 
 	.spacer {
 		margin: 0 0 em(15, 10);
 
 		&:first-of-type {
 			position: relative;
-			top: em(-115, 10);
+			top: em(-85, 10);
 			height: 0;
 			width: 0;
 		}
@@ -91,6 +91,13 @@
 	// search
 	@import "sidebar/search";
 
+	// sponsorship box
+	#ad_sponsorship,
+	#login_login-main {
+		position: relative;
+		top: em(-84, 10);
+	}
+
 	// submit buttons
 	@import "sidebar/submit";
 
@@ -132,7 +139,7 @@
 		// change width of first card (containing search and submit)
 		.spacer:first-of-type {
 			position: relative;
-			top: em(-115, 10);
+			top: em(-85, 10);
 			right: 0;
 			height: em(39, 10);
 			width: em(300, 10);
