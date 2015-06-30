@@ -63,11 +63,12 @@
 }
 
 #siteTable {
+
 	// individual post listings
 	&>.thing {
-		// @include padding(em(15, 10) 0 em(15, 10) 0);
-		// margin: 0;
-		@include animate-card;
+		@include animation(papersplit 5s ease-out);
+		@include card;
+		margin-bottom: em(16, 10);
 
 		// remove padding from topmost post
 		&:first-of-type {
@@ -87,13 +88,11 @@
 		.domain,
 		.domain a,
 		.tagline {
-		// .entry .buttons li a {
+			// .entry .buttons li a {
 			color: $light-secondary-text;
 		}
 	}
 }
-
-.link { margin-bottom: em(16, 10); }
 
 // color of post score
 .thing .link .score {
