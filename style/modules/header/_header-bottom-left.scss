@@ -20,18 +20,11 @@
   display: inline-block;
   // height: em(60, 16);
   border-bottom: em(2, 16) solid transparent;
-  // padding: 1em 1em em(19, 16);
   padding: 0 em(16, 16);
-  // padding: em(22, 16) em(16, 16) em(19, 16);
-  // padding: em(22, 16) em(16, 16);
   color: $light-secondary-text;
   font-weight: normal;
-  background-color: transparent;
-  background-image: radial-gradient(circle, #75b9e7 15%, transparent 30%);
-  background-size: 0;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  transition: all 0.35s cubic-bezier(.64,.09,.08,1);
+  background: transparent radial-gradient(circle, rgba($accent, .5) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
+  @include transition(background 0.35s cubic-bezier(.64, .09, .08, 1), border-bottom .5s ease-out, color .5s ease-out);
 
   &:focus {
     outline: 0;
@@ -64,7 +57,6 @@
       position: relative;
       display: inline-block;
       height: em(60, 16);
-      // padding: em(21, 16) em(16, 16) em(19, 16);
       padding: 0 em(16, 16);
       font-size: 16px; // b/c parent font-size is 0
       font-variant: normal;
@@ -108,7 +100,6 @@
       a {
         font-size: 0;
         @include tabs;
-        @include transition-default;
 
         // hides "rising", "controversial", "ads", and "gilded" tabs
         &[href$="/rising/"],
@@ -144,7 +135,6 @@
           &:after {
             font-size: initial;
             @include tabs;
-            @include transition-default;
           }
 
           &:hover:after {
@@ -160,7 +150,6 @@
           content: "vi";
           font-size: initial;
           @include tabs;
-          @include transition-default;
         }
 
         &:hover:after {
@@ -192,7 +181,6 @@
           content: "vi";
           font-size: initial;
           @include tabs;
-          @include transition-default;
         }
 
         &:hover:after {
