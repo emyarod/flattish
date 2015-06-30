@@ -4,6 +4,7 @@
 @import "modules/header";
 @import "modules/content";
 @import "modules/sidebar";
+@import "modules/footer";
 
 * {
   font-family: $font-stack;
@@ -12,6 +13,7 @@
 body {
   background-color: $light-background;
   overflow-x: hidden; // hmm
+
   a:link {
     color: $link-color;
     &:visited {
