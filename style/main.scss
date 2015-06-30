@@ -5,6 +5,9 @@
 @import "modules/content";
 @import "modules/sidebar";
 @import "modules/footer";
+@import "pages/comments-page";
+@import "pages/search-page";
+@import "pages/submit-page";
 
 * {
   font-family: $font-stack;
