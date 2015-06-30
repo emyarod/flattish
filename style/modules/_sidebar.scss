@@ -1,3 +1,5 @@
+// main: ../main.scss
+
 @import "../_utils/vars";
 @import "../_utils/mixins";
 @import "../components/cards";
@@ -51,7 +53,7 @@
 		height: 100%;
 		width: em(330, 10);
 		margin-left: 0;
-		
+
 		// show hidden sidebar items
 		*:not(.arrow) {
 			opacity: 1;
@@ -88,7 +90,7 @@
 
 	// search
 	@import "sidebar/search";
-	
+
 	// submit buttons
 	@import "sidebar/submit";
 
