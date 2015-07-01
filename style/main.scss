@@ -14,16 +14,24 @@
 }
 
 body {
-  margin: 0 auto;
-  max-width: 80%;
-  
+  // margin: 0 auto;
+  // max-width: 80%;
+
   background-color: $light-background;
   overflow-x: hidden; // hmm
 
   a:link {
     color: $link-color;
+
     &:visited {
       color: $link-color-visited;
     }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  body {
+    margin: 0 auto;
+    max-width: 80%;
   }
 }
