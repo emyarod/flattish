@@ -49,6 +49,20 @@
     @include transition-default;
   }
 
+  // positioning fix for when reddit pushes custom banner image
+  #header-img-a {
+
+    ~ .pagename {
+      display: inline-block;
+      line-height: 60px; // since font-size is 0
+    }
+
+    ~ .tabmenu {
+      display: inline-block;
+      height: em(65, 16);
+    }
+  }
+
   // subreddit name
   .pagename {
     font-size: 0;
