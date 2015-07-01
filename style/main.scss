@@ -9,14 +9,9 @@
 @import "pages/search-page";
 @import "pages/submit-page";
 
-* {
-  font-family: $font-stack;
-}
+* { font-family: $font-stack; }
 
 body {
-  // margin: 0 auto;
-  // max-width: 80%;
-
   background-color: $light-background;
   overflow-x: hidden; // hmm
 
