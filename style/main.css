@@ -380,6 +380,12 @@
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out; }
+  #header-bottom-left #header-img-a ~ .pagename {
+    display: inline-block;
+    line-height: 60px; }
+  #header-bottom-left #header-img-a ~ .tabmenu {
+    display: inline-block;
+    height: 4.0625em; }
   #header-bottom-left .pagename {
     font-size: 0; }
     #header-bottom-left .pagename a {
