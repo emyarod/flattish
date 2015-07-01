@@ -49,6 +49,7 @@
     @include transition-default;
   }
 
+  // positioning fix for when reddit pushes custom banner image
   #header-img-a {
 
     ~ .pagename {
