@@ -18,9 +18,14 @@
   @include animation(moveheader 20s infinite);
   // max-width: unset !important;
   // display: block;
-  width: 125%;
-  left: -12.5%;
 
+}
+
+@media (min-width: $screen-md-min) {
+  #header {
+    width: 125%;
+    left: -12.5%;
+  }
 }
 
 
