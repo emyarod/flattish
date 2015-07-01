@@ -179,9 +179,12 @@
   margin-bottom: 1.5em;
   -webkit-animation: moveheader 20s infinite;
   -moz-animation: moveheader 20s infinite;
-  animation: moveheader 20s infinite;
-  width: 125%;
-  left: -12.5%; }
+  animation: moveheader 20s infinite; }
+
+@media (min-width: 62em) {
+  #header {
+    width: 125%;
+    left: -12.5%; } }
 
 #sr-header-area {
   background-color: rgba(255, 249, 196, 0.3);
@@ -1262,11 +1265,14 @@ div.content {
   font-family: "Arial", sans-serif; }
 
 body {
-  margin: 0 auto;
-  max-width: 80%;
   background-color: #fafafa;
   overflow-x: hidden; }
   body a:link {
     color: #3f51b5; }
     body a:link:visited {
       color: #9c27b0; }
+
+@media (min-width: 62em) {
+  body {
+    margin: 0 auto;
+    max-width: 80%; } }
