@@ -183,6 +183,11 @@
 
 @media (min-width: 62em) {
   #header {
+    width: 112%;
+    left: -6%; } }
+
+@media (min-width: 75em) {
+  #header {
     width: 125%;
     left: -12.5%; } }
 
@@ -1273,6 +1278,11 @@ body {
       color: #9c27b0; }
 
 @media (min-width: 62em) {
+  body {
+    margin: 0 auto;
+    max-width: 90%; } }
+
+@media (min-width: 75em) {
   body {
     margin: 0 auto;
     max-width: 80%; } }
