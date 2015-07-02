@@ -1,5 +1,7 @@
+// main: ../main.scss
+
 .footer {
-  @include animate-card;
+  @include animate-card(13);
 }
 
 .flat-vert.title {
