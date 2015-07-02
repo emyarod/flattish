@@ -1214,8 +1214,8 @@ div.content {
       width: 14.3em; } }
 
 .footer {
-  border-radius: 0.2em;
-  padding: 1.5em;
+  border-radius: 0.15385em;
+  padding: 1.15385em;
   background-color: #fff;
   -webkit-animation: depthup 0.75s ease;
   -moz-animation: depthup 0.75s ease;
