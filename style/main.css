@@ -1235,6 +1235,8 @@ div.content {
       font-size: 16px; }
 
 .linkinfo {
+  position: relative;
+  top: -6.53846em;
   border-radius: 0.16667em;
   padding: 1.25em;
   background-color: #fff;
@@ -1245,7 +1247,6 @@ div.content {
   -moz-animation-iteration-count: 1;
   animation-iteration-count: 1;
   box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
-  margin-top: 1.25em;
   border: 0;
   color: rgba(0, 0, 0, 0.87);
   background-color: #ffd180; }
@@ -1268,6 +1269,9 @@ div.content {
 
 * {
   font-family: "Arial", sans-serif; }
+
+.sheets {
+  margin: 0; }
 
 body {
   background-color: #fafafa;
