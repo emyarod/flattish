@@ -535,7 +535,7 @@
     #header-bottom-left .tabmenu li a[href$="/wiki/"]:after {
       display: none; } }
 
-@media (min-width: 48em) {
+@media only screen and (min-width: 48em) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 48em) and (min--moz-device-pixel-ratio: 1.5), only screen and (min-width: 48em) and (-o-min-device-pixel-ratio: 1.5/1), only screen and (min-width: 48em) and (min-resolution: 144dpi), only screen and (min-width: 48em) and (min-resolution: 1.5dppx) {
   #header-bottom-left #header-img {
     padding-right: 8.1875em; }
     #header-bottom-left #header-img:after {
