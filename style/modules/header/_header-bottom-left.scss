@@ -248,6 +248,19 @@
 
     .tabmenu li {
 
+      &.selected a {
+        width: 0;
+        padding: 0;
+        margin: 0 35px 0 16px;
+        @include transition-default;
+
+        &:hover {
+          width: 23px;
+          padding: 0 16px;
+          margin: 0;
+        }
+      }
+
       &:hover a {
         color: $light-text;
         border-bottom: em(2, 16) solid $accent;
@@ -261,7 +274,7 @@
           display: none;
         }
 
-        &#viewImagesButton::after {
+        &#viewImagesButton:after {
           display: none;
         }
       }
