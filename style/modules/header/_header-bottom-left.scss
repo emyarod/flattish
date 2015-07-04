@@ -124,7 +124,7 @@
         }
 
         // shortens visible tabs
-        &[href$="/flattish/"]:after {
+        &[href$="/flattishtest/"]:after {
           content: "h";
         }
 
@@ -141,7 +141,7 @@
         }
 
         // style visible tabs
-        &[href$="/flattish/"],
+        &[href$="/flattishtest/"],
         &[href$="/new/"],
         &[href$="/top/"],
         &[href$="/wiki/"] {
@@ -181,7 +181,7 @@
     .tabmenu li {
 
       &:hover a,
-      &:hover a[href$="/flattish/"],
+      &:hover a[href$="/flattishtest/"],
       &:hover a[href$="/new/"],
       &:hover a[href$="/top/"],
       &:hover a[href$="/wiki/"] {
@@ -202,7 +202,7 @@
         }
       }
 
-      a[href$="/flattish/"],
+      a[href$="/flattishtest/"],
       a[href$="/new/"],
       a[href$="/top/"],
       a[href$="/wiki/"] {
