@@ -248,14 +248,14 @@
 
     .tabmenu li {
 
-      &.selected a {
+      a[href$="/flattishtest/"] {
         width: 0;
         padding: 0;
-        margin: 0 35px 0 16px;
-        @include transition-default;
+        margin: 0 38px 0 16px;
+        @include transition-default; // edit this value
 
         &:hover {
-          width: 23px;
+          width: 22px;
           padding: 0 16px;
           margin: 0;
         }
