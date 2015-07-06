@@ -221,6 +221,7 @@
   #header-bottom-left {
     // left: 0;
 
+    // why do i need to nest IDs???
     #header-img {
       // makes space for "reddit" text
       padding-right: em(131, 16);
@@ -248,69 +249,42 @@
 
     .tabmenu li {
 
-      // mixin and loop this shit
-      a[href$="/flattishtest/"] {
-        width: 0;
+      @mixin tab-button {
         padding: 0;
-        @include margin(null em(39, 16) null em(16, 16)); // margin-right = 16px + width
-        @include transition-default; // edit this value
+        width: 0;
+        @include transition-default;
 
         &:hover {
-          width: em(23, 16);
-          padding: 0 em(16, 16);
           margin: 0;
+          padding: 0 em(16, 16);
         }
       }
 
-      a[href$="/new/"] {
-        width: 0;
-        padding: 0;
-        @include margin(null em(46, 16) null em(16, 16));
-        @include transition-default; // edit this value
+      a[href$="/flattishtest/"],
+      a[href$="/new/"],
+      a[href$="/top/"],
+      a[href$="/wiki/"],
+      #viewImagesButton {
+        @include tab-button;
+      }
 
-        &:hover {
-          width: em(30, 16);
-          padding: 0 em(16, 16);
-          margin: 0;
+      @each $tab-button, $right-margin in (flattishtest: em(39, 16), new: em(46, 16), top: em(39, 16), wiki: em(43, 16)) {
+        a[href$="/#{$tab-button}/"] {
+          @include margin(null $right-margin null em(16, 16));
         }
       }
 
-      a[href$="/top/"] {
-        width: 0;
-        padding: 0;
-        @include margin(null em(39, 16) null em(16, 16));
-        @include transition-default; // edit this value
-
-        &:hover {
-          width: em(23, 16);
-          padding: 0 em(16, 16);
-          margin: 0;
+      @each $tab-button, $width in (flattishtest: em(23, 16), new: em(30, 16), top: em(23, 16), wiki: em(27, 16)) {
+        a[href$="/#{$tab-button}/"]:hover {
+          width: $width;
         }
       }
 
-      a[href$="/wiki/"] {
-        width: 0;
-        padding: 0;
-        @include margin(null em(43, 16) null em(16, 16));
-        @include transition-default; // edit this value
-
-        &:hover {
-          width: em(27, 16);
-          padding: 0 em(16, 16);
-          margin: 0;
-        }
-      }
-
-      a#viewImagesButton {
-        width: 0;
-        padding: 0;
+      #viewImagesButton {
         @include margin(null em(129, 16) null em(16, 16));
-        @include transition-default; // edit this value
 
         &:hover {
           width: em(113, 16);
-          padding: 0 em(16, 16);
-          margin: 0;
         }
       }
 
