@@ -286,7 +286,7 @@
           padding: 0 16px;
           margin: 0;
         }
-      }  
+      }
 
       a[href$="/wiki/"] {
         width: 0;
@@ -296,6 +296,19 @@
 
         &:hover {
           width: 27px;
+          padding: 0 16px;
+          margin: 0;
+        }
+      }
+
+      a#viewImagesButton {
+        width: 0;
+        padding: 0;
+        margin: 0 129px 0 16px;
+        @include transition-default; // edit this value
+
+        &:hover {
+          width: 113px;
           padding: 0 16px;
           margin: 0;
         }
