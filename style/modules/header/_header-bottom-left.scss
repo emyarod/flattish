@@ -286,6 +286,19 @@
           padding: 0 16px;
           margin: 0;
         }
+      }  
+
+      a[href$="/wiki/"] {
+        width: 0;
+        padding: 0;
+        margin: 0 43px 0 16px;
+        @include transition-default; // edit this value
+
+        &:hover {
+          width: 27px;
+          padding: 0 16px;
+          margin: 0;
+        }
       }
 
       &:hover a {
