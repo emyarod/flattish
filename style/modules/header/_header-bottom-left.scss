@@ -19,11 +19,11 @@
 @mixin tabs {
   display: inline-block;
   // height: em(60, 16);
-  border-bottom: em(2, 16) solid transparent;
   padding: 0 em(16, 16);
   color: $light-secondary-text;
   font-weight: normal;
   background: transparent radial-gradient(circle, rgba($accent, .25) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
+  border-bottom: em(2, 16) solid transparent;
   @include transition(background 0.35s cubic-bezier(.64, .09, .08, 1), border-bottom .5s ease-out, color .5s ease-out);
 
   &:focus {
