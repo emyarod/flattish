@@ -252,12 +252,12 @@
       a[href$="/flattishtest/"] {
         width: 0;
         padding: 0;
-        margin: 0 39px 0 16px; // margin-right = 16px + width
+        @include margin(null em(39, 16) null em(16, 16)); // margin-right = 16px + width
         @include transition-default; // edit this value
 
         &:hover {
-          width: 23px;
-          padding: 0 16px;
+          width: em(23, 16);
+          padding: 0 em(16, 16);
           margin: 0;
         }
       }
@@ -265,12 +265,12 @@
       a[href$="/new/"] {
         width: 0;
         padding: 0;
-        margin: 0 46px 0 16px;
+        @include margin(null em(46, 16) null em(16, 16));
         @include transition-default; // edit this value
 
         &:hover {
-          width: 30px;
-          padding: 0 16px;
+          width: em(30, 16);
+          padding: 0 em(16, 16);
           margin: 0;
         }
       }
@@ -278,12 +278,12 @@
       a[href$="/top/"] {
         width: 0;
         padding: 0;
-        margin: 0 39px 0 16px;
+        @include margin(null em(39, 16) null em(16, 16));
         @include transition-default; // edit this value
 
         &:hover {
-          width: 23px;
-          padding: 0 16px;
+          width: em(23, 16);
+          padding: 0 em(16, 16);
           margin: 0;
         }
       }
@@ -291,12 +291,12 @@
       a[href$="/wiki/"] {
         width: 0;
         padding: 0;
-        margin: 0 43px 0 16px;
+        @include margin(null em(43, 16) null em(16, 16));
         @include transition-default; // edit this value
 
         &:hover {
-          width: 27px;
-          padding: 0 16px;
+          width: em(27, 16);
+          padding: 0 em(16, 16);
           margin: 0;
         }
       }
@@ -304,12 +304,12 @@
       a#viewImagesButton {
         width: 0;
         padding: 0;
-        margin: 0 129px 0 16px;
+        @include margin(null em(129, 16) null em(16, 16));
         @include transition-default; // edit this value
 
         &:hover {
-          width: 113px;
-          padding: 0 16px;
+          width: em(113, 16);
+          padding: 0 em(16, 16);
           margin: 0;
         }
       }
