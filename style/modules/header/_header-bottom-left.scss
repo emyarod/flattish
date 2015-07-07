@@ -158,7 +158,7 @@
         }
       }
 
-      a#viewImagesButton {
+      #viewImagesButton {
 
         &:after {
           content: "vi";
@@ -189,7 +189,7 @@
         border-bottom: em(2, 16) solid $accent;
       }
 
-      a#viewImagesButton {
+      #viewImagesButton {
 
         &:after {
           content: "vi";
@@ -286,6 +286,10 @@
         &:hover {
           width: em(113, 16);
         }
+
+        &::after {
+          display: none;
+        }
       }
 
       &:hover a {
@@ -298,10 +302,6 @@
         font-size: 1em;
 
         &:after {
-          display: none;
-        }
-
-        &#viewImagesButton:after {
           display: none;
         }
       }
