@@ -124,7 +124,7 @@
         }
 
         // shortens visible tabs
-        &[href$="/flattishtest/"]:after {
+        &[href$="/flattishexperimental/"]:after {
           content: "h";
         }
 
@@ -141,7 +141,7 @@
         }
 
         // style visible tabs
-        &[href$="/flattishtest/"],
+        &[href$="/flattishexperimental/"],
         &[href$="/new/"],
         &[href$="/top/"],
         &[href$="/wiki/"] {
@@ -181,7 +181,7 @@
     .tabmenu li {
 
       &:hover a,
-      &:hover a[href$="/flattishtest/"],
+      &:hover a[href$="/flattishexperimental/"],
       &:hover a[href$="/new/"],
       &:hover a[href$="/top/"],
       &:hover a[href$="/wiki/"] {
@@ -202,7 +202,7 @@
         }
       }
 
-      a[href$="/flattishtest/"],
+      a[href$="/flattishexperimental/"],
       a[href$="/new/"],
       a[href$="/top/"],
       a[href$="/wiki/"] {
@@ -260,7 +260,7 @@
         }
       }
 
-      a[href$="/flattishtest/"],
+      a[href$="/flattishexperimental/"],
       a[href$="/new/"],
       a[href$="/top/"],
       a[href$="/wiki/"],
@@ -268,13 +268,13 @@
         @include tab-button;
       }
 
-      @each $tab-button, $right-margin in (flattishtest: em(39, 16), new: em(46, 16), top: em(39, 16), wiki: em(43, 16)) {
+      @each $tab-button, $right-margin in (flattishexperimental: em(39, 16), new: em(46, 16), top: em(39, 16), wiki: em(43, 16)) {
         a[href$="/#{$tab-button}/"] {
           @include margin(null $right-margin null em(16, 16));
         }
       }
 
-      @each $tab-button, $width in (flattishtest: em(23, 16), new: em(30, 16), top: em(23, 16), wiki: em(27, 16)) {
+      @each $tab-button, $width in (flattishexperimental: em(23, 16), new: em(30, 16), top: em(23, 16), wiki: em(27, 16)) {
         a[href$="/#{$tab-button}/"]:hover {
           width: $width;
         }
