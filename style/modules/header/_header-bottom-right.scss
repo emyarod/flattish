@@ -15,107 +15,96 @@
   }
 }
 
-@mixin userbar {
-  // user bar
-  .res #header-bottom-right,
-  #header-bottom-right {
-    background-color: transparent;
-    position: absolute;
-    margin: 0;
-    padding: 0;
+.res #header-bottom-right,
+#header-bottom-right {
+  position: absolute;
+  top: em(35, 10);
+  height: em(20, 10);
+  margin-right: em(16, 10);
+  padding: 0;
+  background-color: transparent;
 
-    span a {
-      color: $light-secondary-text;
-      @include transition-default;
-    }
-
-    &:hover span a {
-      color: $light-text;
-    }
-  }
-
-  .res #userbarToggle,
-  #userbarToggle {
-    background-color: transparent;
-    border: 0;
+  span a {
     color: $light-secondary-text;
-  }
-
-  // preferences button
-  .pref-lang.choice {
-    top: em(-1, 10);
-    background: url("%%prefs%%") no-repeat;
-    @include userbar-buttons;
-  }
-
-  // RES gear button
-  .gearIcon {
-    position: relative;
-    right: em(1, 10);
-    top: em(3, 10);
-    height: em(16, 10) !important;
-    width: em(16, 10) !important;
-    background: transparent url("%%settings%%") no-repeat !important;
-    opacity: 0.54;
     @include transition-default;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 
-  // RES gear button on mouseover
-  #RESMainGearOverlay {
-    background-color: transparent !important;
-    border: 0 !important;
-    top: em(162, 10) !important; // also positions gear icon when hovered
+  &:hover span a {
+    color: $light-text;
   }
+}
 
-  // RES settings dropdown menu
-  #RESPrefsDropdown {
-    @include menu;
+.res #userbarToggle,
+#userbarToggle {
+  background-color: transparent;
+  border: 0;
+  color: $light-secondary-text;
+}
 
-    #RESDropdownOptions {
-      li {
-        border: 0;
-        font-style: normal;
-        padding: 0;
-        @include menu-items;
-        @include transition-default;
+// preferences button
+.pref-lang.choice {
+  top: em(-1, 10);
+  background: url("%%prefs%%") no-repeat;
+  @include userbar-buttons;
+}
 
-        a {
-          color: $light-text;
+// RES gear button
+.gearIcon {
+  position: relative;
+  right: em(1, 10);
+  top: em(3, 10);
+  height: em(16, 10) !important;
+  width: em(16, 10) !important;
+  background: transparent url("%%settings%%") no-repeat !important;
+  opacity: 0.54;
+  @include transition-default;
 
-          &:hover {
-            background-color: transparent;
-          }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// RES gear button on mouseover
+#RESMainGearOverlay {
+  background-color: transparent !important;
+  border: 0 !important;
+  top: em(162, 10) !important; // also positions gear icon when hovered
+}
+
+// RES settings dropdown menu
+#RESPrefsDropdown {
+  @include menu;
+
+  #RESDropdownOptions {
+    li {
+      border: 0;
+      font-style: normal;
+      padding: 0;
+      @include menu-items;
+      @include transition-default;
+
+      a {
+        color: $light-text;
+
+        &:hover {
+          background-color: transparent;
         }
       }
     }
   }
-
-  // logout button
-  .logout a {
-    top: em(-2, 10);
-    background: url("%%logout%%") no-repeat;
-    @include userbar-buttons;
-  }
 }
 
-@include userbar;
-
-.res #header-bottom-right,
-#header-bottom-right {
-  top: em(35, 10);
-  height: em(20, 10);
-  margin-right: em(16, 10);
+// logout button
+.logout a {
+  top: em(-2, 10);
+  background: url("%%logout%%") no-repeat;
+  @include userbar-buttons;
 }
 
 @media (min-width: $screen-md-min) {
   // moves userbar down in larger screen widths
   .res #header-bottom-right,
   #header-bottom-right {
-    margin-right: em(16, 10);
-    top: em(161, 10);
+    top: em(180, 10);
   }
 }
