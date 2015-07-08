@@ -192,11 +192,11 @@
     left: -12.5%; } }
 
 #sr-header-area {
-  background-color: rgba(255, 249, 196, 0.3);
+  height: 3em;
   border: 0;
   font-size: 100%;
-  height: 3em;
   line-height: 1em;
+  background-color: rgba(255, 249, 196, 0.3);
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
@@ -211,14 +211,14 @@
   #sr-header-area:hover .sr-bar a {
     color: rgba(0, 0, 0, 0.87); }
   #sr-header-area .dropdown.srdrop {
-    cursor: pointer;
     height: 3em;
-    padding: 0; }
+    padding: 0;
+    cursor: pointer; }
     #sr-header-area .dropdown.srdrop .selected {
-      background: none;
       margin: 1.4em 1em 1em 1em;
       padding: 0;
       text-indent: -999em;
+      background: none;
       position: relative; }
       #sr-header-area .dropdown.srdrop .selected, #sr-header-area .dropdown.srdrop .selected:before, #sr-header-area .dropdown.srdrop .selected:after {
         display: block;
@@ -376,92 +376,132 @@
 
 #header-bottom-left {
   position: absolute;
-  top: 10em;
-  height: 3.42857em;
+  top: 4.92857em;
+  height: 3.78571em;
   font-size: 1.4em; }
-  #header-bottom-left .pagename {
-    margin: 0;
-    font-size: 1.14286em; }
-    #header-bottom-left .pagename a {
-      position: relative;
-      display: inline-block;
-      height: 3em;
-      padding: 0 1.5em;
-      color: rgba(0, 0, 0, 0.54);
-      font-variant: normal;
-      line-height: 3em;
-      text-transform: lowercase;
-      -webkit-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      transition: all 0.5s ease-out; }
-      #header-bottom-left .pagename a:hover {
-        color: rgba(0, 0, 0, 0.87);
-        text-decoration: none; }
-  #header-bottom-left .tabmenu {
-    height: 3.42857em;
-    margin-top: 0;
-    font-size: inherit;
-    line-height: 3.42857em; }
-    #header-bottom-left .tabmenu li.selected a {
-      border-width: 0 0 0.14286em;
-      border-bottom-color: #ffab40; }
-    #header-bottom-left .tabmenu li {
-      margin: 0; }
-      #header-bottom-left .tabmenu li:hover a {
-        color: rgba(0, 0, 0, 0.87); }
-        #header-bottom-left .tabmenu li:hover a:after {
-          border-bottom: 0.14286em solid #ffab40; }
-      #header-bottom-left .tabmenu li a {
-        display: inline-block;
-        padding: 0 1.71429em;
-        color: rgba(0, 0, 0, 0.54);
-        font-weight: bold;
-        text-transform: uppercase;
-        background: transparent radial-gradient(circle, rgba(255, 171, 64, 0.25) 15%, transparent 30%) no-repeat 50% 50%/0;
-        border-bottom: 0.125em solid transparent;
-        -webkit-transition: background 0.35s cubic-bezier(0.64, 0.09, 0.08, 1), border-bottom 0.5s ease-out, color 0.5s ease-out;
-        -moz-transition: background 0.35s cubic-bezier(0.64, 0.09, 0.08, 1), border-bottom 0.5s ease-out, color 0.5s ease-out;
-        transition: background 0.35s cubic-bezier(0.64, 0.09, 0.08, 1), border-bottom 0.5s ease-out, color 0.5s ease-out; }
-        #header-bottom-left .tabmenu li a:focus {
-          outline: 0;
-          background-size: 1000%; }
-        #header-bottom-left .tabmenu li a[href$="/rising/"],
-        #header-bottom-left .tabmenu li a[href$="/controversial/"],
-        #header-bottom-left .tabmenu li a[href$="/ads/"],
-        #header-bottom-left .tabmenu li a[href$="/gilded/"] {
-          display: none; }
+  #header-bottom-left .pagename a {
+    color: rgba(0, 0, 0, 0.54); }
+  #header-bottom-left .pagename:hover a {
+    color: rgba(0, 0, 0, 0.87); }
 
 #header-img,
 #header-img.default-header {
-  height: 3.42857em;
+  height: 3.78571em;
   width: 0;
-  margin: 0;
-  padding-right: 9.35714em;
+  margin: 0 0 0 2.5em;
+  padding-right: 2.5em;
   background: url(%%snoo-color%%) no-repeat;
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
-  #header-img:after,
-  #header-img.default-header:after {
-    position: absolute;
-    left: 4.375em;
-    content: "reddit";
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 1.14286em;
-    font-weight: bold;
-    line-height: 3em;
-    text-indent: 0;
+
+#header-img-a ~ .pagename {
+  position: relative;
+  top: -0.25em; }
+
+.pagename {
+  margin: 0;
+  font-size: 1.14286em; }
+  .pagename a {
+    position: relative;
+    display: inline-block;
+    height: 3.3125em;
+    padding: 0 1em;
+    font-variant: normal;
+    line-height: 3.3125em;
+    text-transform: lowercase;
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out; }
+    .pagename a:hover {
+      color: rgba(0, 0, 0, 0.87);
+      text-decoration: none; }
 
-#header-img-a ~ .pagename {
-  display: inline-block;
-  line-height: 4.28571em; }
-
-#header-img-a ~ .tabmenu {
-  display: inline-block;
-  height: 4.64286em; }
+.tabmenu {
+  position: absolute;
+  left: 0;
+  top: 6.42857em;
+  height: 4.57143em;
+  width: 100vw;
+  margin-top: 0;
+  padding-left: 1em;
+  font-size: inherit;
+  line-height: 4.57143em; }
+  .tabmenu li {
+    margin: 0; }
+    .tabmenu li a[href$="/rising/"] {
+      display: none; }
+    .tabmenu li a[href$="/controversial/"] {
+      display: none; }
+    .tabmenu li a[href$="/ads/"] {
+      display: none; }
+    .tabmenu li a[href$="/gilded/"] {
+      display: none; }
+    .tabmenu li a[href$="/flattishexperimental/"],
+    .tabmenu li a[href$="/new/"],
+    .tabmenu li a[href$="/top/"],
+    .tabmenu li a[href$="/wiki/"],
+    .tabmenu li #viewImagesButton {
+      display: inline-block;
+      padding: 0;
+      width: 0;
+      color: rgba(0, 0, 0, 0.54);
+      font-weight: bold;
+      text-transform: uppercase;
+      background: transparent radial-gradient(circle, rgba(255, 171, 64, 0.25) 15%, transparent 30%) no-repeat 50% 50%/0;
+      border-bottom: 0.14286em solid transparent;
+      -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1);
+      -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1);
+      transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1); }
+      .tabmenu li a[href$="/flattishexperimental/"]:focus,
+      .tabmenu li a[href$="/new/"]:focus,
+      .tabmenu li a[href$="/top/"]:focus,
+      .tabmenu li a[href$="/wiki/"]:focus,
+      .tabmenu li #viewImagesButton:focus {
+        outline: 0;
+        background-size: 1000%; }
+      .tabmenu li a[href$="/flattishexperimental/"]:hover,
+      .tabmenu li a[href$="/new/"]:hover,
+      .tabmenu li a[href$="/top/"]:hover,
+      .tabmenu li a[href$="/wiki/"]:hover,
+      .tabmenu li #viewImagesButton:hover {
+        margin: 0;
+        padding: 0 1.71429em;
+        color: rgba(0, 0, 0, 0.87);
+        border-bottom: 0.14286em solid #ffab40; }
+    .tabmenu li a[href$="/flattishexperimental/"] {
+      margin-right: 3.35714em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/new/"] {
+      margin-right: 4em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/top/"] {
+      margin-right: 3.71429em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/wiki/"] {
+      margin-right: 3.92857em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/flattishexperimental/"]:hover {
+      width: 2.21429em; }
+    .tabmenu li a[href$="/new/"]:hover {
+      width: 2.28571em; }
+    .tabmenu li a[href$="/top/"]:hover {
+      width: 2em; }
+    .tabmenu li a[href$="/wiki/"]:hover {
+      width: 2.21429em; }
+    .tabmenu li #viewImagesButton {
+      margin-right: 10em;
+      margin-left: 1.71429em; }
+      .tabmenu li #viewImagesButton:hover {
+        width: 8.28571em; }
+    .tabmenu li.selected a {
+      width: initial;
+      margin: 0;
+      padding: 0 1.71429em;
+      border-bottom-color: #ffab40;
+      border-width: 0 0 0.14286em; }
+      .tabmenu li.selected a:hover {
+        width: initial; }
 
 .rank {
   display: none; }
