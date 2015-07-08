@@ -51,7 +51,8 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
-  top: em(53, 14);
+  // top: em(53, 14);
+  top: em(69, 14);
 
   height: em(53, 14);
 
@@ -67,7 +68,7 @@
 
       display: inline-block;
       height: em(53, 16);
-      padding: 0 em(24, 16);
+      padding: 0 em(16, 16);
 
       color: $light-secondary-text;
       font-variant: normal;
@@ -87,9 +88,11 @@
   .tabmenu {
     position: absolute;
     left: 0;
-    top: em(106, 14); // #header height - #header-bottom-left height - tabmenu height
+    // top: em(106, 14);
+    top: em(90, 14);
 
     height: em(64, 14);
+    width: 100vw; // fuck IE8 support
     margin-top: 0;
     padding-left: em(16, 16);
 
@@ -134,26 +137,27 @@
   height: em(53, 14);
   width: 0;
 
-  margin: 0;
-  padding-right: em(131, 14); // makes space for "reddit" text
+  @include margin(0 0 0 em(40, 16));
+  padding-right: em(35, 14); // makes space for snoo visibility
 
   background: url(%%snoo-color%%) no-repeat;
   @include transition-default;
 }
 
 // positioning fix for when reddit pushes custom banner image
-// #header-img-a {
-//
-//   ~ .pagename {
-//     display: inline-block;
-//     line-height: em(60, 14); // since font-size is 0
-//   }
-//
-//   ~ .tabmenu {
-//     display: inline-block;
-//     height: em(65, 14);
-//   }
-// }
+#header-img-a {
+
+  ~ .pagename {
+    // display: inline-block;
+    position: relative;
+    top: -4px;
+  }
+
+  // ~ .tabmenu {
+  //   display: inline-block;
+  //   height: em(65, 14);
+  // }
+}
 
 // @media (min-width: $screen-xs-min) {
 //   #header-bottom-left {
