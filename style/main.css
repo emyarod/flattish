@@ -376,8 +376,8 @@
 
 #header-bottom-left {
   position: absolute;
-  top: 10em;
-  height: 3.42857em;
+  top: 3.78571em;
+  height: 3.78571em;
   font-size: 1.4em; }
   #header-bottom-left .pagename {
     margin: 0;
@@ -385,11 +385,11 @@
     #header-bottom-left .pagename a {
       position: relative;
       display: inline-block;
-      height: 3em;
+      height: 3.3125em;
       padding: 0 1.5em;
       color: rgba(0, 0, 0, 0.54);
       font-variant: normal;
-      line-height: 3em;
+      line-height: 3.3125em;
       text-transform: lowercase;
       -webkit-transition: all 0.5s ease-out;
       -moz-transition: all 0.5s ease-out;
@@ -398,13 +398,17 @@
         color: rgba(0, 0, 0, 0.87);
         text-decoration: none; }
   #header-bottom-left .tabmenu {
-    height: 3.42857em;
+    position: absolute;
+    left: 0;
+    top: 7.57143em;
+    height: 4.57143em;
     margin-top: 0;
+    padding-left: 1em;
     font-size: inherit;
-    line-height: 3.42857em; }
+    line-height: 4.57143em; }
     #header-bottom-left .tabmenu li.selected a {
-      border-width: 0 0 0.14286em;
-      border-bottom-color: #ffab40; }
+      border-bottom-color: #ffab40;
+      border-width: 0 0 0.14286em; }
     #header-bottom-left .tabmenu li {
       margin: 0; }
       #header-bottom-left .tabmenu li:hover a {
@@ -433,7 +437,7 @@
 
 #header-img,
 #header-img.default-header {
-  height: 3.42857em;
+  height: 3.78571em;
   width: 0;
   margin: 0;
   padding-right: 9.35714em;
@@ -441,27 +445,6 @@
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
-  #header-img:after,
-  #header-img.default-header:after {
-    position: absolute;
-    left: 4.375em;
-    content: "reddit";
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 1.14286em;
-    font-weight: bold;
-    line-height: 3em;
-    text-indent: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out; }
-
-#header-img-a ~ .pagename {
-  display: inline-block;
-  line-height: 4.28571em; }
-
-#header-img-a ~ .tabmenu {
-  display: inline-block;
-  height: 4.64286em; }
 
 .rank {
   display: none; }
