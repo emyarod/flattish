@@ -11,7 +11,7 @@
   color: $light-secondary-text;
   font-size: em(16, 14);
   font-weight: bold;
-  line-height: em(48, 16);
+  line-height: em(53, 16);
   text-indent: 0;
 
   @include transition-default;
@@ -20,7 +20,7 @@
 @mixin tabs {
   display: inline-block;
 
-  // height: em(48, 16);
+  // height: em(53, 16);
   padding: 0 em(24, 14);
 
   color: $light-secondary-text;
@@ -51,9 +51,9 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
-  top: em(140, 14);
+  top: em(53, 14);
 
-  height: em(48, 14);
+  height: em(53, 14);
 
   font-size: em(14, 10);
 
@@ -66,12 +66,12 @@
       position: relative;
 
       display: inline-block;
-      height: em(48, 16);
+      height: em(53, 16);
       padding: 0 em(24, 16);
 
       color: $light-secondary-text;
       font-variant: normal;
-      line-height: em(48, 16);
+      line-height: em(53, 16);
       text-transform: lowercase;
 
       @include transition-default;
@@ -85,16 +85,20 @@
 
   // tabmenu
   .tabmenu {
-    // position: relative;
-    // top: em(-19, 14);
-    height: em(48, 14);
-    @include margin(0 null null null);
+    position: absolute;
+    left: 0;
+    top: em(106, 14); // #header height - #header-bottom-left height - tabmenu height
+
+    height: em(64, 14);
+    margin-top: 0;
+    padding-left: em(16, 16);
+
     font-size: inherit;
-    line-height: em(48, 14);
+    line-height: em(64, 14);
 
     li.selected a {
+      border-bottom-color: $accent;
       @include border-width(0 0 em(2, 14) 0);
-      @include border-color(null null $accent null);
     }
 
     li {
@@ -127,7 +131,7 @@
 // snooface
 #header-img,
 #header-img.default-header {
-  height: em(48, 14);
+  height: em(53, 14);
   width: 0;
 
   margin: 0;
@@ -135,23 +139,21 @@
 
   background: url(%%snoo-color%%) no-repeat;
   @include transition-default;
-
-  &:after { @include reddit; }
 }
 
 // positioning fix for when reddit pushes custom banner image
-#header-img-a {
-
-  ~ .pagename {
-    display: inline-block;
-    line-height: em(60, 14); // since font-size is 0
-  }
-
-  ~ .tabmenu {
-    display: inline-block;
-    height: em(65, 14);
-  }
-}
+// #header-img-a {
+//
+//   ~ .pagename {
+//     display: inline-block;
+//     line-height: em(60, 14); // since font-size is 0
+//   }
+//
+//   ~ .tabmenu {
+//     display: inline-block;
+//     height: em(65, 14);
+//   }
+// }
 
 // @media (min-width: $screen-xs-min) {
 //   #header-bottom-left {
