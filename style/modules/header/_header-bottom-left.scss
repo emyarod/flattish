@@ -3,33 +3,6 @@
 @import "../../_utils/vars";
 @import "../../_utils/mixins";
 
-@mixin tabs {
-  display: inline-block;
-
-  padding: 0;
-  width: 0;
-
-  color: $light-secondary-text;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  background: transparent radial-gradient(circle, rgba($accent, .25) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
-  border-bottom: em(2, 14) solid transparent;
-  @include transition(background 0.3s cubic-bezier(0, 0, .2, 1), color .5s ease-out, border-bottom .25s ease-out, width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
-
-  &:focus {
-    outline: 0;
-    background-size: 1000%;
-  }
-
-  &:hover {
-    margin: 0;
-    padding: 0 em(24, 14);
-    color: $light-text;
-    border-bottom: em(2, 14) solid $accent;
-  }
-}
-
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
@@ -109,9 +82,7 @@
 
     // hides "rising", "controversial", "ads", and "gilded" tabs
     @each $hidden-tab in rising, controversial, ads, gilded {
-      a[href$="/#{$hidden-tab}/"] {
-        display: none;
-      }
+      a[href$="/#{$hidden-tab}/"] { display: none; }
     }
 
     // styles visible tabs
@@ -119,44 +90,59 @@
     a[href$="/new/"],
     a[href$="/top/"],
     a[href$="/wiki/"],
-    #viewImagesButton { @include tabs; }
-
-    @each $tab-button, $right-margin in (
-      flattishtest: em(47, 14),
-      new: em(56, 14), top: em(52, 14),
-      wiki: em(55, 14)
-    ) {
-      a[href$="/#{$tab-button}/"] {
-        @include margin(null $right-margin null em(24, 14));
-      }
-    }
-
-    @each $tab-button, $width in (
-      flattishtest: em(31, 14),
-      new: em(32, 14), top: em(28, 14),
-      wiki: em(31, 14)
-    ) {
-      a[href$="/#{$tab-button}/"]:hover {
-        width: $width;
-      }
-    }
-
-    // RES view images button
     #viewImagesButton {
-      @include margin(null em(140, 14) null em(24, 14));
+      display: inline-block;
 
-      &:hover { width: em(116, 14); }
+      height: em(64, 14);
+      width: initial;
+      padding: 0 em(24, 14);
+
+      color: $light-secondary-text;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      background: transparent radial-gradient(circle, rgba($accent, .25) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
+      border-bottom: em(2, 14) solid transparent;
+      @include transition(background 0.3s cubic-bezier(0, 0, .2, 1), color .5s ease-out);
+
+      &:focus {
+        outline: 0;
+        background-size: 1000%;
+      }
+
+      &:hover {
+        margin: 0;
+        padding: 0 em(24, 14);
+        color: $light-text;
+      }
+
+      &:after {
+        position: relative;
+        top: em(-64, 14);
+        left: em(-24, 14);
+
+        display: block;
+        width: 0;
+        height: inherit;
+
+        content: "";
+
+        border-bottom: em(2, 14) solid transparent;
+        @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
+      }
+
+      &:hover::after {
+        width: calc(100% - -48px); // double negative works but not +...wtf css?
+        border-bottom: em(2, 14) solid $accent;
+      }
     }
 
     // ensures selected tab remains unchanged
     &.selected a {
-      width: initial;
       margin: 0;
       padding: 0 em(24, 14);
       border-bottom-color: $accent;
       @include border-width(0 0 em(2, 14) 0);
-
-      &:hover { width: initial; }
     }
   }
 }
