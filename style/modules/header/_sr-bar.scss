@@ -11,8 +11,7 @@
   font-size: 100%; // 10px
   line-height: 1em;
 
-  // background-color: rgba($light-primary, 0.3);
-  background-color: transparent;
+  background-color: rgba($light-primary, 0.3);
   @include transition-default;
 
   // positions text
