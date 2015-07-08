@@ -263,10 +263,12 @@
 
 .res #header-bottom-right,
 #header-bottom-right {
-  background-color: transparent;
   position: absolute;
-  margin: 0;
-  padding: 0; }
+  top: 3.5em;
+  height: 2em;
+  margin-right: 1.6em;
+  padding: 0;
+  background-color: transparent; }
   .res #header-bottom-right span a,
   #header-bottom-right span a {
     color: rgba(0, 0, 0, 0.54);
@@ -362,21 +364,14 @@
   .logout a:hover {
     opacity: 0.87; }
 
-.res #header-bottom-right,
-#header-bottom-right {
-  top: 3.5em;
-  height: 2em;
-  margin-right: 1.6em; }
-
 @media (min-width: 62em) {
   .res #header-bottom-right,
   #header-bottom-right {
-    margin-right: 1.6em;
-    top: 16.1em; } }
+    top: 18em; } }
 
 #header-bottom-left {
   position: absolute;
-  top: 4.92857em;
+  top: 7.57143em;
   height: 3.78571em;
   font-size: 1.4em; }
   #header-bottom-left .pagename a {
@@ -420,7 +415,7 @@
 .tabmenu {
   position: absolute;
   left: 0;
-  top: 6.42857em;
+  top: 3.78571em;
   height: 4.57143em;
   width: 100vw;
   margin-top: 0;
@@ -437,7 +432,7 @@
       display: none; }
     .tabmenu li a[href$="/gilded/"] {
       display: none; }
-    .tabmenu li a[href$="/flattishexperimental/"],
+    .tabmenu li a[href$="/flattishtest/"],
     .tabmenu li a[href$="/new/"],
     .tabmenu li a[href$="/top/"],
     .tabmenu li a[href$="/wiki/"],
@@ -453,14 +448,14 @@
       -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1);
       -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1);
       transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1); }
-      .tabmenu li a[href$="/flattishexperimental/"]:focus,
+      .tabmenu li a[href$="/flattishtest/"]:focus,
       .tabmenu li a[href$="/new/"]:focus,
       .tabmenu li a[href$="/top/"]:focus,
       .tabmenu li a[href$="/wiki/"]:focus,
       .tabmenu li #viewImagesButton:focus {
         outline: 0;
         background-size: 1000%; }
-      .tabmenu li a[href$="/flattishexperimental/"]:hover,
+      .tabmenu li a[href$="/flattishtest/"]:hover,
       .tabmenu li a[href$="/new/"]:hover,
       .tabmenu li a[href$="/top/"]:hover,
       .tabmenu li a[href$="/wiki/"]:hover,
@@ -469,7 +464,7 @@
         padding: 0 1.71429em;
         color: rgba(0, 0, 0, 0.87);
         border-bottom: 0.14286em solid #ffab40; }
-    .tabmenu li a[href$="/flattishexperimental/"] {
+    .tabmenu li a[href$="/flattishtest/"] {
       margin-right: 3.35714em;
       margin-left: 1.71429em; }
     .tabmenu li a[href$="/new/"] {
@@ -481,7 +476,7 @@
     .tabmenu li a[href$="/wiki/"] {
       margin-right: 3.92857em;
       margin-left: 1.71429em; }
-    .tabmenu li a[href$="/flattishexperimental/"]:hover {
+    .tabmenu li a[href$="/flattishtest/"]:hover {
       width: 2.21429em; }
     .tabmenu li a[href$="/new/"]:hover {
       width: 2.28571em; }
