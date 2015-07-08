@@ -1,16 +1,19 @@
-@import "../../_utils/vars";
-@import "../../_utils/mixins";
+// main: ../../main.scss
+
 @import "../../components/menus";
 
 // subreddits bar
 #sr-header-area {
-  background-color: rgba($light-primary, 0.3);
-  border: 0;
-  font-size: 100%; // 10px
   height: em(30, 10);
+
+  border: 0;
+
+  font-size: 100%; // 10px
   line-height: 1em;
+
+  background-color: rgba($light-primary, 0.3);
   @include transition-default;
-  
+
   // positions text
   .sr-list {
     margin: 1em 0;
@@ -22,7 +25,7 @@
     color: $light-secondary-text;
     @include transition-default;
   }
-  
+
   // subreddit link behavior when hovering over sr bar
   &:hover .sr-bar a {
     color: $light-text;
@@ -30,40 +33,34 @@
 
   // "my subreddits" menu
   .dropdown.srdrop {
-    // margin-bottom: 0.5em;
-    cursor: pointer;
     height: 3em;
+    // margin-bottom: 0.5em;
     padding: 0;
+    cursor: pointer;
 
     .selected {
       // replace "my subreddits" with burger
-      background: none;
       margin: 1.4em 1em 1em 1em;
       padding: 0;
       text-indent: -999em;
+      background: none;
       @include burger(2em, 0.2em, 0.4em, $light-hint-text, 0);
     }
-    
+
     // change burger color on mouseover
     &:hover {
       .selected,
       .selected:after,
-      .selected:before {
-        background-color: $light-icons;
-      }
+      .selected:before { background-color: $light-icons; }
     }
   }
 
 
   // menu list
-  .drop-choices.srdrop {
-    @include menu;
-  }
+  .drop-choices.srdrop { @include menu; }
 
   // menu list choices
-  .drop-choices a.choice {
-    @include menu-items;
-  }
+  .drop-choices a.choice { @include menu-items; }
 
   // right side edit button
   #sr-more-link {

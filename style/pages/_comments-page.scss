@@ -1,8 +1,9 @@
 // main: ../main.scss
 
 .linkinfo {
+  position: relative;
+  top: em(-85, 13);
   @include animate-card(12);
-  margin-top: em(15, 12);
   border: 0;
   color: $light-text;
   background-color: $light-accent;

@@ -9,9 +9,10 @@
 @import "pages/search-page";
 @import "pages/submit-page";
 
-* {
-  font-family: $font-stack;
-}
+* { font-family: $font-stack; }
+
+// makes stylesheet editor full width
+.sheets { margin: 0; }
 
 body {
   background-color: $light-background;
@@ -19,8 +20,23 @@ body {
 
   a:link {
     color: $link-color;
+
     &:visited {
       color: $link-color-visited;
     }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  body {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  body {
+    margin: 0 auto;
+    max-width: 80%;
   }
 }
