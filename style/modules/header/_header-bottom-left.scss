@@ -37,35 +37,7 @@
   height: em(53, 14);
   font-size: em(14, 10);
 
-<<<<<<< HEAD
-  // reduces reddit.com header to just snoo image
-  #header-img {
-    background: url(%%snoo-color%%) no-repeat;
-    height: em(60, 16);
-    width: 0;
-    margin: 0;
-    padding-right: em(60, 16);
-    @include transition-default;
-  }
-
-  // positioning fix for when reddit pushes custom banner image
-  #header-img-a {
-
-    ~ .pagename {
-      display: inline-block;
-      line-height: 60px; // since font-size is 0
-    }
-
-    ~ .tabmenu {
-      display: inline-block;
-      height: em(65, 16);
-    }
-  }
-
-  // subreddit name
-=======
   // nested to avoid body:link styling
->>>>>>> test
   .pagename {
     a { color: $light-secondary-text; }
 
@@ -143,14 +115,14 @@
     }
 
     // styles visible tabs
-    a[href$="/flattishtest/"],
+    a[href$="/flattish/"],
     a[href$="/new/"],
     a[href$="/top/"],
     a[href$="/wiki/"],
     #viewImagesButton { @include tabs; }
 
     @each $tab-button, $right-margin in (
-      flattishtest: em(47, 14),
+      flattish: em(47, 14),
       new: em(56, 14), top: em(52, 14),
       wiki: em(55, 14)
     ) {
@@ -160,7 +132,7 @@
     }
 
     @each $tab-button, $width in (
-      flattishtest: em(31, 14),
+      flattish: em(31, 14),
       new: em(32, 14), top: em(28, 14),
       wiki: em(31, 14)
     ) {
