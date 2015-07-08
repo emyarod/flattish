@@ -29,9 +29,7 @@
     @include transition-default;
   }
 
-  &:hover span a {
-    color: $light-text;
-  }
+  &:hover span a { color: $light-text; }
 }
 
 .res #userbarToggle,
@@ -59,9 +57,7 @@
   opacity: 0.54;
   @include transition-default;
 
-  &:hover {
-    opacity: 1;
-  }
+  &:hover { opacity: 1; }
 }
 
 // RES gear button on mouseover
@@ -86,9 +82,7 @@
       a {
         color: $light-text;
 
-        &:hover {
-          background-color: transparent;
-        }
+        &:hover { background-color: transparent; }
       }
     }
   }
