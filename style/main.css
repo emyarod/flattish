@@ -263,10 +263,12 @@
 
 .res #header-bottom-right,
 #header-bottom-right {
-  background-color: transparent;
   position: absolute;
-  margin: 0;
-  padding: 0; }
+  top: 3.5em;
+  height: 2em;
+  margin-right: 1.6em;
+  padding: 0;
+  background-color: transparent; }
   .res #header-bottom-right span a,
   #header-bottom-right span a {
     color: rgba(0, 0, 0, 0.54);
@@ -362,17 +364,10 @@
   .logout a:hover {
     opacity: 0.87; }
 
-.res #header-bottom-right,
-#header-bottom-right {
-  top: 10.4em;
-  height: 2em;
-  margin-right: 1.6em; }
-
 @media (min-width: 62em) {
   .res #header-bottom-right,
   #header-bottom-right {
-    margin-right: 1.6em;
-    top: 16.1em; } }
+    top: 18em; } }
 
 #header-bottom-left {
   position: absolute;
