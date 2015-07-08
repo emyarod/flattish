@@ -62,6 +62,7 @@
 #header-img-a ~ .pagename {
   position: relative;
   top: em(-4, 16);
+  display: inline-block;
 }
 
 // subreddit name
