@@ -6,8 +6,8 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
-  top: em(170, 14);
-  height: em(53, 14);
+  top: em(159, 14);
+  height: em(64, 14);
   font-size: em(14, 10);
 
   // nested to avoid body:link styling
@@ -21,7 +21,7 @@
 // snooface
 #header-img,
 #header-img.default-header {
-  height: em(53, 14);
+  height: em(64, 14);
   width: 0;
 
   @include margin(0 0 0 em(16, 16));
@@ -32,10 +32,13 @@
 }
 
 // positioning fix for when reddit pushes custom banner image
-#header-img-a ~ .pagename {
-  position: relative;
-  top: em(-4, 16);
-  display: inline-block;
+#header-img-a {
+  ~ .pagename,
+  ~ .tabmenu {
+    position: relative;
+    top: em(-4, 16);
+    display: inline-block;
+  }
 }
 
 // subreddit name
@@ -47,11 +50,11 @@
     position: relative;
 
     display: inline-block;
-    height: em(53, 16);
+    height: em(64, 16);
     padding: 0 em(16, 16);
 
     font-variant: normal;
-    line-height: em(53, 16);
+    line-height: em(64, 16);
     text-transform: lowercase;
 
     @include transition-default;
@@ -65,14 +68,14 @@
 
 // tabmenu
 .tabmenu {
-  position: absolute;
-  left: 0;
-  top: em(73, 14);
+  // position: absolute;
+  // left: 0;
+  // top: em(73, 14);
 
   height: em(64, 14);
-  width: 100vw; // fuck IE8 support
+  // width: 100vw; // fuck IE8 support
   margin-top: 0;
-  padding-left: em(16, 16);
+  // padding-left: em(16, 16);
 
   font-size: inherit;
   line-height: em(64, 14);
