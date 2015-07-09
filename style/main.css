@@ -439,18 +439,17 @@
     .tabmenu li a[href$="/wiki/"],
     .tabmenu li #viewImagesButton {
       display: inline-block;
-      height: 4.57143em;
-      width: initial;
-      padding: 0 1.71429em;
+      padding: 0;
+      width: 0;
       color: rgba(0, 0, 0, 0.54);
       font-weight: bold;
       text-transform: uppercase;
       background: transparent radial-gradient(circle, rgba(255, 171, 64, 0.25) 15%, transparent 30%) no-repeat 50% 50%/0;
       border-bottom: 0.14286em solid transparent;
-      -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out;
-      -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out;
-      transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out; }
-      .tabmenu li a[href$="/flattish/"]:focus,
+      -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1);
+      -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1);
+      transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.5s ease-out, border-bottom 0.25s ease-out, width 0.2s cubic-bezier(0.4, 0, 0.4, 1), margin 0.2s cubic-bezier(0.4, 0, 0.4, 1), padding 0.2s cubic-bezier(0.4, 0, 0.4, 1); }
+      .tabmenu li a[href$="/flattishtest/"]:focus,
       .tabmenu li a[href$="/new/"]:focus,
       .tabmenu li a[href$="/top/"]:focus,
       .tabmenu li a[href$="/wiki/"]:focus,
@@ -464,35 +463,41 @@
       .tabmenu li #viewImagesButton:hover {
         margin: 0;
         padding: 0 1.71429em;
-        color: rgba(0, 0, 0, 0.87); }
-      .tabmenu li a[href$="/flattish/"]:after,
-      .tabmenu li a[href$="/new/"]:after,
-      .tabmenu li a[href$="/top/"]:after,
-      .tabmenu li a[href$="/wiki/"]:after,
-      .tabmenu li #viewImagesButton:after {
-        position: relative;
-        top: -4.57143em;
-        left: -1.71429em;
-        display: block;
-        width: 0;
-        height: inherit;
-        content: "";
-        border-bottom: 0.14286em solid transparent;
-        -webkit-transition: border-bottom 0.2s cubic-bezier(0.4, 0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0, 0.4, 1);
-        -moz-transition: border-bottom 0.2s cubic-bezier(0.4, 0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0, 0.4, 1);
-        transition: border-bottom 0.2s cubic-bezier(0.4, 0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0, 0.4, 1); }
-      .tabmenu li a[href$="/flattish/"]:hover::after,
-      .tabmenu li a[href$="/new/"]:hover::after,
-      .tabmenu li a[href$="/top/"]:hover::after,
-      .tabmenu li a[href$="/wiki/"]:hover::after,
-      .tabmenu li #viewImagesButton:hover::after {
-        width: calc(100% - -48px);
+        color: rgba(0, 0, 0, 0.87);
         border-bottom: 0.14286em solid #ffab40; }
+    .tabmenu li a[href$="/flattishtest/"] {
+      margin-right: 3.35714em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/new/"] {
+      margin-right: 4em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/top/"] {
+      margin-right: 3.71429em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/wiki/"] {
+      margin-right: 3.92857em;
+      margin-left: 1.71429em; }
+    .tabmenu li a[href$="/flattishtest/"]:hover {
+      width: 2.21429em; }
+    .tabmenu li a[href$="/new/"]:hover {
+      width: 2.28571em; }
+    .tabmenu li a[href$="/top/"]:hover {
+      width: 2em; }
+    .tabmenu li a[href$="/wiki/"]:hover {
+      width: 2.21429em; }
+    .tabmenu li #viewImagesButton {
+      margin-right: 10em;
+      margin-left: 1.71429em; }
+      .tabmenu li #viewImagesButton:hover {
+        width: 8.28571em; }
     .tabmenu li.selected a {
+      width: initial;
       margin: 0;
       padding: 0 1.71429em;
       border-bottom-color: #ffab40;
       border-width: 0 0 0.14286em; }
+      .tabmenu li.selected a:hover {
+        width: initial; }
 
 .rank {
   display: none; }
