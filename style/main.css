@@ -371,8 +371,8 @@
 
 #header-bottom-left {
   position: absolute;
-  top: 12.14286em;
-  height: 3.78571em;
+  top: 11.35714em;
+  height: 4.57143em;
   font-size: 1.4em; }
   #header-bottom-left .pagename a {
     color: rgba(0, 0, 0, 0.54); }
@@ -381,7 +381,7 @@
 
 #header-img,
 #header-img.default-header {
-  height: 3.78571em;
+  height: 4.57143em;
   width: 0;
   margin: 0 0 0 1em;
   padding-right: 2.5em;
@@ -390,7 +390,8 @@
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
 
-#header-img-a ~ .pagename {
+#header-img-a ~ .pagename,
+#header-img-a ~ .tabmenu {
   position: relative;
   top: -0.25em;
   display: inline-block; }
@@ -401,10 +402,10 @@
   .pagename a {
     position: relative;
     display: inline-block;
-    height: 3.3125em;
+    height: 4em;
     padding: 0 1em;
     font-variant: normal;
-    line-height: 3.3125em;
+    line-height: 4em;
     text-transform: lowercase;
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
@@ -414,13 +415,8 @@
       text-decoration: none; }
 
 .tabmenu {
-  position: absolute;
-  left: 0;
-  top: 5.21429em;
   height: 4.57143em;
-  width: 100vw;
   margin-top: 0;
-  padding-left: 1em;
   font-size: inherit;
   line-height: 4.57143em; }
   .tabmenu li {
