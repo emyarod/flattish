@@ -6,7 +6,7 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
-  top: em(106, 14);
+  top: em(86, 14);
   height: em(53, 14);
   font-size: em(14, 10);
 
@@ -67,7 +67,7 @@
 .tabmenu {
   position: absolute;
   left: 0;
-  top: em(53, 14);
+  top: em(73, 14);
 
   height: em(64, 14);
   width: 100vw; // fuck IE8 support
