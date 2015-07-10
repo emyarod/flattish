@@ -94,11 +94,3 @@
   background: url("%%logout%%") no-repeat;
   @include userbar-buttons;
 }
-
-@media (min-width: $screen-md-min) {
-  // moves userbar down in larger screen widths
-  .res #header-bottom-right,
-  #header-bottom-right {
-    top: em(180, 10);
-  }
-}
