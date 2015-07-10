@@ -31,11 +31,15 @@
   @include transition-default;
 }
 
-// positioning fix for when reddit pushes custom banner image
-#header-img-a ~ .pagename {
-  position: relative;
-  top: em(-4, 16);
-  display: inline-block;
+// positioning fix for pagename and tabmenu when reddit pushes custom banner image
+#header-img-a {
+  @each $class in (pagename, tabmenu) {
+    .#{$class} {
+      position: relative;
+      top: em(-4, 16);
+      display: inline-block;
+    }
+  }
 }
 
 // subreddit name
@@ -86,7 +90,7 @@
     }
 
     // styles visible tabs
-    a[href$="/flattishtest/"],
+    a[href$="/flattishexperimental/"],
     a[href$="/new/"],
     a[href$="/top/"],
     a[href$="/wiki/"],
@@ -144,5 +148,39 @@
       border-bottom-color: $accent;
       @include border-width(0 0 em(2, 14) 0);
     }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  #header-bottom-left {
+    top: em(159, 14);
+    height: em(64, 14);
+  }
+
+  #header-img,
+  #header-img.default-header {
+    height: em(64, 14);
+
+    @include margin(0 0 0 em(16, 16));
+
+    background-position: 0% em(5, 14);
+  }
+
+  #header-img-a ~ .pagename {
+    top: em(-3, 16);
+  }
+
+  .pagename a {
+    height: em(64, 16);
+    line-height: em(64, 16);
+  }
+
+  .tabmenu {
+    position: static;
+    left: initial;
+    top: initial;
+
+    width: initial;
+    padding-left: initial;
   }
 }
