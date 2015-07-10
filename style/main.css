@@ -364,11 +364,6 @@
   .logout a:hover {
     opacity: 0.87; }
 
-@media (min-width: 62em) {
-  .res #header-bottom-right,
-  #header-bottom-right {
-    top: 18em; } }
-
 #header-bottom-left {
   position: absolute;
   top: 6.14286em;
