@@ -31,13 +31,17 @@
   @include transition-default;
 }
 
-// positioning fix for when reddit pushes custom banner image
+// positioning fix for pagename and tabmenu when reddit pushes custom banner image
 #header-img-a {
-  ~ .pagename,
-  ~ .tabmenu {
-    position: relative;
-    top: em(-4, 16);
-    display: inline-block;
+  @each $class, $position in (
+    pagename: em(-3, 16),
+    tabmenu: em(-4, 16)
+  ) {
+    .#{$class} {
+      position: relative;
+      top: $position;
+      display: inline-block;
+    }
   }
 }
 
@@ -68,15 +72,8 @@
 
 // tabmenu
 .tabmenu {
-  // position: absolute;
-  // left: 0;
-  // top: em(73, 14);
-
   height: em(64, 14);
-  // width: 100vw; // fuck IE8 support
   margin-top: 0;
-  // padding-left: em(16, 16);
-
   font-size: inherit;
   line-height: em(64, 14);
 
