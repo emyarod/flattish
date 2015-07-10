@@ -6,8 +6,8 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
-  top: em(159, 14);
-  height: em(64, 14);
+  top: em(86, 14);
+  height: em(53, 14);
   font-size: em(14, 10);
 
   // nested to avoid body:link styling
@@ -21,10 +21,10 @@
 // snooface
 #header-img,
 #header-img.default-header {
-  height: em(64, 14);
+  height: em(53, 14);
   width: 0;
 
-  @include margin(0 0 0 em(16, 16));
+  @include margin(0 0 0 em(40, 16));
   padding-right: em(35, 14); // makes space for snoo visibility
 
   background: url(%%snoo-color%%) no-repeat;
@@ -33,13 +33,10 @@
 
 // positioning fix for pagename and tabmenu when reddit pushes custom banner image
 #header-img-a {
-  @each $class, $position in (
-    pagename: em(-3, 16),
-    tabmenu: em(-4, 16)
-  ) {
+  @each $class in (pagename, tabmenu) {
     .#{$class} {
       position: relative;
-      top: $position;
+      top: em(-4, 16);
       display: inline-block;
     }
   }
@@ -54,11 +51,11 @@
     position: relative;
 
     display: inline-block;
-    height: em(64, 16);
+    height: em(53, 16);
     padding: 0 em(16, 16);
 
     font-variant: normal;
-    line-height: em(64, 16);
+    line-height: em(53, 16);
     text-transform: lowercase;
 
     @include transition-default;
@@ -72,8 +69,15 @@
 
 // tabmenu
 .tabmenu {
+  position: absolute;
+  left: 0;
+  top: em(73, 14);
+
   height: em(64, 14);
+  width: 100vw; // fuck IE8 support
   margin-top: 0;
+  padding-left: em(16, 16);
+
   font-size: inherit;
   line-height: em(64, 14);
 
@@ -144,5 +148,39 @@
       border-bottom-color: $accent;
       @include border-width(0 0 em(2, 14) 0);
     }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  #header-bottom-left {
+    top: em(159, 14);
+    height: em(64, 14);
+  }
+
+  #header-img,
+  #header-img.default-header {
+    height: em(64, 14);
+
+    @include margin(0 0 0 em(16, 16));
+
+    background-position: 0% em(5, 14);
+  }
+
+  #header-img-a ~ .pagename {
+    top: em(-3, 16);
+  }
+
+  .pagename a {
+    height: em(64, 16);
+    line-height: em(64, 16);
+  }
+
+  .tabmenu {
+    position: static;
+    left: initial;
+    top: initial;
+
+    width: initial;
+    padding-left: initial;
   }
 }
