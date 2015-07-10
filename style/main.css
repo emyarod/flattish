@@ -364,14 +364,9 @@
   .logout a:hover {
     opacity: 0.87; }
 
-@media (min-width: 62em) {
-  .res #header-bottom-right,
-  #header-bottom-right {
-    top: 18em; } }
-
 #header-bottom-left {
   position: absolute;
-  top: 7.57143em;
+  top: 6.14286em;
   height: 3.78571em;
   font-size: 1.4em; }
   #header-bottom-left .pagename a {
@@ -390,7 +385,12 @@
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
 
-#header-img-a ~ .pagename {
+#header-img-a .pagename {
+  position: relative;
+  top: -0.25em;
+  display: inline-block; }
+
+#header-img-a .tabmenu {
   position: relative;
   top: -0.25em;
   display: inline-block; }
@@ -416,7 +416,7 @@
 .tabmenu {
   position: absolute;
   left: 0;
-  top: 3.78571em;
+  top: 5.21429em;
   height: 4.57143em;
   width: 100vw;
   margin-top: 0;
@@ -493,6 +493,27 @@
       padding: 0 1.71429em;
       border-bottom-color: #ffab40;
       border-width: 0 0 0.14286em; }
+
+@media (min-width: 48em) {
+  #header-bottom-left {
+    top: 11.35714em;
+    height: 4.57143em; }
+  #header-img,
+  #header-img.default-header {
+    height: 4.57143em;
+    margin: 0 0 0 1em;
+    background-position: 0% 0.35714em; }
+  #header-img-a ~ .pagename {
+    top: -0.1875em; }
+  .pagename a {
+    height: 4em;
+    line-height: 4em; }
+  .tabmenu {
+    position: static;
+    left: initial;
+    top: initial;
+    width: initial;
+    padding-left: initial; } }
 
 .rank {
   display: none; }
