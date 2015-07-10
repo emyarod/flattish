@@ -135,6 +135,7 @@
         @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
       }
 
+      // tabmenu hover bottom border effect
       &:hover::after {
         width: calc(100% - -48px); // double negative works but not +...wtf css?
         border-bottom: em(2, 14) solid $accent;
@@ -160,12 +161,11 @@
   #header-img,
   #header-img.default-header {
     height: em(64, 14);
-
     @include margin(0 0 0 em(16, 16));
-
     background-position: 0% em(5, 14);
   }
 
+  // positioning fix for pagename and tabmenu when reddit pushes custom banner image
   #header-img-a ~ .pagename {
     top: em(-3, 16);
   }
@@ -175,11 +175,11 @@
     line-height: em(64, 16);
   }
 
+  // restore initial tabmenu values
   .tabmenu {
     position: static;
     left: initial;
     top: initial;
-
     width: initial;
     padding-left: initial;
   }
