@@ -385,8 +385,12 @@
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
 
-#header-img-a ~ .pagename,
-#header-img-a ~ .tabmenu {
+#header-img-a .pagename {
+  position: relative;
+  top: -0.1875em;
+  display: inline-block; }
+
+#header-img-a .tabmenu {
   position: relative;
   top: -0.25em;
   display: inline-block; }
