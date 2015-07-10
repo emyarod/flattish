@@ -5,7 +5,7 @@
 // card elevation change animation
 @include keyframes(depthup) {
   0% {
-    box-shadow: none;
+    @include drop-shadow(0);
   }
   100% {
     @include drop-shadow(1);
@@ -30,7 +30,7 @@
   30% { margin-bottom: 0; }
   40% { margin-bottom: em(16, 10); }
   50% {
-    box-shadow: none;
+    @include drop-shadow(0);
     border-radius: 0;
   }
   100% {
