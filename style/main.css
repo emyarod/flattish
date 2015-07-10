@@ -366,8 +366,8 @@
 
 #header-bottom-left {
   position: absolute;
-  top: 11.35714em;
-  height: 4.57143em;
+  top: 6.14286em;
+  height: 3.78571em;
   font-size: 1.4em; }
   #header-bottom-left .pagename a {
     color: rgba(0, 0, 0, 0.54); }
@@ -376,9 +376,9 @@
 
 #header-img,
 #header-img.default-header {
-  height: 4.57143em;
+  height: 3.78571em;
   width: 0;
-  margin: 0 0 0 1em;
+  margin: 0 0 0 2.5em;
   padding-right: 2.5em;
   background: url(%%snoo-color%%) no-repeat;
   -webkit-transition: all 0.5s ease-out;
@@ -387,7 +387,7 @@
 
 #header-img-a .pagename {
   position: relative;
-  top: -0.1875em;
+  top: -0.25em;
   display: inline-block; }
 
 #header-img-a .tabmenu {
@@ -401,10 +401,10 @@
   .pagename a {
     position: relative;
     display: inline-block;
-    height: 4em;
+    height: 3.3125em;
     padding: 0 1em;
     font-variant: normal;
-    line-height: 4em;
+    line-height: 3.3125em;
     text-transform: lowercase;
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
@@ -414,8 +414,13 @@
       text-decoration: none; }
 
 .tabmenu {
+  position: absolute;
+  left: 0;
+  top: 5.21429em;
   height: 4.57143em;
+  width: 100vw;
   margin-top: 0;
+  padding-left: 1em;
   font-size: inherit;
   line-height: 4.57143em; }
   .tabmenu li {
@@ -488,6 +493,27 @@
       padding: 0 1.71429em;
       border-bottom-color: #ffab40;
       border-width: 0 0 0.14286em; }
+
+@media (min-width: 48em) {
+  #header-bottom-left {
+    top: 11.35714em;
+    height: 4.57143em; }
+  #header-img,
+  #header-img.default-header {
+    height: 4.57143em;
+    margin: 0 0 0 1em;
+    background-position: 0% 0.35714em; }
+  #header-img-a ~ .pagename {
+    top: -0.1875em; }
+  .pagename a {
+    height: 4em;
+    line-height: 4em; }
+  .tabmenu {
+    position: static;
+    left: initial;
+    top: initial;
+    width: initial;
+    padding-left: initial; } }
 
 .rank {
   display: none; }
