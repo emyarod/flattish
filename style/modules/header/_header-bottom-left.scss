@@ -166,8 +166,17 @@
     background-position: 0% em(5, 14);
   }
 
-  #header-img-a ~ .pagename {
-    top: em(-3, 16);
+  #header-img-a ~ {
+    @each $class, $position in (
+      pagename: em(-3, 16),
+      tabmenu: em(-4, 16)
+    ) {
+      .#{$class} {
+        position: relative;
+        top: $position;
+        display: inline-block;
+      }
+    }
   }
 
   .pagename a {
