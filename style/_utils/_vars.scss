@@ -1,3 +1,5 @@
+// main: ../main.scss
+
 @import "color-list";
 
 // get color hue and shade from color list
@@ -17,6 +19,11 @@ $accent: get-color("orange", "A200");
 $light-accent: get-color("orange", "A100");
 $black: #000;
 $white: #fff;
+
+// shadows
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;
 
 // light theme
 $light-status-bar: get-color("grey", "300");
@@ -46,7 +53,7 @@ $dark-secondary-text: rgba($white, .70);
 $dark-icons: rgba($white, 1);
 $dark-text: rgba($white, 1);
 
-// mediaqueries
+// mediaquery break points
 $screen-xs-min: em(480, 16);
 $screen-sm-min: em(768, 16);
 $screen-md-min: em(992, 16);
