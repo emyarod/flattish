@@ -7,7 +7,7 @@
 
 // vote arrow/score column & thumbnail margin
 .midcol {
-	@include margin(null em(15, 13) null 0);
+	@include margin(null em(16, 13) null 0);
 	// width: em(24, 13) !important;
 	width: em(32, 13) !important; // ;_; gotta override inline styling
 }
@@ -123,7 +123,7 @@
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: 50%;
 	font-size: inherit;
-	margin: 0 em(15, 10) 0 0;
+	margin: 0 em(16, 10) 0 0;
 	max-height: em(70, 10);
 	@include transition-default;
 
