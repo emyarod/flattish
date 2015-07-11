@@ -42,7 +42,6 @@
 		color: $light-secondary-text;
 		content: "Submit a new:";
 		@include animate-card(14);
-		// padding-top: em(20, 14);
 	}
 }
 
