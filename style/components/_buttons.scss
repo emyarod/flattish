@@ -1,20 +1,22 @@
-@mixin button($background-color, $text-color, $desired-font-size, $orig-font-size) {
-	background: none $background-color;
-	border: 0;
-	border-radius: em(3, $desired-font-size);
+@mixin button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-secondary-text) {
+	min-width: em(64, $desired-font-size);
+	height: em(36, $desired-font-size);
+	padding: 0 em(8, $desired-font-size);
+
 	color: $text-color;
 	font-weight: bold;
 	font-family: $font-stack;
 	font-size: em($desired-font-size, $orig-font-size);
-	height: em($desired-font-size, $orig-font-size);
 	letter-spacing: normal;
-	padding: 0.7em 0.57em;
+	line-height: em(36, $desired-font-size);
 	text-align: center;
 	text-transform: uppercase;
-}
 
-@mixin raised-button($background-color, $text-color) {
-	@include button($background-color, $text-color);
-	@include drop-shadow(1);
-	@include transition-default;
+	background: none $background-color;
+	border: 0;
+	border-radius: em(2, $desired-font-size);
+	will-change: box-shadow;
+	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+              background-color 0.2s $animation-curve-default,
+              color 0.2s $animation-curve-default;
 }
