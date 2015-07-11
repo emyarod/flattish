@@ -13,17 +13,12 @@
 	// subscribe and dashboard buttons
 	a.option,
 	.RESDashboardToggle {
-		@include button(10, 10);
+		@include flat-button(10, 10);
 		position: relative;
 		top: em(2.5, 10);
 		margin-right: em(5, 10);
 		padding: 0.7em 0.57em;
-		color: $light-secondary-text;
 		line-height: em(27, 10);
-
-		&:hover {
-			@include drop-shadow(1);
-		}
 	}
 
 	.subscribers,
