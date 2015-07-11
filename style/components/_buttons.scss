@@ -17,6 +17,7 @@
 	background: none transparent;
 	border: 0;
 	border-radius: em(2, $desired-font-size);
+	outline: none;
 	will-change: box-shadow;
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
