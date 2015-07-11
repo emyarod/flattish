@@ -105,14 +105,8 @@
       font-weight: bold;
       text-transform: uppercase;
 
-      background: transparent radial-gradient(circle, rgba($accent, .25) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
       border-bottom: em(2, 14) solid transparent;
-      @include transition(background 0.3s cubic-bezier(0, 0, .2, 1), color .5s ease-out);
-
-      &:focus {
-        outline: 0;
-        background-size: 1000%;
-      }
+      @include ripple;
 
       &:hover {
         margin: 0;
