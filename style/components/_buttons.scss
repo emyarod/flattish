@@ -1,9 +1,11 @@
-@mixin button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-secondary-text) {
+// main: ../main.scss
+
+@mixin button($desired-font-size, $orig-font-size) {
 	min-width: em(64, $desired-font-size);
 	height: em(36, $desired-font-size);
 	padding: 0 em(8, $desired-font-size);
 
-	color: $text-color;
+	color: $light-text;
 	font-weight: bold;
 	font-family: $font-stack;
 	font-size: em($desired-font-size, $orig-font-size);
@@ -12,11 +14,30 @@
 	text-align: center;
 	text-transform: uppercase;
 
-	background: none $background-color;
+	background: none transparent;
 	border: 0;
 	border-radius: em(2, $desired-font-size);
 	will-change: box-shadow;
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
+}
+
+@mixin flat-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
+	@include button($desired-font-size, $orig-font-size);
+	color: $text-color;
+
+	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
+
+	&:focus:not(:active) { background-color: rgba($black, 0.12); } // light divider text
+
+  &:active { background-color: rgba(get-color("grey", "500"), 0.4); }
+}
+
+@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
+	@include button($desired-font-size, $orig-font-size);
+	color: $text-color;
+	@include ripple($background-color);
+
+	&:hover { background-color: $dark-accent; }
 }
