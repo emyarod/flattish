@@ -15,7 +15,7 @@ $primary: get-color("yellow", "500");
 $dark-primary: get-color("yellow", "700");
 $light-primary: get-color("yellow", "100");
 $accent: get-color("orange", "A200");
-// $dark-accent: get-color("orange", "A400");
+$dark-accent: get-color("orange", "A400");
 $light-accent: get-color("orange", "A100");
 $black: #000;
 $white: #fff;
@@ -52,6 +52,13 @@ $dark-hint-text: rgba($white, .3);
 $dark-secondary-text: rgba($white, .70);
 $dark-icons: rgba($white, 1);
 $dark-text: rgba($white, 1);
+
+// animation
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 // mediaquery break points
 $screen-xs-min: em(480, 16);
