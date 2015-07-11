@@ -26,16 +26,16 @@
 }
 
 #moderation_tools {
-	top: em(1, 10);
+	top: em(5, 14);
 }
 
 .sidecontentbox {
-	// top: em(2, 10);
+	top: em(5, 10);
 	z-index: 0;
 
 	// mod tools collapse button
 	.collapse-button {
-		border-radius: em(3, 10);
+		border-radius: em(2, 10);
 		line-height: em(8, 10);
 	}
 
