@@ -15,7 +15,7 @@
 			position: relative;
 			top: em(35, 14);
 			width: em(130, 14);
-			@include flat-colored-button(14, 15, $accent, $white);
+			@include flat-colorized-bg-button(14, 15, $accent, $white);
 		}
 	}
 
