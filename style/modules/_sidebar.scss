@@ -73,7 +73,7 @@
 		// change width of first card (containing search and submit) on sidebar hover
 		.spacer:first-of-type {
 			height: em(39, 10);
-			width: em(300, 10);
+			width: em(298, 10);
 		}
 	}
 
@@ -119,6 +119,7 @@
 	// advertisement
 	#ad_main {
 		position: relative;
+		top: em(5, 10);
 	}
 }
 
@@ -142,7 +143,7 @@
 			top: em(-85, 10);
 			right: 0;
 			height: em(39, 10);
-			width: em(300, 10);
+			width: em(298, 10);
 		}
 
 		#search {
