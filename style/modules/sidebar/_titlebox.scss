@@ -1,5 +1,9 @@
+// main: ../../main.scss
+
 .titlebox {
-	
+	position: relative;
+	top: em(3, 10);
+
 	// title
 	a.hover {
 		color: $light-secondary-text;
@@ -9,14 +13,13 @@
 	// subscribe and dashboard buttons
 	a.option,
 	.RESDashboardToggle {
-		@include button($light-app-bar, $light-secondary-text, 10, 10);
-		background: none $light-app-bar;
-		color: $light-secondary-text;
-		line-height: em(27, 10);
-		margin-right: em(5, 10);
+		@include button(10, 10);
 		position: relative;
 		top: em(2.5, 10);
-		@include transition-default;
+		margin-right: em(5, 10);
+		padding: 0.7em 0.57em;
+		color: $light-secondary-text;
+		line-height: em(27, 10);
 
 		&:hover {
 			@include drop-shadow(1);
