@@ -28,7 +28,7 @@
   padding-right: em(35, 14); // makes space for snoo visibility
 
   background: url(%%snoo-color%%) no-repeat;
-  @include transition-default;
+  @include material-animation-default;
 }
 
 // positioning fix for pagename and tabmenu when reddit pushes custom banner image
@@ -58,7 +58,7 @@
     line-height: em(53, 16);
     text-transform: lowercase;
 
-    @include transition-default;
+    @include material-animation-default;
 
     &:hover {
       color: $light-text;

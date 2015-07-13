@@ -8,7 +8,7 @@
 .side,
 .side:not(#searchexpando),
 .side:not(#search_hidemore) {
-	@include transition-default;
+	@include material-animation-default;
 }
 
 // hide sidebar items
@@ -46,7 +46,7 @@
     right: 0;
     top: em(215, 10);
     background: url(%%kebab%%) no-repeat;
-		@include transition-default;
+		@include material-animation-default;
 	}
 
 	&:hover {
