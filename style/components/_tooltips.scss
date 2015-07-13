@@ -29,7 +29,7 @@
     text-align: center;
     background-color: rgba($tooltip, 0);
     border-radius: em(2, $font-size-tooltip);
-    @include transition-default(all .25s);
+    @include material-animation-default;
   }
 
   &:hover::after {
