@@ -1,15 +1,6 @@
-@mixin menu {
-  background-color: $light-cards;
-  border: 0;
-  margin: 0.5em 0 1em 1em;
-  @include drop-shadow(1);
-  border-radius: 0.2em;
-  @include animation(menu-fadein 0.57s ease);
-}
-
-@mixin menu-items {
+@mixin menu-items($orig-font-size: 10) {
   color: $light-text;
-  padding: 1em;
+  padding: em(16, $orig-font-size);
   @include transition-default;
 
   &:hover { background-color: $light-app-bar; }
