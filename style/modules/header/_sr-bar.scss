@@ -62,10 +62,11 @@
   // menu list choices
   .drop-choices a.choice { @include menu-items; }
 
-  // right side edit button
-  #sr-more-link {
-    background-color: $light-primary;
-    margin: 0;
-    padding: 1em;
-  }
+}
+
+// right side edit button
+#sr-more-link {
+  background-color: $light-primary;
+  margin: 0;
+  padding: 1em;
 }
