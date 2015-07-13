@@ -2,6 +2,29 @@
 
 #search {
 
+	// search label
+	&:before {
+		position: absolute;
+		top: em(26, 10);
+		left: em(24, 10);
+		content: "search";
+		color: transparent;
+		font-size: em(13, 10);
+		@include transition(all 0.2s ease);
+	}
+
+	&:hover {
+
+		// search label hover behavior
+		&:before {
+			top: em(3, 13);
+			left: em(12, 13);
+			margin: 0;
+			color: $accent;
+	    @include transform(scale(0.85));
+		}
+	}
+
 	// text field
 	input[type="text"] {
 		color: $light-text;
@@ -15,26 +38,10 @@
 		&:hover {
 
 			// style placeholder text
-			&::-webkit-input-placeholder {
-	   		color: transparent;
-			}
-
-			&:-moz-placeholder {
-			  color: transparent;
-			}
-
-			&::-moz-placeholder {
-			  color: transparent;
-			}
-
-			&:-ms-input-placeholder {
-			  color: transparent;
-			}
+			@include placeholder { color: transparent; }
 		}
 
-		&:focus {
-			border-bottom: em(1, 13) solid $accent;
-		}
+		&:focus { border-bottom: em(1, 13) solid $accent; }
 	}
 
 	// magnifying glass icon
@@ -44,48 +51,29 @@
 		opacity: 0.54;
 		position: relative;
 		background: url(%%search%%) no-repeat;
+		@include transition;
 
 		&:hover {
 			opacity: 0.87;
-		}
-	}
-
-	// search label
-	&:before {
-		content: "search";
-		color: transparent;
-		font-size: em(13, 10);
-		top: em(26, 10);
-		left: em(24, 10);
-		position: absolute;
-		@include transition(all 0.2s ease);
-	}
-
-	&:hover {
-
-		// search label hover behavior
-		&:before {
-			color: $accent;
-			margin: 0;
-			top: em(3, 13);
-			left: em(12, 13);
-	    @include transform(scale(0.85));
 		}
 	}
 }
 
 // style searchexpando
 #searchexpando {
-	border: 0;
-	font-size: 100%;
 	position: relative;
-	right: em(15, 10);
-	top: em(16, 10);
-	width: em(300, 10);
+	top: em(17, 10);
+	right: em(16, 10);
 	z-index: 999;
-	@include card;
-	border-radius: 0 0 0.2em 0.2em;
+
+	width: em(298, 10);
 	margin: 0;
+
+	font-size: 100%;
+
+	@include card(10, 1);
+	border: 0;
+	border-radius: 0 0 em(2, 10) em(2, 10);
 
 	label {
 		font-size: 1.3em;
@@ -101,10 +89,10 @@
 
 	// dropdown menus
 	select {
-		background: transparent;
 		margin: 0 0 0 0.5em;
-		outline: none;
 		width: 6.7em; // 90px
+		background: transparent;
+		outline: none;
 		@include border-color(null null $light-hint-text null);
 		@include border-width(0 0 em(1, 13) 0);
 		@include appearance(none);
@@ -118,16 +106,16 @@
 
 	// dropdown menu labels
 	label:not(:first-of-type) {
-		background: url(%%dropdown%%) no-repeat right;
-		font-weight: bold;
-		margin: 0 em(5, 13) 0 0;
 		height: em(19, 13);
 		width: em(19, 13);
+		margin: 0 em(5, 13) 0 0;
+		font-weight: bold;
+		background: url(%%dropdown%%) no-repeat right;
 	}
 }
 
 // searchexpando advanced options
 #moresearchinfo {
-	border-color: $accent;
 	margin-top: em(10, 10);
+	border-color: $accent;
 }
