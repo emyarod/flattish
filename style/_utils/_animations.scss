@@ -12,19 +12,6 @@
   }
 }
 
-// menu fade in/appear from button press
-// fix required
-@include keyframes(menu-fadein) {
-  0% {
-    opacity: 0;
-    @include transform(translate(-78.5px, -837.5px) scale(0));
-  }
-  100% {
-    opacity: 1;
-    @include transform(scale(1));
-  }
-}
-
 @include keyframes(papersplit) {
   0% { margin-bottom: 0; }
   30% { margin-bottom: 0; }
