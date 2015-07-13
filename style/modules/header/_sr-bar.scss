@@ -27,14 +27,11 @@
   }
 
   // subreddit link behavior when hovering over sr bar
-  &:hover .sr-bar a {
-    color: $light-text;
-  }
+  &:hover .sr-bar a { color: $light-text; }
 
-  // "my subreddits" menu
+  // "my subreddits" menu button
   .dropdown.srdrop {
     height: 3em;
-    // margin-bottom: 0.5em;
     padding: 0;
     cursor: pointer;
 
@@ -55,14 +52,39 @@
     }
   }
 
-
   // menu list
-  .drop-choices.srdrop { @include menu; }
+  .drop-choices.srdrop {
+    display: block;
+    width: 0;
+    max-height: 0;
+    margin: 0;
+    overflow-y: scroll;
+    visibility: hidden;
+    border: 0;
+    background-color: $light-cards;
+    opacity: 0;
+    @include drop-shadow(1);
+    @include transition-default;
+
+    &.inuse {
+      width: 240px;
+      max-height: 690px;
+      margin: 0;
+      visibility: visible;
+      opacity: 1;
+      @include transition-default;
+    }
+  }
 
   // menu list choices
-  .drop-choices a.choice { @include menu-items; }
+  .drop-choices a.choice {
+    padding: 16px;
+    color: $light-text;
 
+    &:hover { background-color: $light-app-bar; }
+  }
 }
+
 
 // right side edit button
 #sr-more-link {

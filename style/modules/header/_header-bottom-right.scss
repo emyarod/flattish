@@ -8,7 +8,7 @@
   opacity: 0.54;
   position: relative;
   text-indent: em(-9999, 10);
-  @include material-animation-default;
+  @include transition-default;
 
   &:hover {
     opacity: 0.87;
@@ -26,7 +26,7 @@
 
   span a {
     color: $light-secondary-text;
-    @include material-animation-default;
+    @include transition-default;
   }
 
   &:hover span a { color: $light-text; }
@@ -55,7 +55,7 @@
   width: em(16, 10) !important;
   background: transparent url("%%settings%%") no-repeat !important;
   opacity: 0.54;
-  @include material-animation-default;
+  @include transition-default;
 
   &:hover { opacity: 1; }
 }
@@ -77,7 +77,7 @@
       font-style: normal;
       padding: 0;
       @include menu-items;
-      @include material-animation-default;
+      @include transition-default;
 
       a {
         color: $light-text;

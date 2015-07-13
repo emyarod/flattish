@@ -125,7 +125,7 @@
 	font-size: inherit;
 	margin: 0 em(16, 10) 0 0;
 	max-height: em(70, 10);
-	@include material-animation-default;
+	@include transition-default;
 
 	&:hover {
 		border-color: $light-secondary-text;
@@ -187,7 +187,7 @@
 	position: relative;
 	top: em(2, 10);
 	z-index: 1;
-	@include material-animation-default;
+	@include transition-default;
 
 	&:hover {
 		border-color: $light-secondary-text;
@@ -224,7 +224,7 @@
 	// animate expand/collapse
 	&.collapsed:after,
 	&.expanded:after {
-		@include material-animation-default;
+		@include transition-default;
 	}
 
 	&.collapsed:after {
