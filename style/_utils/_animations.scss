@@ -4,14 +4,26 @@
 
 // card elevation change animation
 @include keyframes(depthup) {
+  0% { @include drop-shadow(0); }
+  100% { @include drop-shadow(1); }
+}
+
+// RES settings menu hover animation
+@include keyframes(RES-settings) {
   0% {
-    @include drop-shadow(0);
+    width: 0;
+    height: 0;
+    opacity: 0;
   }
   100% {
-    @include drop-shadow(1);
+    width: em(180, 10);
+    height: em(330, 10);
+    opacity: 1;
   }
 }
 
+
+// sitetable post animation
 @include keyframes(papersplit) {
   0% { margin-bottom: 0; }
   30% { margin-bottom: 0; }
@@ -40,10 +52,6 @@
 
 // expando button +/- animation
 @include keyframes(minustoplus) {
-	0% {
-		@include transform(rotate(90deg));
-	}
-	100% {
-		@include transform(rotate(0));
-	}
+	0% { @include transform(rotate(90deg)); }
+	100% { @include transform(rotate(0)); }
 }
