@@ -101,6 +101,7 @@
   &:hover { opacity: 0.87; }
 }
 
+// RES toggle switches
 .toggleButton {
   max-width: em(36, 10);
   max-height: em(14, 10);
@@ -116,6 +117,7 @@
     border-radius: 50% !important;
     opacity: 1 !important;
     @include drop-shadow(1);
+    @include transition-default;
   }
 
   // off
