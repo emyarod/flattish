@@ -13,12 +13,14 @@
 	// subscribe and dashboard buttons
 	a.option,
 	.RESDashboardToggle {
-		@include flat-button(10, 10);
+		@include flat-button(10, 10, get-color("green", "500"));
 		position: relative;
 		top: em(2.5, 10);
 		margin-right: em(5, 10);
 		padding: 0.7em 0.57em;
 		line-height: em(27, 10);
+
+		&.remove { color: get-color("red", "500"); }
 	}
 
 	.subscribers,
@@ -61,4 +63,3 @@
 		font-size: 100%;
 		display: none;
 	}
-}
