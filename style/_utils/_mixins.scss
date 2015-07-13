@@ -46,26 +46,6 @@
   }
 }
 
-@mixin material-animation-fast-out-slow-in($duration:0.2s) {
-  transition-duration: $duration;
-  transition-timing-function: $animation-curve-fast-out-slow-in;
-}
-
-@mixin material-animation-linear-out-slow-in($duration:0.2s) {
-  transition-duration: $duration;
-  transition-timing-function: $animation-curve-linear-out-slow-in;
-}
-
-@mixin material-animation-fast-out-linear-in($duration:0.2s) {
-  transition-duration: $duration;
-  transition-timing-function: $animation-curve-fast-out-linear-in;
-}
-
-@mixin material-animation-default($duration:0.2s) {
-  transition-duration: $duration;
-  transition-timing-function: $animation-curve-default;
-}
-
 @mixin ripple($orig-background-color: transparent, $ripple-color: $light-accent) {
   background: $orig-background-color radial-gradient(circle, rgba($ripple-color, 0.3) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
   @include transition(background 0.3s $animation-curve-linear-out-slow-in, color 0.6s $animation-curve-linear-out-slow-in);
@@ -74,6 +54,10 @@
     outline: 0;
     background-size: 1000%;
   }
+}
+
+@mixin transition-default($value: all 0.5s ease-out) {
+  @include transition($value);
 }
 
 // burger
@@ -87,7 +71,7 @@
     width: $width;
     height: $height;
     background-color: $color;
-    @include material-animation-default;
+    @include transition-default;
     @if $border-radius != 0 {
       border-radius: $border-radius;
     }
