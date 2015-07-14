@@ -92,6 +92,8 @@
 		}
 
 		&:checked + label::before {
+			vertical-align: em(-5, 10);
+			margin-top: em(3, 10);
 			border-color: get-color("green", "500");
 			background: get-color("green", "500") url(%%tick%%) no-repeat;
 		}
