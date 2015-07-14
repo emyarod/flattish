@@ -1,9 +1,7 @@
 // main: ../../main.scss
 
 // post rank
-.rank {
-	display: none;
-}
+.rank { display: none; }
 
 // vote arrow/score column & thumbnail margin
 .midcol {
@@ -17,13 +15,9 @@
 	height: em(18, 13);
 	width: em(24, 13);
 
-	&.upmod {
-		background: url(%%light-upvote-pressed%%) 0 no-repeat;
-	}
+	&.upmod { background: url(%%light-upvote-pressed%%) 0 no-repeat; }
 
-	&.downmod {
-		background: url(%%light-downvote-pressed%%) 0 no-repeat;
-	}
+	&.downmod { background: url(%%light-downvote-pressed%%) 0 no-repeat; }
 
 	&.up {
 		background: url(%%light-upvote%%) 0 no-repeat;
@@ -41,17 +35,11 @@
 
 	.score {
 
-		&.unvoted {
-			color: $light-disabled-text;
-		}
+		&.unvoted { color: $light-disabled-text; }
 
-		&.likes {
-			color: $upvote;
-		}
+		&.likes { color: $upvote; }
 
-		&.dislikes {
-			color: $downvote;
-		}
+		&.dislikes { color: $downvote; }
 	}
 
 	&>.likes .score,
@@ -92,9 +80,7 @@
 			line-height: 1.35;
 			margin: 0;
 
-			&:visited {
-				color: $link-color-visited;
-			}
+			&:visited { color: $link-color-visited; }
 		}
 
 		.domain,
@@ -109,9 +95,7 @@
 // color of post score
 .thing .link .score {
 
-	&.likes {
-		color: $upvote;
-	}
+	&.likes { color: $upvote; }
 
 	&.dislikes {
 		color: $downvote;
@@ -253,11 +237,6 @@
 		&.expanded,
 		&.expanded:hover {
 			background: url(%%camera%%) 0 no-repeat !important; // ;_; thx res
-
-			// reposition horizontal line in plus/minus
-			&:after {
-				// top: em(-1, 10); // why, sway???
-			}
 		}
 	}
 
