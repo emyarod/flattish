@@ -202,10 +202,11 @@
 		&:after {
 			background-color: $black;
 			content: "";
-			position: relative;
+			position: absolute;
 			display: block;
 		}
 
+		// horizontal
 		&:before {
 			width: em(7, 10);
 			height: em(1, 10);
@@ -213,23 +214,20 @@
 			left: em(14, 10);
 		}
 
+		// vertical
 		&:after {
 			width: em(1, 10);
 			height: em(7, 10);
-			top: em(13, 10);
+			top: em(14, 10);
 			left: em(17, 10);
 		}
 	}
 
 	// animate expand/collapse
 	&.collapsed:after,
-	&.expanded:after {
-		@include transition-default;
-	}
+	&.expanded:after { @include transition-default; }
 
-	&.collapsed:after {
-		@include animation(minustoplus 0.5s ease 1);
-	}
+	&.collapsed:after { @include animation(minustoplus 0.5s ease 1); }
 
 	&.expanded:after {
 		@include animation(minustoplus 0.5s ease 1 reverse);
@@ -242,9 +240,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover {
-			background: url(%%play%%) 0 no-repeat;
-		}
+		&.expanded:hover { background: url(%%play%%) 0 no-repeat; }
 	}
 
 	// image expandos
@@ -260,7 +256,7 @@
 
 			// reposition horizontal line in plus/minus
 			&:after {
-				top: em(-1, 10); // why, sway???
+				// top: em(-1, 10); // why, sway???
 			}
 		}
 	}
@@ -270,21 +266,15 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover {
-			background: url(%%text%%) 0 no-repeat;
-		}
+		&.expanded:hover { background: url(%%text%%) 0 no-repeat; }
 	}
 }
 
 .tagline,
-.flat-list.buttons {
-	font-size: em(12, 10);
-}
+.flat-list.buttons { font-size: em(12, 10); }
 
 // "submitted by"
-.tagline {
-	margin: em(8, 12) 0;
-}
+.tagline { margin: em(8, 12) 0; }
 
 // target only taglines where expandos are also present
 .expando-button ~ .tagline {
