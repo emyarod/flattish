@@ -61,28 +61,23 @@
     overflow-y: scroll;
     visibility: hidden;
     border: 0;
+    border-radius: em(2, 10);
     background-color: $light-cards;
     opacity: 0;
     @include drop-shadow(1);
     @include transition-default;
 
     &.inuse {
-      width: 240px;
-      max-height: 690px;
-      margin: 0;
+      width: em(240, 10);
+      max-height: em(690, 10);
+      margin: em(10, 10) 0 0 em(10, 10);
       visibility: visible;
       opacity: 1;
-      @include transition-default;
     }
   }
 
   // menu list choices
-  .drop-choices a.choice {
-    padding: 16px;
-    color: $light-text;
-
-    &:hover { background-color: $light-app-bar; }
-  }
+  .drop-choices a.choice { @include menu-items; }
 }
 
 
