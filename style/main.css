@@ -1136,6 +1136,8 @@ div.content {
         border-radius: 0.2em;
         cursor: pointer; }
       .side .titlebox .flairtoggle input[type="checkbox"]:checked + label::before {
+        vertical-align: -0.5em;
+        margin-top: 0.3em;
         border-color: #4caf50;
         background: #4caf50 url(%%tick%%) no-repeat; }
   .side #moderation_tools,
