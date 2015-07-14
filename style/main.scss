@@ -9,7 +9,10 @@
 @import "pages/search-page";
 @import "pages/submit-page";
 
-* { font-family: $font-stack; }
+* {
+  font-family: $font-stack;
+  outline: none;
+}
 
 // makes stylesheet editor full width
 .sheets { margin: 0; }
