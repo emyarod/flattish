@@ -1,5 +1,7 @@
 // main: ../../main.scss
 
+@import "../../components/badges";
+
 @mixin userbar-buttons {
   height: em(16, 10);
   width: em(16, 10);
@@ -144,4 +146,96 @@
   top: em(-2, 10);
   background: url("%%logout%%") no-repeat;
   @include userbar-buttons;
+}
+
+#mail {
+  border-radius: 1px;
+  overflow: visible; // thx diobrando
+  vertical-align: -1px;
+  // @include transition-default;
+
+  &.havemail {
+    background-image: none;
+    background-color: get-color("blue", "300");
+    border-top: 2px solid get-color("blue", "500");
+
+    &:hover {
+      // vertical-align: -4px;
+      @include border-top-radius(0);
+
+      &::before {
+        top: -9px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 8px 7px 8px;
+        border-color: transparent transparent get-color("blue", "500") transparent;
+      }
+    }
+
+    // style triangles
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      border-style: solid;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      z-index: 2;
+      border-style: solid;
+      border-width: 5px 8px 0 8px;
+      border-color: get-color("blue", "500") transparent transparent transparent;
+      @include transition-default;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      border-color: transparent transparent get-color("blue", "100") transparent;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 10px 16px;
+    }
+  }
+}
+
+.message-count {
+  position: relative;
+  @include badge();
+
+  &::before,
+  &::after {
+    position: absolute;
+  }
+
+  // left triangle
+  &::before {
+    top: 3.5px;
+    left: -19px;
+    z-index: 1;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent get-color("blue", "300");
+  }
+
+  // paper
+  &::after {
+    top: 4px;
+    left: -17px;
+    z-index: 0;
+    content: "";
+    height: 8px;
+    width: 12px;
+    background-color: #fff;
+  }
 }
