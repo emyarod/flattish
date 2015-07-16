@@ -148,11 +148,47 @@
   @include userbar-buttons;
 }
 
+@include keyframes(first-openletter) {
+  0% {
+    top: 0;
+    z-index: 2;
+    border-width: 5px 8px 0 8px;
+    border-color: get-color("blue", "500") transparent transparent transparent;
+  }
+  25% {
+    top: -9px;
+    z-index: 0;
+    border-width: 0 8px 7px 8px;
+    border-color: transparent transparent get-color("blue", "500") transparent;
+  }
+  75% {
+    top: -9px;
+    z-index: 0;
+    border-width: 0 8px 7px 8px;
+    border-color: transparent transparent get-color("blue", "500") transparent;
+  }
+  100% {
+    top: 0;
+    z-index: 2;
+    border-width: 5px 8px 0 8px;
+    border-color: get-color("blue", "500") transparent transparent transparent;
+  }
+}
+
+@include keyframes(first-letterslide) {
+  0% { top: 4px; }
+  30% { top: 4px; }
+  55% { top: -4px; }
+  60% { top: -4px; }
+  85% { top: 4px; }
+  100% { top: 4px; }
+}
+
+// envelope
 #mail {
   border-radius: 1px;
   overflow: visible; // thx diobrando
   vertical-align: -1px;
-  // @include transition-default;
 
   &.havemail {
     background-image: none;
@@ -160,7 +196,6 @@
     border-top: 2px solid get-color("blue", "500");
 
     &:hover {
-      // vertical-align: -4px;
       @include border-top-radius(0);
 
       &::before {
@@ -181,6 +216,7 @@
       border-style: solid;
     }
 
+    // isosceles triangle envelope flap
     &::before {
       top: 0;
       left: 0;
@@ -191,8 +227,10 @@
       border-width: 5px 8px 0 8px;
       border-color: get-color("blue", "500") transparent transparent transparent;
       @include transition-default;
+      @include animation(first-openletter 3s $animation-curve-default 2s);
     }
 
+    // right triangle
     &::after {
       bottom: 0;
       right: 0;
@@ -206,6 +244,7 @@
   }
 }
 
+// number of unread messages
 .message-count {
   position: relative;
   @include badge();
@@ -233,9 +272,14 @@
     top: 4px;
     left: -17px;
     z-index: 0;
-    content: "";
-    height: 8px;
-    width: 12px;
+    height: 5px;
+    width: 8px;
+    padding: 2px;
+    color: $light-text;
+    content: "created by /u/fiveseven_";
+    font-size: 1px;
+    line-height: 1.35;
     background-color: #fff;
+    @include animation(first-letterslide 3s $animation-curve-default 2s);
   }
 }
