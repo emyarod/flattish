@@ -1,5 +1,9 @@
 // main: ../main.scss
 
+#REScommentSubToggle {
+  @include flat-button(10, 10, get-color("green", "500"));
+}
+
 .linkinfo {
   position: relative;
   top: em(-85, 13);
