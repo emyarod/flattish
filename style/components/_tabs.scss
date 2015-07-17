@@ -60,7 +60,7 @@
 
       // tabmenu hover bottom border effect
       &:hover::after {
-        @include calc(width, "100% - -48px"); // double negative works but not +...wtf css?
+        @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
         border-bottom: em(2, 14) solid $accent;
       }
     }
