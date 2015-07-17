@@ -214,7 +214,6 @@
       border-width: em(5, 10) em(8, 10) 0 em(8, 10);
       border-color: get-color("light-blue", "800") transparent transparent transparent;
       @include transition-default;
-      @include animation(first-openletter 3s $animation-curve-default 2s);
     }
 
     // right triangle
@@ -230,6 +229,8 @@
 
   // inbox not empty
   &.havemail {
+
+    &::before { @include animation(first-openletter 3s $animation-curve-default 2s); }
 
     &:hover {
       @include border-top-radius(0);
