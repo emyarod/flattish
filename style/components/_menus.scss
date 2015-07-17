@@ -5,3 +5,29 @@
 
   &:hover { background-color: $light-app-bar; }
 }
+
+@mixin menu($class, $desired-font-size, $orig-font-size, $width) {
+  .drop-choices.#{$class} {
+    display: block;
+    width: 0;
+    max-height: 0;
+    margin: 0;
+    visibility: hidden;
+    font-size: em($orig-font-size, $desired-font-size);
+    border: 0;
+    border-radius: em(2, $desired-font-size);
+    background-color: $light-cards;
+    opacity: 0;
+    @include drop-shadow(1);
+    @include transition-default;
+
+    &.inuse {
+      width: em($width, $desired-font-size);
+      max-height: em(690, $desired-font-size);
+      margin-top: em(10, $desired-font-size);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .drop-choices a.choice { @include menu-items($desired-font-size); }
+}
