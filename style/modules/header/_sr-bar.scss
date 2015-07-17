@@ -53,33 +53,14 @@
   }
 
   // menu list
+  @include menu(srdrop, 10, 10, 240);
+
   .drop-choices.srdrop {
-    display: block;
-    width: 0;
-    max-height: 0;
-    margin: 0;
     overflow-y: scroll;
-    visibility: hidden;
-    border: 0;
-    border-radius: em(2, 10);
-    background-color: $light-cards;
-    opacity: 0;
-    @include drop-shadow(1);
-    @include transition-default;
 
-    &.inuse {
-      width: em(240, 10);
-      max-height: em(690, 10);
-      margin: em(10, 10) 0 0 em(10, 10);
-      visibility: visible;
-      opacity: 1;
-    }
+    &.inuse { margin-left: em(10, 10); }
   }
-
-  // menu list choices
-  .drop-choices a.choice { @include menu-items; }
 }
-
 
 // right side edit button
 #sr-more-link {
