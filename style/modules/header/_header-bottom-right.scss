@@ -152,61 +152,48 @@
   0% {
     top: 0;
     z-index: 2;
-    border-width: 5px 8px 0 8px;
-    border-color: get-color("blue", "500") transparent transparent transparent;
+    border-width: em(5, 10) em(8, 10) 0 em(8, 10);
   }
   25% {
-    top: -9px;
+    top: em(-9, 10);
     z-index: 0;
-    border-width: 0 8px 7px 8px;
-    border-color: transparent transparent get-color("blue", "500") transparent;
+    border-width: 0 em(8, 10) em(7, 10) em(8, 10);
+    @include border-color(transparent null get-color("light-blue", "800") null);
   }
   75% {
-    top: -9px;
+    top: em(-9, 10);
     z-index: 0;
-    border-width: 0 8px 7px 8px;
-    border-color: transparent transparent get-color("blue", "500") transparent;
+    border-width: 0 em(8, 10) em(7, 10) em(8, 10);
+    @include border-color(transparent null get-color("light-blue", "800") null);
   }
   100% {
     top: 0;
     z-index: 2;
-    border-width: 5px 8px 0 8px;
-    border-color: get-color("blue", "500") transparent transparent transparent;
+    border-width: em(5, 10) em(8, 10) 0 em(8, 10);
+    @include border-color(get-color("light-blue", "800") null transparent null);
   }
 }
 
 @include keyframes(first-letterslide) {
-  0% { top: 4px; }
-  30% { top: 4px; }
-  55% { top: -4px; }
-  60% { top: -4px; }
-  85% { top: 4px; }
-  100% { top: 4px; }
+  0% { top: em(4, 1); }
+  30% { top: em(4, 1); }
+  55% { top: em(-4, 1); }
+  60% { top: em(-4, 1); }
+  85% { top: em(4, 1); }
+  100% { top: em(4, 1); }
 }
 
 // envelope
 #mail {
-  border-radius: 1px;
+  border-radius: em(1, 10);
   overflow: visible; // thx diobrando
-  vertical-align: -1px;
+  vertical-align: em(-1, 10);
 
+  &.nohavemail,
   &.havemail {
     background-image: none;
-    background-color: get-color("blue", "300");
-    border-top: 2px solid get-color("blue", "500");
-
-    &:hover {
-      @include border-top-radius(0);
-
-      &::before {
-        top: -9px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 8px 7px 8px;
-        border-color: transparent transparent get-color("blue", "500") transparent;
-      }
-    }
+    background-color: get-color("light-blue", "500");
+    border-top: em(2, 10) solid get-color("light-blue", "800");
 
     // style triangles
     &::before,
@@ -214,18 +201,18 @@
       position: absolute;
       content: "";
       border-style: solid;
+      width: 0;
+      height: 0;
     }
 
     // isosceles triangle envelope flap
     &::before {
       top: 0;
       left: 0;
-      width: 0;
-      height: 0;
       z-index: 2;
       border-style: solid;
-      border-width: 5px 8px 0 8px;
-      border-color: get-color("blue", "500") transparent transparent transparent;
+      border-width: em(5, 10) em(8, 10) 0 em(8, 10);
+      border-color: get-color("light-blue", "800") transparent transparent transparent;
       @include transition-default;
       @include animation(first-openletter 3s $animation-curve-default 2s);
     }
@@ -235,11 +222,27 @@
       bottom: 0;
       right: 0;
       z-index: 1;
-      border-color: transparent transparent get-color("blue", "100") transparent;
-      width: 0;
-      height: 0;
+      border-color: transparent transparent get-color("light-blue", "200") transparent;
       border-style: solid;
-      border-width: 0 0 10px 16px;
+      border-width: 0 0 em(10, 10) em(16, 10);
+    }
+  }
+
+  // inbox not empty
+  &.havemail {
+
+    &:hover {
+      @include border-top-radius(0);
+
+      // styling for envelope flap on hover
+      &::before {
+        top: em(-9, 10);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 em(8, 10) em(7, 10) em(8, 10);
+        border-color: transparent transparent get-color("light-blue", "800") transparent;
+      }
     }
   }
 }
@@ -250,34 +253,33 @@
   @include badge();
 
   &::before,
-  &::after {
-    position: absolute;
-  }
+  &::after { position: absolute; }
 
   // left triangle
   &::before {
-    top: 3.5px;
-    left: -19px;
+    top: em(3.5, 10);
+    left: em(-19, 10);
     z-index: 1;
     content: "";
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 5px 0 5px 8px;
-    border-color: transparent transparent transparent get-color("blue", "300");
+    border-width: em(5, 10) 0 em(5, 10) em(8, 10);
+    border-color: transparent transparent transparent get-color("light-blue", "500");
+    cursor: pointer;
   }
 
   // paper
   &::after {
-    top: 4px;
-    left: -17px;
+    top: em(4, 1);
+    left: em(-17, 1);
     z-index: 0;
-    height: 5px;
-    width: 8px;
-    padding: 2px;
+    height: em(5, 1);
+    width: em(8, 1);
+    padding: em(2, 1);
     color: $light-text;
     content: "created by /u/fiveseven_";
-    font-size: 1px;
+    font-size: em(1, 10);
     line-height: 1.35;
     background-color: #fff;
     @include animation(first-letterslide 3s $animation-curve-default 2s);
