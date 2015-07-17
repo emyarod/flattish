@@ -36,6 +36,43 @@
 
 // "sorted by" menu
 @include menu(lightdrop, 13, 13, 104);
+.drop-choices.lightdrop,
+.drop-choice.lightdrop.inuse { left: unset; } // offset RES styling
+
+.RESMacroDropdown {
+  left: unset !important; // thx RES
+  right: em(16, 10) !important; // thx RES
+  display: block;
+  margin: 0;
+  font-size: em(10, 10);
+  border: 0;
+  border-radius: em(2, 10);
+  background-color: $light-cards;
+  @include drop-shadow(1);
+  @include transition-default;
+}
+
+@include keyframes(menuopen) {
+  0% { @include transform(scale(0)); }
+  100% { @include transform(scale(1)); }
+}
+
+.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
+  left: unset !important; // thx RES
+  width: em(118, 10);
+  max-height: em(690, 10);
+  margin-top: em(10, 10);
+  transform-origin: 100% 0;
+  @include animation(menuopen 0.2s $animation-curve-default);
+}
+
+.RESMacroDropdownList li a {
+  color: $light-text !important; // thx RES
+  padding: em(16, 10) !important; // thx RES
+  @include transition-default;
+
+  &:hover { background-color: $light-app-bar !important;  } // thx RES
+}
 
 // text editor container
 .usertext-edit {
@@ -57,7 +94,6 @@
 }
 
 .commentingAs { color: $light-secondary-text; }
-
 
 .RESCharCounter {
   position: relative;
