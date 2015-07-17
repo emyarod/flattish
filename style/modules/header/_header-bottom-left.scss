@@ -68,83 +68,7 @@
 }
 
 // tabmenu
-.tabmenu {
-  position: absolute;
-  left: 0;
-  top: em(73, 14);
-
-  height: em(64, 14);
-  width: 100vw; // fuck IE8 support
-  margin-top: 0;
-  padding-left: em(16, 16);
-
-  font-size: inherit;
-  line-height: em(64, 14);
-
-  li {
-    margin: 0;
-
-    // hides "rising", "controversial", "ads", and "gilded" tabs
-    @each $hidden-tab in rising, controversial, ads, gilded {
-      a[href$="/#{$hidden-tab}/"] { display: none; }
-    }
-
-    // styles visible tabs
-    a[href$="/flattishexperimental/"],
-    a[href$="/new/"],
-    a[href$="/top/"],
-    a[href$="/wiki/"],
-    #viewImagesButton {
-      display: inline-block;
-
-      height: em(64, 14);
-      width: initial;
-      padding: 0 em(24, 14);
-
-      color: $light-secondary-text;
-      font-weight: bold;
-      text-transform: uppercase;
-
-      border-bottom: em(2, 14) solid transparent;
-      @include ripple;
-
-      &:hover {
-        margin: 0;
-        padding: 0 em(24, 14);
-        color: $light-text;
-      }
-
-      &:after {
-        position: relative;
-        top: em(-64, 14);
-        left: em(-24, 14);
-
-        display: block;
-        width: 0;
-        height: inherit;
-
-        content: "";
-
-        border-bottom: em(2, 14) solid transparent;
-        @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
-      }
-
-      // tabmenu hover bottom border effect
-      &:hover::after {
-        width: calc(100% - -48px); // double negative works but not +...wtf css?
-        border-bottom: em(2, 14) solid $accent;
-      }
-    }
-
-    // ensures selected tab remains unchanged
-    &.selected a {
-      margin: 0;
-      padding: 0 em(24, 14);
-      border-bottom-color: $accent;
-      @include border-width(0 0 em(2, 14) 0);
-    }
-  }
-}
+@import "../../components/tabs";
 
 @media (min-width: $screen-sm-min) {
   #header-bottom-left {
@@ -167,14 +91,5 @@
   .pagename a {
     height: em(64, 16);
     line-height: em(64, 16);
-  }
-
-  // restore initial tabmenu values
-  .tabmenu {
-    position: static;
-    left: initial;
-    top: initial;
-    width: initial;
-    padding-left: initial;
   }
 }
