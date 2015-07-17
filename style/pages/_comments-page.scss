@@ -1,5 +1,67 @@
 // main: ../main.scss
 
+.commentarea {
+  position: relative;
+
+  .panestack-title,
+  .menuarea {
+    position: absolute;
+    margin: 0;
+    padding: 16px;
+    @include calc(width, "100% - 32px");
+  }
+
+  .panestack-title {
+    height: auto;
+    padding-bottom: 0;
+    border: 0;
+
+    .title { margin: 0; }
+  }
+
+  // sorted/navigate by
+  .menuarea {
+    top: 54px;
+    display: table;
+    padding-top: 0;
+  }
+
+  &> .usertext {
+    @include margin(null null em(16, 10) 0);
+    @include animate-card(10, 1);
+    padding-top: 125px;
+  }
+}
+
+// text editor container
+.usertext-edit {
+  width: auto;
+
+  textarea {
+    width: 100%;
+
+    @include border-width(0 0 em(2, 14));
+    border-bottom-color: get-color("grey", "600");
+    background-color: transparent;
+    @include transition-default;
+
+    &:focus { border-bottom-color: $accent; }
+  }
+
+  // comment style buttons and character counter
+  & > .markdownEditor-wrapper { width: auto; } // override inline styling
+}
+
+.commentingAs { color: $light-secondary-text; }
+
+
+.RESCharCounter {
+  position: relative;
+  top: 35px;
+  left: -85px;
+}
+
+// thread subscribe button
 #REScommentSubToggle {
   @include flat-button(10, 10, get-color("green", "500"));
 }
@@ -11,4 +73,12 @@
   border: 0;
   color: $light-text;
   background-color: $light-accent;
+}
+
+@media (min-width: $screen-sm-min) {
+  .RESCharCounter {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
 }
