@@ -34,7 +34,7 @@
 // positioning fix for pagename and tabmenu when reddit pushes custom banner image
 #header-img-a {
   @each $class in (pagename, tabmenu) {
-    .#{$class} {
+    ~ .#{$class} {
       position: relative;
       top: em(-4, 16);
       display: inline-block;
