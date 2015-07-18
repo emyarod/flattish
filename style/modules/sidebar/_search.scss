@@ -97,11 +97,7 @@
 		@include border-width(0 0 em(1, 13) 0);
 		@include appearance(none);
 
-		option {
-			&:hover {
-				background-color: $light-app-bar;
-			}
-		}
+		option:hover { background-color: $light-app-bar; }
 	}
 
 	// dropdown menu labels
