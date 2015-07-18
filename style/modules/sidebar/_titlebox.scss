@@ -83,8 +83,10 @@
 			display: inline-block;
 			height: em(16, 10);
 			width: em(16, 10);
+			margin-top: em(3, 10);
 
 			content: "";
+			vertical-align: em(-5, 10);
 
 			border: em(2, 10) solid $light-secondary-text;
 			border-radius: em(2, 10);
@@ -92,8 +94,6 @@
 		}
 
 		&:checked + label::before {
-			vertical-align: em(-5, 10);
-			margin-top: em(3, 10);
 			border-color: get-color("green", "500");
 			background: get-color("green", "500") url(%%tick%%) no-repeat scroll 0% 60%;
 		}
