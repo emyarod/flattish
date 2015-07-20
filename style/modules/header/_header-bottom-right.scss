@@ -191,7 +191,6 @@
   &.havemail {
     background-image: none;
     background-color: get-color("light-blue", "500");
-    // border-top: em(2, 10) solid get-color("light-blue", "800");
 
     // style triangles
     &::before,
