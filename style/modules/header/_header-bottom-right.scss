@@ -1,7 +1,5 @@
 // main: ../../main.scss
 
-@import "../../components/badges";
-
 @mixin userbar-buttons {
   height: em(16, 10);
   width: em(16, 10);
@@ -155,13 +153,13 @@
     border-width: em(5, 10) em(8, 10) 0 em(8, 10);
   }
   25% {
-    top: em(-9, 10);
+    top: em(-7, 10);
     z-index: 0;
     border-width: 0 em(8, 10) em(7, 10) em(8, 10);
     @include border-color(transparent null get-color("light-blue", "800") null);
   }
   75% {
-    top: em(-9, 10);
+    top: em(-7, 10);
     z-index: 0;
     border-width: 0 em(8, 10) em(7, 10) em(8, 10);
     @include border-color(transparent null get-color("light-blue", "800") null);
@@ -193,7 +191,7 @@
   &.havemail {
     background-image: none;
     background-color: get-color("light-blue", "500");
-    border-top: em(2, 10) solid get-color("light-blue", "800");
+    // border-top: em(2, 10) solid get-color("light-blue", "800");
 
     // style triangles
     &::before,
@@ -275,8 +273,8 @@
     top: em(4, 1);
     left: em(-17, 1);
     z-index: 0;
-    height: em(5, 1);
-    width: em(8, 1);
+    height: em(9, 1);
+    width: em(12, 1);
     padding: em(2, 1);
     color: $light-text;
     content: "created by /u/fiveseven_";
