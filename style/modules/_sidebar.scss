@@ -1,10 +1,5 @@
 // main: ../main.scss
 
-@import "../_utils/vars";
-@import "../_utils/mixins";
-@import "../components/cards";
-@import "../components/buttons";
-
 .side,
 .side:not(#searchexpando),
 .side:not(#search_hidemore) { @include transition-default; }
@@ -69,8 +64,8 @@
 
 		// change width of first card (containing search and submit) on sidebar hover
 		.spacer:first-of-type {
-			height: em(39, 10);
-			width: em(298, 10);
+			height: em(71, 10);
+			width: em(330, 10);
 		}
 	}
 
@@ -139,8 +134,8 @@
 			position: relative;
 			top: em(-85, 10);
 			right: 0;
-			height: em(39, 10);
-			width: em(298, 10);
+			height: em(71, 10);
+			width: em(330, 10);
 		}
 
 		#search {
@@ -149,7 +144,7 @@
 
 		.submit-link,
 		.submit-text {
-			width: em(143, 10);
+			width: em(146, 10);
 		}
 	}
 }
