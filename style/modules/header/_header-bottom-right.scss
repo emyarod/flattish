@@ -79,6 +79,7 @@
 // RES settings dropdown menu choices
 #RESDropdownOptions {
   li {
+    height: auto;
     border: 0;
     border-radius: em(2, 10);
     @include menu-items;
