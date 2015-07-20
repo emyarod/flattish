@@ -154,13 +154,13 @@
     border-width: em(5, 10) em(8, 10) 0 em(8, 10);
   }
   25% {
-    top: em(-7, 10);
+    top: em(-9, 10);
     z-index: 0;
     border-width: 0 em(8, 10) em(7, 10) em(8, 10);
     @include border-color(transparent null get-color("light-blue", "800") null);
   }
   75% {
-    top: em(-7, 10);
+    top: em(-9, 10);
     z-index: 0;
     border-width: 0 em(8, 10) em(7, 10) em(8, 10);
     @include border-color(transparent null get-color("light-blue", "800") null);
@@ -184,14 +184,16 @@
 
 // envelope
 #mail {
+  height: em(12, 10);
   border-radius: em(1, 10);
+  border-top: em(2, 10) solid get-color("light-blue", "800");
+  background-color: get-color("light-blue", "500");
   overflow: visible; // thx diobrando
   vertical-align: em(-1, 10);
 
   &.nohavemail,
   &.havemail {
-    background-image: none;
-    background-color: get-color("light-blue", "500");
+    // background-image: none;
 
     // style triangles
     &::before,
