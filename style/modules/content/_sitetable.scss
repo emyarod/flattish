@@ -163,14 +163,16 @@
 
 // media and self post expansion buttons
 .expando-button {
+	position: relative;
+	top: em(2, 10);
+	width: em(25, 10);
+	height: em(25, 10);
+	z-index: 1;
+	@include margin(null em(6, 10) em(6, 10) null);
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
 	cursor: pointer;
-	@include margin(null em(6, 10) em(6, 10) null);
 	opacity: 0.54;
-	position: relative;
-	top: em(2, 10);
-	z-index: 1;
 	@include transition-default;
 
 	&:hover {
