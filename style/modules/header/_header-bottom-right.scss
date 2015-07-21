@@ -185,6 +185,7 @@
 // envelope
 #mail {
   height: em(12, 10);
+  width: em(16, 10);
   border-radius: em(1, 10);
   border-top: em(2, 10) solid get-color("light-blue", "800");
   background-color: get-color("light-blue", "500");
@@ -193,7 +194,6 @@
 
   &.nohavemail,
   &.havemail {
-    // background-image: none;
 
     // style triangles
     &::before,
@@ -227,6 +227,9 @@
     }
   }
 
+  // inbox empty
+  .nohavemail { background-image: none; }
+
   // inbox not empty
   &.havemail {
 
@@ -258,7 +261,7 @@
 
   // left triangle
   &::before {
-    top: em(3.5, 10);
+    top: em(3.9, 10);
     left: em(-19, 10);
     z-index: 1;
     content: "";
@@ -280,7 +283,7 @@
     padding: em(2, 1);
     color: $light-text;
     content: "created by /u/fiveseven_";
-    font-size: em(1, 10);
+    font-size: 1px; // need pixel value for chrome, nonres..why?
     line-height: 1.35;
     background-color: #fff;
     @include animation(first-letterslide 3s $animation-curve-default 2s);
