@@ -1,7 +1,5 @@
 // main: ../main.scss
 
-@import "../_utils/vars";
-
 // animate header
 @include keyframes(moveheader) {
   0% { background-position: 0 0; }
