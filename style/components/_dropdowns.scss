@@ -1,0 +1,19 @@
+// main: ../main.scss
+
+// dropdown menus
+select {
+  font-size: 13px;
+  background: transparent;
+  outline: none;
+  @include border-color(null null $light-hint-text null);
+  @include border-width(0 0 em(1, 13) 0);
+  @include appearance(none);
+
+  option:hover { background-color: $light-app-bar; }
+}
+
+@mixin dropdown-arrow {
+  height: em(19, 13);
+  width: em(19, 13);
+  background: url(%%dropdown%%) no-repeat right;
+}
