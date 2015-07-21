@@ -17,11 +17,12 @@
 	background: none transparent;
 	border: 0;
 	border-radius: em(2, $desired-font-size);
-	outline: none;
+	outline: 0;
 	will-change: box-shadow;
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
+	&::-moz-focus-inner { border: 0; }
 }
 
 @mixin flat-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
@@ -30,9 +31,13 @@
 
 	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
 
-	&:focus:not(:active) { background-color: rgba($black, 0.12); } // light divider text
+	&:focus:not(:active) {
+		background-color: rgba($black, 0.12); // light divider text
+	}
 
-  &:active { background-color: rgba(get-color("grey", "500"), 0.4); }
+  &:active {
+		background-color: rgba(get-color("grey", "500"), 0.4);
+	}
 }
 
 @mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
@@ -41,4 +46,9 @@
 	@include ripple($background-color);
 
 	&:hover { background-color: $dark-accent; }
+}
+
+button {
+	font-size: 13px;
+	@include flat-button(13, 13, $primary);
 }
