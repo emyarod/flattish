@@ -89,24 +89,15 @@
 
 	// dropdown menus
 	select {
-		margin: 0 0 0 0.5em;
-		width: 6.7em; // 90px
-		background: transparent;
-		outline: none;
-		@include border-color(null null $light-hint-text null);
-		@include border-width(0 0 em(1, 13) 0);
-		@include appearance(none);
-
-		option:hover { background-color: $light-app-bar; }
+		margin: 0 0 0 em(7, 13);
+		width: em(90, 13);
 	}
 
 	// dropdown menu labels
 	label:not(:first-of-type) {
-		height: em(19, 13);
-		width: em(19, 13);
 		margin: 0 em(5, 13) 0 0;
 		font-weight: bold;
-		background: url(%%dropdown%%) no-repeat right;
+		@include dropdown-arrow;
 	}
 }
 
