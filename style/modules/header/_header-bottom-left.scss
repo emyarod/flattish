@@ -1,8 +1,5 @@
 // main: ../../main.scss
 
-@import "../../_utils/vars";
-@import "../../_utils/mixins";
-
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
@@ -32,15 +29,15 @@
 }
 
 // positioning fix for pagename and tabmenu when reddit pushes custom banner image
-#header-img-a {
-  @each $class in (pagename, tabmenu) {
-    ~ .#{$class} {
-      position: relative;
-      top: em(-4, 16);
-      display: inline-block;
-    }
-  }
-}
+// #header-img-a {
+//   @each $class in (pagename, tabmenu) {
+//     ~ .#{$class} {
+//       position: relative;
+//       top: em(-4, 16);
+//       display: inline-block;
+//     }
+//   }
+// }
 
 // subreddit name
 .pagename {
@@ -70,7 +67,7 @@
 // tabmenu
 @import "../../components/tabs";
 
-@media (min-width: $screen-sm-min) {
+@media (min-width: $screen-md-min) {
   #header-bottom-left {
     top: em(159, 14);
     height: em(64, 14);
@@ -91,5 +88,15 @@
   .pagename a {
     height: em(64, 16);
     line-height: em(64, 16);
+  }
+
+  #header-img-a {
+    @each $class in (pagename, tabmenu) {
+      ~ .#{$class} {
+        position: relative;
+        top: em(-4, 16);
+        display: inline-block;
+      }
+    }
   }
 }
