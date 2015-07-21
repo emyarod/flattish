@@ -14,7 +14,7 @@
 		a {
 			position: relative;
 			top: em(35, 14);
-			width: em(130, 14);
+			width: em(146, 14);
 			@include flat-colorized-bg-button(14, 15, $accent, $white);
 		}
 	}
@@ -35,8 +35,8 @@
 		position: relative;
 		top: em(-15, 14);
 		display: block;
-		height: em(68, 14);
-		width: em(298, 14);
+		height: em(100, 14);
+		width: em(330, 14);
 		font-size: em(14, 10);
 		font-weight: bold;
 		color: $light-secondary-text;
