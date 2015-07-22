@@ -5,5 +5,5 @@
 div.content {	margin: 0 em(15, 10); }
 
 @media (min-width: $screen-md-min) {
-	div.content {	max-width: calc(100% - 37.5em);	}
+	div.content {	max-width: calc(100% - 375px);	}
 }
