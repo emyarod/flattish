@@ -1,7 +1,25 @@
 // main: ../main.scss
 
+.footer-parent,
+.debuginfo {
+  // position: relative;
+  // background-color: $light-primary;
+}
+
+// .footer-parent { margin-top: 50px; }
+
 .footer {
   @include animate-card(13);
+  border: 0;
+  // padding-bottom: 64px;
+}
+
+.bottommenu {
+  // position: relative;
+  // top: -72px;
+  // width: 600px;
+  // margin: 0 auto;
+  // padding: 0 16px;
 }
 
 .flat-vert.title {
@@ -15,5 +33,32 @@
       content: "<3 57";
       font-size: 16px;
     }
+  }
+}
+
+.debuginfo {
+  // color: $white;
+
+  // .icon { color: $white; }
+}
+
+@media (min-width: $screen-md-min) {
+  .footer-parent,
+  .debuginfo {
+    // width: 112%;
+    // width: 100vw;
+    // left: -6%;
+    // left: -5vw;
+    // bottom: 0;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .footer-parent,
+  .debuginfo {
+    // width: 125%;
+    // width: 100vw;
+    // left: -12.5%;
+    // bottom: 0;
   }
 }
