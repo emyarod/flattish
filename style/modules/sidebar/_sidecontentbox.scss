@@ -1,7 +1,5 @@
 // main: ../../main.scss
 
-@import "../../components/tooltips";
-
 #moderation_tools,
 .sidecontentbox {
 	position: relative;
@@ -25,9 +23,7 @@
 	}
 }
 
-#moderation_tools {
-	top: em(5, 14);
-}
+#moderation_tools { top: em(5, 14); }
 
 .sidecontentbox {
 	top: em(5, 10);
@@ -43,18 +39,14 @@
 	.gadget {
 
 		// add margin to vote arrows
-		.midcol {
-			margin-right: em(15, 13);
-		}
+		.midcol { margin-right: em(15, 13); }
 
 		// align top edges of links
 		.reddit-entry {
 			position: relative;
 			top: em(4, 13);
 
-			a {
-				line-height: 1.35;
-			}
+			a { line-height: 1.35; }
 		}
 
 		.thing {
@@ -62,29 +54,19 @@
 
 			span.score {
 
-				&.unvoted {
-					color: $light-secondary-text;
-				}
+				&.unvoted { color: $light-secondary-text; }
 
-				&.likes {
-					color: $upvote;
-				}
+				&.likes { color: $upvote; }
 
-				&.dislikes {
-					color: $downvote;
-				}
+				&.dislikes { color: $downvote; }
 			}
 
 			// recolor comment count
-			a.reddit-comment-link.may-blank {
-				color: $light-secondary-text;
-			}
+			a.reddit-comment-link.may-blank { color: $light-secondary-text; }
 		}
 
 		// remove unnecessary trailing padding
-		.reddit-link-end {
-			padding: 0;
-		}
+		.reddit-link-end { padding: 0; }
 
 		.right {
 			height: em(20, 10);
