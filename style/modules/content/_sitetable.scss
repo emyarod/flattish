@@ -56,6 +56,8 @@
 	&>.thing {
 		@include animation(papersplit 5s ease-out);
 		@include card(10, 1);
+		@include transition-default;
+		height: auto !important;
 		margin-bottom: em(16, 10);
 
 		// remove padding from topmost post
@@ -86,7 +88,6 @@
 		.domain,
 		.domain a,
 		.tagline {
-			// .entry .buttons li a {
 			color: $light-secondary-text;
 		}
 	}
@@ -242,6 +243,7 @@
 		}
 	}
 
+	// self expandos
 	&.selftext {
 
 		&.collapsed,
@@ -249,6 +251,10 @@
 		&.expanded,
 		&.expanded:hover { background: url(%%text%%) 0 no-repeat; }
 	}
+}
+
+.self .expanded ~ .expando .usertext-body {
+	@include animation(0.2s slide-down $animation-curve-default forwards);
 }
 
 .tagline,
@@ -274,6 +280,13 @@
 	li { line-height: em(14, 12); }
 }
 
+// selftext body
+.link .usertext-body .md {
+	background-color: $light-background;
+	border-color: $light-secondary-text;
+	border-radius: em(2, 14);
+}
+
 // nsfw stamp
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
@@ -287,16 +300,16 @@
 	padding: 0 em(2, 12);
 }
 
-// .entry .buttons li a {
-// 	color: $light-secondary-text;
+.entry .buttons li a {
+	color: $light-secondary-text;
 //
 // 	&:not(.comments):not(.flairselectbtn):not(.yes):not(.no) {
 // 		display: inline-block;
 // 		text-indent: -9999em;
 // 		color: transparent;
 // 	}
-// }
-//
+}
+
 // // set width of share, report, save, remove, and nsfw/un-nsfw buttons
 // .share a,
 // .report-button a,
