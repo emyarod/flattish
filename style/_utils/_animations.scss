@@ -22,6 +22,11 @@
   }
 }
 
+// RES macros menu open animation
+@include keyframes(RESmenuopen) {
+  0% { @include transform(scale(0)); }
+  100% { @include transform(scale(1)); }
+}
 
 // sitetable post animation
 @include keyframes(papersplit) {
@@ -36,6 +41,18 @@
     @include drop-shadow(1);
     border-radius: em(2, 10);
   }
+}
+
+// selftext expando animation
+@include keyframes(slide-down) {
+	0% {
+		@include transform(translateY(-50%));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
 }
 
 // ripple effect on tooltip press
