@@ -228,7 +228,7 @@
   }
 
   // inbox empty
-  .nohavemail { background-image: none; }
+  &.nohavemail { background-image: none; }
 
   // inbox not empty
   &.havemail {
