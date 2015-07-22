@@ -1,47 +1,93 @@
 // main: ../main.scss
 
+// thread subscribe/unsubscribe button
+@each $prefix, $color, $width in (subscribe, green, initial),
+                                 (unsubscribe, red, 89px) {
+  #REScommentSubToggle {
+    &[title^="#{$prefix}"] {
+      @include flat-button(10, 10, get-color("#{$color}", "500"));
+      width: $width;
+    }
+  }
+}
+
 .commentarea {
   position: relative;
 
   .panestack-title,
   .menuarea {
-    position: absolute;
     margin: 0;
-    padding: 16px;
-    @include calc(width, "100% - 32px");
+    width: 100%;
   }
 
   // # of comments and thread subscribe button
   .panestack-title {
-    height: auto;
-    padding-bottom: 0;
+    position: absolute;
+    padding: 16px 0 0 16px;
+    width: auto;
     border: 0;
 
     .title { margin: 0; }
   }
 
+  // increases padding on main comments page (vs permalink comment page)
+  .panestack-title ~ .menuarea {
+    padding-top: em(60, 13);
+  }
+
   // sorted/navigate by
   .menuarea {
-    top: 54px;
-    display: table;
-    padding-top: 0;
+    margin-bottom: em(17, 13);
+    @include card(13, 1);
+
+    .spacer + .spacer {
+      display: block;
+      @include calc(width, "100% - 32px");
+
+      form {
+        @include flat-button(13, 13);
+
+        &:first-of-type { margin: 0; }
+      }
+    }
   }
 
   &> .usertext {
-    @include margin(null null em(16, 10) 0);
-    @include animate-card(10, 1);
-    padding-top: 125px;
+    @include margin(null null em(16, 13) 0);
+    @include animate-card(13, 1);
   }
 }
 
 // "sorted by" menu
 @include menu(lightdrop, 13, 13, 104);
-.drop-choices.lightdrop,
-.drop-choice.lightdrop.inuse { left: unset; } // offset RES styling
 
-.RESMacroDropdown {
+// offset inline styling
+.drop-choices.lightdrop {
+  left: unset;
+
+  &.inuse[style*="top"] { top: unset !important; }
+}
+
+// "navigate by"
+#REScommentNavToggle{
+  margin-bottom: 0;
+
+  span:not(:first-of-type) { display: none; }
+}
+
+.commentNavSortType {
+  padding: 0 em(4, 10);
+  font-size: em(10, 13);
+}
+
+// macros menu
+.RESMacroDropdown,
+.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
   left: unset !important; // thx RES
   right: em(16, 10) !important; // thx RES
+}
+
+.RESMacroDropdown {
   display: block;
   margin: 0;
   font-size: em(10, 10);
@@ -52,18 +98,12 @@
   @include transition-default;
 }
 
-@include keyframes(menuopen) {
-  0% { @include transform(scale(0)); }
-  100% { @include transform(scale(1)); }
-}
-
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  left: unset !important; // thx RES
   width: em(118, 10);
   max-height: em(690, 10);
   margin-top: em(10, 10);
   transform-origin: 100% 0;
-  @include animation(menuopen 0.2s $animation-curve-default);
+  @include animation(RESmenuopen 0.2s $animation-curve-default);
 }
 
 .RESMacroDropdownList li a {
@@ -80,13 +120,14 @@
 
   textarea {
     width: 100%;
+    margin-bottom: em(9, 14) !important; // override global reddit styles
 
     @include border-width(0 0 em(2, 14));
     border-bottom-color: get-color("grey", "600");
     background-color: transparent;
     @include transition-default;
 
-    &:focus { border-bottom-color: $accent; }
+    &:focus { border-bottom-color: $dark-accent; }
   }
 
   // comment style buttons and character counter
@@ -97,22 +138,69 @@
 
 .RESCharCounter {
   position: relative;
-  top: 35px;
-  left: -85px;
+  top: em(35, 15);
+  left: em(-85, 15);
 }
 
-// thread subscribe button
-#REScommentSubToggle {
-  @include flat-button(10, 10, get-color("green", "500"));
+// comment save button bar
+.usertext {
+
+  button { margin: 0; } // fuck you RES
+
+  .bottom-area { line-height: em(36, 13); }
+
+  .help-toggle,
+  a.reddiquette {
+    margin: 0 em(10, 13) 0 0;
+    font-size: 13px;
+  }
 }
+
+.usertext-buttons { height: auto; }
+
+// big editor button...RES PLS
+.RESBigEditorPop {
+  // i cry evrytim
+  margin: 0 !important;
+  padding: 0 em(8, 13) !important;
+  height: em(36, 13) !important;
+  line-height: em(36, 13) !important;
+  border: 0 !important;
+  background-color: transparent !important;
+
+  &:hover { background-color: rgba(get-color("grey", "500"), 0.2) !important; }
+
+	&:focus:not(:active) { background-color: rgba($black, 0.12) !important; }
+
+  &:active { background-color: rgba(get-color("grey", "500"), 0.4) !important; }
+}
+
+.gold-accent.comment-visits-box {
+  width: 100%;
+  max-width: unset;
+  margin: 0 0 em(16, 10) 0;
+  color: $light-text;
+  border: 0;
+  @include card(10, 1, get-color("yellow", "50"));
+
+  .title::after {
+    display: inline-block;
+    margin-left: em(-19, 13);
+    content: "";
+    vertical-align: middle;
+    @include dropdown-arrow;
+	}
+}
+
+#comment-visits { width: em(167, 13); }
 
 .linkinfo {
   position: relative;
   top: em(-85, 13);
-  @include animate-card(12);
   border: 0;
   color: $light-text;
-  background-color: $light-accent;
+  font-size: em(13, 10);
+  @include animate-card(13, 1, $light-accent);
 }
 
 @media (min-width: $screen-sm-min) {
@@ -121,4 +209,75 @@
     top: initial;
     left: initial;
   }
+}
+
+// infobar when viewing specific permalinked comments
+.infobar {
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 0;
+  border-radius: 2px;
+  @include drop-shadow(1);
+}
+
+.res .comment,
+.comment {
+  @include card(10, 1);
+  margin: 0 0 16px;
+  @include transition-default;
+
+  &:hover { @include drop-shadow(3); }
+
+  .child {
+    border: 0;
+
+    .usertext-buttons {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+// .commentarea .sitetable .comment {
+//   background-color: $black;
+// }
+.parent ~ .child .comment {
+  // background-color: red;
+  @include margin(em(16, 10) 0 0 0);
+}
+
+// odd
+.commentarea .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+  background-color: $white;
+}
+
+// even
+.commentarea .comment .comment,
+.commentarea .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment {
+  background-color: $light-background;
+}
+
+// wtf RES??????????????????
+
+.res .commentarea .comment .comment {
+	background-color: $light-background !important;
+}
+.res .commentarea .comment .comment .comment .comment {
+	background-color: $light-background !important;
+}
+.res .commentarea .comment .comment .comment .comment .comment .comment {
+	background-color: $light-background !important;
+}
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment {
+	background-color: $light-background !important;
+}
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+	background-color: $light-background !important;
 }
