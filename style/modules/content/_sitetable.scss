@@ -232,8 +232,7 @@
 
 	// image expandos
 	&.image {
-		width: em(25, 10);
-		height: em(25, 10);
+		box-sizing: unset; // to force width and height to 25px
 
 		&.collapsed,
 		&.collapsed:hover,
