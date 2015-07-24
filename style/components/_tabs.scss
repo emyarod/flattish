@@ -1,88 +1,20 @@
 // main: ../main.scss
 
-.tabmenu {
-  position: absolute;
-  left: 0;
-  top: em(73, 14);
-
+@mixin tabs {
   height: em(66, 14);
-  width: 100vw; // fuck IE8 support
-  margin-top: 0;
   padding-left: em(16, 16);
-
-  font-size: inherit;
+  font-size: 14px;
   line-height: em(66, 14);
-
-  li {
-    margin: 0;
-
-    // hides "rising", "controversial", "ads", and "gilded" tabs
-    @each $hidden-tab in rising, controversial, ads, gilded {
-      a[href$="/#{$hidden-tab}/"] { display: none; }
-    }
-
-    // styles visible tabs
-    a,
-    #viewImagesButton {
-      display: inline-block;
-
-      height: em(66, 14);
-      width: initial;
-      padding: 0 em(24, 14);
-
-      color: $light-secondary-text !important; // override body link styling...might need a rewrite
-      font-weight: bold;
-      text-transform: uppercase;
-
-      border-bottom: em(2, 14) solid transparent;
-      @include ripple;
-
-      &:hover {
-        margin: 0;
-        padding: 0 em(24, 14);
-        color: $light-text !important; // override body link styling...might need a rewrite
-      }
-
-      &:after {
-        position: relative;
-        top: em(-66, 14);
-        left: em(-24, 14);
-
-        display: block;
-        width: 0;
-        height: inherit;
-
-        content: "";
-
-        border-bottom: em(2, 14) solid transparent;
-        @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
-      }
-
-      // tabmenu hover bottom border effect
-      &:hover::after {
-        @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
-        border-bottom: em(2, 14) solid $accent;
-      }
-    }
-
-    // ensures selected tab remains unchanged
-    &.selected a {
-      margin: 0;
-      padding: 0 em(24, 14);
-      background-color: transparent;
-      border-bottom-color: $accent;
-      @include border-width(0 0 em(2, 14) 0);
-    }
-  }
 }
 
-@media (min-width: $screen-md-min) {
-  // restore initial tabmenu values
-  .tabmenu {
-    position: static;
-    left: initial;
-    top: initial;
-    width: initial;
-    padding-left: initial;
-  }
+@mixin tab-list-anchors {
+  display: inline-block;
+  height: em(66, 14);
+  padding: 0 em(24, 14);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  @include border-width(0 0 em(2, 14) 0);
+  @include ripple;
 }
