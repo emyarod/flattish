@@ -88,6 +88,11 @@
 	@import "sidebar/search";
 
 	// sponsorship box & advertisement
+	#ad_sponsorship {
+		position: relative;
+		top: -84px;
+	}
+
 	#ad_sponsorship,
 	#ad_main {
 		width: em(330, 10);

@@ -45,7 +45,6 @@
 	position: absolute;
 	$direction-1: em($direction-1-value, $orig-font-size);
 	$direction-2: em($direction-2-value, $orig-font-size);
-	z-index: -1;
 	height: em($desired-size, $orig-font-size);
 	width: em($desired-size, $orig-font-size);
 	content: " ";
