@@ -19,14 +19,10 @@
     position: absolute;
     left: 0;
     top: em(73, 14);
-
-    height: em(66, 14);
     width: 100vw; // fuck IE8 support
-    margin-top: 0;
     padding-left: em(16, 16);
-
-    font-size: inherit;
-    line-height: em(66, 14);
+    margin-top: 0;
+    @include tabs;
 
     li {
       margin: 0;
@@ -39,47 +35,8 @@
       // styles visible tabs
       a,
       #viewImagesButton {
-        display: inline-block;
-
-        height: em(66, 14);
+        @include tab-list-anchors(true);
         width: initial;
-        padding: 0 em(24, 14);
-
-        color: $light-secondary-text !important; // override body link styling...might need a rewrite
-        font-weight: bold;
-        text-transform: uppercase;
-
-        @include border-width(0 0 em(2, 14) 0);
-        border-bottom-color: transparent;
-        border-bottom-style: solid;
-        @include ripple;
-
-        &:hover {
-          margin: 0;
-          padding: 0 em(24, 14);
-          color: $light-text !important; // override body link styling...might need a rewrite
-        }
-
-        &:after {
-          position: relative;
-          top: em(-66, 14);
-          left: em(-24, 14);
-
-          display: block;
-          width: 0;
-          height: inherit;
-
-          content: "";
-
-          border-bottom: em(2, 14) solid transparent;
-          @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
-        }
-
-        // tabmenu hover bottom border effect
-        &:hover::after {
-          @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
-          border-bottom: em(2, 14) solid $accent;
-        }
       }
 
       // ensures selected tab remains unchanged
@@ -107,17 +64,6 @@
   background: url(%%snoo-color%%) no-repeat;
   @include transition-default;
 }
-
-// positioning fix for pagename and tabmenu when reddit pushes custom banner image
-// #header-img-a {
-//   @each $class in (pagename, tabmenu) {
-//     ~ .#{$class} {
-//       position: relative;
-//       top: em(-4, 16);
-//       display: inline-block;
-//     }
-//   }
-// }
 
 // subreddit name
 .pagename {
@@ -168,9 +114,6 @@
   }
 
   // positioning fix for pagename and tabmenu when reddit pushes custom banner image
-  #header-img-a ~ .pagename {
-    top: em(-3, 16);
-  }
 
   .pagename a {
     height: em(64, 16);
@@ -181,7 +124,7 @@
     @each $class in (pagename, tabmenu) {
       ~ .#{$class} {
         position: relative;
-        top: em(-4, 16);
+        top: em(-2, 16);
         display: inline-block;
       }
     }
