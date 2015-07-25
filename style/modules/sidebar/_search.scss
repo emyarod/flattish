@@ -10,7 +10,7 @@
 		content: "search";
 		color: transparent;
 		font-size: em(13, 10);
-		@include transition(all 0.2s ease);
+		@include transition-default;
 	}
 
 	&:hover {
@@ -51,7 +51,7 @@
 		opacity: 0.54;
 		position: relative;
 		background: url(%%search%%) no-repeat;
-		@include transition;
+		@include transition-default;
 
 		&:hover {
 			opacity: 0.87;
