@@ -2,19 +2,49 @@
 
 @mixin tabs {
   height: em(66, 14);
-  padding-left: em(16, 16);
   font-size: 14px;
   line-height: em(66, 14);
 }
 
-@mixin tab-list-anchors {
+@mixin tab-list-anchors($ripple: false, $orig-background-color: transparent, $ripple-color: $light-accent) {
   display: inline-block;
   height: em(66, 14);
   padding: 0 em(24, 14);
+  color: $light-secondary-text !important; // override body link styling...might need a rewrite
   font-weight: bold;
   text-transform: uppercase;
   border-bottom-color: transparent;
   border-bottom-style: solid;
   @include border-width(0 0 em(2, 14) 0);
-  @include ripple;
+
+  @if $ripple {
+    @include ripple($orig-background-color, $ripple-color);
+  }
+
+  &:hover {
+    margin: 0;
+    padding: 0 em(24, 14);
+    color: $light-text !important; // override body link styling...might need a rewrite
+  }
+
+  // tabmenu bottom border effect on hover
+  &:after {
+    position: relative;
+    top: em(-66, 14);
+    left: em(-24, 14);
+
+    display: block;
+    width: 0;
+    height: inherit;
+
+    content: "";
+
+    border-bottom: em(2, 14) solid transparent;
+    @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
+  }
+
+  &:hover::after {
+    @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
+    border-bottom: em(2, 14) solid $accent;
+  }
 }
