@@ -9,6 +9,8 @@
 
   // nested to avoid body:link styling
   .pagename {
+    color: transparent;
+
     a { color: $light-secondary-text; }
 
     &:hover a { color: $light-text; }
