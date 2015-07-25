@@ -49,6 +49,6 @@
 }
 
 button {
-	font-size: 13px;
 	@include flat-button(13, 13, $primary);
+	font-size: 13px;
 }
