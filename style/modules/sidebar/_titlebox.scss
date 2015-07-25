@@ -65,35 +65,16 @@
 
 	// hide default checkbox styling
 	.flairtoggle input[type="checkbox"] {
-		width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-		border: 0;
-    opacity: 0;
-		@include appearance(none);
+		@include hide-checkbox;
 
 		// material checkbox
 		& + label::before {
-			position: relative;
-			left: em(-4, 10);
-
-			display: inline-block;
-			height: em(16, 10);
-			width: em(16, 10);
-			margin-top: em(3, 10);
-
-			content: "";
-			vertical-align: em(-5, 10);
-
-			border: em(2, 10) solid $light-secondary-text;
-			border-radius: em(2, 10);
-			cursor: pointer;
+			vertical-align: -25%;
+			@include check-box;
 		}
 
 		&:checked + label::before {
-			border-color: get-color("green", "500");
-			background: get-color("green", "500") url(%%tick%%) no-repeat scroll 0% 60%;
+			@include checked;
 		}
 	}
 }
