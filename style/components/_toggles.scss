@@ -1,0 +1,32 @@
+// main: ../main.scss
+
+// hide browser styles input[type="checkbox"]
+@mixin hide-checkbox {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  @include appearance(none);
+}
+
+// label::before
+@mixin check-box {
+  display: inline-block;
+  height: em(16, 10);
+  width: em(16, 10);
+  margin-top: em(3, 10);
+
+  content: "";
+
+  border: em(2, 10) solid $light-secondary-text;
+  border-radius: em(2, 10);
+  cursor: pointer;
+}
+
+// label::before :checked
+@mixin checked {
+  border-color: get-color("green", "500");
+  background: get-color("green", "500") url(%%tick%%) no-repeat scroll 0% 60%;
+}
