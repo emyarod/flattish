@@ -1,6 +1,12 @@
-// @include border-width(0 0 em(2, 14));
-// border-bottom-color: get-color("grey", "600");
-// background-color: transparent;
-// @include transition-default;
-//
-// &:focus { border-bottom-color: $accent; }
+// main: ../main.scss
+
+@mixin text-fields {
+  font-family: $font-stack;
+
+  @include border-width(0 0 em(2, 14));
+  border-bottom-color: get-color("grey", "600");
+  background-color: transparent;
+  @include transition-default;
+
+  &:focus { border-bottom-color: $accent; }
+}
