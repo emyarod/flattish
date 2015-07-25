@@ -2,8 +2,8 @@
 
 @import "content/sitetable";
 
-div.content {	margin: 0 15px; }
+div.content {	margin: 0; }
 
 @media (min-width: $screen-md-min) {
-	div.content {	max-width: calc(100% - 375px);	}
+	div.content {	max-width: calc(100% - 346px);	}
 }
