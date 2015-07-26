@@ -1,12 +1,49 @@
 // main: ../main.scss
 
-@mixin text-fields {
-  font-family: $font-stack;
+// macros menu
+.RESMacroDropdown,
+.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
+  left: unset !important; // thx RES
+  right: em(16, 10) !important; // thx RES
+}
 
-  @include border-width(0 0 em(2, 14));
-  border-bottom-color: get-color("grey", "600");
-  background-color: transparent;
+.RESMacroDropdown {
+  display: block;
+  margin: 0;
+  font-size: em(10, 10);
+  border: 0;
+  border-radius: em(2, 10);
+  background-color: $light-cards;
+  @include drop-shadow(1);
+  @include transition-default;
+}
+
+.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
+  width: em(118, 10);
+  max-height: em(690, 10);
+  margin-top: em(10, 10);
+  transform-origin: 100% 0;
+  @include animation(RESmenuopen 0.2s $animation-curve-default);
+}
+
+.RESMacroDropdownList li a {
+  color: $light-text !important; // thx RES
+  padding: em(16, 10) !important; // thx RES
   @include transition-default;
 
-  &:focus { border-bottom-color: $accent; }
+  &:hover { background-color: $light-app-bar !important;  } // thx RES
+}
+
+@mixin text-fields {
+  border: 0;
+  font-family: $font-stack;
+  border-style: solid;
+  background-color: transparent;
+  @include border-width(0 0 1px);
+  @include border-color(transparent transparent get-color("grey", "600"));
+  @include transition-default;
+
+  &:focus {
+    border-bottom-color: $accent;
+  }
 }
