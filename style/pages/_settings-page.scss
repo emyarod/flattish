@@ -53,3 +53,6 @@
     &[disabled="disabled"] + label::before { @include radio-disabled; }
   }
 }
+
+// save options button
+#sr-form .save-button button { @include raised-colorized-button(14, 13, $primary, $dark-text); }
