@@ -55,6 +55,12 @@
 	}
 }
 
+// material radio button toggle animation
+@include keyframes(radio-toggle) {
+  0% { background-size: 0; }
+  100% { background-size: 100%; }
+}
+
 // ripple effect on tooltip press
 @include keyframes(button-ripple) {
 	0% {
