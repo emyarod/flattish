@@ -1,9 +1,25 @@
 // main: ../main.scss
 
+@mixin text-fields {
+  border: 0;
+  color: $light-text;
+  font-family: $font-stack;
+  border-style: solid;
+  background-color: transparent;
+  box-shadow: none;
+  @include border-width(0 0 1px);
+  @include border-color(transparent transparent get-color("grey", "600"));
+  @include transition-default;
+
+  &:focus {
+    border-bottom-color: $accent;
+  }
+}
+
 // macros menu
 .RESMacroDropdown,
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  left: unset !important; // thx RES
+  // left: unset !important; // thx RES
   right: em(16, 10) !important; // thx RES
 }
 
@@ -34,16 +50,14 @@
   &:hover { background-color: $light-app-bar !important;  } // thx RES
 }
 
-@mixin text-fields {
-  border: 0;
-  font-family: $font-stack;
-  border-style: solid;
-  background-color: transparent;
-  @include border-width(0 0 1px);
-  @include border-color(transparent transparent get-color("grey", "600"));
-  @include transition-default;
+// live preview
+.RESDialogSmall.livePreview {
 
-  &:focus {
-    border-bottom-color: $accent;
+  & > h3 {
+   height: 40px; // offset box-sizing
+ }
+
+  .gearIcon {
+    position: static;
   }
 }
