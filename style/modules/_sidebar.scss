@@ -1,9 +1,8 @@
 // main: ../main.scss
 
 .side,
-.side:not(#searchexpando),
 .side:not(#search_hidemore),
-.side * { @include transition-default; }
+.side *:not(#searchexpando) { @include transition-default; }
 
 // hide sidebar items
 .side * { opacity: 0; }
