@@ -108,6 +108,9 @@
   max-height: em(14, 10);
   border-radius: em(14, 10);
   background-color: $light-hint-text;
+  @include transition-default;
+
+  &.enabled { background-color: $primary; }
 
   // circular thumb switch
   &::before {
