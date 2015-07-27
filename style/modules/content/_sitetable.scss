@@ -65,18 +65,6 @@
 			// padding-top: 0;
 		}
 
-		// a.title {
-		// 	background: linear-gradient(to top, rgba($light-accent, 0.8) 50%, transparent 50%);
-		// 	background-size: 100% 200%;
-		// 	background-position: 0 0;
-		// 	background-repeat: no-repeat;
-		// 	text-decoration: none;
-		// 	color: inherit;
-		// 	transition: background-position .3s cubic-bezier(.64, .09, .08, 1);
-		//
-		// 	&:hover {	background-position: 0 100%; }
-		// }
-
 		.title {
 			color: $link-color;
 			line-height: 1.35;
@@ -370,5 +358,5 @@
 // }
 
 .error {
-	color: $nsfw;
+	color: $error;
 }
