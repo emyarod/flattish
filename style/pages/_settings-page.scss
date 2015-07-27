@@ -1,0 +1,10 @@
+// main: ../main.scss
+
+.linefield {
+  width: 100%;
+  @include card(18, 1);
+
+  .title {
+    color: $light-text;
+  }
+}
