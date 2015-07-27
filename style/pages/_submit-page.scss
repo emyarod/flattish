@@ -1,14 +1,103 @@
 // main: ../main.scss
 
-.submit-page .content {
-  // margin: 0 auto;
+#newlink { margin: 0; }
+
+// link/text tabs
+ul.tabmenu.formtab {
+  padding: 0;
+  @include drop-shadow(1);
+  @include tabs;
+
+  li {
+
+    a {
+      width: 50%;
+      text-align: center;
+      background-color: $light-cards;
+      @include tab-list-anchors;
+      @include transition-default;
+    }
+
+    &.selected a {
+      margin: 0;
+      padding: 0 em(24, 14);
+      color: $dark-text !important;
+      font-size: inherit;
+      background-color: $accent;
+      border-bottom-color: $accent;
+      border-bottom-style: solid;
+      @include border-width(0 0 em(2, 14) 0);
+    }
+  }
+
+  // round top corners of tabs
+  a.link-button.choice { border-top-left-radius: em(2, 14); }
+
+  a.text-button.choice { border-top-right-radius: em(2, 14); }
 }
 
-.submit-page .side {
-  padding-top: em(70, 10);
-}
-
+// submission form
 .formtabs-content {
+  width: 100%;
+  border: 0;
+  margin-bottom: em(17, 10);
   @include animate-card;
-  border: none;
+  @include border-top-radius(0);
+
+  // gold infobar
+  .infobar {
+    padding: em(13, 16);
+    @include drop-shadow(0);
+  }
+}
+
+// list of subreddits to submit to
+#reddit-field { display: none; }
+
+// maximize width of submit form elements
+.roundfield,
+.roundfield .usertext-edit { width: 100%; }
+
+.roundfield-content textarea,
+.roundfield input[type="text"],
+.roundfield-content input[type="url"] {
+  @extend .roundfield;
+  @include text-fields;
+}
+
+.roundfield {
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+// material checkbox
+.roundfield-content input[type="checkbox"] {
+  @include hide-checkbox;
+
+  & + label::before {
+    @include check-box;
+    vertical-align: em(-3, 16);
+  }
+
+  &:checked + label::before { @include checked; }
+}
+
+// brick
+.content.submit .info-notice {
+  margin-bottom: em(15, 13);
+  border: 0;
+  @include card(13, 1, $light-primary);
+}
+
+// submit post
+.submit-page button[type="submit"] {
+  @include raised-colorized-button(14, 10, $primary, $dark-text);
+}
+
+// sidebar
+.submit-page .side {
+  padding-top: em(55, 10);
+
+  .spacer:first-of-type { top: em(-2, 10); }
 }
