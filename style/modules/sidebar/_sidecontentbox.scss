@@ -2,7 +2,6 @@
 
 #moderation_tools,
 .sidecontentbox {
-	position: relative;
 
 	.title {
 		margin-bottom: em(10, 10);
@@ -14,7 +13,6 @@
 			color: $light-secondary-text;
 			text-transform: lowercase;
 		}
-
 	}
 
 	ul.content {
@@ -23,17 +21,20 @@
 	}
 }
 
-#moderation_tools { top: em(5, 14); }
-
-.sidecontentbox {
-	top: em(5, 10);
-	z-index: 0;
+#moderation_tools {
 
 	// mod tools collapse button
 	.collapse-button {
 		border-radius: em(2, 10);
 		line-height: em(8, 10);
 	}
+
+	a {
+		@include link-underline-transition();
+	}
+}
+
+.sidecontentbox {
 
 	// recently viewed links
 	.gadget {
@@ -79,8 +80,7 @@
 				color: transparent;
 				background: url(%%clear%%) 0 no-repeat;
 
-				// @include tooltip(em(58, 14), em(20, 14), "Clear all", $screen-type: desktop);
-				@include tooltip(em(42, 10), em(20, 10), "Clear all");
+				@include tooltip(em(58, 14), em(20, 14), "Clear all", $screen-type: desktop);
 
 				&:focus::before {
 					@include button-ripple-circle(right, 16, bottom, 15, 20, 10);
