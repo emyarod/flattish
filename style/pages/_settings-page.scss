@@ -5,14 +5,26 @@
   margin-bottom: em(15, 16);
   @include card(18, 1);
 
-  .title { color: $light-text; }
+  div:not(.commentingAs) {
+    margin: 0;
+    padding: 0;
+  }
+
+  .title {
+    margin: 0;
+    padding: 0;
+    color: $light-text;
+  }
 
   // revert browser styles since custom styles cannot be used
   select { @include appearance(menulist); }
 
   input {
     &[type="text"],
-    &[type="password"] { @include text-fields; }
+    &[type="password"] {
+      width: 100%;
+      @include text-fields;
+    }
 
     &[type="checkbox"] {
       @include hide-checkbox;
