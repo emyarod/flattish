@@ -106,3 +106,19 @@
 
   &:after { top: $height + $gutter; }
 }
+
+// link hover effect
+@mixin link-underline-transition {
+  background: linear-gradient(to top, $primary 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  will-change: background-position;
+  @include transition-default;
+
+  &:hover {
+    background-position: 0 100%;
+    color: $white;
+  }
+}
