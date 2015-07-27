@@ -27,7 +27,53 @@
 }
 
 // &:checked + label::before
-@mixin checked {
+@mixin checkbox-checked {
   border-color: get-color("green", "500");
   background: get-color("green", "500") url(%%tick%%) no-repeat scroll 0% 60%;
+  @include transition-default;
+}
+
+@mixin checkbox-disabled {
+  border-color: $light-disabled-text;
+  cursor: auto;
+}
+
+// radio buttons
+// .class input[type="radio"]
+@mixin hide-radio {
+  display: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  @include appearance(none);
+}
+
+// & + label::before
+@mixin radio-button {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-top: 3px;
+  margin-right: 4px;
+  border: 2px solid $light-secondary-text;
+  border-radius: 50%;
+  content: "";
+  cursor: pointer;
+}
+
+// &:checked + label::before
+@mixin radio-checked {
+  border-color: $primary;
+  background-image: radial-gradient(circle, $primary 50%, transparent 50%);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  @include animation(radio-toggle 0.2s $animation-curve-default);
+}
+
+@mixin radio-disabled {
+  border-color: $light-disabled-text;
+  cursor: auto;
 }
