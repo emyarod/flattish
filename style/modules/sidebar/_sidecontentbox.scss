@@ -29,9 +29,7 @@
 		line-height: em(8, 10);
 	}
 
-	a {
-		@include link-underline-transition();
-	}
+	a { @include link-underline-transition; }
 }
 
 .sidecontentbox {
