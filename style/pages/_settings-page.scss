@@ -4,7 +4,24 @@
   width: 100%;
   @include card(18, 1);
 
-  .title {
-    color: $light-text;
+  .title { color: $light-text; }
+
+  input {
+    &[type="text"],
+    &[type="password"] { @include text-fields; }
+
+    // radio button styling
+    &[type="radio"] {
+      @include hide-radio;
+
+      & + label::before {
+        vertical-align: -3px;
+        @include radio-button;
+      }
+
+      &:checked + label::before { @include radio-checked; }
+
+      &[disabled="disabled"] + label::before { @include radio-disabled; }
+    }
   }
 }
