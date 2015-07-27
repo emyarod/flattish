@@ -2,26 +2,42 @@
 
 .linefield {
   width: 100%;
+  margin-bottom: em(15, 16);
   @include card(18, 1);
 
   .title { color: $light-text; }
+
+  // revert browser styles since custom styles cannot be used
+  select { @include appearance(menulist); }
 
   input {
     &[type="text"],
     &[type="password"] { @include text-fields; }
 
-    // radio button styling
-    &[type="radio"] {
-      @include hide-radio;
+    &[type="checkbox"] {
+      @include hide-checkbox;
 
       & + label::before {
-        vertical-align: -3px;
-        @include radio-button;
+        vertical-align: -4px;
+        @include check-box;
       }
 
-      &:checked + label::before { @include radio-checked; }
-
-      &[disabled="disabled"] + label::before { @include radio-disabled; }
+      &:checked + label::before { @include checkbox-checked; }
     }
+  }
+
+  // radio button styling
+  // thx reddit
+  table input[type="radio"]:not([id*="spam"]) {
+    @include hide-radio;
+
+    & + label::before {
+      vertical-align: -3px;
+      @include radio-button;
+    }
+
+    &:checked + label::before { @include radio-checked; }
+
+    &[disabled="disabled"] + label::before { @include radio-disabled; }
   }
 }
