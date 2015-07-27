@@ -31,13 +31,10 @@
 
 	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
 
-	&:focus:not(:active) {
-		background-color: rgba($black, 0.12); // light divider text
-	}
+	// light divider text
+	&:focus:not(:active) { background-color: rgba($black, 0.12); }
 
-  &:active {
-		background-color: rgba(get-color("grey", "500"), 0.4);
-	}
+  &:active { background-color: rgba(get-color("grey", "500"), 0.4); }
 }
 
 @mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
@@ -45,10 +42,41 @@
 	color: $text-color;
 	@include ripple($background-color);
 
-	&:hover { background-color: $dark-accent; }
+	&:hover { background-color: $dark-primary; }
+}
+
+@mixin raised-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
+	@include button($desired-font-size, $orig-font-size);
+	@include drop-shadow(1);
+	color: $text-color;
+
+	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
+
+	&:active { @include drop-shadow(2); }
+
+	&:focus:not(:active) {
+		@include focus-shadow();
+		background-color: rgba($black, 0.12); // light divider text
+	}
+}
+
+@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
+	@include button($desired-font-size, $orig-font-size);
+	@include drop-shadow(1);
+	@include ripple($background-color);
+	color: $text-color;
+
+	&:hover { background-color: $dark-primary; }
+
+	&:active { @include drop-shadow(2); }
+
+	&:focus:not(:active) {
+		@include focus-shadow();
+		background-color: $light-primary;
+	}
 }
 
 button {
-	@include flat-button(13, 13, $primary);
-	font-size: 13px;
+	@include flat-button(14, 14, $primary);
+	font-size: 14px;
 }
