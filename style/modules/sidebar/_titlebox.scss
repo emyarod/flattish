@@ -74,7 +74,7 @@
 		}
 
 		&:checked + label::before {
-			@include checked;
+			@include checkbox-checked;
 		}
 	}
 }
