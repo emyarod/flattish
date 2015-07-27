@@ -53,11 +53,24 @@
 // live preview
 .RESDialogSmall.livePreview {
 
+  // offset box-sizing
   & > h3 {
-   height: 40px; // offset box-sizing
- }
-
-  .gearIcon {
-    position: static;
+    height: 40px;
+    background-color: $primary;
+    color: $dark-text;
   }
+
+  .gearIcon { position: static; }
+
+  .md.RESDialogContents {
+    padding: 16px;
+    background-image: transparent;
+
+    p { color: $light-text; }
+  }
+}
+
+.livePreview,
+.livePreview .md {
+  background: none !important; // RES PLS
 }
