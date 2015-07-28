@@ -1,7 +1,10 @@
+// main: ../main.scss
+
 @mixin card($orig-font-size: 10, $shadow-depth: 0, $background-color: $light-cards) {
 	border-radius: em(2, $orig-font-size);
 	padding: em(16, $orig-font-size);
-	background-color: $background-color;
+	color: set-text-color($background-color) !important;
+	background-color: $background-color !important;
 	@if $shadow-depth > 0 {
 		@include drop-shadow($shadow-depth);
 	}
@@ -10,7 +13,8 @@
 @mixin animate-card($orig-font-size: 10, $shadow-depth: 1, $background-color: $light-cards) {
 	border-radius: em(2, $orig-font-size);
 	padding: em(16, $orig-font-size);
-	background-color: $background-color;
+	color: set-text-color($background-color) !important;
+	background-color: $background-color !important;
 	@include animation(depthup 0.75s ease);
 	@include animation-iteration-count(1);
 	@include drop-shadow($shadow-depth);
