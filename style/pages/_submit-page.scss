@@ -80,7 +80,7 @@ ul.tabmenu.formtab {
     vertical-align: em(-3, 16);
   }
 
-  &:checked + label::before { @include checked; }
+  &:checked + label::before { @include checkbox-checked; }
 }
 
 // brick
@@ -92,7 +92,7 @@ ul.tabmenu.formtab {
 
 // submit post
 .submit-page button[type="submit"] {
-  @include raised-colorized-button(14, 10, $primary, $dark-text);
+  @include raised-colorized-button(14, 10, $primary);
 }
 
 // sidebar

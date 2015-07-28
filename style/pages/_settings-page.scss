@@ -20,6 +20,7 @@
   select { @include appearance(menulist); }
 
   input {
+
     &[type="text"],
     &[type="password"] {
       width: 100%;
@@ -55,4 +56,4 @@
 }
 
 // save options button
-#sr-form .save-button button { @include raised-colorized-button(14, 13, $primary, $dark-text); }
+#sr-form .save-button button { @include raised-colorized-button(14, 13, $primary); }

@@ -15,7 +15,7 @@
 			position: relative;
 			top: em(35, 14);
 			width: em(146, 14);
-			@include flat-colorized-bg-button(14, 15, $accent, $white);
+			@include flat-colorized-bg-button(14, 15, $primary);
 		}
 	}
 
@@ -35,7 +35,7 @@
 		position: relative;
 		top: em(-15, 14);
 		display: block;
-		height: em(100, 14);
+		height: em(98, 14);
 		width: em(330, 14);
 		font-size: em(14, 10);
 		font-weight: bold;
@@ -46,6 +46,6 @@
 }
 
 .submit-text {
-	top: em(-86, 10);
+	top: em(-88, 10);
 	left: em(170, 10);
 }

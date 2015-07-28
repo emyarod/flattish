@@ -25,6 +25,7 @@
 	&::-moz-focus-inner { border: 0; }
 }
 
+// flat button transparent bg
 @mixin flat-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
 	@include button($desired-font-size, $orig-font-size);
 	color: $text-color;
@@ -37,14 +38,16 @@
   &:active { background-color: rgba(get-color("grey", "500"), 0.4); }
 }
 
-@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
+// flat button colored bg
+@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar) {
 	@include button($desired-font-size, $orig-font-size);
-	color: $text-color;
+	color: set-text-color($background-color);
 	@include ripple($background-color);
 
 	&:hover { background-color: $dark-primary; }
 }
 
+// raised button gray bg
 @mixin raised-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
 	@include button($desired-font-size, $orig-font-size);
 	@include drop-shadow(1);
@@ -60,11 +63,12 @@
 	}
 }
 
-@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
+// raised button color bg
+@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar) {
 	@include button($desired-font-size, $orig-font-size);
 	@include drop-shadow(1);
 	@include ripple($background-color);
-	color: $text-color;
+	color: set-text-color($background-color);
 
 	&:hover { background-color: $dark-primary; }
 
