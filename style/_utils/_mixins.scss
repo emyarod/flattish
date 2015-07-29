@@ -1,7 +1,29 @@
 // main: ../main.scss
 
-@import "../../vendors/bourbon/bourbon";
-@import "vars";
+// dynamic text colors
+@function set-text-color($bg-color, $text-type) {
+  // if bgc is light, return dark colored text
+  @if (lightness($bg-color) > 50) {
+    @if ($text-type == text) {
+      @return $light-text;
+    } @else if ($text-type == secondary-text) or if ($text-type == icons) {
+      @return $light-secondary-text;
+    } @else if ($text-type == hint-text) or if ($text-type == disabled-text) {
+      @return $light-disabled-text;
+    } @else if ($text-type == divider-text) {
+      @return $light-divider-text;
+    }
+  // if bgc is dark, return light colored text
+  } @else if ($text-type == text) {
+    @return $dark-text;
+  } @else if ($text-type == secondary-text) or if ($text-type == icons) {
+    @return $dark-secondary-text;
+  } @else if ($text-type == hint-text) or if ($text-type == disabled-text) {
+    @return $dark-disabled-text;
+  } @else if ($text-type == divider-text) {
+    @return $dark-divider-text;
+  }
+}
 
 // shadows
 
@@ -117,7 +139,7 @@
   @include transition-default;
 
   &:hover {
-    color: $white;
+    color: set-text-color($primary, text);
     text-decoration: none;
     background-position: 0 100%;
   }
