@@ -2,14 +2,27 @@
 
 // dropdown menus
 select {
+  color: $light-text;
   font-size: 13px;
-  background: transparent;
+  background-color: $light-cards;
   outline: none;
-  @include border-color(null null $light-hint-text null);
+  border-bottom-color: $light-hint-text;
   @include border-width(0 0 em(1, 13) 0);
   @include appearance(none);
 
-  option:hover { background-color: $light-app-bar; }
+  option {
+    color: $light-text;
+  }
+}
+
+.res-nightmode select {
+  color: $dark-text !important;
+  background-color: $dark-cards !important;
+  border-bottom-color: $dark-hint-text !important;
+
+  option {
+    color: $dark-text !important;
+  }
 }
 
 @mixin dropdown-arrow {
