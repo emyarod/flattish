@@ -46,15 +46,15 @@
 		color: $light-text;
 
 		&:hover {
-			background-color: $light-button-hover !important;
+			background-color: $light-button-hover;
 		}
 
 		&:focus:not(:active) {
-			background-color: $light-button-focus !important;
+			background-color: $light-button-focus;
 		}
 
 		&:active {
-			background-color: $light-button-active !important;
+			background-color: $light-button-active;
 		}
 	}
 }
@@ -102,16 +102,16 @@
 		color: $light-text;
 
 		&:hover {
-			background-color: $light-button-hover !important;
+			background-color: $light-button-hover;
 		}
 
 		&:focus:not(:active) {
-			background-color: $light-button-focus !important;
+			background-color: $light-button-focus;
 			@include focus-shadow();
 		}
 
 		&:active {
-			background-color: $light-button-active !important;
+			background-color: $light-button-active;
 			@include drop-shadow(2);
 		}
 	}
