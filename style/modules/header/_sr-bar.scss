@@ -1,45 +1,46 @@
 // main: ../../main.scss
 
+.res-nightmode #sr-header-area {
+  background-color: rgba($light-primary, 0.3) !important;
+}
+
 // subreddits bar
 #sr-header-area {
   height: em(30, 10);
-
   border: 0;
-
-  font-size: 100%; // 10px
-  line-height: 1em;
-
+  font-size: 10px;
+  line-height: em(10, 10);
   background-color: rgba($light-primary, 0.3);
   @include transition-default;
 
   // positions text
   .sr-list {
-    margin: 1em 0;
+    margin: em(10, 10) 0;
     padding: 0;
   }
 
   // anchor opacity
   .sr-bar a {
-    color: $light-secondary-text;
+    color: set-text-color(rgba($light-primary, 0.3), secondary-text);
     @include transition-default;
   }
 
   // subreddit link behavior when hovering over sr bar
-  &:hover .sr-bar a { color: $light-text; }
+  &:hover .sr-bar a { color: set-text-color($light-primary, text); }
 
   // "my subreddits" menu button
   .dropdown.srdrop {
-    height: 3em;
+    height: em(30, 10);
     padding: 0;
     cursor: pointer;
 
     .selected {
       // replace "my subreddits" with burger
-      margin: 1.4em 1em 1em 1em;
+      margin: em(14, 10) em(10, 10) em(10, 10) em(10, 10);
       padding: 0;
       text-indent: -999em;
       background: none;
-      @include burger(2em, 0.2em, 0.4em, $light-hint-text, 0);
+      @include burger(em(20, 10), em(2, 10), em(4, 10), 0);
     }
 
     // change burger color on mouseover
@@ -62,7 +63,8 @@
 
 // right side edit button
 #sr-more-link {
-  background-color: $light-primary;
   margin: 0;
-  padding: 1em;
+  padding: em(10, 10);
+  color: set-text-color($light-primary, text);
+  background-color: $light-primary;
 }
