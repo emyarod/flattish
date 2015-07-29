@@ -40,7 +40,7 @@
     content: "";
 
     border-bottom: em(2, 14) solid transparent;
-    @include transition(border-bottom 0.2s cubic-bezier(0.4, 0.0, 0.4, 1), width 0.2s cubic-bezier(0.4, 0.0, 0.4, 1));
+    @include transition(border-bottom 0.2s $animation-curve-default, width 0.2s $animation-curve-default);
   }
 
   &:hover::after {
