@@ -1,8 +1,14 @@
 // main: ../main.scss
 
-@mixin text-fields {
+@mixin text-fields($nightmode: false) {
   border: 0;
-  color: $light-text;
+
+  @if ($nightmode) {
+    color: $dark-text;
+  } else {
+    color: $light-text;
+  }
+
   font-family: $font-stack;
   border-style: solid;
   background-color: transparent;
@@ -48,6 +54,10 @@
   @include transition-default;
 
   &:hover { background-color: $light-app-bar !important;  } // thx RES
+}
+
+.bottom-area {
+  margin-bottom: em(10, 13);
 }
 
 // live preview
