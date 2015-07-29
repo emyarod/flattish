@@ -1,9 +1,10 @@
 // main: ../main.scss
 
-@import "animations";
+@import "../../vendors/bourbon/bourbon";
 @import "color-list";
-@import "mixins";
 @import "vars";
+@import "mixins";
+@import "animations";
 
 @import "../components/badges";
 @import "../components/buttons";
