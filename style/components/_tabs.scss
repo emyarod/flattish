@@ -10,7 +10,7 @@
   display: inline-block;
   height: em(66, 14);
   padding: 0 em(24, 14);
-  color: $light-secondary-text !important; // override body link styling...might need a rewrite
+  color: set-text-color($primary, secondary-text) !important;
   font-weight: bold;
   text-transform: uppercase;
   border-bottom-color: transparent;
@@ -24,7 +24,8 @@
   &:hover {
     margin: 0;
     padding: 0 em(24, 14);
-    color: $light-text !important; // override body link styling...might need a rewrite
+    color: set-text-color($primary, text) !important;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   }
 
   // tabmenu bottom border effect on hover
