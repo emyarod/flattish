@@ -1,11 +1,10 @@
 // main: ../main.scss
 
-@mixin button($desired-font-size, $orig-font-size) {
+@mixin button($desired-font-size, $orig-font-size, $nightmode: false) {
 	min-width: em(64, $desired-font-size);
 	height: em(36, $desired-font-size);
 	padding: 0 em(8, $desired-font-size);
 
-	color: $light-text;
 	font-weight: bold;
 	font-family: $font-stack;
 	font-size: em($desired-font-size, $orig-font-size);
@@ -15,7 +14,7 @@
 	text-transform: uppercase;
 
 	background: none transparent;
-	border: 0;
+	border: 0 !important;
 	border-radius: em(2, $desired-font-size);
 	outline: 0;
 	will-change: box-shadow;
@@ -25,41 +24,96 @@
 	&::-moz-focus-inner { border: 0; }
 }
 
-// flat button transparent bg
-@mixin flat-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
-	@include button($desired-font-size, $orig-font-size);
-	color: $text-color;
+// default flat button transparent bg
+@mixin default-flat-button($desired-font-size, $orig-font-size, $nightmode: false) {
+	@include button($desired-font-size, $orig-font-size, $nightmode);
 
-	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
+	@if ($nightmode) {
+		color: $dark-text;
 
-	// light divider text
-	&:focus:not(:active) { background-color: rgba($black, 0.12); }
+		&:hover {
+			background-color: $dark-button-hover !important;
+		}
 
-  &:active { background-color: rgba(get-color("grey", "500"), 0.4); }
+		&:focus:not(:active) {
+			background-color: $dark-button-focus !important;
+		}
+
+		&:active {
+			background-color: $dark-button-active !important;
+		}
+	} @else {
+		color: $light-text;
+
+		&:hover {
+			background-color: $light-button-hover !important;
+		}
+
+		&:focus:not(:active) {
+			background-color: $light-button-focus !important;
+		}
+
+		&:active {
+			background-color: $light-button-active !important;
+		}
+	}
+}
+
+// flat button with colored text
+@mixin flat-button-colored-text($desired-font-size, $orig-font-size, $text-color: $primary, $nightmode: false) {
+	@include default-flat-button($desired-font-size, $orig-font-size, $nightmode);
+
+	color: $text-color !important;
 }
 
 // flat button colored bg
-@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar) {
+@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $nightmode: false) {
 	@include button($desired-font-size, $orig-font-size);
-	color: set-text-color($background-color);
+	color: set-text-color($background-color, text) !important;
 	@include ripple($background-color);
 
-	&:hover { background-color: $dark-primary; }
+	&:hover {
+		background-color: $dark-primary !important;
+	}
 }
 
-// raised button gray bg
-@mixin raised-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
+// default raised button
+@mixin default-raised-button($desired-font-size, $orig-font-size, $nightmode: false) {
 	@include button($desired-font-size, $orig-font-size);
 	@include drop-shadow(1);
-	color: $text-color;
 
-	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
+	@if ($nightmode) {
+		color: $dark-text;
 
-	&:active { @include drop-shadow(2); }
+		&:hover {
+			background-color: $dark-button-hover !important;
+		}
 
-	&:focus:not(:active) {
-		@include focus-shadow();
-		background-color: rgba($black, 0.12); // light divider text
+		&:focus:not(:active) {
+			background-color: $dark-button-focus !important;
+			@include focus-shadow();
+		}
+
+		&:active {
+			background-color: $dark-button-active !important;
+			@include drop-shadow(2);
+		}
+	} @else {
+		color: $light-text;
+
+		&:hover {
+			background-color: $light-button-hover !important;
+		}
+
+		&:focus:not(:active) {
+			background-color: $light-button-focus !important;
+			@include focus-shadow();
+		}
+
+		&:active {
+			background-color: $light-button-active !important;
+			@include drop-shadow(2);
+		}
 	}
 }
 
@@ -68,19 +122,28 @@
 	@include button($desired-font-size, $orig-font-size);
 	@include drop-shadow(1);
 	@include ripple($background-color);
-	color: set-text-color($background-color);
+	color: set-text-color($background-color, text) !important;
 
-	&:hover { background-color: $dark-primary; }
+	&:hover {
+		background-color: $dark-primary !important;
+	}
 
-	&:active { @include drop-shadow(2); }
+	&:active {
+		@include drop-shadow(2);
+	}
 
 	&:focus:not(:active) {
 		@include focus-shadow();
-		background-color: $light-primary;
+		background-color: $light-primary !important;
 	}
 }
 
 button {
-	@include flat-button(14, 14, $primary);
+	@include flat-button-colored-text(14, 14, $primary);
+	font-size: 14px;
+}
+
+.res-nightmode button {
+	@include flat-button-colored-text(14, 14, $primary, true);
 	font-size: 14px;
 }
