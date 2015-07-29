@@ -4,7 +4,7 @@
   width: auto;
   height: auto;
   padding: em(2, $preferred-font-size);
-  color: set-text-color($bg-color) !important;
+  color: set-text-color($bg-color, text) !important;
   font-size: em($preferred-font-size, $orig-font-size);
   font-weight: bold;
   line-height: em($preferred-font-size, $preferred-font-size);
