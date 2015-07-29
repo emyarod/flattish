@@ -1,12 +1,20 @@
-@mixin menu-items($orig-font-size: 10) {
-  color: $light-text;
+// main: ../main.scss
+
+@mixin menu-items($orig-font-size: 10, $nightmode: false) {
+  @if ($nightmode) {
+    color: $dark-text !important;
+
+    &:hover { background-color: $dark-app-bar !important; }
+  } @else {
+    color: $light-text;
+
+    &:hover { background-color: $light-app-bar; }
+  }
   padding: em(16, $orig-font-size);
   @include transition-default;
-
-  &:hover { background-color: $light-app-bar; }
 }
 
-@mixin menu($class, $desired-font-size, $orig-font-size, $width) {
+@mixin menu($class, $desired-font-size, $orig-font-size, $width, $nightmode: false) {
   .drop-choices.#{$class} {
     display: block;
     width: 0;
@@ -16,7 +24,11 @@
     font-size: em($orig-font-size, $desired-font-size);
     border: 0;
     border-radius: em(2, $desired-font-size);
-    background-color: $light-cards;
+    @if ($nightmode) {
+      background-color: $dark-cards !important;
+    } @else {
+      background-color: $light-cards;
+    }
     opacity: 0;
     @include drop-shadow(1);
     @include transition-default;
