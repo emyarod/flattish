@@ -33,8 +33,8 @@ $light-cards: $white;
 
 // light theme text
 $light-divider-text: rgba($black, 0.12);
-$light-disabled-text: rgba($black, 0.26);
-$light-hint-text: rgba($black, 0.26);
+$light-disabled-text: rgba($black, 0.38);
+$light-hint-text: rgba($black, 0.38);
 $light-secondary-text: rgba($black, 0.54);
 $light-icons: rgba($black, 0.54);
 $light-text: rgba($black, 0.87);
@@ -48,7 +48,7 @@ $dark-cards: get-color("grey", "800");
 // dark theme text
 $dark-divider-text: rgba($white, 0.12);
 $dark-disabled-text: rgba($white, 0.3);
-$dark-hint-text: rgba($white, .3);
+$dark-hint-text: rgba($white, 0.3);
 $dark-secondary-text: rgba($white, 0.7);
 $dark-icons: rgba($white, 0.7);
 $dark-text: rgba($white, 1);
