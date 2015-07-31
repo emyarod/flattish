@@ -10,29 +10,87 @@
 	width: em(32, 13) !important; // ;_; gotta override inline styling
 }
 
+.res-nightmode .link .arrow,
+.res-nightmode .reddit-link .arrow,
+.res-nightmode .comment .arrow {
+	height: em(18, 13) !important;
+	width: em(24, 13) !important;
+
+	&.upmod {
+		background-image: url(%%upvote-pressed%%) !important;
+		background-position: 0 50% !important;
+	}
+
+	&.downmod {
+		background-image: url(%%downvote-pressed%%) !important;
+		background-position: 0 50% !important;
+	}
+
+	&.up,
+	&.up:hover {
+		background-image: url(%%upvote-night%%) !important;
+		background-position: 0 50% !important;
+	}
+
+	&.down,
+	&.down:hover {
+		background-image: url(%%downvote-night%%) !important;
+		background-position: 0 50% !important;
+	}
+}
+
 // also affects sidebar vote arrows
 .arrow {
 	height: em(18, 13);
 	width: em(24, 13);
 
-	&.upmod { background: url(%%light-upvote-pressed%%) 0 no-repeat; }
+	&.upmod {
+		background-image: url(%%upvote-pressed%%);
+		background-position: 0 50%;
+	}
 
-	&.downmod { background: url(%%light-downvote-pressed%%) 0 no-repeat; }
+	&.downmod {
+		background-image: url(%%downvote-pressed%%);
+		background-position: 0 50%;
+	}
 
 	&.up {
-		background: url(%%light-upvote%%) 0 no-repeat;
-		opacity: 0.26;
+		background-image: url(%%upvote%%);
+		background-position: 0 50%;
 	}
 
 	&.down {
-		background: url(%%light-downvote%%) 0 no-repeat;
-		opacity: 0.26;
+		background-image: url(%%downvote%%);
+		background-position: 0 50%;
 	}
 }
 
-// aligns score between new arrows
+.res-nightmode #siteTable {
+	background-color: $dark-background;
+
+	.score.unvoted { color: $dark-disabled-text !important; }
+
+	&>.thing {
+		@include card(10, 1, $light-cards, true);
+
+		.title {
+			color: $primary !important;
+
+			&:visited { color: $accent !important; }
+		}
+
+		.domain,
+		.domain a,
+		.tagline {
+			color: $dark-secondary-text !important;
+		}
+	}
+
+}
+
 #siteTable {
 
+	// aligns score between new arrows
 	.score {
 
 		&.unvoted { color: $light-disabled-text; }
@@ -48,9 +106,6 @@
 		font-size: em(14, 13);
 		position: relative;
 	}
-}
-
-#siteTable {
 
 	// individual post listings
 	&>.thing {
@@ -86,12 +141,26 @@
 
 	&.likes { color: $upvote; }
 
-	&.dislikes {
-		color: $downvote;
-	}
+	&.dislikes { color: $downvote; }
 }
 
 // thumbnail
+.res-nightmode .thumbnail {
+	border: em(1, 10) solid $dark-hint-text !important;
+
+	&:hover {
+		border-color: $dark-secondary-text !important;
+	}
+
+	&.self {
+		background: url(%%thumbnail-self-night%%) 0 no-repeat;
+	}
+
+	&.default {
+		background: url(%%thumbnail-default-night%%) 0 no-repeat;
+	}
+}
+
 .thumbnail {
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: 50%;
@@ -114,43 +183,94 @@
 	&.self,
 	&.default {
 		@extend .thumbnail;
-		border-color: $black;
 		height: em(70, 10);
 		width: em(70, 10);
-		opacity: 0.26;
-
-		&:hover {
-			opacity: 0.54;
-		}
 	}
 
 	&.self {
-		background: url(%%light-thumbnail-self%%) 0 no-repeat;
+		background: url(%%thumbnail-self%%) 0 no-repeat;
 	}
 
 	&.default {
-		background: url(%%light-thumbnail-default%%) 0 no-repeat;
+		background: url(%%thumbnail-default%%) 0 no-repeat;
 	}
 }
 
 // nsfw thumbnail styling
-.thing.over18 > .thumbnail.self {
-	background: url(%%nsfw%%) 0 no-repeat;
-	border-color: $nsfw;
-	opacity: 0.54;
+.res-nightmode .thing.over18 > .thumbnail.self {
+	background: url(%%nsfw-night%%) 0 no-repeat;
+	border-color: rgba($nsfw, 0.7) !important;
 
 	&:hover {
-		border-color: $nsfw;
-		opacity: 1;
+		border-color: $nsfw !important;
 	}
 }
 
+.thing.over18 > .thumbnail.self {
+	background: url(%%nsfw%%) 0 no-repeat;
+	border-color: rgba($nsfw, 0.26);
+
+	&:hover {
+		border-color: rgba($nsfw, 0.54);
+	}
+}
+
+// mod approved post
 .domain,
 .approval-checkmark {
 	float: right;
 }
 
 // media and self post expansion buttons
+.res-nightmode .expando-button {
+	border: em(1, 10) solid $dark-hint-text;
+
+	&:hover {
+		border-color: $dark-secondary-text;
+	}
+
+	&.collapsed,
+	&.collapsed:hover,
+	&.expanded,
+	&.expanded:hover {
+
+		&:before,
+		&:after {
+			background-color: $white;
+		}
+	}
+
+	// video expandos
+	&.video {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover { background: url(%%play-night%%) 0 no-repeat !important; }
+	}
+
+	// image expandos
+	&.image {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%camera-night%%) 0 no-repeat !important; // ;_; thx res
+		}
+	}
+
+	// self expandos
+	&.selftext {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover { background: url(%%text-night%%) 0 no-repeat !important; }
+	}
+}
+
 .expando-button {
 	position: relative;
 	top: em(2, 10);
@@ -268,6 +388,10 @@
 }
 
 // selftext body
+.res-nightmode .link .usertext-body .md {
+	border-color: $dark-secondary-text;
+}
+
 .link .usertext-body .md {
 	background-color: $light-background;
 	border-color: $light-secondary-text;
@@ -285,6 +409,10 @@
 	font-weight: bold;
 	line-height: 0;
 	padding: 0 em(2, 12);
+}
+
+.res-nightmode .entry .buttons li a {
+	color: $dark-secondary-text;
 }
 
 .entry .buttons li a {
