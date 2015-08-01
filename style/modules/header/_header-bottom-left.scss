@@ -11,9 +11,11 @@
   .pagename {
     color: transparent;
 
-    a { color: $light-secondary-text; }
+    // a { color: $light-secondary-text; }
+    a { color: set-text-color($primary, secondary-text); }
 
-    &:hover a { color: $light-text; }
+    // &:hover a { color: $light-text; }
+    &:hover a { color: set-text-color($primary, text); }
   }
 
   // tabmenu
