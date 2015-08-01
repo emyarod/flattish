@@ -13,28 +13,34 @@
   &:hover { opacity: 0.87; }
 }
 
-.res #header-bottom-right,
+.res #header-bottom-right {
+  @extend #header-bottom-right;
+}
+
 #header-bottom-right {
   position: absolute;
   top: em(35, 10);
   height: em(20, 10);
   margin-right: em(16, 10);
   padding: 0;
-  background-color: transparent;
+  background-color: transparent !important;
 
   span a {
-    color: $light-secondary-text;
+    color: set-text-color($primary, secondary-text);
     @include transition-default;
   }
 
-  &:hover span a { color: $light-text; }
+  &:hover span a { color: set-text-color($primary, text); }
 }
 
-.res #userbarToggle,
+.res #userbarToggle {
+  @extend #userbarToggle;
+}
+
 #userbarToggle {
-  background-color: transparent;
+  background-color: transparent !important;
   border: 0;
-  color: $light-secondary-text;
+  color: set-text-color($primary, secondary-text);
 }
 
 // preferences button
@@ -67,6 +73,10 @@
 }
 
 // RES settings dropdown menu
+.res-nightmode #RESPrefsDropdown {
+  background-color: $dark-cards !important;
+}
+
 #RESPrefsDropdown {
   margin: em(10, 10) em(10, 10) 0 0;
   border: 0;
@@ -77,32 +87,57 @@
 }
 
 // RES settings dropdown menu choices
-#RESDropdownOptions {
-  li {
-    height: auto;
-    border: 0;
-    border-radius: em(2, 10);
-    @include menu-items;
+.res-nightmode #RESDropdownOptions li {
+  @include menu-items(10, true);
 
-    a {
-      color: $light-text;
+  &:hover a { background-color: transparent; }
 
-      &:hover { background-color: transparent; }
-    }
+  a {
+    color: $dark-text;
+
+    &:hover { background-color: transparent; }
+  }
+}
+
+#RESDropdownOptions li {
+  height: auto;
+  border: 0;
+  border-radius: em(2, 10);
+  @include menu-items;
+
+  a {
+    color: $light-text;
+
+    &:hover { background-color: transparent; }
   }
 }
 
 // RES settings search icon
+.res-nightmode #RESSearchMenuItem {
+  background: url(%%search-night%%) no-repeat !important;
+}
+
 #RESSearchMenuItem {
   background: url(%%search%%) no-repeat !important;
   border: 0 !important;
-  opacity: 0.54;
   @include transition-default;
-
-  &:hover { opacity: 0.87; }
 }
 
 // RES toggle switches
+.res-nightmode .toggleButton {
+  background-color: $dark-hint-text;
+
+  &.enabled { background-color: $dark-primary; }
+
+  // off
+  &:not(.enabled)::before {
+    background-color: $dark-background;
+  }
+
+  // on
+  &.enabled::before { background-color: $light-primary; }
+}
+
 .toggleButton {
   max-width: em(36, 10);
   max-height: em(14, 10);
@@ -134,7 +169,7 @@
   &.enabled::before {
     left: unset !important;
     right: 0 !important;
-    background-color: $primary;
+    background-color: $dark-primary;
     opacity: 1 !important;
   }
 
