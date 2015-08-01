@@ -2,6 +2,7 @@
 
 .res-nightmode #sr-header-area {
   background-color: rgba($light-primary, 0.3) !important;
+  @include menu(srdrop, 10, 10, 240, true);
 }
 
 // subreddits bar
@@ -62,6 +63,10 @@
 }
 
 // right side edit button
+.res-nightmode #sr-more-link {
+  background-color: $light-primary !important;
+}
+
 #sr-more-link {
   margin: 0;
   padding: em(10, 10);
