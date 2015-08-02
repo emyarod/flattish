@@ -8,10 +8,16 @@
 
 // .footer-parent { margin-top: 50px; }
 
+.res-nightmode .footer {
+  @include animate-card(13, 1, $light-cards, true);
+}
+
 .footer {
   @include animate-card(13);
   border: 0;
   // padding-bottom: 64px;
+
+  a { @include link-underline-transition(); }
 }
 
 .bottommenu {
@@ -20,11 +26,18 @@
   // width: 600px;
   // margin: 0 auto;
   // padding: 0 16px;
+  a {
+    @include link-underline-transition;
+  }
+}
+
+.res-nightmode .flat-vert.title {
+  color: $dark-text;
 }
 
 .flat-vert.title {
-  color: $light-secondary-text;
-  font-size: em(16, 12);
+  color: $light-text;
+  font-size: em(16, 13);
 
   &:hover {
     font-size: 0;
