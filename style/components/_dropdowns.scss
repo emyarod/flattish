@@ -25,8 +25,13 @@ select {
   }
 }
 
-@mixin dropdown-arrow {
+@mixin dropdown-arrow($nightmode: false) {
   height: em(19, 13);
   width: em(19, 13);
-  background: url(%%dropdown%%) no-repeat right;
+
+  @if ($nightmode) {
+    background: url(%%dropdown-night%%) no-repeat right;
+  } @else {
+    background: url(%%dropdown%%) no-repeat right;
+  }
 }
