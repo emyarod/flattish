@@ -1,5 +1,36 @@
 // main: ../../main.scss
 
+.res-nightmode #search {
+
+	// text field
+	input[type="text"] {
+		@include text-fields(true);
+	}
+
+	// magnifying glass icon
+	input[type="submit"] {
+		background: url(%%search-night%%) no-repeat;
+
+		&:hover {
+			opacity: 0.87;
+		}
+	}
+}
+
+// style searchexpando
+.res-nightmode #searchexpando {
+	@include card(10, 1, $light-cards, true);
+
+	label {
+		color: $dark-text;
+	}
+
+	// dropdown menu labels
+	label:not(:first-of-type) {
+		@include dropdown-arrow(true);
+	}
+}
+
 #search {
 
 	// search label
@@ -27,13 +58,10 @@
 
 	// text field
 	input[type="text"] {
-		color: $light-text;
-		font-family: $font-stack;
-		height: 3em;
+		height: em(39, 13);
 		outline: none;
 		width: 100%;
-		border: em(1, 13) solid transparent;
-		border-bottom-color: get-color("grey", "600");
+		@include text-fields();
 
 		&:hover {
 
@@ -64,7 +92,7 @@
 	position: relative;
 	top: em(17, 10);
 	right: em(16, 10);
-	z-index: 999;
+	z-index: 2147483647; // WTF RES?????
 
 	width: em(330, 10);
 	margin: 0;
@@ -97,12 +125,12 @@
 	label:not(:first-of-type) {
 		margin: 0 em(5, 13) 0 0;
 		font-weight: bold;
-		@include dropdown-arrow;
+		@include dropdown-arrow();
 	}
 }
 
 // searchexpando advanced options
-#moresearchinfo {
+label + #moresearchinfo {
 	margin-top: em(10, 10);
 	border-color: $accent;
 }
