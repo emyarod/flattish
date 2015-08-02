@@ -1,5 +1,71 @@
+// main: ../../main.scss
+
+.res-nightmode #login_login-main {
+	@include animate-card(10, 1, $light-cards, true);
+
+	button {
+		background-color: $dark-cards;
+
+		&:hover {
+			border-radius: 2px !important;
+		}
+	}
+}
+
 #login_login-main {
+	position: relative;
+	top: -84px;
 	border: 0;
-	@include animate-card;
-	margin: em(15, 10) 0 0;
+	@include animate-card();
+}
+
+.res-nightmode .login-form-side {
+
+	input {
+		&[type="text"],
+		&[type="password"] {
+			@include text-fields(true);
+		}
+
+		// hide default checkbox styling
+		&[type="checkbox"] {
+			@include hide-checkbox;
+
+			// material checkbox
+			& + label::before {
+				vertical-align: -25%;
+				@include check-box(true);
+			}
+
+			&:checked + label::before {
+				@include checkbox-checked;
+			}
+		}
+	}
+
+	label {
+		color: $dark-text !important;
+	}
+}
+
+.login-form-side input {
+	&[type="text"],
+	&[type="password"] {
+		@include text-fields();
+	}
+
+	// hide default checkbox styling
+	&[type="checkbox"] {
+		@include hide-checkbox;
+
+		// material checkbox
+		& + label::before {
+			vertical-align: -25%;
+			@include check-box();
+		}
+
+		&:checked + label::before {
+			@include checkbox-checked;
+		}
+	}
 }
