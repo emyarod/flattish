@@ -22,6 +22,11 @@
 	.nub { display: none; }
 }
 
+.res-nightmode .submit-link::before {
+	color: $dark-text !important;
+	@include animate-card(14, 1, $light-cards, true);
+}
+
 .submit-link {
 	top: em(-69, 10);
 
@@ -31,7 +36,7 @@
 	}
 
 	// card underneath submit buttons
-	&:before {
+	&::before {
 		position: relative;
 		top: em(-15, 14);
 		display: block;
@@ -39,7 +44,7 @@
 		width: em(330, 14);
 		font-size: em(14, 10);
 		font-weight: bold;
-		color: $light-secondary-text;
+		color: $light-text;
 		content: "Submit a new:";
 		@include animate-card(14);
 	}
