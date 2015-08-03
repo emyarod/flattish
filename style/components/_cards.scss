@@ -1,20 +1,32 @@
 // main: ../main.scss
 
-@mixin card($orig-font-size: 10, $shadow-depth: 0, $background-color: $light-cards) {
+@mixin card($orig-font-size: 10, $shadow-depth: 0, $background-color: $light-cards, $nightmode: false) {
 	border-radius: em(2, $orig-font-size);
 	padding: em(16, $orig-font-size);
-	color: set-text-color($background-color) !important;
-	background-color: $background-color !important;
+	color: set-text-color($background-color, text);
+
+	@if ($nightmode) {
+		background-color: $dark-cards !important;
+	} @else {
+		background-color: $background-color !important;
+	}
+
 	@if $shadow-depth > 0 {
 		@include drop-shadow($shadow-depth);
 	}
 }
 
-@mixin animate-card($orig-font-size: 10, $shadow-depth: 1, $background-color: $light-cards) {
+@mixin animate-card($orig-font-size: 10, $shadow-depth: 1, $background-color: $light-cards, $nightmode: false) {
 	border-radius: em(2, $orig-font-size);
 	padding: em(16, $orig-font-size);
-	color: set-text-color($background-color) !important;
-	background-color: $background-color !important;
+	color: set-text-color($background-color, text);
+
+	@if ($nightmode) {
+		background-color: $dark-cards !important;
+	} @else {
+		background-color: $background-color;
+	}
+
 	@include animation(depthup 0.75s ease);
 	@include animation-iteration-count(1);
 	@include drop-shadow($shadow-depth);
