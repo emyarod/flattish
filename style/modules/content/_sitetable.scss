@@ -71,7 +71,7 @@
 	.score.unvoted { color: $dark-disabled-text !important; }
 
 	&>.thing {
-		@include card(10, 1, $light-cards, true);
+		@include card(10, 1, $dark-cards, true);
 
 		.title {
 			color: $primary !important;
