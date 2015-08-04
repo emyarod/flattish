@@ -399,6 +399,11 @@
 }
 
 // nsfw stamp
+.stamp {
+	padding: 0;
+	border: 0 !important;
+}
+
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
 	border: 0 !important; // ;_; thx reddit css
