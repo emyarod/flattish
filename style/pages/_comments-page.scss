@@ -5,9 +5,32 @@
                                  (unsubscribe, red, 89px) {
   #REScommentSubToggle {
     &[title^="#{$prefix}"] {
-      @include flat-button(10, 10, get-color("#{$color}", "500"));
+      @include flat-button-colored-text(10, 10, get-color("#{$color}", "500"));
       width: $width;
     }
+  }
+
+  .res-nightmode #REScommentSubToggle {
+    &[title^="#{$prefix}"] {
+      @include flat-button-colored-text(10, 10, get-color("#{$color}", "500"), true);
+      width: $width;
+    }
+  }
+}
+
+.res-nightmode .commentarea {
+  .menuarea {
+    @include card(13, 1, $dark-cards, true);
+
+    .spacer + .spacer form {
+      @include default-flat-button(13, 13, true);
+    }
+
+    .toggle a { color: $dark-secondary-text; }
+  }
+
+  &> .usertext {
+    @include animate-card(13, 1, $dark-cards, true);
   }
 }
 
@@ -45,11 +68,14 @@
       @include calc(width, "100% - 32px");
 
       form {
-        @include flat-button(13, 13);
+        @include default-flat-button(13, 13);
 
         &:first-of-type { margin: 0; }
       }
+
     }
+
+    .toggle a { color: $light-secondary-text; }
   }
 
   &> .usertext {
@@ -59,6 +85,10 @@
 }
 
 // "sorted by" menu
+.res-nightmode {
+  @include menu(lightdrop, 13, 13, 104, true);
+}
+
 @include menu(lightdrop, 13, 13, 104);
 
 // offset inline styling
@@ -80,40 +110,6 @@
   font-size: em(10, 13);
 }
 
-// macros menu
-.RESMacroDropdown,
-.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  left: unset !important; // thx RES
-  right: em(16, 10) !important; // thx RES
-}
-
-.RESMacroDropdown {
-  display: block;
-  margin: 0;
-  font-size: em(10, 10);
-  border: 0;
-  border-radius: em(2, 10);
-  background-color: $light-cards;
-  @include drop-shadow(1);
-  @include transition-default;
-}
-
-.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  width: em(118, 10);
-  max-height: em(690, 10);
-  margin-top: em(10, 10);
-  transform-origin: 100% 0;
-  @include animation(RESmenuopen 0.2s $animation-curve-default);
-}
-
-.RESMacroDropdownList li a {
-  color: $light-text !important; // thx RES
-  padding: em(16, 10) !important; // thx RES
-  @include transition-default;
-
-  &:hover { background-color: $light-app-bar !important;  } // thx RES
-}
-
 // text editor container
 .usertext-edit {
   width: auto;
@@ -122,17 +118,14 @@
     width: 100%;
     margin-bottom: em(9, 14) !important; // override global reddit styles
 
-    @include border-width(0 0 em(2, 14));
-    border-bottom-color: get-color("grey", "600");
-    background-color: transparent;
-    @include transition-default;
-
-    &:focus { border-bottom-color: $dark-accent; }
+    @include text-fields();
   }
 
   // comment style buttons and character counter
   & > .markdownEditor-wrapper { width: auto; } // override inline styling
 }
+
+.res-nightmode .commentingAs { color: $dark-secondary-text; }
 
 .commentingAs { color: $light-secondary-text; }
 
@@ -175,6 +168,42 @@
   &:active { background-color: rgba(get-color("grey", "500"), 0.4) !important; }
 }
 
+// big editor modal
+.res-nightmode #BigEditor {
+  .RESDialogSmall {
+
+    h3 {
+      color: set-text-color($primary, text);
+      background-color: $primary;
+    }
+  }
+}
+
+#BigEditor {
+
+  .RESDialogSmall {
+    border: 0;
+    border-radius: 2px;
+    @include drop-shadow(2);
+
+    h3 {
+      height: 38px;
+      color: set-text-color($primary, text);
+      background-color: $primary;
+    }
+
+    .md h3 { height: unset; }
+
+    textarea {
+      @include text-fields();
+    }
+  }
+}
+
+.res-nightmode .gold-accent.comment-visits-box .title::after {
+  @include dropdown-arrow(true);
+}
+
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
@@ -194,6 +223,16 @@
 
 #comment-visits { width: em(167, 13); }
 
+.res-nightmode .linkinfo {
+  color: $dark-text !important;
+  @include animate-card(13, 1, $light-accent, true);
+
+  .shortlink input {
+    color: $dark-text;
+    background-color: $dark-app-bar;
+  }
+}
+
 .linkinfo {
   position: relative;
   top: em(-85, 13);
@@ -201,6 +240,8 @@
   color: $light-text;
   font-size: em(13, 10);
   @include animate-card(13, 1, $light-accent);
+
+  .shortlink input { width: unset; }
 }
 
 @media (min-width: $screen-sm-min) {
@@ -220,6 +261,11 @@
   @include drop-shadow(1);
 }
 
+.res-nightmode .res .comment,
+.res-nightmode .comment {
+  @include card(10, 1, $dark-cards, true);
+}
+
 .res .comment,
 .comment {
   @include card(10, 1);
@@ -227,6 +273,10 @@
   @include transition-default;
 
   &:hover { @include drop-shadow(3); }
+
+  .md p {
+    margin: 15px 0;
+  }
 
   .child {
     border: 0;
