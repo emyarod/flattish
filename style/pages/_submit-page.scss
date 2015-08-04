@@ -1,8 +1,23 @@
 // main: ../main.scss
 
-#newlink { margin: 0; }
+#newlink {
+  margin: 0;
+  background-color: transparent;
+}
 
 // link/text tabs
+.res-nightmode ul.tabmenu.formtab li {
+  a {
+    background-color: $dark-cards;
+    @include tab-list-anchors(false, transparent, $light-accent, $dark-cards);
+  }
+
+  &.selected a {
+    color: set-text-color($primary, text) !important;
+    background-color: $primary !important;
+  }
+}
+
 ul.tabmenu.formtab {
   padding: 0;
   @include drop-shadow(1);
@@ -14,17 +29,17 @@ ul.tabmenu.formtab {
       width: 50%;
       text-align: center;
       background-color: $light-cards;
-      @include tab-list-anchors;
+      @include tab-list-anchors();
       @include transition-default;
     }
 
     &.selected a {
       margin: 0;
       padding: 0 em(24, 14);
-      color: $dark-text !important;
+      color: set-text-color($primary, text);
       font-size: inherit;
-      background-color: $accent;
-      border-bottom-color: $accent;
+      background-color: $primary;
+      border-bottom-color: $primary;
       border-bottom-style: solid;
       @include border-width(0 0 em(2, 14) 0);
     }
@@ -37,11 +52,15 @@ ul.tabmenu.formtab {
 }
 
 // submission form
+.res-nightmode .formtabs-content {
+  @include animate-card(10, 1, $dark-cards, true);
+}
+
 .formtabs-content {
   width: 100%;
   border: 0;
   margin-bottom: em(17, 10);
-  @include animate-card;
+  @include animate-card();
   @include border-top-radius(0);
 
   // gold infobar
@@ -62,13 +81,27 @@ ul.tabmenu.formtab {
 .roundfield input[type="text"],
 .roundfield-content input[type="url"] {
   @extend .roundfield;
-  @include text-fields;
+  @include text-fields();
 }
 
 .roundfield {
   padding: 0;
   border-radius: 0;
-  background-color: transparent;
+  background-color: transparent !important; // thx nightmode
+}
+
+.res-nightmode .submit_text {
+  h1,
+  .md {
+    color: set-text-color($dark-cards, text);
+  }
+}
+
+.submit_text {
+  h1,
+  .md {
+    color: set-text-color($light-cards, text);
+  }
 }
 
 // material checkbox
@@ -91,6 +124,10 @@ ul.tabmenu.formtab {
 }
 
 // submit post
+.res-nightmode .submit-page button[type="submit"] {
+  @include raised-colorized-button(14, 10, $primary, true);
+}
+
 .submit-page button[type="submit"] {
   @include raised-colorized-button(14, 10, $primary);
 }
