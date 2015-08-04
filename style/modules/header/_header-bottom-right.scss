@@ -58,7 +58,6 @@
   height: em(16, 10) !important;
   width: em(16, 10) !important;
   background: transparent url("%%settings%%") no-repeat !important;
-  opacity: 0.54;
   @include transition-default;
 
   &:hover { opacity: 1; }

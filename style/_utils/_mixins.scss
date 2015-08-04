@@ -25,6 +25,15 @@
   }
 }
 
+// dynamic gear icon
+@function set-gearIcon() {
+  @if (lightness($primary) > 50) {
+    @return transparent url("%%settings%%") no-repeat !important;
+  } @else {
+    @return transparent url("%%settings-night%%") no-repeat !important;
+  }
+}
+
 // shadows
 
 // Focus shadow mixin.
