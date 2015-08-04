@@ -2,6 +2,8 @@
 
 @import "content/sitetable";
 
+.res-nightmode div.content { background-color: transparent !important; }
+
 div.content {	margin: 0 em(15, 10); }
 
 @media (min-width: $screen-md-min) {
