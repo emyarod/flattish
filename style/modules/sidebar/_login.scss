@@ -1,7 +1,7 @@
 // main: ../../main.scss
 
 .res-nightmode #login_login-main {
-	@include animate-card(10, 1, $light-cards, true);
+	@include animate-card(10, 1, $dark-cards, true);
 
 	button {
 		background-color: $dark-cards;
