@@ -1,5 +1,10 @@
 // main: ../../main.scss
 
+.res-nightmode #moderation_tools .title h1,
+.res-nightmode .sidecontentbox .title h1 {
+	color: $dark-text;
+}
+
 #moderation_tools,
 .sidecontentbox {
 
@@ -10,7 +15,7 @@
 		h1 {
 			font-size: em(14, 10);
 			font-weight: bold;
-			color: $light-secondary-text;
+			color: $light-text;
 			text-transform: lowercase;
 		}
 	}
@@ -18,6 +23,7 @@
 	ul.content {
 		border: 0;
 		padding: 0;
+		background-color: transparent !important; // thx RES
 	}
 }
 
@@ -30,6 +36,21 @@
 	}
 
 	a { @include link-underline-transition; }
+}
+
+.res-nightmode .sidecontentbox .gadget {
+
+	// post score of recently viewed unvoted links
+	.thing span.score.unvoted {
+		color: $dark-secondary-text;
+	}
+
+	// recolor comment count
+	a.reddit-comment-link.may-blank { color: $dark-secondary-text !important; }
+
+	.right a {
+		background: url(%%clear-night%%) 0 no-repeat;
+	}
 }
 
 .sidecontentbox {
@@ -51,6 +72,7 @@
 		.thing {
 			padding: em(10, 14) 0;
 
+			// post scores of recently viewed links
 			span.score {
 
 				&.unvoted { color: $light-secondary-text; }
