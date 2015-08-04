@@ -19,7 +19,7 @@
 
 // style searchexpando
 .res-nightmode #searchexpando {
-	@include card(10, 1, $light-cards, true);
+	@include card(10, 1, $dark-cards, true);
 
 	label {
 		color: $dark-text;
