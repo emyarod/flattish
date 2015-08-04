@@ -24,6 +24,8 @@
 
 .res-nightmode .combined-search-page .search-result {
   @include animate-card(12, 1, $dark-cards, true);
+
+  p { color: $dark-text; }
 }
 
 .combined-search-page .search-result {
