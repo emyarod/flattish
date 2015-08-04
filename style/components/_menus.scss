@@ -41,5 +41,5 @@
       opacity: 1;
     }
   }
-  .drop-choices a.choice { @include menu-items($desired-font-size); }
+  .drop-choices a.choice { @include menu-items($desired-font-size, $nightmode); }
 }
