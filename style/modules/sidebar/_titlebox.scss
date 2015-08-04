@@ -1,25 +1,65 @@
 // main: ../../main.scss
 
+.res-nightmode .titlebox {
+
+	// title
+	h1.hover.redditname {
+		border: 0;
+		background-color: transparent !important;
+	}
+
+	a.hover {
+		color: $dark-text !important;
+	}
+
+	// mod/approved submitter/flair label background
+	.leavemoderator,
+	form.toggle.leavecontributor-button,
+	form.toggle.flairtoggle {
+		color: $dark-secondary-text !important;
+		background-color: transparent !important;
+	}
+
+	// approved submitter text
+	span.option.main.active {
+		color: $dark-secondary-text;
+	}
+
+	.subscribers,
+	.users-online {
+		color: $dark-secondary-text !important;
+	}
+
+	.users-online::before {
+		background: url(%%users-night%%) no-repeat;
+		opacity: 1;
+	}
+
+	.md p {
+		color: $dark-text;
+	}
+}
+
 .titlebox {
 	z-index: 0;
 
 	// title
 	a.hover {
-		color: $light-secondary-text;
+		color: $light-text;
 		font-size: em(19, 19);
 	}
 
 	// subscribe and dashboard buttons
 	a.option,
 	.RESDashboardToggle {
-		@include flat-button(10, 10, get-color("green", "500"));
+		@include flat-button-colored-text(10, 10, get-color("green", "500"));
 		position: relative;
 		top: em(2.5, 10);
 		margin-right: em(5, 10);
 		padding: 0.7em 0.57em;
 		line-height: em(27, 10);
 
-		&.remove { color: get-color("red", "500"); }
+		&.remove { color: get-color("red", "500") !important; } // thx nightmode
 	}
 
 	.subscribers,
@@ -44,7 +84,7 @@
 		font-size: em(13, 10);
 
 		// replace online user green orb
-		&:before {
+		&::before {
 			background: url(%%users%%) no-repeat;
 			opacity: 0.87;
 			height: em(16, 13);
