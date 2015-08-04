@@ -1,6 +1,6 @@
 // main: ../main.scss
 
-@mixin button($desired-font-size, $orig-font-size, $nightmode: false) {
+@mixin button($desired-font-size, $orig-font-size) {
 	min-width: em(64, $desired-font-size);
 	height: em(36, $desired-font-size);
 	padding: 0 em(8, $desired-font-size);
@@ -26,7 +26,7 @@
 
 // default flat button transparent bg
 @mixin default-flat-button($desired-font-size, $orig-font-size, $nightmode: false) {
-	@include button($desired-font-size, $orig-font-size, $nightmode);
+	@include button($desired-font-size, $orig-font-size);
 
 	@if ($nightmode) {
 		color: $dark-text;
@@ -119,11 +119,15 @@
 }
 
 // raised button color bg
-@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar) {
+@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $nightmode: false) {
 	@include button($desired-font-size, $orig-font-size);
 	@include drop-shadow(1);
 	@include ripple($background-color);
 	color: set-text-color($background-color, text) !important;
+
+	@if ($nightmode) {
+		background-color: $background-color !important;
+	}
 
 	&:hover {
 		background-color: $dark-primary !important;

@@ -1,10 +1,11 @@
 // out: main.css
-@import "_utils/animations";
+@import "_utils/import";
 
 @import "modules/header";
 @import "modules/content";
 @import "modules/sidebar";
 @import "modules/footer";
+@import "pages/settings-page";
 @import "pages/comments-page";
 @import "pages/search-page";
 @import "pages/submit-page";
@@ -33,6 +34,35 @@ body {
     }
   }
 }
+
+.res-nightmode body {
+  background-color: $dark-background !important;
+
+  a:link {
+    color: $link-color;
+
+    &:visited {
+      color: $link-color-visited;
+    }
+  }
+}
+
+h1 { font-size: 36px; color: set-text-color($light-cards, text); }
+h2 { font-size: 30px; color: set-text-color($light-cards, text); }
+h3 { font-size: 24px; color: set-text-color($light-cards, text); }
+h4 { font-size: 18px; color: set-text-color($light-cards, text); }
+h5 { font-size: 14px; color: set-text-color($light-cards, text); }
+h6 { font-size: 12px; color: set-text-color($light-cards, text); }
+
+.res-nightmode h1 { color: set-text-color($dark-cards, text); }
+.res-nightmode h2 { color: set-text-color($dark-cards, text); }
+.res-nightmode h3 { color: set-text-color($dark-cards, text); }
+.res-nightmode h4 { color: set-text-color($dark-cards, text); }
+.res-nightmode h5 { color: set-text-color($dark-cards, text); }
+.res-nightmode h6 { color: set-text-color($dark-cards, text); }
+
+.gray { color: $light-secondary-text; }
+.res-nightmode .gray { color: $dark-secondary-text; }
 
 @media (min-width: $screen-md-min) {
   body {
