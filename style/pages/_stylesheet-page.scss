@@ -1,0 +1,17 @@
+// main: ../main.scss
+
+.res-nightmode ul#image-preview-list li {
+  @include card(13, 1, $dark-cards, true);
+}
+
+ul#image-preview-list {
+  margin: 0;
+
+  li {
+    max-width: 324px;
+    width: 100%;
+    margin-right: 16px;
+    // height: auto;
+    @include card(13, 1, $light-cards);
+  }
+}
