@@ -1,0 +1,46 @@
+// main: ../main.scss
+
+@media (min-width: $screen-sm-min) {
+  .res-nightmode .top-page .content .menuarea {
+    background-color: $dark-cards;
+  }
+
+  .top-page .content .menuarea {
+    border-bottom: 0px;
+  	padding: 0;
+  	@include margin(0 0 15px 0);
+  	height: 100%;
+    background-color: $light-cards;
+    @include drop-shadow(1);
+    border-radius: 4px;
+    // border: 1px solid $light-hint-text;
+
+    .drop-choices.lightdrop {
+      display: inline-block;
+      visibility: visible;
+      max-height: unset;
+      opacity: 1;
+
+      a.choice,
+      form {
+        display: inline-block;
+      }
+    }
+
+    .dropdown-title.lightdrop {
+      display: none;
+    }
+
+    .dropdown.lightdrop .selected {
+      display: inline-block;
+    // 	z-index: 1002;
+    	background: none;
+    	text-decoration: none;
+    	padding: 16px;
+    	background-color: $primary;
+    // 	overflow: visible;
+    	color: set-text-color($primary, text);
+      @include border-left-radius(4px);
+    }
+  }
+}
