@@ -1,7 +1,61 @@
 // main: ../../main.scss
 
+@mixin sr-bar($image, $gradient, $color-gradient, $image-light) {
+  // if there is a header image
+  @if ($image) {
+    .res-nightmode #sr-header-area {
+      background-color: transparent !important;
+    }
+
+    #sr-header-area {
+      background-color: transparent;
+    }
+
+    // set dynamic color for color gradient
+    @if ($gradient) {
+      @if ($color-gradient) {
+        #sr-header-area {
+          .sr-bar a,
+          .separator { color: set-text-color($primary, secondary-text); }
+
+          &:hover .sr-bar a,
+          .separator { color: set-text-color($primary, text); }
+        }
+      }
+    // set text color based on image lightness
+    } @else if ($image-light) {
+      #sr-header-area {
+        .sr-bar a,
+        .separator { color: $light-secondary-text; }
+
+        &:hover .sr-bar a,
+        .separator { color: $light-text; }
+      }
+    } @else {
+      #sr-header-area {
+        .sr-bar a,
+        .separator { color: $dark-secondary-text; }
+
+        &:hover .sr-bar a,
+        .separator { color: $dark-text; }
+      }
+    }
+
+  // no header image
+  } @else {
+    .res-nightmode #sr-header-area {
+      background-color: rgba($light-primary, 0.3) !important;
+    }
+
+    #sr-header-area {
+      background-color: rgba($light-primary, 0.3);
+    }
+  }
+}
+
+@include sr-bar(true, true, true, false);
+
 .res-nightmode #sr-header-area {
-  background-color: rgba($light-primary, 0.3) !important;
   @include menu(srdrop, 10, 10, 240, true);
 }
 
@@ -11,7 +65,6 @@
   border: 0;
   font-size: 10px;
   line-height: em(10, 10);
-  background-color: rgba($light-primary, 0.3);
   @include transition-default;
 
   // positions text
@@ -22,12 +75,8 @@
 
   // anchor opacity
   .sr-bar a {
-    color: set-text-color(rgba($light-primary, 0.3), secondary-text);
     @include transition-default;
   }
-
-  // subreddit link behavior when hovering over sr bar
-  &:hover .sr-bar a { color: set-text-color($light-primary, text); }
 
   // "my subreddits" menu button
   .dropdown.srdrop {
@@ -37,18 +86,18 @@
 
     .selected {
       // replace "my subreddits" with burger
-      margin: em(14, 10) em(10, 10) em(10, 10) em(10, 10);
+      margin: em(14, 10) em(10, 10) em(10, 10);
       padding: 0;
       text-indent: -999em;
       background: none;
-      @include burger(em(20, 10), em(2, 10), em(4, 10), 0);
+      @include burger(em(20, 10), em(2, 10), em(4, 10), 0, $light-hint-text);
     }
 
     // change burger color on mouseover
     &:hover {
       .selected,
-      .selected:after,
-      .selected:before { background-color: $light-icons; }
+      .selected::after,
+      .selected::before { background-color: $light-icons; }
     }
   }
 
