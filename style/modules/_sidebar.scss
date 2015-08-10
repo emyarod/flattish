@@ -7,6 +7,10 @@
 // hide sidebar items
 .side * { opacity: 0; }
 
+.res-nightmode .side::before {
+	background: url(%%kebab-night%%) no-repeat;
+}
+
 .side {
 	position: absolute;
 	right: em(16, 10);
@@ -15,7 +19,7 @@
 	margin: 0;
 	padding-top: em(85, 10);
 	z-index: 9999;
-	background-color: transparent;
+	background-color: transparent !important;
 
 	// first card (containing search and submit)
 	.spacer {
@@ -30,7 +34,7 @@
 	}
 
 	// kebab menu
-	&:before {
+	&::before {
     position: fixed;
     top: em(215, 10);
     right: 0;
@@ -72,7 +76,6 @@
 		}
 	}
 
-	// place cards beneath sidebar boxes
 	.spacer:first-of-type,
 	#ad_sponsorship,
 	.titlebox,
@@ -80,11 +83,8 @@
 	#ad_main,
 	.sidecontentbox {
 		font-size: 100%;
-		@include animate-card;
+		@include animate-card();
 	}
-
-	// search
-	@import "sidebar/search";
 
 	// sponsorship box & advertisement
 	#ad_sponsorship {
@@ -97,24 +97,37 @@
 		width: em(330, 10);
 	}
 
-	// submit buttons
-	@import "sidebar/submit";
-
 	// hide create subreddit button and account activity div
 	.sidebox.create,
 	.account-activity-box {
 		display: none;
 	}
-
-	// login form
-	@import "sidebar/login";
-
-	// titlebox
-	@import "sidebar/titlebox";
-
-	// sidecontentbox
-	@import "sidebar/sidecontentbox";
 }
+
+// login form
+@import "sidebar/login";
+
+// place cards beneath sidebar boxes
+.res-nightmode .side .spacer:first-of-type,
+.res-nightmode .side #ad_sponsorship,
+.res-nightmode .side .titlebox,
+.res-nightmode .side #moderation_tools,
+.res-nightmode .side #ad_main,
+.res-nightmode .side .sidecontentbox {
+	@include animate-card(10, 1, $light-cards, true);
+}
+
+// search
+@import "sidebar/search";
+
+// submit buttons
+@import "sidebar/submit";
+
+// titlebox
+@import "sidebar/titlebox";
+
+// sidecontentbox
+@import "sidebar/sidecontentbox";
 
 @media (min-width: $screen-md-min) {
 	.side {
