@@ -112,7 +112,7 @@
 }
 
 // burger
-@mixin burger($width, $height, $gutter, $border-radius) {
+@mixin burger($width, $height, $gutter, $border-radius, $color: set-text-color($light-primary, hint-text)) {
   $burger-height: $height !global;
   $burger-gutter: $gutter !global;
   position: relative;
@@ -121,7 +121,7 @@
     display: block;
     width: $width;
     height: $height;
-    background-color: set-text-color($light-primary, hint-text);
+    background-color: $color;
     @include transition-default;
     @if $border-radius != 0 {
       border-radius: $border-radius;
