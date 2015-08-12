@@ -1,16 +1,137 @@
 // main: ../../main.scss
 
+@mixin header-bottom-right($image, $gradient, $color-gradient, $image-light) {
+  @if ($image) {
+    @if ($gradient) {
+      @if ($color-gradient) {
+        #userbarToggle,
+        #header-bottom-right .user,
+        #header-bottom-right span a {
+          color: set-text-color($primary, secondary-text) !important;
+        }
+
+        #header-bottom-right:hover span a {
+          color: set-text-color($primary, text) !important;
+        }
+
+        .pref-lang.choice {
+          background: url("%%prefs%%") no-repeat;
+        }
+
+        .gearIcon {
+          background: transparent url("%%settings%%") no-repeat !important;
+        }
+
+        .logout a {
+          background: url("%%logout%%") no-repeat;
+        }
+      } @else {
+        #userbarToggle,
+        #header-bottom-right .user,
+        #header-bottom-right span a {
+          color: $dark-secondary-text !important;
+        }
+
+        #header-bottom-right:hover span a {
+          color: $dark-text !important;
+        }
+
+        .pref-lang.choice {
+          background: url("%%prefs-night%%") no-repeat;
+        }
+
+        .gearIcon {
+          background: transparent url("%%settings-night%%") no-repeat !important;
+        }
+
+        .logout a {
+          background: url("%%logout-night%%") no-repeat;
+        }
+      }
+    } @else if ($image-light) {
+      #userbarToggle,
+      #header-bottom-right .user,
+      #header-bottom-right span a {
+        color: $light-secondary-text !important;
+      }
+
+      #header-bottom-right:hover span a {
+        color: $light-text !important;
+      }
+
+      .pref-lang.choice {
+        background: url("%%prefs%%") no-repeat;
+      }
+
+      .gearIcon {
+        background: transparent url("%%settings%%") no-repeat !important;
+      }
+
+      .logout a {
+        background: url("%%logout%%") no-repeat;
+      }
+    } @else {
+      #userbarToggle,
+      #header-bottom-right .user,
+      #header-bottom-right span a {
+        color: $dark-secondary-text !important;
+      }
+
+      #header-bottom-right:hover span a {
+        color: $dark-text !important;
+      }
+
+      .pref-lang.choice {
+        background: url("%%prefs-night%%") no-repeat;
+      }
+
+      .gearIcon {
+        background: transparent url("%%settings-night%%") no-repeat !important;
+      }
+
+      .logout a {
+        background: url("%%logout-night%%") no-repeat;
+      }
+    }
+  } @else {
+    #userbarToggle,
+    #header-bottom-right .user,
+    #header-bottom-right span a {
+      color: set-text-color($primary, secondary-text) !important;
+    }
+
+    #header-bottom-right:hover span a {
+      color: set-text-color($primary, text) !important;
+    }
+
+    .pref-lang.choice {
+      background: url("%%prefs%%") no-repeat;
+    }
+
+    .gearIcon {
+      background: transparent url("%%settings%%") no-repeat !important;
+    }
+
+    .logout a {
+      background: url("%%logout%%") no-repeat;
+    }
+  }
+}
+
+// image, gradient, color-gradient, image-light
+@include header-bottom-right(true, true, true, false);
+
 @mixin userbar-buttons {
   height: em(16, 10);
   width: em(16, 10);
   color: transparent;
   display: inline-block;
-  opacity: 0.54;
+  opacity: 0.87;
   position: relative;
   text-indent: em(-9999, 10);
   @include transition-default;
 
-  &:hover { opacity: 0.87; }
+  &:hover { opacity: 1; }
 }
 
 .res #header-bottom-right {
@@ -26,27 +147,22 @@
   background-color: transparent !important;
 
   span a {
-    color: set-text-color($primary, secondary-text);
     @include transition-default;
   }
-
-  &:hover span a { color: set-text-color($primary, text); }
 }
 
-.res #userbarToggle {
+.res-nightmode #userbarToggle {
   @extend #userbarToggle;
 }
 
 #userbarToggle {
   background-color: transparent !important;
-  border: 0;
-  color: set-text-color($primary, secondary-text);
+  border: 0 !important;
 }
 
 // preferences button
 .pref-lang.choice {
   top: em(-1, 10);
-  background: url("%%prefs%%") no-repeat;
   @include userbar-buttons;
 }
 
@@ -57,7 +173,7 @@
   top: em(3, 10);
   height: em(16, 10) !important;
   width: em(16, 10) !important;
-  background: transparent url("%%settings%%") no-repeat !important;
+  opacity: 0.87;
   @include transition-default;
 
   &:hover { opacity: 1; }
@@ -180,7 +296,6 @@
 // logout button
 .logout a {
   top: em(-2, 10);
-  background: url("%%logout%%") no-repeat;
   @include userbar-buttons;
 }
 
