@@ -6,11 +6,11 @@
   line-height: em(66, 14);
 }
 
-@mixin tab-list-anchors($ripple: false, $orig-background-color: transparent, $ripple-color: $light-accent) {
+@mixin tab-list-anchors($ripple: false, $orig-background-color: transparent, $ripple-color: $light-accent, $bg-color: $primary, $text-color: set-text-color($bg-color, secondary-text), $text-color-hover: set-text-color($bg-color, text)) {
   display: inline-block;
   height: em(66, 14);
   padding: 0 em(24, 14);
-  color: set-text-color($primary, secondary-text) !important;
+  color: $text-color !important;
   font-weight: bold;
   text-transform: uppercase;
   border-bottom-color: transparent;
@@ -24,8 +24,8 @@
   &:hover {
     margin: 0;
     padding: 0 em(24, 14);
-    color: set-text-color($primary, text) !important;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    color: $text-color-hover !important;
+    // text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   }
 
   // tabmenu bottom border effect on hover
