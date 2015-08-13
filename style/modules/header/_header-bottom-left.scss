@@ -1,5 +1,90 @@
 // main: ../../main.scss
 
+@mixin header-bottom-left($image, $gradient, $image-light) {
+  @if ($image) {
+    @if ($gradient) {
+      #header-bottom-left {
+        .pagename {
+          a {
+            color: $dark-secondary-text;
+          }
+
+          &:hover a {
+            color: $dark-text;
+          }
+        }
+
+        .tabmenu li {
+          a,
+          #viewImagesButton {
+            @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
+          }
+        }
+      }
+    } @else if ($image-light) {
+      #header-bottom-left {
+        .pagename {
+          a {
+            color: $light-secondary-text;
+          }
+
+          &:hover a {
+            color: $light-text;
+          }
+        }
+
+        .tabmenu li {
+          a,
+          #viewImagesButton {
+            @include tab-list-anchors(true, transparent, $light-accent, $primary, $light-secondary-text, $light-text);
+          }
+        }
+      }
+    } @else {
+      #header-bottom-left {
+        .pagename {
+          a {
+            color: $dark-secondary-text;
+          }
+
+          &:hover a {
+            color: $dark-text;
+          }
+        }
+
+        .tabmenu li {
+          a,
+          #viewImagesButton {
+            @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
+          }
+        }
+      }
+    }
+  } @else {
+    #header-bottom-left {
+      .pagename {
+        a {
+          color: set-text-color($primary, secondary-text);
+        }
+
+        &:hover a {
+          color: set-text-color($primary, text);
+        }
+      }
+
+      .tabmenu li {
+        a,
+        #viewImagesButton {
+          @include tab-list-anchors(true);
+        }
+      }
+    }
+  }
+}
+
+// image, gradient, image-light
+@include header-bottom-left(true, true, false);
+
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
@@ -11,11 +96,6 @@
   .pagename {
     color: transparent;
 
-    // a { color: $light-secondary-text; }
-    a { color: set-text-color($primary, secondary-text); }
-
-    // &:hover a { color: $light-text; }
-    &:hover a { color: set-text-color($primary, text); }
   }
 
   // tabmenu
@@ -39,7 +119,7 @@
       // styles visible tabs
       a,
       #viewImagesButton {
-        @include tab-list-anchors(true);
+        // @include tab-list-anchors(true);
         width: initial;
       }
 
@@ -88,7 +168,7 @@
     @include transition-default;
 
     &:hover {
-      color: $light-text;
+      // color: $light-text;
       text-decoration: none;
     }
   }
