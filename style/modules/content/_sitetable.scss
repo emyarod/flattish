@@ -208,10 +208,10 @@
 
 .thing.over18 > .thumbnail.self {
 	background: url(%%nsfw%%) 0 no-repeat;
-	border-color: rgba($nsfw, 0.26);
+	border-color: rgba($nsfw, 0.54);
 
 	&:hover {
-		border-color: rgba($nsfw, 0.54);
+		border-color: rgba($nsfw, 0.87);
 	}
 }
 
