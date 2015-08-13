@@ -6,6 +6,11 @@
   @include card(18, 1, $dark-cards);
 
   .title { color: $dark-text !important; }
+
+  input[type="text"],
+  input[type="password"] {
+    color: $dark-text;
+  }
 }
 
 .linefield {
