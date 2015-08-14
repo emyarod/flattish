@@ -11,7 +11,6 @@
     &:hover { background-color: $light-app-bar; }
   }
   padding: em(16, $orig-font-size);
-  @include transition-default;
 }
 
 @mixin menu($class, $desired-font-size, $orig-font-size, $width, $nightmode: false) {
@@ -31,7 +30,6 @@
     }
     opacity: 0;
     @include drop-shadow(1);
-    @include transition-default;
 
     &.inuse {
       width: em($width, $desired-font-size);
