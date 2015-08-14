@@ -34,7 +34,7 @@
 #search {
 
 	// search label
-	&:before {
+	&::before {
 		position: absolute;
 		top: em(26, 10);
 		left: em(24, 10);
@@ -47,7 +47,7 @@
 	&:hover {
 
 		// search label hover behavior
-		&:before {
+		&::before {
 			top: em(3, 13);
 			left: em(12, 13);
 			margin: 0;
