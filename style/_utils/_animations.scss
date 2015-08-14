@@ -1,7 +1,5 @@
 // main: ../main.scss
 
-@import "mixins";
-
 // card elevation change animation
 @include keyframes(depthup) {
   0% { @include drop-shadow(0); }
