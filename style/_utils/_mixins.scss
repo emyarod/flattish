@@ -1,39 +1,5 @@
 // main: ../main.scss
 
-// dynamic text colors
-@function set-text-color($bg-color, $text-type) {
-  // if bgc is light, return dark colored text
-  @if (lightness($bg-color) > 50) {
-    @if ($text-type == text) {
-      @return $light-text;
-    } @else if ($text-type == secondary-text) or if ($text-type == icons) {
-      @return $light-secondary-text;
-    } @else if ($text-type == hint-text) or if ($text-type == disabled-text) {
-      @return $light-disabled-text;
-    } @else if ($text-type == divider-text) {
-      @return $light-divider-text;
-    }
-  // if bgc is dark, return light colored text
-  } @else if ($text-type == text) {
-    @return $dark-text;
-  } @else if ($text-type == secondary-text) or if ($text-type == icons) {
-    @return $dark-secondary-text;
-  } @else if ($text-type == hint-text) or if ($text-type == disabled-text) {
-    @return $dark-disabled-text;
-  } @else if ($text-type == divider-text) {
-    @return $dark-divider-text;
-  }
-}
-
-// dynamic gear icon
-@function set-gearIcon() {
-  @if (lightness($primary) > 50) {
-    @return transparent url("%%settings%%") no-repeat !important;
-  } @else {
-    @return transparent url("%%settings-night%%") no-repeat !important;
-  }
-}
-
 // shadows
 
 // Focus shadow mixin.
@@ -48,32 +14,32 @@
   @if $depth == 1 {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
                 0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-                0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity) !important;
+                0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
   @if $depth == 2 {
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
                 0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-                0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity) !important;
+                0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
   @if $depth == 3 {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
                 0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity) !important;
+                0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
   }
   @if $depth == 4 {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
                 0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity) !important;
+                0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
   }
   @if $depth == 5 {
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
                 0 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity) !important;
+                0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
   }
   @if $depth == 6 {
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
                 0  6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity) !important;
+                0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
   }
 }
 
@@ -145,7 +111,6 @@
   background-position: 0 0;
   background-repeat: no-repeat;
   will-change: background-position;
-  @include transition-default;
 
   &:hover {
     color: set-text-color($primary, text) !important;
