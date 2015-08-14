@@ -331,3 +331,14 @@
 .res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
 	background-color: $light-background !important;
 }
+
+// comment shading behind new comments
+.new-comment .usertext-body {
+  margin: 15px 0;
+  border-color: transparent;
+}
+
+.linklisting .md,
+.commentarea .md {
+  border: 0 !important;
+}
