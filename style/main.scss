@@ -6,23 +6,23 @@
 @import "modules/sidebar";
 @import "modules/footer";
 @import "pages/settings-page";
+@import "pages/stylesheet-page";
 @import "pages/comments-page";
 @import "pages/search-page";
 @import "pages/submit-page";
 @import "pages/top-page";
 @import "pages/compose-page";
+@import "pages/wiki-page";
 
 * {
   font-family: $font-stack;
   outline: none;
+  @include transition-default();
 }
 
 *,
 *::before,
 *::after { box-sizing: border-box; }
-
-// makes stylesheet editor full width
-.sheets { margin: 0; }
 
 body {
   background-color: $light-background;
@@ -31,9 +31,11 @@ body {
   a:link {
     color: $link-color;
 
-    &:visited {
-      color: $link-color-visited;
-    }
+    &:hover { color: $link-color-hover; }
+
+    &:active { color: $link-color-active; }
+
+    &:visited { color: $link-color-visited; }
   }
 }
 
@@ -43,9 +45,11 @@ body {
   a:link {
     color: $link-color;
 
-    &:visited {
-      color: $link-color-visited;
-    }
+    &:hover { color: $link-color-hover; }
+
+    &:active { color: $link-color-active; }
+
+    &:visited { color: $link-color-visited; }
   }
 }
 
