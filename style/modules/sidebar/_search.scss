@@ -12,6 +12,7 @@
 		background: url(%%search-night%%) no-repeat;
 
 		&:hover {
+			background: url(%%search-night%%) no-repeat;
 			opacity: 0.87;
 		}
 	}
@@ -79,9 +80,9 @@
 		opacity: 0.54;
 		position: relative;
 		background: url(%%search%%) no-repeat;
-		@include transition-default;
 
 		&:hover {
+			background: url(%%search%%) no-repeat;
 			opacity: 0.87;
 		}
 	}
@@ -97,19 +98,20 @@
 	width: em(330, 10);
 	margin: 0;
 
-	font-size: 100%;
+	font-size: 10px;
+	transition: initial;
 
 	@include card(10, 1);
 	border: 0;
 	border-radius: 0 0 em(2, 10) em(2, 10);
 
 	label {
-		font-size: 1.3em;
+		font-size: 13px;
 		text-transform: lowercase;
 	}
 
 	p {
-		font-size: 130%;
+		font-size: 13px;
 		margin-bottom: em(5, 13);
 		position: relative;
 		top: em(5, 13);
