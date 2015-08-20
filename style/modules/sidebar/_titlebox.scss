@@ -118,3 +118,41 @@
 		}
 	}
 }
+
+// subscribe button tooltip
+.res-nightmode .hover-bubble.multi-selector {
+	@include card(10, 4, $dark-cards, true);
+
+	strong {
+		color: $dark-text;
+	}
+
+	.create-multi input[type="text"] {
+		@include text-fields(true);
+	}
+}
+
+.hover-bubble.multi-selector {
+	border: 0;
+	@include card(10, 4);
+
+	&::before,
+	&::after {
+		display: none !important;
+	}
+
+	label {
+		&:hover {
+			background-color: transparent;
+		}
+
+		a {
+			height: 14px;
+			width: 14px;
+		}
+	}
+
+	.create-multi input[type="text"] {
+		@include text-fields();
+	}
+}
