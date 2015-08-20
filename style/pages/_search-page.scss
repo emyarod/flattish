@@ -30,7 +30,6 @@
 
 .combined-search-page .search-result {
   @include animate-card(12, 1);
-  @include transition-default;
   margin: 0 0 em(16, 10) 0;
 }
 
