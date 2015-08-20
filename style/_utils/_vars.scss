@@ -11,14 +11,28 @@
 }
 
 // define colors
-$primary: get-color("yellow", "500");
-$dark-primary: get-color("yellow", "700");
-$light-primary: get-color("yellow", "100");
-$accent: get-color("pink", "A200");
-$dark-accent: get-color("pink", "A400");
-$light-accent: get-color("pink", "A100");
+$primary: get-color("cyan", "500");
+$dark-primary: get-color("cyan", "700");
+$light-primary: get-color("cyan", "100");
+$accent: get-color("green", "A200");
+$dark-accent: get-color("green", "A400");
+$light-accent: get-color("green", "A100");
 $black: #000;
 $white: #fff;
+
+// link color
+$link-color: $primary;
+$link-color-hover: get-color("cyan", "300");
+$link-color-active: $dark-primary;
+$link-color-visited: get-color("cyan", "900");
+
+$upvote: get-color("deep-orange", "500");
+$downvote: get-color("blue", "500");
+$nsfw: get-color("red", "A200");
+$tooltip: rgba(get-color("grey", "700"), 0.9);
+$error: rgb(222, 55, 38);
+
+$font-stack: "Arial", sans-serif;
 
 // shadows
 $shadow-key-umbra-opacity: 0.2;
@@ -76,20 +90,3 @@ $screen-xs-min: em(480, 16);
 $screen-sm-min: em(768, 16);
 $screen-md-min: em(992, 16);
 $screen-lg-min: em(1200, 16);
-
-// link color (can be any hue from color list)
-$link-color: get-color("indigo", "500");
-$link-color-visited: get-color("purple", "500");
-
-// :link
-// :hover
-// :active
-// :visited
-
-$font-stack: "Arial", sans-serif;
-
-$upvote: get-color("deep-orange", "500");
-$downvote: get-color("blue", "500");
-$nsfw: get-color("red", "A200");
-$tooltip: rgba(get-color("grey", "700"), .9);
-$error: rgb(222, 55, 38);
