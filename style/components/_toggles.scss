@@ -32,8 +32,8 @@
 
 // &:checked + label::before
 @mixin checkbox-checked {
-  border-color: get-color("green", "500");
-  background: get-color("green", "500") url(%%tick%%) no-repeat scroll 0% 60%;
+  border-color: $primary;
+  background: $primary url(%%tick%%) no-repeat scroll 0% 60%;
   @include transition-default;
 }
 
@@ -92,4 +92,57 @@
     border-color: $light-disabled-text;
   }
   cursor: auto;
+}
+
+// RES toggle switches
+.res-nightmode .toggleButton {
+  background-color: $dark-hint-text;
+
+  &.enabled { background-color: $dark-primary; }
+
+  // off
+  &:not(.enabled)::before {
+    background-color: $dark-background;
+  }
+
+  // on
+  &.enabled::before { background-color: $light-primary; }
+}
+
+.toggleButton {
+  max-width: em(36, 10);
+  max-height: em(14, 10);
+  border-radius: em(14, 10);
+  background-color: $light-hint-text;
+
+  &.enabled { background-color: $primary; }
+
+  // circular thumb switch
+  &::before {
+    top: 2px !important;
+    height: em(20, 10);
+    width: em(20, 10);
+    border: 0 !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    @include drop-shadow(1);
+  }
+
+  // off
+  &:not(.enabled)::before {
+    left: 0 !important;
+    background-color: $light-background;
+  }
+
+  // on
+  &.enabled::before {
+    left: unset !important;
+    right: 0 !important;
+    background-color: $dark-primary;
+    opacity: 1 !important;
+  }
+
+  // hide RES default button styles
+  .toggleOn,
+  .toggleOff { display: none; }
 }
