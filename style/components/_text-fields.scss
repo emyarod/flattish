@@ -4,18 +4,17 @@
   border: 0;
 
   @if ($nightmode) {
-    color: $dark-text;
+    color: $dark-text !important;
   } else {
     color: $light-text;
   }
 
   font-family: $font-stack;
   border-style: solid;
-  background-color: transparent;
+  background-color: transparent !important;
   box-shadow: none;
   @include border-width(0 0 1px);
   @include border-color(transparent transparent get-color("grey", "600"));
-  @include transition-default;
 
   &:focus {
     border-bottom-color: $accent;
@@ -29,6 +28,11 @@
   right: em(16, 10) !important; // thx RES
 }
 
+.res-nightmode .RESMacroDropdown {
+  border: 0;
+  background-color: $dark-cards !important;
+}
+
 .RESMacroDropdown {
   display: block;
   margin: 0;
@@ -37,7 +41,6 @@
   border-radius: em(2, 10);
   background-color: $light-cards;
   @include drop-shadow(1);
-  @include transition-default;
 }
 
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
@@ -48,10 +51,16 @@
   @include animation(RESmenuopen 0.2s $animation-curve-default);
 }
 
+.res-nightmode .RESMacroDropdownList li a {
+  border: 0;
+  color: $dark-text !important;
+
+  &:hover { background-color: $dark-app-bar !important; }
+}
+
 .RESMacroDropdownList li a {
   color: $light-text !important; // thx RES
   padding: em(16, 10) !important; // thx RES
-  @include transition-default;
 
   &:hover { background-color: $light-app-bar !important;  } // thx RES
 }
@@ -61,16 +70,30 @@
 }
 
 // live preview
+.res-nightmode .RESDialogSmall.livePreview {
+
+  & > h3 {
+    background-color: $primary;
+    color: set-text-color($primary, text);
+  }
+
+  .md.RESDialogContents p {
+    color: $dark-text;
+  }
+}
+
 .RESDialogSmall.livePreview {
 
   // offset box-sizing
   & > h3 {
     height: 40px;
     background-color: $primary;
-    color: $dark-text;
   }
 
-  .gearIcon { position: static; }
+  .gearIcon {
+    position: static;
+    background: set-gearIcon();
+  }
 
   .md.RESDialogContents {
     padding: 16px;
