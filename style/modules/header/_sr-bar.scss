@@ -1,7 +1,6 @@
 // main: ../../main.scss
 
-@mixin sr-bar($image, $gradient, $color-gradient, $image-light) {
-  // if there is a header image
+@mixin sr-bar($image, $image-light) {
   @if ($image) {
     .res-nightmode #sr-header-area {
       background-color: transparent !important;
@@ -11,34 +10,7 @@
       background-color: transparent;
     }
 
-    // set dynamic color for color gradient
-    @if ($gradient) {
-      @if ($color-gradient) {
-        #sr-header-area {
-          .dropdown.srdrop {
-            .selected {
-              // replace "my subreddits" with burger
-              background: none;
-              @include burger(em(20, 10), em(2, 10), em(4, 10), 0, set-text-color($primary, hint-text));
-            }
-
-            // change burger color on mouseover
-            &:hover {
-              .selected,
-              .selected::after,
-              .selected::before { background-color: set-text-color($primary, icons); }
-            }
-          }
-
-          .sr-bar a,
-          .separator { color: set-text-color($primary, secondary-text); }
-
-          &:hover .sr-bar a,
-          .separator { color: set-text-color($primary, text); }
-        }
-      }
-    // set text color based on image lightness
-    } @else if ($image-light) {
+    @if ($image-light) {
       #sr-header-area {
         .dropdown.srdrop {
           .selected {
@@ -85,8 +57,6 @@
         .separator { color: $dark-text; }
       }
     }
-
-  // no header image
   } @else {
     .res-nightmode #sr-header-area {
       background-color: rgba($light-primary, 0.3) !important;
@@ -94,12 +64,33 @@
 
     #sr-header-area {
       background-color: rgba($light-primary, 0.3);
+
+      .dropdown.srdrop {
+        .selected {
+          // replace "my subreddits" with burger
+          background: none;
+          @include burger(em(20, 10), em(2, 10), em(4, 10), 0, set-text-color($primary, hint-text));
+        }
+
+        // change burger color on mouseover
+        &:hover {
+          .selected,
+          .selected::after,
+          .selected::before { background-color: set-text-color($primary, icons); }
+        }
+      }
+
+      .sr-bar a,
+      .separator { color: set-text-color($primary, secondary-text); }
+
+      &:hover .sr-bar a,
+      .separator { color: set-text-color($primary, text); }
     }
   }
 }
 
-// image, gradient, color-gradient, image-light
-@include sr-bar(true, true, true, false);
+// image, image-light
+@include sr-bar(true, false);
 
 .res-nightmode #sr-header-area {
   @include menu(srdrop, 10, 10, 240, true);
@@ -111,7 +102,6 @@
   border: 0;
   font-size: 10px;
   line-height: em(10, 10);
-  @include transition-default;
 
   // positions text
   .sr-list {
@@ -121,7 +111,6 @@
 
   // anchor opacity
   .sr-bar a {
-    @include transition-default;
   }
 
   // "my subreddits" menu button
