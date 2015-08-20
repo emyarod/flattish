@@ -6,7 +6,6 @@
 // vote arrow/score column & thumbnail margin
 .midcol {
 	@include margin(null em(16, 13) null 0);
-	// width: em(24, 13) !important;
 	width: em(32, 13) !important; // ;_; gotta override inline styling
 }
 
@@ -17,25 +16,23 @@
 	width: em(24, 13) !important;
 
 	&.upmod {
-		background-image: url(%%upvote-pressed%%) !important;
-		background-position: 0 50% !important;
+		background: url(%%upvote-pressed%%) no-repeat 0 50% !important;
 	}
 
 	&.downmod {
-		background-image: url(%%downvote-pressed%%) !important;
-		background-position: 0 50% !important;
+		background: url(%%downvote-pressed%%) no-repeat 0 50% !important;
+
 	}
 
 	&.up,
 	&.up:hover {
-		background-image: url(%%upvote-night%%) !important;
-		background-position: 0 50% !important;
+		background: url(%%upvote-night%%) no-repeat 0 50% !important;
+
 	}
 
 	&.down,
 	&.down:hover {
-		background-image: url(%%downvote-night%%) !important;
-		background-position: 0 50% !important;
+		background: url(%%downvote-night%%) no-repeat 0 50% !important;
 	}
 }
 
@@ -45,23 +42,19 @@
 	width: em(24, 13);
 
 	&.upmod {
-		background-image: url(%%upvote-pressed%%);
-		background-position: 0 50%;
+		background: url(%%upvote-pressed%%) no-repeat 0 50%;
 	}
 
 	&.downmod {
-		background-image: url(%%downvote-pressed%%);
-		background-position: 0 50%;
+		background: url(%%downvote-pressed%%) no-repeat 0 50%;
 	}
 
 	&.up {
-		background-image: url(%%upvote%%);
-		background-position: 0 50%;
+		background: url(%%upvote%%) no-repeat 0 50%;
 	}
 
 	&.down {
-		background-image: url(%%downvote%%);
-		background-position: 0 50%;
+		background: url(%%downvote%%) no-repeat 0 50%;
 	}
 }
 
@@ -74,9 +67,13 @@
 		@include card(10, 1, $dark-cards, true);
 
 		.title {
-			color: $primary !important;
+			color: $link-color !important;
 
-			&:visited { color: $accent !important; }
+	    &:hover { color: $link-color-hover !important; }
+
+	    &:active { color: $link-color-active !important; }
+
+	    &:visited { color: $link-color-visited !important; }
 		}
 
 		.domain,
@@ -103,7 +100,7 @@
 	&>.likes .score,
 	&>.dislikes .score,
 	&>.thing .score {
-		font-size: em(14, 13);
+		font-size: 14px;
 		position: relative;
 	}
 
@@ -111,20 +108,16 @@
 	&>.thing {
 		@include animation(papersplit 5s ease-out);
 		@include card(10, 1);
-		@include transition-default;
 		height: auto !important;
 		margin-bottom: em(16, 10);
-
-		// remove padding from topmost post
-		&:first-of-type {
-			// padding-top: 0;
-		}
 
 		.title {
 			color: $link-color;
 			line-height: 1.35;
 			margin: 0;
 
+			&:hover { color: $link-color-hover; }
+			&:active { color: $link-color-active; }
 			&:visited { color: $link-color-visited; }
 		}
 
@@ -153,11 +146,11 @@
 	}
 
 	&.self {
-		background: url(%%thumbnail-self-night%%) 0 no-repeat;
+		background: url(%%thumbnail-self-night%%) no-repeat;
 	}
 
 	&.default {
-		background: url(%%thumbnail-default-night%%) 0 no-repeat;
+		background: url(%%thumbnail-default-night%%) no-repeat;
 	}
 }
 
@@ -167,7 +160,6 @@
 	font-size: inherit;
 	margin: 0 em(16, 10) 0 0;
 	max-height: em(70, 10);
-	@include transition-default;
 
 	&:hover {
 		border-color: $light-secondary-text;
@@ -177,7 +169,7 @@
 		// height: auto;
 		height: em(70, 10);
 		width: auto;
-		max-height: em(70, 10);
+		// max-height: em(70, 10);
 	}
 
 	&.self,
@@ -188,17 +180,17 @@
 	}
 
 	&.self {
-		background: url(%%thumbnail-self%%) 0 no-repeat;
+		background: url(%%thumbnail-self%%) no-repeat;
 	}
 
 	&.default {
-		background: url(%%thumbnail-default%%) 0 no-repeat;
+		background: url(%%thumbnail-default%%) no-repeat;
 	}
 }
 
 // nsfw thumbnail styling
 .res-nightmode .thing.over18 > .thumbnail.self {
-	background: url(%%nsfw-night%%) 0 no-repeat;
+	background: url(%%nsfw-night%%) no-repeat;
 	border-color: rgba($nsfw, 0.7) !important;
 
 	&:hover {
@@ -207,7 +199,7 @@
 }
 
 .thing.over18 > .thumbnail.self {
-	background: url(%%nsfw%%) 0 no-repeat;
+	background: url(%%nsfw%%) no-repeat;
 	border-color: rgba($nsfw, 0.54);
 
 	&:hover {
@@ -246,7 +238,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play-night%%) 0 no-repeat !important; }
+		&.expanded:hover { background: url(%%play-night%%) no-repeat !important; }
 	}
 
 	// image expandos
@@ -257,7 +249,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera-night%%) 0 no-repeat !important; // ;_; thx res
+			background: url(%%camera-night%%) no-repeat !important; // ;_; thx res
 		}
 	}
 
@@ -267,7 +259,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text-night%%) 0 no-repeat !important; }
+		&.expanded:hover { background: url(%%text-night%%) no-repeat !important; }
 	}
 }
 
@@ -282,7 +274,6 @@
 	border-radius: em(2, 10);
 	cursor: pointer;
 	opacity: 0.54;
-	@include transition-default;
 
 	&:hover {
 		border-color: $light-secondary-text;
@@ -335,7 +326,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play%%) 0 no-repeat; }
+		&.expanded:hover { background: url(%%play%%) no-repeat; }
 	}
 
 	// image expandos
@@ -346,7 +337,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera%%) 0 no-repeat !important; // ;_; thx res
+			background: url(%%camera%%) no-repeat !important; // ;_; thx res
 		}
 	}
 
@@ -356,7 +347,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text%%) 0 no-repeat; }
+		&.expanded:hover { background: url(%%text%%) no-repeat; }
 	}
 }
 
@@ -422,73 +413,7 @@
 
 .entry .buttons li a {
 	color: $light-secondary-text;
-//
-// 	&:not(.comments):not(.flairselectbtn):not(.yes):not(.no) {
-// 		display: inline-block;
-// 		text-indent: -9999em;
-// 		color: transparent;
-// 	}
 }
-
-// // set width of share, report, save, remove, and nsfw/un-nsfw buttons
-// .share a,
-// .report-button a,
-// .link-save-button a,
-// .remove-button input[value="removed"] ~ span > a,
-// .marknsfw-button input[value="marked"] ~ span > a,
-// .unmarknsfw-button input[value="unmarked"] ~ span > a {
-// 	width: em(14, 12);
-// }
-//
-// // set width of delete and remove icons
-// .del-button span > a,
-// .remove-button input[value="spammed"] ~ span > a {
-// 	width: em(12, 12);
-// }
-//
-// // share, save/unsave, report
-// @each $link-button in share, link-save-button, link-unsave-button, report-button {
-// 	.#{$link-button} a { background: url(%%#{$link-button}%%) 0 no-repeat; }
-// }
-//
-// // hide and unhide
-// @each $link-buttons in hide, unhide {
-// 	.hide-button span > a[action="#{$link-buttons}"] {
-// 		width: em(16, 12); // width of hide/unhide icons
-// 		background: url(%%#{$link-buttons}%%) 0 no-repeat;
-// 	}
-// }
-//
-// // spam
-// .remove-button input[value="spammed"] ~ span > a { background: url(%%spam%%) 0 no-repeat; }
-//
-// // delete
-// .del-button span > a { background: url(%%delete%%) 0 no-repeat; }
-//
-// // remove
-// .remove-button input[value="removed"] ~ span > a { background: url(%%remove%%) 0 no-repeat; }
-//
-// // nsfw
-// .marknsfw-button input[value="marked"] ~ span > a { background: url(%%marked-nsfw%%) 0 no-repeat; }
-//
-// // un-nsfw
-// .unmarknsfw-button input[value="unmarked"] ~ span > a { background: url(%%unmarked-nsfw%%) 0 no-repeat; }
-//
-// // remove images from yes/no for delete, remove, and nsfw buttons
-// .del-button span > a,
-// .remove-button input[value="removed"] ~ span > a,
-// .unmarknsfw-button input[value="unmarked"] ~ span > a {
-// 	&.yes,
-// 	&.no {
-// 		background: none;
-// 	}
-// }
-//
-// // approve post button
-// .approve-button span > a {
-// 	width: em(15, 12);
-// 	background: url(%%approve%%) 0 no-repeat;
-// }
 
 .error {
 	color: $error;
