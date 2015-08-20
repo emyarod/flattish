@@ -95,7 +95,6 @@
   // nested to avoid body:link styling
   .pagename {
     color: transparent;
-
   }
 
   // tabmenu
@@ -136,6 +135,12 @@
   }
 }
 
+.res-nightmode #header-bottom-left .tabmenu li.selected a {
+  border-bottom-color: $accent;
+  border-bottom-style: solid;
+  @include border-width(0 0 em(2, 14) 0);
+}
+
 // snooface
 #header-img,
 #header-img.default-header {
@@ -146,7 +151,6 @@
   padding-right: em(35, 14); // makes space for snoo visibility
 
   background: url(%%snoo-color%%) no-repeat;
-  @include transition-default;
 }
 
 // subreddit name
@@ -165,10 +169,7 @@
     line-height: em(53, 16);
     text-transform: lowercase;
 
-    @include transition-default;
-
     &:hover {
-      // color: $light-text;
       text-decoration: none;
     }
   }
