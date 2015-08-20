@@ -1,52 +1,28 @@
 // main: ../../main.scss
 
-@mixin header-bottom-right($image, $gradient, $color-gradient, $image-light) {
+@mixin header-bottom-right($image, $gradient, $image-light) {
   @if ($image) {
     @if ($gradient) {
-      @if ($color-gradient) {
-        #userbarToggle,
-        #header-bottom-right .user,
-        #header-bottom-right span a {
-          color: set-text-color($primary, secondary-text) !important;
-        }
+      #userbarToggle,
+      #header-bottom-right .user,
+      #header-bottom-right span a {
+        color: $dark-secondary-text !important;
+      }
 
-        #header-bottom-right:hover span a {
-          color: set-text-color($primary, text) !important;
-        }
+      #header-bottom-right:hover span a {
+        color: $dark-text !important;
+      }
 
-        .pref-lang.choice {
-          background: url("%%prefs%%") no-repeat;
-        }
+      .pref-lang.choice {
+        background: url("%%prefs-night%%") no-repeat;
+      }
 
-        .gearIcon {
-          background: transparent url("%%settings%%") no-repeat !important;
-        }
+      .gearIcon {
+        background: transparent url("%%settings-night%%") no-repeat !important;
+      }
 
-        .logout a {
-          background: url("%%logout%%") no-repeat;
-        }
-      } @else {
-        #userbarToggle,
-        #header-bottom-right .user,
-        #header-bottom-right span a {
-          color: $dark-secondary-text !important;
-        }
-
-        #header-bottom-right:hover span a {
-          color: $dark-text !important;
-        }
-
-        .pref-lang.choice {
-          background: url("%%prefs-night%%") no-repeat;
-        }
-
-        .gearIcon {
-          background: transparent url("%%settings-night%%") no-repeat !important;
-        }
-
-        .logout a {
-          background: url("%%logout-night%%") no-repeat;
-        }
+      .logout a {
+        background: url("%%logout-night%%") no-repeat;
       }
     } @else if ($image-light) {
       #userbarToggle,
@@ -118,8 +94,8 @@
   }
 }
 
-// image, gradient, color-gradient, image-light
-@include header-bottom-right(true, true, true, false);
+// image, gradient, image-light
+@include header-bottom-right(true, true, false);
 
 @mixin userbar-buttons {
   height: em(16, 10);
@@ -129,7 +105,6 @@
   opacity: 0.87;
   position: relative;
   text-indent: em(-9999, 10);
-  @include transition-default;
 
   &:hover { opacity: 1; }
 }
@@ -145,10 +120,6 @@
   margin-right: em(16, 10);
   padding: 0;
   background-color: transparent !important;
-
-  span a {
-    @include transition-default;
-  }
 }
 
 .res-nightmode #userbarToggle {
@@ -174,7 +145,6 @@
   height: em(16, 10) !important;
   width: em(16, 10) !important;
   opacity: 0.87;
-  @include transition-default;
 
   &:hover { opacity: 1; }
 }
@@ -184,7 +154,6 @@
   background-color: transparent !important;
   border: 0 !important;
   top: em(35, 10) !important; // also positions gear icon when hovered
-  @include transition-default;
 }
 
 // RES settings dropdown menu
@@ -235,62 +204,6 @@
 #RESSearchMenuItem {
   background: url(%%search%%) no-repeat !important;
   border: 0 !important;
-  @include transition-default;
-}
-
-// RES toggle switches
-.res-nightmode .toggleButton {
-  background-color: $dark-hint-text;
-
-  &.enabled { background-color: $dark-primary; }
-
-  // off
-  &:not(.enabled)::before {
-    background-color: $dark-background;
-  }
-
-  // on
-  &.enabled::before { background-color: $light-primary; }
-}
-
-.toggleButton {
-  max-width: em(36, 10);
-  max-height: em(14, 10);
-  border-radius: em(14, 10);
-  background-color: $light-hint-text;
-  @include transition-default;
-
-  &.enabled { background-color: $primary; }
-
-  // circular thumb switch
-  &::before {
-    top: 2px !important;
-    height: em(20, 10);
-    width: em(20, 10);
-    border: 0 !important;
-    border-radius: 50% !important;
-    opacity: 1 !important;
-    @include drop-shadow(1);
-    @include transition-default;
-  }
-
-  // off
-  &:not(.enabled)::before {
-    left: 0 !important;
-    background-color: $light-background;
-  }
-
-  // on
-  &.enabled::before {
-    left: unset !important;
-    right: 0 !important;
-    background-color: $dark-primary;
-    opacity: 1 !important;
-  }
-
-  // hide RES default button styles
-  .toggleOn,
-  .toggleOff { display: none; }
 }
 
 // logout button
@@ -365,7 +278,6 @@
       border-style: solid;
       border-width: em(5, 10) em(8, 10) 0 em(8, 10);
       border-color: get-color("light-blue", "800") transparent transparent transparent;
-      @include transition-default;
     }
 
     // right triangle
@@ -435,7 +347,7 @@
     padding: em(2, 1);
     color: $light-text;
     content: "created by /u/fiveseven_";
-    font-size: 1px; // need pixel value for chrome, nonres..why?
+    font-size: 1px;
     line-height: 1.35;
     background-color: #fff;
     @include animation(first-letterslide 3s $animation-curve-default 2s);
