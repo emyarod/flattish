@@ -29,14 +29,13 @@ ul.tabmenu.formtab {
       width: 50%;
       text-align: center;
       background-color: $light-cards;
-      @include tab-list-anchors();
-      @include transition-default;
+      @include tab-list-anchors(false, transparent, $light-accent, $light-cards);
     }
 
     &.selected a {
       margin: 0;
       padding: 0 em(24, 14);
-      color: set-text-color($primary, text);
+      color: set-text-color($primary, text) !important;
       font-size: inherit;
       background-color: $primary;
       border-bottom-color: $primary;
