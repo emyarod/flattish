@@ -1,24 +1,44 @@
 // main: ../main.scss
 
-// animate header
-@include keyframes(moveheader) {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
+@mixin header($large: false, $animate: false) {
+  @if ($large) {
+    #header {
+      height: 420px;
+    }
+  } @else {
+    #header {
+      height: 223px;
+    }
+  }
+
+  @if ($animate) {
+    // animate header
+    @include keyframes(moveheader) {
+      0% { background-position: 0 0; }
+      50% { background-position: 100% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    #header {
+      @include animation(moveheader 20s infinite);
+    }
+  }
 }
 
+@include header();
+
 #header {
-  // height: em(200, 10);
-  height: em(223, 10);
+  // height: em(223, 10);
   border: 0;
   // background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
-  background: transparent linear-gradient(to right, $primary, $light-accent, $primary, $light-accent) repeat scroll 0% 0% / 600% 100%;
-  // background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0, 0, 0, 0.57) 100%), linear-gradient(to right, $primary, $light-accent, $primary, $light-accent);
-  // background-repeat: repeat;
-  // background-position: 0% 0%;
-  // background-size: 100%, 600% 100%;
+  // background: transparent linear-gradient(to right, $primary, $light-accent, $primary, $light-accent) repeat scroll 0% 0% / 600% 100%;
+
+  background-image:
+    // linear-gradient(to bottom, transparent 0%, rgba(72, 76, 97, 0.8) 75%),
+    linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 75%),
+    // linear-gradient(-45deg, rgba($light-primary, 0.5) 0%, rgba($light-accent, 0.5) 100%),
+    url(%%header3%%);
   margin-bottom: em(15, 10);
-  @include animation(moveheader 20s infinite);
 }
 
 @media (min-width: $screen-md-min) {
@@ -34,7 +54,6 @@
     left: -12.5%;
   }
 }
-
 
 @import "header/sr-bar";
 @import "header/header-bottom-right";
