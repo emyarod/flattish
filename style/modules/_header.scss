@@ -32,7 +32,7 @@
   border: 0;
   // background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
   // background: transparent linear-gradient(to right, $primary, $light-accent, $primary, $light-accent) repeat scroll 0% 0% / 600% 100%;
-
+  background-attachment: scroll, fixed;
   background-image:
     // linear-gradient(to bottom, transparent 0%, rgba(72, 76, 97, 0.8) 75%),
     linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 75%),
