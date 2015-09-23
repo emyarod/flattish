@@ -27,19 +27,19 @@
 }
 
 // sitetable post animation
-@include keyframes(papersplit) {
-  0% { margin-bottom: 0; }
-  30% { margin-bottom: 0; }
-  40% { margin-bottom: em(16, 10); }
-  50% {
-    @include drop-shadow(0);
-    border-radius: 0;
-  }
-  100% {
-    @include drop-shadow(1);
-    border-radius: em(2, 10);
-  }
-}
+// @include keyframes(papersplit) {
+//   0% { margin-bottom: 0; }
+//   30% { margin-bottom: 0; }
+//   40% { margin-bottom: em(16, 10); }
+//   50% {
+//     @include drop-shadow(0);
+//     border-radius: 0;
+//   }
+//   100% {
+//     @include drop-shadow(1);
+//     border-radius: em(2, 10);
+//   }
+// }
 
 // selftext expando animation
 @include keyframes(slide-down) {

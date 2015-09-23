@@ -106,7 +106,7 @@
 
 	// individual post listings
 	&>.thing {
-		@include animation(papersplit 5s ease-out);
+		// @include animation(papersplit 5s ease-out);
 		@include card(10, 1);
 		height: auto !important;
 		margin-bottom: em(16, 10);
