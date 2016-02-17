@@ -1,4 +1,8 @@
 // main: ../../main.scss
+#sr-header-area .sr-bar a,
+#sr-header-area .separator {
+  text-shadow: $text-shadow;
+}
 
 @mixin sr-bar($image, $image-light) {
   @if ($image) {
@@ -28,10 +32,16 @@
         }
 
         .sr-bar a,
-        .separator { color: $light-secondary-text; }
+        .separator {
+          color: $light-secondary-text;
+        }
 
-        &:hover .sr-bar a,
-        .separator { color: $light-text; }
+        &:hover {
+          .sr-bar a,
+          .separator {
+            color: $light-text;
+          }
+        }
       }
     } @else {
       #sr-header-area {
@@ -51,10 +61,16 @@
         }
 
         .sr-bar a,
-        .separator { color: $dark-secondary-text; }
+        .separator {
+          color: $dark-secondary-text;
+        }
 
-        &:hover .sr-bar a,
-        .separator { color: $dark-text; }
+        &:hover {
+          .sr-bar a,
+          .separator {
+            color: $dark-text;
+          }
+        }
       }
     }
   } @else {
@@ -81,10 +97,14 @@
       }
 
       .sr-bar a,
-      .separator { color: set-text-color($primary, secondary-text); }
+      .separator {
+        color: set-text-color($primary, secondary-text);
+      }
 
       &:hover .sr-bar a,
-      .separator { color: set-text-color($primary, text); }
+      .separator {
+        color: set-text-color($primary, text);
+      }
     }
   }
 }
