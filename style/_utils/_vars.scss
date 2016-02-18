@@ -26,13 +26,13 @@ $white: #fff;
 // $link-color-active: darken($link-color, 20%);
 // $link-color-visited: get-color("deep-purple", "500");
 
-$link-color: $primary;
-$link-color-hover: $light-primary;
-$link-color-active: $dark-primary;
-$link-color-visited: get-color("deep-purple", "500");
+$link-color: get-color('blue', '500');
+$link-color-hover: get-color('blue', '300');
+$link-color-active: get-color('blue', '700');
+$link-color-visited: get-color('deep-purple', '300');
 
 $upvote: get-color("deep-orange", "500");
-$downvote: get-color("blue", "500");
+$downvote: get-color("indigo", "500");
 $nsfw: get-color("red", "A200");
 $tooltip: rgba(get-color("grey", "700"), 0.9);
 $error: rgb(222, 55, 38);
@@ -57,7 +57,7 @@ $light-divider-text: rgba($black, 0.12);
 $light-disabled-text: rgba($black, 0.38);
 $light-hint-text: rgba($black, 0.38);
 $light-secondary-text: rgba($black, 0.54);
-$light-icons: rgba($black, 0.54);
+$light-icons: rgba($black, 0.38);
 $light-text: rgba($black, 0.87);
 
 // dark theme
@@ -71,7 +71,7 @@ $dark-divider-text: rgba($white, 0.12);
 $dark-disabled-text: rgba($white, 0.5);
 $dark-hint-text: rgba($white, 0.5);
 $dark-secondary-text: rgba($white, 0.7);
-$dark-icons: rgba($white, 0.7);
+$dark-icons: rgba($white, 0.38);
 $dark-text: rgba($white, 1);
 
 // buttons
