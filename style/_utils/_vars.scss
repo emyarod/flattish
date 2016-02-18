@@ -21,11 +21,6 @@ $black: #000;
 $white: #fff;
 
 // link color
-// $link-color: get-color('indigo', '500');
-// $link-color-hover: lighten($link-color, 20%);
-// $link-color-active: darken($link-color, 20%);
-// $link-color-visited: get-color('deep-purple', '500');
-
 $link-color: get-color('blue', '500');
 $link-color-hover: get-color('blue', '300');
 $link-color-active: get-color('blue', '700');
@@ -44,7 +39,7 @@ $shadow-key-umbra-opacity: 0.2;
 $shadow-key-penumbra-opacity: 0.14;
 $shadow-ambient-shadow-opacity: 0.12;
 $text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-// $text-shadow-alt: 1px 1px 3px rgba(0, 0, 0, 0.75);
+// $text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
 
 // light theme
 $light-status-bar: get-color('grey', '300');
@@ -89,7 +84,6 @@ $dark-button-disabled: $dark-disabled-text;
 $animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
 $animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
 $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
-
 $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 // mediaquery break points
