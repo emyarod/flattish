@@ -1,5 +1,12 @@
 // main: ../../main.scss
 
+#userbarToggle,
+#header-bottom-right .user,
+#header-bottom-right span a,
+#header-bottom-right:hover span a {
+  text-shadow: $text-shadow;
+}
+
 @mixin header-bottom-right($image, $gradient, $image-light) {
   @if ($image) {
     @if ($gradient) {
