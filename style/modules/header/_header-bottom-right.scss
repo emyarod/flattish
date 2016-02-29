@@ -182,12 +182,12 @@
 .res-nightmode .RESDropdownList li {
   @include menu-items(10, true);
 
-  &:hover a { background-color: $dark-app-bar; }
+  &:hover a { background-color: $dark-app-bar !important; }
 
   a {
     color: $dark-text !important;
 
-    &:hover { background-color: $dark-app-bar; }
+    &:hover { background-color: $dark-app-bar !important; }
   }
 }
 
