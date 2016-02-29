@@ -110,39 +110,40 @@
 }
 
 .toggleButton {
+  top: 10px;
   max-width: em(36, 10);
   max-height: em(14, 10);
   border-radius: em(14, 10);
   background-color: $light-hint-text;
 
   &.enabled { background-color: $primary; }
-
-  // circular thumb switch
-  &::before {
-    top: 2px !important;
-    height: em(20, 10);
-    width: em(20, 10);
-    border: 0 !important;
-    border-radius: 50% !important;
-    opacity: 1 !important;
-    @include drop-shadow(1);
-  }
-
-  // off
-  &:not(.enabled)::before {
-    left: 0 !important;
-    background-color: $light-background;
-  }
-
-  // on
-  &.enabled::before {
-    left: unset !important;
-    right: 0 !important;
-    background-color: $dark-primary;
-    opacity: 1 !important;
-  }
-
-  // hide RES default button styles
-  .toggleOn,
-  .toggleOff { display: none; }
+//
+//   // circular thumb switch
+//   &::before {
+//     top: 2px !important;
+//     height: em(20, 10);
+//     width: em(20, 10);
+//     border: 0 !important;
+//     border-radius: 50% !important;
+//     opacity: 1 !important;
+//     @include drop-shadow(1);
+//   }
+//
+//   // off
+//   &:not(.enabled)::before {
+//     left: 0 !important;
+//     background-color: $light-background;
+//   }
+//
+//   // on
+//   &.enabled::before {
+//     left: unset !important;
+//     right: 0 !important;
+//     background-color: $dark-primary;
+//     opacity: 1 !important;
+//   }
+//
+//   // hide RES default button styles
+//   .toggleOn,
+//   .toggleOff { display: none; }
 }
