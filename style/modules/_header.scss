@@ -1,6 +1,7 @@
 // main: ../main.scss
 
 @mixin header($gradient: false, $large: false, $animate: false) {
+  // gradient
   @if ($gradient) {
     #header {
       background-attachment: scroll, fixed;
@@ -14,6 +15,7 @@
     }
   }
 
+  // large
   @if ($large) {
     #header {
       height: 420px;
@@ -24,8 +26,8 @@
     }
   }
 
+  // animate header
   @if ($animate) {
-    // animate header
     @include keyframes(moveheader) {
       0% { background-position: 0 0; }
       50% { background-position: 100% 0; }
@@ -38,12 +40,11 @@
   }
 }
 
+// gradient, large, animate
 @include header();
 
 #header {
   border: 0;
-  // background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
-  // background: transparent linear-gradient(to right, $primary, $light-accent, $primary, $light-accent) repeat scroll 0% 0% / 600% 100%;
   margin-bottom: em(15, 10);
 }
 
