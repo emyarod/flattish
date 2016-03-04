@@ -1,20 +1,11 @@
 // main: ../main.scss
 
 // thread subscribe/unsubscribe button
-@each $prefix, $color, $width in (subscribe, green, initial),
-                                 (unsubscribe, red, 89px) {
-  #REScommentSubToggle {
-    &[title^="#{$prefix}"] {
-      @include flat-button-colored-text(10, 10, get-color("#{$color}", "500"));
-      width: $width;
-    }
-  }
+#REScommentSubToggle {
+  @include flat-button-colored-text(12, 12, get-color('green', '500'));
 
-  .res-nightmode #REScommentSubToggle {
-    &[title^="#{$prefix}"] {
-      @include flat-button-colored-text(10, 10, get-color("#{$color}", "500"), true);
-      width: $width;
-    }
+  &.unsubscribe {
+    color: get-color('red', '500');
   }
 }
 
@@ -30,7 +21,7 @@
   }
 
   &> .usertext {
-    @include animate-card(13, 1, $dark-cards, true);
+    @include card(13, 1, $dark-cards, true);
   }
 }
 
@@ -43,7 +34,7 @@
     width: 100%;
   }
 
-  // # of comments and thread subscribe button
+  // # of comments and thread subscribe button area
   .panestack-title {
     position: absolute;
     padding: 16px 0 0 16px;
@@ -80,7 +71,7 @@
 
   &> .usertext {
     @include margin(null null em(16, 13) 0);
-    @include animate-card(13, 1);
+    @include card(13, 1);
   }
 }
 
@@ -225,7 +216,7 @@
 
 .res-nightmode .linkinfo {
   color: $dark-text !important;
-  @include animate-card(13, 1, $light-accent, true);
+  @include card(13, 1, $light-accent, true);
 
   .shortlink input {
     color: $dark-text;
@@ -239,7 +230,7 @@
   border: 0;
   color: $light-text;
   font-size: em(13, 10);
-  @include animate-card(13, 1, $light-accent);
+  @include card(13, 1, $light-accent);
 
   .shortlink input { width: unset; }
 }
