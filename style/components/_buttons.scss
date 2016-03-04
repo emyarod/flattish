@@ -25,7 +25,7 @@
 }
 
 // default flat button transparent bg
-@mixin default-flat-button($desired-font-size, $orig-font-size, $nightmode: false) {
+@mixin default-flat-button($desired-font-size, $orig-font-size, $nightmode: false, $color: $light-text) {
 	@include button($desired-font-size, $orig-font-size);
 
 	@if ($nightmode) {
@@ -44,7 +44,7 @@
 			background-color: $dark-button-active !important;
 		}
 	} @else {
-		color: $light-text;
+		color: $color;
 
 		&:hover {
 			background-color: $light-button-hover;
@@ -62,9 +62,7 @@
 
 // flat button with colored text
 @mixin flat-button-colored-text($desired-font-size, $orig-font-size, $text-color: $primary, $nightmode: false) {
-	@include default-flat-button($desired-font-size, $orig-font-size, $nightmode);
-
-	color: $text-color !important;
+	@include default-flat-button($desired-font-size, $orig-font-size, $nightmode, $color: $text-color);
 }
 
 // flat button colored bg
