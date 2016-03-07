@@ -211,9 +211,10 @@
 // RES settings search icon
 #RESSearchMenuItem {
   top: em(25, 16);
+  color: $light-icons !important;
 
   &:hover {
-    color: $primary;
+    color: rgba($primary, 0.38) !important;
     background-color: transparent !important;
   }
 }
