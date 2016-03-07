@@ -171,6 +171,7 @@
 .RESDropdownList {
   top: em(68, 10) !important;
   right: em(40, 10) !important;
+  left: unset !important;
   border: 0 !important;
   border-radius: em(2, 10) !important;
   background-color: $light-cards !important;
