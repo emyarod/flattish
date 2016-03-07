@@ -14,8 +14,8 @@
 .res-nightmode .link .arrow,
 .res-nightmode .reddit-link .arrow,
 .res-nightmode .comment .arrow {
-	height: em(23, 13) !important;
-	width: em(23, 13) !important;
+	height: 23px !important;
+	width: 23px !important;
 
 	&:hover::before { background-color: $dark-disabled-text; }
 
@@ -45,8 +45,8 @@
 // default arrow styles -- also affects sidebar vote arrows
 .arrow,
 .arrow::before {
-	height: em(23, 13);
-	width: em(23, 13);
+	height: 23px;
+	width: 23px;
 }
 
 .arrow {
@@ -72,6 +72,7 @@
 	}
 }
 
+// site table
 .res-nightmode #siteTable {
 	background-color: $dark-background;
 
@@ -156,6 +157,11 @@
 			color: $light-secondary-text;
 		}
 	}
+}
+
+// remove reddit default styling for borders of previously clicked links
+.link.last-clicked {
+	@include border-style(none none null none);
 }
 
 // color of post score
