@@ -375,6 +375,11 @@
 	}
 
 	// image expandos
+	&.image,
+	&.gallery {
+		background-position: initial !important; // RES...seriously????
+	}
+
 	&.image {
 		box-sizing: unset; // to force width and height to 25px
 
