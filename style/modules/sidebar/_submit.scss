@@ -24,7 +24,7 @@
 
 .res-nightmode .submit-link::before {
 	color: $dark-text !important;
-	@include animate-card(14, 1, $light-cards, true);
+	@include card(14, 1, $light-cards, true);
 }
 
 .submit-link {
@@ -46,7 +46,7 @@
 		font-weight: bold;
 		color: $light-text;
 		content: "Submit a new:";
-		@include animate-card(14);
+		@include card(14, 1);
 	}
 }
 
