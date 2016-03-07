@@ -7,7 +7,7 @@
 		background-color: $dark-cards;
 
 		&:hover {
-			border-radius: 2px !important;
+			border-radius: em(2, 14) !important;
 		}
 	}
 }
