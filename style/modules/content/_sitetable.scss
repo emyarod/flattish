@@ -257,7 +257,7 @@
 
 		&:before,
 		&:after {
-			background-color: $white;
+			background-color: $dark-hint-text;
 		}
 	}
 
@@ -280,7 +280,18 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera-night%%) !important; // ;_; thx res
+			background: url(%%camera-night%%) !important;
+		}
+	}
+
+	&.gallery {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%album-night%%) !important;
 		}
 	}
 
@@ -318,7 +329,7 @@
 
 		&:before,
 		&:after {
-			background-color: $black;
+			background-color: $light-hint-text;
 			content: "";
 			position: absolute;
 			display: block;
@@ -371,7 +382,17 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera%%) !important; // ;_; thx res
+			background: url(%%camera%%);
+		}
+	}
+
+	&.gallery {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%album%%);
 		}
 	}
 
