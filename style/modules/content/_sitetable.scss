@@ -162,9 +162,7 @@
 	&.default {
 		opacity: 0.5;
 
-		&:hover {
-			opacity: 1;
-		}
+		&:hover { opacity: 1; }
 	}
 
 	&.self {
@@ -184,10 +182,8 @@
 	max-height: em(70, 10);
 
 	img {
-		// height: auto;
 		height: em(70, 10);
 		width: auto;
-		// max-height: em(70, 10);
 	}
 
 	&.self,
@@ -197,9 +193,7 @@
 		width: em(70, 10);
 		opacity: 0.38;
 
-		&:hover {
-			opacity: 0.5;
-		}
+		&:hover { opacity: 0.5; }
 	}
 
 	&.self {
@@ -227,9 +221,7 @@
 	border-color: $nsfw;
 	opacity: 0.38;
 
-	&:hover {
-		opacity: 0.5;
-	}
+	&:hover { opacity: 0.5; }
 }
 
 // mod approved post
@@ -263,7 +255,9 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play-night%%) !important; }
+		&.expanded:hover {
+			background: url(%%play-night%%) !important;
+		}
 	}
 
 	// image expandos
@@ -284,7 +278,9 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text-night%%) !important; }
+		&.expanded:hover {
+			background: url(%%text-night%%) !important;
+		}
 	}
 }
 
@@ -350,7 +346,9 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play%%); }
+		&.expanded:hover {
+			background: url(%%play%%);
+		}
 	}
 
 	// image expandos
@@ -371,7 +369,9 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text%%); }
+		&.expanded:hover {
+			background: url(%%text%%);
+		}
 	}
 }
 
@@ -380,7 +380,9 @@
 }
 
 .tagline,
-.flat-list.buttons { font-size: em(12, 10); }
+.flat-list.buttons {
+	font-size: em(12, 10);
+}
 
 // "submitted by"
 .tagline { margin: em(8, 12) 0; }
@@ -431,14 +433,8 @@
 	padding: 0 em(2, 12);
 }
 
-.res-nightmode .entry .buttons li a {
-	color: $dark-secondary-text;
-}
+.res-nightmode .entry .buttons li a {	color: $dark-secondary-text; }
 
-.entry .buttons li a {
-	color: $light-secondary-text;
-}
+.entry .buttons li a {	color: $light-secondary-text; }
 
-.error {
-	color: $error;
-}
+.error {	color: $error; }
