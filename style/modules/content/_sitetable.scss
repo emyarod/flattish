@@ -100,6 +100,8 @@
 }
 
 #siteTable {
+	@include drop-shadow(1);
+	background-color: $light-cards;
 
 	// aligns score between new arrows
 	.score {
@@ -123,11 +125,21 @@
 
 	// individual post listings
 	&>.thing {
-		// @include animation(papersplit 5s ease-out);
-		@include card(10, 1);
+		@include card();
 		height: auto !important;
-		margin-bottom: em(16, 10);
+		margin: 0;
+		border-bottom: 1px solid $light-divider-text;
 
+		// RES active post highlight
+		&.RES-keyNav-activeThing {
+			@include card(10, 0, $light-app-bar);
+		}
+
+		.entry.RES-keyNav-activeElement {
+			background-color: transparent !important;
+		}
+
+		// post title
 		.title {
 			color: $link-color;
 			line-height: 1.35;
