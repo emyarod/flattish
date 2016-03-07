@@ -74,12 +74,23 @@
 
 // site table
 .res-nightmode #siteTable {
-	background-color: $dark-background;
+	background-color: $dark-cards;
 
 	.score.unvoted { color: $dark-disabled-text !important; }
 
+	// individual post listings
 	&>.thing {
-		@include card(10, 1, $dark-cards, true);
+		@include card(10, 0, rgba($dark-app-bar, 0), true);
+		border-bottom: em(1, 10) solid $dark-divider-text;
+
+		// RES active post highlight
+		&.RES-keyNav-activeThing {
+			background-color: rgba($dark-app-bar, 1) !important;
+		}
+
+		.entry.RES-keyNav-activeElement {
+			background-color: transparent !important;
+		}
 
 		.title {
 			color: $link-color !important;
@@ -126,14 +137,14 @@
 
 	// individual post listings
 	&>.thing {
-		@include card();
+		@include card(10, 0, rgba($light-app-bar, 0));
 		height: auto !important;
 		margin: 0;
-		border-bottom: 1px solid $light-divider-text;
+		border-bottom: em(1, 10) solid $light-divider-text;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
-			@include card(10, 0, $light-app-bar);
+			background-color: rgba($light-app-bar, 1);
 		}
 
 		.entry.RES-keyNav-activeElement {
