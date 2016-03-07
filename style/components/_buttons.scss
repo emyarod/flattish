@@ -30,7 +30,6 @@
 
 	@if ($nightmode) {
 		color: $dark-text;
-		background-color: transparent !important;
 
 		&:hover {
 			background-color: $dark-button-hover !important;
