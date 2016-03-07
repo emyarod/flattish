@@ -5,56 +5,70 @@
 
 // vote arrow/score column & thumbnail margin
 .midcol {
+	position: relative; // need for placing pseudo element BEHIND vote arrow
+	z-index: 1;
 	@include margin(null em(16, 13) null 0);
-	width: em(32, 13) !important; // ;_; gotta override inline styling
+	width: em(32, 13) !important;
 }
 
 .res-nightmode .link .arrow,
 .res-nightmode .reddit-link .arrow,
 .res-nightmode .comment .arrow {
-	height: em(18, 13) !important;
-	width: em(24, 13) !important;
+	height: em(23, 13) !important;
+	width: em(23, 13) !important;
 
-	&.upmod {
-		background: url(%%upvote-pressed%%) no-repeat 0 50% !important;
+	&:hover::before { background-color: $dark-disabled-text; }
+
+	&::before {	background-color: $dark-divider-text;	}
+
+	&.upmod,
+	&.up {
+		background: url(%%upvote-night%%) !important;
 	}
 
-	&.downmod {
-		background: url(%%downvote-pressed%%) no-repeat 0 50% !important;
-
-	}
-
-	&.up,
-	&.up:hover {
-		background: url(%%upvote-night%%) no-repeat 0 50% !important;
-
-	}
-
-	&.down,
-	&.down:hover {
-		background: url(%%downvote-night%%) no-repeat 0 50% !important;
+	&.downmod,
+	&.down {
+		background: url(%%downvote-night%%) !important;
 	}
 }
 
-// also affects sidebar vote arrows
+// styles nightmode AND default mode vote arrows
+.res-nightmode .link .arrow,
+.res-nightmode .reddit-link .arrow,
+.res-nightmode .comment .arrow,
 .arrow {
-	height: em(18, 13);
-	width: em(24, 13);
+	&.upmod::before {	background-color: $upvote; }
 
-	&.upmod {
-		background: url(%%upvote-pressed%%) no-repeat 0 50%;
+	&.downmod::before { background-color: $downvote; }
+}
+
+// default arrow styles -- also affects sidebar vote arrows
+.arrow,
+.arrow::before {
+	height: em(23, 13);
+	width: em(23, 13);
+}
+
+.arrow {
+	&:hover::before {	background-color: $light-disabled-text;	}
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+		content: " ";
+		background-color: $light-divider-text;
+		border-radius: 50%;
+		@include transition-default;
 	}
 
-	&.downmod {
-		background: url(%%downvote-pressed%%) no-repeat 0 50%;
-	}
-
+	&.upmod,
 	&.up {
-		background: url(%%upvote%%) no-repeat 0 50%;
+		background: url(%%upvote%%);
 	}
 
+	&.downmod,
 	&.down {
-		background: url(%%downvote%%) no-repeat 0 50%;
+		background: url(%%downvote%%);
 	}
 }
 
@@ -100,8 +114,11 @@
 	&>.likes .score,
 	&>.dislikes .score,
 	&>.thing .score {
-		font-size: 14px;
 		position: relative;
+		height: 100%;
+		padding: em(3, 14) 0;
+		font-size: 14px;
+		line-height: 1;
 	}
 
 	// individual post listings
@@ -139,31 +156,32 @@
 
 // thumbnail
 .res-nightmode .thumbnail {
-	border: em(1, 10) solid $dark-hint-text !important;
+	border: em(1, 10) solid $dark-secondary-text !important;
 
-	&:hover {
-		border-color: $dark-secondary-text !important;
+	&.self,
+	&.default {
+		opacity: 0.5;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 
 	&.self {
-		background: url(%%thumbnail-self-night%%) no-repeat;
+		background: url(%%thumbnail-self-night%%) !important;
 	}
 
 	&.default {
-		background: url(%%thumbnail-default-night%%) no-repeat;
+		background: url(%%thumbnail-default-night%%) !important;
 	}
 }
 
 .thumbnail {
-	border: em(1, 10) solid $light-hint-text;
+	border: em(1, 10) solid $light-secondary-text;
 	border-radius: 50%;
 	font-size: inherit;
 	margin: 0 em(16, 10) 0 0;
 	max-height: em(70, 10);
-
-	&:hover {
-		border-color: $light-secondary-text;
-	}
 
 	img {
 		// height: auto;
@@ -177,33 +195,40 @@
 		@extend .thumbnail;
 		height: em(70, 10);
 		width: em(70, 10);
+		opacity: 0.38;
+
+		&:hover {
+			opacity: 0.5;
+		}
 	}
 
 	&.self {
-		background: url(%%thumbnail-self%%) no-repeat;
+		background: url(%%thumbnail-self%%);
 	}
 
 	&.default {
-		background: url(%%thumbnail-default%%) no-repeat;
+		background: url(%%thumbnail-default%%);
 	}
 }
 
 // nsfw thumbnail styling
 .res-nightmode .thing.over18 > .thumbnail.self {
-	background: url(%%nsfw-night%%) no-repeat;
-	border-color: rgba($nsfw, 0.7) !important;
+	background: url(%%nsfw%%) !important;
+	border-color: $nsfw !important;
+	opacity: 0.5;
 
 	&:hover {
-		border-color: $nsfw !important;
+		opacity: 1;
 	}
 }
 
 .thing.over18 > .thumbnail.self {
-	background: url(%%nsfw%%) no-repeat;
-	border-color: rgba($nsfw, 0.54);
+	background: url(%%nsfw%%);
+	border-color: $nsfw;
+	opacity: 0.38;
 
 	&:hover {
-		border-color: rgba($nsfw, 0.87);
+		opacity: 0.5;
 	}
 }
 
@@ -238,7 +263,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play-night%%) no-repeat !important; }
+		&.expanded:hover { background: url(%%play-night%%) !important; }
 	}
 
 	// image expandos
@@ -249,7 +274,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera-night%%) no-repeat !important; // ;_; thx res
+			background: url(%%camera-night%%) !important; // ;_; thx res
 		}
 	}
 
@@ -259,7 +284,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text-night%%) no-repeat !important; }
+		&.expanded:hover { background: url(%%text-night%%) !important; }
 	}
 }
 
@@ -273,7 +298,6 @@
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
 	cursor: pointer;
-	opacity: 0.54;
 
 	&:hover {
 		border-color: $light-secondary-text;
@@ -326,7 +350,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play%%) no-repeat; }
+		&.expanded:hover { background: url(%%play%%); }
 	}
 
 	// image expandos
@@ -337,7 +361,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera%%) no-repeat !important; // ;_; thx res
+			background: url(%%camera%%) !important; // ;_; thx res
 		}
 	}
 
@@ -347,7 +371,7 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text%%) no-repeat; }
+		&.expanded:hover { background: url(%%text%%); }
 	}
 }
 
