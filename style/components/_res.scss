@@ -23,7 +23,6 @@
 
 .res .thing .tagline .author,
 .thing .tagline .author {
-  padding: 3px !important;
   border-radius: 2px !important;
 }
 
@@ -49,7 +48,5 @@
               0  6px 30px  5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
               0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity) !important;
 
-  * {
-    box-sizing: initial;
-  }
+  * { box-sizing: initial; }
 }
