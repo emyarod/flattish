@@ -37,6 +37,8 @@ body {
 
     &:visited { color: $link-color-visited; }
   }
+
+  overflow-x: hidden;
 }
 
 .res-nightmode body {
