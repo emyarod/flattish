@@ -8,7 +8,7 @@
 	@if ($nightmode) {
 		background-color: $dark-cards !important;
 	} @else {
-		background-color: $background-color !important;
+		background-color: $background-color;
 	}
 
 	@if $shadow-depth > 0 {
