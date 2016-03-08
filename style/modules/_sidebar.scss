@@ -7,7 +7,7 @@
 
 .res-nightmode .side,
 .side {
-	background-color: transparent;
+	background-color: transparent !important;
 }
 
 .res-nightmode .side::before { background: url(%%kebab-night%%) no-repeat; }
