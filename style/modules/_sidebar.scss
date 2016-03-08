@@ -1,25 +1,29 @@
 // main: ../main.scss
 
 .side,
-.side:not(#search_hidemore),
-.side *:not(#searchexpando) { @include transition-default; }
-
-// hide sidebar items
-.side * { opacity: 0; }
-
-.res-nightmode .side::before {
-	background: url(%%kebab-night%%) no-repeat;
+.side * {
+	z-index: 99999;
 }
+
+.res-nightmode .side,
+.side {
+	background-color: transparent;
+}
+
+.res-nightmode .side::before { background: url(%%kebab-night%%) no-repeat; }
 
 .side {
 	position: absolute;
-	right: em(16, 10);
-	height: 0;
+	right: em(-5, 10);
 	width: 0;
 	margin: 0;
 	padding-top: em(85, 10);
-	z-index: 9999;
-	background-color: transparent !important;
+
+	.spacer,
+	#ad_sponsorship,
+	#ad_main {
+		width: em(330, 10);
+	}
 
 	// first card (containing search and submit)
 	.spacer {
@@ -28,8 +32,6 @@
 		&:first-of-type {
 			position: relative;
 			top: em(-85, 10);
-			height: 0;
-			width: 0;
 		}
 	}
 
@@ -41,39 +43,17 @@
     display: block;
     height: em(36, 10);
     width: em(36, 10) + 1.5em;
-		z-index: 999;
     content: "";
     background: url(%%kebab%%) no-repeat;
-    opacity: 0.25;
 		@include transition-default;
 	}
 
 	&:hover {
-		height: 100%;
-		width: em(330, 10);
-		margin-left: 0;
 
-		// show hidden sidebar items
-		*:not(.arrow) {
-			opacity: 1;
-		}
+		.spacer { @include transform(translateX(-351px)); }
 
 		// make kebab disappear on hover
-		&:before {
-			opacity: 0;
-		}
-
-		// change width of submit buttons on sidebar hover
-		.submit-link,
-		.submit-text {
-			width: em(146, 10);
-		}
-
-		// change width of first card (containing search and submit) on sidebar hover
-		.spacer:first-of-type {
-			height: em(71, 10);
-			width: em(330, 10);
-		}
+		&:before { opacity: 0; }
 	}
 
 	.spacer:first-of-type,
@@ -83,18 +63,13 @@
 	#ad_main,
 	.sidecontentbox {
 		font-size: 100%;
-		@include animate-card();
+		@include card(10, 1);
 	}
 
 	// sponsorship box & advertisement
 	#ad_sponsorship {
 		position: relative;
 		top: -84px;
-	}
-
-	#ad_sponsorship,
-	#ad_main {
-		width: em(330, 10);
 	}
 
 	// hide create subreddit button and account activity div
@@ -114,7 +89,7 @@
 .res-nightmode .side #moderation_tools,
 .res-nightmode .side #ad_main,
 .res-nightmode .side .sidecontentbox {
-	@include animate-card(10, 1, $light-cards, true);
+	@include card(10, 1, $light-cards, true);
 }
 
 // search
@@ -132,28 +107,11 @@
 @media (min-width: $screen-md-min) {
 	.side {
 		position: static;
-		height: 100%;
 		width: em(330, 10);
-
-		* { opacity: 1; }
 
 		// hide kebab menu icon
 		&:before { display: none; }
 
-		// change width of first card (containing search and submit)
-		.spacer:first-of-type {
-			position: relative;
-			top: em(-85, 10);
-			right: 0;
-			height: em(71, 10);
-			width: em(330, 10);
-		}
-
-		#search { width: em(300, 10); }
-
-		.submit-link,
-		.submit-text {
-			width: em(146, 10);
-		}
+		&:hover .spacer { @include transform(translateX(0)); }
 	}
 }
