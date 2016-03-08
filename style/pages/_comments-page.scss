@@ -1,6 +1,10 @@
 // main: ../main.scss
 
 // thread subscribe/unsubscribe button
+.res-nightmode #REScommentSubToggle {
+  background-color: transparent !important;
+}
+
 #REScommentSubToggle {
   @include flat-button-colored-text(12, 12, get-color('green', '500'));
 
@@ -252,39 +256,55 @@
   @include drop-shadow(1);
 }
 
-.res-nightmode .res .comment,
-.res-nightmode .comment {
-  @include card(10, 1, $dark-cards, true);
+// comment boxes
+.res-nightmode.res-commentBoxes .comment {
+  border: 0 !important;
+}
+
+html.res-nightmode .res-commentBoxes .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+  background-color: $dark-cards !important;
+}
+
+html.res-nightmode .res-commentBoxes .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .comment .comment {
+  background-color: $dark-background !important;
+}
+
+// non-nightmode
+html.res-commentBoxes .comment {
+  margin: 0 0 16px !important;
+  padding: 16px !important;
+}
+
+html.res-commentBoxes.res-commentBoxes-rounded .comment {
+  border-radius: 2px !important;
 }
 
 .res .comment,
 .comment {
   @include card(10, 1);
-  margin: 0 0 16px;
-  @include transition-default;
 
   &:hover { @include drop-shadow(3); }
 
-  .md p {
-    margin: 15px 0;
-  }
+  .md p { margin: 15px 0; }
 
   .child {
     border: 0;
 
-    .usertext-buttons {
-      margin-bottom: 16px;
-    }
+    .usertext-buttons { margin-bottom: 16px; }
   }
 }
 
-// .commentarea .sitetable .comment {
-//   background-color: $black;
-// }
-.parent ~ .child .comment {
-  // background-color: red;
-  @include margin(em(16, 10) 0 0 0);
-}
+.comment { margin: 0 0 16px; }
 
 // odd
 .commentarea .comment .comment .comment,
@@ -295,38 +315,46 @@
   background-color: $white;
 }
 
-// even
+// RES even comments
+.res .commentarea .comment .comment,
+.res .commentarea .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+// default even comments, combined to reduce character count
 .commentarea .comment .comment,
 .commentarea .comment .comment .comment .comment,
 .commentarea .comment .comment .comment .comment .comment .comment,
 .commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
 .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
 .commentarea .comment .comment .comment .comment .comment .comment {
-  background-color: $light-background;
+	background-color: $light-background !important;
 }
 
-// wtf RES??????????????????
+// RES active element highlighting
+.comment .entry {
+  border-right: 2px solid transparent;
+  margin-bottom: 16px;
 
-.res .commentarea .comment .comment {
-	background-color: $light-background !important;
+  &.RES-keyNav-activeElement {
+    border-right-color: $primary;
+    padding-left: 5px;
+  }
 }
-.res .commentarea .comment .comment .comment .comment {
-	background-color: $light-background !important;
-}
-.res .commentarea .comment .comment .comment .comment .comment .comment {
-	background-color: $light-background !important;
-}
-.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment {
-	background-color: $light-background !important;
-}
-.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
-	background-color: $light-background !important;
+
+
+html.res-nightmode .RES-keyNav-activeElement,
+html.res-nightmode .RES-keyNav-activeElement .md-container,
+.entry.RES-keyNav-activeElement,
+.entry.RES-keyNav-activeElement .md-container {
+  background-color: transparent !important;
 }
 
 // comment shading behind new comments
 .new-comment .usertext-body {
   margin: 15px 0;
   border-color: transparent;
+  background-color: rgba($light-primary, 0.12);
 }
 
 .linklisting .md,
