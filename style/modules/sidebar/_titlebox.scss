@@ -116,10 +116,6 @@
 	@include card(10, 4, $dark-cards, true);
 
 	strong { color: $dark-text; }
-
-	.create-multi input[type="text"] {
-		@include text-fields(true);
-	}
 }
 
 .hover-bubble.multi-selector {
@@ -140,9 +136,5 @@
 			height: 14px;
 			width: 14px;
 		}
-	}
-
-	.create-multi input[type="text"] {
-		@include text-fields();
 	}
 }
