@@ -2,9 +2,6 @@
 
 .res-nightmode #search {
 
-	// text field
-	input[type="text"] { @include text-fields(true); }
-
 	// magnifying glass icon
 	input[type="submit"] {
 		background: url(%%search-night%%);
@@ -58,7 +55,6 @@
 		height: em(39, 13);
 		outline: none;
 		width: 100%;
-		@include text-fields();
 
 		&:hover {
 			// style placeholder text
