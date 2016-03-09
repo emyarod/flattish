@@ -8,9 +8,7 @@
 		background-color: transparent !important;
 	}
 
-	a.hover {
-		color: $dark-text !important;
-	}
+	a.hover { color: $dark-text !important; }
 
 	// mod/approved submitter/flair label background
 	.leavemoderator,
@@ -21,9 +19,7 @@
 	}
 
 	// approved submitter text
-	span.option.main.active {
-		color: $dark-secondary-text;
-	}
+	span.option.main.active { color: $dark-secondary-text; }
 
 	.subscribers,
 	.users-online {
@@ -35,9 +31,7 @@
 		opacity: 1;
 	}
 
-	.md p {
-		color: $dark-text;
-	}
+	.md p { color: $dark-text; }
 }
 
 .titlebox {
@@ -75,9 +69,7 @@
 			font-size: em(24, 10);
 		}
 
-		.word {
-			font-size: em(13, 10);
-		}
+		.word { font-size: em(13, 10); }
 	}
 
 	.users-online {
@@ -123,9 +115,7 @@
 .res-nightmode .hover-bubble.multi-selector {
 	@include card(10, 4, $dark-cards, true);
 
-	strong {
-		color: $dark-text;
-	}
+	strong { color: $dark-text; }
 
 	.create-multi input[type="text"] {
 		@include text-fields(true);
