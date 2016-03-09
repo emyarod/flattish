@@ -108,8 +108,6 @@
   textarea {
     width: 100%;
     margin-bottom: em(9, 14) !important; // override global reddit styles
-
-    @include text-fields();
   }
 
   // comment style buttons and character counter
@@ -184,10 +182,6 @@
     }
 
     .md h3 { height: unset; }
-
-    textarea {
-      @include text-fields();
-    }
   }
 }
 
