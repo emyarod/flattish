@@ -32,14 +32,20 @@
 	}
 }
 
-// styles nightmode AND default mode vote arrows
+// styles nightmode AND default mode vote arrows (after upvote/downvote action)
 .res-nightmode .link .arrow,
 .res-nightmode .reddit-link .arrow,
 .res-nightmode .comment .arrow,
 .arrow {
-	&.upmod::before {	background-color: $upvote; }
+	&.upmod::before,
+	&.upmod:hover::before {
+		background-color: $upvote;
+	}
 
-	&.downmod::before { background-color: $downvote; }
+	&.downmod::before,
+	&.downmod:hover::before {
+		background-color: $downvote;
+	}
 }
 
 // default arrow styles -- also affects sidebar vote arrows
