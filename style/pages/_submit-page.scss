@@ -80,7 +80,6 @@ ul.tabmenu.formtab {
 .roundfield input[type="text"],
 .roundfield-content input[type="url"] {
   @extend .roundfield;
-  @include text-fields();
 }
 
 .roundfield {
