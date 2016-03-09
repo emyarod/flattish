@@ -1,34 +1,17 @@
 // main: ../main.scss
 
-.footer-parent,
-.debuginfo {
-  // position: relative;
-  // background-color: $light-primary;
-}
-
-// .footer-parent { margin-top: 50px; }
-
 .res-nightmode .footer {
-  @include animate-card(13, 1, $light-cards, true);
+  @include card(13, 1, $light-cards, true);
 }
 
-.footer {
-  @include animate-card(13);
-  border: 0;
-  // padding-bottom: 64px;
-
+.footer,
+.bottommenu {
   a { @include link-underline-transition; }
 }
 
-.bottommenu {
-  // position: relative;
-  // top: -72px;
-  // width: 600px;
-  // margin: 0 auto;
-  // padding: 0 16px;
-  a {
-    @include link-underline-transition;
-  }
+.footer {
+  @include card(13, 1);
+  border: 0;
 }
 
 .res-nightmode .flat-vert.title {
@@ -38,6 +21,7 @@
 .flat-vert.title {
   color: $light-text;
   font-size: 16px;
+  transition: none;
 
   &:hover {
     font-size: 0;
@@ -48,13 +32,6 @@
     }
   }
 }
-
-.debuginfo {
-  // color: $white;
-
-  // .icon { color: $white; }
-}
-
 @media (min-width: $screen-md-min) {
   .footer-parent,
   .debuginfo {
