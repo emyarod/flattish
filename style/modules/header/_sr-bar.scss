@@ -92,7 +92,9 @@
         &:hover {
           .selected,
           .selected::after,
-          .selected::before { background-color: set-text-color($primary, icons); }
+          .selected::before {
+            background-color: set-text-color($primary, icons);
+          }
         }
       }
 
@@ -111,10 +113,7 @@
 
 // image, image-light
 @include sr-bar(true, false);
-
-.res-nightmode #sr-header-area {
-  @include menu(srdrop, 10, 10, 240, true);
-}
+@include menu('#sr-header-area', '.srdrop', 10, 10, 240, true);
 
 // subreddits bar
 #sr-header-area {
@@ -127,10 +126,6 @@
   .sr-list {
     margin: em(10, 10) 0;
     padding: 0;
-  }
-
-  // anchor opacity
-  .sr-bar a {
   }
 
   // "my subreddits" menu button
@@ -147,9 +142,6 @@
     }
   }
 
-  // menu list
-  @include menu(srdrop, 10, 10, 240);
-
   .drop-choices.srdrop {
     overflow-y: scroll;
 
@@ -158,9 +150,7 @@
 }
 
 // right side edit button
-.res-nightmode #sr-more-link {
-  background-color: $light-primary !important;
-}
+.res-nightmode #sr-more-link { background-color: $light-primary !important; }
 
 #sr-more-link {
   margin: 0;
