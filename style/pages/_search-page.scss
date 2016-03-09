@@ -5,12 +5,12 @@
 }
 
 .res-nightmode .combined-search-page .searchpane {
-  @include animate-card(13, 1, $dark-cards, true);
+  @include card(13, 1, $dark-cards, true);
 }
 
 .combined-search-page .searchpane {
   margin: 0;
-  @include animate-card(13, 1);
+  @include card(13, 1);
 }
 
 #search input[type="text"] {
@@ -23,13 +23,13 @@
 }
 
 .res-nightmode .combined-search-page .search-result {
-  @include animate-card(12, 1, $dark-cards, true);
+  @include card(12, 1, $dark-cards, true);
 
   p { color: $dark-text; }
 }
 
 .combined-search-page .search-result {
-  @include animate-card(12, 1);
+  @include card(12, 1);
   margin: 0 0 em(16, 10) 0;
 }
 
