@@ -6,6 +6,7 @@
   text-shadow: $text-shadow;
 }
 
+// determines text color
 @mixin header-bottom-left($image, $gradient, $image-light) {
   @if ($image) {
     @if ($gradient) {
