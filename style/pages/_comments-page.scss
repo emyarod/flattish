@@ -80,11 +80,7 @@
 }
 
 // "sorted by" menu
-.res-nightmode {
-  @include menu(lightdrop, 13, 13, 104, true);
-}
-
-@include menu(lightdrop, 13, 13, 104);
+@include menu(null, '.lightdrop', 13, 13, 104, true);
 
 // offset inline styling
 .drop-choices.lightdrop {
