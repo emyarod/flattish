@@ -1,7 +1,9 @@
 // main: ../main.scss
 
-// hide browser styles
+// checkbox
 // .class input[type="checkbox"]
+
+// hide browser styles
 @mixin hide-checkbox {
   display: none;
   width: 0;
@@ -48,6 +50,8 @@
 
 // radio buttons
 // .class input[type="radio"]
+
+// hide browser styles
 @mixin hide-radio {
   display: none;
   width: 0;
