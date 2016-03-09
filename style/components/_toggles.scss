@@ -1,0 +1,153 @@
+// main: ../main.scss
+
+// checkbox
+// .class input[type="checkbox"]
+
+// hide browser styles
+@mixin hide-checkbox {
+  display: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  @include appearance(none);
+}
+
+// & + label::before
+@mixin check-box($nightmode: false) {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-top: 3px;
+  margin-right: 4px;
+  content: "";
+  @if ($nightmode) {
+    border: 2px solid $dark-secondary-text !important;
+  } @else {
+    border: 2px solid $light-secondary-text;
+  }
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+// &:checked + label::before
+@mixin checkbox-checked {
+  border-color: $primary;
+  background: $primary url(%%tick%%) no-repeat scroll 0% 60%;
+  @include transition-default;
+}
+
+@mixin checkbox-disabled($nightmode: false) {
+  @if ($nightmode) {
+    border-color: $dark-disabled-text !important;
+  } @else {
+    border-color: $light-disabled-text;
+  }
+  cursor: auto;
+}
+
+// radio buttons
+// .class input[type="radio"]
+
+// hide browser styles
+@mixin hide-radio {
+  display: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  @include appearance(none);
+}
+
+// & + label::before
+@mixin radio-button($nightmode: false) {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-top: 3px;
+  margin-right: 4px;
+  @if ($nightmode) {
+    border: 2px solid $dark-secondary-text !important;
+  } @else {
+    border: 2px solid $light-secondary-text;
+  }
+  border-radius: 50%;
+  content: "";
+  cursor: pointer;
+}
+
+// &:checked + label::before
+@mixin radio-checked {
+  border-color: $primary;
+  background-image: radial-gradient(circle, $primary 50%, transparent 50%);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  @include animation(radio-toggle 0.2s $animation-curve-default);
+}
+
+@mixin radio-disabled($nightmode: false) {
+  @if ($nightmode) {
+    border-color: $dark-disabled-text !important;
+  } @else {
+    border-color: $light-disabled-text;
+  }
+  cursor: auto;
+}
+
+// RES toggle switches
+.res-nightmode .toggleButton {
+  background-color: $dark-hint-text;
+
+  &.enabled { background-color: $dark-primary; }
+
+  // off
+  &:not(.enabled)::before {
+    background-color: $dark-background;
+  }
+
+  // on
+  &.enabled::before { background-color: $light-primary; }
+}
+
+.toggleButton {
+  top: 10px;
+  width: em(36, 10);
+  height: em(14, 10);
+  border-radius: em(14, 10);
+  background-color: $light-hint-text;
+
+  &.enabled { background-color: $primary; }
+
+  // circular thumb switch
+  &::before {
+    top: 0 !important;
+    height: em(20, 10);
+    width: em(20, 10);
+    border: 0 !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    @include drop-shadow(1);
+  }
+
+  // off
+  &:not(.enabled)::before {
+    left: 0 !important;
+    background-color: $light-background;
+  }
+
+  // on
+  &.enabled::before {
+    left: unset !important;
+    right: 0 !important;
+    background-color: $dark-primary;
+    opacity: 1 !important;
+  }
+
+  // hide RES default button styles
+  .toggleOn,
+  .toggleOff { display: none; }
+}

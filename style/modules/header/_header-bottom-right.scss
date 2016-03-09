@@ -1,48 +1,146 @@
 // main: ../../main.scss
 
-@import "../../components/badges";
+#userbarToggle,
+#header-bottom-right .user,
+#header-bottom-right span a,
+#header-bottom-right:hover span a {
+  text-shadow: $text-shadow;
+}
+
+@mixin header-bottom-right($image, $gradient, $image-light) {
+  @if ($image) {
+    @if ($gradient) {
+      #userbarToggle,
+      #header-bottom-right .user,
+      #header-bottom-right span a {
+        color: $dark-secondary-text !important;
+      }
+
+      #header-bottom-right:hover span a {
+        color: $dark-text !important;
+      }
+
+      .pref-lang.choice {
+        background: url(%%prefs-night%%) no-repeat;
+      }
+
+      .gearIcon {
+        background: transparent url(%%settings-night%%) no-repeat !important;
+      }
+
+      .logout a {
+        background: url(%%logout-night%%) no-repeat;
+      }
+    } @else if ($image-light) {
+      #userbarToggle,
+      #header-bottom-right .user,
+      #header-bottom-right span a {
+        color: $light-secondary-text !important;
+      }
+
+      #header-bottom-right:hover span a {
+        color: $light-text !important;
+      }
+
+      .pref-lang.choice {
+        background: url(%%prefs%%) no-repeat;
+      }
+
+      .gearIcon {
+        background: transparent url(%%settings%%) no-repeat !important;
+      }
+
+      .logout a {
+        background: url(%%logout%%) no-repeat;
+      }
+    } @else {
+      #userbarToggle,
+      #header-bottom-right .user,
+      #header-bottom-right span a {
+        color: $dark-secondary-text !important;
+      }
+
+      #header-bottom-right:hover span a {
+        color: $dark-text !important;
+      }
+
+      .pref-lang.choice {
+        background: url(%%prefs-night%%) no-repeat;
+      }
+
+      .gearIcon {
+        background: transparent url(%%settings-night%%) no-repeat !important;
+      }
+
+      .logout a {
+        background: url(%%logout-night%%) no-repeat;
+      }
+    }
+  } @else {
+    #userbarToggle,
+    #header-bottom-right .user,
+    #header-bottom-right span a {
+      color: set-text-color($primary, secondary-text) !important;
+    }
+
+    #header-bottom-right:hover span a {
+      color: set-text-color($primary, text) !important;
+    }
+
+    .pref-lang.choice {
+      background: url(%%prefs%%) no-repeat;
+    }
+
+    .gearIcon {
+      background: transparent url(%%settings%%) no-repeat !important;
+    }
+
+    .logout a {
+      background: url(%%logout%%) no-repeat;
+    }
+  }
+}
+
+// image, gradient, image-light
+@include header-bottom-right(true, false, false);
 
 @mixin userbar-buttons {
   height: em(16, 10);
   width: em(16, 10);
   color: transparent;
   display: inline-block;
-  opacity: 0.54;
+  opacity: 0.87;
   position: relative;
   text-indent: em(-9999, 10);
-  @include transition-default;
 
-  &:hover { opacity: 0.87; }
+  &:hover { opacity: 1; }
 }
 
-.res #header-bottom-right,
+.res #header-bottom-right {
+  @extend #header-bottom-right;
+}
+
 #header-bottom-right {
   position: absolute;
   top: em(35, 10);
   height: em(20, 10);
   margin-right: em(16, 10);
   padding: 0;
-  background-color: transparent;
-
-  span a {
-    color: $light-secondary-text;
-    @include transition-default;
-  }
-
-  &:hover span a { color: $light-text; }
+  background-color: transparent !important;
 }
 
-.res #userbarToggle,
+.res-nightmode #userbarToggle {
+  @extend #userbarToggle;
+}
+
 #userbarToggle {
-  background-color: transparent;
-  border: 0;
-  color: $light-secondary-text;
+  background-color: transparent !important;
+  border: 0 !important;
 }
 
 // preferences button
 .pref-lang.choice {
   top: em(-1, 10);
-  background: url("%%prefs%%") no-repeat;
   @include userbar-buttons;
 }
 
@@ -50,12 +148,10 @@
 .gearIcon {
   position: relative;
   right: em(1, 10);
-  top: em(3, 10);
+  top: em(5, 10);
   height: em(16, 10) !important;
   width: em(16, 10) !important;
-  background: transparent url("%%settings%%") no-repeat !important;
-  opacity: 0.54;
-  @include transition-default;
+  opacity: 0.87;
 
   &:hover { opacity: 1; }
 }
@@ -65,224 +161,73 @@
   background-color: transparent !important;
   border: 0 !important;
   top: em(35, 10) !important; // also positions gear icon when hovered
-  @include transition-default;
 }
 
 // RES settings dropdown menu
-#RESPrefsDropdown {
-  margin: em(10, 10) em(10, 10) 0 0;
-  border: 0;
-  border-radius: em(2, 10);
-  background-color: $light-cards;
+.res-nightmode .RESDropdownList {
+  background-color: $dark-cards !important;
+}
+
+.RESDropdownList {
+  top: em(68, 10) !important;
+  right: em(40, 10) !important;
+  left: unset !important;
+  border: 0 !important;
+  border-radius: em(2, 10) !important;
+  background-color: $light-cards !important;
   @include drop-shadow(1);
   @include animation(RES-settings 0.2s $animation-curve-default);
 }
 
 // RES settings dropdown menu choices
-#RESDropdownOptions {
-  li {
-    border: 0;
-    border-radius: em(2, 10);
-    @include menu-items;
+@include menu-items('.RESDropdownList li', 10, true);
 
-    a {
-      color: $light-text;
+.res-nightmode .RESDropdownList li {
 
-      &:hover { background-color: transparent; }
-    }
+  &:hover a { background-color: $dark-app-bar !important; }
+
+  a {
+    color: $dark-text !important;
+
+    &:hover { background-color: $dark-app-bar !important; }
+  }
+}
+
+.RESDropdownList li {
+  height: auto !important;
+  border: 0 !important;
+  border-radius: em(2, 10) !important;
+  color: $light-text !important;
+
+  &:hover { background-color: $light-app-bar !important; }
+
+  a {
+    color: $light-text !important;
+
+    &:hover { background-color: $light-app-bar !important; }
   }
 }
 
 // RES settings search icon
 #RESSearchMenuItem {
-  background: url(%%search%%) no-repeat !important;
-  border: 0 !important;
-  opacity: 0.54;
-  @include transition-default;
+  top: em(25, 16);
+  color: $light-icons !important;
 
-  &:hover { opacity: 0.87; }
-}
-
-// RES toggle switches
-.toggleButton {
-  max-width: em(36, 10);
-  max-height: em(14, 10);
-  border-radius: em(14, 10);
-  background-color: $light-hint-text;
-
-  // circular thumb switch
-  &::before {
-    top: 2px !important;
-    height: em(20, 10);
-    width: em(20, 10);
-    border: 0 !important;
-    border-radius: 50% !important;
-    opacity: 1 !important;
-    @include drop-shadow(1);
-    @include transition-default;
+  &:hover {
+    color: rgba($primary, 0.38) !important;
+    background-color: transparent !important;
   }
-
-  // off
-  &:not(.enabled)::before {
-    left: 0 !important;
-    background-color: $light-background;
-  }
-
-  // on
-  &.enabled::before {
-    left: unset !important;
-    right: 0 !important;
-    background-color: $primary;
-    opacity: 1 !important;
-  }
-
-  // hide RES default button styles
-  .toggleOn,
-  .toggleOff { display: none; }
 }
 
 // logout button
 .logout a {
   top: em(-2, 10);
-  background: url("%%logout%%") no-repeat;
   @include userbar-buttons;
 }
 
-@include keyframes(first-openletter) {
-  0% {
-    top: 0;
-    z-index: 2;
-    border-width: em(5, 10) em(8, 10) 0 em(8, 10);
-  }
-  25% {
-    top: em(-9, 10);
-    z-index: 0;
-    border-width: 0 em(8, 10) em(7, 10) em(8, 10);
-    @include border-color(transparent null get-color("light-blue", "800") null);
-  }
-  75% {
-    top: em(-9, 10);
-    z-index: 0;
-    border-width: 0 em(8, 10) em(7, 10) em(8, 10);
-    @include border-color(transparent null get-color("light-blue", "800") null);
-  }
-  100% {
-    top: 0;
-    z-index: 2;
-    border-width: em(5, 10) em(8, 10) 0 em(8, 10);
-    @include border-color(get-color("light-blue", "800") null transparent null);
-  }
-}
-
-@include keyframes(first-letterslide) {
-  0% { top: em(4, 1); }
-  30% { top: em(4, 1); }
-  55% { top: em(-4, 1); }
-  60% { top: em(-4, 1); }
-  85% { top: em(4, 1); }
-  100% { top: em(4, 1); }
-}
-
-// envelope
-#mail {
-  border-radius: em(1, 10);
-  overflow: visible; // thx diobrando
-  vertical-align: em(-1, 10);
-
-  &.nohavemail,
-  &.havemail {
-    background-image: none;
-    background-color: get-color("light-blue", "500");
-    border-top: em(2, 10) solid get-color("light-blue", "800");
-
-    // style triangles
-    &::before,
-    &::after {
-      position: absolute;
-      content: "";
-      border-style: solid;
-      width: 0;
-      height: 0;
-    }
-
-    // isosceles triangle envelope flap
-    &::before {
-      top: 0;
-      left: 0;
-      z-index: 2;
-      border-style: solid;
-      border-width: em(5, 10) em(8, 10) 0 em(8, 10);
-      border-color: get-color("light-blue", "800") transparent transparent transparent;
-      @include transition-default;
-    }
-
-    // right triangle
-    &::after {
-      bottom: 0;
-      right: 0;
-      z-index: 1;
-      border-color: transparent transparent get-color("light-blue", "200") transparent;
-      border-style: solid;
-      border-width: 0 0 em(10, 10) em(16, 10);
-    }
-  }
-
-  // inbox not empty
-  &.havemail {
-
-    &::before { @include animation(first-openletter 3s $animation-curve-default 2s); }
-
-    &:hover {
-      @include border-top-radius(0);
-
-      // styling for envelope flap on hover
-      &::before {
-        top: em(-9, 10);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 em(8, 10) em(7, 10) em(8, 10);
-        border-color: transparent transparent get-color("light-blue", "800") transparent;
-      }
-    }
-  }
-}
 
 // number of unread messages
 .message-count {
   position: relative;
   @include badge();
-
-  &::before,
-  &::after { position: absolute; }
-
-  // left triangle
-  &::before {
-    top: em(3.5, 10);
-    left: em(-19, 10);
-    z-index: 1;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: em(5, 10) 0 em(5, 10) em(8, 10);
-    border-color: transparent transparent transparent get-color("light-blue", "500");
-    cursor: pointer;
-  }
-
-  // paper
-  &::after {
-    top: em(4, 1);
-    left: em(-17, 1);
-    z-index: 0;
-    height: em(5, 1);
-    width: em(8, 1);
-    padding: em(2, 1);
-    color: $light-text;
-    content: "created by /u/fiveseven_";
-    font-size: em(1, 10);
-    line-height: 1.35;
-    background-color: #fff;
-    @include animation(first-letterslide 3s $animation-curve-default 2s);
-  }
 }

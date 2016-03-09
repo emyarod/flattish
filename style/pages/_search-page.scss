@@ -1,1 +1,42 @@
 // main: ../main.scss
+
+.search-page .side .spacer:first-of-type {
+  display: none;
+}
+
+.res-nightmode .combined-search-page .searchpane {
+  @include card(13, 1, $dark-cards, true);
+}
+
+.combined-search-page .searchpane {
+  margin: 0;
+  @include card(13, 1);
+}
+
+#search input[type="text"] {
+  font-family: $font-stack;
+}
+
+.combined-search-page .search-result-group {
+  padding: 0;
+  min-width: unset;
+}
+
+.res-nightmode .combined-search-page .search-result {
+  @include card(12, 1, $dark-cards, true);
+
+  p { color: $dark-text; }
+}
+
+.combined-search-page .search-result {
+  @include card(12, 1);
+  margin: 0 0 em(16, 10) 0;
+}
+
+.combined-search-page .search-result.has-thumbnail > .thumbnail {
+  max-height: em(70, 12);
+
+  img {
+    width: unset;
+  }
+}

@@ -1,8 +1,5 @@
 // main: ../main.scss
 
-@import "../../vendors/bourbon/bourbon";
-@import "vars";
-
 // shadows
 
 // Focus shadow mixin.
@@ -14,39 +11,39 @@
   @if $depth == 0 {
     box-shadow: none;
   }
-  @if $depth == 1 {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-                0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+  @if $depth == 1 { // 2 dp
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                0px 2px 2px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                0px 1px 5px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
-  @if $depth == 2 {
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-                0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+  @if $depth == 2 { // 3 dp
+    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                0px 3px 4px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                0px 1px 8px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
-  @if $depth == 3 {
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  @if $depth == 3 { // 4 dp
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                0px 4px 5px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                0px 1px 10px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
-  @if $depth == 4 {
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  @if $depth == 4 { // 6 dp
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                0px 6px 10px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                0px 1px 18px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
-  @if $depth == 5 {
-    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                0 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  @if $depth == 5 { // 8 dp
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                0px 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                0px 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
-  @if $depth == 6 {
-    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                0  6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-                0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  @if $depth == 6 { // 16 dp
+    box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                0px 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                0px 6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
   }
 }
 
-@mixin ripple($orig-background-color: transparent, $ripple-color: $light-accent) {
+@mixin ripple($orig-background-color: transparent, $ripple-color: $light-primary) {
   background: $orig-background-color radial-gradient(circle, rgba($ripple-color, 0.3) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
   @include transition(background 0.3s $animation-curve-linear-out-slow-in, color 0.6s $animation-curve-linear-out-slow-in);
 
@@ -81,7 +78,7 @@
 }
 
 // burger
-@mixin burger($width, $height, $gutter, $color, $border-radius) {
+@mixin burger($width, $height, $gutter, $border-radius, $color: set-text-color($light-primary, hint-text)) {
   $burger-height: $height !global;
   $burger-gutter: $gutter !global;
   position: relative;
@@ -105,4 +102,19 @@
   &:before { top: -($height + $gutter); }
 
   &:after { top: $height + $gutter; }
+}
+
+// link hover effect
+@mixin link-underline-transition {
+  background: linear-gradient(to top, $primary 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  will-change: background-position;
+
+  &:hover {
+    color: set-text-color($primary, text) !important;
+    text-decoration: none;
+    background-position: 0 100%;
+  }
 }

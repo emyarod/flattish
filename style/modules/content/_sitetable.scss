@@ -5,34 +5,119 @@
 
 // vote arrow/score column & thumbnail margin
 .midcol {
+	position: relative; // need for placing pseudo element BEHIND vote arrow
+	z-index: 1;
 	@include margin(null em(16, 13) null 0);
-	// width: em(24, 13) !important;
-	width: em(32, 13) !important; // ;_; gotta override inline styling
+	width: em(32, 13) !important;
 }
 
-// also affects sidebar vote arrows
-.arrow {
-	height: em(18, 13);
-	width: em(24, 13);
+.res-nightmode .link .arrow,
+.res-nightmode .reddit-link .arrow,
+.res-nightmode .comment .arrow {
+	height: 23px !important;
+	width: 23px !important;
 
-	&.upmod { background: url(%%light-upvote-pressed%%) 0 no-repeat; }
+	&:hover::before { background-color: $dark-disabled-text; }
 
-	&.downmod { background: url(%%light-downvote-pressed%%) 0 no-repeat; }
+	&::before {	background-color: $dark-divider-text;	}
 
+	&.upmod,
 	&.up {
-		background: url(%%light-upvote%%) 0 no-repeat;
-		opacity: 0.26;
+		background: url(%%upvote-night%%) !important;
 	}
 
+	&.downmod,
 	&.down {
-		background: url(%%light-downvote%%) 0 no-repeat;
-		opacity: 0.26;
+		background: url(%%downvote-night%%) !important;
 	}
 }
 
-// aligns score between new arrows
-#siteTable {
+// styles nightmode AND default mode vote arrows (after upvote/downvote action)
+.res-nightmode .link .arrow,
+.res-nightmode .reddit-link .arrow,
+.res-nightmode .comment .arrow,
+.arrow {
+	&.upmod::before,
+	&.upmod:hover::before {
+		background-color: $upvote;
+	}
 
+	&.downmod::before,
+	&.downmod:hover::before {
+		background-color: $downvote;
+	}
+}
+
+// default arrow styles -- also affects sidebar vote arrows
+.arrow,
+.arrow::before {
+	height: 23px;
+	width: 23px;
+}
+
+.arrow {
+	&:hover::before {	background-color: $light-disabled-text;	}
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+		content: " ";
+		background-color: $light-divider-text;
+		border-radius: 50%;
+		@include transition-default;
+	}
+
+	&.upmod,
+	&.up {
+		background: url(%%upvote%%);
+	}
+
+	&.downmod,
+	&.down {
+		background: url(%%downvote%%);
+	}
+}
+
+// site table
+.res-nightmode #siteTable {
+	background-color: $dark-cards;
+
+	.score.unvoted { color: $dark-disabled-text !important; }
+
+	// individual post listings
+	&>.thing {
+		@include card(10, 0, rgba($dark-app-bar, 0), true);
+		border-bottom: em(1, 10) solid $dark-divider-text;
+
+		// RES active post highlight
+		&.RES-keyNav-activeThing {
+			background-color: rgba($dark-app-bar, 1) !important;
+		}
+
+		.title {
+			color: $link-color !important;
+
+	    &:hover { color: $link-color-hover !important; }
+
+	    &:active { color: $link-color-active !important; }
+
+	    &:visited { color: $link-color-visited !important; }
+		}
+
+		.domain,
+		.domain a,
+		.tagline {
+			color: $dark-secondary-text !important;
+		}
+	}
+
+}
+
+#siteTable {
+	@include drop-shadow(1);
+	background-color: $light-cards;
+
+	// aligns score between new arrows
 	.score {
 
 		&.unvoted { color: $light-disabled-text; }
@@ -45,51 +130,51 @@
 	&>.likes .score,
 	&>.dislikes .score,
 	&>.thing .score {
-		font-size: em(14, 13);
 		position: relative;
+		height: 100%;
+		padding: em(3, 14) 0;
+		font-size: 14px;
+		line-height: 1;
 	}
-}
-
-#siteTable {
 
 	// individual post listings
 	&>.thing {
-		@include animation(papersplit 5s ease-out);
-		@include card(10, 1);
-		margin-bottom: em(16, 10);
+		@include card(10, 0, rgba($light-app-bar, 0));
+		height: auto !important;
+		margin: 0;
+		border-bottom: em(1, 10) solid $light-divider-text;
 
-		// remove padding from topmost post
-		&:first-of-type {
-			// padding-top: 0;
+		// RES active post highlight
+		&.RES-keyNav-activeThing {
+			background-color: rgba($light-app-bar, 1);
 		}
 
-		// a.title {
-		// 	background: linear-gradient(to top, rgba($light-accent, 0.8) 50%, transparent 50%);
-		// 	background-size: 100% 200%;
-		// 	background-position: 0 0;
-		// 	background-repeat: no-repeat;
-		// 	text-decoration: none;
-		// 	color: inherit;
-		// 	transition: background-position .3s cubic-bezier(.64, .09, .08, 1);
-		//
-		// 	&:hover {	background-position: 0 100%; }
-		// }
+		.entry.RES-keyNav-activeElement {
+			background-color: transparent !important;
+		}
 
+		// post title
 		.title {
 			color: $link-color;
 			line-height: 1.35;
 			margin: 0;
 
+			&:hover { color: $link-color-hover; }
+			&:active { color: $link-color-active; }
 			&:visited { color: $link-color-visited; }
 		}
 
 		.domain,
 		.domain a,
 		.tagline {
-			// .entry .buttons li a {
 			color: $light-secondary-text;
 		}
 	}
+}
+
+// remove reddit default styling for borders of previously clicked links
+.link.last-clicked {
+	@include border-style(none none null none);
 }
 
 // color of post score
@@ -97,81 +182,160 @@
 
 	&.likes { color: $upvote; }
 
-	&.dislikes {
-		color: $downvote;
-	}
+	&.dislikes { color: $downvote; }
 }
 
 // thumbnail
+.res-nightmode .thumbnail {
+	border: em(1, 10) solid $dark-secondary-text !important;
+
+	&.self,
+	&.default {
+		opacity: 0.5;
+
+		&:hover { opacity: 1; }
+	}
+
+	&.self {
+		background: url(%%thumbnail-self-night%%) !important;
+	}
+
+	&.default {
+		background: url(%%thumbnail-default-night%%) !important;
+	}
+}
+
 .thumbnail {
-	border: em(1, 10) solid $light-hint-text;
+	border: em(1, 10) solid $light-secondary-text;
 	border-radius: 50%;
 	font-size: inherit;
 	margin: 0 em(16, 10) 0 0;
 	max-height: em(70, 10);
-	@include transition-default;
-
-	&:hover {
-		border-color: $light-secondary-text;
-	}
 
 	img {
-		// height: auto;
 		height: em(70, 10);
 		width: auto;
-		max-height: em(70, 10);
 	}
 
 	&.self,
 	&.default {
 		@extend .thumbnail;
-		border-color: $black;
 		height: em(70, 10);
 		width: em(70, 10);
-		opacity: 0.26;
+		opacity: 0.38;
 
-		&:hover {
-			opacity: 0.54;
-		}
+		&:hover { opacity: 0.5; }
 	}
 
 	&.self {
-		background: url(%%light-thumbnail-self%%) 0 no-repeat;
+		background: url(%%thumbnail-self%%);
 	}
 
 	&.default {
-		background: url(%%light-thumbnail-default%%) 0 no-repeat;
+		background: url(%%thumbnail-default%%);
 	}
 }
 
 // nsfw thumbnail styling
-.thing.over18 > .thumbnail.self {
-	background: url(%%nsfw%%) 0 no-repeat;
-	border-color: $nsfw;
-	opacity: 0.54;
+.res-nightmode .thing.over18 > .thumbnail.self {
+	background: url(%%nsfw%%) !important;
+	border-color: $nsfw !important;
+	opacity: 0.5;
 
 	&:hover {
-		border-color: $nsfw;
 		opacity: 1;
 	}
 }
 
+.thing.over18 > .thumbnail.self {
+	background: url(%%nsfw%%);
+	border-color: $nsfw;
+	opacity: 0.38;
+
+	&:hover { opacity: 0.5; }
+}
+
+// mod approved post
 .domain,
 .approval-checkmark {
 	float: right;
 }
 
 // media and self post expansion buttons
+.res-nightmode .expando-button {
+	border: em(1, 10) solid $dark-hint-text;
+
+	&:hover {
+		border-color: $dark-secondary-text;
+	}
+
+	&.collapsed,
+	&.collapsed:hover,
+	&.expanded,
+	&.expanded:hover {
+
+		&:before,
+		&:after {
+			background-color: $dark-hint-text;
+		}
+	}
+
+	// video expandos
+	&.video {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%play-night%%) !important;
+		}
+	}
+
+	// image expandos
+	&.image {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%camera-night%%) !important;
+		}
+	}
+
+	&.gallery {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%album-night%%) !important;
+		}
+	}
+
+	// self expandos
+	&.selftext {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%text-night%%) !important;
+		}
+	}
+}
+
 .expando-button {
+	position: relative;
+	top: em(2, 10);
+	width: em(25, 10);
+	height: em(25, 10);
+	z-index: 1;
+	@include margin(null em(6, 10) em(6, 10) null);
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
 	cursor: pointer;
-	@include margin(null em(6, 10) em(6, 10) null);
-	opacity: 0.54;
-	position: relative;
-	top: em(2, 10);
-	z-index: 1;
-	@include transition-default;
 
 	&:hover {
 		border-color: $light-secondary-text;
@@ -184,7 +348,7 @@
 
 		&:before,
 		&:after {
-			background-color: $black;
+			background-color: $light-hint-text;
 			content: "";
 			position: absolute;
 			display: block;
@@ -224,33 +388,58 @@
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%play%%) 0 no-repeat; }
+		&.expanded:hover {
+			background: url(%%play%%);
+		}
 	}
 
 	// image expandos
+	&.image,
+	&.gallery {
+		background-position: initial !important; // RES...seriously????
+	}
+
 	&.image {
-		width: em(25, 10);
-		height: em(25, 10);
+		box-sizing: unset; // to force width and height to 25px
 
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera%%) 0 no-repeat !important; // ;_; thx res
+			background: url(%%camera%%);
 		}
 	}
 
+	&.gallery {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%album%%);
+		}
+	}
+
+	// self expandos
 	&.selftext {
 
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
-		&.expanded:hover { background: url(%%text%%) 0 no-repeat; }
+		&.expanded:hover {
+			background: url(%%text%%);
+		}
 	}
 }
 
+.self .expanded ~ .expando .usertext-body {
+	@include animation(0.2s slide-down $animation-curve-default forwards);
+}
+
 .tagline,
-.flat-list.buttons { font-size: em(12, 10); }
+.flat-list.buttons {
+	font-size: em(12, 10);
+}
 
 // "submitted by"
 .tagline { margin: em(8, 12) 0; }
@@ -272,7 +461,23 @@
 	li { line-height: em(14, 12); }
 }
 
+// selftext body
+.res-nightmode .link .usertext-body .md {
+	border-color: $dark-secondary-text;
+}
+
+.link .usertext-body .md {
+	background-color: $light-background;
+	border-color: $light-secondary-text;
+	border-radius: em(2, 14);
+}
+
 // nsfw stamp
+.stamp {
+	padding: 0;
+	border: 0 !important;
+}
+
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
 	border: 0 !important; // ;_; thx reddit css
@@ -285,76 +490,8 @@
 	padding: 0 em(2, 12);
 }
 
-// .entry .buttons li a {
-// 	color: $light-secondary-text;
-//
-// 	&:not(.comments):not(.flairselectbtn):not(.yes):not(.no) {
-// 		display: inline-block;
-// 		text-indent: -9999em;
-// 		color: transparent;
-// 	}
-// }
-//
-// // set width of share, report, save, remove, and nsfw/un-nsfw buttons
-// .share a,
-// .report-button a,
-// .link-save-button a,
-// .remove-button input[value="removed"] ~ span > a,
-// .marknsfw-button input[value="marked"] ~ span > a,
-// .unmarknsfw-button input[value="unmarked"] ~ span > a {
-// 	width: em(14, 12);
-// }
-//
-// // set width of delete and remove icons
-// .del-button span > a,
-// .remove-button input[value="spammed"] ~ span > a {
-// 	width: em(12, 12);
-// }
-//
-// // share, save/unsave, report
-// @each $link-button in share, link-save-button, link-unsave-button, report-button {
-// 	.#{$link-button} a { background: url(%%#{$link-button}%%) 0 no-repeat; }
-// }
-//
-// // hide and unhide
-// @each $link-buttons in hide, unhide {
-// 	.hide-button span > a[action="#{$link-buttons}"] {
-// 		width: em(16, 12); // width of hide/unhide icons
-// 		background: url(%%#{$link-buttons}%%) 0 no-repeat;
-// 	}
-// }
-//
-// // spam
-// .remove-button input[value="spammed"] ~ span > a { background: url(%%spam%%) 0 no-repeat; }
-//
-// // delete
-// .del-button span > a { background: url(%%delete%%) 0 no-repeat; }
-//
-// // remove
-// .remove-button input[value="removed"] ~ span > a { background: url(%%remove%%) 0 no-repeat; }
-//
-// // nsfw
-// .marknsfw-button input[value="marked"] ~ span > a { background: url(%%marked-nsfw%%) 0 no-repeat; }
-//
-// // un-nsfw
-// .unmarknsfw-button input[value="unmarked"] ~ span > a { background: url(%%unmarked-nsfw%%) 0 no-repeat; }
-//
-// // remove images from yes/no for delete, remove, and nsfw buttons
-// .del-button span > a,
-// .remove-button input[value="removed"] ~ span > a,
-// .unmarknsfw-button input[value="unmarked"] ~ span > a {
-// 	&.yes,
-// 	&.no {
-// 		background: none;
-// 	}
-// }
-//
-// // approve post button
-// .approve-button span > a {
-// 	width: em(15, 12);
-// 	background: url(%%approve%%) 0 no-repeat;
-// }
+.res-nightmode .entry .buttons li a {	color: $dark-secondary-text; }
 
-.error {
-	color: $nsfw;
-}
+.entry .buttons li a {	color: $light-secondary-text; }
+
+.error {	color: $error; }

@@ -1,13 +1,5 @@
 // main: ../main.scss
 
-@import "mixins";
-
-// card elevation change animation
-@include keyframes(depthup) {
-  0% { @include drop-shadow(0); }
-  100% { @include drop-shadow(1); }
-}
-
 // RES settings menu hover animation
 @include keyframes(RES-settings) {
   0% {
@@ -22,20 +14,28 @@
   }
 }
 
+// RES macros menu open animation
+@include keyframes(RESmenuopen) {
+  0% { @include transform(scale(0)); }
+  100% { @include transform(scale(1)); }
+}
 
-// sitetable post animation
-@include keyframes(papersplit) {
-  0% { margin-bottom: 0; }
-  30% { margin-bottom: 0; }
-  40% { margin-bottom: em(16, 10); }
-  50% {
-    @include drop-shadow(0);
-    border-radius: 0;
-  }
-  100% {
-    @include drop-shadow(1);
-    border-radius: em(2, 10);
-  }
+// selftext expando animation
+@include keyframes(slide-down) {
+	0% {
+		@include transform(translateY(-50%));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
+}
+
+// material radio button toggle animation
+@include keyframes(radio-toggle) {
+  0% { background-size: 0; }
+  100% { background-size: 100%; }
 }
 
 // ripple effect on tooltip press

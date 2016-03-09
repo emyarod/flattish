@@ -1,22 +1,50 @@
 // main: ../../main.scss
 
+.res-nightmode #search {
+
+	// text field
+	input[type="text"] { @include text-fields(true); }
+
+	// magnifying glass icon
+	input[type="submit"] {
+		background: url(%%search-night%%);
+
+		&:hover {
+			background: url(%%search-night%%);
+			opacity: 0.87;
+		}
+	}
+}
+
+// style searchexpando
+.res-nightmode #searchexpando {
+	@include card(10, 1, $dark-cards, true);
+
+	label {
+		color: $dark-text;
+	}
+
+	// dropdown menu labels
+	label:not(:first-of-type) { @include dropdown-arrow(true); }
+}
+
 #search {
 
 	// search label
-	&:before {
+	&::before {
 		position: absolute;
 		top: em(26, 10);
 		left: em(24, 10);
 		content: "search";
 		color: transparent;
 		font-size: em(13, 10);
-		@include transition(all 0.2s ease);
+		@include transition-default;
 	}
 
 	&:hover {
 
 		// search label hover behavior
-		&:before {
+		&::before {
 			top: em(3, 13);
 			left: em(12, 13);
 			margin: 0;
@@ -27,16 +55,12 @@
 
 	// text field
 	input[type="text"] {
-		color: $light-text;
-		font-family: $font-stack;
-		height: 3em;
+		height: em(39, 13);
 		outline: none;
 		width: 100%;
-		border: em(1, 13) solid transparent;
-		border-bottom-color: get-color("grey", "600");
+		@include text-fields();
 
 		&:hover {
-
 			// style placeholder text
 			@include placeholder { color: transparent; }
 		}
@@ -50,10 +74,10 @@
 		width: em(16, 14);
 		opacity: 0.54;
 		position: relative;
-		background: url(%%search%%) no-repeat;
-		@include transition;
+		background: url(%%search%%);
 
 		&:hover {
+			background: url(%%search%%);
 			opacity: 0.87;
 		}
 	}
@@ -64,24 +88,23 @@
 	position: relative;
 	top: em(17, 10);
 	right: em(16, 10);
-	z-index: 999;
-
-	width: em(298, 10);
+	z-index: 2147483647; // WTF RES?????
+	width: em(330, 10);
 	margin: 0;
-
-	font-size: 100%;
+	font-size: 10px;
+	transition: initial;
 
 	@include card(10, 1);
 	border: 0;
 	border-radius: 0 0 em(2, 10) em(2, 10);
 
 	label {
-		font-size: 1.3em;
+		font-size: 13px;
 		text-transform: lowercase;
 	}
 
 	p {
-		font-size: 130%;
+		font-size: 13px;
 		margin-bottom: em(5, 13);
 		position: relative;
 		top: em(5, 13);
@@ -89,33 +112,20 @@
 
 	// dropdown menus
 	select {
-		margin: 0 0 0 0.5em;
-		width: 6.7em; // 90px
-		background: transparent;
-		outline: none;
-		@include border-color(null null $light-hint-text null);
-		@include border-width(0 0 em(1, 13) 0);
-		@include appearance(none);
-
-		option {
-			&:hover {
-				background-color: $light-app-bar;
-			}
-		}
+		margin: 0 0 0 em(7, 13);
+		width: em(90, 13);
 	}
 
 	// dropdown menu labels
 	label:not(:first-of-type) {
-		height: em(19, 13);
-		width: em(19, 13);
 		margin: 0 em(5, 13) 0 0;
 		font-weight: bold;
-		background: url(%%dropdown%%) no-repeat right;
+		@include dropdown-arrow();
 	}
 }
 
 // searchexpando advanced options
-#moresearchinfo {
+label + #moresearchinfo {
 	margin-top: em(10, 10);
 	border-color: $accent;
 }

@@ -1,32 +1,57 @@
-// out: main.css
-@import "_utils/animations";
+// compile
+
+@import "_utils/import";
 
 @import "modules/header";
 @import "modules/content";
 @import "modules/sidebar";
 @import "modules/footer";
+@import "pages/settings-page";
+@import "pages/stylesheet-page";
 @import "pages/comments-page";
 @import "pages/search-page";
 @import "pages/submit-page";
+@import "pages/top-page";
+@import "pages/compose-page";
+@import "pages/wiki-page";
 
 * {
   font-family: $font-stack;
   outline: none;
+  @include transition-default();
 }
 
-// makes stylesheet editor full width
-.sheets { margin: 0; }
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
 body {
   background-color: $light-background;
-  overflow-x: hidden; // hmm
 
   a:link {
     color: $link-color;
 
-    &:visited {
-      color: $link-color-visited;
-    }
+    &:hover { color: $link-color-hover; }
+
+    &:active { color: $link-color-active; }
+
+    &:visited { color: $link-color-visited; }
+  }
+
+  overflow-x: hidden;
+}
+
+.res-nightmode body {
+  background-color: $dark-background !important;
+
+  a:link {
+    color: $link-color;
+
+    &:hover { color: $link-color-hover; }
+
+    &:active { color: $link-color-active; }
+
+    &:visited { color: $link-color-visited; }
   }
 }
 

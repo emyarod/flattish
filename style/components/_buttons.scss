@@ -5,7 +5,6 @@
 	height: em(36, $desired-font-size);
 	padding: 0 em(8, $desired-font-size);
 
-	color: $light-text;
 	font-weight: bold;
 	font-family: $font-stack;
 	font-size: em($desired-font-size, $orig-font-size);
@@ -15,30 +14,138 @@
 	text-transform: uppercase;
 
 	background: none transparent;
-	border: 0;
+	border: 0 !important;
 	border-radius: em(2, $desired-font-size);
-	outline: none;
+	outline: 0;
 	will-change: box-shadow;
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
+	&::-moz-focus-inner { border: 0; }
 }
 
-@mixin flat-button($desired-font-size, $orig-font-size, $text-color: $light-text) {
+// default flat button transparent bg
+@mixin default-flat-button($desired-font-size, $orig-font-size, $nightmode: false, $color: $light-text) {
 	@include button($desired-font-size, $orig-font-size);
-	color: $text-color;
 
-	&:hover { background-color: rgba(get-color("grey", "500"), 0.2); }
+	@if ($nightmode) {
+		color: $dark-text;
 
-	&:focus:not(:active) { background-color: rgba($black, 0.12); } // light divider text
+		&:hover {
+			background-color: $dark-button-hover !important;
+		}
 
-  &:active { background-color: rgba(get-color("grey", "500"), 0.4); }
+		&:focus:not(:active) {
+			background-color: $dark-button-focus !important;
+		}
+
+		&:active {
+			background-color: $dark-button-active !important;
+		}
+	} @else {
+		color: $color;
+
+		&:hover {
+			background-color: $light-button-hover;
+		}
+
+		&:focus:not(:active) {
+			background-color: $light-button-focus;
+		}
+
+		&:active {
+			background-color: $light-button-active;
+		}
+	}
 }
 
-@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $text-color: $light-text) {
+// flat button with colored text
+@mixin flat-button-colored-text($desired-font-size, $orig-font-size, $text-color: $primary, $nightmode: false) {
+	@include default-flat-button($desired-font-size, $orig-font-size, $nightmode, $color: $text-color);
+}
+
+// flat button colored bg
+@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $nightmode: false) {
 	@include button($desired-font-size, $orig-font-size);
-	color: $text-color;
+	color: set-text-color($background-color, text) !important;
 	@include ripple($background-color);
 
-	&:hover { background-color: $dark-accent; }
+	&:hover {
+		background-color: $dark-primary !important;
+	}
+}
+
+// default raised button
+@mixin default-raised-button($desired-font-size, $orig-font-size, $nightmode: false) {
+	@include button($desired-font-size, $orig-font-size);
+	@include drop-shadow(1);
+
+	@if ($nightmode) {
+		color: $dark-text;
+
+		&:hover {
+			background-color: $dark-button-hover !important;
+		}
+
+		&:focus:not(:active) {
+			background-color: $dark-button-focus !important;
+			@include focus-shadow();
+		}
+
+		&:active {
+			background-color: $dark-button-active !important;
+			@include drop-shadow(2);
+		}
+	} @else {
+		color: $light-text;
+
+		&:hover {
+			background-color: $light-button-hover;
+		}
+
+		&:focus:not(:active) {
+			background-color: $light-button-focus;
+			@include focus-shadow();
+		}
+
+		&:active {
+			background-color: $light-button-active;
+			@include drop-shadow(2);
+		}
+	}
+}
+
+// raised button color bg
+@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $nightmode: false) {
+	@include button($desired-font-size, $orig-font-size);
+	@include drop-shadow(1);
+	@include ripple($background-color);
+	color: set-text-color($background-color, text) !important;
+
+	@if ($nightmode) {
+		background-color: $background-color !important;
+	}
+
+	&:hover {
+		background-color: $dark-primary !important;
+	}
+
+	&:active {
+		@include drop-shadow(2);
+	}
+
+	&:focus:not(:active) {
+		@include focus-shadow();
+		background-color: $light-primary !important;
+	}
+}
+
+button {
+	@include flat-button-colored-text(14, 14, $primary);
+	font-size: 14px;
+}
+
+.res-nightmode button {
+	@include flat-button-colored-text(14, 14, $primary, true);
+	font-size: 14px;
 }

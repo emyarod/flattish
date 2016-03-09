@@ -1,63 +1,89 @@
 // main: ../main.scss
 
-@import "color-list";
+@import 'color-list';
 
 // get color hue and shade from color list
-@function get-color($color-hue, $color-shade: "500") {
+@function get-color($color-hue, $color-shade: '500') {
   $color: map-get(map-get($colors, $color-hue), $color-shade);
   @if $color {
     @return $color;
-  } @else { @error "=> ERROR"; }
+  } @else { @error '=> ERROR'; }
 }
 
 // define colors
-$primary: get-color("green", "500");
-$dark-primary: get-color("green", "700");
-$light-primary: get-color("green", "100");
-$accent: get-color("blue", "A200");
-$dark-accent: get-color("blue", "A400");
-$light-accent: get-color("blue", "A100");
+$primary: get-color('teal', '500');
+$dark-primary: get-color('teal', '700');
+$light-primary: get-color('teal', '300');
+$accent: get-color('light-blue', 'A200');
+$dark-accent: get-color('light-blue', 'A400');
+$light-accent: get-color('light-blue', 'A100');
 $black: #000;
 $white: #fff;
+
+// link color
+$link-color: get-color('blue', '500');
+$link-color-hover: get-color('blue', '300');
+$link-color-active: get-color('blue', '700');
+$link-color-visited: get-color('deep-purple', '300');
+
+$upvote: get-color('deep-orange', '500');
+$downvote: get-color('indigo', '500');
+$nsfw: get-color('red', 'A200');
+$tooltip: rgba(get-color('grey', '700'), 0.9);
+$error: rgb(222, 55, 38);
+
+$font-stack: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 
 // shadows
 $shadow-key-umbra-opacity: 0.2;
 $shadow-key-penumbra-opacity: 0.14;
 $shadow-ambient-shadow-opacity: 0.12;
+$text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+// $text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
 
 // light theme
-$light-status-bar: get-color("grey", "300");
-$light-app-bar: get-color("grey", "100");
-$light-background: get-color("grey", "50");
+$light-status-bar: get-color('grey', '300');
+$light-app-bar: get-color('grey', '100');
+$light-background: get-color('grey', '50');
 $light-cards: $white;
 
 // light theme text
-$light-divider-text: rgba($black, .12);
-$light-disabled-text: rgba($black, .26);
-$light-hint-text: rgba($black, .26);
-$light-secondary-text: rgba($black, .54);
-$light-icons: rgba($black, .54);
-$light-text: rgba($black, .87);
+$light-divider-text: rgba($black, 0.12);
+$light-disabled-text: rgba($black, 0.38);
+$light-hint-text: rgba($black, 0.38);
+$light-secondary-text: rgba($black, 0.54);
+$light-icons: rgba($black, 0.38);
+$light-text: rgba($black, 0.87);
 
 // dark theme
 $dark-status-bar: $black;
-$dark-app-bar: get-color("grey", "900");
+$dark-app-bar: get-color('grey', '900');
 $dark-background: #303030;
-$dark-cards: get-color("grey", "800");
+$dark-cards: get-color('grey', '800');
 
 // dark theme text
-$dark-divider-text: rgba($white, .12);
-$dark-disabled-text: rgba($white, .3);
-$dark-hint-text: rgba($white, .3);
-$dark-secondary-text: rgba($white, .70);
-$dark-icons: rgba($white, 1);
+$dark-divider-text: rgba($white, 0.12);
+$dark-disabled-text: rgba($white, 0.5);
+$dark-hint-text: rgba($white, 0.5);
+$dark-secondary-text: rgba($white, 0.7);
+$dark-icons: rgba($white, 0.38);
 $dark-text: rgba($white, 1);
+
+// buttons
+$light-button-hover: rgba(#999, 0.2);
+$light-button-focus: $light-divider-text;
+$light-button-active: rgba(#999, 0.4);
+$light-button-disabled: $light-disabled-text;
+
+$dark-button-hover: rgba(#ccc, 0.15);
+$dark-button-focus: $dark-divider-text;
+$dark-button-active: rgba(#ccc, 0.25);
+$dark-button-disabled: $dark-disabled-text;
 
 // animation
 $animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
 $animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
 $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
-
 $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 // mediaquery break points
@@ -65,19 +91,3 @@ $screen-xs-min: em(480, 16);
 $screen-sm-min: em(768, 16);
 $screen-md-min: em(992, 16);
 $screen-lg-min: em(1200, 16);
-
-// link color (can be any hue from color list)
-$link-color: get-color("indigo", "500");
-$link-color-visited: get-color("purple", "500");
-
-// :link
-// :hover
-// :active
-// :visited
-
-$font-stack: "Arial", sans-serif;
-
-$upvote: get-color("deep-orange", "500");
-$downvote: get-color("blue", "500");
-$nsfw: get-color("red", "A200");
-$tooltip: rgba(get-color("grey", "700"), .9);

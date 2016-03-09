@@ -1,22 +1,51 @@
 // main: ../main.scss
 
-@import "../_utils/vars";
+@mixin header($gradient: false, $large: false, $animate: false) {
+  // gradient
+  @if ($gradient) {
+    #header {
+      background-attachment: scroll, fixed;
+      background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 75%),
+      url(%%header3%%);
+    }
+  } @else {
+    #header{
+      background-attachment: fixed;
+      background-image: url(%%header3%%);
+    }
+  }
 
-// animate header
-@include keyframes(moveheader) {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
+  // large
+  @if ($large) {
+    #header {
+      height: 420px;
+    }
+  } @else {
+    #header {
+      height: 223px;
+    }
+  }
+
+  // animate header
+  @if ($animate) {
+    @include keyframes(moveheader) {
+      0% { background-position: 0 0; }
+      50% { background-position: 100% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    #header {
+      @include animation(moveheader 20s infinite);
+    }
+  }
 }
 
+// gradient, large, animate
+@include header();
+
 #header {
-  // height: em(200, 10);
-  height: em(223, 10);
   border: 0;
-  background: transparent linear-gradient(to right, #22D686, #24D3D3, #22D686, #24D3D3) repeat scroll 0% 0% / 600% 100%;
-  // background: transparent linear-gradient(to right, $primary, $light-accent, $primary, $light-accent) repeat scroll 0% 0% / 600% 100%;
   margin-bottom: em(15, 10);
-  @include animation(moveheader 20s infinite);
 }
 
 @media (min-width: $screen-md-min) {
@@ -32,7 +61,6 @@
     left: -12.5%;
   }
 }
-
 
 @import "header/sr-bar";
 @import "header/header-bottom-right";

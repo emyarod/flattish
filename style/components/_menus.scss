@@ -1,13 +1,24 @@
-@mixin menu-items($orig-font-size: 10) {
-  color: $light-text;
-  padding: em(16, $orig-font-size);
-  @include transition-default;
+// main: ../main.scss
 
-  &:hover { background-color: $light-app-bar; }
+@mixin menu-items($attr, $orig-font-size: 10, $nightmode: false) {
+  #{$attr} {
+    padding: em(16, $orig-font-size);
+    color: $light-text;
+
+    &:hover { background-color: $light-app-bar; }
+  }
+
+  @if ($nightmode) {
+    .res-nightmode #{$attr} {
+      color: $dark-text !important;
+
+      &:hover { background-color: $dark-app-bar !important; }
+    }
+  }
 }
 
-@mixin menu($class, $desired-font-size, $orig-font-size, $width) {
-  .drop-choices.#{$class} {
+@mixin menu($parent, $attr, $desired-font-size, $orig-font-size, $width, $nightmode: false) {
+  #{$parent} .drop-choices#{$attr} {
     display: block;
     width: 0;
     max-height: 0;
@@ -19,7 +30,6 @@
     background-color: $light-cards;
     opacity: 0;
     @include drop-shadow(1);
-    @include transition-default;
 
     &.inuse {
       width: em($width, $desired-font-size);
@@ -29,5 +39,12 @@
       opacity: 1;
     }
   }
-  .drop-choices a.choice { @include menu-items($desired-font-size); }
+
+  @include menu-items('.drop-choices a.choice', $desired-font-size, $nightmode);
+
+  @if ($nightmode) {
+    .res-nightmode #{$parent} .drop-choices#{$attr} {
+      background-color: $dark-cards !important;
+    }
+  }
 }

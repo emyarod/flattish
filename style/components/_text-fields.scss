@@ -1,6 +1,109 @@
-// @include border-width(0 0 em(2, 14));
-// border-bottom-color: get-color("grey", "600");
-// background-color: transparent;
-// @include transition-default;
-//
-// &:focus { border-bottom-color: $accent; }
+// main: ../main.scss
+
+@mixin text-fields($nightmode: false) {
+  border: 0;
+
+  @if ($nightmode) {
+    color: $dark-text !important;
+  } else {
+    color: $light-text;
+  }
+
+  font-family: $font-stack;
+  border-style: solid;
+  background-color: transparent !important;
+  box-shadow: none;
+  @include border-width(0 0 1px);
+  @include border-color(transparent transparent get-color("grey", "600"));
+
+  &:focus {
+    border-bottom-color: $accent;
+  }
+}
+
+// macros menu
+.RESMacroDropdown,
+.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
+  // left: unset !important; // thx RES
+  right: em(16, 10) !important; // thx RES
+}
+
+.res-nightmode .RESMacroDropdown {
+  border: 0;
+  background-color: $dark-cards !important;
+}
+
+.RESMacroDropdown {
+  display: block;
+  margin: 0;
+  font-size: em(10, 10);
+  border: 0;
+  border-radius: em(2, 10);
+  background-color: $light-cards;
+  @include drop-shadow(1);
+}
+
+.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
+  width: em(118, 10);
+  max-height: em(690, 10);
+  margin-top: em(10, 10);
+  transform-origin: 100% 0;
+  @include animation(RESmenuopen 0.2s $animation-curve-default);
+}
+
+.res-nightmode .RESMacroDropdownList li a {
+  border: 0;
+  color: $dark-text !important;
+
+  &:hover { background-color: $dark-app-bar !important; }
+}
+
+.RESMacroDropdownList li a {
+  color: $light-text !important; // thx RES
+  padding: em(16, 10) !important; // thx RES
+
+  &:hover { background-color: $light-app-bar !important;  } // thx RES
+}
+
+.bottom-area {
+  margin-bottom: em(10, 13);
+}
+
+// live preview
+.res-nightmode .RESDialogSmall.livePreview {
+
+  & > h3 {
+    background-color: $primary;
+    color: set-text-color($primary, text);
+  }
+
+  .md.RESDialogContents p {
+    color: $dark-text;
+  }
+}
+
+.RESDialogSmall.livePreview {
+
+  // offset box-sizing
+  & > h3 {
+    height: 40px;
+    background-color: $primary;
+  }
+
+  .gearIcon {
+    position: static;
+    background: set-gearIcon();
+  }
+
+  .md.RESDialogContents {
+    padding: 16px;
+    background-image: transparent;
+
+    p { color: $light-text; }
+  }
+}
+
+.livePreview,
+.livePreview .md {
+  background: none !important; // RES PLS
+}

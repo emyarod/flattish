@@ -1,0 +1,37 @@
+// main: ../main.scss
+
+// dropdown menus
+select {
+  color: $light-text;
+  font-size: 13px;
+  background-color: $light-cards;
+  outline: none;
+  border-bottom-color: $light-hint-text;
+  @include border-width(0 0 em(1, 13) 0);
+  @include appearance(none);
+
+  option {
+    color: $light-text;
+  }
+}
+
+.res-nightmode select {
+  color: $dark-text !important;
+  background-color: $dark-cards !important;
+  border-bottom-color: $dark-hint-text !important;
+
+  option {
+    color: $dark-text !important;
+  }
+}
+
+@mixin dropdown-arrow($nightmode: false) {
+  height: em(19, 13);
+  width: em(19, 13);
+
+  @if ($nightmode) {
+    background: url(%%dropdown-night%%) no-repeat right;
+  } @else {
+    background: url(%%dropdown%%) no-repeat right;
+  }
+}

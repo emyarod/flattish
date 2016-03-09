@@ -1,12 +1,27 @@
 // main: ../main.scss
 
+.res-nightmode .footer {
+  @include card(13, 1, $light-cards, true);
+}
+
+.footer,
+.bottommenu {
+  a { @include link-underline-transition; }
+}
+
 .footer {
-  @include animate-card(13);
+  @include card(13, 1);
+  border: 0;
+}
+
+.res-nightmode .flat-vert.title {
+  color: $dark-text;
 }
 
 .flat-vert.title {
-  color: $light-secondary-text;
-  font-size: em(16, 12);
+  color: $light-text;
+  font-size: 16px;
+  transition: none;
 
   &:hover {
     font-size: 0;
@@ -15,5 +30,25 @@
       content: "<3 57";
       font-size: 16px;
     }
+  }
+}
+@media (min-width: $screen-md-min) {
+  .footer-parent,
+  .debuginfo {
+    // width: 112%;
+    // width: 100vw;
+    // left: -6%;
+    // left: -5vw;
+    // bottom: 0;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .footer-parent,
+  .debuginfo {
+    // width: 125%;
+    // width: 100vw;
+    // left: -12.5%;
+    // bottom: 0;
   }
 }

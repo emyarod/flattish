@@ -1,3 +1,5 @@
+// main: ../main.scss
+
 // need to provide width of tooltip after content is added
 // need to provide width of parent object
 // need to provide text within tooltip
@@ -19,7 +21,7 @@
     display: block;
     visibility: hidden;
     height: $height-tooltip;
-    width: $width-tooltip;
+    width: $width-tooltip + (2 * $padding-tooltip);
     padding: 0 $padding-tooltip;
     content: $content-tooltip;
     font-size: $font-size-tooltip;
@@ -43,7 +45,6 @@
 	position: absolute;
 	$direction-1: em($direction-1-value, $orig-font-size);
 	$direction-2: em($direction-2-value, $orig-font-size);
-	z-index: -1;
 	height: em($desired-size, $orig-font-size);
 	width: em($desired-size, $orig-font-size);
 	content: " ";

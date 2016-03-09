@@ -14,12 +14,17 @@
 		a {
 			position: relative;
 			top: em(35, 14);
-			width: em(130, 14);
-			@include flat-colorized-bg-button(14, 15, $accent, $white);
+			width: em(146, 14);
+			@include flat-colorized-bg-button(14, 15, $primary);
 		}
 	}
 
 	.nub { display: none; }
+}
+
+.res-nightmode .submit-link::before {
+	color: $dark-text !important;
+	@include card(14, 1, $light-cards, true);
 }
 
 .submit-link {
@@ -31,21 +36,21 @@
 	}
 
 	// card underneath submit buttons
-	&:before {
+	&::before {
 		position: relative;
 		top: em(-15, 14);
 		display: block;
-		height: em(68, 14);
-		width: em(298, 14);
+		height: em(98, 14);
+		width: em(330, 14);
 		font-size: em(14, 10);
 		font-weight: bold;
-		color: $light-secondary-text;
+		color: $light-text;
 		content: "Submit a new:";
-		@include animate-card(14);
+		@include card(14, 1);
 	}
 }
 
 .submit-text {
-	top: em(-86, 10);
+	top: em(-88, 10);
 	left: em(170, 10);
 }

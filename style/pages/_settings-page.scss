@@ -1,0 +1,72 @@
+// main: ../main.scss
+
+.res-nightmode .pretty-form { background-color: $dark-background; }
+
+.res-nightmode .linefield {
+  @include card(18, 1, $dark-cards);
+
+  .title { color: $dark-text !important; }
+
+  input[type="text"],
+  input[type="password"] {
+    color: $dark-text;
+  }
+}
+
+.linefield {
+  width: 100%;
+  margin-bottom: em(15, 16);
+  @include card(18, 1);
+
+  div:not(.commentingAs) {
+    @include margin(null 0);
+    padding: 0;
+  }
+
+  .title {
+    margin: 0;
+    padding: 0;
+    color: $light-text;
+  }
+
+  // revert browser styles since custom styles cannot be used
+  select { @include appearance(menulist); }
+
+  input {
+
+    &[type="text"],
+    &[type="password"] {
+      width: 100%;
+      @include text-fields;
+    }
+
+    &[type="checkbox"] {
+      @include hide-checkbox;
+
+      & + label::before {
+        vertical-align: -4px;
+        @include check-box;
+      }
+
+      &:checked + label::before { @include checkbox-checked; }
+    }
+  }
+
+  // radio button styling
+  // thx reddit
+  table input[type="radio"]:not([id*="spam"]) {
+    @include hide-radio;
+
+    & + label::before {
+      vertical-align: -3px;
+      @include radio-button;
+    }
+
+    &:checked + label::before { @include radio-checked; }
+
+    &[disabled="disabled"] + label::before { @include radio-disabled; }
+  }
+}
+
+// save options button
+#sr-form .save-button button { @include raised-colorized-button(14, 13, $primary); }

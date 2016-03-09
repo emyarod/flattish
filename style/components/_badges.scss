@@ -1,10 +1,10 @@
 // main: ../main.scss
 
-@mixin badge($preferred-font-size: 10, $orig-font-size: 10, $bg-color: $accent, $text-color: $dark-text) {
+@mixin badge($preferred-font-size: 10, $orig-font-size: 10, $bg-color: $accent) {
   width: auto;
-  height: em($preferred-font-size, $preferred-font-size);
+  height: auto;
   padding: em(2, $preferred-font-size);
-  color: $text-color !important;
+  color: set-text-color($bg-color, text) !important;
   font-size: em($preferred-font-size, $orig-font-size);
   font-weight: bold;
   line-height: em($preferred-font-size, $preferred-font-size);

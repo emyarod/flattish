@@ -1,0 +1,44 @@
+// main: ../main.scss
+
+.res-nightmode #subreddit_stylesheet,
+.res-nightmode ul#image-preview-list li {
+  @include card(13, 1, $dark-cards, true);
+}
+
+.res-nightmode #image-upload {
+  @include card(10, 1, $dark-cards, true);
+}
+
+#subreddit_stylesheet {
+  @include card(13, 1);
+}
+
+// makes stylesheet editor full width
+.sheets { margin: 0; }
+
+#image-upload {
+  @include card(10, 1);
+}
+
+// Note: any changes to images here will be reflected immediately on reload and cannot be undone.
+#images .error {
+  margin: 16px 0;
+}
+
+// stylesheet images
+ul#image-preview-list {
+  margin: 0;
+
+  li {
+    @extend #subreddit_stylesheet;
+    width: calc(50% - 8px);
+
+    &:nth-of-type(2n+1) {
+      margin: 0 0 16px 0;
+    }
+
+    &:nth-of-type(2n) {
+      margin: 0 16px 16px 0;
+    }
+  }
+}

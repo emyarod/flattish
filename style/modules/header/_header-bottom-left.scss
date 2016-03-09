@@ -1,7 +1,96 @@
 // main: ../../main.scss
+#header-bottom-left .pagename a,
+#header-bottom-left .pagename:hover a,
+#header-bottom-left .tabmenu li a,
+#header-bottom-left .tabmenu li #viewImagesButton {
+  text-shadow: $text-shadow;
+}
 
-@import "../../_utils/vars";
-@import "../../_utils/mixins";
+// determines text color
+@mixin header-bottom-left($image, $gradient, $image-light) {
+  @if ($image) {
+    @if ($gradient) {
+      #header-bottom-left {
+        .pagename {
+          a {
+            color: $dark-secondary-text;
+          }
+
+          &:hover a {
+            color: $dark-text;
+          }
+        }
+
+        .tabmenu li {
+          a,
+          #viewImagesButton {
+            @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
+          }
+        }
+      }
+    } @else if ($image-light) {
+      #header-bottom-left {
+        .pagename {
+          a {
+            color: $light-secondary-text;
+          }
+
+          &:hover a {
+            color: $light-text;
+          }
+        }
+
+        .tabmenu li {
+          a,
+          #viewImagesButton {
+            @include tab-list-anchors(true, transparent, $light-accent, $primary, $light-secondary-text, $light-text);
+          }
+        }
+      }
+    } @else {
+      #header-bottom-left {
+        .pagename {
+          a {
+            color: $dark-secondary-text;
+          }
+
+          &:hover a {
+            color: $dark-text;
+          }
+        }
+
+        .tabmenu li {
+          a,
+          #viewImagesButton {
+            @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
+          }
+        }
+      }
+    }
+  } @else {
+    #header-bottom-left {
+      .pagename {
+        a {
+          color: set-text-color($primary, secondary-text);
+        }
+
+        &:hover a {
+          color: set-text-color($primary, text);
+        }
+      }
+
+      .tabmenu li {
+        a,
+        #viewImagesButton {
+          @include tab-list-anchors(true);
+        }
+      }
+    }
+  }
+}
+
+// image, gradient, image-light
+@include header-bottom-left(true, false, false);
 
 // header image, pagename, tabmenu
 #header-bottom-left {
@@ -12,10 +101,51 @@
 
   // nested to avoid body:link styling
   .pagename {
-    a { color: $light-secondary-text; }
-
-    &:hover a { color: $light-text; }
+    color: transparent;
   }
+
+  // tabmenu
+  .tabmenu {
+    position: absolute;
+    left: 0;
+    top: em(73, 14);
+    width: 100vw; // fuck IE8 support
+    padding-left: em(16, 16);
+    margin-top: 0;
+    @include tabs;
+
+    li {
+      margin: 0;
+
+      // hides "rising", "controversial", "ads", and "gilded" tabs
+      @each $hidden-tab in rising, controversial, ads, gilded {
+        a[href$="/#{$hidden-tab}/"] { display: none; }
+      }
+
+      // styles visible tabs
+      a,
+      #viewImagesButton {
+        // @include tab-list-anchors(true);
+        width: initial;
+      }
+
+      // ensures selected tab remains unchanged
+      &.selected a {
+        margin: 0;
+        padding: 0 em(24, 14);
+        background-color: transparent;
+        border-bottom-color: $accent;
+        border-bottom-style: solid;
+        @include border-width(0 0 em(2, 14) 0);
+      }
+    }
+  }
+}
+
+.res-nightmode #header-bottom-left .tabmenu li.selected a {
+  border-bottom-color: $accent;
+  border-bottom-style: solid;
+  @include border-width(0 0 em(2, 14) 0);
 }
 
 // snooface
@@ -28,18 +158,7 @@
   padding-right: em(35, 14); // makes space for snoo visibility
 
   background: url(%%snoo-color%%) no-repeat;
-  @include transition-default;
-}
-
-// positioning fix for pagename and tabmenu when reddit pushes custom banner image
-#header-img-a {
-  @each $class in (pagename, tabmenu) {
-    ~ .#{$class} {
-      position: relative;
-      top: em(-4, 16);
-      display: inline-block;
-    }
-  }
+  background-position: 0% em(5, 14);
 }
 
 // subreddit name
@@ -58,38 +177,48 @@
     line-height: em(53, 16);
     text-transform: lowercase;
 
-    @include transition-default;
-
     &:hover {
-      color: $light-text;
       text-decoration: none;
     }
   }
 }
 
-// tabmenu
-@import "../../components/tabs";
-
-@media (min-width: $screen-sm-min) {
+@media (min-width: $screen-md-min) {
   #header-bottom-left {
     top: em(159, 14);
     height: em(64, 14);
+
+    // restore initial tabmenu values
+    .tabmenu {
+      position: static;
+      left: initial;
+      top: initial;
+      width: initial;
+      padding-left: initial;
+    }
   }
 
   #header-img,
   #header-img.default-header {
     height: em(64, 14);
     @include margin(0 0 0 em(16, 16));
-    background-position: 0% em(5, 14);
+    // background-position: -118px -100px;
   }
 
   // positioning fix for pagename and tabmenu when reddit pushes custom banner image
-  #header-img-a ~ .pagename {
-    top: em(-3, 16);
-  }
 
   .pagename a {
     height: em(64, 16);
     line-height: em(64, 16);
+  }
+
+  #header-img-a {
+    @each $class in (pagename, tabmenu) {
+      ~ .#{$class} {
+        position: relative;
+        top: em(-2, 16);
+        display: inline-block;
+      }
+    }
   }
 }
