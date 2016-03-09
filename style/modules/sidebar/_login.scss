@@ -21,12 +21,6 @@
 
 .res-nightmode .login-form-side {
 
-	input {
-		&[type="text"],
-		&[type="password"] {
-			@include text-fields(true);
-		}
-
 		// hide default checkbox styling
 		&[type="checkbox"] {
 			@include hide-checkbox;
@@ -41,7 +35,6 @@
 				@include checkbox-checked;
 			}
 		}
-	}
 
 	label {
 		color: $dark-text !important;
@@ -49,10 +42,6 @@
 }
 
 .login-form-side input {
-	&[type="text"],
-	&[type="password"] {
-		@include text-fields();
-	}
 
 	// hide default checkbox styling
 	&[type="checkbox"] {
