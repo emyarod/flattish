@@ -180,8 +180,9 @@
 }
 
 // RES settings dropdown menu choices
+@include menu-items('.RESDropdownList li', 10, true);
+
 .res-nightmode .RESDropdownList li {
-  @include menu-items(10, true);
 
   &:hover a { background-color: $dark-app-bar !important; }
 
@@ -197,7 +198,6 @@
   border: 0 !important;
   border-radius: em(2, 10) !important;
   color: $light-text !important;
-  @include menu-items;
 
   &:hover { background-color: $light-app-bar !important; }
 
