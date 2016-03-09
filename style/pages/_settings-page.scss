@@ -37,7 +37,6 @@
     &[type="text"],
     &[type="password"] {
       width: 100%;
-      @include text-fields;
     }
 
     &[type="checkbox"] {
