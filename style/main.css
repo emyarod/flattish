@@ -346,6 +346,46 @@ select option {
   box-sizing: initial;
 }
 
+.res-nightmode input[type="text"],
+.res-nightmode input[type="password"],
+.res-nightmode input[type="url"],
+.res-nightmode textarea,
+input[type="text"],
+input[type="password"],
+input[type="url"],
+textarea {
+  border-width: 0 0 1px !important;
+  border-color: transparent transparent #757575 !important;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.res-nightmode input[type="text"]:focus,
+.res-nightmode input[type="password"]:focus,
+.res-nightmode input[type="url"]:focus,
+.res-nightmode textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  border-bottom-color: #40c4ff !important;
+}
+
+.res-nightmode input[type="text"],
+.res-nightmode input[type="password"],
+.res-nightmode input[type="url"],
+.res-nightmode textarea {
+  color: white !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="url"],
+textarea {
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .RESMacroDropdown,
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
   right: 1.6em !important;
@@ -1581,7 +1621,7 @@ div.content {
 
 .side,
 .side * {
-  z-index: 99999;
+  z-index: 999;
 }
 
 .res-nightmode .side,
@@ -1693,26 +1733,7 @@ div.content {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-.res-nightmode .login-form-side input[type="text"], .res-nightmode .login-form-side input[type="password"] {
-  border: 0;
-  color: white !important;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.res-nightmode .login-form-side input[type="text"] else, .res-nightmode .login-form-side input[type="password"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.res-nightmode .login-form-side input[type="text"]:focus, .res-nightmode .login-form-side input[type="password"]:focus {
-  border-bottom-color: #40c4ff;
-}
-
-.res-nightmode .login-form-side input[type="checkbox"] {
+.res-nightmode .login-form-side[type="checkbox"] {
   display: none;
   width: 0;
   height: 0;
@@ -1727,7 +1748,7 @@ div.content {
   appearance: none;
 }
 
-.res-nightmode .login-form-side input[type="checkbox"] + label::before {
+.res-nightmode .login-form-side[type="checkbox"] + label::before {
   vertical-align: -25%;
   display: inline-block;
   height: 16px;
@@ -1740,7 +1761,7 @@ div.content {
   cursor: pointer;
 }
 
-.res-nightmode .login-form-side input[type="checkbox"]:checked + label::before {
+.res-nightmode .login-form-side[type="checkbox"]:checked + label::before {
   border-color: #009688;
   background: #009688 url(%%tick%%) no-repeat scroll 0% 60%;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1750,24 +1771,6 @@ div.content {
 
 .res-nightmode .login-form-side label {
   color: white !important;
-}
-
-.login-form-side input[type="text"], .login-form-side input[type="password"] {
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.login-form-side input[type="text"] else, .login-form-side input[type="password"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.login-form-side input[type="text"]:focus, .login-form-side input[type="password"]:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .login-form-side input[type="checkbox"] {
@@ -1817,25 +1820,6 @@ div.content {
   color: rgba(0, 0, 0, 0.87);
   background-color: #424242 !important;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
-.res-nightmode #search input[type="text"] {
-  border: 0;
-  color: white !important;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.res-nightmode #search input[type="text"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.res-nightmode #search input[type="text"]:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .res-nightmode #search input[type="submit"] {
@@ -1893,21 +1877,6 @@ div.content {
   height: 3em;
   outline: none;
   width: 100%;
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-#search input[type="text"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-#search input[type="text"]:focus {
-  border-bottom-color: #40c4ff;
 }
 
 #search input[type="text"]:hover::-webkit-input-placeholder {
@@ -2273,25 +2242,6 @@ label + #moresearchinfo {
   color: white;
 }
 
-.res-nightmode .hover-bubble.multi-selector .create-multi input[type="text"] {
-  border: 0;
-  color: white !important;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.res-nightmode .hover-bubble.multi-selector .create-multi input[type="text"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.res-nightmode .hover-bubble.multi-selector .create-multi input[type="text"]:focus {
-  border-bottom-color: #40c4ff;
-}
-
 .hover-bubble.multi-selector {
   border: 0;
   border-radius: 0.2em;
@@ -2312,24 +2262,6 @@ label + #moresearchinfo {
 .hover-bubble.multi-selector label a {
   height: 14px;
   width: 14px;
-}
-
-.hover-bubble.multi-selector .create-multi input[type="text"] {
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.hover-bubble.multi-selector .create-multi input[type="text"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.hover-bubble.multi-selector .create-multi input[type="text"]:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .res-nightmode #moderation_tools .title h1,
@@ -2607,21 +2539,6 @@ label + #moresearchinfo {
 
 .linefield input[type="text"], .linefield input[type="password"] {
   width: 100%;
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.linefield input[type="text"] else, .linefield input[type="password"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.linefield input[type="text"]:focus, .linefield input[type="password"]:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .linefield input[type="checkbox"] {
@@ -3072,21 +2989,6 @@ ul#image-preview-list li:nth-of-type(2n) {
 .usertext-edit textarea {
   width: 100%;
   margin-bottom: 0.64286em !important;
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.usertext-edit textarea else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.usertext-edit textarea:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .usertext-edit > .markdownEditor-wrapper {
@@ -3165,24 +3067,6 @@ ul#image-preview-list li:nth-of-type(2n) {
 
 #BigEditor .RESDialogSmall .md h3 {
   height: unset;
-}
-
-#BigEditor .RESDialogSmall textarea {
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-#BigEditor .RESDialogSmall textarea else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-#BigEditor .RESDialogSmall textarea:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .res-nightmode .gold-accent.comment-visits-box .title::after {
@@ -3592,33 +3476,6 @@ ul.tabmenu.formtab a.text-button.choice {
 .roundfield input[type="text"] .usertext-edit,
 .roundfield-content input[type="url"] .usertext-edit {
   width: 100%;
-}
-
-.roundfield-content textarea,
-.roundfield input[type="text"], .roundfield-content textarea input[type="text"],
-.roundfield-content input[type="url"] input[type="text"],
-.roundfield-content input[type="url"] {
-  border: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  border-width: 0 0 1px;
-  border-color: transparent transparent #757575;
-}
-
-.roundfield-content textarea else,
-.roundfield input[type="text"] else, .roundfield-content textarea input[type="text"] else,
-.roundfield-content input[type="url"] input[type="text"] else,
-.roundfield-content input[type="url"] else {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.roundfield-content textarea:focus,
-.roundfield input[type="text"]:focus, .roundfield-content textarea input[type="text"]:focus,
-.roundfield-content input[type="url"] input[type="text"]:focus,
-.roundfield-content input[type="url"]:focus {
-  border-bottom-color: #40c4ff;
 }
 
 .roundfield, .roundfield-content textarea,
