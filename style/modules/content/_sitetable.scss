@@ -86,7 +86,6 @@
 
 	// individual post listings
 	&>.thing {
-		@include card(10, 0, rgba($dark-app-bar, 0), true);
 		border-bottom: em(1, 10) solid $dark-divider-text;
 
 		// RES active post highlight
@@ -139,7 +138,6 @@
 
 	// individual post listings
 	&>.thing {
-		@include card(10, 0, rgba($light-app-bar, 0));
 		height: auto !important;
 		margin: 0;
 		border-bottom: em(1, 10) solid $light-divider-text;

@@ -63,7 +63,6 @@
 	#ad_main,
 	.sidecontentbox {
 		font-size: 100%;
-		@include card(10, 1);
 	}
 
 	// sponsorship box & advertisement
@@ -81,16 +80,6 @@
 
 // login form
 @import "sidebar/login";
-
-// place cards beneath sidebar boxes
-.res-nightmode .side .spacer:first-of-type,
-.res-nightmode .side #ad_sponsorship,
-.res-nightmode .side .titlebox,
-.res-nightmode .side #moderation_tools,
-.res-nightmode .side #ad_main,
-.res-nightmode .side .sidecontentbox {
-	@include card(10, 1, $light-cards, true);
-}
 
 // search
 @import "sidebar/search";

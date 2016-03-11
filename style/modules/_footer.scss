@@ -1,22 +1,13 @@
 // main: ../main.scss
 
-.res-nightmode .footer {
-  @include card(13, 1, $light-cards, true);
-}
-
 .footer,
 .bottommenu {
   a { @include link-underline-transition; }
 }
 
-.footer {
-  @include card(13, 1);
-  border: 0;
-}
+.footer { border: 0; }
 
-.res-nightmode .flat-vert.title {
-  color: $dark-text;
-}
+.res-nightmode .flat-vert.title { color: $dark-text; }
 
 .flat-vert.title {
   color: $light-text;
@@ -32,6 +23,7 @@
     }
   }
 }
+
 @media (min-width: $screen-md-min) {
   .footer-parent,
   .debuginfo {

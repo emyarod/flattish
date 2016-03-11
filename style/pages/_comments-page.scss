@@ -8,25 +8,13 @@
 #REScommentSubToggle {
   @include flat-button-colored-text(12, 12, get-color('green', '500'));
 
-  &.unsubscribe {
-    color: get-color('red', '500');
-  }
+  &.unsubscribe { color: get-color('red', '500'); }
 }
 
-.res-nightmode .commentarea {
-  .menuarea {
-    @include card(13, 1, $dark-cards, true);
+.res-nightmode .commentarea .menuarea {
+  .spacer + .spacer form { @include default-flat-button(13, 13, true); }
 
-    .spacer + .spacer form {
-      @include default-flat-button(13, 13, true);
-    }
-
-    .toggle a { color: $dark-secondary-text; }
-  }
-
-  &> .usertext {
-    @include card(13, 1, $dark-cards, true);
-  }
+  .toggle a { color: $dark-secondary-text; }
 }
 
 .commentarea {
@@ -49,14 +37,11 @@
   }
 
   // increases padding on main comments page (vs permalink comment page)
-  .panestack-title ~ .menuarea {
-    padding-top: em(60, 13);
-  }
+  .panestack-title ~ .menuarea { padding-top: em(60, 13); }
 
   // sorted/navigate by
   .menuarea {
     margin-bottom: em(17, 13);
-    @include card(13, 1);
 
     .spacer + .spacer {
       display: block;
@@ -73,10 +58,7 @@
     .toggle a { color: $light-secondary-text; }
   }
 
-  &> .usertext {
-    @include margin(null null em(16, 13) 0);
-    @include card(13, 1);
-  }
+  &> .usertext { @include margin(null null em(16, 13) 0); }
 }
 
 // "sorted by" menu
@@ -193,9 +175,7 @@
   width: 100%;
   max-width: unset;
   margin: 0 0 em(16, 10) 0;
-  color: $light-text;
   border: 0;
-  @include card(10, 1, get-color("yellow", "50"));
 
   .title::after {
     display: inline-block;
@@ -208,23 +188,16 @@
 
 #comment-visits { width: em(167, 13); }
 
-.res-nightmode .linkinfo {
-  color: $dark-text !important;
-  @include card(13, 1, $light-accent, true);
-
-  .shortlink input {
-    color: $dark-text;
-    background-color: $dark-app-bar;
-  }
+.res-nightmode .linkinfo .shortlink input {
+  color: $dark-text;
+  background-color: $dark-app-bar;
 }
 
 .linkinfo {
   position: relative;
-  top: em(-85, 13);
+  top: -85px;
   border: 0;
-  color: $light-text;
-  font-size: em(13, 10);
-  @include card(13, 1, $light-accent);
+  font-size: 13px;
 
   .shortlink input { width: unset; }
 }
@@ -281,7 +254,6 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 
 .res .comment,
 .comment {
-  @include card(10, 1);
 
   &:hover { @include drop-shadow(3); }
 

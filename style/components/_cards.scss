@@ -16,18 +16,109 @@
 	}
 }
 
-// @mixin animate-card($orig-font-size: 10, $shadow-depth: 1, $background-color: $light-cards, $nightmode: false) {
-// 	border-radius: em(2, $orig-font-size);
-// 	padding: em(16, $orig-font-size);
-// 	color: set-text-color($background-color, text);
-//
-// 	@if ($nightmode) {
-// 		background-color: $dark-cards !important;
-// 	} @else {
-// 		background-color: $background-color;
-// 	}
-//
-// 	@include animation(depthup 0.75s ease);
-// 	@include animation-iteration-count(1);
-// 	@include drop-shadow($shadow-depth);
-// }
+@mixin universal-card-styles {
+	padding: 16px;
+	border-radius: 2px;
+	@include drop-shadow(1);
+}
+
+$default-selectors: (
+	// compose page
+	'#compose-message',
+
+	// wiki page
+	'.wiki-page-content',
+
+	// search page
+	'.combined-search-page .searchpane',
+	'.combined-search-page .search-result',
+
+	// stylesheet page
+	'#subreddit_stylesheet',
+	'ul#image-preview-list li',
+	'#image-upload',
+
+	// settings page
+	'.linefield',
+
+	// comments page
+	'.commentarea .menuarea',
+	'.commentarea > .usertext'
+	'.res .comment',
+	'.comment',
+
+	// submit page
+	'.formtabs-content',
+
+	// sidebar
+	'.side .spacer:first-of-type',
+	'.side #ad_sponsorship',
+	'.side .titlebox',
+	'.side #moderation_tools',
+	'.side #ad_main',
+	'.side .sidecontentbox',
+
+	// sidebar search
+	'#searchexpando',
+
+	// sidebar submit
+	'.submit-link::before',
+
+	// sidebar login
+	'#login_login-main',
+
+	// titlebox
+	'.hover-bubble.multi-selector',
+
+	// site table
+	'#siteTable > .thing',
+	
+	// footer
+	'.footer'
+);
+$night-selectors: ();
+$alt-bg-selectors: ();
+
+$alt-bg-selector-map: (
+	// comments page
+	'.gold-accent.comment-visits-box': get-color("yellow", "50"),
+	'.linkinfo': $light-accent,
+	'.content.submit .info-notice': rgba($light-primary, 0.38)
+);
+
+// duplicates all default selectors in a nightmode selectors list
+@each $item in $default-selectors {
+	$night-selectors: append($night-selectors, unquote('.res-nightmode #{$item}'), 'comma');
+}
+
+// places selectors for alt colored cards in a list
+@each $key, $value in $alt-bg-selector-map {
+	$alt-bg-selectors: append($alt-bg-selectors, $key, 'comma');
+}
+
+// styles nightmode and default mode alt bg cards
+@each $key, $value in $alt-bg-selector-map {
+	.res-nightmode #{$key},
+	#{$key} {
+		background-color: $value !important;
+		color: set-text-color($value, text);
+	}
+}
+
+// styles all nightmode cards
+#{$night-selectors} {
+	background-color: $dark-cards !important;
+	color: set-text-color($dark-cards, text);
+}
+
+// styles all default cards
+#{$default-selectors} {
+	background-color: $light-cards;
+	color: set-text-color($light-cards, text);
+}
+
+// styles all defaults and all alt colored cards
+#{$alt-bg-selectors},
+#{$default-selectors} {
+	@include universal-card-styles;
+}

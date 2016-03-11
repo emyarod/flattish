@@ -112,15 +112,10 @@
 }
 
 // subscribe button tooltip
-.res-nightmode .hover-bubble.multi-selector {
-	@include card(10, 4, $dark-cards, true);
-
-	strong { color: $dark-text; }
-}
+.res-nightmode .hover-bubble.multi-selector strong { color: $dark-text; }
 
 .hover-bubble.multi-selector {
 	border: 0;
-	@include card(10, 4);
 
 	&::before,
 	&::after {

@@ -22,11 +22,6 @@
 	.nub { display: none; }
 }
 
-.res-nightmode .submit-link::before {
-	color: $dark-text !important;
-	@include card(14, 1, $light-cards, true);
-}
-
 .submit-link {
 	top: em(-69, 10);
 
@@ -44,9 +39,7 @@
 		width: em(330, 14);
 		font-size: em(14, 10);
 		font-weight: bold;
-		color: $light-text;
 		content: "Submit a new:";
-		@include card(14, 1);
 	}
 }
 
