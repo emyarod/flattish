@@ -222,72 +222,191 @@ button {
   padding: 0 0.57143em;
   font-size: 1em;
   line-height: 2.57143em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #009688;
-  font-size: 14px;
 }
 
-button::-moz-focus-inner {
-  border: 0;
+.res-nightmode button,
+button {
+  color: #009688 !important;
 }
 
-button:hover {
-  background-color: rgba(153, 153, 153, 0.2);
+.titlebox a.option {
+  min-width: 6.4em;
+  height: 3.6em;
+  padding: 0 0.8em;
+  font-size: 1em;
+  line-height: 3.6em;
 }
 
-button:focus:not(:active) {
-  background-color: rgba(0, 0, 0, 0.12);
+.res-nightmode .titlebox a.option,
+.titlebox a.option {
+  color: #4caf50 !important;
 }
 
-button:active {
-  background-color: rgba(153, 153, 153, 0.4);
+.titlebox .RESDashboardToggle {
+  min-width: 6.4em;
+  height: 3.6em;
+  padding: 0 0.8em;
+  font-size: 1em;
+  line-height: 3.6em;
 }
 
-.res-nightmode button {
+.res-nightmode .titlebox .RESDashboardToggle,
+.titlebox .RESDashboardToggle {
+  color: #4caf50 !important;
+}
+
+.submit-page button[type="submit"] {
   min-width: 4.57143em;
   height: 2.57143em;
   padding: 0 0.57143em;
-  font-size: 1em;
+  font-size: 1.4em;
   line-height: 2.57143em;
+}
+
+#sr-form .save-button button {
+  min-width: 4.57143em;
+  height: 2.57143em;
+  padding: 0 0.57143em;
+  font-size: 1.4em;
+  line-height: 2.57143em;
+}
+
+.submit-link .morelink a {
+  min-width: 4.57143em;
+  height: 2.57143em;
+  padding: 0 0.57143em;
+  font-size: 0.93333em;
+  line-height: 2.57143em;
+}
+
+.submit-text .morelink a {
+  min-width: 4.57143em;
+  height: 2.57143em;
+  padding: 0 0.57143em;
+  font-size: 0.93333em;
+  line-height: 2.57143em;
+}
+
+.commentarea .menuarea .spacer + .spacer form {
+  min-width: 4.92308em;
+  height: 2.76923em;
+  padding: 0 0.61538em;
+  font-size: 1em;
+  line-height: 2.76923em;
+}
+
+.res-nightmode .commentarea .menuarea .spacer + .spacer form {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.commentarea .menuarea .spacer + .spacer form {
+  color: #fff;
+}
+
+#REScommentSubToggle {
+  min-width: 5.33333em;
+  height: 3em;
+  padding: 0 0.66667em;
+  font-size: 1em;
+  line-height: 3em;
+}
+
+.res-nightmode #REScommentSubToggle,
+#REScommentSubToggle {
+  color: #4caf50 !important;
+}
+
+button, .titlebox a.option, .titlebox .RESDashboardToggle, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle,
+.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .titlebox .RESDashboardToggle, .res-nightmode .submit-page button[type="submit"], .res-nightmode #sr-form .save-button button, .res-nightmode .submit-link .morelink a, .res-nightmode .submit-text .morelink a, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle {
   font-weight: bold;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   letter-spacing: normal;
   text-align: center;
   text-transform: uppercase;
-  background: none transparent;
   border: 0 !important;
   border-radius: 2px;
   outline: 0;
   will-change: box-shadow;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #fff;
-  font-size: 14px;
 }
 
-.res-nightmode button::-moz-focus-inner {
+button::-moz-focus-inner, .titlebox a.option::-moz-focus-inner, .titlebox .RESDashboardToggle::-moz-focus-inner, .submit-page button[type="submit"]::-moz-focus-inner, #sr-form .save-button button::-moz-focus-inner, .submit-link .morelink a::-moz-focus-inner, .submit-text .morelink a::-moz-focus-inner, .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, #REScommentSubToggle::-moz-focus-inner,
+.res-nightmode button::-moz-focus-inner, .res-nightmode .titlebox a.option::-moz-focus-inner, .res-nightmode .titlebox .RESDashboardToggle::-moz-focus-inner, .res-nightmode .submit-page button[type="submit"]::-moz-focus-inner, .res-nightmode #sr-form .save-button button::-moz-focus-inner, .res-nightmode .submit-link .morelink a::-moz-focus-inner, .res-nightmode .submit-text .morelink a::-moz-focus-inner, .res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, .res-nightmode #REScommentSubToggle::-moz-focus-inner {
   border: 0;
 }
 
-.res-nightmode button:hover {
+.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .titlebox .RESDashboardToggle, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle {
+  background-color: transparent !important;
+}
+
+.res-nightmode button:hover, .res-nightmode .titlebox a.option:hover, .res-nightmode .titlebox .RESDashboardToggle:hover, .res-nightmode .commentarea .menuarea .spacer + .spacer form:hover, .res-nightmode #REScommentSubToggle:hover {
   background-color: rgba(204, 204, 204, 0.15) !important;
 }
 
-.res-nightmode button:focus:not(:active) {
+.res-nightmode button:focus:not(:active), .res-nightmode .titlebox a.option:focus:not(:active), .res-nightmode .titlebox .RESDashboardToggle:focus:not(:active), .res-nightmode .commentarea .menuarea .spacer + .spacer form:focus:not(:active), .res-nightmode #REScommentSubToggle:focus:not(:active) {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.res-nightmode button:active {
+.res-nightmode button:active, .res-nightmode .titlebox a.option:active, .res-nightmode .titlebox .RESDashboardToggle:active, .res-nightmode .commentarea .menuarea .spacer + .spacer form:active, .res-nightmode #REScommentSubToggle:active {
   background-color: rgba(204, 204, 204, 0.25) !important;
+}
+
+button, .titlebox a.option, .titlebox .RESDashboardToggle, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle {
+  background: none transparent;
+}
+
+button:hover, .titlebox a.option:hover, .titlebox .RESDashboardToggle:hover, .commentarea .menuarea .spacer + .spacer form:hover, #REScommentSubToggle:hover {
+  background-color: rgba(153, 153, 153, 0.2);
+}
+
+button:focus:not(:active), .titlebox a.option:focus:not(:active), .titlebox .RESDashboardToggle:focus:not(:active), .commentarea .menuarea .spacer + .spacer form:focus:not(:active), #REScommentSubToggle:focus:not(:active) {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+button:active, .titlebox a.option:active, .titlebox .RESDashboardToggle:active, .commentarea .menuarea .spacer + .spacer form:active, #REScommentSubToggle:active {
+  background-color: rgba(153, 153, 153, 0.4);
+}
+
+.submit-link .morelink a, .submit-text .morelink a,
+.submit-page button[type="submit"], #sr-form .save-button button {
+  color: #fff !important;
+  background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
+  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+}
+
+.submit-link .morelink a:focus, .submit-text .morelink a:focus,
+.submit-page button[type="submit"]:focus, #sr-form .save-button button:focus {
+  outline: 0;
+  background-size: 1000%;
+}
+
+.submit-link .morelink a:hover, .submit-text .morelink a:hover,
+.submit-page button[type="submit"]:hover, #sr-form .save-button button:hover {
+  background-color: #00796b !important;
+}
+
+.res-nightmode .submit-page button[type="submit"], #sr-form .save-button button {
+  background-color: #009688 !important;
+}
+
+.submit-page button[type="submit"], #sr-form .save-button button {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.submit-page button[type="submit"]:active, #sr-form .save-button button:active {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.submit-page button[type="submit"]:focus:not(:active), #sr-form .save-button button:focus:not(:active) {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  background-color: #4db6ac !important;
+}
+
+.res-nightmode button,
+button {
+  font-size: 14px;
 }
 
 .res-nightmode .gold-accent.comment-visits-box,
@@ -310,7 +429,7 @@ button:active {
 
 .res-nightmode #compose-message, .res-nightmode .wiki-page-content, .res-nightmode .combined-search-page .searchpane, .res-nightmode .combined-search-page .search-result, .res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, .res-nightmode #image-upload, .res-nightmode .linefield, .res-nightmode .commentarea .menuarea, .res-nightmode .commentarea > .usertext .res .comment, .res-nightmode .comment, .res-nightmode .formtabs-content, .res-nightmode .side .spacer:first-of-type, .res-nightmode .side #ad_sponsorship, .res-nightmode .side .titlebox, .res-nightmode .side #moderation_tools, .res-nightmode .side #ad_main, .res-nightmode .side .sidecontentbox, .res-nightmode #searchexpando, .res-nightmode .submit-link::before, .res-nightmode #login_login-main, .res-nightmode .hover-bubble.multi-selector, .res-nightmode #siteTable > .thing, .res-nightmode .footer {
   background-color: #424242 !important;
-  color: white;
+  color: #fff;
 }
 
 #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .commentarea .menuarea, .commentarea > .usertext .res .comment, .comment, .formtabs-content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, #siteTable > .thing, .footer {
@@ -983,9 +1102,9 @@ h6, .md h6 {
   border-bottom-style: solid;
   border-width: 0 0 0.14286em;
   background: transparent radial-gradient(circle, rgba(128, 216, 255, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
-  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
 }
 
 #header-bottom-left .tabmenu li a:focus,
@@ -1944,43 +2063,6 @@ label + #moresearchinfo {
   position: relative;
   top: 2.5em;
   width: 10.42857em;
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 0.93333em;
-  line-height: 2.57143em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #fff !important;
-  background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
-  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.submit-link .morelink a::-moz-focus-inner,
-.submit-text .morelink a::-moz-focus-inner {
-  border: 0;
-}
-
-.submit-link .morelink a:focus,
-.submit-text .morelink a:focus {
-  outline: 0;
-  background-size: 1000%;
-}
-
-.submit-link .morelink a:hover,
-.submit-text .morelink a:hover {
-  background-color: #00796b !important;
 }
 
 .submit-link .nub,
@@ -2058,48 +2140,11 @@ label + #moresearchinfo {
 
 .titlebox a.option,
 .titlebox .RESDashboardToggle {
-  min-width: 6.4em;
-  height: 3.6em;
-  padding: 0 0.8em;
-  font-size: 1em;
-  line-height: 3.6em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #4caf50;
   position: relative;
   top: 0.25em;
   margin-right: 0.5em;
   padding: 0.7em 0.57em;
   line-height: 2.7em;
-}
-
-.titlebox a.option::-moz-focus-inner,
-.titlebox .RESDashboardToggle::-moz-focus-inner {
-  border: 0;
-}
-
-.titlebox a.option:hover,
-.titlebox .RESDashboardToggle:hover {
-  background-color: rgba(153, 153, 153, 0.2);
-}
-
-.titlebox a.option:focus:not(:active),
-.titlebox .RESDashboardToggle:focus:not(:active) {
-  background-color: rgba(0, 0, 0, 0.12);
-}
-
-.titlebox a.option:active,
-.titlebox .RESDashboardToggle:active {
-  background-color: rgba(153, 153, 153, 0.4);
 }
 
 .titlebox a.option.remove,
@@ -2531,53 +2576,6 @@ label + #moresearchinfo {
   cursor: auto;
 }
 
-#sr-form .save-button button {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1.07692em;
-  line-height: 2.57143em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
-  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  color: #fff !important;
-}
-
-#sr-form .save-button button::-moz-focus-inner {
-  border: 0;
-}
-
-#sr-form .save-button button:focus {
-  outline: 0;
-  background-size: 1000%;
-}
-
-#sr-form .save-button button:hover {
-  background-color: #00796b !important;
-}
-
-#sr-form .save-button button:active {
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-}
-
-#sr-form .save-button button:focus:not(:active) {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  background-color: #4db6ac !important;
-}
-
 .sheets {
   margin: 0;
 }
@@ -2606,80 +2604,8 @@ ul#image-preview-list li:nth-of-type(2n) {
   background-color: transparent !important;
 }
 
-#REScommentSubToggle {
-  min-width: 5.33333em;
-  height: 3em;
-  padding: 0 0.66667em;
-  font-size: 1em;
-  line-height: 3em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #4caf50;
-}
-
-#REScommentSubToggle::-moz-focus-inner {
-  border: 0;
-}
-
-#REScommentSubToggle:hover {
-  background-color: rgba(153, 153, 153, 0.2);
-}
-
-#REScommentSubToggle:focus:not(:active) {
-  background-color: rgba(0, 0, 0, 0.12);
-}
-
-#REScommentSubToggle:active {
-  background-color: rgba(153, 153, 153, 0.4);
-}
-
 #REScommentSubToggle.unsubscribe {
   color: #f44336;
-}
-
-.res-nightmode .commentarea .menuarea .spacer + .spacer form {
-  min-width: 4.92308em;
-  height: 2.76923em;
-  padding: 0 0.61538em;
-  font-size: 1em;
-  line-height: 2.76923em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #fff;
-}
-
-.res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner {
-  border: 0;
-}
-
-.res-nightmode .commentarea .menuarea .spacer + .spacer form:hover {
-  background-color: rgba(204, 204, 204, 0.15) !important;
-}
-
-.res-nightmode .commentarea .menuarea .spacer + .spacer form:focus:not(:active) {
-  background-color: rgba(255, 255, 255, 0.12) !important;
-}
-
-.res-nightmode .commentarea .menuarea .spacer + .spacer form:active {
-  background-color: rgba(204, 204, 204, 0.25) !important;
 }
 
 .res-nightmode .commentarea .menuarea .toggle a {
@@ -2719,42 +2645,6 @@ ul#image-preview-list li:nth-of-type(2n) {
   display: block;
   width: -webkit-calc(100% - 32px);
   width: calc(100% - 32px);
-}
-
-.commentarea .menuarea .spacer + .spacer form {
-  min-width: 4.92308em;
-  height: 2.76923em;
-  padding: 0 0.61538em;
-  font-size: 1em;
-  line-height: 2.76923em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.commentarea .menuarea .spacer + .spacer form::-moz-focus-inner {
-  border: 0;
-}
-
-.commentarea .menuarea .spacer + .spacer form:hover {
-  background-color: rgba(153, 153, 153, 0.2);
-}
-
-.commentarea .menuarea .spacer + .spacer form:focus:not(:active) {
-  background-color: rgba(0, 0, 0, 0.12);
-}
-
-.commentarea .menuarea .spacer + .spacer form:active {
-  background-color: rgba(153, 153, 153, 0.4);
 }
 
 .commentarea .menuarea .spacer + .spacer form:first-of-type {
@@ -3318,101 +3208,6 @@ ul.tabmenu.formtab a.text-button.choice {
 .content.submit .info-notice {
   margin-bottom: 1.15385em;
   border: 0;
-}
-
-.res-nightmode .submit-page button[type="submit"] {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1.4em;
-  line-height: 2.57143em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
-  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  color: #fff !important;
-  background-color: #009688 !important;
-}
-
-.res-nightmode .submit-page button[type="submit"]::-moz-focus-inner {
-  border: 0;
-}
-
-.res-nightmode .submit-page button[type="submit"]:focus {
-  outline: 0;
-  background-size: 1000%;
-}
-
-.res-nightmode .submit-page button[type="submit"]:hover {
-  background-color: #00796b !important;
-}
-
-.res-nightmode .submit-page button[type="submit"]:active {
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-}
-
-.res-nightmode .submit-page button[type="submit"]:focus:not(:active) {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  background-color: #4db6ac !important;
-}
-
-.submit-page button[type="submit"] {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1.4em;
-  line-height: 2.57143em;
-  font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  letter-spacing: normal;
-  text-align: center;
-  text-transform: uppercase;
-  background: none transparent;
-  border: 0 !important;
-  border-radius: 2px;
-  outline: 0;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
-  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  color: #fff !important;
-}
-
-.submit-page button[type="submit"]::-moz-focus-inner {
-  border: 0;
-}
-
-.submit-page button[type="submit"]:focus {
-  outline: 0;
-  background-size: 1000%;
-}
-
-.submit-page button[type="submit"]:hover {
-  background-color: #00796b !important;
-}
-
-.submit-page button[type="submit"]:active {
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-}
-
-.submit-page button[type="submit"]:focus:not(:active) {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  background-color: #4db6ac !important;
 }
 
 .submit-page .side {

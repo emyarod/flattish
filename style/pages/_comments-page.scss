@@ -6,13 +6,11 @@
 }
 
 #REScommentSubToggle {
-  @include flat-button-colored-text(12, 12, get-color('green', '500'));
 
   &.unsubscribe { color: get-color('red', '500'); }
 }
 
 .res-nightmode .commentarea .menuarea {
-  .spacer + .spacer form { @include default-flat-button(13, 13, true); }
 
   .toggle a { color: $dark-secondary-text; }
 }
@@ -47,12 +45,7 @@
       display: block;
       @include calc(width, "100% - 32px");
 
-      form {
-        @include default-flat-button(13, 13);
-
-        &:first-of-type { margin: 0; }
-      }
-
+      form:first-of-type { margin: 0; }
     }
 
     .toggle a { color: $light-secondary-text; }

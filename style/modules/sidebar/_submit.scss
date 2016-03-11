@@ -15,7 +15,6 @@
 			position: relative;
 			top: em(35, 14);
 			width: em(146, 14);
-			@include flat-colorized-bg-button(14, 15, $primary);
 		}
 	}
 

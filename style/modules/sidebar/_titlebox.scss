@@ -46,7 +46,6 @@
 	// subscribe and dashboard buttons
 	a.option,
 	.RESDashboardToggle {
-		@include flat-button-colored-text(10, 10, get-color("green", "500"));
 		position: relative;
 		top: em(2.5, 10);
 		margin-right: em(5, 10);

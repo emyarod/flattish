@@ -116,15 +116,6 @@ ul.tabmenu.formtab {
   border: 0;
 }
 
-// submit post
-.res-nightmode .submit-page button[type="submit"] {
-  @include raised-colorized-button(14, 10, $primary, true);
-}
-
-.submit-page button[type="submit"] {
-  @include raised-colorized-button(14, 10, $primary);
-}
-
 // sidebar
 .submit-page .side {
   padding-top: em(55, 10);
