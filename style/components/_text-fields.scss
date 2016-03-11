@@ -82,9 +82,7 @@
   &:hover { background-color: $light-app-bar !important;  } // thx RES
 }
 
-.bottom-area {
-  margin-bottom: em(10, 13);
-}
+.bottom-area { margin-bottom: em(10, 13); }
 
 // live preview
 .res-nightmode .RESDialogSmall.livePreview {
@@ -94,9 +92,7 @@
     color: set-text-color($primary, text);
   }
 
-  .md.RESDialogContents p {
-    color: $dark-text;
-  }
+  .md.RESDialogContents p { color: $dark-text; }
 }
 
 .RESDialogSmall.livePreview {
