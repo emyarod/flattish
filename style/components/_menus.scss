@@ -1,7 +1,7 @@
 // main: ../main.scss
 
-@mixin menu-items($attr, $orig-font-size: 10, $nightmode: false) {
-  #{$attr} {
+@mixin menu-items($selector, $orig-font-size: 10, $nightmode: false) {
+  #{$selector} {
     padding: em(16, $orig-font-size);
     color: $light-text;
 
@@ -9,7 +9,7 @@
   }
 
   @if ($nightmode) {
-    .res-nightmode #{$attr} {
+    .res-nightmode #{$selector} {
       color: $dark-text !important;
 
       &:hover { background-color: $dark-app-bar !important; }
@@ -17,8 +17,8 @@
   }
 }
 
-@mixin menu($parent, $attr, $desired-font-size, $orig-font-size, $width, $nightmode: false) {
-  #{$parent} .drop-choices#{$attr} {
+@mixin menu($parent, $selector, $desired-font-size, $orig-font-size, $width, $nightmode: false) {
+  #{$parent} .drop-choices#{$selector} {
     display: block;
     width: 0;
     max-height: 0;
@@ -43,7 +43,7 @@
   @include menu-items('.drop-choices a.choice', $desired-font-size, $nightmode);
 
   @if ($nightmode) {
-    .res-nightmode #{$parent} .drop-choices#{$attr} {
+    .res-nightmode #{$parent} .drop-choices#{$selector} {
       background-color: $dark-cards !important;
     }
   }

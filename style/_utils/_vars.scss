@@ -32,7 +32,7 @@ $nsfw: get-color('red', 'A200');
 $tooltip: rgba(get-color('grey', '700'), 0.9);
 $error: rgb(222, 55, 38);
 
-$font-stack: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$font-stack: ('Roboto', 'Helvetica', 'Arial', sans-serif);
 
 // shadows
 $shadow-key-umbra-opacity: 0.2;
@@ -67,7 +67,7 @@ $dark-disabled-text: rgba($white, 0.5);
 $dark-hint-text: rgba($white, 0.5);
 $dark-secondary-text: rgba($white, 0.7);
 $dark-icons: rgba($white, 0.38);
-$dark-text: rgba($white, 1);
+$dark-text: $white;
 
 // buttons
 $light-button-hover: rgba(#999, 0.2);

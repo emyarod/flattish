@@ -270,7 +270,7 @@ button:active {
   outline: 0;
   will-change: box-shadow;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: white;
+  color: #fff;
   font-size: 14px;
 }
 
@@ -288,6 +288,41 @@ button:active {
 
 .res-nightmode button:active {
   background-color: rgba(204, 204, 204, 0.25) !important;
+}
+
+.res-nightmode .gold-accent.comment-visits-box,
+.gold-accent.comment-visits-box {
+  background-color: #fffde7 !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.res-nightmode .linkinfo,
+.linkinfo {
+  background-color: #80d8ff !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.res-nightmode .content.submit .info-notice,
+.content.submit .info-notice {
+  background-color: rgba(77, 182, 172, 0.38) !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.res-nightmode #compose-message, .res-nightmode .wiki-page-content, .res-nightmode .combined-search-page .searchpane, .res-nightmode .combined-search-page .search-result, .res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, .res-nightmode #image-upload, .res-nightmode .linefield, .res-nightmode .commentarea .menuarea, .res-nightmode .commentarea > .usertext .res .comment, .res-nightmode .comment, .res-nightmode .formtabs-content, .res-nightmode .side .spacer:first-of-type, .res-nightmode .side #ad_sponsorship, .res-nightmode .side .titlebox, .res-nightmode .side #moderation_tools, .res-nightmode .side #ad_main, .res-nightmode .side .sidecontentbox, .res-nightmode #searchexpando, .res-nightmode .submit-link::before, .res-nightmode #login_login-main, .res-nightmode .hover-bubble.multi-selector, .res-nightmode #siteTable > .thing, .res-nightmode .footer {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .commentarea .menuarea, .commentarea > .usertext .res .comment, .comment, .formtabs-content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, #siteTable > .thing, .footer {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice,
+#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .commentarea .menuarea, .commentarea > .usertext .res .comment, .comment, .formtabs-content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, #siteTable > .thing, .footer {
+  padding: 16px;
+  border-radius: 2px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 select {
@@ -309,13 +344,13 @@ select option {
 }
 
 .res-nightmode select {
-  color: white !important;
+  color: #fff !important;
   background-color: #424242 !important;
   border-bottom-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .res-nightmode select option {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res .thing .tagline .author,
@@ -325,7 +360,7 @@ select option {
 
 .res .thing .tagline .author.moderator,
 .thing .tagline .author.moderator {
-  color: white;
+  color: #fff;
   background-color: #4caf50 !important;
 }
 
@@ -376,7 +411,7 @@ textarea:focus {
 .res-nightmode input[type="password"],
 .res-nightmode input[type="url"],
 .res-nightmode textarea {
-  color: white !important;
+  color: #fff !important;
 }
 
 input[type="text"],
@@ -418,7 +453,7 @@ textarea {
 
 .res-nightmode .RESMacroDropdownList li a {
   border: 0;
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .RESMacroDropdownList li a:hover {
@@ -440,11 +475,11 @@ textarea {
 
 .res-nightmode .RESDialogSmall.livePreview > h3 {
   background-color: #009688;
-  color: white;
+  color: #fff;
 }
 
 .res-nightmode .RESDialogSmall.livePreview .md.RESDialogContents p {
-  color: white;
+  color: #fff;
 }
 
 .RESDialogSmall.livePreview > h3 {
@@ -532,15 +567,10 @@ textarea {
 .res-nightmode h4,
 .res-nightmode h5,
 .res-nightmode h6 {
-  color: white;
+  color: #fff;
 }
 
-h1, .md h1,
-h2, .md h2,
-h3, .md h3,
-h4, .md h4,
-h5, .md h5,
-h6, .md h6 {
+h1, h2, h3, h4, h5, h6, .md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -658,7 +688,7 @@ h6, .md h6 {
 
 #sr-header-area:hover .sr-bar a,
 #sr-header-area:hover .separator {
-  color: white;
+  color: #fff;
 }
 
 #sr-header-area .drop-choices.srdrop {
@@ -693,7 +723,7 @@ h6, .md h6 {
 }
 
 .res-nightmode .drop-choices a.choice {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .drop-choices a.choice:hover {
@@ -761,7 +791,7 @@ h6, .md h6 {
 }
 
 #header-bottom-right:hover span a {
-  color: white !important;
+  color: #fff !important;
 }
 
 .pref-lang.choice {
@@ -851,7 +881,7 @@ h6, .md h6 {
 }
 
 .res-nightmode .RESDropdownList li {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .RESDropdownList li:hover {
@@ -863,7 +893,7 @@ h6, .md h6 {
 }
 
 .res-nightmode .RESDropdownList li a {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .RESDropdownList li a:hover {
@@ -938,7 +968,7 @@ h6, .md h6 {
 }
 
 #header-bottom-left .pagename:hover a {
-  color: white;
+  color: #fff;
 }
 
 #header-bottom-left .tabmenu li a,
@@ -968,7 +998,7 @@ h6, .md h6 {
 #header-bottom-left .tabmenu li #viewImagesButton:hover {
   margin: 0;
   padding: 0 1.71429em;
-  color: white !important;
+  color: #fff !important;
 }
 
 #header-bottom-left .tabmenu li a:after,
@@ -1020,18 +1050,9 @@ h6, .md h6 {
   margin: 0;
 }
 
-#header-bottom-left .tabmenu li a[href$="/rising/"] {
-  display: none;
-}
-
-#header-bottom-left .tabmenu li a[href$="/controversial/"] {
-  display: none;
-}
-
-#header-bottom-left .tabmenu li a[href$="/ads/"] {
-  display: none;
-}
-
+#header-bottom-left .tabmenu li a[href$="/rising/"],
+#header-bottom-left .tabmenu li a[href$="/controversial/"],
+#header-bottom-left .tabmenu li a[href$="/ads/"],
 #header-bottom-left .tabmenu li a[href$="/gilded/"] {
   display: none;
 }
@@ -1106,11 +1127,7 @@ h6, .md h6 {
     height: 4em;
     line-height: 4em;
   }
-  #header-img-a ~ .pagename {
-    position: relative;
-    top: -0.125em;
-    display: inline-block;
-  }
+  #header-img-a ~ .pagename,
   #header-img-a ~ .tabmenu {
     position: relative;
     top: -0.125em;
@@ -1223,10 +1240,6 @@ h6, .md h6 {
 }
 
 .res-nightmode #siteTable > .thing {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
   border-bottom: 0.1em solid rgba(255, 255, 255, 0.12);
 }
 
@@ -1284,10 +1297,6 @@ h6, .md h6 {
 }
 
 #siteTable > .thing {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: rgba(245, 245, 245, 0);
   height: auto !important;
   margin: 0;
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.12);
@@ -1689,11 +1698,6 @@ div.content {
 .side #ad_main,
 .side .sidecontentbox {
   font-size: 100%;
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .side #ad_sponsorship {
@@ -1704,14 +1708,6 @@ div.content {
 .side .sidebox.create,
 .side .account-activity-box {
   display: none;
-}
-
-.res-nightmode #login_login-main {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .res-nightmode #login_login-main button {
@@ -1726,11 +1722,6 @@ div.content {
   position: relative;
   top: -84px;
   border: 0;
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .res-nightmode .login-form-side[type="checkbox"] {
@@ -1770,7 +1761,7 @@ div.content {
 }
 
 .res-nightmode .login-form-side label {
-  color: white !important;
+  color: #fff !important;
 }
 
 .login-form-side input[type="checkbox"] {
@@ -1809,19 +1800,6 @@ div.content {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.res-nightmode .side .spacer:first-of-type,
-.res-nightmode .side #ad_sponsorship,
-.res-nightmode .side .titlebox,
-.res-nightmode .side #moderation_tools,
-.res-nightmode .side #ad_main,
-.res-nightmode .side .sidecontentbox {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode #search input[type="submit"] {
   background: url(%%search-night%%);
 }
@@ -1831,16 +1809,8 @@ div.content {
   opacity: 0.87;
 }
 
-.res-nightmode #searchexpando {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode #searchexpando label {
-  color: white;
+  color: #fff;
 }
 
 .res-nightmode #searchexpando label:not(:first-of-type) {
@@ -1921,11 +1891,6 @@ div.content {
   margin: 0;
   font-size: 10px;
   transition: initial;
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border: 0;
   border-radius: 0 0 0.2em 0.2em;
 }
@@ -1995,7 +1960,7 @@ label + #moresearchinfo {
   outline: 0;
   will-change: box-shadow;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: white !important;
+  color: #fff !important;
   background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
@@ -2023,15 +1988,6 @@ label + #moresearchinfo {
   display: none;
 }
 
-.res-nightmode .submit-link::before {
-  color: white !important;
-  border-radius: 0.14286em;
-  padding: 1.14286em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .submit-link {
   top: -6.9em;
 }
@@ -2049,13 +2005,7 @@ label + #moresearchinfo {
   width: 23.57143em;
   font-size: 1.4em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.87);
   content: "Submit a new:";
-  border-radius: 0.14286em;
-  padding: 1.14286em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .submit-text {
@@ -2069,7 +2019,7 @@ label + #moresearchinfo {
 }
 
 .res-nightmode .titlebox a.hover {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .titlebox .leavemoderator,
@@ -2094,7 +2044,7 @@ label + #moresearchinfo {
 }
 
 .res-nightmode .titlebox .md p {
-  color: white;
+  color: #fff;
 }
 
 .titlebox {
@@ -2230,25 +2180,12 @@ label + #moresearchinfo {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.res-nightmode .hover-bubble.multi-selector {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode .hover-bubble.multi-selector strong {
-  color: white;
+  color: #fff;
 }
 
 .hover-bubble.multi-selector {
   border: 0;
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
 .hover-bubble.multi-selector::before, .hover-bubble.multi-selector::after {
@@ -2266,7 +2203,7 @@ label + #moresearchinfo {
 
 .res-nightmode #moderation_tools .title h1,
 .res-nightmode .sidecontentbox .title h1 {
-  color: white;
+  color: #fff;
 }
 
 #moderation_tools .title,
@@ -2306,7 +2243,7 @@ label + #moresearchinfo {
 
 #wikiactions a:hover,
 #moderation_tools a:hover {
-  color: white !important;
+  color: #fff !important;
   text-decoration: none;
   background-position: 0 100%;
 }
@@ -2389,7 +2326,7 @@ label + #moresearchinfo {
   font-size: 14px;
   font-weight: bold;
   line-height: 2.28571;
-  color: white;
+  color: #fff;
   text-align: center;
   background-color: rgba(97, 97, 97, 0);
   border-radius: 0.14286em;
@@ -2434,14 +2371,6 @@ label + #moresearchinfo {
   }
 }
 
-.res-nightmode .footer {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .footer a,
 .bottommenu a {
   background: linear-gradient(to top, #009688 50%, transparent 50%);
@@ -2453,22 +2382,17 @@ label + #moresearchinfo {
 
 .footer a:hover,
 .bottommenu a:hover {
-  color: white !important;
+  color: #fff !important;
   text-decoration: none;
   background-position: 0 100%;
 }
 
 .footer {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border: 0;
 }
 
 .res-nightmode .flat-vert.title {
-  color: white;
+  color: #fff;
 }
 
 .flat-vert.title {
@@ -2490,31 +2414,18 @@ label + #moresearchinfo {
   background-color: #303030;
 }
 
-.res-nightmode .linefield {
-  border-radius: 0.11111em;
-  padding: 0.88889em;
-  color: white;
-  background-color: #424242;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode .linefield .title {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .linefield input[type="text"],
 .res-nightmode .linefield input[type="password"] {
-  color: white;
+  color: #fff;
 }
 
 .linefield {
   width: 100%;
   margin-bottom: 0.9375em;
-  border-radius: 0.11111em;
-  padding: 0.88889em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .linefield div:not(.commentingAs) {
@@ -2642,7 +2553,7 @@ label + #moresearchinfo {
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  color: white !important;
+  color: #fff !important;
 }
 
 #sr-form .save-button button::-moz-focus-inner {
@@ -2667,41 +2578,8 @@ label + #moresearchinfo {
   background-color: #4db6ac !important;
 }
 
-.res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, ul#image-preview-list .res-nightmode li,
-.res-nightmode ul#image-preview-list li {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
-.res-nightmode #image-upload {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
-#subreddit_stylesheet, ul#image-preview-list li {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .sheets {
   margin: 0;
-}
-
-#image-upload {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 #images .error {
@@ -2768,14 +2646,6 @@ ul#image-preview-list li:nth-of-type(2n) {
   color: #f44336;
 }
 
-.res-nightmode .commentarea .menuarea {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode .commentarea .menuarea .spacer + .spacer form {
   min-width: 4.92308em;
   height: 2.76923em;
@@ -2793,7 +2663,7 @@ ul#image-preview-list li:nth-of-type(2n) {
   outline: 0;
   will-change: box-shadow;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: white;
+  color: #fff;
 }
 
 .res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner {
@@ -2814,14 +2684,6 @@ ul#image-preview-list li:nth-of-type(2n) {
 
 .res-nightmode .commentarea .menuarea .toggle a {
   color: rgba(255, 255, 255, 0.7);
-}
-
-.res-nightmode .commentarea > .usertext {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .commentarea {
@@ -2851,11 +2713,6 @@ ul#image-preview-list li:nth-of-type(2n) {
 
 .commentarea .menuarea {
   margin-bottom: 1.30769em;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .commentarea .menuarea .spacer + .spacer {
@@ -2911,11 +2768,6 @@ ul#image-preview-list li:nth-of-type(2n) {
 .commentarea > .usertext {
   margin-bottom: 1.23077em;
   margin-left: 0;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .drop-choices.lightdrop {
@@ -2950,7 +2802,7 @@ ul#image-preview-list li:nth-of-type(2n) {
 }
 
 .res-nightmode .drop-choices a.choice {
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode .drop-choices a.choice:hover {
@@ -3049,7 +2901,7 @@ ul#image-preview-list li:nth-of-type(2n) {
 }
 
 .res-nightmode #BigEditor .RESDialogSmall h3 {
-  color: white;
+  color: #fff;
   background-color: #009688;
 }
 
@@ -3061,7 +2913,7 @@ ul#image-preview-list li:nth-of-type(2n) {
 
 #BigEditor .RESDialogSmall h3 {
   height: 38px;
-  color: white;
+  color: #fff;
   background-color: #009688;
 }
 
@@ -3079,13 +2931,7 @@ ul#image-preview-list li:nth-of-type(2n) {
   width: 100%;
   max-width: unset;
   margin: 0 0 1.6em 0;
-  color: rgba(0, 0, 0, 0.87);
   border: 0;
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fffde7;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .gold-accent.comment-visits-box .title::after {
@@ -3102,31 +2948,16 @@ ul#image-preview-list li:nth-of-type(2n) {
   width: 12.84615em;
 }
 
-.res-nightmode .linkinfo {
-  color: white !important;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode .linkinfo .shortlink input {
-  color: white;
+  color: #fff;
   background-color: #212121;
 }
 
 .linkinfo {
   position: relative;
-  top: -6.53846em;
+  top: -85px;
   border: 0;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 1.3em;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #80d8ff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  font-size: 13px;
 }
 
 .linkinfo .shortlink input {
@@ -3178,15 +3009,6 @@ html.res-commentBoxes .comment {
 
 html.res-commentBoxes.res-commentBoxes-rounded .comment {
   border-radius: 2px !important;
-}
-
-.res .comment,
-.comment {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .res .comment:hover,
@@ -3267,21 +3089,8 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
   display: none;
 }
 
-.res-nightmode .combined-search-page .searchpane {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .combined-search-page .searchpane {
   margin: 0;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 #search input[type="text"] {
@@ -3293,24 +3102,11 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
   min-width: unset;
 }
 
-.res-nightmode .combined-search-page .search-result {
-  border-radius: 0.16667em;
-  padding: 1.33333em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .res-nightmode .combined-search-page .search-result p {
-  color: white;
+  color: #fff;
 }
 
 .combined-search-page .search-result {
-  border-radius: 0.16667em;
-  padding: 1.33333em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   margin: 0 0 1.6em 0;
 }
 
@@ -3343,7 +3139,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .res-nightmode ul.tabmenu.formtab li a:hover {
   margin: 0;
   padding: 0 1.71429em;
-  color: white !important;
+  color: #fff !important;
 }
 
 .res-nightmode ul.tabmenu.formtab li a:after {
@@ -3367,7 +3163,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 .res-nightmode ul.tabmenu.formtab li.selected a {
-  color: white !important;
+  color: #fff !important;
   background-color: #009688 !important;
 }
 
@@ -3423,7 +3219,7 @@ ul.tabmenu.formtab li a:hover::after {
 ul.tabmenu.formtab li.selected a {
   margin: 0;
   padding: 0 1.71429em;
-  color: white !important;
+  color: #fff !important;
   font-size: inherit;
   background-color: #009688;
   border-bottom-color: #009688;
@@ -3439,23 +3235,10 @@ ul.tabmenu.formtab a.text-button.choice {
   border-top-right-radius: 0.14286em;
 }
 
-.res-nightmode .formtabs-content {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .formtabs-content {
   width: 100%;
   border: 0;
   margin-bottom: 1.7em;
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -3488,7 +3271,7 @@ ul.tabmenu.formtab a.text-button.choice {
 
 .res-nightmode .submit_text h1,
 .res-nightmode .submit_text .md {
-  color: white;
+  color: #fff;
 }
 
 .submit_text h1,
@@ -3535,11 +3318,6 @@ ul.tabmenu.formtab a.text-button.choice {
 .content.submit .info-notice {
   margin-bottom: 1.15385em;
   border: 0;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #4db6ac;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .res-nightmode .submit-page button[type="submit"] {
@@ -3564,7 +3342,7 @@ ul.tabmenu.formtab a.text-button.choice {
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  color: white !important;
+  color: #fff !important;
   background-color: #009688 !important;
 }
 
@@ -3612,7 +3390,7 @@ ul.tabmenu.formtab a.text-button.choice {
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1);
-  color: white !important;
+  color: #fff !important;
 }
 
 .submit-page button[type="submit"]::-moz-focus-inner {
@@ -3677,47 +3455,18 @@ ul.tabmenu.formtab a.text-button.choice {
     text-decoration: none;
     padding: 16px;
     background-color: #009688;
-    color: white;
+    color: #fff;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
   }
-}
-
-.res-nightmode .compose-page #compose-message {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .compose-page div.content {
   margin: 0 auto;
 }
 
-.compose-page #compose-message {
-  border-radius: 0.2em;
-  padding: 1.6em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
-.res-nightmode .wiki-page .wiki-page-content {
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: white;
-  background-color: #424242 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-}
-
 .wiki-page .wiki-page-content {
   margin: 16px 0 0;
-  border-radius: 0.15385em;
-  padding: 1.23077em;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 * {
