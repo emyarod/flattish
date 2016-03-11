@@ -1,0 +1,215 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-clear--clear-all {
+    width: 18px;
+    height: 18px;
+    background-position: 0 0;
+}
+
+.sprite-clear--clear-all-night {
+    width: 18px;
+    height: 18px;
+    background-position: -18px 0;
+}
+
+.sprite-downvote {
+    width: 24px;
+    height: 12px;
+    background-position: -36px 0;
+}
+
+.sprite-downvote-night {
+    width: 24px;
+    height: 12px;
+    background-position: -60px 0;
+}
+
+.sprite-downvote-pressed {
+    width: 24px;
+    height: 12px;
+    background-position: -84px 0;
+}
+
+.sprite-dropdown--arrow-drop-down {
+    width: 19px;
+    height: 19px;
+    background-position: -108px 0;
+}
+
+.sprite-dropdown--arrow-drop-down-night {
+    width: 19px;
+    height: 19px;
+    background-position: -127px 0;
+}
+
+.sprite-kebab--more-horiz {
+    width: 36px;
+    height: 36px;
+    background-position: -146px 0;
+}
+
+.sprite-kebab--more-horiz-night {
+    width: 36px;
+    height: 36px;
+    background-position: 0 -36px;
+}
+
+.sprite-logout--exit-to-app {
+    width: 16px;
+    height: 16px;
+    background-position: -36px -36px;
+}
+
+.sprite-logout--exit-to-app-night {
+    width: 16px;
+    height: 16px;
+    background-position: -52px -36px;
+}
+
+.sprite-nsfw--report-problem {
+    width: 70px;
+    height: 70px;
+    background-position: -68px -19px;
+}
+
+.sprite-photo-camera--camera {
+    width: 24px;
+    height: 24px;
+    background-position: -138px -36px;
+}
+
+.sprite-photo-camera--camera-night {
+    width: 24px;
+    height: 24px;
+    background-position: -162px -36px;
+}
+
+.sprite-play--play-arrow {
+    width: 24px;
+    height: 24px;
+    background-position: -36px -60px;
+}
+
+.sprite-play--play-arrow-night {
+    width: 24px;
+    height: 24px;
+    background-position: -138px -60px;
+}
+
+.sprite-prefs {
+    width: 16px;
+    height: 14px;
+    background-position: -162px -60px;
+}
+
+.sprite-prefs-night {
+    width: 16px;
+    height: 14px;
+    background-position: -178px -60px;
+}
+
+.sprite-search {
+    width: 16px;
+    height: 16px;
+    background-position: 0 -74px;
+}
+
+.sprite-search-night {
+    width: 16px;
+    height: 16px;
+    background-position: -16px -74px;
+}
+
+.sprite-settings {
+    width: 16px;
+    height: 16px;
+    background-position: -162px -74px;
+}
+
+.sprite-settings-night {
+    width: 16px;
+    height: 16px;
+    background-position: -178px -74px;
+}
+
+.sprite-snoo-color {
+    width: 35px;
+    height: 53px;
+    background-position: 0 -90px;
+}
+
+.sprite-text {
+    width: 24px;
+    height: 24px;
+    background-position: -35px -90px;
+}
+
+.sprite-text-night {
+    width: 24px;
+    height: 24px;
+    background-position: -59px -90px;
+}
+
+.sprite-thumbnail-default--link {
+    width: 70px;
+    height: 70px;
+    background-position: -83px -89px;
+}
+
+.sprite-thumbnail-default-night--link {
+    width: 70px;
+    height: 70px;
+    background-position: -194px 0;
+}
+
+.sprite-thumbnail-self--forum {
+    width: 70px;
+    height: 70px;
+    background-position: -194px -70px;
+}
+
+.sprite-thumbnail-self-night--forum {
+    width: 70px;
+    height: 70px;
+    background-position: -153px -140px;
+}
+
+.sprite-tick {
+    width: 12px;
+    height: 9px;
+    background-position: -182px 0;
+}
+
+.sprite-upvote {
+    width: 24px;
+    height: 12px;
+    background-position: -35px -140px;
+}
+
+.sprite-upvote-night {
+    width: 24px;
+    height: 12px;
+    background-position: -59px -140px;
+}
+
+.sprite-upvote-pressed {
+    width: 24px;
+    height: 12px;
+    background-position: -223px -140px;
+}
+
+.sprite-users--tag-faces {
+    width: 16px;
+    height: 16px;
+    background-position: -247px -140px;
+}
+
+.sprite-users-night--tag-faces {
+    width: 16px;
+    height: 16px;
+    background-position: 0 -156px;
+}
