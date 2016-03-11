@@ -1,19 +1,5 @@
 // main: ../main.scss
 
-.res-nightmode .compose-page {
-
-  #compose-message {
-    @include card(10, 1, $dark-cards, true);
-  }
-}
-
-.compose-page {
-
-  div.content {
-    margin: 0 auto;
-  }
-
-  #compose-message {
-    @include card(10, 1, $light-cards);
-  }
+.compose-page div.content {
+  margin: 0 auto;
 }
