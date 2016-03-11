@@ -1,12 +1,11 @@
 // main: ../main.scss
 
-@mixin base-button-styles {
+@mixin global-button-styles {
 	font-weight: bold;
 	font-family: $font-stack;
 	letter-spacing: normal;
 	text-align: center;
 	text-transform: uppercase;
-	background: none transparent;
 	border: 0 !important;
 	border-radius: 2px;
 	outline: 0;
@@ -14,6 +13,7 @@
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
+
 	&::-moz-focus-inner { border: 0; }
 }
 
@@ -23,119 +23,242 @@
 	padding: 0 em(8, $desired-font-size);
 	font-size: em($desired-font-size, $orig-font-size);
 	line-height: em(36, $desired-font-size);
-
-	@include base-button-styles;
 }
 
-// default flat button transparent bg
-@mixin default-flat-button($desired-font-size, $orig-font-size, $nightmode: false, $color: $light-text) {
-	@include button($desired-font-size, $orig-font-size);
+$button-selector-map: (
+  global-button: (
+		selector-name: 'button',
+		desired-font-size: 14,
+		original-font-size: 14,
+		color: $primary,
+		button-type: 'flat-button-colored-text'
+  ),
 
-	@if ($nightmode) {
-		color: $dark-text;
+	// titlebox
+  titlebox-button-one: (
+		selector-name: '.titlebox a.option',
+		desired-font-size: 10,
+		original-font-size: 10,
+		color: get-color("green", "500"),
+		button-type: 'flat-button-colored-text'
+  ),
+	titlebox-button-two: (
+		selector-name: '.titlebox .RESDashboardToggle',
+		desired-font-size: 10,
+		original-font-size: 10,
+		color: get-color("green", "500"),
+		button-type: 'flat-button-colored-text'
+  ),
 
-		&:hover {
-			background-color: $dark-button-hover !important;
+	// submit page
+  submit-page-button: (
+		selector-name: '.submit-page button[type="submit"]',
+		desired-font-size: 14,
+		original-font-size: 10,
+		background-color: $primary,
+		hover-background-color: $dark-primary,
+		focus-not-active-background-color: $light-primary,
+		button-type: 'raised-colorized-button'
+  ),
+
+	// settings page
+	settings-page-button: (
+		selector-name: '#sr-form .save-button button',
+		desired-font-size: 14,
+		original-font-size: 10,
+		background-color: $primary,
+		hover-background-color: $dark-primary,
+		focus-not-active-background-color: $light-primary,
+		button-type: 'raised-colorized-button'
+  ),
+
+	// sidebar submit
+  submit-sidebar-card-button-one: (
+		selector-name: '.submit-link .morelink a',
+		desired-font-size: 14,
+		original-font-size: 15,
+		background-color: $primary,
+		button-type: 'flat-colorized-bg-button'
+  ),
+	submit-sidebar-card-button-two: (
+		selector-name: '.submit-text .morelink a',
+		desired-font-size: 14,
+		original-font-size: 15,
+		background-color: $primary,
+		button-type: 'flat-colorized-bg-button'
+  ),
+
+	// comments page
+	comments-page-button-one: (
+		selector-name: '.commentarea .menuarea .spacer + .spacer form',
+		desired-font-size: 13,
+		original-font-size: 13,
+		button-type: 'flat-button-colored-text'
+  ),
+	comments-page-button-two: (
+		selector-name: '#REScommentSubToggle',
+		desired-font-size: 12,
+		original-font-size: 12,
+		color: get-color("green", "500"),
+		button-type: 'flat-button-colored-text'
+  )
+);
+
+$base-button-selectors: ();
+$night-button-selectors: ();
+$flat-button-colored-text-selectors: ();
+$night-flat-button-colored-text-selectors: ();
+$default-raised-button-selectors: ();
+$night-default-raised-button-selectors: ();
+
+$flat-colorized-bg-button-selectors: ();
+
+$raised-colorized-button-selectors: ();
+$night-raised-colorized-button-selectors: ();
+
+@each $key, $map in $button-selector-map {
+	$selector-name: map-get($map, selector-name);
+	$desired-font-size: map-get($map, desired-font-size);
+	$original-font-size: map-get($map, original-font-size);
+	$color: map-get($map, color);
+	$background-color: map-get($map, background-color);
+	$button-type: map-get($map, button-type);
+
+	$base-button-selectors: append($base-button-selectors, unquote('#{$selector-name}'), 'comma');
+	$night-button-selectors: append($night-button-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
+
+	#{$selector-name} {
+		@include button($desired-font-size, $original-font-size);
+	}
+
+	// flat buttons
+	@if #{$button-type} == 'flat-button-colored-text' {
+		$flat-button-colored-text-selectors: append($flat-button-colored-text-selectors, unquote('#{$selector-name}'), 'comma');
+		$night-flat-button-colored-text-selectors: append($night-flat-button-colored-text-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
+
+		@if $color != null {
+			.res-nightmode #{$selector-name},
+			#{$selector-name} {
+				color: $color !important;
+			}
+		} @else {
+			.res-nightmode #{$selector-name} { color: $light-text; }
+
+			#{$selector-name} { color: $dark-text; }
+		}
+	}
+
+	// default raised buttons
+	@if #{$button-type} == 'default-raised-button' {
+		$default-raised-button-selectors: append($default-raised-button-selectors, unquote('#{$selector-name}'), 'comma');
+		$night-default-raised-button-selectors: append($night-default-raised-button-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
+
+		.res-nightmode #{$selector-name},
+		#{$selector-name} {
+			@include drop-shadow(1);
+
+			&:focus:not(:active) { @include focus-shadow(); }
+
+			&:active { @include drop-shadow(2); }
 		}
 
-		&:focus:not(:active) {
-			background-color: $dark-button-focus !important;
+		.res-nightmode #{$selector-name} {
+			color: $dark-text;
+
+			&:hover { background-color: $dark-button-hover !important; }
+
+			&:focus:not(:active) { background-color: $dark-button-focus !important; }
+
+			&:active { background-color: $dark-button-active !important; }
 		}
 
-		&:active {
-			background-color: $dark-button-active !important;
-		}
-	} @else {
-		color: $color;
+		#{$selector-name} {
+			color: $light-text;
 
-		&:hover {
-			background-color: $light-button-hover;
-		}
+			&:hover { background-color: $light-button-hover; }
 
-		&:focus:not(:active) {
-			background-color: $light-button-focus;
-		}
+			&:focus:not(:active) { background-color: $light-button-focus; }
 
-		&:active {
-			background-color: $light-button-active;
+			&:active { background-color: $light-button-active; }
+		}
+	}
+
+	// flat buttons with color bg
+	@if #{$button-type} == 'flat-colorized-bg-button' {
+		$flat-colorized-bg-button-selectors: append($flat-colorized-bg-button-selectors, unquote('#{$selector-name}'), 'comma');
+
+		@if $background-color != $primary {
+			#{$selector-name} {
+				color: set-text-color($background-color, text) !important;
+				@include ripple($background-color);
+			}
+		}
+	}
+
+	// raised buttons with color bg
+	@if #{$button-type} == 'raised-colorized-button' {
+		$raised-colorized-button-selectors: append($raised-colorized-button-selectors, unquote('#{$selector-name}'), 'comma');
+		$night-raised-colorized-button-selectors: append($night-raised-colorized-button-selectors, unquote('#{$selector-name}'), 'comma');
+
+		@if $background-color != $primary {
+			.res-nightmode #{$selector-name} {
+				background-color: $background-color !important;
+				@include ripple($background-color);
+			}
+
+			#{$selector-name} {
+				color: set-text-color($background-color, text) !important;
+				@include ripple($background-color);
+			}
 		}
 	}
 }
 
-// flat button with colored text
-@mixin flat-button-colored-text($desired-font-size, $orig-font-size, $text-color: $primary, $nightmode: false) {
-	@include default-flat-button($desired-font-size, $orig-font-size, $nightmode, $color: $text-color);
+// global button styles
+#{$base-button-selectors},
+#{$night-button-selectors} {
+	@include global-button-styles;
 }
 
-// flat button colored bg
-@mixin flat-colorized-bg-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $nightmode: false) {
-	@include button($desired-font-size, $orig-font-size);
-	color: set-text-color($background-color, text) !important;
-	@include ripple($background-color);
+// flat button colored text
+#{$night-flat-button-colored-text-selectors} {
+	background-color: transparent !important;
 
-	&:hover {
-		background-color: $dark-primary !important;
-	}
+	&:hover { background-color: $dark-button-hover !important; }
+
+	&:focus:not(:active) { background-color: $dark-button-focus !important; }
+
+	&:active { background-color: $dark-button-active !important; }
 }
 
-// default raised button
-@mixin default-raised-button($desired-font-size, $orig-font-size, $nightmode: false) {
-	@include button($desired-font-size, $orig-font-size);
+#{$flat-button-colored-text-selectors} {
+	background: none transparent;
+
+	&:hover { background-color: $light-button-hover; }
+
+	&:focus:not(:active) { background-color: $light-button-focus; }
+
+	&:active { background-color: $light-button-active; }
+}
+
+// flat buttons and raised buttons with color bg
+#{$flat-colorized-bg-button-selectors},
+#{$raised-colorized-button-selectors} {
+	color: set-text-color($primary, text) !important;
+	@include ripple($primary);
+
+	&:hover { background-color: $dark-primary !important; }
+}
+
+// raised buttons with color bg
+.res-nightmode #{$raised-colorized-button-selectors} {
+	background-color: $primary !important;
+}
+
+#{$raised-colorized-button-selectors} {
 	@include drop-shadow(1);
 
-	@if ($nightmode) {
-		color: $dark-text;
-
-		&:hover {
-			background-color: $dark-button-hover !important;
-		}
-
-		&:focus:not(:active) {
-			background-color: $dark-button-focus !important;
-			@include focus-shadow();
-		}
-
-		&:active {
-			background-color: $dark-button-active !important;
-			@include drop-shadow(2);
-		}
-	} @else {
-		color: $light-text;
-
-		&:hover {
-			background-color: $light-button-hover;
-		}
-
-		&:focus:not(:active) {
-			background-color: $light-button-focus;
-			@include focus-shadow();
-		}
-
-		&:active {
-			background-color: $light-button-active;
-			@include drop-shadow(2);
-		}
-	}
-}
-
-// raised button color bg
-@mixin raised-colorized-button($desired-font-size, $orig-font-size, $background-color: $light-app-bar, $nightmode: false) {
-	@include button($desired-font-size, $orig-font-size);
-	@include drop-shadow(1);
-	@include ripple($background-color);
-	color: set-text-color($background-color, text) !important;
-
-	@if ($nightmode) {
-		background-color: $background-color !important;
-	}
-
-	&:hover {
-		background-color: $dark-primary !important;
-	}
-
-	&:active {
-		@include drop-shadow(2);
-	}
+	&:active { @include drop-shadow(2); }
 
 	&:focus:not(:active) {
 		@include focus-shadow();
@@ -143,15 +266,7 @@
 	}
 }
 
+.res-nightmode button,
 button {
-	@include flat-button-colored-text(14, 14, $primary);
 	font-size: 14px;
 }
-
-.res-nightmode button {
-	@include flat-button-colored-text(14, 14, $primary, true);
-	font-size: 14px;
-}
-
-$default-button-selectors: ();
-$night-button-selectors: ();
