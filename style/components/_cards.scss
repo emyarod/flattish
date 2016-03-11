@@ -22,7 +22,7 @@
 	@include drop-shadow(1);
 }
 
-$default-selectors: (
+$default-selectors-cards: (
 	// compose page
 	'#compose-message',
 
@@ -72,14 +72,14 @@ $default-selectors: (
 
 	// site table
 	'#siteTable > .thing',
-	
+
 	// footer
 	'.footer'
 );
-$night-selectors: ();
-$alt-bg-selectors: ();
+$night-selectors-cards: ();
+$alt-bg-card-selectors: ();
 
-$alt-bg-selector-map: (
+$alt-bg-card-selector-map: (
 	// comments page
 	'.gold-accent.comment-visits-box': get-color("yellow", "50"),
 	'.linkinfo': $light-accent,
@@ -87,17 +87,17 @@ $alt-bg-selector-map: (
 );
 
 // duplicates all default selectors in a nightmode selectors list
-@each $item in $default-selectors {
-	$night-selectors: append($night-selectors, unquote('.res-nightmode #{$item}'), 'comma');
+@each $item in $default-selectors-cards {
+	$night-selectors-cards: append($night-selectors-cards, unquote('.res-nightmode #{$item}'), 'comma');
 }
 
 // places selectors for alt colored cards in a list
-@each $key, $value in $alt-bg-selector-map {
-	$alt-bg-selectors: append($alt-bg-selectors, $key, 'comma');
+@each $key, $value in $alt-bg-card-selector-map {
+	$alt-bg-card-selectors: append($alt-bg-card-selectors, $key, 'comma');
 }
 
 // styles nightmode and default mode alt bg cards
-@each $key, $value in $alt-bg-selector-map {
+@each $key, $value in $alt-bg-card-selector-map {
 	.res-nightmode #{$key},
 	#{$key} {
 		background-color: $value !important;
@@ -106,19 +106,19 @@ $alt-bg-selector-map: (
 }
 
 // styles all nightmode cards
-#{$night-selectors} {
+#{$night-selectors-cards} {
 	background-color: $dark-cards !important;
 	color: set-text-color($dark-cards, text);
 }
 
 // styles all default cards
-#{$default-selectors} {
+#{$default-selectors-cards} {
 	background-color: $light-cards;
 	color: set-text-color($light-cards, text);
 }
 
 // styles all defaults and all alt colored cards
-#{$alt-bg-selectors},
-#{$default-selectors} {
+#{$alt-bg-card-selectors},
+#{$default-selectors-cards} {
 	@include universal-card-styles;
 }
