@@ -1,25 +1,42 @@
 // main: ../main.scss
 
-@mixin text-fields($nightmode: false) {
-  border: 0;
+@mixin text-fields {
+  // shared styles
+  .res-nightmode input[type="text"],
+  .res-nightmode input[type="password"],
+  .res-nightmode input[type="url"],
+  .res-nightmode textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  textarea {
+    @include border-width(0 0 1px !important);
+    @include border-color(transparent transparent get-color("grey", "600") !important);
+    font-family: $font-stack;
+    background-color: transparent !important;
+    box-shadow: none !important;
 
-  @if ($nightmode) {
+    &:focus { border-bottom-color: $accent !important; }
+  }
+
+  // nightmode
+  .res-nightmode input[type="text"],
+  .res-nightmode input[type="password"],
+  .res-nightmode input[type="url"],
+  .res-nightmode textarea {
     color: $dark-text !important;
-  } else {
+  }
+
+  // default
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  textarea {
     color: $light-text;
   }
-
-  font-family: $font-stack;
-  border-style: solid;
-  background-color: transparent !important;
-  box-shadow: none;
-  @include border-width(0 0 1px);
-  @include border-color(transparent transparent get-color("grey", "600"));
-
-  &:focus {
-    border-bottom-color: $accent;
-  }
 }
+
+@include text-fields();
 
 // macros menu
 .RESMacroDropdown,
@@ -65,9 +82,7 @@
   &:hover { background-color: $light-app-bar !important;  } // thx RES
 }
 
-.bottom-area {
-  margin-bottom: em(10, 13);
-}
+.bottom-area { margin-bottom: em(10, 13); }
 
 // live preview
 .res-nightmode .RESDialogSmall.livePreview {
@@ -77,9 +92,7 @@
     color: set-text-color($primary, text);
   }
 
-  .md.RESDialogContents p {
-    color: $dark-text;
-  }
+  .md.RESDialogContents p { color: $dark-text; }
 }
 
 .RESDialogSmall.livePreview {

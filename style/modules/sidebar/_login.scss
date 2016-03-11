@@ -1,31 +1,18 @@
 // main: ../../main.scss
 
-.res-nightmode #login_login-main {
-	@include card(10, 1, $dark-cards, true);
+.res-nightmode #login_login-main button {
+	background-color: $dark-cards;
 
-	button {
-		background-color: $dark-cards;
-
-		&:hover {
-			border-radius: em(2, 14) !important;
-		}
-	}
+	&:hover { border-radius: em(2, 14) !important; }
 }
 
 #login_login-main {
 	position: relative;
 	top: -84px;
 	border: 0;
-	@include card(10, 1);
 }
 
 .res-nightmode .login-form-side {
-
-	input {
-		&[type="text"],
-		&[type="password"] {
-			@include text-fields(true);
-		}
 
 		// hide default checkbox styling
 		&[type="checkbox"] {
@@ -41,18 +28,11 @@
 				@include checkbox-checked;
 			}
 		}
-	}
 
-	label {
-		color: $dark-text !important;
-	}
+	label { color: $dark-text !important; }
 }
 
 .login-form-side input {
-	&[type="text"],
-	&[type="password"] {
-		@include text-fields();
-	}
 
 	// hide default checkbox styling
 	&[type="checkbox"] {

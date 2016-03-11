@@ -51,15 +51,11 @@ ul.tabmenu.formtab {
 }
 
 // submission form
-.res-nightmode .formtabs-content {
-  @include card(10, 1, $dark-cards, true);
-}
 
 .formtabs-content {
   width: 100%;
   border: 0;
   margin-bottom: em(17, 10);
-  @include card(10, 1);
   @include border-top-radius(0);
 
   // gold infobar
@@ -80,7 +76,6 @@ ul.tabmenu.formtab {
 .roundfield input[type="text"],
 .roundfield-content input[type="url"] {
   @extend .roundfield;
-  @include text-fields();
 }
 
 .roundfield {
@@ -119,7 +114,6 @@ ul.tabmenu.formtab {
 .content.submit .info-notice {
   margin-bottom: em(15, 13);
   border: 0;
-  @include card(13, 1, $light-primary);
 }
 
 // submit post

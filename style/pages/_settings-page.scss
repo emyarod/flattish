@@ -3,7 +3,6 @@
 .res-nightmode .pretty-form { background-color: $dark-background; }
 
 .res-nightmode .linefield {
-  @include card(18, 1, $dark-cards);
 
   .title { color: $dark-text !important; }
 
@@ -16,7 +15,6 @@
 .linefield {
   width: 100%;
   margin-bottom: em(15, 16);
-  @include card(18, 1);
 
   div:not(.commentingAs) {
     @include margin(null 0);
@@ -37,7 +35,6 @@
     &[type="text"],
     &[type="password"] {
       width: 100%;
-      @include text-fields;
     }
 
     &[type="checkbox"] {

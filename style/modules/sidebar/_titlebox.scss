@@ -8,9 +8,7 @@
 		background-color: transparent !important;
 	}
 
-	a.hover {
-		color: $dark-text !important;
-	}
+	a.hover { color: $dark-text !important; }
 
 	// mod/approved submitter/flair label background
 	.leavemoderator,
@@ -21,9 +19,7 @@
 	}
 
 	// approved submitter text
-	span.option.main.active {
-		color: $dark-secondary-text;
-	}
+	span.option.main.active { color: $dark-secondary-text; }
 
 	.subscribers,
 	.users-online {
@@ -35,9 +31,7 @@
 		opacity: 1;
 	}
 
-	.md p {
-		color: $dark-text;
-	}
+	.md p { color: $dark-text; }
 }
 
 .titlebox {
@@ -75,9 +69,7 @@
 			font-size: em(24, 10);
 		}
 
-		.word {
-			font-size: em(13, 10);
-		}
+		.word { font-size: em(13, 10); }
 	}
 
 	.users-online {
@@ -120,21 +112,10 @@
 }
 
 // subscribe button tooltip
-.res-nightmode .hover-bubble.multi-selector {
-	@include card(10, 4, $dark-cards, true);
-
-	strong {
-		color: $dark-text;
-	}
-
-	.create-multi input[type="text"] {
-		@include text-fields(true);
-	}
-}
+.res-nightmode .hover-bubble.multi-selector strong { color: $dark-text; }
 
 .hover-bubble.multi-selector {
 	border: 0;
-	@include card(10, 4);
 
 	&::before,
 	&::after {
@@ -150,9 +131,5 @@
 			height: 14px;
 			width: 14px;
 		}
-	}
-
-	.create-multi input[type="text"] {
-		@include text-fields();
 	}
 }
