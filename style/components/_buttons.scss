@@ -1,27 +1,30 @@
 // main: ../main.scss
 
-@mixin button($desired-font-size, $orig-font-size) {
-	min-width: em(64, $desired-font-size);
-	height: em(36, $desired-font-size);
-	padding: 0 em(8, $desired-font-size);
-
+@mixin base-button-styles {
 	font-weight: bold;
 	font-family: $font-stack;
-	font-size: em($desired-font-size, $orig-font-size);
 	letter-spacing: normal;
-	line-height: em(36, $desired-font-size);
 	text-align: center;
 	text-transform: uppercase;
-
 	background: none transparent;
 	border: 0 !important;
-	border-radius: em(2, $desired-font-size);
+	border-radius: 2px;
 	outline: 0;
 	will-change: box-shadow;
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
 	&::-moz-focus-inner { border: 0; }
+}
+
+@mixin button($desired-font-size, $orig-font-size) {
+	min-width: em(64, $desired-font-size);
+	height: em(36, $desired-font-size);
+	padding: 0 em(8, $desired-font-size);
+	font-size: em($desired-font-size, $orig-font-size);
+	line-height: em(36, $desired-font-size);
+
+	@include base-button-styles;
 }
 
 // default flat button transparent bg
@@ -149,3 +152,6 @@ button {
 	@include flat-button-colored-text(14, 14, $primary, true);
 	font-size: 14px;
 }
+
+$default-button-selectors: ();
+$night-button-selectors: ();
