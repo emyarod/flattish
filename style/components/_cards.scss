@@ -22,7 +22,7 @@
 	@include drop-shadow(1);
 }
 
-$default-selectors-cards: (
+$default-card-selectors: (
 	// compose page
 	'#compose-message',
 
@@ -76,7 +76,7 @@ $default-selectors-cards: (
 	// footer
 	'.footer'
 );
-$night-selectors-cards: ();
+$night-card-selectors: ();
 $alt-bg-card-selectors: ();
 
 $alt-bg-card-selector-map: (
@@ -87,8 +87,8 @@ $alt-bg-card-selector-map: (
 );
 
 // duplicates all default selectors in a nightmode selectors list
-@each $item in $default-selectors-cards {
-	$night-selectors-cards: append($night-selectors-cards, unquote('.res-nightmode #{$item}'), 'comma');
+@each $item in $default-card-selectors {
+	$night-card-selectors: append($night-card-selectors, unquote('.res-nightmode #{$item}'), 'comma');
 }
 
 // places selectors for alt colored cards in a list
@@ -106,19 +106,19 @@ $alt-bg-card-selector-map: (
 }
 
 // styles all nightmode cards
-#{$night-selectors-cards} {
+#{$night-card-selectors} {
 	background-color: $dark-cards !important;
 	color: set-text-color($dark-cards, text);
 }
 
 // styles all default cards
-#{$default-selectors-cards} {
+#{$default-card-selectors} {
 	background-color: $light-cards;
 	color: set-text-color($light-cards, text);
 }
 
 // styles all defaults and all alt colored cards
 #{$alt-bg-card-selectors},
-#{$default-selectors-cards} {
+#{$default-card-selectors} {
 	@include universal-card-styles;
 }
