@@ -4,7 +4,7 @@
 select {
   color: $light-text;
   font-size: 13px;
-  background-color: $light-cards;
+  background-color: transparent;
   outline: none;
   border-bottom-color: $light-hint-text;
   @include border-width(0 0 em(1, 13) 0);
@@ -12,26 +12,38 @@ select {
 
   option {
     color: $light-text;
+    background-color: $light-cards;
   }
 }
 
 .res-nightmode select {
   color: $dark-text !important;
-  background-color: $dark-cards !important;
   border-bottom-color: $dark-hint-text !important;
 
   option {
     color: $dark-text !important;
+    background-color: $dark-cards;
   }
 }
 
-@mixin dropdown-arrow($nightmode: false) {
-  height: em(19, 13);
-  width: em(19, 13);
 
-  @if ($nightmode) {
-    background: url(%%dropdown-night%%) no-repeat right;
-  } @else {
-    background: url(%%dropdown%%) no-repeat right;
-  }
+// dropdown menu labels
+$dropdown-arrow-selectors: (
+  '#searchexpando label:not(:first-of-type)',
+  '.gold-accent.comment-visits-box .title::after'
+);
+$night-dropdown-arrow-selectors: ();
+
+@each $item in $dropdown-arrow-selectors {
+	$night-dropdown-arrow-selectors: append($night-dropdown-arrow-selectors, unquote('.res-nightmode #{$item}'), 'comma');
+}
+
+#{$dropdown-arrow-selectors} {
+  height: 19px;
+  width: 19px;
+  background: url(%%dropdown%%) no-repeat right;
+}
+
+#{$night-dropdown-arrow-selectors} {
+  background: url(%%dropdown-night%%) no-repeat right;
 }

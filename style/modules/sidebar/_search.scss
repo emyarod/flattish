@@ -13,14 +13,6 @@
 	}
 }
 
-// style searchexpando
-.res-nightmode #searchexpando label {
-	color: $dark-text;
-
-	// dropdown menu labels
-	&:not(:first-of-type) { @include dropdown-arrow(true); }
-}
-
 #search {
 
 	// search label
@@ -110,7 +102,6 @@
 	label:not(:first-of-type) {
 		margin: 0 em(5, 13) 0 0;
 		font-weight: bold;
-		@include dropdown-arrow();
 	}
 }
 

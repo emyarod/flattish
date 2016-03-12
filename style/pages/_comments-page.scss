@@ -160,10 +160,6 @@
   }
 }
 
-.res-nightmode .gold-accent.comment-visits-box .title::after {
-  @include dropdown-arrow(true);
-}
-
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
@@ -175,7 +171,6 @@
     margin-left: em(-19, 13);
     content: "";
     vertical-align: middle;
-    @include dropdown-arrow;
 	}
 }
 
