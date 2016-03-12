@@ -1,50 +1,88 @@
 // main: ../main.scss
 
-@mixin menu-items($selector, $orig-font-size: 10, $nightmode: false) {
-  #{$selector} {
-    padding: em(16, $orig-font-size);
-    color: $light-text;
+$menu-selector-map: (
+  // sr bar
+  sr-bar-menu: (
+    parent: '#sr-header-area',
+    selector: '.srdrop',
+    desired-font-size: 10,
+    original-font-size: 10,
+    width: 240
+  ),
 
-    &:hover { background-color: $light-app-bar; }
+  // comments page
+  comment-sort-menu: (
+    parent: null,
+    selector: '.lightdrop',
+    desired-font-size: 12,
+    original-font-size: 12,
+    width: 140
+  ),
+);
+
+$menu-selectors: ();
+$night-menu-selectors: ();
+
+$menu-list-selectors: ('.RESDropdownList li');
+$night-menu-list-selectors: ('.res-nightmode .RESDropdownList li');
+
+@each $key, $map in $menu-selector-map {
+  $parent: map-get($map, parent);
+  $selector: map-get($map, selector);
+  $desired-font-size: map-get($map, desired-font-size);
+  $original-font-size: map-get($map, original-font-size);
+  $width: map-get($map, width);
+
+	$menu-selectors: append($menu-selectors, unquote('#{$parent} .drop-choices#{$selector}'), 'comma');
+	$night-menu-selectors: append($night-menu-selectors, unquote('.res-nightmode #{$parent} .drop-choices#{$selector}'), 'comma');
+
+  #{$parent} .drop-choices#{$selector} {
+    @if $original-font-size != $desired-font-size{
+      font-size: em($original-font-size, $desired-font-size);
+    }
+
+    &.inuse { width: em($width, $desired-font-size); }
   }
 
-  @if ($nightmode) {
-    .res-nightmode #{$selector} {
-      color: $dark-text !important;
+  $menu-list-selectors: append($menu-list-selectors, unquote('#{$selector} a.choice'), 'comma');
+  $night-menu-list-selectors: append($night-menu-list-selectors, unquote('.res-nightmode #{$selector} a.choice'), 'comma');
+}
 
-      &:hover { background-color: $dark-app-bar !important; }
-    }
+// menus
+#{$night-menu-selectors} {
+  background-color: $dark-cards !important;
+}
+
+#{$menu-selectors} {
+  display: block;
+  width: 0;
+  max-height: 0;
+  margin: 0;
+  visibility: hidden;
+  border: 0;
+  border-radius: 2px;
+  background-color: $light-cards;
+  opacity: 0;
+  @include drop-shadow(1);
+
+  &.inuse {
+    max-height: 690px;
+    margin-top: 10px;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
-@mixin menu($parent, $selector, $desired-font-size, $orig-font-size, $width, $nightmode: false) {
-  #{$parent} .drop-choices#{$selector} {
-    display: block;
-    width: 0;
-    max-height: 0;
-    margin: 0;
-    visibility: hidden;
-    font-size: em($orig-font-size, $desired-font-size);
-    border: 0;
-    border-radius: em(2, $desired-font-size);
-    background-color: $light-cards;
-    opacity: 0;
-    @include drop-shadow(1);
+// menu lists
+#{$night-menu-list-selectors} {
+  color: $dark-text !important;
 
-    &.inuse {
-      width: em($width, $desired-font-size);
-      max-height: em(690, $desired-font-size);
-      margin-top: em(10, $desired-font-size);
-      visibility: visible;
-      opacity: 1;
-    }
-  }
+  &:hover { background-color: $dark-app-bar !important; }
+}
 
-  @include menu-items('.drop-choices a.choice', $desired-font-size, $nightmode);
+#{$menu-list-selectors} {
+  padding: 16px;
+  color: $light-text !important;
 
-  @if ($nightmode) {
-    .res-nightmode #{$parent} .drop-choices#{$selector} {
-      background-color: $dark-cards !important;
-    }
-  }
+  &:hover { background-color: $light-app-bar !important; }
 }

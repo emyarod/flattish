@@ -173,14 +173,11 @@
   right: em(40, 10) !important;
   left: unset !important;
   border: 0 !important;
-  border-radius: em(2, 10) !important;
+  border-radius: 2px !important;
   background-color: $light-cards !important;
   @include drop-shadow(1);
   @include animation(RES-settings 0.2s $animation-curve-default);
 }
-
-// RES settings dropdown menu choices
-@include menu-items('.RESDropdownList li', 10, true);
 
 .res-nightmode .RESDropdownList li {
 
@@ -196,10 +193,7 @@
 .RESDropdownList li {
   height: auto !important;
   border: 0 !important;
-  border-radius: em(2, 10) !important;
-  color: $light-text !important;
-
-  &:hover { background-color: $light-app-bar !important; }
+  border-radius: 2px;
 
   a {
     color: $light-text !important;

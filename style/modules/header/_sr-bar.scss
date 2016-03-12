@@ -113,7 +113,6 @@
 
 // image, image-light
 @include sr-bar(true, false);
-@include menu('#sr-header-area', '.srdrop', 10, 10, 240, true);
 
 // subreddits bar
 #sr-header-area {
