@@ -1,21 +1,21 @@
 // main: ../main.scss
 
 @mixin tabs {
-  height: em(66, 14);
+  height: 66px;
   font-size: 14px;
-  line-height: em(66, 14);
+  line-height: 66px;
 }
 
 @mixin tab-list-anchors($ripple: false, $orig-background-color: transparent, $ripple-color: $light-accent, $bg-color: $primary, $text-color: set-text-color($bg-color, secondary-text), $text-color-hover: set-text-color($bg-color, text)) {
   display: inline-block;
-  height: em(66, 14);
-  padding: 0 em(24, 14);
+  height: 66px;
+  padding: 0 24px;
   color: $text-color !important;
   font-weight: bold;
   text-transform: uppercase;
   border-bottom-color: transparent;
   border-bottom-style: solid;
-  @include border-width(0 0 em(2, 14) 0);
+  @include border-width(0 0 2px 0);
 
   @if $ripple {
     @include ripple($orig-background-color, $ripple-color);
@@ -23,7 +23,7 @@
 
   &:hover {
     margin: 0;
-    padding: 0 em(24, 14);
+    padding: 0 24px;
     color: $text-color-hover !important;
     // text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   }
@@ -31,8 +31,8 @@
   // tabmenu bottom border effect on hover
   &:after {
     position: relative;
-    top: em(-66, 14);
-    left: em(-24, 14);
+    top: -66px;
+    left: -24px;
 
     display: block;
     width: 0;
@@ -40,12 +40,12 @@
 
     content: "";
 
-    border-bottom: em(2, 14) solid transparent;
+    border-bottom: 2px solid transparent;
     @include transition(border-bottom 0.2s $animation-curve-default, width 0.2s $animation-curve-default);
   }
 
   &:hover::after {
     @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
-    border-bottom: em(2, 14) solid $accent;
+    border-bottom: 2px solid $accent;
   }
 }
