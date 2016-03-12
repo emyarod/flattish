@@ -54,9 +54,6 @@
   &> .usertext { @include margin(null null em(16, 13) 0); }
 }
 
-// "sorted by" menu
-@include menu(null, '.lightdrop', 13, 13, 104, true);
-
 // offset inline styling
 .drop-choices.lightdrop {
   left: unset;
