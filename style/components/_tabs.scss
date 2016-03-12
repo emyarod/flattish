@@ -33,13 +33,10 @@
     position: relative;
     top: -66px;
     left: -24px;
-
     display: block;
     width: 0;
     height: inherit;
-
     content: "";
-
     border-bottom: 2px solid transparent;
     @include transition(border-bottom 0.2s $animation-curve-default, width 0.2s $animation-curve-default);
   }
