@@ -168,5 +168,7 @@ $material-checkboxes: ();
 
   // hide RES default button styles
   .toggleOn,
-  .toggleOff { display: none; }
+  .toggleOff {
+    display: none;
+  }
 }
