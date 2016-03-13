@@ -1,10 +1,42 @@
 // main: ../main.scss
 
 // checkbox
-// .class input[type="checkbox"]
+.res-nightmode input[type="checkbox"]:disabled {
+  border-color: $dark-disabled-text !important;
+}
 
-// hide browser styles
-@mixin hide-checkbox {
+input[type="checkbox"]:disabled {
+  border-color: $light-disabled-text;
+  cursor: auto;
+}
+
+$checkbox-selectors: (
+  // login
+  '.login-form-side',
+
+  // titlebox
+  '.flairtoggle',
+
+  // settings page
+  '.linefield',
+
+  // submit page
+  '.roundfield-content'
+);
+$night-checkbox-selectors: ();
+$material-checkboxes: ();
+
+@each $item in $checkbox-selectors {
+  $material-checkboxes: append($material-checkboxes, unquote('#{$item} input[type="checkbox"]'), 'comma');
+	$night-checkbox-selectors: append($night-checkbox-selectors, unquote('.res-nightmode #{$item} input[type="checkbox"]+label::before'), 'comma');
+}
+
+#{$night-checkbox-selectors} {
+  border: 2px solid $dark-secondary-text !important;
+}
+
+#{$material-checkboxes} {
+  // hide browser styles
   display: none;
   width: 0;
   height: 0;
@@ -13,39 +45,26 @@
   border: 0;
   opacity: 0;
   @include appearance(none);
-}
 
-// & + label::before
-@mixin check-box($nightmode: false) {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  margin-top: 3px;
-  margin-right: 4px;
-  content: "";
-  @if ($nightmode) {
-    border: 2px solid $dark-secondary-text !important;
-  } @else {
+  // material checkbox
+  &+label::before {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-top: 3px;
+    margin-right: 4px;
+    content: "";
     border: 2px solid $light-secondary-text;
+    border-radius: 2px;
+    cursor: pointer;
   }
-  border-radius: 2px;
-  cursor: pointer;
-}
 
-// &:checked + label::before
-@mixin checkbox-checked {
-  border-color: $primary;
-  background: $primary url(%%tick%%) no-repeat scroll 0% 60%;
-  @include transition-default;
-}
-
-@mixin checkbox-disabled($nightmode: false) {
-  @if ($nightmode) {
-    border-color: $dark-disabled-text !important;
-  } @else {
-    border-color: $light-disabled-text;
+  // appearance when checked
+  &:checked+label::before {
+    border-color: $primary !important;
+    background: $primary url(%%tick%%) no-repeat scroll 0% 60%;
+    @include transition-default;
   }
-  cursor: auto;
 }
 
 // radio buttons

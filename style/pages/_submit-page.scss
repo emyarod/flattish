@@ -99,16 +99,7 @@ ul.tabmenu.formtab {
 }
 
 // material checkbox
-.roundfield-content input[type="checkbox"] {
-  @include hide-checkbox;
-
-  & + label::before {
-    @include check-box;
-    vertical-align: em(-3, 16);
-  }
-
-  &:checked + label::before { @include checkbox-checked; }
-}
+.roundfield-content input[type="checkbox"]+label::before { vertical-align: -3px; }
 
 // brick
 .content.submit .info-notice {

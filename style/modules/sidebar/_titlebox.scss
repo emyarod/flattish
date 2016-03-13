@@ -94,20 +94,8 @@
 		display: none;
 	}
 
-	// hide default checkbox styling
-	.flairtoggle input[type="checkbox"] {
-		@include hide-checkbox;
-
-		// material checkbox
-		& + label::before {
-			vertical-align: -25%;
-			@include check-box;
-		}
-
-		&:checked + label::before {
-			@include checkbox-checked;
-		}
-	}
+	// material checkbox
+	.flairtoggle input[type="checkbox"]+label::before { vertical-align: -25%; }
 }
 
 // subscribe button tooltip

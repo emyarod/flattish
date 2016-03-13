@@ -37,16 +37,7 @@
       width: 100%;
     }
 
-    &[type="checkbox"] {
-      @include hide-checkbox;
-
-      & + label::before {
-        vertical-align: -4px;
-        @include check-box;
-      }
-
-      &:checked + label::before { @include checkbox-checked; }
-    }
+    &[type="checkbox"]+label::before { vertical-align: -4px; }
   }
 
   // radio button styling
