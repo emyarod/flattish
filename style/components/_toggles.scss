@@ -124,9 +124,7 @@ $material-checkboxes: ();
   &.enabled { background-color: $dark-primary; }
 
   // off
-  &:not(.enabled)::before {
-    background-color: $dark-background;
-  }
+  &:not(.enabled)::before { background-color: $dark-background; }
 
   // on
   &.enabled::before { background-color: $light-primary; }
