@@ -35,15 +35,15 @@ $button-selector-map: (
   ),
 
 	// titlebox
-  titlebox-button-one: (
+  subreddit-subscribe-button: (
 		selector-name: '.titlebox a.option',
 		desired-font-size: 10,
 		original-font-size: 10,
 		color: get-color("green", "500"),
 		button-type: 'flat-button-colored-text'
   ),
-	titlebox-button-two: (
-		selector-name: '.titlebox .RESDashboardToggle',
+	add-shortcut-and-dashboard-button: (
+		selector-name: '.res-fancy-toggle-button',
 		desired-font-size: 10,
 		original-font-size: 10,
 		color: get-color("green", "500"),
@@ -101,7 +101,18 @@ $button-selector-map: (
 		original-font-size: 12,
 		color: get-color("green", "500"),
 		button-type: 'flat-button-colored-text'
-  )
+  ),
+
+	// flair page
+	flair-page-save-options: (
+		selector-name: '.save-button > button:nth-child(1)',
+		desired-font-size: 14,
+		original-font-size: 14,
+		background-color: $primary,
+		hover-background-color: $dark-primary,
+		focus-not-active-background-color: $light-primary,
+		button-type: 'raised-colorized-button'
+	)
 );
 
 $base-button-selectors: ();
@@ -155,6 +166,7 @@ $night-raised-colorized-button-selectors: ();
 
 		.res-nightmode #{$selector-name},
 		#{$selector-name} {
+      style: awesome;
 			@include drop-shadow(1);
 
 			&:focus:not(:active) { @include focus-shadow(); }
@@ -163,6 +175,7 @@ $night-raised-colorized-button-selectors: ();
 		}
 
 		.res-nightmode #{$selector-name} {
+      style: awesome;
 			color: $dark-text;
 
 			&:hover { background-color: $dark-button-hover !important; }
@@ -173,6 +186,7 @@ $night-raised-colorized-button-selectors: ();
 		}
 
 		#{$selector-name} {
+      style: awesome;
 			color: $light-text;
 
 			&:hover { background-color: $light-button-hover; }
@@ -232,29 +246,26 @@ $night-raised-colorized-button-selectors: ();
 }
 
 #{$flat-button-colored-text-selectors} {
-	background: none transparent;
+	background: none transparent !important;
 
-	&:hover { background-color: $light-button-hover; }
+	&:hover { background-color: $light-button-hover !important; }
 
-	&:focus:not(:active) { background-color: $light-button-focus; }
+	&:focus:not(:active) { background-color: $light-button-focus !important; }
 
-	&:active { background-color: $light-button-active; }
+	&:active { background-color: $light-button-active !important; }
 }
 
 // flat buttons and raised buttons with color bg
 #{$flat-colorized-bg-button-selectors},
 #{$raised-colorized-button-selectors} {
 	color: set-text-color($primary, text) !important;
+	background-color: $primary !important;
 	@include ripple($primary);
 
 	&:hover { background-color: $dark-primary !important; }
 }
 
 // raised buttons with color bg
-.res-nightmode #{$raised-colorized-button-selectors} {
-	background-color: $primary !important;
-}
-
 #{$raised-colorized-button-selectors} {
 	@include drop-shadow(1);
 
