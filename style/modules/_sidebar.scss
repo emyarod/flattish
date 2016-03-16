@@ -101,6 +101,6 @@
 		// hide kebab menu icon
 		&:before { display: none; }
 
-		&:hover .spacer { @include transform(translateX(0)); }
+		&:hover .spacer { @include transform(none); }
 	}
 }
