@@ -1,42 +1,40 @@
 // main: ../main.scss
 
-@mixin text-fields {
-  // shared styles
-  .res-nightmode input[type="text"],
-  .res-nightmode input[type="password"],
-  .res-nightmode input[type="url"],
-  .res-nightmode textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="url"],
-  textarea {
-    @include border-width(0 0 1px !important);
-    @include border-color(transparent transparent get-color("grey", "600") !important);
-    font-family: $font-stack;
-    background-color: transparent !important;
-    box-shadow: none !important;
 
-    &:focus { border-bottom-color: $accent !important; }
-  }
+// shared styles
+.res-nightmode input[type="text"],
+.res-nightmode input[type="password"],
+.res-nightmode input[type="url"],
+.res-nightmode textarea,
+input[type="text"],
+input[type="password"],
+input[type="url"],
+textarea {
+  @include border-width(0 0 1px !important);
+  @include border-color(transparent transparent get-color("grey", "600") !important);
+  font-family: $font-stack;
+  background-color: transparent !important;
+  box-shadow: none !important;
 
-  // nightmode
-  .res-nightmode input[type="text"],
-  .res-nightmode input[type="password"],
-  .res-nightmode input[type="url"],
-  .res-nightmode textarea {
-    color: $dark-text !important;
-  }
-
-  // default
-  input[type="text"],
-  input[type="password"],
-  input[type="url"],
-  textarea {
-    color: $light-text;
-  }
+  &:focus { border-bottom-color: $accent !important; }
 }
 
-@include text-fields();
+// nightmode
+.res-nightmode input[type="text"],
+.res-nightmode input[type="password"],
+.res-nightmode input[type="url"],
+.res-nightmode textarea {
+  color: $dark-text !important;
+}
+
+// default
+input[type="text"],
+input[type="password"],
+input[type="url"],
+textarea {
+  color: $light-text;
+  border-radius: 0;
+}
 
 // macros menu
 .RESMacroDropdown,
@@ -106,6 +104,8 @@
   .gearIcon {
     position: static;
     background: set-gearIcon();
+
+    &::after { display: none; }
   }
 
   .md.RESDialogContents {
