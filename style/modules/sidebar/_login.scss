@@ -1,5 +1,11 @@
 // main: ../../main.scss
 
+// sign up/login modal
+.c-checkbox input[type="checkbox"] + label::before {
+	vertical-align: -4px;
+}
+
+// sidebar login card
 .res-nightmode #login_login-main button {
 	background-color: $dark-cards;
 
