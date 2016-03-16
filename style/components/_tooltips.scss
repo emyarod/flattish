@@ -35,9 +35,9 @@
   }
 
   &:hover::after {
-    margin-top: em(14, $font-size-tooltip);
     visibility: visible;
     background-color: $tooltip;
+    @include transform(translateY(em(14, $font-size-tooltip)));
   }
 }
 
