@@ -1,0 +1,172 @@
+// main: ../main.scss
+
+// media and self post expansion buttons
+.res-nightmode .expando-button {
+  // base styles
+	border: em(1, 10) solid $dark-hint-text;
+
+	&:hover { border-color: $dark-secondary-text; }
+
+	&.collapsed,
+	&.collapsed:hover,
+	&.expanded,
+	&.expanded:hover {
+
+		&:before,
+		&:after {
+			background-color: $dark-hint-text;
+		}
+	}
+
+	// video expandos
+	&.video {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%play-night%%) !important;
+		}
+	}
+
+	// image expandos
+	&.image {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%camera-night%%) !important;
+		}
+	}
+
+  // photo album expandos
+	&.gallery {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%album-night%%) !important;
+		}
+	}
+
+	// self expandos
+	&.selftext {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%text-night%%) !important;
+		}
+	}
+}
+
+.expando-button {
+  // base styles
+	position: relative;
+	top: em(2, 10);
+	width: em(25, 10);
+	height: em(25, 10);
+	z-index: 1;
+	@include margin(null em(6, 10) em(6, 10) null);
+	border: em(1, 10) solid $light-hint-text;
+	border-radius: em(2, 10);
+	cursor: pointer;
+
+	&:hover { border-color: $light-secondary-text; }
+
+	&.collapsed,
+	&.collapsed:hover,
+	&.expanded,
+	&.expanded:hover {
+
+		&:before,
+		&:after {
+			background-color: $light-hint-text;
+			content: "";
+			position: absolute;
+			display: block;
+		}
+
+		// horizontal
+		&:before {
+			width: em(7, 10);
+			height: em(1, 10);
+			top: em(17, 10);
+			left: em(14, 10);
+		}
+
+		// vertical
+		&:after {
+			width: em(1, 10);
+			height: em(7, 10);
+			top: em(14, 10);
+			left: em(17, 10);
+		}
+	}
+
+	// animate expand/collapse
+	&.collapsed:after,
+	&.expanded:after { @include transition-default; }
+
+	&.collapsed:after { @include animation(minustoplus 0.5s ease 1); }
+
+	&.expanded:after {
+		@include animation(minustoplus 0.5s ease 1 reverse);
+		transform: rotate(90deg);
+	}
+
+	// video expandos
+	&.video {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%play%%);
+		}
+	}
+
+	// image expandos
+	&.image,
+	&.gallery {
+		background-position: initial !important; // RES...seriously????
+	}
+
+	&.image {
+		box-sizing: unset; // to force width and height to 25px
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%camera%%);
+		}
+	}
+
+  // photo album expandos
+	&.gallery {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%album%%);
+		}
+	}
+
+	// self expandos
+	&.selftext {
+
+		&.collapsed,
+		&.collapsed:hover,
+		&.expanded,
+		&.expanded:hover {
+			background: url(%%text%%);
+		}
+	}
+}
