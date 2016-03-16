@@ -80,6 +80,20 @@ textarea {
   &:hover { background-color: $light-app-bar !important;  } // thx RES
 }
 
+// text editor container
+.usertext-edit {
+  margin: 0 auto;
+  max-width: unset !important;
+
+  textarea {
+    width: 100%;
+    margin-bottom: em(9, 14) !important; // override global reddit styles
+  }
+
+  // comment style buttons and character counter
+  & > .markdownEditor-wrapper { width: auto; } // override inline styling
+}
+
 .bottom-area { margin-bottom: em(10, 13); }
 
 // live preview
