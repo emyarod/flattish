@@ -70,19 +70,6 @@
   font-size: em(10, 13);
 }
 
-// text editor container
-.usertext-edit {
-  width: auto;
-
-  textarea {
-    width: 100%;
-    margin-bottom: em(9, 14) !important; // override global reddit styles
-  }
-
-  // comment style buttons and character counter
-  & > .markdownEditor-wrapper { width: auto; } // override inline styling
-}
-
 .res-nightmode .commentingAs { color: $dark-secondary-text; }
 
 .commentingAs { color: $light-secondary-text; }
