@@ -1,95 +1,186 @@
 // main: ../main.scss
 
-@mixin card($orig-font-size: 10, $shadow-depth: 0, $background-color: $light-cards, $nightmode: false) {
-	border-radius: em(2, $orig-font-size);
-	padding: em(16, $orig-font-size);
-	color: set-text-color($background-color, text);
-
-	@if ($nightmode) {
-		background-color: $dark-cards !important;
-	} @else {
-		background-color: $background-color;
-	}
-
-	@if $shadow-depth > 0 {
-		@include drop-shadow($shadow-depth);
-	}
-}
-
-@mixin universal-card-styles {
-	padding: 16px;
-	border-radius: 2px;
-	@include drop-shadow(1);
-}
-
-$default-card-selectors: (
+$card-selectors-map: (
 	// compose page
-	'#compose-message',
+	compose-message: (
+		selector-name: '#compose-message',
+		depth: 1,
+	),
 
 	// wiki page
-	'.wiki-page-content',
+	wiki-page-content: (
+		selector-name: '.wiki-page-content',
+		depth: 1,
+	),
 
 	// search page
-	'.combined-search-page .searchpane',
-	'.combined-search-page .search-result',
+	combined-search-page-searchpane: (
+		selector-name: '.combined-search-page .searchpane',
+		depth: 1,
+	),
+	combined-search-page-search-result: (
+		selector-name: '.combined-search-page .search-result',
+		depth: 1,
+	),
 
 	// stylesheet page
-	'#subreddit_stylesheet',
-	'ul#image-preview-list li',
-	'#image-upload',
+	subreddit-stylesheet: (
+		selector-name: '#subreddit_stylesheet',
+		depth: 1,
+	),
+	image-preview-list-li: (
+		selector-name: 'ul#image-preview-list li',
+		depth: 1,
+	),
+	image-upload: (
+		selector-name: '#image-upload',
+		depth: 1,
+	),
 
 	// settings page
-	'.linefield',
+	linefield: (
+		selector-name: '.linefield',
+		depth: 1,
+	),
+
+	// search page
+	searchpane: (
+		selector-name: '.searchpane',
+		depth: 1,
+	),
 
 	// comments page
-	'.commentarea .menuarea',
-	'.commentarea > .usertext',
-	'.res .comment',
-	'.comment',
+	commentarea-menuarea: (
+		selector-name: '.commentarea .menuarea',
+		depth: 1,
+	),
+	commentarea-usertext: (
+		selector-name: '.commentarea > .usertext',
+		depth: 1,
+	),
+	res-comment: (
+		selector-name: '.res .comment',
+		depth: 1,
+	),
+	comment: (
+		selector-name: '.comment',
+		depth: 1,
+	),
+	archived-infobar: (
+		selector-name: '.archived-infobar',
+		depth: 1,
+	),
 
 	// submit page
-	'.formtabs-content',
+	formtabs-content: (
+		selector-name: '.formtabs-content',
+		depth: 1,
+	),
+
+	// flair page
+	tabpane-content: (
+		selector-name: '.tabpane-content',
+		depth: 1,
+	),
 
 	// sidebar
-	'.side .spacer:first-of-type',
-	'.side #ad_sponsorship',
-	'.side .titlebox',
-	'.side #moderation_tools',
-	'.side #ad_main',
-	'.side .sidecontentbox',
+	side-spacer-first-of-type: (
+		selector-name: '.side .spacer:first-of-type',
+		depth: 1,
+	),
+	ad_sponsorship: (
+		selector-name: '.side #ad_sponsorship',
+		depth: 1,
+	),
+	titlebox: (
+		selector-name: '.side .titlebox',
+		depth: 1,
+	),
+	side-moderation_tools: (
+		selector-name: '.side #moderation_tools',
+		depth: 1,
+	),
+	side-ad_main: (
+		selector-name: '.side #ad_main',
+		depth: 1,
+	),
+	side-sidecontentbox: (
+		selector-name: '.side .sidecontentbox',
+		depth: 1,
+	),
 
 	// sidebar search
-	'#searchexpando',
+	searchexpando: (
+		selector-name: '#searchexpando',
+		depth: 1,
+	),
 
 	// sidebar submit
-	'.submit-link::before',
+	submit-link-before: (
+		selector-name: '.submit-link::before',
+		depth: 1,
+	),
 
 	// sidebar login
-	'#login_login-main',
+	sidebar-login: (
+		selector-name: '#login_login-main',
+		depth: 1,
+	),
 
 	// titlebox
-	'.hover-bubble.multi-selector',
+	hover-bubble-multi-selector: (
+		selector-name: '.hover-bubble.multi-selector',
+		depth: 1,
+	),
+	flairselector: (
+		selector-name: '.flairselector',
+		depth: 1,
+	),
 
-	// site table
-	'#siteTable > .thing',
+	// sitetable
+	post: (
+		selector-name: '#siteTable > .thing',
+		depth: 0,
+	),
 
 	// footer
-	'.footer'
+	footer: (
+		selector-name: '.footer',
+		depth: 1,
+	),
 );
+
+$default-card-selectors: ();
 $night-card-selectors: ();
+$alt-depth-card-selectors: ();
 $alt-bg-card-selectors: ();
+
+@each $key, $map in $card-selectors-map {
+	$selector-name: map-get($map, selector-name);
+	$depth: map-get($map, depth);
+
+	// alternate drop shadows for cards with depth != 1
+	@if $depth != 1 {
+		$alt-depth-card-selectors: append($alt-depth-card-selectors, #{$selector-name}, 'comma');
+
+		#{$selector-name} {
+			@include drop-shadow($depth);
+		}
+	} @else {
+		// duplicates all default selectors in a list
+		$default-card-selectors: append($default-card-selectors, #{$selector-name}, 'comma');
+		$night-card-selectors: append($night-card-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
+	}
+}
+
 
 $alt-bg-card-selector-map: (
 	// comments page
 	'.gold-accent.comment-visits-box': get-color("yellow", "50"),
 	'.linkinfo': $light-accent,
-	'.content.submit .info-notice': rgba($light-primary, 0.38)
+	'.content.submit .info-notice': rgba($light-primary, 0.38),
+	'.locked-infobar': get-color("yellow", "200"),
 );
-
-// duplicates all default selectors in a nightmode selectors list
-@each $item in $default-card-selectors {
-	$night-card-selectors: append($night-card-selectors, unquote('.res-nightmode #{$item}'), 'comma');
-}
 
 // places selectors for alt colored cards in a list
 @each $key, $value in $alt-bg-card-selector-map {
@@ -101,7 +192,7 @@ $alt-bg-card-selector-map: (
 	.res-nightmode #{$key},
 	#{$key} {
 		background-color: $value !important;
-		color: set-text-color($value, text);
+		color: set-text-color($value, text) !important;
 	}
 }
 
@@ -117,8 +208,16 @@ $alt-bg-card-selector-map: (
 	color: set-text-color($light-cards, text);
 }
 
-// styles all defaults and all alt colored cards
 #{$alt-bg-card-selectors},
 #{$default-card-selectors} {
-	@include universal-card-styles;
+	@include drop-shadow(1);
+}
+
+// styles all defaults and all alt colored cards
+#{$alt-bg-card-selectors},
+#{$alt-depth-card-selectors},
+#{$default-card-selectors} {
+	padding: 16px !important;
+	border: 0 !important;
+	border-radius: 2px !important;
 }
