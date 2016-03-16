@@ -1,0 +1,61 @@
+// main: ../main.scss
+
+// thumbnail
+.res-nightmode .thumbnail {
+
+	&.self,
+	&.default {
+		border: em(1, 10) solid $dark-secondary-text !important;
+		opacity: 0.5;
+
+		&:hover { opacity: 1; }
+	}
+
+	&.self { background: url(%%thumbnail-self-night%%) !important; }
+
+	&.default { background: url(%%thumbnail-default-night%%) !important; }
+}
+
+.thumbnail,
+.thumbnail.self,
+.thumbnail.default {
+	border-radius: 50%;
+	font-size: inherit;
+	margin: 0 em(16, 10) 0 0;
+	max-height: em(70, 10);
+}
+
+.thumbnail {
+
+	img {
+		height: em(70, 10);
+		width: auto;
+	}
+
+	&.self,
+	&.default {
+		border: em(1, 10) solid $light-secondary-text;
+		height: em(70, 10);
+		width: em(70, 10);
+		opacity: 0.38;
+
+		&:hover { opacity: 0.5; }
+	}
+
+	&.self { background: url(%%thumbnail-self%%); }
+
+	&.default { background: url(%%thumbnail-default%%); }
+}
+
+// nsfw thumbnail styling
+.res-nightmode .thing.over18 > .thumbnail.self {
+	background: url(%%nsfw2%%) !important;
+}
+
+.thing.over18 > .thumbnail.self {
+	background: url(%%nsfw2%%);
+	border: 0 !important;
+	opacity: 0.87;
+
+	&:hover { opacity: 1; }
+}
