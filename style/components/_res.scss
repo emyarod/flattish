@@ -66,3 +66,7 @@ body.res-nightmode,
   // color: inherit !important;
 }
 
+.res-nightmode .infobar:not(.newsletterbar) .md,
+.res-nightmode .reddit-infobar .md {
+  color: inherit !important;
+}
