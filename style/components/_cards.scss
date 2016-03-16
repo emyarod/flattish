@@ -4,149 +4,156 @@ $card-selectors-map: (
 	// compose page
 	compose-message: (
 		selector-name: '#compose-message',
-		depth: 1,
+		depth: 1
 	),
 
 	// wiki page
 	wiki-page-content: (
 		selector-name: '.wiki-page-content',
-		depth: 1,
+		depth: 1
 	),
 
 	// search page
 	combined-search-page-searchpane: (
 		selector-name: '.combined-search-page .searchpane',
-		depth: 1,
+		depth: 1
 	),
 	combined-search-page-search-result: (
 		selector-name: '.combined-search-page .search-result',
-		depth: 1,
+		depth: 1
 	),
 
 	// stylesheet page
 	subreddit-stylesheet: (
 		selector-name: '#subreddit_stylesheet',
-		depth: 1,
+		depth: 1
 	),
 	image-preview-list-li: (
 		selector-name: 'ul#image-preview-list li',
-		depth: 1,
+		depth: 1
 	),
 	image-upload: (
 		selector-name: '#image-upload',
-		depth: 1,
+		depth: 1
 	),
 
 	// settings page
 	linefield: (
 		selector-name: '.linefield',
-		depth: 1,
+		depth: 1
 	),
 
 	// search page
 	searchpane: (
 		selector-name: '.searchpane',
-		depth: 1,
+		depth: 1
 	),
 
 	// comments page
 	commentarea-menuarea: (
 		selector-name: '.commentarea .menuarea',
-		depth: 1,
+		depth: 1
 	),
 	commentarea-usertext: (
 		selector-name: '.commentarea > .usertext',
-		depth: 1,
+		depth: 1
 	),
 	res-comment: (
 		selector-name: '.res .comment',
-		depth: 1,
+		depth: 1
 	),
 	comment: (
 		selector-name: '.comment',
-		depth: 1,
+		depth: 1
 	),
 	archived-infobar: (
 		selector-name: '.archived-infobar',
-		depth: 1,
+		depth: 1
 	),
 
 	// submit page
 	formtabs-content: (
 		selector-name: '.formtabs-content',
-		depth: 1,
+		depth: 1
 	),
 
 	// flair page
 	tabpane-content: (
 		selector-name: '.tabpane-content',
-		depth: 1,
+		depth: 1
+	),
+
+	// rules page
+	subreddit-rules-page: (
+	  // selector-name: '.subreddit-rules-page',
+		selector-name: '.modtools-page > div.content',
+		depth: 1
 	),
 
 	// sidebar
 	side-spacer-first-of-type: (
 		selector-name: '.side .spacer:first-of-type',
-		depth: 1,
+		depth: 1
 	),
 	ad_sponsorship: (
 		selector-name: '.side #ad_sponsorship',
-		depth: 1,
+		depth: 1
 	),
 	titlebox: (
 		selector-name: '.side .titlebox',
-		depth: 1,
+		depth: 1
 	),
 	side-moderation_tools: (
 		selector-name: '.side #moderation_tools',
-		depth: 1,
+		depth: 1
 	),
 	side-ad_main: (
 		selector-name: '.side #ad_main',
-		depth: 1,
+		depth: 1
 	),
 	side-sidecontentbox: (
 		selector-name: '.side .sidecontentbox',
-		depth: 1,
+		depth: 1
 	),
 
 	// sidebar search
 	searchexpando: (
 		selector-name: '#searchexpando',
-		depth: 1,
+		depth: 1
 	),
 
 	// sidebar submit
 	submit-link-before: (
 		selector-name: '.submit-link::before',
-		depth: 1,
+		depth: 1
 	),
 
 	// sidebar login
 	sidebar-login: (
 		selector-name: '#login_login-main',
-		depth: 1,
+		depth: 1
 	),
 
 	// titlebox
 	hover-bubble-multi-selector: (
 		selector-name: '.hover-bubble.multi-selector',
-		depth: 1,
+		depth: 1
 	),
 	flairselector: (
 		selector-name: '.flairselector',
-		depth: 1,
+		depth: 1
 	),
 
 	// sitetable
 	post: (
 		selector-name: '#siteTable > .thing',
-		depth: 0,
+		depth: 0
 	),
 
 	// footer
 	footer: (
 		selector-name: '.footer',
-		depth: 1,
+		depth: 1
 	),
 );
 
