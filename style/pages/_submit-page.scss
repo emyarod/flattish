@@ -21,7 +21,6 @@
 ul.tabmenu.formtab {
   padding: 0;
   @include drop-shadow(1);
-  @include tabs;
 
   li {
 
@@ -33,21 +32,16 @@ ul.tabmenu.formtab {
     }
 
     &.selected a {
-      margin: 0;
-      padding: 0 em(24, 14);
       color: set-text-color($primary, text) !important;
       font-size: inherit;
       background-color: $primary;
-      border-bottom-color: $primary;
-      border-bottom-style: solid;
-      @include border-width(0 0 em(2, 14) 0);
     }
   }
 
   // round top corners of tabs
-  a.link-button.choice { border-top-left-radius: em(2, 14); }
+  a.link-button.choice { border-top-left-radius: 2px; }
 
-  a.text-button.choice { border-top-right-radius: em(2, 14); }
+  a.text-button.choice { border-top-right-radius: 2px; }
 }
 
 // submission form
@@ -70,7 +64,9 @@ ul.tabmenu.formtab {
 
 // maximize width of submit form elements
 .roundfield,
-.roundfield .usertext-edit { width: 100%; }
+.roundfield .usertext-edit {
+  width: 100%;
+}
 
 .roundfield-content textarea,
 .roundfield input[type="text"],
