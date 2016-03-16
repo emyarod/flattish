@@ -1,19 +1,16 @@
 // main: ../main.scss
 
+// infobar (locked, archived, etc)
+.reddit-infobar { margin-bottom: 16px; }
+
 // thread subscribe/unsubscribe button
 .res-nightmode #REScommentSubToggle {
   background-color: transparent !important;
 }
 
-#REScommentSubToggle {
+#REScommentSubToggle.unsubscribe { color: get-color('red', '500'); }
 
-  &.unsubscribe { color: get-color('red', '500'); }
-}
-
-.res-nightmode .commentarea .menuarea {
-
-  .toggle a { color: $dark-secondary-text; }
-}
+.res-nightmode .commentarea .menuarea .toggle a { color: $dark-secondary-text; }
 
 .commentarea {
   position: relative;
