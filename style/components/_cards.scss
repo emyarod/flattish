@@ -155,6 +155,12 @@ $card-selectors-map: (
 		selector-name: '.footer',
 		depth: 1
 	),
+
+	// res tips and tricks
+	guider: (
+	  selector-name: '.guider',
+		depth: 6
+	)
 );
 
 $default-card-selectors: ();
