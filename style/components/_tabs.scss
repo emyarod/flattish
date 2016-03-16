@@ -7,25 +7,27 @@
 }
 
 @mixin tab-list-anchors($ripple: false, $orig-background-color: transparent, $ripple-color: $light-accent, $bg-color: $primary, $text-color: set-text-color($bg-color, secondary-text), $text-color-hover: set-text-color($bg-color, text)) {
+
+  color: $text-color !important;
+
+  @if $ripple { @include ripple($orig-background-color, $ripple-color); }
+
+  &:hover { color: $text-color-hover !important; }
+}
+
+@mixin base-tab-anchor-styles {
   display: inline-block;
   height: 66px;
   padding: 0 24px;
-  color: $text-color !important;
   font-weight: bold;
   text-transform: uppercase;
   border-bottom-color: transparent;
   border-bottom-style: solid;
   @include border-width(0 0 2px 0);
 
-  @if $ripple {
-    @include ripple($orig-background-color, $ripple-color);
-  }
-
   &:hover {
     margin: 0;
     padding: 0 24px;
-    color: $text-color-hover !important;
-    // text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   }
 
   // tabmenu bottom border effect on hover
@@ -45,4 +47,32 @@
     @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
     border-bottom: 2px solid $accent;
   }
+}
+
+@mixin selected-tab {
+  margin: 0;
+  padding: 0 24px;
+  border-bottom-color: $accent;
+  border-bottom-style: solid;
+  @include border-width(0 0 2px 0);
+}
+
+// header-bottom-left, flair page, and submit page
+.tabmenu,
+ul.tabmenu.formtab {
+  @include tabs;
+}
+
+.tabmenu li a,
+.tabmenu li #viewImagesButton,
+.res-nightmode ul.tabmenu.formtab li a,
+ul.tabmenu.formtab li a {
+  @include base-tab-anchor-styles;
+}
+
+.tabmenu li { margin: 0; }
+
+.tabmenu li.selected a,
+ul.tabmenu.formtab li.selected a {
+  @include selected-tab;
 }
