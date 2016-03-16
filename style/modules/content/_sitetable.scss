@@ -103,11 +103,10 @@
 	    &:visited { color: $link-color-visited !important; }
 		}
 
+		.tagline { color: $dark-text !important; }
+
 		.domain,
-		.domain a,
-		.tagline {
-			color: $dark-text !important;
-		}
+		.domain a { color: $dark-secondary-text; }
 	}
 
 }
@@ -162,11 +161,10 @@
 			&:visited { color: $link-color-visited; }
 		}
 
+		.tagline { color: $light-text; }
+
 		.domain,
-		.domain a,
-		.tagline {
-			color: $light-text;
-		}
+		.domain a { color: $light-secondary-text; }
 	}
 }
 
