@@ -18,18 +18,18 @@
 }
 
 @mixin button($desired-font-size, $orig-font-size) {
-	min-width: em(64, $desired-font-size);
-	height: em(36, $desired-font-size);
-	padding: 0 em(8, $desired-font-size);
-	font-size: em($desired-font-size, $orig-font-size);
-	line-height: em(36, $desired-font-size);
+	min-width: em(64, $desired-font-size) !important;
+	height: em(36, $desired-font-size) !important;
+	padding: 0 em(8, $desired-font-size) !important;
+	font-size: em($desired-font-size, $orig-font-size) !important;
+	line-height: em(36, $desired-font-size) !important;
 }
 
 $button-selector-map: (
   global-button: (
 		selector-name: 'button',
 		desired-font-size: 14,
-		original-font-size: 14,
+		original-font-size: 13,
 		color: $primary,
 		button-type: 'flat-button-colored-text'
   ),
@@ -275,9 +275,4 @@ $night-raised-colorized-button-selectors: ();
 		@include focus-shadow();
 		background-color: $light-primary !important;
 	}
-}
-
-.res-nightmode button,
-button {
-	font-size: 14px;
 }
