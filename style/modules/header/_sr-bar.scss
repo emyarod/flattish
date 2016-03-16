@@ -1,17 +1,15 @@
 // main: ../../main.scss
 #sr-header-area .sr-bar a,
-#sr-header-area .separator {
+#sr-header-area .separator,
+#RESShortcuts {
   text-shadow: $text-shadow;
 }
 
 @mixin sr-bar($image, $image-light) {
   @if ($image) {
-    .res-nightmode #sr-header-area {
+    .res-nightmode #sr-header-area,
+     #sr-header-area {
       background-color: transparent !important;
-    }
-
-    #sr-header-area {
-      background-color: transparent;
     }
 
     @if ($image-light) {
@@ -32,13 +30,15 @@
         }
 
         .sr-bar a,
-        .separator {
+        .separator,
+        #RESShortcuts {
           color: $light-secondary-text;
         }
 
         &:hover {
           .sr-bar a,
-          .separator {
+          .separator,
+          #RESShortcuts {
             color: $light-text;
           }
         }
@@ -56,31 +56,34 @@
           &:hover {
             .selected,
             .selected::after,
-            .selected::before { background-color: $dark-icons; }
+            .selected::before {
+              background-color: $dark-icons;
+            }
           }
         }
 
         .sr-bar a,
-        .separator {
+        .separator,
+        #RESShortcuts {
           color: $dark-secondary-text;
         }
 
         &:hover {
           .sr-bar a,
-          .separator {
+          .separator,
+          #RESShortcuts {
             color: $dark-text;
           }
         }
       }
     }
   } @else {
-    .res-nightmode #sr-header-area {
+    .res-nightmode #sr-header-area,
+    #sr-header-area {
       background-color: rgba($light-primary, 0.3) !important;
     }
 
     #sr-header-area {
-      background-color: rgba($light-primary, 0.3);
-
       .dropdown.srdrop {
         .selected {
           // replace "my subreddits" with burger
@@ -99,12 +102,15 @@
       }
 
       .sr-bar a,
-      .separator {
+      .separator,
+      #RESShortcuts {
         color: set-text-color($primary, secondary-text);
       }
 
       &:hover .sr-bar a,
-      .separator {
+      .separator,
+      .separator,
+        #RESShortcuts {
         color: set-text-color($primary, text);
       }
     }
@@ -119,11 +125,11 @@
   height: em(30, 10);
   border: 0;
   font-size: 10px;
-  line-height: em(10, 10);
+  line-height: em(30, 10);
 
   // positions text
   .sr-list {
-    margin: em(10, 10) 0;
+    margin: 0;
     padding: 0;
   }
 
@@ -149,11 +155,9 @@
 }
 
 // right side edit button
-.res-nightmode #sr-more-link { background-color: $light-primary !important; }
-
 #sr-more-link {
   margin: 0;
-  padding: em(10, 10);
+  padding: 0 5px;
   color: set-text-color($light-primary, text);
-  background-color: $light-primary;
+  background-color: $light-primary !important;
 }
