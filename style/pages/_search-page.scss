@@ -1,5 +1,10 @@
 // main: ../main.scss
 
+.searchpane {
+  padding-left: 96px;
+  margin: 0;
+}
+
 .search-page .side .spacer:first-of-type { display: none; }
 
 .combined-search-page .searchpane { margin: 0; }
