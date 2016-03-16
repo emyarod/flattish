@@ -45,12 +45,12 @@
 
 	// subscribe and dashboard buttons
 	a.option,
-	.RESDashboardToggle {
+	.res-fancy-toggle-button {
 		position: relative;
-		top: em(2.5, 10);
 		margin-right: em(5, 10);
 		padding: 0.7em 0.57em;
 		line-height: em(27, 10);
+		background-image: none;
 
 		&.remove { color: get-color("red", "500") !important; } // thx nightmode
 	}
@@ -78,15 +78,15 @@
 		&::before {
 			background: url(%%users%%) no-repeat;
 			opacity: 0.87;
-			height: em(16, 13);
-			width: em(16, 13);
+			height: 16px;
+			width: 16px;
 		}
 	}
 
 	.leavemoderator,
 	.toggle,
 	.tagline {
-		font-size: em(10, 10);
+		font-size: 10px;
 	}
 
 	.bottom {
@@ -110,13 +110,20 @@
 	}
 
 	label {
-		&:hover {
-			background-color: transparent;
-		}
+		&:hover { background-color: transparent; }
 
 		a {
 			height: 14px;
 			width: 14px;
 		}
+	}
+}
+
+.flairselector {
+	transition: none;
+
+	h2 {
+		background: none;
+		font-size: 16px;
 	}
 }
