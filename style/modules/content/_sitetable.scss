@@ -7,8 +7,8 @@
 .midcol {
 	position: relative; // need for placing pseudo element BEHIND vote arrow
 	z-index: 1;
-	@include margin(null em(16, 13) null 0);
-	width: em(32, 13) !important;
+	@include margin(null 16px null 0);
+	width: 32px !important;
 }
 
 .res-nightmode .link .arrow,
@@ -86,7 +86,7 @@
 
 	// individual post listings
 	&>.thing {
-		border-bottom: em(1, 10) solid $dark-divider-text;
+		border-bottom: 1px solid $dark-divider-text;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
@@ -130,7 +130,7 @@
 	&>.thing .score {
 		position: relative;
 		height: 100%;
-		padding: em(3, 14) 0;
+		padding: 3px 0;
 		font-size: 14px;
 		line-height: 1;
 	}
@@ -139,7 +139,7 @@
 	&>.thing {
 		height: auto !important;
 		margin: 0;
-		border-bottom: em(1, 10) solid $light-divider-text;
+		border-bottom: 1px solid $light-divider-text;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
@@ -198,23 +198,23 @@
 }
 
 // "submitted by"
-.tagline { margin: em(8, 12) 0; }
+.tagline { margin: 8px 0; }
 
 // target only taglines where expandos are also present
 .expando-button ~ .tagline {
 	position: relative;
-	left: em(2, 12);
-	top: em(9, 12);
+	left: 2px;
+	top: 9px;
 	margin: 0;
 	z-index: 0;
 }
 
 .flat-list.buttons {
 	clear: left;
-	left: em(-1, 12);
+	left: -1px;
 	position: relative;
 
-	li { line-height: em(14, 12); }
+	li { line-height: 14px; }
 }
 
 // selftext body
@@ -225,7 +225,7 @@
 .link .usertext-body .md {
 	background-color: $light-background;
 	border-color: $light-text;
-	border-radius: em(2, 14);
+	border-radius: 2px;
 }
 
 // nsfw stamp
@@ -237,13 +237,13 @@
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
 	border: 0 !important; // ;_; thx reddit css
-	border-radius: em(2, 12);
+	border-radius: 2px;
 	background-color: $nsfw;
 	color: $white;
 	font-size: em(12, 12);
 	font-weight: bold;
 	line-height: 0;
-	padding: 0 em(2, 12);
+	padding: 0 2px;
 }
 
 .res-nightmode .entry .buttons li a {	color: $dark-text; }
