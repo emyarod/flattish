@@ -213,6 +213,11 @@
   }
 }
 
+#nightSwitchToggleContainer,
+#nsfwSwitchToggle {
+  top: 10px;
+}
+
 // logout button
 .logout a {
   top: em(-2, 10);
