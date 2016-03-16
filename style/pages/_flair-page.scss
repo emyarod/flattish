@@ -1,0 +1,42 @@
+// main: ../main.scss
+
+.flair-settings + .tabmenu {
+  display: block;
+  @include drop-shadow(1);
+
+  li {
+    a {
+      text-align: center;
+      background-color: $light-cards;
+      @include calc(width, '100% / 3');
+      @include tab-list-anchors(false, transparent, $light-accent, $light-cards);
+    }
+
+    &.selected a {
+      color: set-text-color($primary, text) !important;
+      font-size: inherit;
+      background-color: $primary;
+    }
+  }
+
+  #tab-grant a.choice { border-top-left-radius: 2px; }
+  #tab-link_templates a.choice { border-top-right-radius: 2px; }
+}
+
+.flair-jump { @include drop-shadow(0); }
+
+.flairrow {
+  display: flex;
+
+  .tagline {
+    margin-right: 10px;
+  }
+}
+
+.usertable {
+  // display: inline-flex;
+}
+
+.usertable span {
+  display: inline-flex;
+}
