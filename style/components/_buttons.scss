@@ -112,6 +112,14 @@ $button-selector-map: (
 		hover-background-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
 		button-type: 'raised-colorized-button'
+	),
+
+	// RES tips and tricks
+	guiders_button: (
+	  selector-name: '.guiders_button',
+		desired-font-size: 14,
+		original-font-size: 10,
+		button-type: 'flat-button-colored-text'
 	)
 );
 
