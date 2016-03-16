@@ -1,35 +1,35 @@
 // main: ../main.scss
 
 @mixin global-button-styles {
+	height: 36px !important;
+	min-width: 64px !important;
+	padding: 0 8px !important;
+	border: 0 !important;
+	border-radius: 2px;
 	font-weight: bold;
 	font-family: $font-stack;
 	letter-spacing: normal;
+	line-height: 36px !important;
 	text-align: center;
 	text-transform: uppercase;
-	border: 0 !important;
-	border-radius: 2px;
 	outline: 0;
 	will-change: box-shadow;
 	transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
 
+
 	&::-moz-focus-inner { border: 0; }
 }
 
-@mixin button($desired-font-size, $orig-font-size) {
-	min-width: em(64, $desired-font-size) !important;
-	height: em(36, $desired-font-size) !important;
-	padding: 0 em(8, $desired-font-size) !important;
-	font-size: em($desired-font-size, $orig-font-size) !important;
-	line-height: em(36, $desired-font-size) !important;
+@mixin button($desired-font-size) {
+	font-size: #{$desired-font-size}px !important;
 }
 
 $button-selector-map: (
   global-button: (
 		selector-name: 'button',
 		desired-font-size: 14,
-		original-font-size: 13,
 		color: $primary,
 		button-type: 'flat-button-colored-text'
   ),
@@ -38,14 +38,12 @@ $button-selector-map: (
   subreddit-subscribe-button: (
 		selector-name: '.titlebox a.option',
 		desired-font-size: 10,
-		original-font-size: 10,
 		color: get-color("green", "500"),
 		button-type: 'flat-button-colored-text'
   ),
 	add-shortcut-and-dashboard-button: (
 		selector-name: '.res-fancy-toggle-button',
 		desired-font-size: 10,
-		original-font-size: 10,
 		color: get-color("green", "500"),
 		button-type: 'flat-button-colored-text'
   ),
@@ -54,7 +52,6 @@ $button-selector-map: (
   submit-page-button: (
 		selector-name: '.submit-page button[type="submit"]',
 		desired-font-size: 14,
-		original-font-size: 10,
 		background-color: $primary,
 		hover-background-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
@@ -65,7 +62,6 @@ $button-selector-map: (
 	settings-page-button: (
 		selector-name: '#sr-form .save-button button',
 		desired-font-size: 14,
-		original-font-size: 10,
 		background-color: $primary,
 		hover-background-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
@@ -76,14 +72,12 @@ $button-selector-map: (
   submit-sidebar-card-button-one: (
 		selector-name: '.submit-link .morelink a',
 		desired-font-size: 14,
-		original-font-size: 15,
 		background-color: $primary,
 		button-type: 'flat-colorized-bg-button'
   ),
 	submit-sidebar-card-button-two: (
 		selector-name: '.submit-text .morelink a',
 		desired-font-size: 14,
-		original-font-size: 15,
 		background-color: $primary,
 		button-type: 'flat-colorized-bg-button'
   ),
@@ -92,13 +86,11 @@ $button-selector-map: (
 	comments-page-button-one: (
 		selector-name: '.commentarea .menuarea .spacer + .spacer form',
 		desired-font-size: 13,
-		original-font-size: 13,
 		button-type: 'flat-button-colored-text'
   ),
 	comments-page-button-two: (
 		selector-name: '#REScommentSubToggle',
 		desired-font-size: 12,
-		original-font-size: 12,
 		color: get-color("green", "500"),
 		button-type: 'flat-button-colored-text'
   ),
@@ -107,7 +99,6 @@ $button-selector-map: (
 	flair-page-save-options: (
 		selector-name: '.save-button > button:nth-child(1)',
 		desired-font-size: 14,
-		original-font-size: 14,
 		background-color: $primary,
 		hover-background-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
@@ -118,7 +109,6 @@ $button-selector-map: (
 	guiders_button: (
 	  selector-name: '.guiders_button',
 		desired-font-size: 14,
-		original-font-size: 10,
 		button-type: 'flat-button-colored-text'
 	)
 );
@@ -138,7 +128,6 @@ $night-raised-colorized-button-selectors: ();
 @each $key, $map in $button-selector-map {
 	$selector-name: map-get($map, selector-name);
 	$desired-font-size: map-get($map, desired-font-size);
-	$original-font-size: map-get($map, original-font-size);
 	$color: map-get($map, color);
 	$background-color: map-get($map, background-color);
 	$button-type: map-get($map, button-type);
@@ -146,9 +135,7 @@ $night-raised-colorized-button-selectors: ();
 	$base-button-selectors: append($base-button-selectors, unquote('#{$selector-name}'), 'comma');
 	$night-button-selectors: append($night-button-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
 
-	#{$selector-name} {
-		@include button($desired-font-size, $original-font-size);
-	}
+	#{$selector-name} { @include button($desired-font-size); }
 
 	// flat buttons
 	@if #{$button-type} == 'flat-button-colored-text' {
