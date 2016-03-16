@@ -32,7 +32,10 @@
   }
 
   // increases padding on main comments page (vs permalink comment page)
-  .panestack-title ~ .menuarea { padding-top: 60px !important; }
+  .panestack-title ~ .menuarea {
+    padding-top: 60px !important;
+    @include border-top-radius(0 !important);
+  }
 
   // sorted/navigate by
   .menuarea {
