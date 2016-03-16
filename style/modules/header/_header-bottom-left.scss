@@ -110,10 +110,8 @@
     width: 100vw; // fuck IE8 support
     padding-left: em(16, 16);
     margin-top: 0;
-    @include tabs;
 
     li {
-      margin: 0;
 
       // hides "rising", "controversial", "ads", and "gilded" tabs
       a[href$="/rising/"],
@@ -126,19 +124,11 @@
       // styles visible tabs
       a,
       #viewImagesButton {
-        // @include tab-list-anchors(true);
         width: initial;
       }
 
       // ensures selected tab remains unchanged
-      &.selected a {
-        margin: 0;
-        padding: 0 em(24, 14);
-        background-color: transparent;
-        border-bottom-color: $accent;
-        border-bottom-style: solid;
-        @include border-width(0 0 em(2, 14) 0);
-      }
+      &.selected a { background-color: transparent; }
     }
   }
 }
@@ -146,7 +136,7 @@
 .res-nightmode #header-bottom-left .tabmenu li.selected a {
   border-bottom-color: $accent;
   border-bottom-style: solid;
-  @include border-width(0 0 em(2, 14) 0);
+  @include border-width(0 0 2px 0);
 }
 
 // snooface
