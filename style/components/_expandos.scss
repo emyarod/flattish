@@ -72,7 +72,7 @@
 	width: em(25, 10);
 	height: em(25, 10);
 	z-index: 1;
-	@include margin(null em(6, 10) em(6, 10) null);
+	@include margin(null em(6, 10) 0 null);
 	border: em(1, 10) solid $light-hint-text;
 	border-radius: em(2, 10);
 	cursor: pointer;
