@@ -105,8 +105,6 @@
 				color: transparent;
 				background: url(%%clear%%) 0 no-repeat;
 
-				@include tooltip(em(58, 14), em(20, 14), "Clear all", $screen-type: desktop);
-
 				&:focus::before {
 					@include button-ripple-circle(right, 16, bottom, 15, 20, 10);
 				}
