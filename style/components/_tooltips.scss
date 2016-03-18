@@ -1,45 +1,8 @@
 // main: ../main.scss
 
 // need to provide width of tooltip after content is added
-// need to provide width of parent object
+// need to provide width of object to which the pseudoelement is attached
 // need to provide text within tooltip
-
-@mixin tooltip($width-tooltip, $width-parent, $content-tooltip, $screen-type: mobile) {
-  @if $screen-type == desktop {
-    $height-tooltip: em(32, 14);
-    $padding-tooltip: em(16, 14);
-    $font-size-tooltip: 14px;
-  } @else {
-    $height-tooltip: em(22, 10);
-    $padding-tooltip: em(8, 10);
-    $font-size-tooltip: 10px;
-  }
-
-  &:after {
-    position: relative;
-    right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
-    display: block;
-    visibility: hidden;
-    height: $height-tooltip;
-    width: $width-tooltip + (2 * $padding-tooltip);
-    padding: 0 $padding-tooltip;
-    content: $content-tooltip;
-    font-size: $font-size-tooltip;
-    font-weight: bold;
-    line-height: $height-tooltip / 1em;
-    color: $dark-text;
-    text-align: center;
-    background-color: rgba($tooltip, 0);
-    border-radius: em(2, $font-size-tooltip);
-    @include transition-default;
-  }
-
-  &:hover::after {
-    visibility: visible;
-    background-color: $tooltip;
-    @include transform(translateY(em(14, $font-size-tooltip)));
-  }
-}
 
 @mixin button-ripple-circle($direction-1, $direction-1-value, $direction-2, $direction-2-value, $desired-size, $orig-font-size) {
 	position: absolute;
@@ -52,4 +15,175 @@
 	border-radius: 50%;
 	opacity: 1;
 	@include animation(button-ripple .35s ease forwards);
+}
+
+$tooltip-selector-map: (
+  // link action icon tooltips
+  share-button: (
+		selector-name: 'li a.post-sharing-button',
+		width-tooltip: 36,
+		width-parent: 20,
+		content-tooltip: 'Share',
+    screen-type: 'desktop'
+  ),
+  save-button: (
+		selector-name: '.link-save-button a',
+		width-tooltip: 32,
+		width-parent: 20,
+		content-tooltip: 'Save',
+    screen-type: 'desktop'
+  ),
+  unsave-button: (
+		selector-name: '.link-unsave-button a',
+		width-tooltip: 48,
+		width-parent: 20,
+		content-tooltip: 'Unsave',
+    screen-type: 'desktop'
+  ),
+  hide-button: (
+		selector-name: '.hide-button a',
+		width-tooltip: 31,
+		width-parent: 20,
+		content-tooltip: 'Hide',
+    screen-type: 'desktop'
+  ),
+  unhide-button: (
+		selector-name: '.unhide-button a',
+		width-tooltip: 46,
+		width-parent: 20,
+		content-tooltip: 'Unhide',
+    screen-type: 'desktop'
+  ),
+  delete-button: (
+		selector-name: 'a[data-event-action="delete"]',
+		width-tooltip: 40,
+		width-parent: 20,
+		content-tooltip: 'Delete',
+    screen-type: 'desktop'
+  ),
+  spam-button: (
+		selector-name: 'a[data-event-action="spam"]',
+		width-tooltip: 38,
+		width-parent: 20,
+		content-tooltip: 'Spam',
+    screen-type: 'desktop'
+  ),
+  remove-button: (
+		selector-name: 'a[data-event-action="remove"]',
+		width-tooltip: 50,
+		width-parent: 20,
+		content-tooltip: 'Remove',
+    screen-type: 'desktop'
+  ),
+  approve-button: (
+		selector-name: '.approve-button a',
+		width-tooltip: 52,
+		width-parent: 20,
+		content-tooltip: 'Approve',
+    screen-type: 'desktop'
+  ),
+  report-button: (
+		selector-name: '.reportbtn',
+		width-tooltip: 42,
+		width-parent: 20,
+		content-tooltip: 'Report',
+    screen-type: 'desktop'
+  ),
+  lock-button: (
+		selector-name: 'a[data-event-action="lock"]',
+		width-tooltip: 30,
+		width-parent: 20,
+		content-tooltip: 'Lock',
+    screen-type: 'desktop'
+  ),
+  unlock-button: (
+		selector-name: 'a[data-event-action="unlock"]',
+		width-tooltip: 42,
+		width-parent: 20,
+		content-tooltip: 'Unlock',
+    screen-type: 'desktop'
+  ),
+  mark-nsfw-button: (
+		selector-name: 'a[data-event-action="marknsfw"]',
+		width-tooltip: 74,
+		width-parent: 20,
+		content-tooltip: 'Mark NSFW',
+    screen-type: 'desktop'
+  ),
+  unmark-nsfw-button: (
+		selector-name: 'a[data-event-action="unmarknsfw"]',
+		width-tooltip: 90,
+		width-parent: 20,
+		content-tooltip: 'Unmark NSFW',
+    screen-type: 'desktop'
+  ),
+  distinguish-button: (
+		selector-name: 'a[data-event-action="distinguish"]',
+		width-tooltip: 72,
+		width-parent: 20,
+		content-tooltip: 'Distinguish',
+    screen-type: 'desktop'
+  ),
+
+  // sidecontentbox
+  clear-all-button: (
+    selector-name: '.sidecontentbox .gadget .right a',
+		width-tooltip: 58,
+		width-parent: 20,
+		content-tooltip: 'Clear all',
+    screen-type: 'desktop'
+  )
+);
+
+$base-tooltip-selectors: ();
+
+@each $key, $map in $tooltip-selector-map {
+	$selector-name: map-get($map, selector-name);
+	$width-tooltip: map-get($map, width-tooltip);
+	$width-parent: map-get($map, width-parent);
+	$content-tooltip: map-get($map, content-tooltip);
+	$screen-type: map-get($map, screen-type);
+
+	$base-tooltip-selectors: append($base-tooltip-selectors, unquote('#{$selector-name}'), 'comma');
+
+  @if $screen-type == desktop {
+    $height-tooltip: 32px;
+    $padding-tooltip: 16px;
+    $font-size-tooltip: 14px;
+  } @else {
+    $height-tooltip: 22px;
+    $padding-tooltip: 8px;
+    $font-size-tooltip: 10px;
+  }
+
+  #{$selector-name}::after {
+    right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
+    height: $height-tooltip;
+    width: $width-tooltip + (2 * $padding-tooltip);
+    padding: 0 $padding-tooltip;
+    content: $content-tooltip;
+    font-size: $font-size-tooltip;
+    line-height: $height-tooltip;
+  }
+}
+
+#{$base-tooltip-selectors} {
+  &::after {
+    position: relative;
+    z-index: 10;
+    display: block;
+    visibility: hidden;
+    font-weight: normal;
+    color: $dark-text;
+    text-align: center;
+    background-color: rgba($tooltip, 0);
+    border-radius: 2px;
+    @include transition-default;
+  }
+
+  &:hover::after {
+    visibility: visible;
+    background-color: $tooltip;
+    @include transform(translateY(14px));
+  }
 }
