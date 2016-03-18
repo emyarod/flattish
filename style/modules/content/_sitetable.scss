@@ -86,7 +86,7 @@
 
 	// individual post listings
 	&>.thing {
-		border-bottom: 1px solid $dark-divider-text;
+		border-bottom: 1px solid $dark-divider-text !important;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
@@ -139,7 +139,7 @@
 	&>.thing {
 		height: auto !important;
 		margin: 0;
-		border-bottom: 1px solid $light-divider-text;
+		border-bottom: 1px solid $light-divider-text !important;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
@@ -169,9 +169,7 @@
 }
 
 // remove reddit default styling for borders of previously clicked links
-.link.last-clicked {
-	@include border-style(none none null none);
-}
+.link.last-clicked { @include border-style(none none null none); }
 
 // color of post score
 .thing .link .score {
@@ -200,27 +198,8 @@
 // "submitted by"
 .tagline { margin: 8px 0; }
 
-// target only taglines where expandos are also present
-.expando-button ~ .tagline {
-	position: relative;
-	left: 2px;
-	top: 9px;
-	margin: 0;
-	z-index: 0;
-}
-
-.flat-list.buttons {
-	clear: left;
-	left: -1px;
-	position: relative;
-
-	li { line-height: 14px; }
-}
-
 // selftext body
-.res-nightmode .link .usertext-body .md {
-	border-color: $dark-text;
-}
+.res-nightmode .link .usertext-body .md { border-color: $dark-text; }
 
 .link .usertext-body .md {
 	background-color: $light-background;
@@ -247,7 +226,5 @@
 }
 
 .res-nightmode .entry .buttons li a {	color: $dark-text; }
-
-.entry .buttons li a {	color: $light-text; }
 
 .error {	color: $error; }
