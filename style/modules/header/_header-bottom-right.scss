@@ -105,13 +105,13 @@
 @include header-bottom-right(true, false, false);
 
 @mixin userbar-buttons {
-  height: em(16, 10);
-  width: em(16, 10);
+  height: 16px;
+  width: 16px;
   color: transparent;
   display: inline-block;
   opacity: 0.87;
   position: relative;
-  text-indent: em(-9999, 10);
+  text-indent: -9999px;
 
   &:hover { opacity: 1; }
 }
@@ -122,9 +122,9 @@
 
 #header-bottom-right {
   position: absolute;
-  top: em(35, 10);
-  height: em(20, 10);
-  margin-right: em(16, 10);
+  top: 35px;
+  height: 20px;
+  margin-right: 16px;
   padding: 0;
   background-color: transparent !important;
 }
@@ -140,17 +140,17 @@
 
 // preferences button
 .pref-lang.choice {
-  top: em(-1, 10);
+  top: -1px;
   @include userbar-buttons;
 }
 
 // RES gear button
 .gearIcon {
   position: relative;
-  right: em(1, 10);
-  top: em(5, 10);
-  height: em(16, 10) !important;
-  width: em(16, 10) !important;
+  right: 1px;
+  top: 5px;
+  height: 16px !important;
+  width: 16px !important;
   opacity: 0.87;
 
   &:hover { opacity: 1; }
@@ -160,7 +160,7 @@
 #RESMainGearOverlay {
   background-color: transparent !important;
   border: 0 !important;
-  top: em(35, 10) !important; // also positions gear icon when hovered
+  top: 35px !important; // also positions gear icon when hovered
 }
 
 // RES settings dropdown menu
@@ -169,8 +169,8 @@
 }
 
 .RESDropdownList {
-  top: em(68, 10) !important;
-  right: em(40, 10) !important;
+  top: 68px !important;
+  right: 40px !important;
   left: unset !important;
   border: 0 !important;
   border-radius: 2px !important;
@@ -204,7 +204,7 @@
 
 // RES settings search icon
 #RESSearchMenuItem {
-  top: em(25, 16);
+  top: 25px;
   color: $light-icons !important;
 
   &:hover {
@@ -220,7 +220,7 @@
 
 // logout button
 .logout a {
-  top: em(-2, 10);
+  top: -2px;
   @include userbar-buttons;
 }
 
