@@ -40,7 +40,7 @@
 	// title
 	a.hover {
 		color: $light-text;
-		font-size: em(19, 19);
+		font-size: 19px;
 	}
 
 	// subscribe and dashboard buttons
@@ -61,14 +61,14 @@
 	.subscribers {
 		.number {
 			font-weight: bold;
-			font-size: em(24, 10);
+			font-size: 24px;
 		}
 
-		.word { font-size: em(13, 10); }
+		.word { font-size: 13px; }
 	}
 
 	.users-online {
-		font-size: em(13, 10);
+		font-size: 13px;
 
 		// replace online user green orb
 		&::before {
