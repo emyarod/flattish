@@ -26,29 +26,43 @@ $tooltip-selector-map: (
 		content-tooltip: 'Share',
     screen-type: 'desktop'
   ),
-  save-button: (
-		selector-name: '.link-save-button a',
+  save-button-one: (
+		selector-name: '.thing:not(.saved) .link-save-button a',
 		width-tooltip: 32,
 		width-parent: 20,
 		content-tooltip: 'Save',
     screen-type: 'desktop'
   ),
-  unsave-button: (
-		selector-name: '.link-unsave-button a',
+	save-button-two: (
+		selector-name: '.thing:not(.saved) .link-unsave-button a',
+		width-tooltip: 32,
+		width-parent: 20,
+		content-tooltip: 'Save',
+    screen-type: 'desktop'
+  ),
+  unsave-button-one: (
+		selector-name: '.saved .link-unsave-button a',
+		width-tooltip: 48,
+		width-parent: 20,
+		content-tooltip: 'Unsave',
+    screen-type: 'desktop'
+  ),
+	unsave-button-two: (
+		selector-name: '.saved .link-save-button a',
 		width-tooltip: 48,
 		width-parent: 20,
 		content-tooltip: 'Unsave',
     screen-type: 'desktop'
   ),
   hide-button: (
-		selector-name: '.hide-button a',
+		selector-name: '.state-button a[action="hide"]',
 		width-tooltip: 31,
 		width-parent: 20,
 		content-tooltip: 'Hide',
     screen-type: 'desktop'
   ),
   unhide-button: (
-		selector-name: '.unhide-button a',
+		selector-name: '.state-button a[action="unhide"]',
 		width-tooltip: 46,
 		width-parent: 20,
 		content-tooltip: 'Unhide',
