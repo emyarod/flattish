@@ -5,7 +5,7 @@
 
 	&.self,
 	&.default {
-		border: em(1, 10) solid $dark-secondary-text !important;
+		border: 1px solid $dark-secondary-text !important;
 		opacity: 0.5;
 
 		&:hover { opacity: 1; }
@@ -21,22 +21,22 @@
 .thumbnail.default {
 	border-radius: 50%;
 	font-size: inherit;
-	margin: 0 em(16, 10) 0 0;
-	max-height: em(70, 10);
+	margin: 0 16px 0 0;
+	max-height: 70px;
 }
 
 .thumbnail {
 
 	img {
-		height: em(70, 10);
+		height: 70px;
 		width: auto;
 	}
 
 	&.self,
 	&.default {
-		border: em(1, 10) solid $light-secondary-text;
-		height: em(70, 10);
-		width: em(70, 10);
+		border: 1px solid $light-secondary-text;
+		height: 70px;
+		width: 70px;
 		opacity: 0.38;
 
 		&:hover { opacity: 0.5; }
