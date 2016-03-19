@@ -25,7 +25,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%play-night%%) !important;
+			background: url(%%spritesheet%%) -106px -87px !important;
 		}
 	}
 
@@ -68,13 +68,13 @@
 .expando-button {
   // base styles
 	position: relative;
-	top: em(2, 10);
-	width: em(25, 10);
-	height: em(25, 10);
+	top: 2px;
+	width: 25px;
+	height: 25px;
 	z-index: 1;
-	@include margin(null em(6, 10) 0 null);
-	border: em(1, 10) solid $light-hint-text;
-	border-radius: em(2, 10);
+	@include margin(null 6px 0 null);
+	border: 1px solid $light-hint-text;
+	border-radius: 2px;
 	cursor: pointer;
 
 	&:hover { border-color: $light-secondary-text; }
@@ -94,18 +94,18 @@
 
 		// horizontal
 		&:before {
-			width: em(7, 10);
-			height: em(1, 10);
-			top: em(17, 10);
-			left: em(14, 10);
+			width: 7px;
+			height: 1px;
+			top: 17px;
+			left: 14px;
 		}
 
 		// vertical
 		&:after {
-			width: em(1, 10);
-			height: em(7, 10);
-			top: em(14, 10);
-			left: em(17, 10);
+			width: 1px;
+			height: 7px;
+			top: 14px;
+			left: 17px;
 		}
 	}
 
