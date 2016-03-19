@@ -21,15 +21,15 @@
       }
 
       .pref-lang.choice {
-        background: url(%%prefs-night%%) no-repeat;
+        background: url(%%spritesheet%%) -200px -63px no-repeat;
       }
 
       .gearIcon {
-        background: transparent url(%%settings-night%%) no-repeat !important;
+        background: transparent url(%%spritesheet%%) -162px -97px no-repeat !important;
       }
 
       .logout a {
-        background: url(%%logout-night%%) no-repeat;
+        background: url(%%spritesheet%%) -16px -43px no-repeat;
       }
     } @else if ($image-light) {
       #userbarToggle,
@@ -43,15 +43,15 @@
       }
 
       .pref-lang.choice {
-        background: url(%%prefs%%) no-repeat;
+        background: url(%%spritesheet%%) -139px -43px no-repeat;
       }
 
       .gearIcon {
-        background: transparent url(%%settings%%) no-repeat !important;
+        background: transparent url(%%spritesheet) -146px -97px no-repeat !important;
       }
 
       .logout a {
-        background: url(%%logout%%) no-repeat;
+        background: url(%%spritesheet%%) 0 -43px no-repeat;
       }
     } @else {
       #userbarToggle,
@@ -65,15 +65,15 @@
       }
 
       .pref-lang.choice {
-        background: url(%%prefs-night%%) no-repeat;
+        background: url(%%spritesheet%%) -200px -63px no-repeat;
       }
 
       .gearIcon {
-        background: transparent url(%%settings-night%%) no-repeat !important;
+        background: transparent url(%%spritesheet%%) -162px -97px no-repeat !important;
       }
 
       .logout a {
-        background: url(%%logout-night%%) no-repeat;
+        background: url(%%spritesheet%%) -16px -43px no-repeat;
       }
     }
   } @else {
@@ -88,15 +88,15 @@
     }
 
     .pref-lang.choice {
-      background: url(%%prefs%%) no-repeat;
+      background: url(%%spritesheet%%) -139px -43px no-repeat;
     }
 
     .gearIcon {
-      background: transparent url(%%settings%%) no-repeat !important;
+      background: transparent url(%%spritesheet) -146px -97px no-repeat !important;
     }
 
     .logout a {
-      background: url(%%logout%%) no-repeat;
+      background: url(%%spritesheet%%) 0 -43px no-repeat;
     }
   }
 }
