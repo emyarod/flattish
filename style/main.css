@@ -217,11 +217,7 @@
 }
 
 button {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1em;
-  line-height: 2.57143em;
+  font-size: 14px !important;
 }
 
 .res-nightmode button,
@@ -230,11 +226,7 @@ button {
 }
 
 .titlebox a.option {
-  min-width: 6.4em;
-  height: 3.6em;
-  padding: 0 0.8em;
-  font-size: 1em;
-  line-height: 3.6em;
+  font-size: 10px !important;
 }
 
 .res-nightmode .titlebox a.option,
@@ -243,11 +235,7 @@ button {
 }
 
 .res-fancy-toggle-button {
-  min-width: 6.4em;
-  height: 3.6em;
-  padding: 0 0.8em;
-  font-size: 1em;
-  line-height: 3.6em;
+  font-size: 10px !important;
 }
 
 .res-nightmode .res-fancy-toggle-button,
@@ -256,43 +244,23 @@ button {
 }
 
 .submit-page button[type="submit"] {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1.4em;
-  line-height: 2.57143em;
+  font-size: 14px !important;
 }
 
 #sr-form .save-button button {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1.4em;
-  line-height: 2.57143em;
+  font-size: 14px !important;
 }
 
 .submit-link .morelink a {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 0.93333em;
-  line-height: 2.57143em;
+  font-size: 14px !important;
 }
 
 .submit-text .morelink a {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 0.93333em;
-  line-height: 2.57143em;
+  font-size: 14px !important;
 }
 
 .commentarea .menuarea .spacer + .spacer form {
-  min-width: 4.92308em;
-  height: 2.76923em;
-  padding: 0 0.61538em;
-  font-size: 1em;
-  line-height: 2.76923em;
+  font-size: 13px !important;
 }
 
 .res-nightmode .commentarea .menuarea .spacer + .spacer form {
@@ -304,11 +272,7 @@ button {
 }
 
 #REScommentSubToggle {
-  min-width: 5.33333em;
-  height: 3em;
-  padding: 0 0.66667em;
-  font-size: 1em;
-  line-height: 3em;
+  font-size: 12px !important;
 }
 
 .res-nightmode #REScommentSubToggle,
@@ -317,61 +281,73 @@ button {
 }
 
 .save-button > button:nth-child(1) {
-  min-width: 4.57143em;
-  height: 2.57143em;
-  padding: 0 0.57143em;
-  font-size: 1em;
-  line-height: 2.57143em;
+  font-size: 14px !important;
 }
 
-button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .save-button > button:nth-child(1),
-.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .submit-page button[type="submit"], .res-nightmode #sr-form .save-button button, .res-nightmode .submit-link .morelink a, .res-nightmode .submit-text .morelink a, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .save-button > button:nth-child(1) {
+.guiders_button {
+  font-size: 14px !important;
+}
+
+.res-nightmode .guiders_button {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.guiders_button {
+  color: #fff;
+}
+
+button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .save-button > button:nth-child(1), .guiders_button,
+.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .submit-page button[type="submit"], .res-nightmode #sr-form .save-button button, .res-nightmode .submit-link .morelink a, .res-nightmode .submit-text .morelink a, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .save-button > button:nth-child(1), .res-nightmode .guiders_button {
+  height: 36px !important;
+  min-width: 64px !important;
+  padding: 0 8px !important;
+  border: 0 !important;
+  border-radius: 2px;
   font-weight: bold;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   letter-spacing: normal;
+  line-height: 36px !important;
   text-align: center;
   text-transform: uppercase;
-  border: 0 !important;
-  border-radius: 2px;
   outline: 0;
   will-change: box-shadow;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button::-moz-focus-inner, .titlebox a.option::-moz-focus-inner, .res-fancy-toggle-button::-moz-focus-inner, .submit-page button[type="submit"]::-moz-focus-inner, #sr-form .save-button button::-moz-focus-inner, .submit-link .morelink a::-moz-focus-inner, .submit-text .morelink a::-moz-focus-inner, .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, #REScommentSubToggle::-moz-focus-inner, .save-button > button:nth-child(1)::-moz-focus-inner,
-.res-nightmode button::-moz-focus-inner, .res-nightmode .titlebox a.option::-moz-focus-inner, .res-nightmode .res-fancy-toggle-button::-moz-focus-inner, .res-nightmode .submit-page button[type="submit"]::-moz-focus-inner, .res-nightmode #sr-form .save-button button::-moz-focus-inner, .res-nightmode .submit-link .morelink a::-moz-focus-inner, .res-nightmode .submit-text .morelink a::-moz-focus-inner, .res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, .res-nightmode #REScommentSubToggle::-moz-focus-inner, .res-nightmode .save-button > button:nth-child(1)::-moz-focus-inner {
+button::-moz-focus-inner, .titlebox a.option::-moz-focus-inner, .res-fancy-toggle-button::-moz-focus-inner, .submit-page button[type="submit"]::-moz-focus-inner, #sr-form .save-button button::-moz-focus-inner, .submit-link .morelink a::-moz-focus-inner, .submit-text .morelink a::-moz-focus-inner, .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, #REScommentSubToggle::-moz-focus-inner, .save-button > button:nth-child(1)::-moz-focus-inner, .guiders_button::-moz-focus-inner,
+.res-nightmode button::-moz-focus-inner, .res-nightmode .titlebox a.option::-moz-focus-inner, .res-nightmode .res-fancy-toggle-button::-moz-focus-inner, .res-nightmode .submit-page button[type="submit"]::-moz-focus-inner, .res-nightmode #sr-form .save-button button::-moz-focus-inner, .res-nightmode .submit-link .morelink a::-moz-focus-inner, .res-nightmode .submit-text .morelink a::-moz-focus-inner, .res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, .res-nightmode #REScommentSubToggle::-moz-focus-inner, .res-nightmode .save-button > button:nth-child(1)::-moz-focus-inner, .res-nightmode .guiders_button::-moz-focus-inner {
   border: 0;
 }
 
-.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle {
+.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .guiders_button {
   background-color: transparent !important;
 }
 
-.res-nightmode button:hover, .res-nightmode .titlebox a.option:hover, .res-nightmode .res-fancy-toggle-button:hover, .res-nightmode .commentarea .menuarea .spacer + .spacer form:hover, .res-nightmode #REScommentSubToggle:hover {
+.res-nightmode button:hover, .res-nightmode .titlebox a.option:hover, .res-nightmode .res-fancy-toggle-button:hover, .res-nightmode .commentarea .menuarea .spacer + .spacer form:hover, .res-nightmode #REScommentSubToggle:hover, .res-nightmode .guiders_button:hover {
   background-color: rgba(204, 204, 204, 0.15) !important;
 }
 
-.res-nightmode button:focus:not(:active), .res-nightmode .titlebox a.option:focus:not(:active), .res-nightmode .res-fancy-toggle-button:focus:not(:active), .res-nightmode .commentarea .menuarea .spacer + .spacer form:focus:not(:active), .res-nightmode #REScommentSubToggle:focus:not(:active) {
+.res-nightmode button:focus:not(:active), .res-nightmode .titlebox a.option:focus:not(:active), .res-nightmode .res-fancy-toggle-button:focus:not(:active), .res-nightmode .commentarea .menuarea .spacer + .spacer form:focus:not(:active), .res-nightmode #REScommentSubToggle:focus:not(:active), .res-nightmode .guiders_button:focus:not(:active) {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.res-nightmode button:active, .res-nightmode .titlebox a.option:active, .res-nightmode .res-fancy-toggle-button:active, .res-nightmode .commentarea .menuarea .spacer + .spacer form:active, .res-nightmode #REScommentSubToggle:active {
+.res-nightmode button:active, .res-nightmode .titlebox a.option:active, .res-nightmode .res-fancy-toggle-button:active, .res-nightmode .commentarea .menuarea .spacer + .spacer form:active, .res-nightmode #REScommentSubToggle:active, .res-nightmode .guiders_button:active {
   background-color: rgba(204, 204, 204, 0.25) !important;
 }
 
-button, .titlebox a.option, .res-fancy-toggle-button, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle {
+button, .titlebox a.option, .res-fancy-toggle-button, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .guiders_button {
   background: none transparent !important;
 }
 
-button:hover, .titlebox a.option:hover, .res-fancy-toggle-button:hover, .commentarea .menuarea .spacer + .spacer form:hover, #REScommentSubToggle:hover {
+button:hover, .titlebox a.option:hover, .res-fancy-toggle-button:hover, .commentarea .menuarea .spacer + .spacer form:hover, #REScommentSubToggle:hover, .guiders_button:hover {
   background-color: rgba(153, 153, 153, 0.2) !important;
 }
 
-button:focus:not(:active), .titlebox a.option:focus:not(:active), .res-fancy-toggle-button:focus:not(:active), .commentarea .menuarea .spacer + .spacer form:focus:not(:active), #REScommentSubToggle:focus:not(:active) {
+button:focus:not(:active), .titlebox a.option:focus:not(:active), .res-fancy-toggle-button:focus:not(:active), .commentarea .menuarea .spacer + .spacer form:focus:not(:active), #REScommentSubToggle:focus:not(:active), .guiders_button:focus:not(:active) {
   background-color: rgba(0, 0, 0, 0.12) !important;
 }
 
-button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScommentSubToggle:active {
+button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScommentSubToggle:active, .guiders_button:active {
   background-color: rgba(153, 153, 153, 0.4) !important;
 }
 
@@ -397,11 +373,11 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
 }
 
 .submit-page button[type="submit"], #sr-form .save-button button, .save-button > button:nth-child(1) {
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .submit-page button[type="submit"]:active, #sr-form .save-button button:active, .save-button > button:nth-child(1):active {
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .submit-page button[type="submit"]:focus:not(:active), #sr-form .save-button button:focus:not(:active), .save-button > button:nth-child(1):focus:not(:active) {
@@ -409,13 +385,12 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
   background-color: #4db6ac !important;
 }
 
-.res-nightmode button,
-button {
-  font-size: 14px;
-}
-
 #siteTable > .thing {
   box-shadow: none;
+}
+
+.guider {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12) !important;
 }
 
 .res-nightmode .gold-accent.comment-visits-box,
@@ -442,24 +417,24 @@ button {
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
-.res-nightmode #compose-message, .res-nightmode .wiki-page-content, .res-nightmode .combined-search-page .searchpane, .res-nightmode .combined-search-page .search-result, .res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, .res-nightmode #image-upload, .res-nightmode .linefield, .res-nightmode .searchpane, .res-nightmode .commentarea .menuarea, .res-nightmode .commentarea > .usertext, .res-nightmode .res .comment, .res-nightmode .comment, .res-nightmode .archived-infobar, .res-nightmode .formtabs-content, .res-nightmode .tabpane-content, .res-nightmode .side .spacer:first-of-type, .res-nightmode .side #ad_sponsorship, .res-nightmode .side .titlebox, .res-nightmode .side #moderation_tools, .res-nightmode .side #ad_main, .res-nightmode .side .sidecontentbox, .res-nightmode #searchexpando, .res-nightmode .submit-link::before, .res-nightmode #login_login-main, .res-nightmode .hover-bubble.multi-selector, .res-nightmode .flairselector, .res-nightmode .footer {
+.res-nightmode #compose-message, .res-nightmode .wiki-page-content, .res-nightmode .combined-search-page .searchpane, .res-nightmode .combined-search-page .search-result, .res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, .res-nightmode #image-upload, .res-nightmode .linefield, .res-nightmode .searchpane, .res-nightmode .commentarea .menuarea, .res-nightmode .commentarea > .usertext, .res-nightmode .res .comment, .res-nightmode .comment, .res-nightmode .archived-infobar, .res-nightmode .formtabs-content, .res-nightmode .tabpane-content, .res-nightmode .modtools-page > div.content, .res-nightmode .side .spacer:first-of-type, .res-nightmode .side #ad_sponsorship, .res-nightmode .side .titlebox, .res-nightmode .side #moderation_tools, .res-nightmode .side #ad_main, .res-nightmode .side .sidecontentbox, .res-nightmode #searchexpando, .res-nightmode .submit-link::before, .res-nightmode #login_login-main, .res-nightmode .hover-bubble.multi-selector, .res-nightmode .flairselector, .res-nightmode .footer {
   background-color: #424242 !important;
   color: #fff;
 }
 
-#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .res .comment, .comment, .archived-infobar, .formtabs-content, .tabpane-content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
+#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .res .comment, .comment, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice, .locked-infobar,
-#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .res .comment, .comment, .archived-infobar, .formtabs-content, .tabpane-content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .res .comment, .comment, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice, .locked-infobar,
-#siteTable > .thing,
-#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .res .comment, .comment, .archived-infobar, .formtabs-content, .tabpane-content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
+#siteTable > .thing, .guider,
+#compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .res .comment, .comment, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, #searchexpando, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
   padding: 16px !important;
   border: 0 !important;
   border-radius: 2px !important;
@@ -547,7 +522,7 @@ select option {
   height: 2.5em;
   z-index: 1;
   margin-right: 0.6em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0;
   border: 0.1em solid rgba(0, 0, 0, 0.38);
   border-radius: 0.2em;
   cursor: pointer;
@@ -643,7 +618,7 @@ select option {
   border-radius: 2px;
   background-color: #fff;
   opacity: 0;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 #sr-header-area .drop-choices.srdrop.inuse, .drop-choices.lightdrop.inuse {
@@ -701,6 +676,10 @@ select option {
 .res-nightmode .infobar:not(.newsletterbar) .md,
 .res-nightmode .reddit-infobar .md {
   color: inherit !important;
+}
+
+.guiders_content h2 {
+  font-size: initial;
 }
 
 .tabmenu,
@@ -829,7 +808,7 @@ textarea {
   border: 0;
   border-radius: 0.2em;
   background-color: #fff;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
@@ -858,6 +837,20 @@ textarea {
 
 .RESMacroDropdownList li a:hover {
   background-color: #f5f5f5 !important;
+}
+
+.usertext-edit {
+  margin: 0 auto;
+  max-width: unset !important;
+}
+
+.usertext-edit textarea {
+  width: 100%;
+  margin-bottom: 0.64286em !important;
+}
+
+.usertext-edit > .markdownEditor-wrapper {
+  width: auto;
 }
 
 .bottom-area {
@@ -1047,7 +1040,7 @@ input[type="checkbox"]:disabled {
   border: 0 !important;
   border-radius: 50% !important;
   opacity: 1 !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .toggleButton:not(.enabled)::before {
@@ -1065,6 +1058,255 @@ input[type="checkbox"]:disabled {
 .toggleButton .toggleOn,
 .toggleButton .toggleOff {
   display: none;
+}
+
+li a.post-sharing-button {
+  background: url(%%share%%);
+}
+
+li a.post-sharing-button::after {
+  right: 24px;
+  height: 32px;
+  width: 68px;
+  padding: 0 16px;
+  content: "Share";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.thing:not(.saved) .link-save-button a::after {
+  right: 22px;
+  height: 32px;
+  width: 64px;
+  padding: 0 16px;
+  content: "Save";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.thing:not(.saved) .link-unsave-button a::after {
+  right: 22px;
+  height: 32px;
+  width: 64px;
+  padding: 0 16px;
+  content: "Save";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.saved .link-unsave-button a::after {
+  right: 30px;
+  height: 32px;
+  width: 80px;
+  padding: 0 16px;
+  content: "Unsave";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.saved .link-save-button a::after {
+  right: 30px;
+  height: 32px;
+  width: 80px;
+  padding: 0 16px;
+  content: "Unsave";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.state-button a[action="hide"]::after {
+  right: 21.5px;
+  height: 32px;
+  width: 63px;
+  padding: 0 16px;
+  content: "Hide";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.state-button a[action="unhide"]::after {
+  right: 29px;
+  height: 32px;
+  width: 78px;
+  padding: 0 16px;
+  content: "Unhide";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="delete"] {
+  background: url(%%delete%%);
+}
+
+a[data-event-action="delete"]::after {
+  right: 26px;
+  height: 32px;
+  width: 72px;
+  padding: 0 16px;
+  content: "Delete";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="spam"] {
+  background: url(%%spam--block%%);
+}
+
+a[data-event-action="spam"]::after {
+  right: 25px;
+  height: 32px;
+  width: 70px;
+  padding: 0 16px;
+  content: "Spam";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="remove"] {
+  background: url(%%remove--remove-circle%%);
+}
+
+a[data-event-action="remove"]::after {
+  right: 31px;
+  height: 32px;
+  width: 82px;
+  padding: 0 16px;
+  content: "Remove";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.approve-button a {
+  background: url(%%approve--spellcheck%%);
+}
+
+.approve-button a::after {
+  right: 32px;
+  height: 32px;
+  width: 84px;
+  padding: 0 16px;
+  content: "Approve";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.reportbtn {
+  background: url(%%report%%);
+}
+
+.reportbtn::after {
+  right: 27px;
+  height: 32px;
+  width: 74px;
+  padding: 0 16px;
+  content: "Report";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="lock"] {
+  background: url(%%lock--lock-outline%%);
+}
+
+a[data-event-action="lock"]::after {
+  right: 21px;
+  height: 32px;
+  width: 62px;
+  padding: 0 16px;
+  content: "Lock";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="unlock"] {
+  background: url(%%unlock--lock-open%%);
+}
+
+a[data-event-action="unlock"]::after {
+  right: 27px;
+  height: 32px;
+  width: 74px;
+  padding: 0 16px;
+  content: "Unlock";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="marknsfw"] {
+  background: url(%%nsfw--mood-bad%%);
+}
+
+a[data-event-action="marknsfw"]::after {
+  right: 43px;
+  height: 32px;
+  width: 106px;
+  padding: 0 16px;
+  content: "Mark NSFW";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="unmarknsfw"] {
+  background: url(%%unnsfw--mood%%);
+}
+
+a[data-event-action="unmarknsfw"]::after {
+  right: 51px;
+  height: 32px;
+  width: 122px;
+  padding: 0 16px;
+  content: "Unmark NSFW";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="distinguish"] {
+  background: url(%%distinguish--security%%);
+}
+
+a[data-event-action="distinguish"]::after {
+  right: 42px;
+  height: 32px;
+  width: 104px;
+  padding: 0 16px;
+  content: "Distinguish";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.sidecontentbox .gadget .right a::after {
+  right: 35px;
+  height: 32px;
+  width: 90px;
+  padding: 0 16px;
+  content: "Clear all";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+li a.post-sharing-button::after, .thing:not(.saved) .link-save-button a::after, .thing:not(.saved) .link-unsave-button a::after, .saved .link-unsave-button a::after, .saved .link-save-button a::after, .state-button a[action="hide"]::after, .state-button a[action="unhide"]::after, a[data-event-action="delete"]::after, a[data-event-action="spam"]::after, a[data-event-action="remove"]::after, .approve-button a::after, .reportbtn::after, a[data-event-action="lock"]::after, a[data-event-action="unlock"]::after, a[data-event-action="marknsfw"]::after, a[data-event-action="unmarknsfw"]::after, a[data-event-action="distinguish"]::after, .sidecontentbox .gadget .right a::after {
+  position: relative;
+  z-index: 10;
+  display: block;
+  visibility: hidden;
+  font-weight: normal;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(97, 97, 97, 0);
+  border-radius: 2px;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+li a.post-sharing-button:hover::after, .thing:not(.saved) .link-save-button a:hover::after, .thing:not(.saved) .link-unsave-button a:hover::after, .saved .link-unsave-button a:hover::after, .saved .link-save-button a:hover::after, .state-button a[action="hide"]:hover::after, .state-button a[action="unhide"]:hover::after, a[data-event-action="delete"]:hover::after, a[data-event-action="spam"]:hover::after, a[data-event-action="remove"]:hover::after, .approve-button a:hover::after, .reportbtn:hover::after, a[data-event-action="lock"]:hover::after, a[data-event-action="unlock"]:hover::after, a[data-event-action="marknsfw"]:hover::after, a[data-event-action="unmarknsfw"]:hover::after, a[data-event-action="distinguish"]:hover::after, .sidecontentbox .gadget .right a:hover::after {
+  visibility: visible;
+  background-color: rgba(97, 97, 97, 0.9);
+  -webkit-transform: translateY(14px);
+  -moz-transform: translateY(14px);
+  -ms-transform: translateY(14px);
+  -o-transform: translateY(14px);
+  transform: translateY(14px);
 }
 
 .res-nightmode h1,
@@ -1119,9 +1361,9 @@ h6, .md h6 {
 .midcol {
   position: relative;
   z-index: 1;
-  margin-right: 1.23077em;
+  margin-right: 16px;
   margin-left: 0;
-  width: 2.46154em !important;
+  width: 32px !important;
 }
 
 .res-nightmode .link .arrow,
@@ -1217,7 +1459,7 @@ h6, .md h6 {
 }
 
 .res-nightmode #siteTable > .thing {
-  border-bottom: 0.1em solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 .res-nightmode #siteTable > .thing.RES-keyNav-activeThing {
@@ -1240,14 +1482,17 @@ h6, .md h6 {
   color: #9575cd !important;
 }
 
-.res-nightmode #siteTable > .thing .domain,
-.res-nightmode #siteTable > .thing .domain a,
 .res-nightmode #siteTable > .thing .tagline {
   color: #fff !important;
 }
 
+.res-nightmode #siteTable > .thing .domain,
+.res-nightmode #siteTable > .thing .domain a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 #siteTable {
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
   background-color: #fff;
 }
 
@@ -1268,7 +1513,7 @@ h6, .md h6 {
 #siteTable > .thing .score {
   position: relative;
   height: 100%;
-  padding: 0.21429em 0;
+  padding: 3px 0;
   font-size: 14px;
   line-height: 1;
 }
@@ -1276,7 +1521,7 @@ h6, .md h6 {
 #siteTable > .thing {
   height: auto !important;
   margin: 0;
-  border-bottom: 0.1em solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
 
 #siteTable > .thing.RES-keyNav-activeThing {
@@ -1305,10 +1550,13 @@ h6, .md h6 {
   color: #9575cd;
 }
 
-#siteTable > .thing .domain,
-#siteTable > .thing .domain a,
 #siteTable > .thing .tagline {
   color: rgba(0, 0, 0, 0.87);
+}
+
+#siteTable > .thing .domain,
+#siteTable > .thing .domain a {
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .link.last-clicked {
@@ -1342,25 +1590,7 @@ h6, .md h6 {
 }
 
 .tagline {
-  margin: 0.66667em 0;
-}
-
-.expando-button ~ .tagline {
-  position: relative;
-  left: 0.16667em;
-  top: 0.75em;
-  margin: 0;
-  z-index: 0;
-}
-
-.flat-list.buttons {
-  clear: left;
-  left: -0.08333em;
-  position: relative;
-}
-
-.flat-list.buttons li {
-  line-height: 1.16667em;
+  margin: 8px 0;
 }
 
 .res-nightmode .link .usertext-body .md {
@@ -1370,7 +1600,7 @@ h6, .md h6 {
 .link .usertext-body .md {
   background-color: #fafafa;
   border-color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.14286em;
+  border-radius: 2px;
 }
 
 .stamp {
@@ -1381,25 +1611,109 @@ h6, .md h6 {
 .entry .buttons li.nsfw-stamp,
 .nsfw-stamp acronym {
   border: 0 !important;
-  border-radius: 0.16667em;
+  border-radius: 2px;
   background-color: #ff5252;
   color: #fff;
   font-size: 1em;
   font-weight: bold;
   line-height: 0;
-  padding: 0 0.16667em;
+  padding: 0 2px;
 }
 
 .res-nightmode .entry .buttons li a {
   color: #fff;
 }
 
+.error {
+  color: #de3726;
+}
+
+.entry {
+  overflow: visible;
+  margin-left: 133px;
+}
+
 .entry .buttons li a {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.error {
-  color: #de3726;
+.entry .buttons li:first-child {
+  opacity: 1;
+}
+
+.entry .buttons li:not(.first) {
+  opacity: 0;
+}
+
+.entry:hover .buttons li {
+  opacity: 1;
+}
+
+.flat-list.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.flat-list.buttons li {
+  height: 20px;
+  line-height: 18px;
+}
+
+.flat-list.buttons li.first {
+  flex: 1 1 auto;
+}
+
+.flat-list.buttons li:not(.first) {
+  flex: 0 1 auto;
+}
+
+.flat-list.buttons li:not(.first) a {
+  display: inline-block;
+  background-repeat: no-repeat;
+  text-decoration: none;
+}
+
+li a.post-sharing-button,
+.link-save-button a,
+.link-unsave-button a,
+.hide-button a,
+.unhide-button a,
+a[data-event-action="delete"],
+a[data-event-action="spam"],
+a[data-event-action="remove"],
+.approve-button a,
+.reportbtn,
+a[data-event-action="lock"],
+a[data-event-action="unlock"],
+a[data-event-action="marknsfw"],
+a[data-event-action="unmarknsfw"],
+a[data-event-action="distinguish"] {
+  height: 20px;
+  width: 20px;
+  font-size: 0;
+}
+
+.thing:not(.saved) .link-save-button a,
+.thing:not(.saved) .link-unsave-button a {
+  background: url(%%save%%) 0 0;
+  transition: background 1s steps(59);
+}
+
+.saved .link-unsave-button a,
+.saved .link-save-button a {
+  background: url(%%save%%) -1180px 0;
+  transition: background 1s steps(59);
+}
+
+.state-button a[action="hide"] {
+  background: url(%%hide%%) 0 0;
+  transition: background 1s steps(59);
+}
+
+.state-button a[action="unhide"] {
+  background: url(%%hide%%) -1180px 0;
+  transition: background 1s steps(59);
 }
 
 .res-nightmode div.content {
@@ -1668,7 +1982,7 @@ div.content {
   border: 0 !important;
   border-radius: 2px !important;
   background-color: #fff !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
   -webkit-animation: RES-settings 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-animation: RES-settings 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   animation: RES-settings 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2191,17 +2505,12 @@ label + #moresearchinfo {
   font-size: 1em;
 }
 
-.titlebox a.option,
-.titlebox .res-fancy-toggle-button {
-  position: relative;
-  margin-right: 0.5em;
-  padding: 0.7em 0.57em;
-  line-height: 2.7em;
+.titlebox a.option {
+  padding: 11.5px 7px !important;
   background-image: none;
 }
 
-.titlebox a.option.remove,
-.titlebox .res-fancy-toggle-button.remove {
+.titlebox a.option.remove {
   color: #f44336 !important;
 }
 
@@ -2232,7 +2541,7 @@ label + #moresearchinfo {
 }
 
 .titlebox .leavemoderator,
-.titlebox .toggle,
+.titlebox form.toggle,
 .titlebox .tagline {
   font-size: 10px;
 }
@@ -2389,33 +2698,6 @@ label + #moresearchinfo {
   background: url(%%clear%%) 0 no-repeat;
 }
 
-.sidecontentbox .gadget .right a:after {
-  position: relative;
-  right: 2.5em;
-  display: block;
-  visibility: hidden;
-  height: 2.28571em;
-  width: 6.42857em;
-  padding: 0 1.14286em;
-  content: "Clear all";
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 2.28571;
-  color: #fff;
-  text-align: center;
-  background-color: rgba(97, 97, 97, 0);
-  border-radius: 0.14286em;
-  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sidecontentbox .gadget .right a:hover::after {
-  margin-top: 1em;
-  visibility: visible;
-  background-color: rgba(97, 97, 97, 0.9);
-}
-
 .sidecontentbox .gadget .right a:focus::before {
   position: absolute;
   height: 2em;
@@ -2484,7 +2766,9 @@ label + #moresearchinfo {
 }
 
 .commentarea .panestack-title ~ .menuarea {
-  padding-top: 4.61538em;
+  padding-top: 60px !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 
 .commentarea .menuarea {
@@ -2529,19 +2813,6 @@ label + #moresearchinfo {
 .commentNavSortType {
   padding: 0 0.4em;
   font-size: 0.76923em;
-}
-
-.usertext-edit {
-  width: auto;
-}
-
-.usertext-edit textarea {
-  width: 100%;
-  margin-bottom: 0.64286em !important;
-}
-
-.usertext-edit > .markdownEditor-wrapper {
-  width: auto;
 }
 
 .res-nightmode .commentingAs {
@@ -2605,7 +2876,7 @@ label + #moresearchinfo {
 #BigEditor .RESDialogSmall {
   border: 0;
   border-radius: 2px;
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 #BigEditor .RESDialogSmall h3 {
@@ -2665,7 +2936,7 @@ label + #moresearchinfo {
   padding: 16px;
   border: 0;
   border-radius: 2px;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .res-nightmode.res-commentBoxes .comment {
@@ -2701,7 +2972,7 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 
 .res .comment:hover,
 .comment:hover {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .res .comment .md p,
@@ -2779,7 +3050,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 
 .flair-settings + .tabmenu {
   display: block;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .flair-settings + .tabmenu li a {
@@ -2996,7 +3267,7 @@ ul#image-preview-list li:nth-of-type(2n) {
 
 ul.tabmenu.formtab {
   padding: 0;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 ul.tabmenu.formtab li a {
@@ -3095,7 +3366,7 @@ ul.tabmenu.formtab a.text-button.choice {
     margin: 0 0 15px;
     height: 100%;
     background-color: #fff;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
     border-radius: 4px;
   }
   .top-page .content .menuarea .drop-choices.lightdrop {
@@ -3141,23 +3412,22 @@ ul.tabmenu.formtab a.text-button.choice {
   box-sizing: border-box;
 }
 
-body {
-  background-color: #fafafa;
-  overflow-x: hidden;
-}
-
+.res-nightmode body a:link,
 body a:link {
   color: #2196f3;
 }
 
+.res-nightmode body a:link:hover,
 body a:link:hover {
   color: #64b5f6;
 }
 
+.res-nightmode body a:link:active,
 body a:link:active {
   color: #1976d2;
 }
 
+.res-nightmode body a:link:visited,
 body a:link:visited {
   color: #9575cd;
 }
@@ -3166,20 +3436,13 @@ body a:link:visited {
   background-color: #303030 !important;
 }
 
-.res-nightmode body a:link {
-  color: #2196f3;
+body {
+  background-color: #fafafa;
+  overflow-x: hidden;
 }
 
-.res-nightmode body a:link:hover {
-  color: #64b5f6;
-}
-
-.res-nightmode body a:link:active {
-  color: #1976d2;
-}
-
-.res-nightmode body a:link:visited {
-  color: #9575cd;
+.md {
+  max-width: unset;
 }
 
 @media (min-width: 62em) {

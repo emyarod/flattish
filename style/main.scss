@@ -26,35 +26,24 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-body {
-  background-color: $light-background;
-
-  a:link {
-    color: $link-color;
-
-    &:hover { color: $link-color-hover; }
-
-    &:active { color: $link-color-active; }
-
-    &:visited { color: $link-color-visited; }
-  }
-
-  overflow-x: hidden;
+.res-nightmode body a:link,
+body a:link {
+  color: $link-color;
+  &:hover { color: $link-color-hover; }
+  &:active { color: $link-color-active; }
+  &:visited { color: $link-color-visited; }
 }
 
 .res-nightmode body {
   background-color: $dark-background !important;
-
-  a:link {
-    color: $link-color;
-
-    &:hover { color: $link-color-hover; }
-
-    &:active { color: $link-color-active; }
-
-    &:visited { color: $link-color-visited; }
-  }
 }
+
+body {
+  background-color: $light-background;
+  overflow-x: hidden;
+}
+
+.md { max-width: unset; }
 
 @media (min-width: $screen-md-min) {
   body {
