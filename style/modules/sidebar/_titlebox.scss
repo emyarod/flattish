@@ -27,7 +27,7 @@
 	}
 
 	.users-online::before {
-		background: url(%%users-night%%) no-repeat;
+		background: url(%%spritesheet%%) -262px -160px no-repeat;
 		opacity: 1;
 	}
 
@@ -72,7 +72,7 @@
 
 		// replace online user green orb
 		&::before {
-			background: url(%%users%%) no-repeat;
+			background: url(%%spritesheet%%) -246px -160px no-repeat;
 			opacity: 0.87;
 			height: 16px;
 			width: 16px;
