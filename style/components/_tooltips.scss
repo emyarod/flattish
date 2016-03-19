@@ -21,7 +21,8 @@ $tooltip-selector-map: (
   // link action icon tooltips
   share-button: (
 		selector-name: 'li a.post-sharing-button',
-		background: url(%%share%%),
+		background-position: -178px -97px,
+		background-night-position: -76px -63px,
 		width-tooltip: 36,
 		width-parent: 20,
 		content-tooltip: 'Share',
@@ -71,7 +72,8 @@ $tooltip-selector-map: (
   ),
   delete-button: (
 		selector-name: 'a[data-event-action="delete"]',
-		background: url(%%delete%%),
+		background-position: -152px 0,
+		background-night-position: -56px -43px,
 		width-tooltip: 40,
 		width-parent: 20,
 		content-tooltip: 'Delete',
@@ -79,7 +81,8 @@ $tooltip-selector-map: (
   ),
   spam-button: (
 		selector-name: 'a[data-event-action="spam"]',
-		background: url(%%spam--block%%),
+		background-position: -198px -97px,
+		background-night-position: -96px -63px,
 		width-tooltip: 38,
 		width-parent: 20,
 		content-tooltip: 'Spam',
@@ -87,7 +90,8 @@ $tooltip-selector-map: (
   ),
   remove-button: (
 		selector-name: 'a[data-event-action="remove"]',
-		background: url(%%remove--remove-circle%%),
+		background-position: -200px -77px,
+		background-night-position: -36px -63px,
 		width-tooltip: 50,
 		width-parent: 20,
 		content-tooltip: 'Remove',
@@ -95,7 +99,8 @@ $tooltip-selector-map: (
   ),
   approve-button: (
 		selector-name: '.approve-button a',
-		background: url(%%approve--spellcheck%%),
+		background-position: -48px 0,
+		background-night-position: -36px -43px,
 		width-tooltip: 52,
 		width-parent: 20,
 		content-tooltip: 'Approve',
@@ -103,7 +108,8 @@ $tooltip-selector-map: (
   ),
   report-button: (
 		selector-name: '.reportbtn',
-		background: url(%%report%%),
+		background-position: 0 -97px,
+		background-night-position: -56px -63px,
 		width-tooltip: 42,
 		width-parent: 20,
 		content-tooltip: 'Report',
@@ -111,7 +117,8 @@ $tooltip-selector-map: (
   ),
   lock-button: (
 		selector-name: 'a[data-event-action="lock"]',
-		background: url(%%lock--lock-outline%%),
+		background-position: -194px -23px,
+		background-night-position: -96px -43px,
 		width-tooltip: 30,
 		width-parent: 20,
 		content-tooltip: 'Lock',
@@ -119,7 +126,8 @@ $tooltip-selector-map: (
   ),
   unlock-button: (
 		selector-name: 'a[data-event-action="unlock"]',
-		background: url(%%unlock--lock-open%%),
+		background-position: -258px -140px,
+		background-night-position: -116px -63px,
 		width-tooltip: 42,
 		width-parent: 20,
 		content-tooltip: 'Unlock',
@@ -127,7 +135,8 @@ $tooltip-selector-map: (
   ),
   mark-nsfw-button: (
 		selector-name: 'a[data-event-action="marknsfw"]',
-		background: url(%%nsfw--mood-bad%%),
+		background-position: -156px -63px,
+		background-night-position: -194px -43px,
 		width-tooltip: 74,
 		width-parent: 20,
 		content-tooltip: 'Mark NSFW',
@@ -135,7 +144,8 @@ $tooltip-selector-map: (
   ),
   unmark-nsfw-button: (
 		selector-name: 'a[data-event-action="unmarknsfw"]',
-		background: url(%%unnsfw--mood%%),
+		background-position: -35px -160px,
+		background-night-position: -136px -63px,
 		width-tooltip: 90,
 		width-parent: 20,
 		content-tooltip: 'Unmark NSFW',
@@ -143,7 +153,8 @@ $tooltip-selector-map: (
   ),
   distinguish-button: (
 		selector-name: 'a[data-event-action="distinguish"]',
-		background: url(%%distinguish--security%%),
+		background-position: -172px 0,
+		background-night-position: -76px -43px,
 		width-tooltip: 72,
 		width-parent: 20,
 		content-tooltip: 'Distinguish',
@@ -153,6 +164,8 @@ $tooltip-selector-map: (
   // sidecontentbox
   clear-all-button: (
     selector-name: '.sidecontentbox .gadget .right a',
+		background-position: -116px 0,
+		background-night-position: -134px 0,
 		width-tooltip: 58,
 		width-parent: 20,
 		content-tooltip: 'Clear all',
@@ -164,7 +177,8 @@ $base-tooltip-selectors: ();
 
 @each $key, $map in $tooltip-selector-map {
 	$selector-name: map-get($map, selector-name);
-	$background: map-get($map, background);
+	$background-position: map-get($map, background-position);
+	$background-night-position: map-get($map, background-night-position);
 	$width-tooltip: map-get($map, width-tooltip);
 	$width-parent: map-get($map, width-parent);
 	$content-tooltip: map-get($map, content-tooltip);
@@ -183,7 +197,11 @@ $base-tooltip-selectors: ();
   }
 
 	#{$selector-name} {
-		background: $background;
+		background-position: $background-position;
+	}
+
+	.res-nightmode #{$selector-name} {
+		background-position: $background-night-position;
 	}
 
   #{$selector-name}::after {
@@ -198,6 +216,8 @@ $base-tooltip-selectors: ();
 }
 
 #{$base-tooltip-selectors} {
+	background-image: url(%%spritesheet%%);
+
   &::after {
     position: relative;
     z-index: 10;
