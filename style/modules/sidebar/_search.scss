@@ -4,10 +4,10 @@
 
 	// magnifying glass icon
 	input[type="submit"] {
-		background: url(%%search-night%%);
+		background: url(%%spritesheet%%) -130px -97px;
 
 		&:hover {
-			background: url(%%search-night%%);
+			background: url(%%spritesheet%%) -130px -97px;
 			opacity: 0.87;
 		}
 	}
@@ -58,10 +58,10 @@
 		width: em(16, 14);
 		opacity: 0.54;
 		position: relative;
-		background: url(%%search%%);
+		background: url(%%spritesheet%%) -20px -97px;
 
 		&:hover {
-			background: url(%%search%%);
+			background: url(%%spritesheet%%) -20px -97px;
 			opacity: 0.87;
 		}
 	}
