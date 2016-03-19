@@ -21,6 +21,7 @@ $tooltip-selector-map: (
   // link action icon tooltips
   share-button: (
 		selector-name: 'li a.post-sharing-button',
+		background: url(%%share%%),
 		width-tooltip: 36,
 		width-parent: 20,
 		content-tooltip: 'Share',
@@ -70,6 +71,7 @@ $tooltip-selector-map: (
   ),
   delete-button: (
 		selector-name: 'a[data-event-action="delete"]',
+		background: url(%%delete%%),
 		width-tooltip: 40,
 		width-parent: 20,
 		content-tooltip: 'Delete',
@@ -77,6 +79,7 @@ $tooltip-selector-map: (
   ),
   spam-button: (
 		selector-name: 'a[data-event-action="spam"]',
+		background: url(%%spam--block%%),
 		width-tooltip: 38,
 		width-parent: 20,
 		content-tooltip: 'Spam',
@@ -84,6 +87,7 @@ $tooltip-selector-map: (
   ),
   remove-button: (
 		selector-name: 'a[data-event-action="remove"]',
+		background: url(%%remove--remove-circle%%),
 		width-tooltip: 50,
 		width-parent: 20,
 		content-tooltip: 'Remove',
@@ -91,6 +95,7 @@ $tooltip-selector-map: (
   ),
   approve-button: (
 		selector-name: '.approve-button a',
+		background: url(%%approve--spellcheck%%),
 		width-tooltip: 52,
 		width-parent: 20,
 		content-tooltip: 'Approve',
@@ -98,6 +103,7 @@ $tooltip-selector-map: (
   ),
   report-button: (
 		selector-name: '.reportbtn',
+		background: url(%%report%%),
 		width-tooltip: 42,
 		width-parent: 20,
 		content-tooltip: 'Report',
@@ -105,6 +111,7 @@ $tooltip-selector-map: (
   ),
   lock-button: (
 		selector-name: 'a[data-event-action="lock"]',
+		background: url(%%lock--lock-outline%%),
 		width-tooltip: 30,
 		width-parent: 20,
 		content-tooltip: 'Lock',
@@ -112,6 +119,7 @@ $tooltip-selector-map: (
   ),
   unlock-button: (
 		selector-name: 'a[data-event-action="unlock"]',
+		background: url(%%unlock--lock-open%%),
 		width-tooltip: 42,
 		width-parent: 20,
 		content-tooltip: 'Unlock',
@@ -119,6 +127,7 @@ $tooltip-selector-map: (
   ),
   mark-nsfw-button: (
 		selector-name: 'a[data-event-action="marknsfw"]',
+		background: url(%%nsfw--mood-bad%%),
 		width-tooltip: 74,
 		width-parent: 20,
 		content-tooltip: 'Mark NSFW',
@@ -126,6 +135,7 @@ $tooltip-selector-map: (
   ),
   unmark-nsfw-button: (
 		selector-name: 'a[data-event-action="unmarknsfw"]',
+		background: url(%%unnsfw--mood%%),
 		width-tooltip: 90,
 		width-parent: 20,
 		content-tooltip: 'Unmark NSFW',
@@ -133,6 +143,7 @@ $tooltip-selector-map: (
   ),
   distinguish-button: (
 		selector-name: 'a[data-event-action="distinguish"]',
+		background: url(%%distinguish--security%%),
 		width-tooltip: 72,
 		width-parent: 20,
 		content-tooltip: 'Distinguish',
@@ -153,6 +164,7 @@ $base-tooltip-selectors: ();
 
 @each $key, $map in $tooltip-selector-map {
 	$selector-name: map-get($map, selector-name);
+	$background: map-get($map, background);
 	$width-tooltip: map-get($map, width-tooltip);
 	$width-parent: map-get($map, width-parent);
 	$content-tooltip: map-get($map, content-tooltip);
@@ -169,6 +181,10 @@ $base-tooltip-selectors: ();
     $padding-tooltip: 8px;
     $font-size-tooltip: 10px;
   }
+
+	#{$selector-name} {
+		background: $background;
+	}
 
   #{$selector-name}::after {
     right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
