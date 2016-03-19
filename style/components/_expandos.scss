@@ -60,7 +60,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%text-night%%) !important;
+			background: url(%%spritesheet%%) -130px -117px !important;
 		}
 	}
 }
