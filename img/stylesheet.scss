@@ -4,212 +4,344 @@
     display: block;
 }
 
-.sprite-clear--clear-all {
-    width: 18px;
-    height: 18px;
+.sprite-album--photo-album {
+    width: 24px;
+    height: 24px;
     background-position: 0 0;
 }
 
-.sprite-clear--clear-all-night {
+.sprite-album-night--photo-album {
+    width: 24px;
+    height: 24px;
+    background-position: -24px 0;
+}
+
+.sprite-approve--spellcheck {
+    width: 20px;
+    height: 20px;
+    background-position: -48px 0;
+}
+
+.sprite-camera--photo-camera {
+    width: 24px;
+    height: 24px;
+    background-position: -68px 0;
+}
+
+.sprite-camera-night--photo-camera {
+    width: 24px;
+    height: 24px;
+    background-position: -92px 0;
+}
+
+.sprite-clear--clear-all {
     width: 18px;
     height: 18px;
-    background-position: -18px 0;
+    background-position: -116px 0;
+}
+
+.sprite-clear-night--clear-all {
+    width: 18px;
+    height: 18px;
+    background-position: -134px 0;
+}
+
+.sprite-delete {
+    width: 20px;
+    height: 20px;
+    background-position: -152px 0;
+}
+
+.sprite-distinguish--security {
+    width: 20px;
+    height: 20px;
+    background-position: -172px 0;
 }
 
 .sprite-downvote {
-    width: 24px;
-    height: 12px;
-    background-position: -36px 0;
+    width: 23px;
+    height: 23px;
+    background-position: -192px 0;
 }
 
 .sprite-downvote-night {
-    width: 24px;
-    height: 12px;
-    background-position: -60px 0;
-}
-
-.sprite-downvote-pressed {
-    width: 24px;
-    height: 12px;
-    background-position: -84px 0;
+    width: 23px;
+    height: 23px;
+    background-position: -116px -23px;
 }
 
 .sprite-dropdown--arrow-drop-down {
     width: 19px;
     height: 19px;
-    background-position: -108px 0;
+    background-position: -48px -23px;
 }
 
-.sprite-dropdown--arrow-drop-down-night {
+.sprite-dropdown-night--arrow-drop-down {
     width: 19px;
     height: 19px;
-    background-position: -127px 0;
+    background-position: -139px -23px;
 }
 
 .sprite-kebab--more-horiz {
     width: 36px;
     height: 36px;
-    background-position: -146px 0;
+    background-position: -158px -23px;
 }
 
-.sprite-kebab--more-horiz-night {
+.sprite-kebab-night--more-horiz {
     width: 36px;
     height: 36px;
-    background-position: 0 -36px;
+    background-position: 0 -59px;
+}
+
+.sprite-lock--lock-outline {
+    width: 20px;
+    height: 20px;
+    background-position: -194px -23px;
 }
 
 .sprite-logout--exit-to-app {
     width: 16px;
     height: 16px;
-    background-position: -36px -36px;
+    background-position: 0 -43px;
 }
 
-.sprite-logout--exit-to-app-night {
+.sprite-logout-night--exit-to-app {
     width: 16px;
     height: 16px;
-    background-position: -52px -36px;
+    background-position: -16px -43px;
 }
 
-.sprite-nsfw--report-problem {
+.sprite-night-approve--spellcheck {
+    width: 20px;
+    height: 20px;
+    background-position: -36px -43px;
+}
+
+.sprite-night-delete {
+    width: 20px;
+    height: 20px;
+    background-position: -56px -43px;
+}
+
+.sprite-night-distinguish--security {
+    width: 20px;
+    height: 20px;
+    background-position: -76px -43px;
+}
+
+.sprite-night-lock--lock-outline {
+    width: 20px;
+    height: 20px;
+    background-position: -96px -43px;
+}
+
+.sprite-night-nsfw--mood-bad {
+    width: 20px;
+    height: 20px;
+    background-position: -194px -43px;
+}
+
+.sprite-night-remove--remove-circle {
+    width: 20px;
+    height: 20px;
+    background-position: -36px -63px;
+}
+
+.sprite-night-report {
+    width: 20px;
+    height: 20px;
+    background-position: -56px -63px;
+}
+
+.sprite-night-share {
+    width: 20px;
+    height: 20px;
+    background-position: -76px -63px;
+}
+
+.sprite-night-spam--block-copy {
+    width: 20px;
+    height: 20px;
+    background-position: -96px -63px;
+}
+
+.sprite-night-unlock--lock-open {
+    width: 20px;
+    height: 20px;
+    background-position: -116px -63px;
+}
+
+.sprite-night-unnsfw--mood {
+    width: 20px;
+    height: 20px;
+    background-position: -136px -63px;
+}
+
+.sprite-nsfw {
     width: 70px;
     height: 70px;
-    background-position: -68px -19px;
+    background-position: -36px -83px;
 }
 
-.sprite-photo-camera--camera {
-    width: 24px;
-    height: 24px;
-    background-position: -138px -36px;
-}
-
-.sprite-photo-camera--camera-night {
-    width: 24px;
-    height: 24px;
-    background-position: -162px -36px;
+.sprite-nsfw--mood-bad {
+    width: 20px;
+    height: 20px;
+    background-position: -156px -63px;
 }
 
 .sprite-play--play-arrow {
     width: 24px;
     height: 24px;
-    background-position: -36px -60px;
+    background-position: -176px -63px;
 }
 
-.sprite-play--play-arrow-night {
+.sprite-play-night--play-arrow {
     width: 24px;
     height: 24px;
-    background-position: -138px -60px;
+    background-position: -106px -87px;
 }
 
 .sprite-prefs {
     width: 16px;
     height: 14px;
-    background-position: -162px -60px;
+    background-position: -139px -43px;
 }
 
 .sprite-prefs-night {
     width: 16px;
     height: 14px;
-    background-position: -178px -60px;
+    background-position: -200px -63px;
+}
+
+.sprite-remove--remove-circle {
+    width: 20px;
+    height: 20px;
+    background-position: -200px -77px;
+}
+
+.sprite-report {
+    width: 20px;
+    height: 20px;
+    background-position: 0 -97px;
 }
 
 .sprite-search {
     width: 16px;
     height: 16px;
-    background-position: 0 -74px;
+    background-position: -20px -97px;
 }
 
 .sprite-search-night {
     width: 16px;
     height: 16px;
-    background-position: -16px -74px;
+    background-position: -130px -97px;
 }
 
 .sprite-settings {
     width: 16px;
     height: 16px;
-    background-position: -162px -74px;
+    background-position: -146px -97px;
 }
 
 .sprite-settings-night {
     width: 16px;
     height: 16px;
-    background-position: -178px -74px;
+    background-position: -162px -97px;
+}
+
+.sprite-share {
+    width: 20px;
+    height: 20px;
+    background-position: -178px -97px;
 }
 
 .sprite-snoo-color {
     width: 35px;
     height: 53px;
-    background-position: 0 -90px;
+    background-position: 0 -117px;
+}
+
+.sprite-spam--block {
+    width: 20px;
+    height: 20px;
+    background-position: -198px -97px;
 }
 
 .sprite-text {
     width: 24px;
     height: 24px;
-    background-position: -35px -90px;
+    background-position: -106px -117px;
 }
 
 .sprite-text-night {
     width: 24px;
     height: 24px;
-    background-position: -59px -90px;
+    background-position: -130px -117px;
 }
 
 .sprite-thumbnail-default--link {
     width: 70px;
     height: 70px;
-    background-position: -83px -89px;
+    background-position: -106px -141px;
 }
 
 .sprite-thumbnail-default-night--link {
     width: 70px;
     height: 70px;
-    background-position: -194px 0;
+    background-position: -216px 0;
 }
 
 .sprite-thumbnail-self--forum {
     width: 70px;
     height: 70px;
-    background-position: -194px -70px;
+    background-position: -220px -70px;
 }
 
 .sprite-thumbnail-self-night--forum {
     width: 70px;
     height: 70px;
-    background-position: -153px -140px;
+    background-position: -176px -140px;
 }
 
 .sprite-tick {
     width: 12px;
     height: 9px;
-    background-position: -182px 0;
+    background-position: -246px -140px;
+}
+
+.sprite-unlock--lock-open {
+    width: 20px;
+    height: 20px;
+    background-position: -258px -140px;
+}
+
+.sprite-unnsfw--mood {
+    width: 20px;
+    height: 20px;
+    background-position: -35px -160px;
 }
 
 .sprite-upvote {
-    width: 24px;
-    height: 12px;
-    background-position: -35px -140px;
+    width: 23px;
+    height: 23px;
+    background-position: -55px -160px;
 }
 
 .sprite-upvote-night {
-    width: 24px;
-    height: 12px;
-    background-position: -59px -140px;
-}
-
-.sprite-upvote-pressed {
-    width: 24px;
-    height: 12px;
-    background-position: -223px -140px;
+    width: 23px;
+    height: 23px;
+    background-position: -78px -160px;
 }
 
 .sprite-users--tag-faces {
     width: 16px;
     height: 16px;
-    background-position: -247px -140px;
+    background-position: -246px -160px;
 }
 
 .sprite-users-night--tag-faces {
     width: 16px;
     height: 16px;
-    background-position: 0 -156px;
+    background-position: -262px -160px;
 }
