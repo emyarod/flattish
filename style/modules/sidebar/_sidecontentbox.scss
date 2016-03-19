@@ -50,7 +50,7 @@
 	a.reddit-comment-link.may-blank { color: $dark-secondary-text !important; }
 
 	.right a {
-		background: url(%%clear-night%%) 0 no-repeat;
+		background: url(%%spritesheet%%) -134px 0 no-repeat;
 	}
 }
 
@@ -103,7 +103,7 @@
 				height: em(20, 10);
 				width: em(20, 10);
 				color: transparent;
-				background: url(%%clear%%) 0 no-repeat;
+				background: url(%%spritesheet%%) -116px 0 no-repeat;
 
 				&:focus::before {
 					@include button-ripple-circle(right, 16, bottom, 15, 20, 10);
