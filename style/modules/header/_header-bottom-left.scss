@@ -146,8 +146,7 @@
   width: 0;
   @include margin(0 0 0 em(40, 16));
   padding-right: em(35, 14); // makes space for snoo visibility
-  background: url(%%snoo-color%%) no-repeat;
-  background-position: 0% em(5, 14);
+  background: url(%%spritesheet%%) 0 -117px no-repeat;
 }
 
 // subreddit name
