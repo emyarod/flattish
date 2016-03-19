@@ -23,12 +23,12 @@
 
 	&.upmod,
 	&.up {
-		background: url(%%upvote-night%%) !important;
+		background: url(%%spritesheet%%) -78px -160px !important;
 	}
 
 	&.downmod,
 	&.down {
-		background: url(%%downvote-night%%) !important;
+		background: url(%%spritesheet%%) -116px -23px !important;
 	}
 }
 
@@ -69,12 +69,12 @@
 
 	&.upmod,
 	&.up {
-		background: url(%%upvote%%);
+		background: url(%%spritesheet%%) -55px -160px;
 	}
 
 	&.downmod,
 	&.down {
-		background: url(%%downvote%%);
+		background: url(%%spritesheet%%) -192px 0;
 	}
 }
 
