@@ -49,7 +49,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%album-night%%) !important;
+			background: url(%%spritesheet%%) -24px 0 !important;
 		}
 	}
 
