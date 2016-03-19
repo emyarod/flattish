@@ -228,3 +228,87 @@
 .res-nightmode .entry .buttons li a {	color: $dark-text; }
 
 .error {	color: $error; }
+
+.entry {
+	overflow: visible;
+	margin-left: 133px;
+
+	.buttons li {
+		a { color: $light-text; }
+
+		&:first-child { opacity: 1; }
+		
+		&:not(.first) { opacity: 0; }
+	}
+
+	&:hover { .buttons li { opacity: 1; } }
+}
+
+.flat-list.buttons {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+
+	li {
+		height: 20px;
+		line-height: 18px;
+
+		&.first { flex: 1 1 auto; }
+
+		&:not(.first) {
+			flex: 0 1 auto;
+
+			a {
+				display: inline-block;
+				background-repeat: no-repeat;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+li a.post-sharing-button,
+.link-save-button a,
+.link-unsave-button a,
+.hide-button a,
+.unhide-button a,
+a[data-event-action="delete"],
+a[data-event-action="spam"],
+a[data-event-action="remove"],
+.approve-button a,
+.reportbtn,
+a[data-event-action="lock"],
+a[data-event-action="unlock"],
+a[data-event-action="marknsfw"],
+a[data-event-action="unmarknsfw"],
+a[data-event-action="distinguish"] {
+	height: 20px;
+	width: 20px;
+	font-size: 0;
+}
+
+// save button
+.thing:not(.saved) .link-save-button a,
+.thing:not(.saved) .link-unsave-button a {
+	background: url(%%save%%) 0 0;
+	transition: background 1s steps(59);
+}
+
+// unsave button
+.saved .link-unsave-button a,
+.saved .link-save-button a {
+	background: url(%%save%%) -1180px 0;
+  transition: background 1s steps(59);
+}
+
+// hide button
+.state-button a[action="hide"] {
+	background: url(%%hide%%) 0 0;
+	transition: background 1s steps(59);
+}
+
+// unhide button
+.state-button a[action="unhide"] {
+	background: url(%%hide%%) -1180px 0;
+	transition: background 1s steps(59);
+}
