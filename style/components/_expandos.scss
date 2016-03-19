@@ -127,16 +127,11 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%play%%);
+			background: url(%%spritesheet%%) -176px -63px;
 		}
 	}
 
 	// image expandos
-	&.image,
-	&.gallery {
-		background-position: initial !important; // RES...seriously????
-	}
-
 	&.image {
 		box-sizing: unset; // to force width and height to 25px
 
@@ -144,7 +139,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%camera%%);
+			background: url(%%spritesheet%%) -68px 0 !important;
 		}
 	}
 
@@ -155,7 +150,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%album%%);
+			background: url(%%spritesheet%%) 0 0;
 		}
 	}
 
@@ -166,7 +161,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%text%%);
+			background: url(%%spritesheet%%) -107px -117px;
 		}
 	}
 }
