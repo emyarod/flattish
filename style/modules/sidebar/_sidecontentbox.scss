@@ -99,13 +99,9 @@
 				color: transparent;
 
 				&:focus::before {
-					position: absolute;
 					height: 20px;
 					width: 20px;
-					content: " ";
 					background-color: $tooltip;
-					border-radius: 50%;
-					@include animation(button-ripple .3s $animation-curve-linear-out-slow-in forwards);
 				}
 			}
 		}
