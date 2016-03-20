@@ -105,7 +105,6 @@
 					content: " ";
 					background-color: $tooltip;
 					border-radius: 50%;
-					opacity: 1;
 					@include animation(button-ripple .3s $animation-curve-linear-out-slow-in forwards);
 				}
 			}
