@@ -1480,6 +1480,7 @@ h6, .md h6 {
   margin-right: 16px;
   margin-left: 0;
   width: 32px !important;
+  overflow: visible;
 }
 
 .res-nightmode .link .arrow,
@@ -1538,7 +1539,8 @@ h6, .md h6 {
 }
 
 .arrow,
-.arrow::before {
+.arrow::before,
+.arrow::after {
   height: 23px;
   width: 23px;
 }
@@ -1547,23 +1549,40 @@ h6, .md h6 {
   background-color: rgba(0, 0, 0, 0.38);
 }
 
-.arrow::before {
+.arrow::before, .arrow:focus::after {
   position: absolute;
-  z-index: -1;
   content: " ";
-  background-color: rgba(0, 0, 0, 0.12);
   border-radius: 50%;
+}
+
+.arrow::before {
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.12);
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow:focus::after {
+  -webkit-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  -moz-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 .arrow.upmod, .arrow.up {
   background-position: -55px -160px;
 }
 
+.arrow.upmod:focus::after, .arrow.up:focus::after {
+  background-color: #ff5722;
+}
+
 .arrow.downmod, .arrow.down {
   background-position: -192px 0;
+}
+
+.arrow.downmod:focus::after, .arrow.down:focus::after {
+  background-color: #3f51b5;
 }
 
 .res-nightmode #siteTable {
@@ -1608,8 +1627,9 @@ h6, .md h6 {
 }
 
 #siteTable {
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 2px;
   background-color: #fff;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 #siteTable .score.unvoted {
@@ -2778,15 +2798,14 @@ label + #moresearchinfo {
 
 .sidecontentbox .gadget .right a:focus::before {
   position: absolute;
-  height: 2em;
-  width: 2em;
+  height: 20px;
+  width: 20px;
   content: " ";
   background-color: rgba(97, 97, 97, 0.9);
   border-radius: 50%;
-  opacity: 1;
-  -webkit-animation: button-ripple 0.35s ease forwards;
-  -moz-animation: button-ripple 0.35s ease forwards;
-  animation: button-ripple 0.35s ease forwards;
+  -webkit-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  -moz-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 @media (min-width: 62em) {
