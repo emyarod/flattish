@@ -480,7 +480,11 @@ select option {
 }
 
 .res-nightmode .expando-button {
-  border: 0.1em solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.res-nightmode .expando-button.image, .res-nightmode .expando-button.gallery {
+  box-sizing: unset;
 }
 
 .res-nightmode .expando-button:hover {
@@ -492,27 +496,19 @@ select option {
 }
 
 .res-nightmode .expando-button.video.collapsed, .res-nightmode .expando-button.video.collapsed:hover, .res-nightmode .expando-button.video.expanded, .res-nightmode .expando-button.video.expanded:hover {
-  background: url(%%spritesheet%%) -106px -87px !important;
-}
-
-.res-nightmode .expando-button.image {
-  box-sizing: unset;
+  background-position: -106px -87px !important;
 }
 
 .res-nightmode .expando-button.image.collapsed, .res-nightmode .expando-button.image.collapsed:hover, .res-nightmode .expando-button.image.expanded, .res-nightmode .expando-button.image.expanded:hover {
-  background: url(%%spritesheet%%) -92px 0 !important;
-}
-
-.res-nightmode .expando-button.gallery {
-  box-sizing: unset;
+  background-position: -92px 0 !important;
 }
 
 .res-nightmode .expando-button.gallery.collapsed, .res-nightmode .expando-button.gallery.collapsed:hover, .res-nightmode .expando-button.gallery.expanded, .res-nightmode .expando-button.gallery.expanded:hover {
-  background: url(%%spritesheet%%) -24px 0 !important;
+  background-position: -24px 0 !important;
 }
 
 .res-nightmode .expando-button.selftext.collapsed, .res-nightmode .expando-button.selftext.collapsed:hover, .res-nightmode .expando-button.selftext.expanded, .res-nightmode .expando-button.selftext.expanded:hover {
-  background: url(%%spritesheet%%) -130px -117px !important;
+  background-position: -130px -117px !important;
 }
 
 .expando-button {
@@ -573,7 +569,7 @@ select option {
 }
 
 .expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
-  background: url(%%spritesheet%%) -176px -63px;
+  background-position: -176px -63px;
 }
 
 .expando-button.image {
@@ -581,15 +577,15 @@ select option {
 }
 
 .expando-button.image.collapsed, .expando-button.image.collapsed:hover, .expando-button.image.expanded, .expando-button.image.expanded:hover {
-  background: url(%%spritesheet%%) -68px 0 !important;
+  background-position: -68px 0 !important;
 }
 
 .expando-button.gallery.collapsed, .expando-button.gallery.collapsed:hover, .expando-button.gallery.expanded, .expando-button.gallery.expanded:hover {
-  background: url(%%spritesheet%%) 0 0;
+  background-position: 0 0;
 }
 
 .expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
-  background: url(%%spritesheet%%) -107px -117px;
+  background-position: -107px -117px;
 }
 
 #sr-header-area .drop-choices.srdrop.inuse {
@@ -676,6 +672,75 @@ select option {
 
 .guiders_content h2 {
   font-size: initial;
+}
+
+.res-nightmode .expando-button.video.collapsed,
+.res-nightmode .expando-button.video.collapsed:hover,
+.res-nightmode .expando-button.video.expanded,
+.res-nightmode .expando-button.video.expanded:hover,
+.res-nightmode .expando-button.image.collapsed,
+.res-nightmode .expando-button.image.collapsed:hover,
+.res-nightmode .expando-button.image.expanded,
+.res-nightmode .expando-button.image.expanded:hover,
+.res-nightmode .expando-button.gallery.collapsed,
+.res-nightmode .expando-button.gallery.collapsed:hover,
+.res-nightmode .expando-button.gallery.expanded,
+.res-nightmode .expando-button.gallery.expanded:hover,
+.res-nightmode .expando-button.selftext.collapsed,
+.res-nightmode .expando-button.selftext.collapsed:hover,
+.res-nightmode .expando-button.selftext.expanded,
+.res-nightmode .expando-button.selftext.expanded:hover,
+.expando-button.video.collapsed,
+.expando-button.video.collapsed:hover,
+.expando-button.video.expanded,
+.expando-button.video.expanded:hover,
+.expando-button.image.collapsed,
+.expando-button.image.collapsed:hover,
+.expando-button.image.expanded,
+.expando-button.image.expanded:hover,
+.expando-button.gallery.collapsed,
+.expando-button.gallery.collapsed:hover,
+.expando-button.gallery.expanded,
+.expando-button.gallery.expanded:hover,
+.expando-button.selftext.collapsed,
+.expando-button.selftext.collapsed:hover,
+.expando-button.selftext.expanded,
+.expando-button.selftext.expanded:hover,
+.res-nightmode .thumbnail.self,
+.res-nightmode .thumbnail.default,
+.thumbnail.self,
+.thumbnail.default,
+.res-nightmode .thing.over18 > .thumbnail.self,
+.thing.over18 > .thumbnail.self,
+.res-nightmode .link .arrow.upmod,
+.res-nightmode .link .arrow.up,
+.res-nightmode .reddit-link .arrow.upmod,
+.res-nightmode .reddit-link .arrow.up,
+.res-nightmode .comment .arrow.upmod,
+.res-nightmode .comment .arrow.up,
+.res-nightmode .link .arrow.downmod,
+.res-nightmode .link .arrow.down,
+.res-nightmode .reddit-link .arrow.downmod,
+.res-nightmode .reddit-link .arrow.down,
+.res-nightmode .comment .arrow.downmod,
+.res-nightmode .comment .arrow.down,
+.arrow.upmod,
+.arrow.up,
+.arrow.downmod,
+.arrow.down,
+.pref-lang.choice,
+.logout a,
+#header-img,
+#header-img.default-header,
+.res-nightmode .side::before,
+.side::before,
+.res-nightmode #search input[type="submit"],
+.res-nightmode #search input[type="submit"]:hover,
+#search input[type="submit"],
+#search input[type="submit"]:hover,
+.res-nightmode .titlebox .users-online::before,
+.titlebox .users-online::before {
+  background-image: url(%%spritesheet%%);
 }
 
 .tabmenu,
@@ -869,7 +934,6 @@ textarea {
 
 .RESDialogSmall.livePreview .gearIcon {
   position: static;
-  background: transparent url("%%spritesheet%%") -162px -97px no-repeat !important;
 }
 
 .RESDialogSmall.livePreview .gearIcon::after {
@@ -900,11 +964,11 @@ textarea {
 }
 
 .res-nightmode .thumbnail.self {
-  background: url(%%spritesheet%%) -176px -140px !important;
+  background-position: -176px -140px !important;
 }
 
 .res-nightmode .thumbnail.default {
-  background: url(%%spritesheet%%) -216px 0 !important;
+  background-position: -216px 0 !important;
 }
 
 .thumbnail,
@@ -933,19 +997,19 @@ textarea {
 }
 
 .thumbnail.self {
-  background: url(%%spritesheet%%) -220px -70px;
+  background-position: -220px -70px;
 }
 
 .thumbnail.default {
-  background: url(%%spritesheet%%) -106px -141px;
+  background-position: -106px -141px;
 }
 
 .res-nightmode .thing.over18 > .thumbnail.self {
-  background: url(%%spritesheet%%) -36px -83px !important;
+  background-position: -36px -83px !important;
 }
 
 .thing.over18 > .thumbnail.self {
-  background: url(%%spritesheet%%) -36px -83px;
+  background-position: -36px -83px;
   border: 0 !important;
   opacity: 0.87;
 }
@@ -1442,7 +1506,7 @@ h6, .md h6 {
 .res-nightmode .reddit-link .arrow.up,
 .res-nightmode .comment .arrow.upmod,
 .res-nightmode .comment .arrow.up {
-  background: url(%%spritesheet%%) -78px -160px !important;
+  background-position: -78px -160px !important;
 }
 
 .res-nightmode .link .arrow.downmod, .res-nightmode .link .arrow.down,
@@ -1450,7 +1514,7 @@ h6, .md h6 {
 .res-nightmode .reddit-link .arrow.down,
 .res-nightmode .comment .arrow.downmod,
 .res-nightmode .comment .arrow.down {
-  background: url(%%spritesheet%%) -116px -23px !important;
+  background-position: -116px -23px !important;
 }
 
 .res-nightmode .link .arrow.upmod::before, .res-nightmode .link .arrow.upmod:hover::before,
@@ -1495,11 +1559,11 @@ h6, .md h6 {
 }
 
 .arrow.upmod, .arrow.up {
-  background: url(%%spritesheet%%) -55px -160px;
+  background-position: -55px -160px;
 }
 
 .arrow.downmod, .arrow.down {
-  background: url(%%spritesheet%%) -192px 0;
+  background-position: -192px 0;
 }
 
 .res-nightmode #siteTable {
@@ -1811,17 +1875,11 @@ div.content {
 }
 
 #header {
-  background-attachment: fixed;
-  background-image: url(%%header3%%);
-}
-
-#header {
   height: 223px;
-}
-
-#header {
   border: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 15px;
+  background-attachment: scroll, fixed;
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header3%%);
 }
 
 @media (min-width: 62em) {
@@ -1952,7 +2010,7 @@ div.content {
 }
 
 .pref-lang.choice {
-  background: url(%%spritesheet%%) -200px -63px no-repeat;
+  background-position: -200px -63px;
 }
 
 .gearIcon {
@@ -1960,7 +2018,7 @@ div.content {
 }
 
 .logout a {
-  background: url(%%spritesheet%%) -16px -43px no-repeat;
+  background-position: -16px -43px;
 }
 
 #header-bottom-right, .res #header-bottom-right {
@@ -2096,19 +2154,45 @@ div.content {
   background-color: #40c4ff;
 }
 
-#header-bottom-left .pagename a,
-#header-bottom-left .pagename:hover a,
-#header-bottom-left .tabmenu li a,
-#header-bottom-left .tabmenu li #viewImagesButton {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+#header-bottom-left {
+  position: absolute;
+  top: 86px;
+  height: 53px;
+  font-size: 14px;
+}
+
+#header-bottom-left .pagename {
+  margin: 0;
+  color: transparent;
+  font-size: 16px;
 }
 
 #header-bottom-left .pagename a {
+  position: relative;
+  display: inline-block;
+  height: 53px;
+  padding: 0 16px;
   color: rgba(255, 255, 255, 0.7);
+  font-variant: normal;
+  line-height: 53px;
+  text-transform: lowercase;
 }
 
-#header-bottom-left .pagename:hover a {
+#header-bottom-left .pagename a:hover {
+  text-decoration: none;
+}
+
+#header-bottom-left .pagename a:hover a {
   color: #fff;
+}
+
+#header-bottom-left .tabmenu {
+  position: absolute;
+  left: 0;
+  top: 73px;
+  width: 100vw;
+  padding-left: 16px;
+  margin-top: 0;
 }
 
 #header-bottom-left .tabmenu li a,
@@ -2129,26 +2213,6 @@ div.content {
 #header-bottom-left .tabmenu li a:hover,
 #header-bottom-left .tabmenu li #viewImagesButton:hover {
   color: #fff !important;
-}
-
-#header-bottom-left {
-  position: absolute;
-  top: 6.14286em;
-  height: 3.78571em;
-  font-size: 1.4em;
-}
-
-#header-bottom-left .pagename {
-  color: transparent;
-}
-
-#header-bottom-left .tabmenu {
-  position: absolute;
-  left: 0;
-  top: 5.21429em;
-  width: 100vw;
-  padding-left: 1em;
-  margin-top: 0;
 }
 
 #header-bottom-left .tabmenu li a[href$="/rising/"],
@@ -2175,36 +2239,21 @@ div.content {
 
 #header-img,
 #header-img.default-header {
-  height: 3.78571em;
+  height: 53px;
   width: 0;
-  margin: 0 0 0 2.5em;
-  padding-right: 2.5em;
-  background: url(%%spritesheet%%) 0 -117px no-repeat;
-}
-
-.pagename {
-  margin: 0;
-  font-size: 1.14286em;
-}
-
-.pagename a {
-  position: relative;
-  display: inline-block;
-  height: 3.3125em;
-  padding: 0 1em;
-  font-variant: normal;
-  line-height: 3.3125em;
-  text-transform: lowercase;
-}
-
-.pagename a:hover {
-  text-decoration: none;
+  margin: 0 0 0 40px;
+  padding-right: 35px;
+  background-position: 0 -117px;
 }
 
 @media (min-width: 62em) {
   #header-bottom-left {
-    top: 11.35714em;
-    height: 4.57143em;
+    top: 159px;
+    height: 64px;
+  }
+  #header-bottom-left .pagename a {
+    height: 64px;
+    line-height: 62px;
   }
   #header-bottom-left .tabmenu {
     position: static;
@@ -2215,17 +2264,13 @@ div.content {
   }
   #header-img,
   #header-img.default-header {
-    height: 4.57143em;
-    margin: 0 0 0 1em;
-  }
-  .pagename a {
-    height: 4em;
-    line-height: 4em;
+    height: 64px;
+    margin: 0 0 0 16px;
   }
   #header-img-a ~ .pagename,
   #header-img-a ~ .tabmenu {
     position: relative;
-    top: -0.125em;
+    top: -2px;
     display: inline-block;
   }
 }
@@ -2241,7 +2286,7 @@ div.content {
 }
 
 .res-nightmode .side::before {
-  background: url(%%spritesheet%%) 0 -59px no-repeat;
+  background-position: 0 -59px;
 }
 
 .side {
@@ -2275,7 +2320,7 @@ div.content {
   height: 36px;
   width: 36px;
   content: "";
-  background: url(%%spritesheet%%) -158px -23px no-repeat;
+  background-position: -158px -23px;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2339,11 +2384,11 @@ div.content {
 }
 
 .res-nightmode #search input[type="submit"] {
-  background: url(%%spritesheet%%) -130px -97px;
+  background-position: -130px -97px;
 }
 
 .res-nightmode #search input[type="submit"]:hover {
-  background: url(%%spritesheet%%) -130px -97px;
+  background-position: -130px -97px;
 }
 
 #search::before {
@@ -2401,11 +2446,11 @@ div.content {
   width: 16px;
   opacity: 0.54;
   position: relative;
-  background: url(%%spritesheet%%) -20px -97px;
+  background-position: -20px -97px;
 }
 
 #search input[type="submit"]:hover {
-  background: url(%%spritesheet%%) -20px -97px;
+  background-position: -20px -97px;
   opacity: 0.87;
 }
 
@@ -2526,7 +2571,7 @@ label + #moresearchinfo {
 }
 
 .res-nightmode .titlebox .users-online::before {
-  background: url(%%spritesheet%%) -262px -160px no-repeat;
+  background-position: -262px -160px;
   opacity: 1;
 }
 
@@ -2572,7 +2617,7 @@ label + #moresearchinfo {
 }
 
 .titlebox .users-online::before {
-  background: url(%%spritesheet%%) -246px -160px no-repeat;
+  background-position: -246px -160px;
   opacity: 0.87;
   height: 16px;
   width: 16px;
@@ -2805,7 +2850,7 @@ label + #moresearchinfo {
 }
 
 .commentarea .menuarea {
-  margin-bottom: 1.30769em;
+  margin-bottom: 17px;
 }
 
 .commentarea .menuarea .spacer + .spacer {
@@ -2823,7 +2868,7 @@ label + #moresearchinfo {
 }
 
 .commentarea > .usertext {
-  margin-bottom: 1.23077em;
+  margin-bottom: 16px;
   margin-left: 0;
 }
 
@@ -2844,8 +2889,8 @@ label + #moresearchinfo {
 }
 
 .commentNavSortType {
-  padding: 0 0.4em;
-  font-size: 0.76923em;
+  padding: 0 4px;
+  font-size: 10px;
 }
 
 .res-nightmode .commentingAs {
@@ -2858,8 +2903,8 @@ label + #moresearchinfo {
 
 .RESCharCounter {
   position: relative;
-  top: 2.33333em;
-  left: -5.66667em;
+  top: 35px;
+  left: -85px;
 }
 
 .usertext button {
@@ -2867,12 +2912,12 @@ label + #moresearchinfo {
 }
 
 .usertext .bottom-area {
-  line-height: 2.76923em;
+  line-height: 36px;
 }
 
 .usertext .help-toggle,
 .usertext a.reddiquette {
-  margin: 0 0.76923em 0 0;
+  margin: 0 10px 0 0;
   font-size: 13px;
 }
 
@@ -2882,9 +2927,9 @@ label + #moresearchinfo {
 
 .RESBigEditorPop {
   margin: 0 !important;
-  padding: 0 0.61538em !important;
-  height: 2.76923em !important;
-  line-height: 2.76923em !important;
+  padding: 0 8px !important;
+  height: 36px !important;
+  line-height: 36px !important;
   border: 0 !important;
   background-color: transparent !important;
 }
@@ -2925,19 +2970,19 @@ label + #moresearchinfo {
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
-  margin: 0 0 1.6em 0;
+  margin: 0 0 16px 0;
   border: 0;
 }
 
 .gold-accent.comment-visits-box .title::after {
   display: inline-block;
-  margin-left: -1.46154em;
+  margin-left: -19px;
   content: "";
   vertical-align: middle;
 }
 
 #comment-visits {
-  width: 12.84615em;
+  width: 167px;
 }
 
 .res-nightmode .linkinfo .shortlink input {

@@ -10,7 +10,7 @@
 	background-color: transparent !important;
 }
 
-.res-nightmode .side::before { background: url(%%spritesheet%%) 0 -59px no-repeat; }
+.res-nightmode .side::before { background-position: 0 -59px; }
 
 .side {
 	position: absolute;
@@ -44,7 +44,7 @@
     height: 36px;
     width: 36px;
     content: "";
-    background: url(%%spritesheet%%) -158px -23px no-repeat;
+    background-position: -158px -23px;
 		@include transition-default;
 	}
 

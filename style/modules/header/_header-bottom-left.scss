@@ -81,7 +81,7 @@
   width: 0;
   @include margin(0 0 0 40px);
   padding-right: 35px; // makes space for snoo visibility
-  background: url(%%spritesheet%%) 0 -117px no-repeat;
+  background-position: 0 -117px;
 }
 
 @media (min-width: $screen-md-min) {

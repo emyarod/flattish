@@ -3,7 +3,12 @@
 // media and self post expansion buttons
 .res-nightmode .expando-button {
   // base styles
-	border: em(1, 10) solid $dark-hint-text;
+	border: 1px solid $dark-hint-text;
+
+	&.image,
+	&.gallery {
+		box-sizing: unset; // to force width and height to 25px
+	}
 
 	&:hover { border-color: $dark-secondary-text; }
 
@@ -20,47 +25,41 @@
 
 	// video expandos
 	&.video {
-
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -106px -87px !important;
+			background-position: -106px -87px !important;
 		}
 	}
 
 	// image expandos
 	&.image {
-		box-sizing: unset; // to force width and height to 25px
-
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -92px 0 !important;
+			background-position: -92px 0 !important;
 		}
 	}
 
   // photo album expandos
 	&.gallery {
-		box-sizing: unset; // to force width and height to 25px
-
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -24px 0 !important;
+			background-position: -24px 0 !important;
 		}
 	}
 
 	// self expandos
 	&.selftext {
-
 		&.collapsed,
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -130px -117px !important;
+			background-position: -130px -117px !important;
 		}
 	}
 }
@@ -127,7 +126,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -176px -63px;
+			background-position: -176px -63px;
 		}
 	}
 
@@ -139,7 +138,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -68px 0 !important;
+			background-position: -68px 0 !important;
 		}
 	}
 
@@ -150,7 +149,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) 0 0;
+			background-position: 0 0;
 		}
 	}
 
@@ -161,7 +160,7 @@
 		&.collapsed:hover,
 		&.expanded,
 		&.expanded:hover {
-			background: url(%%spritesheet%%) -107px -117px;
+			background-position: -107px -117px;
 		}
 	}
 }

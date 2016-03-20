@@ -21,7 +21,7 @@
       }
 
       .pref-lang.choice {
-        background: url(%%spritesheet%%) -200px -63px no-repeat;
+        background-position: -200px -63px;
       }
 
       .gearIcon {
@@ -29,7 +29,7 @@
       }
 
       .logout a {
-        background: url(%%spritesheet%%) -16px -43px no-repeat;
+        background-position: -16px -43px;
       }
     } @else if ($image-light) {
       #userbarToggle,
@@ -43,7 +43,7 @@
       }
 
       .pref-lang.choice {
-        background: url(%%spritesheet%%) -139px -43px no-repeat;
+        background-position: -139px -43px;
       }
 
       .gearIcon {
@@ -51,7 +51,7 @@
       }
 
       .logout a {
-        background: url(%%spritesheet%%) 0 -43px no-repeat;
+        background-position: 0 -43px;
       }
     } @else {
       #userbarToggle,
@@ -65,7 +65,7 @@
       }
 
       .pref-lang.choice {
-        background: url(%%spritesheet%%) -200px -63px no-repeat;
+        background-position: -200px -63px;
       }
 
       .gearIcon {
@@ -73,7 +73,7 @@
       }
 
       .logout a {
-        background: url(%%spritesheet%%) -16px -43px no-repeat;
+        background-position: -16px -43px;
       }
     }
   } @else {
@@ -88,7 +88,7 @@
     }
 
     .pref-lang.choice {
-      background: url(%%spritesheet%%) -139px -43px no-repeat;
+      background-position: -139px -43px;
     }
 
     .gearIcon {
@@ -96,7 +96,7 @@
     }
 
     .logout a {
-      background: url(%%spritesheet%%) 0 -43px no-repeat;
+      background-position: 0 -43px;
     }
   }
 }

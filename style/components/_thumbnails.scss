@@ -11,9 +11,9 @@
 		&:hover { opacity: 1; }
 	}
 
-	&.self { background: url(%%spritesheet%%) -176px -140px !important; }
+	&.self { background-position: -176px -140px !important; }
 
-	&.default { background: url(%%spritesheet%%) -216px 0 !important; }
+	&.default { background-position: -216px 0 !important; }
 }
 
 .thumbnail,
@@ -42,18 +42,18 @@
 		&:hover { opacity: 0.5; }
 	}
 
-	&.self { background: url(%%spritesheet%%) -220px -70px; }
+	&.self { background-position: -220px -70px; }
 
-	&.default { background: url(%%spritesheet%%) -106px -141px; }
+	&.default { background-position: -106px -141px; }
 }
 
 // nsfw thumbnail styling
 .res-nightmode .thing.over18 > .thumbnail.self {
-	background: url(%%spritesheet%%) -36px -83px !important;
+	background-position: -36px -83px !important;
 }
 
 .thing.over18 > .thumbnail.self {
-	background: url(%%spritesheet%%) -36px -83px;
+	background-position: -36px -83px;
 	border: 0 !important;
 	opacity: 0.87;
 
