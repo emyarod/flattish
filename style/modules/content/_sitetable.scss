@@ -9,6 +9,7 @@
 	z-index: 1;
 	@include margin(null 16px null 0);
 	width: 32px !important;
+	overflow: visible;
 }
 
 .res-nightmode .link .arrow,
@@ -23,12 +24,12 @@
 
 	&.upmod,
 	&.up {
-		background: url(%%spritesheet%%) -78px -160px !important;
+		background-position: -78px -160px !important;
 	}
 
 	&.downmod,
 	&.down {
-		background: url(%%spritesheet%%) -116px -23px !important;
+		background-position: -116px -23px !important;
 	}
 }
 
@@ -50,7 +51,8 @@
 
 // default arrow styles -- also affects sidebar vote arrows
 .arrow,
-.arrow::before {
+.arrow::before,
+.arrow::after {
 	height: 23px;
 	width: 23px;
 }
@@ -60,21 +62,28 @@
 
 	&::before {
 		position: absolute;
-		z-index: -1;
 		content: " ";
-		background-color: $light-divider-text;
 		border-radius: 50%;
+	}
+
+	&::before {
+		z-index: -1;
+		background-color: $light-divider-text;
 		@include transition-default;
 	}
 
 	&.upmod,
 	&.up {
-		background: url(%%spritesheet%%) -55px -160px;
+		background-position: -55px -160px;
+
+		&:focus::after { background-color: $upvote; }
 	}
 
 	&.downmod,
 	&.down {
-		background: url(%%spritesheet%%) -192px 0;
+		background-position: -192px 0;
+
+		&:focus::after { background-color: $downvote; }
 	}
 }
 
@@ -112,8 +121,9 @@
 }
 
 #siteTable {
-	@include drop-shadow(1);
+	border-radius: 2px;
 	background-color: $light-cards;
+	@include drop-shadow(1);
 
 	// aligns score between new arrows
 	.score {
@@ -236,12 +246,12 @@
 	.buttons li {
 		a { color: $light-text; }
 
-		&:first-child { opacity: 1; }
+		// &:first-child { opacity: 1; }
 
-		&:not(.first) { opacity: 0; }
+		// &:not(.first) { opacity: 0; }
 	}
 
-	&:hover { .buttons li { opacity: 1; } }
+	// &:hover { .buttons li { opacity: 1; } }
 }
 
 .flat-list.buttons {
