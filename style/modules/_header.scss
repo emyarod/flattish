@@ -1,29 +1,22 @@
 // main: ../main.scss
 
-@mixin header($gradient: false, $large: false, $animate: false) {
-  // gradient
-  @if ($gradient) {
-    #header {
-      background-attachment: scroll, fixed;
-      background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 75%),
-      url(%%header3%%);
-    }
-  } @else {
-    #header{
-      background-attachment: fixed;
-      background-image: url(%%header3%%);
-    }
-  }
+$header-size-large: 420px;
+$header-size-default: 223px;
 
-  // large
-  @if ($large) {
-    #header {
+@mixin header($large: false, $animate: false) {
+  #header {
+    // large
+    @if ($large) {
       height: 420px;
-    }
-  } @else {
-    #header {
+    } @else {
       height: 223px;
     }
+
+    border: 0;
+    margin-bottom: 15px;
+    background-attachment: scroll, fixed;
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),
+    url(%%header3%%);
   }
 
   // animate header
@@ -34,19 +27,12 @@
       100% { background-position: 0 0; }
     }
 
-    #header {
-      @include animation(moveheader 20s infinite);
-    }
+    #header { @include animation(moveheader 20s infinite); }
   }
 }
 
-// gradient, large, animate
+// large, animate
 @include header();
-
-#header {
-  border: 0;
-  margin-bottom: em(15, 10);
-}
 
 @media (min-width: $screen-md-min) {
   #header {
