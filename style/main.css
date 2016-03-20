@@ -674,6 +674,16 @@ select option {
   font-size: initial;
 }
 
+.arrow:focus::after,
+.sidecontentbox .gadget .right a:focus::before {
+  position: absolute;
+  content: " ";
+  border-radius: 50%;
+  -webkit-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  -moz-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
 .res-nightmode .expando-button.video.collapsed,
 .res-nightmode .expando-button.video.collapsed:hover,
 .res-nightmode .expando-button.video.expanded,
@@ -1549,7 +1559,7 @@ h6, .md h6 {
   background-color: rgba(0, 0, 0, 0.38);
 }
 
-.arrow::before, .arrow:focus::after {
+.arrow::before {
   position: absolute;
   content: " ";
   border-radius: 50%;
@@ -1561,12 +1571,6 @@ h6, .md h6 {
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.arrow:focus::after {
-  -webkit-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
-  -moz-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
-  animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 .arrow.upmod, .arrow.up {
@@ -2797,15 +2801,9 @@ label + #moresearchinfo {
 }
 
 .sidecontentbox .gadget .right a:focus::before {
-  position: absolute;
   height: 20px;
   width: 20px;
-  content: " ";
   background-color: rgba(97, 97, 97, 0.9);
-  border-radius: 50%;
-  -webkit-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
-  -moz-animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
-  animation: button-ripple 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 @media (min-width: 62em) {
