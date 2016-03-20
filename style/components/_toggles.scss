@@ -65,8 +65,8 @@ $material-checkboxes: ();
   // appearance when checked
   &:checked+label::before {
     border-color: $primary !important;
-    background: $primary url(%%spritesheet%%) -246px -138px no-repeat scroll;
-    @include transition-default;
+    background: $primary url(%%spritesheet%%) -246px -138px;
+    @include transition(background-color 0.2s $animation-curve-default);
   }
 }
 
