@@ -4,19 +4,6 @@
 // need to provide width of object to which the pseudoelement is attached
 // need to provide text within tooltip
 
-@mixin button-ripple-circle($direction-1, $direction-1-value, $direction-2, $direction-2-value, $desired-size, $orig-font-size) {
-	position: absolute;
-	$direction-1: em($direction-1-value, $orig-font-size);
-	$direction-2: em($direction-2-value, $orig-font-size);
-	height: em($desired-size, $orig-font-size);
-	width: em($desired-size, $orig-font-size);
-	content: " ";
-	background-color: $tooltip;
-	border-radius: 50%;
-	opacity: 1;
-	@include animation(button-ripple .35s ease forwards);
-}
-
 $tooltip-selector-map: (
   // link action icon tooltips
   share-button: (
