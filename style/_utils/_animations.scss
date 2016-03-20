@@ -38,7 +38,7 @@
   100% { background-size: 100%; }
 }
 
-// ripple effect on tooltip press
+// ripple effect on button press
 @include keyframes(button-ripple) {
 	0% {
 		@include transform(scale(0));
