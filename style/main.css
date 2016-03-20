@@ -492,7 +492,7 @@ select option {
 }
 
 .res-nightmode .expando-button.video.collapsed, .res-nightmode .expando-button.video.collapsed:hover, .res-nightmode .expando-button.video.expanded, .res-nightmode .expando-button.video.expanded:hover {
-  background: url(%%play-night%%) !important;
+  background: url(%%spritesheet%%) -106px -87px !important;
 }
 
 .res-nightmode .expando-button.image {
@@ -500,7 +500,7 @@ select option {
 }
 
 .res-nightmode .expando-button.image.collapsed, .res-nightmode .expando-button.image.collapsed:hover, .res-nightmode .expando-button.image.expanded, .res-nightmode .expando-button.image.expanded:hover {
-  background: url(%%camera-night%%) !important;
+  background: url(%%spritesheet%%) -92px 0 !important;
 }
 
 .res-nightmode .expando-button.gallery {
@@ -508,23 +508,23 @@ select option {
 }
 
 .res-nightmode .expando-button.gallery.collapsed, .res-nightmode .expando-button.gallery.collapsed:hover, .res-nightmode .expando-button.gallery.expanded, .res-nightmode .expando-button.gallery.expanded:hover {
-  background: url(%%album-night%%) !important;
+  background: url(%%spritesheet%%) -24px 0 !important;
 }
 
 .res-nightmode .expando-button.selftext.collapsed, .res-nightmode .expando-button.selftext.collapsed:hover, .res-nightmode .expando-button.selftext.expanded, .res-nightmode .expando-button.selftext.expanded:hover {
-  background: url(%%text-night%%) !important;
+  background: url(%%spritesheet%%) -130px -117px !important;
 }
 
 .expando-button {
   position: relative;
-  top: 0.2em;
-  width: 2.5em;
-  height: 2.5em;
+  top: 2px;
+  width: 25px;
+  height: 25px;
   z-index: 1;
-  margin-right: 0.6em;
+  margin-right: 6px;
   margin-bottom: 0;
-  border: 0.1em solid rgba(0, 0, 0, 0.38);
-  border-radius: 0.2em;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  border-radius: 2px;
   cursor: pointer;
 }
 
@@ -540,17 +540,17 @@ select option {
 }
 
 .expando-button.collapsed:before, .expando-button.collapsed:hover:before, .expando-button.expanded:before, .expando-button.expanded:hover:before {
-  width: 0.7em;
-  height: 0.1em;
-  top: 1.7em;
-  left: 1.4em;
+  width: 7px;
+  height: 1px;
+  top: 17px;
+  left: 14px;
 }
 
 .expando-button.collapsed:after, .expando-button.collapsed:hover:after, .expando-button.expanded:after, .expando-button.expanded:hover:after {
-  width: 0.1em;
-  height: 0.7em;
-  top: 1.4em;
-  left: 1.7em;
+  width: 1px;
+  height: 7px;
+  top: 14px;
+  left: 17px;
 }
 
 .expando-button.collapsed:after, .expando-button.expanded:after {
@@ -573,11 +573,7 @@ select option {
 }
 
 .expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
-  background: url(%%play%%);
-}
-
-.expando-button.image, .expando-button.gallery {
-  background-position: initial !important;
+  background: url(%%spritesheet%%) -176px -63px;
 }
 
 .expando-button.image {
@@ -585,15 +581,15 @@ select option {
 }
 
 .expando-button.image.collapsed, .expando-button.image.collapsed:hover, .expando-button.image.expanded, .expando-button.image.expanded:hover {
-  background: url(%%camera%%);
+  background: url(%%spritesheet%%) -68px 0 !important;
 }
 
 .expando-button.gallery.collapsed, .expando-button.gallery.collapsed:hover, .expando-button.gallery.expanded, .expando-button.gallery.expanded:hover {
-  background: url(%%album%%);
+  background: url(%%spritesheet%%) 0 0;
 }
 
 .expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
-  background: url(%%text%%);
+  background: url(%%spritesheet%%) -107px -117px;
 }
 
 #sr-header-area .drop-choices.srdrop.inuse {
@@ -873,7 +869,7 @@ textarea {
 
 .RESDialogSmall.livePreview .gearIcon {
   position: static;
-  background: transparent url("%%settings-night%%") no-repeat !important;
+  background: transparent url("%%spritesheet%%") -162px -97px no-repeat !important;
 }
 
 .RESDialogSmall.livePreview .gearIcon::after {
@@ -895,7 +891,7 @@ textarea {
 }
 
 .res-nightmode .thumbnail.self, .res-nightmode .thumbnail.default {
-  border: 0.1em solid rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
   opacity: 0.5;
 }
 
@@ -904,11 +900,11 @@ textarea {
 }
 
 .res-nightmode .thumbnail.self {
-  background: url(%%thumbnail-self-night%%) !important;
+  background: url(%%spritesheet%%) -176px -140px !important;
 }
 
 .res-nightmode .thumbnail.default {
-  background: url(%%thumbnail-default-night%%) !important;
+  background: url(%%spritesheet%%) -216px 0 !important;
 }
 
 .thumbnail,
@@ -916,19 +912,19 @@ textarea {
 .thumbnail.default {
   border-radius: 50%;
   font-size: inherit;
-  margin: 0 1.6em 0 0;
-  max-height: 7em;
+  margin: 0 16px 0 0;
+  max-height: 70px;
 }
 
 .thumbnail img {
-  height: 7em;
+  height: 70px;
   width: auto;
 }
 
 .thumbnail.self, .thumbnail.default {
-  border: 0.1em solid rgba(0, 0, 0, 0.54);
-  height: 7em;
-  width: 7em;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  height: 70px;
+  width: 70px;
   opacity: 0.38;
 }
 
@@ -937,19 +933,19 @@ textarea {
 }
 
 .thumbnail.self {
-  background: url(%%thumbnail-self%%);
+  background: url(%%spritesheet%%) -220px -70px;
 }
 
 .thumbnail.default {
-  background: url(%%thumbnail-default%%);
+  background: url(%%spritesheet%%) -106px -141px;
 }
 
 .res-nightmode .thing.over18 > .thumbnail.self {
-  background: url(%%nsfw2%%) !important;
+  background: url(%%spritesheet%%) -36px -83px !important;
 }
 
 .thing.over18 > .thumbnail.self {
-  background: url(%%nsfw2%%);
+  background: url(%%spritesheet%%) -36px -83px;
   border: 0 !important;
   opacity: 0.87;
 }
@@ -1000,10 +996,10 @@ input[type="checkbox"]:disabled {
 
 .login-form-side input[type="checkbox"]:checked + label::before, .c-checkbox input[type="checkbox"]:checked + label::before, .flairtoggle input[type="checkbox"]:checked + label::before, .linefield input[type="checkbox"]:checked + label::before, .roundfield-content input[type="checkbox"]:checked + label::before {
   border-color: #009688 !important;
-  background: #009688 url(%%tick%%) no-repeat scroll 0% 60%;
-  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #009688 url(%%spritesheet%%) -246px -138px;
+  -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .res-nightmode .toggleButton {
@@ -1023,9 +1019,9 @@ input[type="checkbox"]:disabled {
 }
 
 .toggleButton {
-  width: 3.6em;
-  height: 1.4em;
-  border-radius: 1.4em;
+  width: 36px;
+  height: 14px;
+  border-radius: 14px;
   background-color: rgba(0, 0, 0, 0.38);
 }
 
@@ -1035,8 +1031,8 @@ input[type="checkbox"]:disabled {
 
 .toggleButton::before {
   top: 0 !important;
-  height: 2em;
-  width: 2em;
+  height: 20px;
+  width: 20px;
   border: 0 !important;
   border-radius: 50% !important;
   opacity: 1 !important;
@@ -1061,7 +1057,11 @@ input[type="checkbox"]:disabled {
 }
 
 li a.post-sharing-button {
-  background: url(%%share%%);
+  background-position: -178px -97px;
+}
+
+.res-nightmode li a.post-sharing-button {
+  background-position: -76px -63px;
 }
 
 li a.post-sharing-button::after {
@@ -1135,7 +1135,11 @@ li a.post-sharing-button::after {
 }
 
 a[data-event-action="delete"] {
-  background: url(%%delete%%);
+  background-position: -152px 0;
+}
+
+.res-nightmode a[data-event-action="delete"] {
+  background-position: -56px -43px;
 }
 
 a[data-event-action="delete"]::after {
@@ -1149,7 +1153,11 @@ a[data-event-action="delete"]::after {
 }
 
 a[data-event-action="spam"] {
-  background: url(%%spam--block%%);
+  background-position: -198px -97px;
+}
+
+.res-nightmode a[data-event-action="spam"] {
+  background-position: -96px -63px;
 }
 
 a[data-event-action="spam"]::after {
@@ -1163,7 +1171,11 @@ a[data-event-action="spam"]::after {
 }
 
 a[data-event-action="remove"] {
-  background: url(%%remove--remove-circle%%);
+  background-position: -200px -77px;
+}
+
+.res-nightmode a[data-event-action="remove"] {
+  background-position: -36px -63px;
 }
 
 a[data-event-action="remove"]::after {
@@ -1177,7 +1189,11 @@ a[data-event-action="remove"]::after {
 }
 
 .approve-button a {
-  background: url(%%approve--spellcheck%%);
+  background-position: -48px 0;
+}
+
+.res-nightmode .approve-button a {
+  background-position: -36px -43px;
 }
 
 .approve-button a::after {
@@ -1191,7 +1207,11 @@ a[data-event-action="remove"]::after {
 }
 
 .reportbtn {
-  background: url(%%report%%);
+  background-position: 0 -97px;
+}
+
+.res-nightmode .reportbtn {
+  background-position: -56px -63px;
 }
 
 .reportbtn::after {
@@ -1205,7 +1225,11 @@ a[data-event-action="remove"]::after {
 }
 
 a[data-event-action="lock"] {
-  background: url(%%lock--lock-outline%%);
+  background-position: -194px -23px;
+}
+
+.res-nightmode a[data-event-action="lock"] {
+  background-position: -96px -43px;
 }
 
 a[data-event-action="lock"]::after {
@@ -1219,7 +1243,11 @@ a[data-event-action="lock"]::after {
 }
 
 a[data-event-action="unlock"] {
-  background: url(%%unlock--lock-open%%);
+  background-position: -258px -140px;
+}
+
+.res-nightmode a[data-event-action="unlock"] {
+  background-position: -116px -63px;
 }
 
 a[data-event-action="unlock"]::after {
@@ -1233,7 +1261,11 @@ a[data-event-action="unlock"]::after {
 }
 
 a[data-event-action="marknsfw"] {
-  background: url(%%nsfw--mood-bad%%);
+  background-position: -156px -63px;
+}
+
+.res-nightmode a[data-event-action="marknsfw"] {
+  background-position: -194px -43px;
 }
 
 a[data-event-action="marknsfw"]::after {
@@ -1247,7 +1279,11 @@ a[data-event-action="marknsfw"]::after {
 }
 
 a[data-event-action="unmarknsfw"] {
-  background: url(%%unnsfw--mood%%);
+  background-position: -35px -160px;
+}
+
+.res-nightmode a[data-event-action="unmarknsfw"] {
+  background-position: -136px -63px;
 }
 
 a[data-event-action="unmarknsfw"]::after {
@@ -1261,7 +1297,11 @@ a[data-event-action="unmarknsfw"]::after {
 }
 
 a[data-event-action="distinguish"] {
-  background: url(%%distinguish--security%%);
+  background-position: -172px 0;
+}
+
+.res-nightmode a[data-event-action="distinguish"] {
+  background-position: -76px -43px;
 }
 
 a[data-event-action="distinguish"]::after {
@@ -1274,6 +1314,14 @@ a[data-event-action="distinguish"]::after {
   line-height: 32px;
 }
 
+.sidecontentbox .gadget .right a {
+  background-position: -116px 0;
+}
+
+.res-nightmode .sidecontentbox .gadget .right a {
+  background-position: -134px 0;
+}
+
 .sidecontentbox .gadget .right a::after {
   right: 35px;
   height: 32px;
@@ -1282,6 +1330,10 @@ a[data-event-action="distinguish"]::after {
   content: "Clear all";
   font-size: 14px;
   line-height: 32px;
+}
+
+li a.post-sharing-button, .thing:not(.saved) .link-save-button a, .thing:not(.saved) .link-unsave-button a, .saved .link-unsave-button a, .saved .link-save-button a, .state-button a[action="hide"], .state-button a[action="unhide"], a[data-event-action="delete"], a[data-event-action="spam"], a[data-event-action="remove"], .approve-button a, .reportbtn, a[data-event-action="lock"], a[data-event-action="unlock"], a[data-event-action="marknsfw"], a[data-event-action="unmarknsfw"], a[data-event-action="distinguish"], .sidecontentbox .gadget .right a {
+  background-image: url(%%spritesheet%%);
 }
 
 li a.post-sharing-button::after, .thing:not(.saved) .link-save-button a::after, .thing:not(.saved) .link-unsave-button a::after, .saved .link-unsave-button a::after, .saved .link-save-button a::after, .state-button a[action="hide"]::after, .state-button a[action="unhide"]::after, a[data-event-action="delete"]::after, a[data-event-action="spam"]::after, a[data-event-action="remove"]::after, .approve-button a::after, .reportbtn::after, a[data-event-action="lock"]::after, a[data-event-action="unlock"]::after, a[data-event-action="marknsfw"]::after, a[data-event-action="unmarknsfw"]::after, a[data-event-action="distinguish"]::after, .sidecontentbox .gadget .right a::after {
@@ -1390,7 +1442,7 @@ h6, .md h6 {
 .res-nightmode .reddit-link .arrow.up,
 .res-nightmode .comment .arrow.upmod,
 .res-nightmode .comment .arrow.up {
-  background: url(%%upvote-night%%) !important;
+  background: url(%%spritesheet%%) -78px -160px !important;
 }
 
 .res-nightmode .link .arrow.downmod, .res-nightmode .link .arrow.down,
@@ -1398,7 +1450,7 @@ h6, .md h6 {
 .res-nightmode .reddit-link .arrow.down,
 .res-nightmode .comment .arrow.downmod,
 .res-nightmode .comment .arrow.down {
-  background: url(%%downvote-night%%) !important;
+  background: url(%%spritesheet%%) -116px -23px !important;
 }
 
 .res-nightmode .link .arrow.upmod::before, .res-nightmode .link .arrow.upmod:hover::before,
@@ -1443,11 +1495,11 @@ h6, .md h6 {
 }
 
 .arrow.upmod, .arrow.up {
-  background: url(%%upvote%%);
+  background: url(%%spritesheet%%) -55px -160px;
 }
 
 .arrow.downmod, .arrow.down {
-  background: url(%%downvote%%);
+  background: url(%%spritesheet%%) -192px 0;
 }
 
 .res-nightmode #siteTable {
@@ -1614,7 +1666,7 @@ h6, .md h6 {
   border-radius: 2px;
   background-color: #ff5252;
   color: #fff;
-  font-size: 1em;
+  font-size: 12px;
   font-weight: bold;
   line-height: 0;
   padding: 0 2px;
@@ -1635,18 +1687,6 @@ h6, .md h6 {
 
 .entry .buttons li a {
   color: rgba(0, 0, 0, 0.87);
-}
-
-.entry .buttons li:first-child {
-  opacity: 1;
-}
-
-.entry .buttons li:not(.first) {
-  opacity: 0;
-}
-
-.entry:hover .buttons li {
-  opacity: 1;
 }
 
 .flat-list.buttons {
@@ -1912,22 +1952,22 @@ div.content {
 }
 
 .pref-lang.choice {
-  background: url(%%prefs-night%%) no-repeat;
+  background: url(%%spritesheet%%) -200px -63px no-repeat;
 }
 
 .gearIcon {
-  background: transparent url(%%settings-night%%) no-repeat !important;
+  background: transparent url(%%spritesheet%%) -162px -97px no-repeat !important;
 }
 
 .logout a {
-  background: url(%%logout-night%%) no-repeat;
+  background: url(%%spritesheet%%) -16px -43px no-repeat;
 }
 
 #header-bottom-right, .res #header-bottom-right {
   position: absolute;
-  top: 3.5em;
-  height: 2em;
-  margin-right: 1.6em;
+  top: 35px;
+  height: 20px;
+  margin-right: 16px;
   padding: 0;
   background-color: transparent !important;
 }
@@ -1938,14 +1978,14 @@ div.content {
 }
 
 .pref-lang.choice {
-  top: -0.1em;
-  height: 1.6em;
-  width: 1.6em;
+  top: -1px;
+  height: 16px;
+  width: 16px;
   color: transparent;
   display: inline-block;
   opacity: 0.87;
   position: relative;
-  text-indent: -999.9em;
+  text-indent: -9999px;
 }
 
 .pref-lang.choice:hover {
@@ -1954,10 +1994,10 @@ div.content {
 
 .gearIcon {
   position: relative;
-  right: 0.1em;
-  top: 0.5em;
-  height: 1.6em !important;
-  width: 1.6em !important;
+  right: 1px;
+  top: 5px;
+  height: 16px !important;
+  width: 16px !important;
   opacity: 0.87;
 }
 
@@ -1968,7 +2008,7 @@ div.content {
 #RESMainGearOverlay {
   background-color: transparent !important;
   border: 0 !important;
-  top: 3.5em !important;
+  top: 35px !important;
 }
 
 .res-nightmode .RESDropdownList {
@@ -1976,8 +2016,8 @@ div.content {
 }
 
 .RESDropdownList {
-  top: 6.8em !important;
-  right: 4em !important;
+  top: 68px !important;
+  right: 40px !important;
   left: unset !important;
   border: 0 !important;
   border-radius: 2px !important;
@@ -2015,7 +2055,7 @@ div.content {
 }
 
 #RESSearchMenuItem {
-  top: 1.5625em;
+  top: 25px;
   color: rgba(0, 0, 0, 0.38) !important;
 }
 
@@ -2030,14 +2070,14 @@ div.content {
 }
 
 .logout a {
-  top: -0.2em;
-  height: 1.6em;
-  width: 1.6em;
+  top: -2px;
+  height: 16px;
+  width: 16px;
   color: transparent;
   display: inline-block;
   opacity: 0.87;
   position: relative;
-  text-indent: -999.9em;
+  text-indent: -9999px;
 }
 
 .logout a:hover {
@@ -2139,8 +2179,7 @@ div.content {
   width: 0;
   margin: 0 0 0 2.5em;
   padding-right: 2.5em;
-  background: url(%%snoo-color%%) no-repeat;
-  background-position: 0% 0.35714em;
+  background: url(%%spritesheet%%) 0 -117px no-repeat;
 }
 
 .pagename {
@@ -2202,41 +2241,41 @@ div.content {
 }
 
 .res-nightmode .side::before {
-  background: url(%%kebab-night%%) no-repeat;
+  background: url(%%spritesheet%%) 0 -59px no-repeat;
 }
 
 .side {
   position: absolute;
-  right: -0.5em;
+  right: -5px;
   width: 0;
   margin: 0;
-  padding-top: 8.5em;
+  padding-top: 85px;
 }
 
 .side .spacer,
 .side #ad_sponsorship,
 .side #ad_main {
-  width: 33em;
+  width: 330px;
 }
 
 .side .spacer {
-  margin: 0 0 1.5em;
+  margin: 0 0 15px;
 }
 
 .side .spacer:first-of-type {
   position: relative;
-  top: -8.5em;
+  top: -85px;
 }
 
 .side::before {
   position: fixed;
-  top: 21.5em;
-  right: 0;
+  top: 215px;
+  right: 1.5em;
   display: block;
-  height: 3.6em;
-  width: 5.1em;
+  height: 36px;
+  width: 36px;
   content: "";
-  background: url(%%kebab%%) no-repeat;
+  background: url(%%spritesheet%%) -158px -23px no-repeat;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2300,29 +2339,28 @@ div.content {
 }
 
 .res-nightmode #search input[type="submit"] {
-  background: url(%%search-night%%);
+  background: url(%%spritesheet%%) -130px -97px;
 }
 
 .res-nightmode #search input[type="submit"]:hover {
-  background: url(%%search-night%%);
-  opacity: 0.87;
+  background: url(%%spritesheet%%) -130px -97px;
 }
 
 #search::before {
   position: absolute;
-  top: 2.6em;
-  left: 2.4em;
+  top: 26px;
+  left: 24px;
   content: "search";
   color: transparent;
-  font-size: 1.3em;
+  font-size: 13px;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #search:hover::before {
-  top: 0.23077em;
-  left: 0.92308em;
+  top: 3px;
+  left: 12px;
   margin: 0;
   color: #40c4ff;
   -webkit-transform: scale(0.85);
@@ -2333,7 +2371,7 @@ div.content {
 }
 
 #search input[type="text"] {
-  height: 3em;
+  height: 39px;
   outline: none;
   width: 100%;
 }
@@ -2355,33 +2393,33 @@ div.content {
 }
 
 #search input[type="text"]:focus {
-  border-bottom: 0.07692em solid #40c4ff;
+  border-bottom: 1px solid #40c4ff;
 }
 
 #search input[type="submit"] {
-  height: 1.14286em;
-  width: 1.14286em;
+  height: 16px;
+  width: 16px;
   opacity: 0.54;
   position: relative;
-  background: url(%%search%%);
+  background: url(%%spritesheet%%) -20px -97px;
 }
 
 #search input[type="submit"]:hover {
-  background: url(%%search%%);
+  background: url(%%spritesheet%%) -20px -97px;
   opacity: 0.87;
 }
 
 #searchexpando {
   position: relative;
-  top: 1.7em;
-  right: 1.6em;
+  top: 17px;
+  right: 16px;
   z-index: 2147483647;
-  width: 33em;
+  width: 330px;
   margin: 0;
   font-size: 10px;
   transition: initial;
   border: 0;
-  border-radius: 0 0 0.2em 0.2em;
+  border-radius: 0 0 2px 2px;
 }
 
 #searchexpando label {
@@ -2391,23 +2429,23 @@ div.content {
 
 #searchexpando p {
   font-size: 13px;
-  margin-bottom: 0.38462em;
+  margin-bottom: 5px;
   position: relative;
-  top: 0.38462em;
+  top: 5px;
 }
 
 #searchexpando select {
-  margin: 0 0 0 0.53846em;
-  width: 6.92308em;
+  margin: 0 0 0 7px;
+  width: 90px;
 }
 
 #searchexpando label:not(:first-of-type) {
-  margin: 0 0.38462em 0 0;
+  margin: 0 5px 0 0;
   font-weight: bold;
 }
 
 label + #moresearchinfo {
-  margin-top: 1em;
+  margin-top: 10px;
   border-color: #40c4ff;
 }
 
@@ -2488,7 +2526,7 @@ label + #moresearchinfo {
 }
 
 .res-nightmode .titlebox .users-online::before {
-  background: url(%%users-night%%) no-repeat;
+  background: url(%%spritesheet%%) -262px -160px no-repeat;
   opacity: 1;
 }
 
@@ -2502,7 +2540,7 @@ label + #moresearchinfo {
 
 .titlebox a.hover {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1em;
+  font-size: 19px;
 }
 
 .titlebox a.option {
@@ -2522,19 +2560,19 @@ label + #moresearchinfo {
 
 .titlebox .subscribers .number {
   font-weight: bold;
-  font-size: 2.4em;
+  font-size: 24px;
 }
 
 .titlebox .subscribers .word {
-  font-size: 1.3em;
+  font-size: 13px;
 }
 
 .titlebox .users-online {
-  font-size: 1.3em;
+  font-size: 13px;
 }
 
 .titlebox .users-online::before {
-  background: url(%%users%%) no-repeat;
+  background: url(%%spritesheet%%) -246px -160px no-repeat;
   opacity: 0.87;
   height: 16px;
   width: 16px;
@@ -2592,12 +2630,12 @@ label + #moresearchinfo {
 
 #moderation_tools .title,
 .sidecontentbox .title {
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 
 #moderation_tools .title h1,
 .sidecontentbox .title h1 {
-  font-size: 1.4em;
+  font-size: 14px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
   text-transform: lowercase;
@@ -2612,8 +2650,8 @@ label + #moresearchinfo {
 
 #wikiactions .collapse-button,
 #moderation_tools .collapse-button {
-  border-radius: 0.2em;
-  line-height: 0.8em;
+  border-radius: 2px;
+  line-height: 8px;
 }
 
 #wikiactions a,
@@ -2641,20 +2679,16 @@ label + #moresearchinfo {
 }
 
 .res-nightmode .sidecontentbox .gadget .right a {
-  background: url(%%clear-night%%) 0 no-repeat;
-}
-
-.res-nightmode .sidecontentbox .gadget .right a {
   color: transparent;
 }
 
 .sidecontentbox .gadget .midcol {
-  margin-right: 1.15385em;
+  margin-right: 15px;
 }
 
 .sidecontentbox .gadget .reddit-entry {
   position: relative;
-  top: 0.30769em;
+  top: 4px;
 }
 
 .sidecontentbox .gadget .reddit-entry a {
@@ -2662,7 +2696,7 @@ label + #moresearchinfo {
 }
 
 .sidecontentbox .gadget .thing {
-  padding: 0.71429em 0;
+  padding: 10px 0;
 }
 
 .sidecontentbox .gadget .thing span.score.unvoted {
@@ -2686,16 +2720,15 @@ label + #moresearchinfo {
 }
 
 .sidecontentbox .gadget .right {
-  height: 2em;
+  height: 20px;
 }
 
 .sidecontentbox .gadget .right a {
   display: block;
   float: right;
-  height: 2em;
-  width: 2em;
+  height: 20px;
+  width: 20px;
   color: transparent;
-  background: url(%%clear%%) 0 no-repeat;
 }
 
 .sidecontentbox .gadget .right a:focus::before {
@@ -2714,7 +2747,7 @@ label + #moresearchinfo {
 @media (min-width: 62em) {
   .side {
     position: static;
-    width: 33em;
+    width: 330px;
   }
   .side:before {
     display: none;
