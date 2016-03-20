@@ -39,7 +39,7 @@
 
   // sorted/navigate by
   .menuarea {
-    margin-bottom: em(17, 13);
+    margin-bottom: 17px;
 
     .spacer + .spacer {
       display: block;
@@ -51,7 +51,7 @@
     .toggle a { color: $light-secondary-text; }
   }
 
-  &> .usertext { @include margin(null null em(16, 13) 0); }
+  &> .usertext { @include margin(null null 16px 0); }
 }
 
 // offset inline styling
@@ -69,8 +69,8 @@
 }
 
 .commentNavSortType {
-  padding: 0 em(4, 10);
-  font-size: em(10, 13);
+  padding: 0 4px;
+  font-size: 10px;
 }
 
 .res-nightmode .commentingAs { color: $dark-secondary-text; }
@@ -79,8 +79,8 @@
 
 .RESCharCounter {
   position: relative;
-  top: em(35, 15);
-  left: em(-85, 15);
+  top: 35px;
+  left: -85px;
 }
 
 // comment save button bar
@@ -88,11 +88,11 @@
 
   button { margin: 0; } // fuck you RES
 
-  .bottom-area { line-height: em(36, 13); }
+  .bottom-area { line-height: 36px; }
 
   .help-toggle,
   a.reddiquette {
-    margin: 0 em(10, 13) 0 0;
+    margin: 0 10px 0 0;
     font-size: 13px;
   }
 }
@@ -103,9 +103,9 @@
 .RESBigEditorPop {
   // i cry evrytim
   margin: 0 !important;
-  padding: 0 em(8, 13) !important;
-  height: em(36, 13) !important;
-  line-height: em(36, 13) !important;
+  padding: 0 8px !important;
+  height: 36px !important;
+  line-height: 36px !important;
   border: 0 !important;
   background-color: transparent !important;
 
@@ -147,18 +147,18 @@
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
-  margin: 0 0 em(16, 10) 0;
+  margin: 0 0 16px 0;
   border: 0;
 
   .title::after {
     display: inline-block;
-    margin-left: em(-19, 13);
+    margin-left: -19px;
     content: "";
     vertical-align: middle;
 	}
 }
 
-#comment-visits { width: em(167, 13); }
+#comment-visits { width: 167px; }
 
 .res-nightmode .linkinfo .shortlink input {
   color: $dark-text;
