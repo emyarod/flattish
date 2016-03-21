@@ -581,7 +581,7 @@ select option {
 }
 
 .expando-button.gallery.collapsed, .expando-button.gallery.collapsed:hover, .expando-button.gallery.expanded, .expando-button.gallery.expanded:hover {
-  background-position: 0 0;
+  background-position: 0 0 !important;
 }
 
 .expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
