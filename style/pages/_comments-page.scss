@@ -1,7 +1,10 @@
 // main: ../main.scss
 
 // infobar (locked, archived, etc)
-.reddit-infobar { margin-bottom: 16px; }
+.reddit-infobar {
+  padding-left: 55px !important;
+  margin-bottom: 16px;
+}
 
 // thread subscribe/unsubscribe button
 .res-nightmode #REScommentSubToggle {
@@ -292,4 +295,8 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .linklisting .md,
 .commentarea .md {
   border: 0 !important;
+}
+
+.comment.noncollapsed .buttons {
+  display: flex;
 }
