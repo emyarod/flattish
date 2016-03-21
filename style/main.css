@@ -3196,6 +3196,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .combined-search-page .search-result-group {
   padding: 0;
   min-width: unset;
+  max-width: unset;
 }
 
 .res-nightmode .combined-search-page .search-result p {
