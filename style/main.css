@@ -1198,7 +1198,27 @@ li a.post-sharing-button::after {
   line-height: 32px;
 }
 
+a[data-event-action="hide"]::after {
+  right: 21.5px;
+  height: 32px;
+  width: 63px;
+  padding: 0 16px;
+  content: "Hide";
+  font-size: 14px;
+  line-height: 32px;
+}
+
 .state-button a[action="unhide"]::after {
+  right: 29px;
+  height: 32px;
+  width: 78px;
+  padding: 0 16px;
+  content: "Unhide";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+a[data-event-action="unhide"]::after {
   right: 29px;
   height: 32px;
   width: 78px;
@@ -1406,11 +1426,11 @@ a[data-event-action="distinguish"]::after {
   line-height: 32px;
 }
 
-li a.post-sharing-button, .thing:not(.saved) .link-save-button a, .thing:not(.saved) .link-unsave-button a, .saved .link-unsave-button a, .saved .link-save-button a, .state-button a[action="hide"], .state-button a[action="unhide"], a[data-event-action="delete"], a[data-event-action="spam"], a[data-event-action="remove"], .approve-button a, .reportbtn, a[data-event-action="lock"], a[data-event-action="unlock"], a[data-event-action="marknsfw"], a[data-event-action="unmarknsfw"], a[data-event-action="distinguish"], .sidecontentbox .gadget .right a {
+li a.post-sharing-button, .thing:not(.saved) .link-save-button a, .thing:not(.saved) .link-unsave-button a, .saved .link-unsave-button a, .saved .link-save-button a, .state-button a[action="hide"], a[data-event-action="hide"], .state-button a[action="unhide"], a[data-event-action="unhide"], a[data-event-action="delete"], a[data-event-action="spam"], a[data-event-action="remove"], .approve-button a, .reportbtn, a[data-event-action="lock"], a[data-event-action="unlock"], a[data-event-action="marknsfw"], a[data-event-action="unmarknsfw"], a[data-event-action="distinguish"], .sidecontentbox .gadget .right a {
   background-image: url(%%spritesheet%%);
 }
 
-li a.post-sharing-button::after, .thing:not(.saved) .link-save-button a::after, .thing:not(.saved) .link-unsave-button a::after, .saved .link-unsave-button a::after, .saved .link-save-button a::after, .state-button a[action="hide"]::after, .state-button a[action="unhide"]::after, a[data-event-action="delete"]::after, a[data-event-action="spam"]::after, a[data-event-action="remove"]::after, .approve-button a::after, .reportbtn::after, a[data-event-action="lock"]::after, a[data-event-action="unlock"]::after, a[data-event-action="marknsfw"]::after, a[data-event-action="unmarknsfw"]::after, a[data-event-action="distinguish"]::after, .sidecontentbox .gadget .right a::after {
+li a.post-sharing-button::after, .thing:not(.saved) .link-save-button a::after, .thing:not(.saved) .link-unsave-button a::after, .saved .link-unsave-button a::after, .saved .link-save-button a::after, .state-button a[action="hide"]::after, a[data-event-action="hide"]::after, .state-button a[action="unhide"]::after, a[data-event-action="unhide"]::after, a[data-event-action="delete"]::after, a[data-event-action="spam"]::after, a[data-event-action="remove"]::after, .approve-button a::after, .reportbtn::after, a[data-event-action="lock"]::after, a[data-event-action="unlock"]::after, a[data-event-action="marknsfw"]::after, a[data-event-action="unmarknsfw"]::after, a[data-event-action="distinguish"]::after, .sidecontentbox .gadget .right a::after {
   position: relative;
   z-index: 10;
   display: block;
@@ -1425,7 +1445,7 @@ li a.post-sharing-button::after, .thing:not(.saved) .link-save-button a::after, 
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-li a.post-sharing-button:hover::after, .thing:not(.saved) .link-save-button a:hover::after, .thing:not(.saved) .link-unsave-button a:hover::after, .saved .link-unsave-button a:hover::after, .saved .link-save-button a:hover::after, .state-button a[action="hide"]:hover::after, .state-button a[action="unhide"]:hover::after, a[data-event-action="delete"]:hover::after, a[data-event-action="spam"]:hover::after, a[data-event-action="remove"]:hover::after, .approve-button a:hover::after, .reportbtn:hover::after, a[data-event-action="lock"]:hover::after, a[data-event-action="unlock"]:hover::after, a[data-event-action="marknsfw"]:hover::after, a[data-event-action="unmarknsfw"]:hover::after, a[data-event-action="distinguish"]:hover::after, .sidecontentbox .gadget .right a:hover::after {
+li a.post-sharing-button:hover::after, .thing:not(.saved) .link-save-button a:hover::after, .thing:not(.saved) .link-unsave-button a:hover::after, .saved .link-unsave-button a:hover::after, .saved .link-save-button a:hover::after, .state-button a[action="hide"]:hover::after, a[data-event-action="hide"]:hover::after, .state-button a[action="unhide"]:hover::after, a[data-event-action="unhide"]:hover::after, a[data-event-action="delete"]:hover::after, a[data-event-action="spam"]:hover::after, a[data-event-action="remove"]:hover::after, .approve-button a:hover::after, .reportbtn:hover::after, a[data-event-action="lock"]:hover::after, a[data-event-action="unlock"]:hover::after, a[data-event-action="marknsfw"]:hover::after, a[data-event-action="unmarknsfw"]:hover::after, a[data-event-action="distinguish"]:hover::after, .sidecontentbox .gadget .right a:hover::after {
   visibility: visible;
   background-color: rgba(97, 97, 97, 0.9);
   -webkit-transform: translateY(14px);
@@ -1840,7 +1860,9 @@ a[data-event-action="distinguish"] {
 .link-save-button a,
 .link-unsave-button a,
 .state-button a[action="hide"],
-.state-button a[action="unhide"] {
+a[data-event-action="hide"],
+.state-button a[action="unhide"],
+a[data-event-action="unhide"] {
   transition: background 1s steps(59);
 }
 
@@ -1864,19 +1886,23 @@ a[data-event-action="distinguish"] {
   background: url(%%save%%) -1180px 0;
 }
 
-.state-button a[action="hide"] {
+.state-button a[action="hide"],
+a[data-event-action="hide"] {
   background: url(%%hide%%) 0 0;
 }
 
-.res-nightmode .state-button a[action="hide"] {
+.res-nightmode .state-button a[action="hide"],
+.res-nightmode a[data-event-action="hide"] {
   background: url(%%hide%%) 0 -20px;
 }
 
-.state-button a[action="unhide"] {
+.state-button a[action="unhide"],
+a[data-event-action="unhide"] {
   background: url(%%hide%%) -1180px 0;
 }
 
-.res-nightmode .state-button a[action="unhide"] {
+.res-nightmode .state-button a[action="unhide"],
+.res-nightmode a[data-event-action="unhide"] {
   background: url(%%hide%%) -1180px -20px;
 }
 
@@ -3177,7 +3203,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 .searchpane {
-  padding-left: 96px;
+  padding-left: 96px !important;
   margin: 0;
 }
 
