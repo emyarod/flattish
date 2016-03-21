@@ -19,7 +19,7 @@
 
 		&:before,
 		&:after {
-			background-color: $dark-hint-text;
+			background: $dark-hint-text !important;
 		}
 	}
 
