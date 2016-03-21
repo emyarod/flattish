@@ -15,8 +15,7 @@ $header-size-default: 223px;
     border: 0;
     margin-bottom: 15px;
     background-attachment: scroll, fixed;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),
-    url(%%header3%%);
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),url(%%header%%);
   }
 
   // animate header
