@@ -35,15 +35,8 @@ $header-size-default: 223px;
 
 @media (min-width: $screen-md-min) {
   #header {
-    width: 112%;
-    left: -6%;
-  }
-}
-
-@media (min-width: $screen-lg-min) {
-  #header {
-    width: 125%;
-    left: -12.5%;
+    width: calc(100% - -128px);
+    left: -64px;
   }
 }
 
