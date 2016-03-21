@@ -222,7 +222,7 @@ button {
 
 .res-nightmode button,
 button {
-  color: #009688 !important;
+  color: #00bcd4 !important;
 }
 
 .titlebox a.option {
@@ -354,8 +354,8 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
 .submit-link .morelink a, .submit-text .morelink a,
 .submit-page button[type="submit"], #sr-form .save-button button, .save-button > button:nth-child(1) {
   color: #fff !important;
-  background-color: #009688 !important;
-  background: #009688 radial-gradient(circle, rgba(77, 182, 172, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
+  background-color: #00bcd4 !important;
+  background: #00bcd4 radial-gradient(circle, rgba(77, 208, 225, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -369,7 +369,7 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
 
 .submit-link .morelink a:hover, .submit-text .morelink a:hover,
 .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover {
-  background-color: #00796b !important;
+  background-color: #0097a7 !important;
 }
 
 .submit-page button[type="submit"], #sr-form .save-button button, .save-button > button:nth-child(1) {
@@ -382,7 +382,7 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
 
 .submit-page button[type="submit"]:focus:not(:active), #sr-form .save-button button:focus:not(:active), .save-button > button:nth-child(1):focus:not(:active) {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  background-color: #4db6ac !important;
+  background-color: #4dd0e1 !important;
 }
 
 #siteTable > .thing {
@@ -401,13 +401,13 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
 
 .res-nightmode .linkinfo,
 .linkinfo {
-  background-color: #80d8ff !important;
+  background-color: #ffd180 !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .res-nightmode .content.submit .info-notice,
 .content.submit .info-notice {
-  background-color: rgba(77, 182, 172, 0.38) !important;
+  background-color: rgba(77, 208, 225, 0.38) !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
@@ -446,7 +446,7 @@ select {
   background-color: transparent;
   outline: none;
   border-bottom-color: rgba(0, 0, 0, 0.38);
-  border-width: 0 0 0.07692em;
+  border-width: 0 0 1px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -492,7 +492,7 @@ select option {
 }
 
 .res-nightmode .expando-button.collapsed:before, .res-nightmode .expando-button.collapsed:after, .res-nightmode .expando-button.collapsed:hover:before, .res-nightmode .expando-button.collapsed:hover:after, .res-nightmode .expando-button.expanded:before, .res-nightmode .expando-button.expanded:after, .res-nightmode .expando-button.expanded:hover:before, .res-nightmode .expando-button.expanded:hover:after {
-  background-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5) !important;
 }
 
 .res-nightmode .expando-button.video.collapsed, .res-nightmode .expando-button.video.collapsed:hover, .res-nightmode .expando-button.video.expanded, .res-nightmode .expando-button.video.expanded:hover {
@@ -529,15 +529,15 @@ select option {
 }
 
 .expando-button.collapsed:before, .expando-button.collapsed:after, .expando-button.collapsed:hover:before, .expando-button.collapsed:hover:after, .expando-button.expanded:before, .expando-button.expanded:after, .expando-button.expanded:hover:before, .expando-button.expanded:hover:after {
-  background-color: rgba(0, 0, 0, 0.38);
+  background: rgba(0, 0, 0, 0.38) !important;
   content: "";
   position: absolute;
   display: block;
 }
 
 .expando-button.collapsed:before, .expando-button.collapsed:hover:before, .expando-button.expanded:before, .expando-button.expanded:hover:before {
-  width: 7px;
-  height: 1px;
+  width: 7px !important;
+  height: 1px !important;
   top: 17px;
   left: 14px;
 }
@@ -805,7 +805,7 @@ ul.tabmenu.formtab li a:after {
 ul.tabmenu.formtab li a:hover::after {
   width: -webkit-calc(100% - -48px);
   width: calc(100% - -48px);
-  border-bottom: 2px solid #40c4ff;
+  border-bottom: 2px solid #ffab40;
 }
 
 .tabmenu li {
@@ -816,7 +816,7 @@ ul.tabmenu.formtab li a:hover::after {
 ul.tabmenu.formtab li.selected a {
   margin: 0;
   padding: 0 24px;
-  border-bottom-color: #40c4ff;
+  border-bottom-color: #ffab40;
   border-bottom-style: solid;
   border-width: 0 0 2px;
 }
@@ -844,7 +844,7 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-  border-bottom-color: #40c4ff !important;
+  border-bottom-color: #ffab40 !important;
 }
 
 .res-nightmode input[type="text"],
@@ -929,7 +929,7 @@ textarea {
 }
 
 .res-nightmode .RESDialogSmall.livePreview > h3 {
-  background-color: #009688;
+  background-color: #00bcd4;
   color: #fff;
 }
 
@@ -939,7 +939,7 @@ textarea {
 
 .RESDialogSmall.livePreview > h3 {
   height: 40px;
-  background-color: #009688;
+  background-color: #00bcd4;
 }
 
 .RESDialogSmall.livePreview .gearIcon {
@@ -1069,8 +1069,8 @@ input[type="checkbox"]:disabled {
 }
 
 .login-form-side input[type="checkbox"]:checked + label::before, .c-checkbox input[type="checkbox"]:checked + label::before, .flairtoggle input[type="checkbox"]:checked + label::before, .linefield input[type="checkbox"]:checked + label::before, .roundfield-content input[type="checkbox"]:checked + label::before {
-  border-color: #009688 !important;
-  background: #009688 url(%%spritesheet%%) -246px -138px;
+  border-color: #00bcd4 !important;
+  background: #00bcd4 url(%%spritesheet%%) -246px -138px;
   -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1081,7 +1081,7 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton.enabled {
-  background-color: #00796b;
+  background-color: #0097a7;
 }
 
 .res-nightmode .toggleButton:not(.enabled)::before {
@@ -1089,7 +1089,7 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton.enabled::before {
-  background-color: #4db6ac;
+  background-color: #4dd0e1;
 }
 
 .toggleButton {
@@ -1100,7 +1100,7 @@ input[type="checkbox"]:disabled {
 }
 
 .toggleButton.enabled {
-  background-color: #009688;
+  background-color: #00bcd4;
 }
 
 .toggleButton::before {
@@ -1121,7 +1121,7 @@ input[type="checkbox"]:disabled {
 .toggleButton.enabled::before {
   left: unset !important;
   right: 0 !important;
-  background-color: #00796b;
+  background-color: #0097a7;
   opacity: 1 !important;
 }
 
@@ -1480,10 +1480,6 @@ h6, .md h6 {
   color: rgba(0, 0, 0, 0.54);
 }
 
-.rank {
-  display: none;
-}
-
 .midcol {
   position: relative;
   z-index: 1;
@@ -1589,6 +1585,14 @@ h6, .md h6 {
   background-color: #3f51b5;
 }
 
+#noresults {
+  padding: 16px;
+}
+
+.rank {
+  display: none;
+}
+
 .res-nightmode #siteTable {
   background-color: #424242;
 }
@@ -1628,6 +1632,10 @@ h6, .md h6 {
 .res-nightmode #siteTable > .thing .domain,
 .res-nightmode #siteTable > .thing .domain a {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.res-nightmode #siteTable > .thing .buttons li a {
+  color: #fff;
 }
 
 #siteTable {
@@ -1699,6 +1707,18 @@ h6, .md h6 {
   color: rgba(0, 0, 0, 0.54);
 }
 
+#siteTable > .thing .buttons li a {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+#siteTable > .thing .buttons li:not(.first):not(:first-child) {
+  opacity: 0;
+}
+
+#siteTable > .thing:hover .buttons li:not(.first):not(:first-child) {
+  opacity: 1;
+}
+
 .link.last-clicked {
   border-top-style: none;
   border-right-style: none;
@@ -1760,21 +1780,16 @@ h6, .md h6 {
   padding: 0 2px;
 }
 
-.res-nightmode .entry .buttons li a {
-  color: #fff;
-}
-
 .error {
   color: #de3726;
 }
 
 .entry {
   overflow: visible;
-  margin-left: 133px;
 }
 
-.entry .buttons li a {
-  color: rgba(0, 0, 0, 0.87);
+.thing[data-type="link"] .entry {
+  margin-left: 133px;
 }
 
 .flat-list.buttons {
@@ -1822,26 +1837,47 @@ a[data-event-action="distinguish"] {
   font-size: 0;
 }
 
+.link-save-button a,
+.link-unsave-button a,
+.state-button a[action="hide"],
+.state-button a[action="unhide"] {
+  transition: background 1s steps(59);
+}
+
+.res-nightmode .thing:not(.saved) .link-save-button a,
+.res-nightmode .thing:not(.saved) .link-unsave-button a {
+  background: url(%%save%%) 0 -20px;
+}
+
+.res-nightmode .saved .link-unsave-button a,
+.res-nightmode .saved .link-save-button a {
+  background: url(%%save%%) -1180px -20px;
+}
+
 .thing:not(.saved) .link-save-button a,
 .thing:not(.saved) .link-unsave-button a {
   background: url(%%save%%) 0 0;
-  transition: background 1s steps(59);
 }
 
 .saved .link-unsave-button a,
 .saved .link-save-button a {
   background: url(%%save%%) -1180px 0;
-  transition: background 1s steps(59);
 }
 
 .state-button a[action="hide"] {
   background: url(%%hide%%) 0 0;
-  transition: background 1s steps(59);
+}
+
+.res-nightmode .state-button a[action="hide"] {
+  background: url(%%hide%%) 0 -20px;
 }
 
 .state-button a[action="unhide"] {
   background: url(%%hide%%) -1180px 0;
-  transition: background 1s steps(59);
+}
+
+.res-nightmode .state-button a[action="unhide"] {
+  background: url(%%hide%%) -1180px -20px;
 }
 
 .res-nightmode div.content {
@@ -1857,22 +1893,6 @@ div.content {
     max-width: calc(100% - 346px);
     margin: 0;
   }
-}
-
-.footer a,
-.bottommenu a {
-  background: linear-gradient(to top, #009688 50%, transparent 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  will-change: background-position;
-}
-
-.footer a:hover,
-.bottommenu a:hover {
-  color: #fff !important;
-  text-decoration: none;
-  background-position: 0 100%;
 }
 
 .footer {
@@ -1903,7 +1923,7 @@ div.content {
   border: 0;
   margin-bottom: 15px;
   background-attachment: scroll, fixed;
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header3%%);
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
 }
 
 @media (min-width: 62em) {
@@ -2013,7 +2033,7 @@ div.content {
   margin: 0;
   padding: 0 5px;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #4db6ac !important;
+  background-color: #4dd0e1 !important;
 }
 
 #userbarToggle, .res-nightmode #userbarToggle,
@@ -2142,7 +2162,7 @@ div.content {
 }
 
 #RESSearchMenuItem:hover {
-  color: rgba(0, 150, 136, 0.38) !important;
+  color: rgba(0, 188, 212, 0.38) !important;
   background-color: transparent !important;
 }
 
@@ -2164,18 +2184,6 @@ div.content {
 
 .logout a:hover {
   opacity: 1;
-}
-
-.message-count {
-  position: relative;
-  width: auto;
-  height: auto;
-  padding: 0.2em;
-  color: rgba(0, 0, 0, 0.87) !important;
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 1em;
-  background-color: #40c4ff;
 }
 
 #header-bottom-left {
@@ -2222,7 +2230,7 @@ div.content {
 #header-bottom-left .tabmenu li a,
 #header-bottom-left .tabmenu li #viewImagesButton {
   color: rgba(255, 255, 255, 0.7) !important;
-  background: transparent radial-gradient(circle, rgba(128, 216, 255, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
+  background: transparent radial-gradient(circle, rgba(255, 209, 128, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -2239,13 +2247,6 @@ div.content {
   color: #fff !important;
 }
 
-#header-bottom-left .tabmenu li a[href$="/rising/"],
-#header-bottom-left .tabmenu li a[href$="/controversial/"],
-#header-bottom-left .tabmenu li a[href$="/ads/"],
-#header-bottom-left .tabmenu li a[href$="/gilded/"] {
-  display: none;
-}
-
 #header-bottom-left .tabmenu li a,
 #header-bottom-left .tabmenu li #viewImagesButton {
   width: initial;
@@ -2256,7 +2257,7 @@ div.content {
 }
 
 .res-nightmode #header-bottom-left .tabmenu li.selected a {
-  border-bottom-color: #40c4ff;
+  border-bottom-color: #ffab40;
   border-bottom-style: solid;
   border-width: 0 0 2px;
 }
@@ -2431,7 +2432,7 @@ div.content {
   top: 3px;
   left: 12px;
   margin: 0;
-  color: #40c4ff;
+  color: #ffab40;
   -webkit-transform: scale(0.85);
   -moz-transform: scale(0.85);
   -ms-transform: scale(0.85);
@@ -2462,7 +2463,7 @@ div.content {
 }
 
 #search input[type="text"]:focus {
-  border-bottom: 1px solid #40c4ff;
+  border-bottom: 1px solid #ffab40;
 }
 
 #search input[type="submit"] {
@@ -2515,7 +2516,7 @@ div.content {
 
 label + #moresearchinfo {
   margin-top: 10px;
-  border-color: #40c4ff;
+  border-color: #ffab40;
 }
 
 .submit-link,
@@ -2704,7 +2705,7 @@ label + #moresearchinfo {
 
 #moderation_tools .title h1,
 .sidecontentbox .title h1 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
   text-transform: lowercase;
@@ -2717,32 +2718,7 @@ label + #moresearchinfo {
   background-color: transparent !important;
 }
 
-#wikiactions .collapse-button,
-#moderation_tools .collapse-button {
-  border-radius: 2px;
-  line-height: 8px;
-}
-
-#wikiactions a,
-#moderation_tools a {
-  background: linear-gradient(to top, #009688 50%, transparent 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  will-change: background-position;
-}
-
-#wikiactions a:hover,
-#moderation_tools a:hover {
-  color: #fff !important;
-  text-decoration: none;
-  background-position: 0 100%;
-}
-
-.res-nightmode .sidecontentbox .gadget .thing span.score.unvoted {
-  color: rgba(255, 255, 255, 0.7);
-}
-
+.res-nightmode .sidecontentbox .gadget .thing span.score.unvoted,
 .res-nightmode .sidecontentbox .gadget a.reddit-comment-link.may-blank {
   color: rgba(255, 255, 255, 0.7) !important;
 }
@@ -2824,6 +2800,7 @@ label + #moresearchinfo {
 }
 
 .reddit-infobar {
+  padding-left: 55px !important;
   margin-bottom: 16px;
 }
 
@@ -2965,7 +2942,7 @@ label + #moresearchinfo {
 
 .res-nightmode #BigEditor .RESDialogSmall h3 {
   color: #fff;
-  background-color: #009688;
+  background-color: #00bcd4;
 }
 
 #BigEditor .RESDialogSmall {
@@ -2977,7 +2954,7 @@ label + #moresearchinfo {
 #BigEditor .RESDialogSmall h3 {
   height: 38px;
   color: #fff;
-  background-color: #009688;
+  background-color: #00bcd4;
 }
 
 #BigEditor .RESDialogSmall .md h3 {
@@ -3000,6 +2977,10 @@ label + #moresearchinfo {
 
 #comment-visits {
   width: 167px;
+}
+
+.res-nightmode .linkinfo * {
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .res-nightmode .linkinfo .shortlink input {
@@ -3117,7 +3098,7 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 }
 
 .comment .entry.RES-keyNav-activeElement {
-  border-right-color: #009688;
+  border-right-color: #00bcd4;
   padding-left: 5px;
 }
 
@@ -3131,12 +3112,16 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .new-comment .usertext-body {
   margin: 15px 0;
   border-color: transparent;
-  background-color: rgba(77, 182, 172, 0.12);
+  background-color: rgba(77, 208, 225, 0.12);
 }
 
 .linklisting .md,
 .commentarea .md {
   border: 0 !important;
+}
+
+.comment.noncollapsed .buttons {
+  display: flex;
 }
 
 .compose-page div.content {
@@ -3163,7 +3148,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .flair-settings + .tabmenu li.selected a {
   color: #fff !important;
   font-size: inherit;
-  background-color: #009688;
+  background-color: #00bcd4;
 }
 
 .flair-settings + .tabmenu #tab-grant a.choice {
@@ -3303,8 +3288,8 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 .linefield table input[type="radio"]:not([id*="spam"]):checked + label::before {
-  border-color: #009688;
-  background-image: radial-gradient(circle, #009688 50%, transparent 50%);
+  border-color: #00bcd4;
+  background-image: radial-gradient(circle, #00bcd4 50%, transparent 50%);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -webkit-animation: radio-toggle 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3357,7 +3342,7 @@ ul#image-preview-list li:nth-of-type(2n) {
 
 .res-nightmode ul.tabmenu.formtab li.selected a {
   color: #fff !important;
-  background-color: #009688 !important;
+  background-color: #00bcd4 !important;
 }
 
 ul.tabmenu.formtab {
@@ -3379,7 +3364,7 @@ ul.tabmenu.formtab li a:hover {
 ul.tabmenu.formtab li.selected a {
   color: #fff !important;
   font-size: inherit;
-  background-color: #009688;
+  background-color: #00bcd4;
 }
 
 ul.tabmenu.formtab a.link-button.choice {
@@ -3482,7 +3467,7 @@ ul.tabmenu.formtab a.text-button.choice {
     background: none;
     text-decoration: none;
     padding: 16px;
-    background-color: #009688;
+    background-color: #00bcd4;
     color: #fff;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
@@ -3538,6 +3523,26 @@ body {
 
 .md {
   max-width: unset;
+}
+
+#wikiactions a,
+#moderation_tools a,
+.footer a,
+.bottommenu a {
+  background: linear-gradient(to top, #00bcd4 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  will-change: background-position;
+}
+
+#wikiactions a:hover,
+#moderation_tools a:hover,
+.footer a:hover,
+.bottommenu a:hover {
+  color: #fff !important;
+  text-decoration: none;
+  background-position: 0 100%;
 }
 
 @media (min-width: 62em) {
