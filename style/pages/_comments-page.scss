@@ -154,9 +154,15 @@
 
 #comment-visits { width: 167px; }
 
-.res-nightmode .linkinfo .shortlink input {
-  color: $dark-text;
-  background-color: $dark-app-bar;
+.res-nightmode .linkinfo {
+  * {
+    color: set-text-color($light-accent, text) !important;
+  }
+
+  .shortlink input {
+    color: $dark-text;
+    background-color: $dark-app-bar;
+  }
 }
 
 .linkinfo {
