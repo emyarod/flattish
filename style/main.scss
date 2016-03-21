@@ -45,6 +45,13 @@ body {
 
 .md { max-width: unset; }
 
+#wikiactions a,
+#moderation_tools a,
+.footer a,
+.bottommenu a {
+	@include link-underline-transition;
+}
+
 @media (min-width: $screen-md-min) {
   body {
     margin: 0 auto;
