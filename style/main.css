@@ -1928,15 +1928,8 @@ div.content {
 
 @media (min-width: 62em) {
   #header {
-    width: 112%;
-    left: -6%;
-  }
-}
-
-@media (min-width: 75em) {
-  #header {
-    width: 125%;
-    left: -12.5%;
+    width: calc(100% - -128px);
+    left: -64px;
   }
 }
 
@@ -3547,14 +3540,6 @@ body {
 
 @media (min-width: 62em) {
   body {
-    margin: 0 auto;
-    max-width: 90%;
-  }
-}
-
-@media (min-width: 75em) {
-  body {
-    margin: 0 auto;
-    max-width: 80%;
+    margin: 0 64px;
   }
 }
