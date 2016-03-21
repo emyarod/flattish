@@ -168,8 +168,9 @@
 
 .error {	color: $error; }
 
-.entry {
-	overflow: visible;
+.entry { overflow: visible; }
+
+.thing[data-type="link"] .entry {
 	margin-left: 133px;
 }
 
