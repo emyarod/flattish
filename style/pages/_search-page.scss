@@ -1,7 +1,7 @@
 // main: ../main.scss
 
 .searchpane {
-  padding-left: 96px;
+  padding-left: 96px !important;
   margin: 0;
 }
 
@@ -14,6 +14,7 @@
 .combined-search-page .search-result-group {
   padding: 0;
   min-width: unset;
+  max-width: unset;
 }
 
 .res-nightmode .combined-search-page .search-result p { color: $dark-text; }

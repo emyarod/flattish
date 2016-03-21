@@ -43,15 +43,29 @@ $tooltip-selector-map: (
 		content-tooltip: 'Unsave',
     screen-type: 'desktop'
   ),
-  hide-button: (
+  hide-button-one: (
 		selector-name: '.state-button a[action="hide"]',
 		width-tooltip: 31,
 		width-parent: 20,
 		content-tooltip: 'Hide',
     screen-type: 'desktop'
   ),
-  unhide-button: (
+  hide-button-two: (
+		selector-name: 'a[data-event-action="hide"]',
+		width-tooltip: 31,
+		width-parent: 20,
+		content-tooltip: 'Hide',
+    screen-type: 'desktop'
+  ),
+  unhide-button-one: (
 		selector-name: '.state-button a[action="unhide"]',
+		width-tooltip: 46,
+		width-parent: 20,
+		content-tooltip: 'Unhide',
+    screen-type: 'desktop'
+  ),
+  unhide-button-two: (
+		selector-name: 'a[data-event-action="unhide"]',
 		width-tooltip: 46,
 		width-parent: 20,
 		content-tooltip: 'Unhide',
