@@ -161,7 +161,6 @@ $night-raised-colorized-button-selectors: ();
 
 		.res-nightmode #{$selector-name},
 		#{$selector-name} {
-      style: awesome;
 			@include drop-shadow(1);
 
 			&:focus:not(:active) { @include focus-shadow(); }
@@ -170,7 +169,6 @@ $night-raised-colorized-button-selectors: ();
 		}
 
 		.res-nightmode #{$selector-name} {
-      style: awesome;
 			color: $dark-text;
 
 			&:hover { background-color: $dark-button-hover !important; }
@@ -181,7 +179,6 @@ $night-raised-colorized-button-selectors: ();
 		}
 
 		#{$selector-name} {
-      style: awesome;
 			color: $light-text;
 
 			&:hover { background-color: $light-button-hover; }

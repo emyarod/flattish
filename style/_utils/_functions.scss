@@ -28,8 +28,8 @@
 // dynamic gear icon
 @function set-gearIcon() {
   @if (lightness($primary) > 50) {
-    @return transparent url("%%settings%%") no-repeat !important;
+    @return transparent url("%%spritesheet%%") -146px -97px no-repeat !important;
   } @else {
-    @return transparent url("%%settings-night%%") no-repeat !important;
+    @return transparent url("%%spritesheet%%") -162px -97px no-repeat !important;
   }
 }

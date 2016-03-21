@@ -1,0 +1,9 @@
+// main: ../main.scss
+
+.arrow:focus::after,
+.sidecontentbox .gadget .right a:focus::before {
+  position: absolute;
+  content: " ";
+  border-radius: 50%;
+  @include animation(button-ripple .3s $animation-curve-linear-out-slow-in forwards);
+}

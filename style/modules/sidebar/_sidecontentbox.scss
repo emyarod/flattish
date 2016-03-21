@@ -9,11 +9,11 @@
 .sidecontentbox {
 
 	.title {
-		margin-bottom: em(10, 10);
+		margin-bottom: 10px;
 
 		// style card titles
 		h1 {
-			font-size: em(14, 10);
+			font-size: 16px;
 			font-weight: bold;
 			color: $light-text;
 			text-transform: lowercase;
@@ -27,36 +27,17 @@
 	}
 }
 
-#wikiactions,
-#moderation_tools {
-
-	// mod tools collapse button
-	.collapse-button {
-		border-radius: em(2, 10);
-		line-height: em(8, 10);
-	}
-
-	a { @include link-underline-transition; }
-}
-
 .res-nightmode .sidecontentbox .gadget {
 
 	// post score of recently viewed unvoted links
-	.thing span.score.unvoted {
-		color: $dark-secondary-text;
-	}
-
+	.thing span.score.unvoted,
 	// recolor comment count
-	a.reddit-comment-link.may-blank { color: $dark-secondary-text !important; }
-
-	.right a {
-		background: url(%%clear-night%%) 0 no-repeat;
+	a.reddit-comment-link.may-blank {
+		color: $dark-secondary-text !important;
 	}
 }
 
-.res-nightmode .sidecontentbox .gadget .right a {
-	color: transparent;
-}
+.res-nightmode .sidecontentbox .gadget .right a { color: transparent; }
 
 .sidecontentbox {
 
@@ -64,18 +45,18 @@
 	.gadget {
 
 		// add margin to vote arrows
-		.midcol { margin-right: em(15, 13); }
+		.midcol { margin-right: 15px; }
 
 		// align top edges of links
 		.reddit-entry {
 			position: relative;
-			top: em(4, 13);
+			top: 4px;
 
 			a { line-height: 1.35; }
 		}
 
 		.thing {
-			padding: em(10, 14) 0;
+			padding: 10px 0;
 
 			// post scores of recently viewed links
 			span.score {
@@ -95,18 +76,19 @@
 		.reddit-link-end { padding: 0; }
 
 		.right {
-			height: em(20, 10);
+			height: 20px;
 
 			a {
 				display: block;
 				float: right;
-				height: em(20, 10);
-				width: em(20, 10);
+				height: 20px;
+				width: 20px;
 				color: transparent;
-				background: url(%%clear%%) 0 no-repeat;
 
 				&:focus::before {
-					@include button-ripple-circle(right, 16, bottom, 15, 20, 10);
+					height: 20px;
+					width: 20px;
+					background-color: $tooltip;
 				}
 			}
 		}

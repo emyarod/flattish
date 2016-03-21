@@ -10,41 +10,41 @@
 	background-color: transparent !important;
 }
 
-.res-nightmode .side::before { background: url(%%kebab-night%%) no-repeat; }
+.res-nightmode .side::before { background-position: 0 -59px; }
 
 .side {
 	position: absolute;
-	right: em(-5, 10);
+	right: -5px;
 	width: 0;
 	margin: 0;
-	padding-top: em(85, 10);
+	padding-top: 85px;
 
 	.spacer,
 	#ad_sponsorship,
 	#ad_main {
-		width: em(330, 10);
+		width: 330px;
 	}
 
 	// first card (containing search and submit)
 	.spacer {
-		margin: 0 0 em(15, 10);
+		margin: 0 0 15px;
 
 		&:first-of-type {
 			position: relative;
-			top: em(-85, 10);
+			top: -85px;
 		}
 	}
 
 	// kebab menu
 	&::before {
     position: fixed;
-    top: em(215, 10);
-    right: 0;
+    top: 215px;
+    right: 1.5em;
     display: block;
-    height: em(36, 10);
-    width: em(36, 10) + 1.5em;
+    height: 36px;
+    width: 36px;
     content: "";
-    background: url(%%kebab%%) no-repeat;
+    background-position: -158px -23px;
 		@include transition-default;
 	}
 
@@ -96,7 +96,7 @@
 @media (min-width: $screen-md-min) {
 	.side {
 		position: static;
-		width: em(330, 10);
+		width: 330px;
 
 		// hide kebab menu icon
 		&:before { display: none; }

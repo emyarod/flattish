@@ -1,82 +1,12 @@
 // main: ../../main.scss
 
+// temporary empty state
+#noresults {
+	padding: 16px;
+}
+
 // post rank
 .rank { display: none; }
-
-// vote arrow/score column & thumbnail margin
-.midcol {
-	position: relative; // need for placing pseudo element BEHIND vote arrow
-	z-index: 1;
-	@include margin(null 16px null 0);
-	width: 32px !important;
-}
-
-.res-nightmode .link .arrow,
-.res-nightmode .reddit-link .arrow,
-.res-nightmode .comment .arrow {
-	height: 23px !important;
-	width: 23px !important;
-
-	&:hover::before { background-color: $dark-disabled-text; }
-
-	&::before {	background-color: $dark-divider-text;	}
-
-	&.upmod,
-	&.up {
-		background: url(%%upvote-night%%) !important;
-	}
-
-	&.downmod,
-	&.down {
-		background: url(%%downvote-night%%) !important;
-	}
-}
-
-// styles nightmode AND default mode vote arrows (after upvote/downvote action)
-.res-nightmode .link .arrow,
-.res-nightmode .reddit-link .arrow,
-.res-nightmode .comment .arrow,
-.arrow {
-	&.upmod::before,
-	&.upmod:hover::before {
-		background-color: $upvote;
-	}
-
-	&.downmod::before,
-	&.downmod:hover::before {
-		background-color: $downvote;
-	}
-}
-
-// default arrow styles -- also affects sidebar vote arrows
-.arrow,
-.arrow::before {
-	height: 23px;
-	width: 23px;
-}
-
-.arrow {
-	&:hover::before {	background-color: $light-disabled-text;	}
-
-	&::before {
-		position: absolute;
-		z-index: -1;
-		content: " ";
-		background-color: $light-divider-text;
-		border-radius: 50%;
-		@include transition-default;
-	}
-
-	&.upmod,
-	&.up {
-		background: url(%%upvote%%);
-	}
-
-	&.downmod,
-	&.down {
-		background: url(%%downvote%%);
-	}
-}
 
 // site table
 .res-nightmode #siteTable {
@@ -107,13 +37,15 @@
 
 		.domain,
 		.domain a { color: $dark-secondary-text; }
-	}
 
+		.buttons li a {	color: $dark-text; }
+	}
 }
 
 #siteTable {
-	@include drop-shadow(1);
+	border-radius: 2px;
 	background-color: $light-cards;
+	@include drop-shadow(1);
 
 	// aligns score between new arrows
 	.score {
@@ -165,6 +97,15 @@
 
 		.domain,
 		.domain a { color: $light-secondary-text; }
+
+		// link action icons
+		.buttons li {
+			a { color: $light-text; }
+
+			&:not(.first):not(:first-child) { opacity: 0; }
+		}
+
+		&:hover .buttons li:not(.first):not(:first-child) { opacity: 1; }
 	}
 }
 
@@ -219,29 +160,18 @@
 	border-radius: 2px;
 	background-color: $nsfw;
 	color: $white;
-	font-size: em(12, 12);
+	font-size: 12px;
 	font-weight: bold;
 	line-height: 0;
 	padding: 0 2px;
 }
 
-.res-nightmode .entry .buttons li a {	color: $dark-text; }
-
 .error {	color: $error; }
 
-.entry {
-	overflow: visible;
+.entry { overflow: visible; }
+
+.thing[data-type="link"] .entry {
 	margin-left: 133px;
-
-	.buttons li {
-		a { color: $light-text; }
-
-		&:first-child { opacity: 1; }
-		
-		&:not(.first) { opacity: 0; }
-	}
-
-	&:hover { .buttons li { opacity: 1; } }
 }
 
 .flat-list.buttons {
@@ -287,28 +217,48 @@ a[data-event-action="distinguish"] {
 	font-size: 0;
 }
 
+.link-save-button a,
+.link-unsave-button a,
+.state-button a[action="hide"],
+.state-button a[action="unhide"] {
+	transition: background 1s steps(59);
+}
+
+.res-nightmode .thing:not(.saved) .link-save-button a,
+.res-nightmode .thing:not(.saved) .link-unsave-button a {
+	background: url(%%save%%) 0 -20px;
+}
+.res-nightmode .saved .link-unsave-button a,
+.res-nightmode .saved .link-save-button a {
+	background: url(%%save%%) -1180px -20px;
+}
+
 // save button
 .thing:not(.saved) .link-save-button a,
 .thing:not(.saved) .link-unsave-button a {
 	background: url(%%save%%) 0 0;
-	transition: background 1s steps(59);
 }
 
 // unsave button
 .saved .link-unsave-button a,
 .saved .link-save-button a {
 	background: url(%%save%%) -1180px 0;
-  transition: background 1s steps(59);
 }
 
 // hide button
 .state-button a[action="hide"] {
 	background: url(%%hide%%) 0 0;
-	transition: background 1s steps(59);
+}
+
+.res-nightmode .state-button a[action="hide"] {
+	background: url(%%hide%%) 0 -20px;
 }
 
 // unhide button
 .state-button a[action="unhide"] {
 	background: url(%%hide%%) -1180px 0;
-	transition: background 1s steps(59);
+}
+
+.res-nightmode .state-button a[action="unhide"] {
+	background: url(%%hide%%) -1180px -20px;
 }

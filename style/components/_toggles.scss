@@ -65,8 +65,8 @@ $material-checkboxes: ();
   // appearance when checked
   &:checked+label::before {
     border-color: $primary !important;
-    background: $primary url(%%tick%%) no-repeat scroll 0% 60%;
-    @include transition-default;
+    background: $primary url(%%spritesheet%%) -246px -138px;
+    @include transition(background-color 0.2s $animation-curve-default);
   }
 }
 
@@ -134,9 +134,9 @@ $material-checkboxes: ();
 }
 
 .toggleButton {
-  width: em(36, 10);
-  height: em(14, 10);
-  border-radius: em(14, 10);
+  width: 36px;
+  height: 14px;
+  border-radius: 14px;
   background-color: $light-hint-text;
 
   &.enabled { background-color: $primary; }
@@ -144,8 +144,8 @@ $material-checkboxes: ();
   // circular thumb switch
   &::before {
     top: 0 !important;
-    height: em(20, 10);
-    width: em(20, 10);
+    height: 20px;
+    width: 20px;
     border: 0 !important;
     border-radius: 50% !important;
     opacity: 1 !important;

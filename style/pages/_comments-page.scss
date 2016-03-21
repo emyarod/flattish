@@ -1,7 +1,10 @@
 // main: ../main.scss
 
 // infobar (locked, archived, etc)
-.reddit-infobar { margin-bottom: 16px; }
+.reddit-infobar {
+  padding-left: 55px !important;
+  margin-bottom: 16px;
+}
 
 // thread subscribe/unsubscribe button
 .res-nightmode #REScommentSubToggle {
@@ -39,7 +42,7 @@
 
   // sorted/navigate by
   .menuarea {
-    margin-bottom: em(17, 13);
+    margin-bottom: 17px;
 
     .spacer + .spacer {
       display: block;
@@ -51,7 +54,7 @@
     .toggle a { color: $light-secondary-text; }
   }
 
-  &> .usertext { @include margin(null null em(16, 13) 0); }
+  &> .usertext { @include margin(null null 16px 0); }
 }
 
 // offset inline styling
@@ -69,8 +72,8 @@
 }
 
 .commentNavSortType {
-  padding: 0 em(4, 10);
-  font-size: em(10, 13);
+  padding: 0 4px;
+  font-size: 10px;
 }
 
 .res-nightmode .commentingAs { color: $dark-secondary-text; }
@@ -79,8 +82,8 @@
 
 .RESCharCounter {
   position: relative;
-  top: em(35, 15);
-  left: em(-85, 15);
+  top: 35px;
+  left: -85px;
 }
 
 // comment save button bar
@@ -88,11 +91,11 @@
 
   button { margin: 0; } // fuck you RES
 
-  .bottom-area { line-height: em(36, 13); }
+  .bottom-area { line-height: 36px; }
 
   .help-toggle,
   a.reddiquette {
-    margin: 0 em(10, 13) 0 0;
+    margin: 0 10px 0 0;
     font-size: 13px;
   }
 }
@@ -101,11 +104,10 @@
 
 // big editor button...RES PLS
 .RESBigEditorPop {
-  // i cry evrytim
   margin: 0 !important;
-  padding: 0 em(8, 13) !important;
-  height: em(36, 13) !important;
-  line-height: em(36, 13) !important;
+  padding: 0 8px !important;
+  height: 36px !important;
+  line-height: 36px !important;
   border: 0 !important;
   background-color: transparent !important;
 
@@ -117,14 +119,9 @@
 }
 
 // big editor modal
-.res-nightmode #BigEditor {
-  .RESDialogSmall {
-
-    h3 {
-      color: set-text-color($primary, text);
-      background-color: $primary;
-    }
-  }
+.res-nightmode #BigEditor .RESDialogSmall h3 {
+  color: set-text-color($primary, text);
+  background-color: $primary;
 }
 
 #BigEditor {
@@ -147,22 +144,28 @@
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
-  margin: 0 0 em(16, 10) 0;
+  margin: 0 0 16px 0;
   border: 0;
 
   .title::after {
     display: inline-block;
-    margin-left: em(-19, 13);
+    margin-left: -19px;
     content: "";
     vertical-align: middle;
 	}
 }
 
-#comment-visits { width: em(167, 13); }
+#comment-visits { width: 167px; }
 
-.res-nightmode .linkinfo .shortlink input {
-  color: $dark-text;
-  background-color: $dark-app-bar;
+.res-nightmode .linkinfo {
+  * {
+    color: set-text-color($light-accent, text) !important;
+  }
+
+  .shortlink input {
+    color: $dark-text;
+    background-color: $dark-app-bar;
+  }
 }
 
 .linkinfo {
@@ -192,9 +195,7 @@
 }
 
 // comment boxes
-.res-nightmode.res-commentBoxes .comment {
-  border: 0 !important;
-}
+.res-nightmode.res-commentBoxes .comment { border: 0 !important; }
 
 html.res-nightmode .res-commentBoxes .comment,
 html.res-nightmode .res-commentBoxes .comment .comment .comment,
@@ -294,4 +295,8 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .linklisting .md,
 .commentarea .md {
   border: 0 !important;
+}
+
+.comment.noncollapsed .buttons {
+  display: flex;
 }

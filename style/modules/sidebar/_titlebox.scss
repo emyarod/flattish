@@ -27,7 +27,7 @@
 	}
 
 	.users-online::before {
-		background: url(%%users-night%%) no-repeat;
+		background-position: -262px -160px;
 		opacity: 1;
 	}
 
@@ -40,7 +40,7 @@
 	// title
 	a.hover {
 		color: $light-text;
-		font-size: em(19, 19);
+		font-size: 19px;
 	}
 
 	// subscribe and dashboard buttons
@@ -61,18 +61,18 @@
 	.subscribers {
 		.number {
 			font-weight: bold;
-			font-size: em(24, 10);
+			font-size: 24px;
 		}
 
-		.word { font-size: em(13, 10); }
+		.word { font-size: 13px; }
 	}
 
 	.users-online {
-		font-size: em(13, 10);
+		font-size: 13px;
 
 		// replace online user green orb
 		&::before {
-			background: url(%%users%%) no-repeat;
+			background-position: -246px -160px;
 			opacity: 0.87;
 			height: 16px;
 			width: 16px;

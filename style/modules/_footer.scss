@@ -1,10 +1,5 @@
 // main: ../main.scss
 
-.footer,
-.bottommenu {
-  a { @include link-underline-transition; }
-}
-
 .footer { border: 0; }
 
 .res-nightmode .flat-vert.title { color: $dark-text; }

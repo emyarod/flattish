@@ -5,15 +5,15 @@
 
 	&.self,
 	&.default {
-		border: em(1, 10) solid $dark-secondary-text !important;
+		border: 1px solid $dark-secondary-text !important;
 		opacity: 0.5;
 
 		&:hover { opacity: 1; }
 	}
 
-	&.self { background: url(%%thumbnail-self-night%%) !important; }
+	&.self { background-position: -176px -140px !important; }
 
-	&.default { background: url(%%thumbnail-default-night%%) !important; }
+	&.default { background-position: -216px 0 !important; }
 }
 
 .thumbnail,
@@ -21,39 +21,39 @@
 .thumbnail.default {
 	border-radius: 50%;
 	font-size: inherit;
-	margin: 0 em(16, 10) 0 0;
-	max-height: em(70, 10);
+	margin: 0 16px 0 0;
+	max-height: 70px;
 }
 
 .thumbnail {
 
 	img {
-		height: em(70, 10);
+		height: 70px;
 		width: auto;
 	}
 
 	&.self,
 	&.default {
-		border: em(1, 10) solid $light-secondary-text;
-		height: em(70, 10);
-		width: em(70, 10);
+		border: 1px solid $light-secondary-text;
+		height: 70px;
+		width: 70px;
 		opacity: 0.38;
 
 		&:hover { opacity: 0.5; }
 	}
 
-	&.self { background: url(%%thumbnail-self%%); }
+	&.self { background-position: -220px -70px; }
 
-	&.default { background: url(%%thumbnail-default%%); }
+	&.default { background-position: -106px -141px; }
 }
 
 // nsfw thumbnail styling
 .res-nightmode .thing.over18 > .thumbnail.self {
-	background: url(%%nsfw2%%) !important;
+	background-position: -36px -83px !important;
 }
 
 .thing.over18 > .thumbnail.self {
-	background: url(%%nsfw2%%);
+	background-position: -36px -83px;
 	border: 0 !important;
 	opacity: 0.87;
 
