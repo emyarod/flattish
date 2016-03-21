@@ -48,15 +48,7 @@
         @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
       }
 
-      // hides "rising", "controversial", "ads", and "gilded" tabs
-      a[href$="/rising/"],
-      a[href$="/controversial/"],
-      a[href$="/ads/"],
-      a[href$="/gilded/"] {
-        display: none;
-      }
-
-      // styles visible tabs
+      // styles tabs
       a,
       #viewImagesButton {
         width: initial;
