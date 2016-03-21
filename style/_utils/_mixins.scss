@@ -118,10 +118,3 @@
     background-position: 0 100%;
   }
 }
-
-#wikiactions a,
-#moderation_tools a,
-.footer a,
-.bottommenu a {
-  @include link-underline-transition;
-}
