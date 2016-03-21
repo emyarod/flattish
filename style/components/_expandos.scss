@@ -85,7 +85,7 @@
 
 		&:before,
 		&:after {
-			background-color: $light-hint-text;
+			background: $light-hint-text !important;
 			content: "";
 			position: absolute;
 			display: block;
@@ -93,8 +93,8 @@
 
 		// horizontal
 		&:before {
-			width: 7px;
-			height: 1px;
+			width: 7px !important;
+			height: 1px !important;
 			top: 17px;
 			left: 14px;
 		}
