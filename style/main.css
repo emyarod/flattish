@@ -3575,14 +3575,6 @@ body {
 
 @media (min-width: 62em) {
   body {
-    margin: 0 auto;
-    max-width: 90%;
-  }
-}
-
-@media (min-width: 75em) {
-  body {
-    margin: 0 auto;
-    max-width: 80%;
+    margin: 0 64px;
   }
 }
