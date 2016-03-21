@@ -54,14 +54,6 @@ body {
 
 @media (min-width: $screen-md-min) {
   body {
-    margin: 0 auto;
-    max-width: 90%;
-  }
-}
-
-@media (min-width: $screen-lg-min) {
-  body {
-    margin: 0 auto;
-    max-width: 80%;
+    margin: 0 64px;
   }
 }
