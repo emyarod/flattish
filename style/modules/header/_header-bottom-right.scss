@@ -223,10 +223,3 @@
   top: -2px;
   @include userbar-buttons;
 }
-
-
-// number of unread messages
-.message-count {
-  position: relative;
-  @include badge();
-}
