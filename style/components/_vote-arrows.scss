@@ -1,0 +1,85 @@
+// main: ../main.scss
+
+// vote arrow/score column & thumbnail margin
+.midcol {
+	position: relative; // need for placing pseudo element BEHIND vote arrow
+	z-index: 1;
+	@include margin(null 16px null 0);
+	width: 32px !important;
+	overflow: visible;
+}
+
+.res-nightmode .link .arrow,
+.res-nightmode .reddit-link .arrow,
+.res-nightmode .comment .arrow {
+	height: 23px !important;
+	width: 23px !important;
+
+	&:hover::before { background-color: $dark-disabled-text; }
+
+	&::before {	background-color: $dark-divider-text;	}
+
+	&.upmod,
+	&.up {
+		background-position: -78px -160px !important;
+	}
+
+	&.downmod,
+	&.down {
+		background-position: -116px -23px !important;
+	}
+}
+
+// styles nightmode AND default mode vote arrows (after upvote/downvote action)
+.res-nightmode .link .arrow,
+.res-nightmode .reddit-link .arrow,
+.res-nightmode .comment .arrow,
+.arrow {
+	&.upmod::before,
+	&.upmod:hover::before {
+		background-color: $upvote;
+	}
+
+	&.downmod::before,
+	&.downmod:hover::before {
+		background-color: $downvote;
+	}
+}
+
+// default arrow styles -- also affects sidebar vote arrows
+.arrow,
+.arrow::before,
+.arrow::after {
+	height: 23px;
+	width: 23px;
+}
+
+.arrow {
+	&:hover::before {	background-color: $light-disabled-text;	}
+
+	&::before {
+		position: absolute;
+		content: " ";
+		border-radius: 50%;
+	}
+
+	&::before {
+		z-index: -1;
+		background-color: $light-divider-text;
+		@include transition-default;
+	}
+
+	&.upmod,
+	&.up {
+		background-position: -55px -160px;
+
+		&:focus::after { background-color: $upvote; }
+	}
+
+	&.downmod,
+	&.down {
+		background-position: -192px 0;
+
+		&:focus::after { background-color: $downvote; }
+	}
+}
