@@ -27,27 +27,14 @@
 	}
 }
 
-#wikiactions,
-#moderation_tools {
-
-	// mod tools collapse button
-	.collapse-button {
-		border-radius: 2px;
-		line-height: 8px;
-	}
-
-	a { @include link-underline-transition; }
-}
-
 .res-nightmode .sidecontentbox .gadget {
 
 	// post score of recently viewed unvoted links
-	.thing span.score.unvoted {
-		color: $dark-secondary-text;
-	}
-
+	.thing span.score.unvoted,
 	// recolor comment count
-	a.reddit-comment-link.may-blank { color: $dark-secondary-text !important; }
+	a.reddit-comment-link.may-blank {
+		color: $dark-secondary-text !important;
+	}
 }
 
 .res-nightmode .sidecontentbox .gadget .right a { color: transparent; }
