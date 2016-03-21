@@ -7,7 +7,7 @@ select {
   background-color: transparent;
   outline: none;
   border-bottom-color: $light-hint-text;
-  @include border-width(0 0 em(1, 13) 0);
+  @include border-width(0 0 1px 0);
   @include appearance(none);
 
   option {
