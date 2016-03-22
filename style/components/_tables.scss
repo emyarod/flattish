@@ -1,0 +1,68 @@
+// main: ../main.scss
+
+.res-nightmode table {
+  border: 1px solid $dark-divider-text;
+  background-color: get-color('grey', '900');
+}
+
+table {
+  border: 1px solid $light-divider-text;
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: $light-cards;
+  @include drop-shadow(1);
+}
+
+thead {
+  padding-bottom: 3px;
+}
+
+.res-nightmode th {
+  color: $dark-secondary-text;
+}
+
+th {
+  height: 48px;
+  border: 0 !important;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+  line-height: 24px !important;
+  letter-spacing: 0;
+  font-size: 12px !important;
+  color: $light-secondary-text;
+  padding: 0 18px 8px 18px !important;
+}
+
+td:first-of-type,
+th:first-of-type {
+  padding-left: 24px !important;
+}
+
+td:last-of-type,
+th:last-of-type {
+  padding-right: 24px !important;
+}
+
+.res-nightmode tbody tr:hover {
+  background-color: #101010;
+}
+
+tbody tr {
+  height: 48px;
+  @include transition(background-color .28s $animation-curve-default);
+
+  &:hover {
+    background-color: get-color('grey', '200');
+  }
+}
+
+.res-nightmode td {
+  border-color: $dark-divider-text !important;
+}
+
+td {
+  height: 48px;
+  @include border-width(1px 0 !important) ;
+  border-color: $light-divider-text !important;
+  padding: 12px 18px !important;
+}
