@@ -2342,13 +2342,15 @@ div.content {
   padding-top: 85px;
 }
 
-.side .spacer,
 .side #ad_sponsorship,
 .side #ad_main {
-  width: 330px;
+  box-sizing: content-box;
+  width: 302px;
+  padding: 16px 14px !important;
 }
 
 .side .spacer {
+  width: 330px;
   margin: 0 0 15px;
 }
 
