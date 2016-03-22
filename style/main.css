@@ -753,6 +753,75 @@ select option {
   background-image: url(%%spritesheet%%);
 }
 
+.res-nightmode table {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #212121;
+}
+
+table {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: #fff;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
+}
+
+thead {
+  padding-bottom: 3px;
+}
+
+.res-nightmode th {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+th {
+  height: 48px;
+  border: 0 !important;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+  line-height: 24px !important;
+  letter-spacing: 0;
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0 18px 8px 18px !important;
+}
+
+td:first-of-type,
+th:first-of-type {
+  padding-left: 24px !important;
+}
+
+td:last-of-type,
+th:last-of-type {
+  padding-right: 24px !important;
+}
+
+.res-nightmode tbody tr:hover {
+  background-color: #101010;
+}
+
+tbody tr {
+  height: 48px;
+  -webkit-transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+tbody tr:hover {
+  background-color: #eeeeee;
+}
+
+.res-nightmode td {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+td {
+  height: 48px;
+  border-width: 1px 0 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  padding: 12px 18px !important;
+}
+
 .tabmenu,
 ul.tabmenu.formtab {
   height: 66px;
@@ -1460,35 +1529,58 @@ li a.post-sharing-button:hover::after, .thing:not(.saved) .link-save-button a:ho
 .res-nightmode h3,
 .res-nightmode h4,
 .res-nightmode h5,
-.res-nightmode h6 {
+.res-nightmode h6,
+.res-nightmode .md h1,
+.res-nightmode .md h2,
+.res-nightmode .md h3,
+.res-nightmode .md h4,
+.res-nightmode .md h5,
+.res-nightmode .md h6 {
   color: #fff;
 }
 
-h1, h2, h3, h4, h5, h6, .md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.md h1,
+.md h2,
+.md h3,
+.md h4,
+.md h5,
+.md h6 {
   color: rgba(0, 0, 0, 0.87);
 }
 
-h1, .md h1 {
+h1,
+.md h1 {
   font-size: 36px;
 }
 
-h2, .md h2 {
+h2,
+.md h2 {
   font-size: 30px;
 }
 
-h3, .md h3 {
+h3,
+.md h3 {
   font-size: 24px;
 }
 
-h4, .md h4 {
+h4,
+.md h4 {
   font-size: 18px;
 }
 
-h5, .md h5 {
+h5,
+.md h5 {
   font-size: 14px;
 }
 
-h6, .md h6 {
+h6,
+.md h6 {
   font-size: 12px;
 }
 
