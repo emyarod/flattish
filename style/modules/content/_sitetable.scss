@@ -211,7 +211,7 @@ a[data-event-action="lock"],
 a[data-event-action="unlock"],
 a[data-event-action="marknsfw"],
 a[data-event-action="unmarknsfw"],
-a[data-event-action="distinguish"] {
+a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"] {
 	height: 20px;
 	width: 20px;
 	font-size: 0;
