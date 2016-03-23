@@ -122,12 +122,12 @@ $material-checkboxes: ();
 
 // RES toggle switches
 .res-nightmode .toggleButton {
-  background-color: $dark-hint-text;
+  background-color: rgba($white, .3);
 
-  &.enabled { background-color: $dark-primary; }
+  &.enabled { background-color: $light-primary; }
 
   // off
-  &:not(.enabled)::before { background-color: $dark-background; }
+  &:not(.enabled)::before { background-color: get-color('grey', '400'); }
 
   // on
   &.enabled::before { background-color: $light-primary; }
