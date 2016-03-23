@@ -153,7 +153,7 @@ $tooltip-selector-map: (
     screen-type: 'desktop'
   ),
   distinguish-button: (
-		selector-name: 'a[data-event-action="distinguish"]',
+		selector-name: 'a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"]',
 		background-position: -172px 0,
 		background-night-position: -76px -43px,
 		width-tooltip: 72,
