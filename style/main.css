@@ -3154,6 +3154,7 @@ html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .commen
 html.res-commentBoxes .comment {
   margin: 0 0 16px !important;
   padding: 16px !important;
+  overflow: visible;
 }
 
 html.res-commentBoxes.res-commentBoxes-rounded .comment {
