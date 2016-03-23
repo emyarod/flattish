@@ -1146,15 +1146,15 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .res-nightmode .toggleButton.enabled {
-  background-color: #0097a7;
+  background-color: #4dd0e1;
 }
 
 .res-nightmode .toggleButton:not(.enabled)::before {
-  background-color: #303030;
+  background-color: #bdbdbd;
 }
 
 .res-nightmode .toggleButton.enabled::before {
