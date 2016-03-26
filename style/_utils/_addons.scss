@@ -1,5 +1,92 @@
 // main: ../main.scss
 
 // large header
+$header-large: false;
 
 // pinned topics
+$pinned-topics: true;
+$num-stickies: 3;
+
+@if $pinned-topics {
+  @media (min-width: $screen-md-min) {
+    #header {
+      width: calc(100% - -156px);
+      left: -92px;
+    }
+
+    body { margin: 0 64px 0 92px; }
+  }
+
+  .titlebox blockquote {
+    // position: absolute;
+    position: fixed;
+    top: 239px;
+    left: 16px;
+    border: 0;
+    margin: 0 !important;
+    padding: 0;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      display: block;
+      height: 100%;
+      width: 60px;
+      content: '';
+      border-radius: 2px;
+      @include drop-shadow(1);
+      background-color: $light-cards;
+    }
+
+    p {
+      width: 60px;
+      margin: 0 !important;
+      padding-right: 16px;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-position: 16px 50%;
+
+      &:hover {
+        width: 100%;
+      }
+    }
+
+    // @while $num-stickies > 0 {
+    //   .titlebox a[href*="#sticky-#{$num-stickies}"] {
+    //     // top: 300px + (50px * $num-stickies);
+    //   }
+    //
+    //   $num-stickies: $num-stickies - 1;
+    // }
+
+    p:nth-of-type(1) { background-image: url(%%help%%); }
+
+    p:nth-of-type(2) { background-image: url(%%album%%); }
+
+    p:nth-of-type(3) { background-image: url(%%calendar%%); }
+
+    a {
+      display: block;
+      height: 60px;
+      margin-left: 60px;
+      padding: 0 16px;
+      line-height: 60px;
+      font-size: 14px;
+      color: $dark-text !important;
+      background-color: $tooltip;
+      @include border-right-radius(2px);
+    }
+  }
+} @else {
+  @media (min-width: $screen-md-min) {
+    #header {
+      width: calc(100% - -128px);
+      left: -64px;
+    }
+
+    body {
+      margin: 0 64px;
+    }
+  }
+}
