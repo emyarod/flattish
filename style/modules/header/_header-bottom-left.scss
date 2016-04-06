@@ -79,7 +79,11 @@
 
 @media (min-width: $screen-lg-min) {
   #header-bottom-left {
-    top: 159px;
+    @if ($header-large == true) {
+      top: 245px;
+    } @else {
+      top: 159px;
+    }
     height: 64px;
 
     // positioning fix for pagename and tabmenu when reddit pushes custom banner image
