@@ -744,8 +744,8 @@ select option {
 .res-nightmode .thumbnail.default,
 .thumbnail.self,
 .thumbnail.default,
-.res-nightmode .thing.over18 > .thumbnail.self,
-.thing.over18 > .thumbnail.self,
+.res-nightmode .thing.over18 > .thumbnail,
+.thing.over18 > .thumbnail,
 .res-nightmode .link .arrow.upmod,
 .res-nightmode .link .arrow.up,
 .res-nightmode .reddit-link .arrow.upmod,
@@ -1107,17 +1107,17 @@ textarea {
   background-position: -106px -141px;
 }
 
-.res-nightmode .thing.over18 > .thumbnail.self {
+.res-nightmode .thing.over18 > .thumbnail {
   background-position: -36px -83px !important;
 }
 
-.thing.over18 > .thumbnail.self {
+.thing.over18 > .thumbnail {
   background-position: -36px -83px;
   border: 0 !important;
   opacity: 0.87;
 }
 
-.thing.over18 > .thumbnail.self:hover {
+.thing.over18 > .thumbnail:hover {
   opacity: 1;
 }
 
