@@ -1,26 +1,5 @@
 // main: ../main.scss
 
-// ███████╗██╗   ██╗ ██████╗██╗  ██╗
-// ██╔════╝██║   ██║██╔════╝██║ ██╔╝
-// █████╗  ██║   ██║██║     █████╔╝
-// ██╔══╝  ██║   ██║██║     ██╔═██╗
-// ██║     ╚██████╔╝╚██████╗██║  ██╗
-// ╚═╝      ╚═════╝  ╚═════╝╚═╝  ╚═╝
-//
-// ██████╗ ███████╗███████╗
-// ██╔══██╗██╔════╝██╔════╝
-// ██████╔╝█████╗  ███████╗
-// ██╔══██╗██╔══╝  ╚════██║
-// ██║  ██║███████╗███████║
-// ╚═╝  ╚═╝╚══════╝╚══════╝
-//
-// ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
-// ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
-// ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗
-// ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝  ╚════██║
-// ███████║   ██║      ██║   ███████╗███████╗███████║
-// ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝
-
 .res .thing .tagline .author,
 .thing .tagline .author {
   border-radius: 2px !important;
@@ -36,34 +15,14 @@
   }
 }
 
-// fuck you, RES
-
 #modalOverlay {
   background-color: $light-disabled-text !important;
 }
 
 #RESConsoleContainer {
-  // depth 6 drop shadow
-  box-shadow: 0 16px 24px  2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0  6px 30px  5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-              0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity) !important;
+  @include drop-shadow(6);
 
   * { box-sizing: initial; }
-}
-
-// username tagger modal
-
-// login modal
-
-// tips and tricks modal
-
-// suggested pages toast
-
-body.res-nightmode,
-.res-nightmode .side .spacer,
-.res-nightmode .side,
-.res-nightmode .side * {
-  // color: inherit !important;
 }
 
 .res-nightmode .infobar:not(.newsletterbar) .md,
@@ -73,3 +32,19 @@ body.res-nightmode,
 
 // RES tips & tricks
 .guiders_content h2 { font-size: initial; }
+
+// dialog box when hovering over a user
+.RESDialogSmall {
+  &::before,
+  &::after {
+    display: none !important;
+  }
+
+  @include drop-shadow(5);
+}
+
+.RESDialogSmall,
+.RESDialogSmall * {
+  box-sizing: content-box;
+  border: 0 !important;
+}
