@@ -4,7 +4,16 @@
 
 .res-nightmode div.content { background-color: transparent !important; }
 
-div.content {	margin: 0 em(15, 10); }
+
+@if ($header-large == true) {
+	div.content {
+		position: relative;
+		top: -123px;
+		z-index: 1000;
+	}
+} @else {
+	div.content {	margin: 0 em(15, 10); }
+}
 
 @media (min-width: $screen-md-min) {
 	div.content {

@@ -1,0 +1,136 @@
+// main: ../main.scss
+
+// large header
+$header-large: false;
+
+// pinned topics
+$pinned-topics: true;
+$num-stickies: 3;
+
+@if $pinned-topics {
+  @media (min-width: $screen-md-min) {
+    #header {
+      width: calc(100% - -156px);
+      left: -92px;
+    }
+
+    body { margin: 0 64px 0 92px; }
+  }
+
+  .res-nightmode {
+
+    .side .md ul { background-color: transparent !important; }
+
+    .titlebox blockquote {
+
+      &::after { background-color: $dark-cards; }
+
+      p:nth-of-type(1) { background-image: url(%%help-night%%); }
+      p:nth-of-type(2) { background-image: url(%%album-night%%); }
+      p:nth-of-type(3) { background-image: url(%%calendar-night%%); }
+
+      ul:nth-of-type(1) { background-image: url(%%media-night%%); }
+      ul:nth-of-type(2) { background-image: url(%%music-shows-night%%); }
+    }
+  }
+
+  .titlebox blockquote {
+    @if ($header-large == true) {
+      top: 312px;
+    } @else {
+      top: 239px;
+    }
+
+    position: fixed;
+    left: 16px;
+    border: 0;
+    margin: 0 !important;
+    padding: 0;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      display: block;
+      height: 100%;
+      width: 60px;
+      content: '';
+      border-radius: 2px;
+      @include drop-shadow(1);
+      background-color: $light-cards;
+    }
+
+    p,
+    ul {
+      width: 60px;
+      height: 60px;
+      margin: 0 !important;
+      padding: 0 16px 0 0;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-position: 16px 50%;
+    }
+
+    p {
+
+
+      &:hover {
+        width: 100%;
+      }
+
+      &:nth-of-type(1) { background-image: url(%%help%%); }
+      &:nth-of-type(2) { background-image: url(%%album%%); }
+      &:nth-of-type(3) { background-image: url(%%calendar%%); }
+    }
+
+    a {
+      display: block;
+      height: 60px;
+      border-left-width: 60px;
+      border-left-style: solid;
+      border-left-color: transparent;
+      padding: 0 16px;
+      line-height: 60px;
+      font-size: 14px;
+      color: $dark-text !important;
+      background-clip: padding-box;
+      background-color: $tooltip;
+      @include border-right-radius(2px);
+    }
+
+    ul {
+
+      &:hover {
+        width: 100%;
+        overflow: visible;
+      }
+
+      &:nth-of-type(1) { background-image: url(%%media%%); }
+      &:nth-of-type(2) { background-image: url(%%music-shows%%); }
+
+      ul {
+        // avoids overlap of bg images due to nested ul
+        background-image: none !important;
+      }
+
+      li {
+        list-style-type: none;
+
+        // different styles for links within ul
+        a {
+          border: 0;
+          margin-left: 60px;
+        }
+      }
+    }
+  }
+} @else {
+  @media (min-width: $screen-md-min) {
+    #header {
+      width: calc(100% - -128px);
+      left: -64px;
+    }
+
+    body { margin: 0 64px; }
+  }
+}
