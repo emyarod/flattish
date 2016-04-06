@@ -51,9 +51,3 @@ body {
 .bottommenu a {
 	@include link-underline-transition;
 }
-
-@media (min-width: $screen-md-min) {
-  body {
-    margin: 0 64px;
-  }
-}
