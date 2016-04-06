@@ -48,11 +48,11 @@
 }
 
 // nsfw thumbnail styling
-.res-nightmode .thing.over18 > .thumbnail.self {
+.res-nightmode .thing.over18 > .thumbnail {
 	background-position: -36px -83px !important;
 }
 
-.thing.over18 > .thumbnail.self {
+.thing.over18 > .thumbnail {
 	background-position: -36px -83px;
 	border: 0 !important;
 	opacity: 0.87;
