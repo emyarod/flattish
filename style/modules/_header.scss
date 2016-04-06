@@ -1,16 +1,17 @@
 // main: ../main.scss
 
-$header-size-large: 420px;
-$header-size-default: 223px;
+$header-large-large: 420px;
+$header-large-default: 223px;
 
-@mixin header($large: false, $animate: false) {
+@mixin header($header-large, $animate: false) {
   #header {
     // large
-    @if ($large) {
+    @if ($header-large == true) {
       height: 420px;
     } @else {
       height: 223px;
     }
+    z-index: 1000;
 
     border: 0;
     margin-bottom: 15px;
@@ -31,14 +32,7 @@ $header-size-default: 223px;
 }
 
 // large, animate
-@include header();
-
-@media (min-width: $screen-md-min) {
-  #header {
-    width: calc(100% - -128px);
-    left: -64px;
-  }
-}
+@include header($header-large);
 
 @import "header/sr-bar";
 @import "header/header-bottom-right";
