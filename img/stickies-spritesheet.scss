@@ -1,0 +1,89 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-album {
+    width: 30px;
+    height: 30px;
+    background-position: -15px -15px;
+}
+
+.sprite-album-night {
+    width: 30px;
+    height: 30px;
+    background-position: -75px -15px;
+}
+
+.sprite-announcement {
+    width: 30px;
+    height: 30px;
+    background-position: -135px -15px;
+}
+
+.sprite-announcement-night {
+    width: 30px;
+    height: 30px;
+    background-position: -15px -75px;
+}
+
+.sprite-calendar {
+    width: 30px;
+    height: 30px;
+    background-position: -75px -75px;
+}
+
+.sprite-calendar-night {
+    width: 30px;
+    height: 30px;
+    background-position: -135px -75px;
+}
+
+.sprite-help {
+    width: 30px;
+    height: 30px;
+    background-position: -15px -135px;
+}
+
+.sprite-help-night {
+    width: 30px;
+    height: 30px;
+    background-position: -75px -135px;
+}
+
+.sprite-information {
+    width: 30px;
+    height: 30px;
+    background-position: -135px -135px;
+}
+
+.sprite-information-night {
+    width: 30px;
+    height: 30px;
+    background-position: -195px -15px;
+}
+
+.sprite-media {
+    width: 30px;
+    height: 30px;
+    background-position: -195px -75px;
+}
+
+.sprite-media-night {
+    width: 30px;
+    height: 30px;
+    background-position: -195px -135px;
+}
+
+.sprite-music-shows {
+    width: 30px;
+    height: 30px;
+    background-position: -15px -195px;
+}
+
+.sprite-music-shows-night {
+    width: 30px;
+    height: 30px;
+    background-position: -75px -195px;
+}
