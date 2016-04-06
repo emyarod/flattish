@@ -18,7 +18,7 @@ $num-stickies: 3;
   }
 
   .res-nightmode {
-    
+
     .side .md ul { background-color: transparent !important; }
 
     .titlebox blockquote {
@@ -35,8 +35,13 @@ $num-stickies: 3;
   }
 
   .titlebox blockquote {
+    @if ($header-large == true) {
+      top: 312px;
+    } @else {
+      top: 239px;
+    }
+
     position: fixed;
-    top: 239px;
     left: 16px;
     border: 0;
     margin: 0 !important;
