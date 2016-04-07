@@ -3,7 +3,13 @@
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
-  top: 86px;
+
+  @if ($header-large == true) {
+		top: 245px;
+	} @else {
+    top: 86px;
+	}
+
   height: 53px;
   font-size: 14px;
   margin: 0 !important;
@@ -84,6 +90,7 @@
     } @else {
       top: 159px;
     }
+
     height: 64px;
 
     // positioning fix for pagename and tabmenu when reddit pushes custom banner image
