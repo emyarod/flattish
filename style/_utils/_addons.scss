@@ -7,15 +7,6 @@ $header-large: false;
 $pinned-topics: false;
 
 @if $pinned-topics {
-  @media (min-width: $screen-md-min) {
-    #header {
-      width: calc(100% - -156px);
-      left: -92px;
-    }
-
-    body { margin: 0 64px 0 92px; }
-  }
-
   .res-nightmode .titlebox blockquote p:nth-of-type(1),
   .res-nightmode .titlebox blockquote p:nth-of-type(2),
   .res-nightmode .titlebox blockquote p:nth-of-type(3),
@@ -156,14 +147,5 @@ $pinned-topics: false;
         }
       }
     }
-  }
-} @else {
-  @media (min-width: $screen-md-min) {
-    #header {
-      width: calc(100% - -128px);
-      left: -64px;
-    }
-
-    body { margin: 0 64px; }
   }
 }
