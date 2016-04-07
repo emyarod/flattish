@@ -4,7 +4,7 @@
 $header-large: false;
 
 // pinned topics
-$pinned-topics: true;
+$pinned-topics: false;
 $num-stickies: 3;
 
 @if $pinned-topics {
