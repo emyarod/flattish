@@ -4,7 +4,7 @@
 $header-large: false;
 
 // pinned topics
-$pinned-topics: true;
+$pinned-topics: false;
 
 @if $pinned-topics {
   @media (min-width: $screen-md-min) {
