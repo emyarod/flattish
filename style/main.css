@@ -1763,6 +1763,10 @@ h6,
   color: rgba(0, 0, 0, 0.54);
 }
 
+.md blockquote {
+  margin-left: 25px;
+}
+
 .midcol {
   position: relative;
   z-index: 1;
