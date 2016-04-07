@@ -4,20 +4,30 @@
 
 .res-nightmode div.content { background-color: transparent !important; }
 
+div.content {
+	position: relative;
 
-@if ($header-large == true) {
-	div.content {
-		position: relative;
-		top: -123px;
-		z-index: 1000;
+	@if ($header-large == true) {
+		top: 297px;
+	} @else {
+		top: 223px;
 	}
-} @else {
-	div.content {	margin: 0 em(15, 10); }
+
+	margin: 0 em(15, 10);
 }
 
-@media (min-width: $screen-md-min) {
-	div.content {
-		max-width: calc(100% - 346px);
-		margin: 0;
-	}
+@if $pinned-topics {
+  @media (min-width: $screen-md-min) {
+  	div.content {
+  		max-width: calc(100% - 503px);
+  		margin-left: 93px;
+  	}
+  }
+} @else {
+  @media (min-width: $screen-md-min) {
+  	div.content {
+  		max-width: calc(100% - 474px);
+  		margin-left: 64px;
+  	}
+  }
 }
