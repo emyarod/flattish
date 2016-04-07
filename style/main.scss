@@ -41,6 +41,20 @@ body a:link {
 body {
   background-color: $light-background;
   overflow-x: hidden;
+
+  // header image
+  &::before {
+    position: absolute;
+    @if ($header-large == true) {
+      height: 420px;
+    } @else {
+      height: 223px;
+    }
+    width: 100%;
+    content: '';
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),url(%%header%%);
+    background-attachment: scroll, fixed;
+  }
 }
 
 .md { max-width: unset; }
