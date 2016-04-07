@@ -19,23 +19,13 @@
   }
 }
 
-@media (min-width: $screen-md-min) {
-  .footer-parent,
-  .debuginfo {
-    // width: 112%;
-    // width: 100vw;
-    // left: -6%;
-    // left: -5vw;
-    // bottom: 0;
-  }
-}
+.footer-parent,
+.debuginfo {
+  position: relative;
 
-@media (min-width: $screen-lg-min) {
-  .footer-parent,
-  .debuginfo {
-    // width: 125%;
-    // width: 100vw;
-    // left: -12.5%;
-    // bottom: 0;
-  }
+  @if ($header-large == true) {
+		top: 297px;
+	} @else {
+		top: 223px;
+	}
 }
