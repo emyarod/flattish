@@ -2,7 +2,7 @@
 
 .side,
 .side * {
-	z-index: 999;
+	z-index: 1000;
 }
 
 .res-nightmode .side,
@@ -13,15 +13,14 @@
 .res-nightmode .side::before { background-position: 0 -59px; }
 
 .side {
+	position: relative;
+
 	@if ($header-large == true) {
-		position: relative;
-		right: 0;
-		top: -123px;
-		z-index: 2000;
+		top: 297px;
 	} @else {
-		position: absolute;
-		right: -5px;
+		top: 223px;
 	}
+
 	width: 0;
 	margin: 0;
 	padding-top: 85px;
@@ -103,13 +102,14 @@
 @import "sidebar/sidecontentbox";
 
 @media (min-width: $screen-md-min) {
+	.side,
+	.side * {
+		z-index: auto;
+	}
+
 	.side {
-		@if ($header-large == true) {
-			position: relative;
-		} @else {
-			position: static;
-		}
 		width: 330px;
+		margin-right: 64px;
 
 		// hide kebab menu icon
 		&:before { display: none; }
