@@ -2066,6 +2066,12 @@ div.content {
   font-size: 16px;
 }
 
+.footer-parent,
+.debuginfo {
+  position: relative;
+  top: 223px;
+}
+
 #header {
   height: 0;
   border: 0;
