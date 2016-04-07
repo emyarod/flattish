@@ -2085,7 +2085,7 @@ div.content {
   top: 25px;
   width: 100%;
   content: '▼';
-  color: #fff;
+  color: rgba(255, 255, 255, 0.57);
   font-size: 14px;
   text-align: center;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
