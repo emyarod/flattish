@@ -1,8 +1,5 @@
 // main: ../main.scss
 
-$header-large-large: 420px;
-$header-large-default: 223px;
-
 @mixin header($header-large, $animate: false) {
   #header {
     // large
