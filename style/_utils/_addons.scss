@@ -17,20 +17,35 @@ $num-stickies: 3;
     body { margin: 0 64px 0 92px; }
   }
 
-  .res-nightmode {
+  .res-nightmode .titlebox blockquote p:nth-of-type(1),
+  .res-nightmode .titlebox blockquote p:nth-of-type(2),
+  .res-nightmode .titlebox blockquote p:nth-of-type(3),
+  .res-nightmode .titlebox blockquote ul:nth-of-type(1),
+  .res-nightmode .titlebox blockquote ul:nth-of-type(2),
+  .titlebox blockquote p:nth-of-type(1),
+  .titlebox blockquote p:nth-of-type(2),
+  .titlebox blockquote p:nth-of-type(3),
+  .titlebox blockquote ul:nth-of-type(1),
+  .titlebox blockquote ul:nth-of-type(2) {
+    background: url(%%stickies%%) no-repeat;
+  }
 
-    .side .md ul { background-color: transparent !important; }
+  .res-nightmode {
 
     .titlebox blockquote {
 
       &::after { background-color: $dark-cards; }
 
-      p:nth-of-type(1) { background-image: url(%%help-night%%); }
-      p:nth-of-type(2) { background-image: url(%%album-night%%); }
-      p:nth-of-type(3) { background-image: url(%%calendar-night%%); }
-
-      ul:nth-of-type(1) { background-image: url(%%media-night%%); }
-      ul:nth-of-type(2) { background-image: url(%%music-shows-night%%); }
+      // help
+      // album
+      // calendar
+      // media
+      // music-shows
+      p:nth-of-type(1) { background-position: -60px -120px; }
+      p:nth-of-type(2) { background-position: -60px 0; }
+      p:nth-of-type(3) { background-position: -120px -60px; }
+      ul:nth-of-type(1) { background-position: -180px -120px; }
+      ul:nth-of-type(2) { background-position: -60px -180px; }
     }
   }
 
@@ -61,11 +76,16 @@ $num-stickies: 3;
     }
 
     p,
+    ul,
+    a {
+      @include border-right-radius(2px);
+    }
+
+    p,
     ul {
       width: 60px;
       height: 60px;
       margin: 0 !important;
-      padding: 0 16px 0 0;
       overflow: hidden;
       background-repeat: no-repeat;
       background-position: 16px 50%;
@@ -76,11 +96,15 @@ $num-stickies: 3;
 
       &:hover {
         width: 100%;
+        background-color: $primary !important;
       }
 
-      &:nth-of-type(1) { background-image: url(%%help%%); }
-      &:nth-of-type(2) { background-image: url(%%album%%); }
-      &:nth-of-type(3) { background-image: url(%%calendar%%); }
+      // help
+      // album
+      // calendar
+      &:nth-of-type(1) { background-position: 0 -120px; }
+      &:nth-of-type(2) { background-position: 0 0; }
+      &:nth-of-type(3) { background-position: -60px -60px; }
     }
 
     a {
@@ -94,23 +118,33 @@ $num-stickies: 3;
       font-size: 14px;
       color: $dark-text !important;
       background-clip: padding-box;
-      background-color: $tooltip;
-      @include border-right-radius(2px);
+      background-color: rgba($tooltip, 1);
+
+      &:hover {
+        color: $primary !important;
+      }
     }
 
     ul {
+      padding: 0;
 
       &:hover {
         width: 100%;
         overflow: visible;
+        background-color: $primary !important;
       }
 
-      &:nth-of-type(1) { background-image: url(%%media%%); }
-      &:nth-of-type(2) { background-image: url(%%music-shows%%); }
+      // media
+      // music-shows
+      &:nth-of-type(1) { background-position: -180px -60px; }
+      &:nth-of-type(2) { background-position: 0 -180px; }
 
       ul {
         // avoids overlap of bg images due to nested ul
         background-image: none !important;
+        background-color: transparent !important;
+
+        &:hover { background-color: transparent !important; }
       }
 
       li {
