@@ -1,35 +1,12 @@
 // main: ../main.scss
 
-@mixin header($header-large, $animate: false) {
-  #header {
-    // large
-    @if ($header-large == true) {
-      height: 420px;
-    } @else {
-      height: 223px;
-    }
-    z-index: 1000;
-
-    border: 0;
-    margin-bottom: 15px;
-    background-attachment: scroll, fixed;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),url(%%header%%);
-  }
-
-  // animate header
-  @if ($animate) {
-    @include keyframes(moveheader) {
-      0% { background-position: 0 0; }
-      50% { background-position: 100% 0; }
-      100% { background-position: 0 0; }
-    }
-
-    #header { @include animation(moveheader 20s infinite); }
-  }
+#header {
+  height: 0;
+  border: 0;
+  margin-bottom: 15px;
+  background-attachment: scroll, fixed;
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),url(%%header%%);
 }
-
-// large, animate
-@include header($header-large);
 
 @import "header/sr-bar";
 @import "header/header-bottom-right";
