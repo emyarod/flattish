@@ -22,10 +22,6 @@
 	&::-moz-focus-inner { border: 0; }
 }
 
-@mixin button($desired-font-size) {
-	font-size: #{$desired-font-size}px !important;
-}
-
 $button-selector-map: (
   global-button: (
 		selector-name: 'button',
@@ -130,6 +126,7 @@ $button-selector-map: (
 
 $base-button-selectors: ();
 $night-button-selectors: ();
+$default-font-sized-buttons: ();
 $flat-button-colored-text-selectors: ();
 $night-flat-button-colored-text-selectors: ();
 $default-raised-button-selectors: ();
@@ -153,7 +150,12 @@ $night-raised-colorized-button-selectors: ();
 	$base-button-selectors: append($base-button-selectors, unquote('#{$selector-name}'), 'comma');
 	$night-button-selectors: append($night-button-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
 
-	#{$selector-name} { @include button($desired-font-size); }
+	@if $desired-font-size != 14 {
+		#{$selector-name} { font-size: #{$desired-font-size}px !important; }
+	} @else {
+		$default-font-sized-buttons: append($default-font-sized-buttons, unquote('#{$selector-name}'), 'comma');
+	}
+
 
 	// flat buttons
 	@if #{$button-type} == 'flat-button-colored-text' {
@@ -253,6 +255,10 @@ $night-raised-colorized-button-selectors: ();
 #{$base-button-selectors},
 #{$night-button-selectors} {
 	@include global-button-styles;
+}
+
+#{$default-font-sized-buttons} {
+	font-size: 14px !important;
 }
 
 // flat button colored text
