@@ -2220,11 +2220,166 @@ div.content {
 }
 
 #header {
+  z-index: auto;
   height: 0;
   border: 0;
   margin-bottom: 15px;
+}
+
+input[name=uh] ~ a::after {
+  position: absolute;
+  top: -40px;
+  right: -16px;
+  z-index: -1;
+  width: 1920px;
+  height: 420px;
+  content: '';
+  pointer-events: none;
   background-attachment: scroll, fixed;
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
+}
+
+input[name=uh][value$="a"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
+}
+
+input[name=uh][value$="b"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header2%%);
+}
+
+input[name=uh][value$="c"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header3%%);
+}
+
+input[name=uh][value$="d"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header4%%);
+}
+
+input[name=uh][value$="e"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header5%%);
+}
+
+input[name=uh][value$="f"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header6%%);
+}
+
+input[name=uh][value$="g"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header7%%);
+}
+
+input[name=uh][value$="h"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header8%%);
+}
+
+input[name=uh][value$="i"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header9%%);
+}
+
+input[name=uh][value$="j"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header10%%);
+}
+
+input[name=uh][value$="k"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header11%%);
+}
+
+input[name=uh][value$="l"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header12%%);
+}
+
+input[name=uh][value$="m"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header13%%);
+}
+
+input[name=uh][value$="n"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header14%%);
+}
+
+input[name=uh][value$="o"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header15%%);
+}
+
+input[name=uh][value$="p"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header16%%);
+}
+
+input[name=uh][value$="q"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header17%%);
+}
+
+input[name=uh][value$="r"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header18%%);
+}
+
+input[name=uh][value$="s"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header19%%);
+}
+
+input[name=uh][value$="t"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header20%%);
+}
+
+input[name=uh][value$="u"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header21%%);
+}
+
+input[name=uh][value$="v"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header22%%);
+}
+
+input[name=uh][value$="w"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header23%%);
+}
+
+input[name=uh][value$="x"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header24%%);
+}
+
+input[name=uh][value$="y"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header25%%);
+}
+
+input[name=uh][value$="z"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header26%%);
+}
+
+input[name=uh][value$="0"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header27%%);
+}
+
+input[name=uh][value$="1"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header28%%);
+}
+
+input[name=uh][value$="2"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header29%%);
+}
+
+input[name=uh][value$="3"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header30%%);
+}
+
+input[name=uh][value$="4"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header31%%);
+}
+
+input[name=uh][value$="5"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header32%%);
+}
+
+input[name=uh][value$="6"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header33%%);
+}
+
+input[name=uh][value$="7"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header34%%);
+}
+
+input[name=uh][value$="8"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header35%%);
+}
+
+input[name=uh][value$="9"] ~ a::after {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header36%%);
 }
 
 .res-nightmode #sr-header-area,
@@ -2235,6 +2390,7 @@ div.content {
 #sr-header-area {
   position: relative;
   top: -30px;
+  z-index: 20;
   height: 3em;
   border: 0;
   font-size: 10px;
@@ -2362,6 +2518,26 @@ div.content {
   background-position: -16px -43px;
 }
 
+.pref-lang.choice,
+.logout a {
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  color: transparent;
+  text-indent: -9999px;
+}
+
+.gearIcon,
+.pref-lang.choice {
+  opacity: 0.87;
+}
+
+.gearIcon:hover,
+.pref-lang.choice:hover {
+  opacity: 1;
+}
+
 #header-bottom-right, .res #header-bottom-right {
   position: absolute;
   top: 35px;
@@ -2378,17 +2554,6 @@ div.content {
 
 .pref-lang.choice {
   top: -1px;
-  height: 16px;
-  width: 16px;
-  color: transparent;
-  display: inline-block;
-  opacity: 0.87;
-  position: relative;
-  text-indent: -9999px;
-}
-
-.pref-lang.choice:hover {
-  opacity: 1;
 }
 
 .gearIcon {
@@ -2397,11 +2562,6 @@ div.content {
   top: 5px;
   height: 16px !important;
   width: 16px !important;
-  opacity: 0.87;
-}
-
-.gearIcon:hover {
-  opacity: 1;
 }
 
 #RESMainGearOverlay {
@@ -2470,25 +2630,14 @@ div.content {
 
 .logout a {
   top: -2px;
-  height: 16px;
-  width: 16px;
-  color: transparent;
-  display: inline-block;
-  opacity: 0.87;
-  position: relative;
-  text-indent: -9999px;
-}
-
-.logout a:hover {
-  opacity: 1;
 }
 
 #header-bottom-left {
   position: absolute;
   top: 245px;
   height: 53px;
-  font-size: 14px;
   margin: 0 !important;
+  font-size: 14px;
 }
 
 #header-bottom-left .pagename {
@@ -2508,12 +2657,9 @@ div.content {
   text-transform: lowercase;
 }
 
-#header-bottom-left .pagename a:hover {
-  text-decoration: none;
-}
-
-#header-bottom-left .pagename a:hover a {
+#header-bottom-left .pagename:hover a {
   color: #fff;
+  text-decoration: none;
 }
 
 #header-bottom-left .tabmenu {
@@ -3085,7 +3231,7 @@ label + #moresearchinfo {
 @media (min-width: 62em) {
   .side,
   .side * {
-    z-index: auto;
+    z-index: 2;
   }
   .side {
     width: 330px;
@@ -3829,11 +3975,16 @@ body {
 
 body::before {
   position: absolute;
+  z-index: -1;
   height: 420px;
   width: 100%;
   content: '';
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
   background-attachment: scroll, fixed;
+}
+
+body.loggedin::before {
+  display: none;
 }
 
 .md {
