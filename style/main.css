@@ -3979,7 +3979,7 @@ body::before {
   height: 420px;
   width: 100%;
   content: '';
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
   background-attachment: scroll, fixed;
 }
 
