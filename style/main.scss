@@ -42,9 +42,10 @@ body {
   background-color: $light-background;
   overflow-x: hidden;
 
-  // header image
+  // header image for logged out users
   &::before {
     position: absolute;
+    z-index: -1;
     @if ($header-large == true) {
       height: 420px;
     } @else {
@@ -52,9 +53,11 @@ body {
     }
     width: 100%;
     content: '';
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),url(%%header%%);
+    background-image: $scrim,url(%%header1%%);
     background-attachment: scroll, fixed;
   }
+
+  &.loggedin::before { display: none; }
 }
 
 .md { max-width: unset; }
