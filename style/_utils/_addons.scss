@@ -1,13 +1,13 @@
 // main: ../main.scss
 
 // large header
-$header-large: true;
+$header-large: false;
 
 // random header
-$random-header: true;
+$random-header: false;
 
 // pinned topics
-$pinned-topics: true;
+$pinned-topics: false;
 
 @if $pinned-topics {
   .res-nightmode .titlebox blockquote p:nth-of-type(1),

@@ -217,153 +217,6 @@
   }
 }
 
-.res-nightmode .titlebox blockquote p:nth-of-type(1),
-.res-nightmode .titlebox blockquote p:nth-of-type(2),
-.res-nightmode .titlebox blockquote p:nth-of-type(3),
-.res-nightmode .titlebox blockquote ul:nth-of-type(1),
-.res-nightmode .titlebox blockquote ul:nth-of-type(2),
-.titlebox blockquote p:nth-of-type(1),
-.titlebox blockquote p:nth-of-type(2),
-.titlebox blockquote p:nth-of-type(3),
-.titlebox blockquote ul:nth-of-type(1),
-.titlebox blockquote ul:nth-of-type(2) {
-  background: url(%%stickies%%) no-repeat;
-}
-
-.res-nightmode .titlebox blockquote::after {
-  background-color: #424242;
-}
-
-.res-nightmode .titlebox blockquote p:nth-of-type(1) {
-  background-position: -60px -120px;
-}
-
-.res-nightmode .titlebox blockquote p:nth-of-type(2) {
-  background-position: -60px 0;
-}
-
-.res-nightmode .titlebox blockquote p:nth-of-type(3) {
-  background-position: -120px -60px;
-}
-
-.res-nightmode .titlebox blockquote ul:nth-of-type(1) {
-  background-position: -180px -120px;
-}
-
-.res-nightmode .titlebox blockquote ul:nth-of-type(2) {
-  background-position: -60px -180px;
-}
-
-.titlebox blockquote {
-  top: 312px;
-  position: fixed;
-  left: 16px;
-  border: 0;
-  margin: 0 !important;
-  padding: 0;
-}
-
-.titlebox blockquote::after {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  display: block;
-  height: 100%;
-  width: 60px;
-  content: '';
-  border-radius: 2px;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
-  background-color: #fff;
-}
-
-.titlebox blockquote p,
-.titlebox blockquote ul,
-.titlebox blockquote a {
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-}
-
-.titlebox blockquote p,
-.titlebox blockquote ul {
-  width: 60px;
-  height: 60px;
-  margin: 0 !important;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: 16px 50%;
-}
-
-.titlebox blockquote p:hover {
-  width: 100%;
-  background-color: #00bcd4 !important;
-}
-
-.titlebox blockquote p:nth-of-type(1) {
-  background-position: 0 -120px;
-}
-
-.titlebox blockquote p:nth-of-type(2) {
-  background-position: 0 0;
-}
-
-.titlebox blockquote p:nth-of-type(3) {
-  background-position: -60px -60px;
-}
-
-.titlebox blockquote a {
-  display: block;
-  height: 60px;
-  border-left-width: 60px;
-  border-left-style: solid;
-  border-left-color: transparent;
-  padding: 0 16px;
-  line-height: 60px;
-  font-size: 14px;
-  color: #fff !important;
-  background-clip: padding-box;
-  background-color: #616161;
-}
-
-.titlebox blockquote a:hover {
-  color: #00bcd4 !important;
-}
-
-.titlebox blockquote ul {
-  padding: 0;
-}
-
-.titlebox blockquote ul:hover {
-  width: 100%;
-  overflow: visible;
-  background-color: #00bcd4 !important;
-}
-
-.titlebox blockquote ul:nth-of-type(1) {
-  background-position: -180px -60px;
-}
-
-.titlebox blockquote ul:nth-of-type(2) {
-  background-position: 0 -180px;
-}
-
-.titlebox blockquote ul ul {
-  background-image: none !important;
-  background-color: transparent !important;
-}
-
-.titlebox blockquote ul ul:hover {
-  background-color: transparent !important;
-}
-
-.titlebox blockquote ul li {
-  list-style-type: none;
-}
-
-.titlebox blockquote ul li a {
-  border: 0;
-  margin-left: 60px;
-}
-
 button {
   font-size: 14px !important;
 }
@@ -2174,14 +2027,14 @@ a[data-event-action="unhide"] {
 
 div.content {
   position: relative;
-  top: 297px;
+  top: 223px;
   margin: 0 1.5em;
 }
 
 @media (min-width: 62em) {
   div.content {
-    max-width: calc(100% - 503px);
-    margin-left: 93px;
+    max-width: calc(100% - 474px);
+    margin-left: 64px;
   }
 }
 
@@ -2216,7 +2069,7 @@ div.content {
 .footer-parent,
 .debuginfo {
   position: relative;
-  top: 297px;
+  top: 223px;
 }
 
 #header {
@@ -2224,162 +2077,6 @@ div.content {
   height: 0;
   border: 0;
   margin-bottom: 15px;
-}
-
-input[name=uh] ~ a::after {
-  position: absolute;
-  top: -40px;
-  right: -16px;
-  z-index: -1;
-  width: 1920px;
-  height: 420px;
-  content: '';
-  pointer-events: none;
-  background-attachment: scroll, fixed;
-}
-
-input[name=uh][value$="a"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
-}
-
-input[name=uh][value$="b"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header2%%);
-}
-
-input[name=uh][value$="c"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header3%%);
-}
-
-input[name=uh][value$="d"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header4%%);
-}
-
-input[name=uh][value$="e"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header5%%);
-}
-
-input[name=uh][value$="f"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header6%%);
-}
-
-input[name=uh][value$="g"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header7%%);
-}
-
-input[name=uh][value$="h"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header8%%);
-}
-
-input[name=uh][value$="i"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header9%%);
-}
-
-input[name=uh][value$="j"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header10%%);
-}
-
-input[name=uh][value$="k"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header11%%);
-}
-
-input[name=uh][value$="l"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header12%%);
-}
-
-input[name=uh][value$="m"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header13%%);
-}
-
-input[name=uh][value$="n"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header14%%);
-}
-
-input[name=uh][value$="o"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header15%%);
-}
-
-input[name=uh][value$="p"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header16%%);
-}
-
-input[name=uh][value$="q"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header17%%);
-}
-
-input[name=uh][value$="r"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header18%%);
-}
-
-input[name=uh][value$="s"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header19%%);
-}
-
-input[name=uh][value$="t"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header20%%);
-}
-
-input[name=uh][value$="u"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header21%%);
-}
-
-input[name=uh][value$="v"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header22%%);
-}
-
-input[name=uh][value$="w"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header23%%);
-}
-
-input[name=uh][value$="x"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header24%%);
-}
-
-input[name=uh][value$="y"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header25%%);
-}
-
-input[name=uh][value$="z"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header26%%);
-}
-
-input[name=uh][value$="0"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header27%%);
-}
-
-input[name=uh][value$="1"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header28%%);
-}
-
-input[name=uh][value$="2"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header29%%);
-}
-
-input[name=uh][value$="3"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header30%%);
-}
-
-input[name=uh][value$="4"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header31%%);
-}
-
-input[name=uh][value$="5"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header32%%);
-}
-
-input[name=uh][value$="6"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header33%%);
-}
-
-input[name=uh][value$="7"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header34%%);
-}
-
-input[name=uh][value$="8"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header35%%);
-}
-
-input[name=uh][value$="9"] ~ a::after {
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header36%%);
 }
 
 .res-nightmode #sr-header-area,
@@ -2634,7 +2331,7 @@ input[name=uh][value$="9"] ~ a::after {
 
 #header-bottom-left {
   position: absolute;
-  top: 245px;
+  top: 86px;
   height: 53px;
   margin: 0 !important;
   font-size: 14px;
@@ -2717,7 +2414,7 @@ input[name=uh][value$="9"] ~ a::after {
 
 @media (min-width: 75em) {
   #header-bottom-left {
-    top: 245px;
+    top: 159px;
     height: 64px;
   }
   #header-bottom-left .pagename a {
@@ -2760,7 +2457,7 @@ input[name=uh][value$="9"] ~ a::after {
 
 .side {
   position: relative;
-  top: 297px;
+  top: 223px;
   width: 0;
   margin: 0;
   padding-top: 85px;
@@ -3976,15 +3673,11 @@ body {
 body::before {
   position: absolute;
   z-index: -1;
-  height: 420px;
+  height: 223px;
   width: 100%;
   content: '';
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
   background-attachment: scroll, fixed;
-}
-
-body.loggedin::before {
-  display: none;
 }
 
 .md {
