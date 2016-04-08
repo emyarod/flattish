@@ -11,8 +11,8 @@
 	}
 
   height: 53px;
-  font-size: 14px;
   margin: 0 !important;
+  font-size: 14px;
 
   // subreddit name
   // nested to avoid body:link styling
@@ -30,12 +30,11 @@
       font-variant: normal;
       line-height: 53px;
       text-transform: lowercase;
+    }
 
-      &:hover {
-        text-decoration: none;
-
-        a { color: $dark-text; }
-      }
+    &:hover a {
+      color: $dark-text;
+      text-decoration: none;
     }
   }
 
