@@ -53,11 +53,13 @@ body {
     }
     width: 100%;
     content: '';
-    background-image: $scrim,url(%%header1%%);
+    background-image: $scrim,url(%%header%%);
     background-attachment: scroll, fixed;
   }
 
-  &.loggedin::before { display: none; }
+  @if $random-header == true {
+    &.loggedin::before { display: none; }
+  }
 }
 
 .md { max-width: unset; }
