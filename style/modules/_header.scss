@@ -1,11 +1,63 @@
 // main: ../main.scss
 
 #header {
+  z-index: auto;
   height: 0;
   border: 0;
   margin-bottom: 15px;
-  background-attachment: scroll, fixed;
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%),url(%%header%%);
+}
+
+// header image when logged in
+// fallback image for logged out users in content.scss
+input[name=uh] {
+  ~ a::after {
+    position: absolute;
+    top: -40px;
+    right: -16px;
+    z-index: -1;
+    width: 1920px;
+    height: 420px;
+    content: '';
+    pointer-events: none;
+    background-attachment: scroll, fixed;
+  }
+
+  &[value$="a"] ~ a::after { background-image: $scrim,url(%%header1%%); }
+  &[value$="b"] ~ a::after { background-image: $scrim,url(%%header2%%); }
+  &[value$="c"] ~ a::after { background-image: $scrim,url(%%header3%%); }
+  &[value$="d"] ~ a::after { background-image: $scrim,url(%%header4%%); }
+  &[value$="e"] ~ a::after { background-image: $scrim,url(%%header5%%); }
+  &[value$="f"] ~ a::after { background-image: $scrim,url(%%header6%%); }
+  &[value$="g"] ~ a::after { background-image: $scrim,url(%%header7%%); }
+  &[value$="h"] ~ a::after { background-image: $scrim,url(%%header8%%); }
+  &[value$="i"] ~ a::after { background-image: $scrim,url(%%header9%%); }
+  &[value$="j"] ~ a::after { background-image: $scrim,url(%%header10%%); }
+  &[value$="k"] ~ a::after { background-image: $scrim,url(%%header11%%); }
+  &[value$="l"] ~ a::after { background-image: $scrim,url(%%header12%%); }
+  &[value$="m"] ~ a::after { background-image: $scrim,url(%%header13%%); }
+  &[value$="n"] ~ a::after { background-image: $scrim,url(%%header14%%); }
+  &[value$="o"] ~ a::after { background-image: $scrim,url(%%header15%%); }
+  &[value$="p"] ~ a::after { background-image: $scrim,url(%%header16%%); }
+  &[value$="q"] ~ a::after { background-image: $scrim,url(%%header17%%); }
+  &[value$="r"] ~ a::after { background-image: $scrim,url(%%header18%%); }
+  &[value$="s"] ~ a::after { background-image: $scrim,url(%%header19%%); }
+  &[value$="t"] ~ a::after { background-image: $scrim,url(%%header20%%); }
+  &[value$="u"] ~ a::after { background-image: $scrim,url(%%header21%%); }
+  &[value$="v"] ~ a::after { background-image: $scrim,url(%%header22%%); }
+  &[value$="w"] ~ a::after { background-image: $scrim,url(%%header23%%); }
+  &[value$="x"] ~ a::after { background-image: $scrim,url(%%header24%%); }
+  &[value$="y"] ~ a::after { background-image: $scrim,url(%%header25%%); }
+  &[value$="z"] ~ a::after { background-image: $scrim,url(%%header26%%); }
+  &[value$="0"] ~ a::after { background-image: $scrim,url(%%header27%%); }
+  &[value$="1"] ~ a::after { background-image: $scrim,url(%%header28%%); }
+  &[value$="2"] ~ a::after { background-image: $scrim,url(%%header29%%); }
+  &[value$="3"] ~ a::after { background-image: $scrim,url(%%header30%%); }
+  &[value$="4"] ~ a::after { background-image: $scrim,url(%%header31%%); }
+  &[value$="5"] ~ a::after { background-image: $scrim,url(%%header32%%); }
+  &[value$="6"] ~ a::after { background-image: $scrim,url(%%header33%%); }
+  &[value$="7"] ~ a::after { background-image: $scrim,url(%%header34%%); }
+  &[value$="8"] ~ a::after { background-image: $scrim,url(%%header35%%); }
+  &[value$="9"] ~ a::after { background-image: $scrim,url(%%header36%%); }
 }
 
 @import "header/sr-bar";
