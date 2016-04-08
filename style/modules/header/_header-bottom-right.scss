@@ -104,14 +104,19 @@
 // image, gradient, image-light
 @include header-bottom-right(true, false, false);
 
-@mixin userbar-buttons {
+.pref-lang.choice,
+.logout a {
+  position: relative;
+  display: inline-block;
   height: 16px;
   width: 16px;
   color: transparent;
-  display: inline-block;
-  opacity: 0.87;
-  position: relative;
   text-indent: -9999px;
+}
+
+.gearIcon,
+.pref-lang.choice {
+  opacity: 0.87;
 
   &:hover { opacity: 1; }
 }
@@ -139,10 +144,7 @@
 }
 
 // preferences button
-.pref-lang.choice {
-  top: -1px;
-  @include userbar-buttons;
-}
+.pref-lang.choice { top: -1px; }
 
 // RES gear button
 .gearIcon {
@@ -151,9 +153,6 @@
   top: 5px;
   height: 16px !important;
   width: 16px !important;
-  opacity: 0.87;
-
-  &:hover { opacity: 1; }
 }
 
 // RES gear button on mouseover
@@ -219,7 +218,4 @@
 }
 
 // logout button
-.logout a {
-  top: -2px;
-  @include userbar-buttons;
-}
+.logout a { top: -2px; }
