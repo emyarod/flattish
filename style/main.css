@@ -2181,7 +2181,7 @@ div.content {
 @media (min-width: 62em) {
   div.content {
     max-width: calc(100% - 503px);
-    margin-left: 93px;
+    margin-left: 93px !important;
   }
 }
 
@@ -3979,7 +3979,7 @@ body::before {
   height: 420px;
   width: 100%;
   content: '';
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
   background-attachment: scroll, fixed;
 }
 
