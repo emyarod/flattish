@@ -104,7 +104,7 @@
 @media (min-width: $screen-md-min) {
 	.side,
 	.side * {
-		z-index: auto;
+		z-index: 2; // higher than content z-index
 	}
 
 	.side {
