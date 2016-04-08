@@ -101,6 +101,12 @@
 // sidecontentbox
 @import "sidebar/sidecontentbox";
 
+.side a {
+	&[href="#/RES_SR_Config/NightModeCompatible"] {
+		display: none;
+	}
+}
+
 @media (min-width: $screen-md-min) {
 	.side,
 	.side * {

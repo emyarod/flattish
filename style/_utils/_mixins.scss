@@ -44,12 +44,12 @@
 }
 
 @mixin ripple($orig-background-color: transparent, $ripple-color: $light-primary) {
-  background: $orig-background-color radial-gradient(circle, rgba($ripple-color, 0.3) 15%, transparent 30%) no-repeat 50% 50% / 0; // color image repeat position size
+  background: $orig-background-color radial-gradient(circle, rgba($ripple-color, 0.3) 15%, transparent 30%) no-repeat 50% 50% / 0 !important; // color image repeat position size
   @include transition(background 0.3s $animation-curve-linear-out-slow-in, color 0.6s $animation-curve-linear-out-slow-in !important);
 
   &:focus {
     outline: 0;
-    background-size: 1000%;
+    background-size: 1000% !important;
   }
 }
 
