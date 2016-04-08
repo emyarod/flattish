@@ -2034,7 +2034,7 @@ div.content {
 @media (min-width: 62em) {
   div.content {
     max-width: calc(100% - 474px);
-    margin-left: 64px;
+    margin-left: 64px !important;
   }
 }
 
