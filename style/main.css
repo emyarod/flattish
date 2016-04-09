@@ -1214,299 +1214,219 @@ li a.post-sharing-button {
   background-position: -178px -97px;
 }
 
+li a.post-sharing-button::after {
+  right: 24px;
+  width: 68px;
+  content: "Share";
+}
+
 .res-nightmode li a.post-sharing-button {
   background-position: -76px -63px;
 }
 
-li a.post-sharing-button::after {
-  right: 24px;
-  height: 32px;
-  width: 68px;
-  padding: 0 16px;
-  content: "Share";
-  font-size: 14px;
-  line-height: 32px;
-}
-
 .thing:not(.saved) .link-save-button a::after {
   right: 22px;
-  height: 32px;
   width: 64px;
-  padding: 0 16px;
   content: "Save";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 .thing:not(.saved) .link-unsave-button a::after {
   right: 22px;
-  height: 32px;
   width: 64px;
-  padding: 0 16px;
   content: "Save";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 .saved .link-unsave-button a::after {
   right: 30px;
-  height: 32px;
   width: 80px;
-  padding: 0 16px;
   content: "Unsave";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 .saved .link-save-button a::after {
   right: 30px;
-  height: 32px;
   width: 80px;
-  padding: 0 16px;
   content: "Unsave";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 .state-button a[action="hide"]::after {
   right: 21.5px;
-  height: 32px;
   width: 63px;
-  padding: 0 16px;
   content: "Hide";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 a[data-event-action="hide"]::after {
   right: 21.5px;
-  height: 32px;
   width: 63px;
-  padding: 0 16px;
   content: "Hide";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 .state-button a[action="unhide"]::after {
   right: 29px;
-  height: 32px;
   width: 78px;
-  padding: 0 16px;
   content: "Unhide";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 a[data-event-action="unhide"]::after {
   right: 29px;
-  height: 32px;
   width: 78px;
-  padding: 0 16px;
   content: "Unhide";
-  font-size: 14px;
-  line-height: 32px;
 }
 
 a[data-event-action="delete"] {
   background-position: -152px 0;
 }
 
-.res-nightmode a[data-event-action="delete"] {
-  background-position: -56px -43px;
-}
-
 a[data-event-action="delete"]::after {
   right: 26px;
-  height: 32px;
   width: 72px;
-  padding: 0 16px;
   content: "Delete";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="delete"] {
+  background-position: -56px -43px;
 }
 
 a[data-event-action="spam"] {
   background-position: -198px -97px;
 }
 
-.res-nightmode a[data-event-action="spam"] {
-  background-position: -96px -63px;
-}
-
 a[data-event-action="spam"]::after {
   right: 25px;
-  height: 32px;
   width: 70px;
-  padding: 0 16px;
   content: "Spam";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="spam"] {
+  background-position: -96px -63px;
 }
 
 a[data-event-action="remove"] {
   background-position: -200px -77px;
 }
 
-.res-nightmode a[data-event-action="remove"] {
-  background-position: -36px -63px;
-}
-
 a[data-event-action="remove"]::after {
   right: 31px;
-  height: 32px;
   width: 82px;
-  padding: 0 16px;
   content: "Remove";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="remove"] {
+  background-position: -36px -63px;
 }
 
 .approve-button a {
   background-position: -48px 0;
 }
 
-.res-nightmode .approve-button a {
-  background-position: -36px -43px;
-}
-
 .approve-button a::after {
   right: 32px;
-  height: 32px;
   width: 84px;
-  padding: 0 16px;
   content: "Approve";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode .approve-button a {
+  background-position: -36px -43px;
 }
 
 .reportbtn {
   background-position: 0 -97px;
 }
 
-.res-nightmode .reportbtn {
-  background-position: -56px -63px;
-}
-
 .reportbtn::after {
   right: 27px;
-  height: 32px;
   width: 74px;
-  padding: 0 16px;
   content: "Report";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode .reportbtn {
+  background-position: -56px -63px;
 }
 
 a[data-event-action="lock"] {
   background-position: -194px -23px;
 }
 
-.res-nightmode a[data-event-action="lock"] {
-  background-position: -96px -43px;
-}
-
 a[data-event-action="lock"]::after {
   right: 21px;
-  height: 32px;
   width: 62px;
-  padding: 0 16px;
   content: "Lock";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="lock"] {
+  background-position: -96px -43px;
 }
 
 a[data-event-action="unlock"] {
   background-position: -258px -140px;
 }
 
-.res-nightmode a[data-event-action="unlock"] {
-  background-position: -116px -63px;
-}
-
 a[data-event-action="unlock"]::after {
   right: 27px;
-  height: 32px;
   width: 74px;
-  padding: 0 16px;
   content: "Unlock";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="unlock"] {
+  background-position: -116px -63px;
 }
 
 a[data-event-action="marknsfw"] {
   background-position: -156px -63px;
 }
 
-.res-nightmode a[data-event-action="marknsfw"] {
-  background-position: -194px -43px;
-}
-
 a[data-event-action="marknsfw"]::after {
   right: 43px;
-  height: 32px;
   width: 106px;
-  padding: 0 16px;
   content: "Mark NSFW";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="marknsfw"] {
+  background-position: -194px -43px;
 }
 
 a[data-event-action="unmarknsfw"] {
   background-position: -35px -160px;
 }
 
-.res-nightmode a[data-event-action="unmarknsfw"] {
-  background-position: -136px -63px;
-}
-
 a[data-event-action="unmarknsfw"]::after {
   right: 51px;
-  height: 32px;
   width: 122px;
-  padding: 0 16px;
   content: "Unmark NSFW";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="unmarknsfw"] {
+  background-position: -136px -63px;
 }
 
 a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"] {
   background-position: -172px 0;
 }
 
-.res-nightmode a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"] {
-  background-position: -76px -43px;
-}
-
 a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"]::after {
   right: 42px;
-  height: 32px;
   width: 104px;
-  padding: 0 16px;
   content: "Distinguish";
-  font-size: 14px;
-  line-height: 32px;
+}
+
+.res-nightmode a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"] {
+  background-position: -76px -43px;
 }
 
 .sidecontentbox .gadget .right a {
   background-position: -116px 0;
 }
 
+.sidecontentbox .gadget .right a::after {
+  right: 35px;
+  width: 90px;
+  content: "Clear all";
+}
+
 .res-nightmode .sidecontentbox .gadget .right a {
   background-position: -134px 0;
 }
 
-.sidecontentbox .gadget .right a::after {
-  right: 35px;
-  height: 32px;
-  width: 90px;
-  padding: 0 16px;
-  content: "Clear all";
-  font-size: 14px;
-  line-height: 32px;
-}
-
-li a.post-sharing-button, .thing:not(.saved) .link-save-button a, .thing:not(.saved) .link-unsave-button a, .saved .link-unsave-button a, .saved .link-save-button a, .state-button a[action="hide"], a[data-event-action="hide"], .state-button a[action="unhide"], a[data-event-action="unhide"], a[data-event-action="delete"], a[data-event-action="spam"], a[data-event-action="remove"], .approve-button a, .reportbtn, a[data-event-action="lock"], a[data-event-action="unlock"], a[data-event-action="marknsfw"], a[data-event-action="unmarknsfw"], a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"], .sidecontentbox .gadget .right a {
+li a.post-sharing-button, a[data-event-action="delete"], a[data-event-action="spam"], a[data-event-action="remove"], .approve-button a, .reportbtn, a[data-event-action="lock"], a[data-event-action="unlock"], a[data-event-action="marknsfw"], a[data-event-action="unmarknsfw"], a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"], .sidecontentbox .gadget .right a {
   background-image: url(%%spritesheet%%);
 }
 
@@ -1514,9 +1434,13 @@ li a.post-sharing-button::after, .thing:not(.saved) .link-save-button a::after, 
   position: relative;
   z-index: 10;
   display: block;
+  height: 32px;
+  padding: 0 16px;
   visibility: hidden;
-  font-weight: normal;
   color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 32px;
   text-align: center;
   background-color: rgba(97, 97, 97, 0);
   border-radius: 2px;
@@ -2517,6 +2441,10 @@ div.content {
   display: none;
 }
 
+.side .md table {
+  width: 100%;
+}
+
 .c-checkbox input[type="checkbox"] + label::before {
   vertical-align: -4px;
 }
@@ -2915,10 +2843,6 @@ label + #moresearchinfo {
   height: 20px;
   width: 20px;
   background-color: rgba(97, 97, 97, 0.9);
-}
-
-.side a[href="#/RES_SR_Config/NightModeCompatible"] {
-  display: none;
 }
 
 @media (min-width: 62em) {
