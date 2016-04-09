@@ -3,6 +3,7 @@
 // need to provide width of tooltip after content is added
 // need to provide width of object to which the pseudoelement is attached
 // need to provide text within tooltip
+// default for 20x20 icons
 
 $tooltip-selector-map: (
   // link action icon tooltips
@@ -162,6 +163,40 @@ $tooltip-selector-map: (
     screen-type: 'desktop'
   ),
 
+  // sidebar
+  twitter-button: (
+		selector-name: 'a[href$="#twitter-btn"]',
+		width-tooltip: 44,
+		width-parent: 50,
+    height-parent: 50,
+		content-tooltip: 'Twitter',
+    screen-type: 'desktop'
+  ),
+  lastfm-button: (
+		selector-name: 'a[href$="#lastfm-btn"]',
+		width-tooltip: 48,
+		width-parent: 50,
+    height-parent: 50,
+		content-tooltip: 'Last.fm',
+    screen-type: 'desktop'
+  ),
+  steam-button: (
+		selector-name: 'a[href$="#steam-btn"]',
+		width-tooltip: 42,
+		width-parent: 50,
+    height-parent: 50,
+		content-tooltip: 'Steam',
+    screen-type: 'desktop'
+  ),
+  irc-button: (
+		selector-name: 'a[href$="#irc-btn"]',
+		width-tooltip: 54,
+		width-parent: 50,
+    height-parent: 50,
+		content-tooltip: 'Snoonet IRC',
+    screen-type: 'desktop'
+  ),
+
   // sidecontentbox
   clear-all-button: (
     selector-name: '.sidecontentbox .gadget .right a',
@@ -175,6 +210,7 @@ $tooltip-selector-map: (
 );
 
 $base-tooltip-selectors: ();
+$spritesheet-tooltip-selectors: ();
 
 @each $key, $map in $tooltip-selector-map {
 	$selector-name: map-get($map, selector-name);
@@ -182,6 +218,7 @@ $base-tooltip-selectors: ();
 	$background-night-position: map-get($map, background-night-position);
 	$width-tooltip: map-get($map, width-tooltip);
 	$width-parent: map-get($map, width-parent);
+  $height-parent: map-get($map, height-parent);
 	$content-tooltip: map-get($map, content-tooltip);
 	$screen-type: map-get($map, screen-type);
 
@@ -197,35 +234,51 @@ $base-tooltip-selectors: ();
     $font-size-tooltip: 10px;
   }
 
+  // if the height of the parent element is not default 20px
+  @if $height-parent {
+    #{$selector-name}:hover::after {
+      top: calc(#{$height-parent}px - 20px);
+    }
+  }
+
+  // if item contains background-position key, it is using a stylesheet icon
+  @if $background-position {
+    $spritesheet-tooltip-selectors: append($spritesheet-tooltip-selectors, unquote('#{$selector-name}'), 'comma');
+  }
+
 	#{$selector-name} {
 		background-position: $background-position;
+
+    &::after {
+      right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
+      width: $width-tooltip + (2 * $padding-tooltip);
+      content: $content-tooltip;
+    }
 	}
 
 	.res-nightmode #{$selector-name} {
 		background-position: $background-night-position;
 	}
 
-  #{$selector-name}::after {
-    right: (($width-tooltip + (2 * $padding-tooltip)) - $width-parent) / 2;
-    height: $height-tooltip;
-    width: $width-tooltip + (2 * $padding-tooltip);
-    padding: 0 $padding-tooltip;
-    content: $content-tooltip;
-    font-size: $font-size-tooltip;
-    line-height: $height-tooltip;
-  }
+}
+
+#{$spritesheet-tooltip-selectors} {
+  background-image: url(%%spritesheet%%);
 }
 
 #{$base-tooltip-selectors} {
-	background-image: url(%%spritesheet%%);
 
   &::after {
     position: relative;
     z-index: 10;
     display: block;
+    height: $height-tooltip;
+    padding: 0 $padding-tooltip;
     visibility: hidden;
-    font-weight: normal;
     color: $dark-text;
+    font-size: $font-size-tooltip;
+    font-weight: normal;
+    line-height: $height-tooltip;
     text-align: center;
     background-color: rgba($tooltip, 0);
     border-radius: 2px;
