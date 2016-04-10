@@ -2432,6 +2432,10 @@ div.content {
   width: 100%;
 }
 
+.side .md a[href="#/RES_SR_Config/NightModeCompatible"] {
+  display: none;
+}
+
 .c-checkbox input[type="checkbox"] + label::before {
   vertical-align: -4px;
 }
