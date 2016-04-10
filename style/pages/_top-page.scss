@@ -1,46 +1,41 @@
 // main: ../main.scss
 
-@media (min-width: $screen-sm-min) {
-  .res-nightmode .top-page .content .menuarea {
-    background-color: $dark-cards;
+.res-nightmode .top-page .content .menuarea {
+  background-color: $dark-cards;
+}
+
+.top-page .content .menuarea {
+  height: 100%;
+	padding: 0;
+	@include margin(0 0 15px 0);
+  border-bottom: 0px;
+  border-radius: 4px;
+  background-color: $light-cards;
+  @include drop-shadow(1);
+
+  .drop-choices.lightdrop {
+    display: inline-block;
+    max-height: unset;
+    visibility: visible;
+    opacity: 1;
+
+    a.choice,
+    form {
+      display: inline-block;
+    }
   }
 
-  .top-page .content .menuarea {
-    border-bottom: 0px;
-  	padding: 0;
-  	@include margin(0 0 15px 0);
-  	height: 100%;
-    background-color: $light-cards;
-    @include drop-shadow(1);
-    border-radius: 4px;
-    // border: 1px solid $light-hint-text;
+  .dropdown-title.lightdrop {
+    display: none;
+  }
 
-    .drop-choices.lightdrop {
-      display: inline-block;
-      visibility: visible;
-      max-height: unset;
-      opacity: 1;
-
-      a.choice,
-      form {
-        display: inline-block;
-      }
-    }
-
-    .dropdown-title.lightdrop {
-      display: none;
-    }
-
-    .dropdown.lightdrop .selected {
-      display: inline-block;
-    // 	z-index: 1002;
-    	background: none;
-    	text-decoration: none;
-    	padding: 16px;
-    	background-color: $primary;
-    // 	overflow: visible;
-    	color: set-text-color($primary, text);
-      @include border-left-radius(4px);
-    }
+  .dropdown.lightdrop .selected {
+    display: inline-block;
+    padding: 16px;
+    @include border-left-radius(4px);
+    color: set-text-color($primary, text);
+  	text-decoration: none;
+    background: none;
+  	background-color: $primary;
   }
 }

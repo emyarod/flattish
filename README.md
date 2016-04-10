@@ -32,4 +32,6 @@ If you come across a bug while using flattish, please help me by [reporting the 
 * [Google Material icons](https://design.google.com/icons/)
 * [Ionicons](http://ionicons.com/)
 * [Sass Burger](https://github.com/jorenvanhee/sass-burger)
+* [kazuend](https://twitter.com/kazuend)
+* [Stitches](https://github.com/draeton/stitches)
 * Kel Diobrando
