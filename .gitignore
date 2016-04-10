@@ -1,6 +1,5 @@
 # Dependency directories
 node_modules
-_release
 
 .sass-cache
 *.css.map
