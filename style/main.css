@@ -1757,6 +1757,7 @@ h6,
 }
 
 .link.last-clicked {
+  overflow: visible;
   border-top-style: none;
   border-right-style: none;
   border-left-style: none;

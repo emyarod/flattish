@@ -110,7 +110,10 @@
 }
 
 // remove reddit default styling for borders of previously clicked links
-.link.last-clicked { @include border-style(none none null none); }
+.link.last-clicked {
+	overflow: visible;
+	@include border-style(none none null none);
+}
 
 // color of post score
 .thing .link .score {
