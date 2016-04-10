@@ -91,6 +91,22 @@ $button-selector-map: (
 		ripple-color: $light-accent,
 		button-type: 'flat-colorized-bg-button'
   ),
+	related-subs-button: (
+		selector-name: '.side a[href="/r/kpop/wiki/relatedsubs"]',
+		desired-font-size: 14,
+		background-color: $primary,
+		hover-color: $dark-primary,
+		ripple-color: $light-primary,
+		button-type: 'flat-colorized-bg-button'
+  ),
+	useful-sites-button: (
+		selector-name: '.side a[href="/r/kpop/wiki/usefulsites"]',
+		desired-font-size: 14,
+		background-color: $primary,
+		hover-color: $dark-primary,
+		ripple-color: $light-primary,
+		button-type: 'flat-colorized-bg-button'
+  ),
 
 	// comments page
 	comments-page-button-one: (
