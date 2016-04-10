@@ -2449,15 +2449,6 @@ div.content {
   width: 100%;
 }
 
-.side .md a[href="#/RES_SR_Config/NightModeCompatible"] {
-  display: none;
-}
-
-.side .md a[href$="https://github.com/emyarod/flattish/releases"] {
-  display: block;
-  margin: 15px 0;
-}
-
 .c-checkbox input[type="checkbox"] + label::before {
   vertical-align: -4px;
 }

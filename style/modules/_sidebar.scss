@@ -94,20 +94,7 @@
 	}
 
 	// sidebar markdown area
-	.md {
-		table { width: 100%; }
-
-		a {
-			// hide nightmode compatibility link
-			&[href="#/RES_SR_Config/NightModeCompatible"] { display: none; }
-
-			// get flattish button
-			&[href$="https://github.com/emyarod/flattish/releases"] {
-				display: block;
-				margin: 15px 0;
-			}
-		}
-	}
+	.md table { width: 100%; }
 }
 
 // login form
