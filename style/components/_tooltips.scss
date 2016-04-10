@@ -211,6 +211,7 @@ $tooltip-selector-map: (
 
 $base-tooltip-selectors: ();
 $spritesheet-tooltip-selectors: ();
+$default-height-selectors: ();
 
 @each $key, $map in $tooltip-selector-map {
 	$selector-name: map-get($map, selector-name);
@@ -237,8 +238,10 @@ $spritesheet-tooltip-selectors: ();
   // if the height of the parent element is not default 20px
   @if $height-parent {
     #{$selector-name}:hover::after {
-      top: calc(#{$height-parent}px - 20px);
+      @include transform(translateY($height-parent - 20px + 14px));
     }
+  } @else {
+    $default-height-selectors: append($default-height-selectors, unquote('#{$selector-name}'), 'comma');
   }
 
   // if item contains background-position key, it is using a stylesheet icon
@@ -266,6 +269,12 @@ $spritesheet-tooltip-selectors: ();
   background-image: url(%%spritesheet%%);
 }
 
+#{$default-height-selectors} {
+  &:hover::after {
+    @include transform(translateY(14px));
+  }
+}
+
 #{$base-tooltip-selectors} {
 
   &::after {
@@ -288,6 +297,5 @@ $spritesheet-tooltip-selectors: ();
   &:hover::after {
     visibility: visible;
     background-color: $tooltip;
-    @include transform(translateY(14px));
   }
 }
