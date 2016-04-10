@@ -1,9 +1,6 @@
 # Dependency directories
 node_modules
-img/ai
-img/psd
-img/spritesheet
-test
+_release
 
 .sass-cache
 *.css.map
