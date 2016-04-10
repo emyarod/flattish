@@ -3802,6 +3802,10 @@ ul#image-preview-list li:nth-of-type(2n) {
   margin: 0 16px 16px 0;
 }
 
+ul#image-preview-list .preview img {
+  max-height: 68px;
+}
+
 #newlink {
   margin: 0;
   background-color: transparent;

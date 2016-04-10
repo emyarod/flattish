@@ -9,6 +9,24 @@ $random-header: true;
 // pinned topics
 $pinned-topics: true;
 
+// sidebar image
+$sidebar-img: false;
+$sidebar-img-height: 224px;
+
+@if $sidebar-img {
+  .side::after {
+    position: absolute;
+    top: -$sidebar-img-height - 16px;
+    display: block;
+    height: $sidebar-img-height;
+    width: 100%; // 330px
+    content: '';
+    border-radius: 2px;
+    background: url(%%sidebar%%) center;
+    @include drop-shadow(1);
+  }
+}
+
 @if $pinned-topics {
   .res-nightmode .titlebox blockquote p:nth-of-type(1),
   .res-nightmode .titlebox blockquote p:nth-of-type(2),
