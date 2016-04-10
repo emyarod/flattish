@@ -102,7 +102,12 @@
 			&[href="#/RES_SR_Config/NightModeCompatible"] { display: none; }
 
 			// subreddit rules button
-			&[href="/r/kpop/about/rules"] { display: block; }
+			&[href="/r/kpop/about/rules"],
+			&[href="/r/kpop/wiki/relatedsubs"],
+			&[href="/r/kpop/wiki/usefulsites"] {
+				display: block;
+				margin: 15px 0;
+			}
 
 			// social icons
 			&[href$="btn"] {
@@ -126,9 +131,7 @@
 				background-position: -150px 0;
 			}
 		}
-
 	}
-
 }
 
 // login form
