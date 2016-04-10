@@ -44,6 +44,11 @@
 	}
 
 	// subscribe and dashboard buttons
+	.subButtons {
+		display: flex;
+		justify-content: space-around;
+	}
+
 	a.option {
 		padding: 11.5px 7px !important;
 		background-image: none;
