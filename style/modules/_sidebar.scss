@@ -86,7 +86,13 @@
 	}
 
 	// sidebar markdown area
-	.md table { width: 100%; }
+	.md {
+		table { width: 100%; }
+
+		a[href="https://github.com/emyarod/flattish/releases"] {
+			display: block;
+		}
+	}
 }
 
 // login form
