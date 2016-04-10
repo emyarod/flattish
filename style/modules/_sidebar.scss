@@ -89,8 +89,16 @@
 	.md {
 		table { width: 100%; }
 
-		// hide nightmode compatibility link
-		a[href="#/RES_SR_Config/NightModeCompatible"] { display: none; }
+		a {
+			// hide nightmode compatibility link
+			&[href="#/RES_SR_Config/NightModeCompatible"] { display: none; }
+
+			// get flattish button
+			&[href$="https://github.com/emyarod/flattish/releases"] {
+				display: block;
+				margin: 15px 0;
+			}
+		}
 	}
 }
 
