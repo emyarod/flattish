@@ -15,10 +15,18 @@
 .side {
 	position: relative;
 
-	@if ($header-large == true) {
-		top: 297px;
+	@if ($header-large) {
+		@if $sidebar-img {
+			top: 297px + $sidebar-img-height + 16px;
+		} @else {
+			top: 297px;
+		}
 	} @else {
-		top: 223px;
+		@if $sidebar-img {
+			top: 223px + $sidebar-img-height + 16px;
+		} @else {
+			top: 223px;
+		}
 	}
 
 	width: 0;
