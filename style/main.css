@@ -2615,8 +2615,8 @@ label + #moresearchinfo {
 .submit-link .morelink a,
 .submit-text .morelink a {
   position: relative;
-  top: 2.5em;
-  width: 10.42857em;
+  top: 35px;
+  width: 146px;
 }
 
 .submit-link .nub,
@@ -2625,28 +2625,28 @@ label + #moresearchinfo {
 }
 
 .submit-link {
-  top: -6.9em;
+  top: -69px;
 }
 
 .submit-link .morelink {
-  top: -6.8em;
-  left: 1em;
+  top: -102px;
+  left: 15px;
 }
 
 .submit-link::before {
   position: relative;
-  top: -1.07143em;
+  top: -15px;
   display: block;
-  height: 7em;
-  width: 23.57143em;
-  font-size: 1.4em;
+  height: 98px;
+  width: 330px;
+  font-size: 14px;
   font-weight: bold;
   content: "Submit a new:";
 }
 
 .submit-text {
-  top: -8.8em;
-  left: 17em;
+  top: -88px;
+  left: 170px;
 }
 
 .res-nightmode .titlebox h1.hover.redditname {
