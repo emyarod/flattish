@@ -2089,6 +2089,10 @@ div.content {
   background-color: #ffab40 !important;
 }
 
+.beta-hint a {
+  top: 5px;
+}
+
 #userbarToggle, .res-nightmode #userbarToggle,
 #header-bottom-right .user,
 #header-bottom-right span a, .res #header-bottom-right span a,
