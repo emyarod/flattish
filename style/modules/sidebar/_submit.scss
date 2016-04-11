@@ -13,8 +13,8 @@
 
 		a {
 			position: relative;
-			top: em(35, 14);
-			width: em(146, 14);
+			top: 35px;
+			width: 146px;
 		}
 	}
 
@@ -22,27 +22,27 @@
 }
 
 .submit-link {
-	top: em(-69, 10);
+	top: -69px;
 
 	.morelink {
-		top: em(-68, 10);
-		left: em(15, 15);
+		top: -102px;
+		left: 15px;
 	}
 
 	// card underneath submit buttons
 	&::before {
 		position: relative;
-		top: em(-15, 14);
+		top: -15px;
 		display: block;
-		height: em(98, 14);
-		width: em(330, 14);
-		font-size: em(14, 10);
+		height: 98px;
+		width: 330px;
+		font-size: 14px;
 		font-weight: bold;
 		content: "Submit a new:";
 	}
 }
 
 .submit-text {
-	top: em(-88, 10);
-	left: em(170, 10);
+	top: -88px;
+	left: 170px;
 }
