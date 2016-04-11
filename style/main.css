@@ -2470,7 +2470,7 @@ input[name=uh][value$="9"] ~ a::after {
 }
 
 .beta-hint a {
-  top: 4px;
+  top: 5px;
 }
 
 #userbarToggle, .res-nightmode #userbarToggle,
