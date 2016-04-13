@@ -69,7 +69,7 @@
 		.spacer { @include transform(translateX(-351px)); }
 
 		// make kebab disappear on hover
-		&:before { opacity: 0; }
+		&::before { opacity: 0; }
 	}
 
 	.spacer:first-of-type,
@@ -135,7 +135,7 @@
 		margin-right: 64px;
 
 		// hide kebab menu icon
-		&:before { display: none; }
+		&::before { display: none; }
 
 		&:hover .spacer { @include transform(none); }
 	}

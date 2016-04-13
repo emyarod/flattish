@@ -484,7 +484,7 @@ select option {
   border-color: rgba(255, 255, 255, 0.7);
 }
 
-.res-nightmode .expando-button.collapsed:before, .res-nightmode .expando-button.collapsed:after, .res-nightmode .expando-button.collapsed:hover:before, .res-nightmode .expando-button.collapsed:hover:after, .res-nightmode .expando-button.expanded:before, .res-nightmode .expando-button.expanded:after, .res-nightmode .expando-button.expanded:hover:before, .res-nightmode .expando-button.expanded:hover:after {
+.res-nightmode .expando-button.collapsed::before, .res-nightmode .expando-button.collapsed::after, .res-nightmode .expando-button.collapsed:hover::before, .res-nightmode .expando-button.collapsed:hover::after, .res-nightmode .expando-button.expanded::before, .res-nightmode .expando-button.expanded::after, .res-nightmode .expando-button.expanded:hover::before, .res-nightmode .expando-button.expanded:hover::after {
   background: rgba(255, 255, 255, 0.5) !important;
 }
 
@@ -521,40 +521,40 @@ select option {
   border-color: rgba(0, 0, 0, 0.54);
 }
 
-.expando-button.collapsed:before, .expando-button.collapsed:after, .expando-button.collapsed:hover:before, .expando-button.collapsed:hover:after, .expando-button.expanded:before, .expando-button.expanded:after, .expando-button.expanded:hover:before, .expando-button.expanded:hover:after {
+.expando-button.collapsed::before, .expando-button.collapsed::after, .expando-button.collapsed:hover::before, .expando-button.collapsed:hover::after, .expando-button.expanded::before, .expando-button.expanded::after, .expando-button.expanded:hover::before, .expando-button.expanded:hover::after {
   background: rgba(0, 0, 0, 0.38) !important;
   content: "";
   position: absolute;
   display: block;
 }
 
-.expando-button.collapsed:before, .expando-button.collapsed:hover:before, .expando-button.expanded:before, .expando-button.expanded:hover:before {
+.expando-button.collapsed::before, .expando-button.collapsed:hover::before, .expando-button.expanded::before, .expando-button.expanded:hover::before {
   width: 7px !important;
   height: 1px !important;
   top: 17px;
   left: 14px;
 }
 
-.expando-button.collapsed:after, .expando-button.collapsed:hover:after, .expando-button.expanded:after, .expando-button.expanded:hover:after {
+.expando-button.collapsed::after, .expando-button.collapsed:hover::after, .expando-button.expanded::after, .expando-button.expanded:hover::after {
   width: 1px;
   height: 7px;
   top: 14px;
   left: 17px;
 }
 
-.expando-button.collapsed:after, .expando-button.expanded:after {
+.expando-button.collapsed::after, .expando-button.expanded::after {
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.expando-button.collapsed:after {
+.expando-button.collapsed::after {
   -webkit-animation: minustoplus 0.5s ease 1;
   -moz-animation: minustoplus 0.5s ease 1;
   animation: minustoplus 0.5s ease 1;
 }
 
-.expando-button.expanded:after {
+.expando-button.expanded::after {
   -webkit-animation: minustoplus 0.5s ease 1 reverse;
   -moz-animation: minustoplus 0.5s ease 1 reverse;
   animation: minustoplus 0.5s ease 1 reverse;
@@ -2064,7 +2064,7 @@ div.content {
   position: relative;
 }
 
-#sr-header-area .dropdown.srdrop .selected, #sr-header-area .dropdown.srdrop .selected:before, #sr-header-area .dropdown.srdrop .selected:after {
+#sr-header-area .dropdown.srdrop .selected, #sr-header-area .dropdown.srdrop .selected::before, #sr-header-area .dropdown.srdrop .selected::after {
   display: block;
   width: 2em;
   height: 0.2em;
@@ -2074,16 +2074,16 @@ div.content {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#sr-header-area .dropdown.srdrop .selected:before, #sr-header-area .dropdown.srdrop .selected:after {
+#sr-header-area .dropdown.srdrop .selected::before, #sr-header-area .dropdown.srdrop .selected::after {
   position: absolute;
   content: "";
 }
 
-#sr-header-area .dropdown.srdrop .selected:before {
+#sr-header-area .dropdown.srdrop .selected::before {
   top: -0.6em;
 }
 
-#sr-header-area .dropdown.srdrop .selected:after {
+#sr-header-area .dropdown.srdrop .selected::after {
   top: 0.6em;
 }
 
@@ -2426,7 +2426,7 @@ div.content {
   transform: translateX(-351px);
 }
 
-.side:hover:before {
+.side:hover::before {
   opacity: 0;
 }
 
@@ -2875,7 +2875,7 @@ label + #moresearchinfo {
     width: 330px;
     margin-right: 64px;
   }
-  .side:before {
+  .side::before {
     display: none;
   }
   .side:hover .spacer {
