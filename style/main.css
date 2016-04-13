@@ -253,6 +253,14 @@
   background-position: -180px -120px;
 }
 
+.titlebox blockquote ul:nth-of-type(2) {
+  background-position: 0 -180px;
+}
+
+.res-nightmode .titlebox blockquote ul:nth-of-type(2) {
+  background-position: -60px -180px;
+}
+
 .res-nightmode .titlebox blockquote::after {
   background-color: #424242;
 }

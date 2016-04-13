@@ -6,6 +6,24 @@ $header-large: true;
 // random header
 $random-header: true;
 
+// sidebar image
+$sidebar-img: false;
+$sidebar-img-height: 224px;
+
+@if $sidebar-img {
+  .side::after {
+    position: absolute;
+    top: -$sidebar-img-height - 16px;
+    display: block;
+    height: $sidebar-img-height;
+    width: 100%; // 330px
+    content: '';
+    border-radius: 2px;
+    background: url(%%sidebar%%) center;
+    @include drop-shadow(1);
+  }
+}
+
 // pinned topics
 $pinned-topics: true;
 
@@ -14,24 +32,9 @@ $num-stickied-menus: 2; // number of stickied menus
 
 // desired image backgrounds for stickies
 $sticky-link-images: 'help', 'album', 'calendar';
-$sticky-menu-images: 'media', 'music-shows';
+$sticky-menu-images: 'media', 'shows';
 
 $stickies-selectors: ();
-
-$album-bgp: 0 0;
-$album-night-bgp: -60px 0;
-$announcement-bgp: -120px 0;
-$announcement-night-bgp: 0 -60px;
-$calendar-bgp: -60px -60px;
-$calendar-night-bgp: -120px -60px;
-$help-bgp: 0 -120px;
-$help-night-bgp: -60px -120px;
-$information-bgp: -120px -120px;
-$information-night-bgp: -180px 0;
-$media-bgp: -180px -60px;
-$media-night-bgp: -180px -120px;
-$shows-bgp: 0 -180px;
-$shows-night-bgp: -60px -180px;
 
 @if $pinned-topics {
   // add stickied links to map
@@ -66,27 +69,7 @@ $shows-night-bgp: -60px -180px;
       @include sticky-image-switch(menu, nth($sticky-menu-images, $num-stickied-menus), $num-stickied-menus);
     }
   }
-}
 
-// sidebar image
-$sidebar-img: false;
-$sidebar-img-height: 224px;
-
-@if $sidebar-img {
-  .side::after {
-    position: absolute;
-    top: -$sidebar-img-height - 16px;
-    display: block;
-    height: $sidebar-img-height;
-    width: 100%; // 330px
-    content: '';
-    border-radius: 2px;
-    background: url(%%sidebar%%) center;
-    @include drop-shadow(1);
-  }
-}
-
-@if $pinned-topics {
   .res-nightmode .titlebox blockquote::after { background-color: $dark-cards; }
 
   .titlebox blockquote {
