@@ -83,7 +83,7 @@
   $burger-gutter: $gutter !global;
   position: relative;
 
-  &, &:before, &:after {
+  &, &::before, &::after {
     display: block;
     width: $width;
     height: $height;
@@ -94,14 +94,14 @@
     }
   }
 
-  &:before, &:after {
+  &::before, &::after {
     position: absolute;
     content: "";
   }
 
-  &:before { top: -($height + $gutter); }
+  &::before { top: -($height + $gutter); }
 
-  &:after { top: $height + $gutter; }
+  &::after { top: $height + $gutter; }
 }
 
 // link hover effect
