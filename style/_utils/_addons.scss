@@ -6,9 +6,6 @@ $header-large: false;
 // random header
 $random-header: false;
 
-// pinned topics
-$pinned-topics: false;
-
 // sidebar image
 $sidebar-img: false;
 $sidebar-img-height: 224px;
@@ -27,38 +24,53 @@ $sidebar-img-height: 224px;
   }
 }
 
+// pinned topics
+$pinned-topics: false;
+
+$num-stickied-links: 0; // number of stickied links
+$num-stickied-menus: 0; // number of stickied menus
+
+// desired image backgrounds for stickies
+$sticky-link-images: '';
+$sticky-menu-images: '';
+
+$stickies-selectors: ();
+
 @if $pinned-topics {
-  .res-nightmode .titlebox blockquote p:nth-of-type(1),
-  .res-nightmode .titlebox blockquote p:nth-of-type(2),
-  .res-nightmode .titlebox blockquote p:nth-of-type(3),
-  .res-nightmode .titlebox blockquote ul:nth-of-type(1),
-  .res-nightmode .titlebox blockquote ul:nth-of-type(2),
-  .titlebox blockquote p:nth-of-type(1),
-  .titlebox blockquote p:nth-of-type(2),
-  .titlebox blockquote p:nth-of-type(3),
-  .titlebox blockquote ul:nth-of-type(1),
-  .titlebox blockquote ul:nth-of-type(2) {
+  // add stickied links to map
+  @if $num-stickied-links > 0 {
+    @for $num-stickied-links from 1 through $num-stickied-links {
+      $stickies-selectors: append($stickies-selectors, unquote('.res-nightmode .titlebox blockquote p:nth-of-type(#{$num-stickied-links})'), 'comma');
+      $stickies-selectors: append($stickies-selectors, unquote('.titlebox blockquote p:nth-of-type(#{$num-stickied-links})'), 'comma');
+    }
+  }
+
+  // add stickied menus to map
+  @if $num-stickied-menus > 0 {
+    @for $num-stickied-menus from 1 through $num-stickied-menus {
+      $stickies-selectors: append($stickies-selectors, unquote('.res-nightmode .titlebox blockquote ul:nth-of-type(#{$num-stickied-menus})'), 'comma');
+      $stickies-selectors: append($stickies-selectors, unquote('.titlebox blockquote ul:nth-of-type(#{$num-stickied-menus})'), 'comma');
+    }
+  }
+
+  #{$stickies-selectors} {
     background: url(%%stickies%%) no-repeat;
   }
 
-  .res-nightmode {
-
-    .titlebox blockquote {
-
-      &::after { background-color: $dark-cards; }
-
-      // help
-      // album
-      // calendar
-      // media
-      // music-shows
-      p:nth-of-type(1) { background-position: -60px -120px; }
-      p:nth-of-type(2) { background-position: -60px 0; }
-      p:nth-of-type(3) { background-position: -120px -60px; }
-      ul:nth-of-type(1) { background-position: -180px -120px; }
-      ul:nth-of-type(2) { background-position: -60px -180px; }
+  // assign image backgrounds
+  @if $num-stickied-links > 0 {
+    @for $num-stickied-links from 1 through $num-stickied-links {
+      @include sticky-image-switch(link, nth($sticky-link-images, $num-stickied-links), $num-stickied-links);
     }
   }
+
+  @if $num-stickied-menus > 0 {
+    @for $num-stickied-menus from 1 through $num-stickied-menus {
+      @include sticky-image-switch(menu, nth($sticky-menu-images, $num-stickied-menus), $num-stickied-menus);
+    }
+  }
+
+  .res-nightmode .titlebox blockquote::after { background-color: $dark-cards; }
 
   .titlebox blockquote {
     @if ($header-large == true) {
@@ -102,20 +114,9 @@ $sidebar-img-height: 224px;
       background-position: 16px 50%;
     }
 
-    p {
-
-
-      &:hover {
-        width: 100%;
-        background-color: $primary !important;
-      }
-
-      // help
-      // album
-      // calendar
-      &:nth-of-type(1) { background-position: 0 -120px; }
-      &:nth-of-type(2) { background-position: 0 0; }
-      &:nth-of-type(3) { background-position: -60px -60px; }
+    p:hover {
+      width: 100%;
+      background-color: $primary !important;
     }
 
     a {
@@ -144,11 +145,6 @@ $sidebar-img-height: 224px;
         overflow: visible;
         background-color: $primary !important;
       }
-
-      // media
-      // music-shows
-      &:nth-of-type(1) { background-position: -180px -60px; }
-      &:nth-of-type(2) { background-position: 0 -180px; }
 
       ul {
         // avoids overlap of bg images due to nested ul

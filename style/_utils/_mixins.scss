@@ -118,3 +118,50 @@
     background-position: 0 100%;
   }
 }
+
+// stickied links/menus addon
+// link/menu, image type, loop counter passthrough
+@mixin sticky-image-switch ($sticky-type, $image, $counter) {
+  @if $sticky-type == 'link' {
+    $sticky-selector: '.titlebox blockquote p:nth-of-type(#{$counter})';
+    $sticky-selector-night: '.res-nightmode .titlebox blockquote p:nth-of-type(#{$counter})'
+  } @else if $sticky-type == 'menu' {
+    $sticky-selector: '.titlebox blockquote ul:nth-of-type(#{$counter})';
+    $sticky-selector-night: '.res-nightmode .titlebox blockquote ul:nth-of-type(#{$counter})'
+  }
+
+  @if $image == 'album' {
+    #{$sticky-selector} { background-position: $album-bgp; }
+    #{$sticky-selector-night} { background-position: $album-night-bgp; }
+  }
+
+  @if $image == 'announcement' {
+    #{$sticky-selector} { background-position: $announcement-bgp; }
+    #{$sticky-selector-night} { background-position: $announcement-night-bgp; }
+  }
+
+  @if $image == 'calendar' {
+    #{$sticky-selector} { background-position: $calendar-bgp; }
+    #{$sticky-selector-night} { background-position: $calendar-night-bgp; }
+  }
+
+  @if $image == 'help' {
+    #{$sticky-selector} { background-position: $help-bgp; }
+    #{$sticky-selector-night} { background-position: $help-night-bgp; }
+  }
+
+  @if $image == 'information' {
+    #{$sticky-selector} { background-position: $information-bgp; }
+    #{$sticky-selector-night} { background-position: $information-night-bgp; }
+  }
+
+  @if $image == 'media' {
+    #{$sticky-selector} { background-position: $media-bgp; }
+    #{$sticky-selector-night} { background-position: $media-night-bgp; }
+  }
+
+  @if $image == 'shows' {
+    #{$sticky-selector} { background-position: $shows-bgp; }
+    #{$sticky-selector-night} { background-position: $shows-night-bgp; }
+  }
+}
