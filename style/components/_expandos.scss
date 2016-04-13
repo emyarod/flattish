@@ -17,8 +17,8 @@
 	&.expanded,
 	&.expanded:hover {
 
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			background: $dark-hint-text !important;
 		}
 	}
@@ -83,8 +83,8 @@
 	&.expanded,
 	&.expanded:hover {
 
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			background: $light-hint-text !important;
 			content: "";
 			position: absolute;
@@ -92,7 +92,7 @@
 		}
 
 		// horizontal
-		&:before {
+		&::before {
 			width: 7px !important;
 			height: 1px !important;
 			top: 17px;
@@ -100,7 +100,7 @@
 		}
 
 		// vertical
-		&:after {
+		&::after {
 			width: 1px;
 			height: 7px;
 			top: 14px;
@@ -109,12 +109,12 @@
 	}
 
 	// animate expand/collapse
-	&.collapsed:after,
-	&.expanded:after { @include transition-default; }
+	&.collapsed::after,
+	&.expanded::after { @include transition-default; }
 
-	&.collapsed:after { @include animation(minustoplus 0.5s ease 1); }
+	&.collapsed::after { @include animation(minustoplus 0.5s ease 1); }
 
-	&.expanded:after {
+	&.expanded::after {
 		@include animation(minustoplus 0.5s ease 1 reverse);
 		transform: rotate(90deg);
 	}
