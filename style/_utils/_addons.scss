@@ -1,10 +1,10 @@
 // main: ../main.scss
 
 // large header
-$header-large: true;
+$header-large: false;
 
 // random header
-$random-header: true;
+$random-header: false;
 
 // sidebar image
 $sidebar-img: false;
@@ -25,14 +25,14 @@ $sidebar-img-height: 224px;
 }
 
 // pinned topics
-$pinned-topics: true;
+$pinned-topics: false;
 
-$num-stickied-links: 3; // number of stickied links
-$num-stickied-menus: 2; // number of stickied menus
+$num-stickied-links: 0; // number of stickied links
+$num-stickied-menus: 0; // number of stickied menus
 
 // desired image backgrounds for stickies
-$sticky-link-images: 'help', 'album', 'calendar';
-$sticky-menu-images: 'media', 'shows';
+$sticky-link-images: '';
+$sticky-menu-images: '';
 
 $stickies-selectors: ();
 
