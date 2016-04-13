@@ -2459,6 +2459,7 @@ div.content {
 
 .side .md a[href="https://github.com/emyarod/flattish/releases"] {
   display: block;
+  margin: 15px 0;
 }
 
 .c-checkbox input[type="checkbox"] + label::before {
