@@ -92,3 +92,20 @@ $screen-xs-min: em(480, 16);
 $screen-sm-min: em(768, 16);
 $screen-md-min: em(992, 16);
 $screen-lg-min: em(1200, 16);
+
+// addons
+// sticky link/menu backgroudn image positions
+$album-bgp: 0 0;
+$album-night-bgp: -60px 0;
+$announcement-bgp: -120px 0;
+$announcement-night-bgp: 0 -60px;
+$calendar-bgp: -60px -60px;
+$calendar-night-bgp: -120px -60px;
+$help-bgp: 0 -120px;
+$help-night-bgp: -60px -120px;
+$information-bgp: -120px -120px;
+$information-night-bgp: -180px 0;
+$media-bgp: -180px -60px;
+$media-night-bgp: -180px -120px;
+$shows-bgp: 0 -180px;
+$shows-night-bgp: -60px -180px;
