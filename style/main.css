@@ -217,41 +217,44 @@
   }
 }
 
-.res-nightmode .titlebox blockquote p:nth-of-type(1),
-.res-nightmode .titlebox blockquote p:nth-of-type(2),
-.res-nightmode .titlebox blockquote p:nth-of-type(3),
-.res-nightmode .titlebox blockquote ul:nth-of-type(1),
-.res-nightmode .titlebox blockquote ul:nth-of-type(2),
-.titlebox blockquote p:nth-of-type(1),
-.titlebox blockquote p:nth-of-type(2),
-.titlebox blockquote p:nth-of-type(3),
-.titlebox blockquote ul:nth-of-type(1),
-.titlebox blockquote ul:nth-of-type(2) {
+.res-nightmode .titlebox blockquote p:nth-of-type(1), .titlebox blockquote p:nth-of-type(1), .res-nightmode .titlebox blockquote p:nth-of-type(2), .titlebox blockquote p:nth-of-type(2), .res-nightmode .titlebox blockquote p:nth-of-type(3), .titlebox blockquote p:nth-of-type(3), .res-nightmode .titlebox blockquote ul:nth-of-type(1), .titlebox blockquote ul:nth-of-type(1), .res-nightmode .titlebox blockquote ul:nth-of-type(2), .titlebox blockquote ul:nth-of-type(2) {
   background: url(%%stickies%%) no-repeat;
 }
 
-.res-nightmode .titlebox blockquote::after {
-  background-color: #424242;
+.titlebox blockquote p:nth-of-type(1) {
+  background-position: 0 -120px;
 }
 
 .res-nightmode .titlebox blockquote p:nth-of-type(1) {
   background-position: -60px -120px;
 }
 
+.titlebox blockquote p:nth-of-type(2) {
+  background-position: 0 0;
+}
+
 .res-nightmode .titlebox blockquote p:nth-of-type(2) {
   background-position: -60px 0;
+}
+
+.titlebox blockquote p:nth-of-type(3) {
+  background-position: -60px -60px;
 }
 
 .res-nightmode .titlebox blockquote p:nth-of-type(3) {
   background-position: -120px -60px;
 }
 
+.titlebox blockquote ul:nth-of-type(1) {
+  background-position: -180px -60px;
+}
+
 .res-nightmode .titlebox blockquote ul:nth-of-type(1) {
   background-position: -180px -120px;
 }
 
-.res-nightmode .titlebox blockquote ul:nth-of-type(2) {
-  background-position: -60px -180px;
+.res-nightmode .titlebox blockquote::after {
+  background-color: #424242;
 }
 
 .titlebox blockquote {
@@ -298,18 +301,6 @@
   background-color: #00bcd4 !important;
 }
 
-.titlebox blockquote p:nth-of-type(1) {
-  background-position: 0 -120px;
-}
-
-.titlebox blockquote p:nth-of-type(2) {
-  background-position: 0 0;
-}
-
-.titlebox blockquote p:nth-of-type(3) {
-  background-position: -60px -60px;
-}
-
 .titlebox blockquote a {
   display: block;
   height: 60px;
@@ -336,14 +327,6 @@
   width: 100%;
   overflow: visible;
   background-color: #00bcd4 !important;
-}
-
-.titlebox blockquote ul:nth-of-type(1) {
-  background-position: -180px -60px;
-}
-
-.titlebox blockquote ul:nth-of-type(2) {
-  background-position: 0 -180px;
 }
 
 .titlebox blockquote ul ul {
