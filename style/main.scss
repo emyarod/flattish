@@ -2,20 +2,6 @@
 
 @import "_utils/import";
 
-@import "modules/content";
-@import "modules/footer";
-@import "modules/header";
-@import "modules/sidebar";
-@import "pages/comments-page";
-@import "pages/compose-page";
-@import "pages/flair-page";
-@import "pages/search-page";
-@import "pages/settings-page";
-@import "pages/stylesheet-page";
-@import "pages/submit-page";
-@import "pages/top-page";
-@import "pages/wiki-page";
-
 * {
   font-family: $font-stack;
   outline: none;
