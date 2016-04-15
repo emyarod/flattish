@@ -1,3 +1,12 @@
+$(document).ready(function() {
+  $.ajax({
+    url: '../../style/main.scss'
+  })
+  .done(function(data) {
+    $('#target').html(data)
+  })
+});
+
 /**
  * move cursor to the beginning of the editor's first line
  * @param  {Object} editor An ace.js editor
