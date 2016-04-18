@@ -1,4 +1,16 @@
-// main: ../main.scss
+// main: ../flattish.scss
+
+// ripple effect on button press
+@include keyframes(button-ripple) {
+	0% {
+		@include transform(scale(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(scale(2));
+		opacity: 0;
+	}
+}
 
 .arrow:focus::after,
 .sidecontentbox .gadget .right a:focus::before {

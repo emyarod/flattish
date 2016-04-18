@@ -1,4 +1,4 @@
-// main: ../main.scss
+// main: ../flattish.scss
 
 // infobar (locked, archived, etc)
 .reddit-infobar {
@@ -79,12 +79,6 @@
 .res-nightmode .commentingAs { color: $dark-secondary-text; }
 
 .commentingAs { color: $light-secondary-text; }
-
-.RESCharCounter {
-  position: relative;
-  top: 35px;
-  left: -85px;
-}
 
 // comment save button bar
 .usertext {
@@ -175,14 +169,6 @@
   font-size: 13px;
 
   .shortlink input { width: unset; }
-}
-
-@media (min-width: $screen-sm-min) {
-  .RESCharCounter {
-    position: initial;
-    top: initial;
-    left: initial;
-  }
 }
 
 // infobar when viewing specific permalinked comments

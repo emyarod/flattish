@@ -1,6 +1,4 @@
-// main: ../main.scss
-
-@import 'color-list';
+// main: ../flattish.scss
 
 // get color hue and shade from color list
 @function get-color($color-hue, $color-shade: '500') {
