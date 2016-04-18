@@ -1,4 +1,4 @@
-// main: ../main.scss
+// main: ../flattish.scss
 
 // large header
 $header-large: false;
@@ -31,8 +31,8 @@ $num-stickied-links: 0; // number of stickied links
 $num-stickied-menus: 0; // number of stickied menus
 
 // desired image backgrounds for stickies
-$sticky-link-images: 'help', 'album', 'calendar';
-$sticky-menu-images: 'media', 'shows';
+$sticky-link-images: '';
+$sticky-menu-images: '';
 
 $stickies-selectors: ();
 

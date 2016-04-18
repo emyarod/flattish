@@ -1,11 +1,11 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
 
   @if ($header-large == true) {
-		top: 245px;
+		top: 172px;
 	} @else {
     top: 86px;
 	}

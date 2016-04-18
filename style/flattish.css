@@ -1,222 +1,4 @@
 @charset "UTF-8";
-@-webkit-keyframes RES-settings {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 18em;
-    height: 33em;
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes RES-settings {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 18em;
-    height: 33em;
-    opacity: 1;
-  }
-}
-
-@keyframes RES-settings {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 18em;
-    height: 33em;
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes RESmenuopen {
-  0% {
-    -webkit-transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-
-@-moz-keyframes RESmenuopen {
-  0% {
-    -moz-transform: scale(0);
-  }
-  100% {
-    -moz-transform: scale(1);
-  }
-}
-
-@keyframes RESmenuopen {
-  0% {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes slide-down {
-  0% {
-    -webkit-transform: translateY(-50%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes slide-down {
-  0% {
-    -moz-transform: translateY(-50%);
-    opacity: 0;
-  }
-  100% {
-    -moz-transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-down {
-  0% {
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes radio-toggle {
-  0% {
-    background-size: 0;
-  }
-  100% {
-    background-size: 100%;
-  }
-}
-
-@-moz-keyframes radio-toggle {
-  0% {
-    background-size: 0;
-  }
-  100% {
-    background-size: 100%;
-  }
-}
-
-@keyframes radio-toggle {
-  0% {
-    background-size: 0;
-  }
-  100% {
-    background-size: 100%;
-  }
-}
-
-@-webkit-keyframes button-ripple {
-  0% {
-    -webkit-transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(2);
-    opacity: 0;
-  }
-}
-
-@-moz-keyframes button-ripple {
-  0% {
-    -moz-transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -moz-transform: scale(2);
-    opacity: 0;
-  }
-}
-
-@keyframes button-ripple {
-  0% {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(2);
-    -moz-transform: scale(2);
-    -ms-transform: scale(2);
-    -o-transform: scale(2);
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes minustoplus {
-  0% {
-    -webkit-transform: rotate(90deg);
-  }
-  100% {
-    -webkit-transform: rotate(0);
-  }
-}
-
-@-moz-keyframes minustoplus {
-  0% {
-    -moz-transform: rotate(90deg);
-  }
-  100% {
-    -moz-transform: rotate(0);
-  }
-}
-
-@keyframes minustoplus {
-  0% {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-  100% {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -o-transform: rotate(0);
-    transform: rotate(0);
-  }
-}
-
 .res-nightmode button,
 button {
   color: #00bcd4 !important;
@@ -472,6 +254,82 @@ select option {
   background: url(%%dropdown-night%%) no-repeat right;
 }
 
+@-webkit-keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes slide-down {
+  0% {
+    -moz-transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    -moz-transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes minustoplus {
+  0% {
+    -webkit-transform: rotate(90deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+  }
+}
+
+@-moz-keyframes minustoplus {
+  0% {
+    -moz-transform: rotate(90deg);
+  }
+  100% {
+    -moz-transform: rotate(0);
+  }
+}
+
+@keyframes minustoplus {
+  0% {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
 .res-nightmode .expando-button {
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -630,6 +488,80 @@ select option {
   background-color: #f5f5f5 !important;
 }
 
+@-webkit-keyframes RES-settings {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 18em;
+    height: 33em;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes RES-settings {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 18em;
+    height: 33em;
+    opacity: 1;
+  }
+}
+
+@keyframes RES-settings {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 18em;
+    height: 33em;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes RESmenuopen {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes RESmenuopen {
+  0% {
+    -moz-transform: scale(0);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+
+@keyframes RESmenuopen {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
 #RESShortcutsViewport {
   max-height: none !important;
 }
@@ -683,6 +615,47 @@ select option {
 .RESDialogSmall * {
   box-sizing: content-box;
   border: 0 !important;
+}
+
+@-webkit-keyframes button-ripple {
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes button-ripple {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -moz-transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes button-ripple {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .arrow:focus::after,
@@ -1106,6 +1079,33 @@ textarea {
 
 .thing.over18 > .thumbnail:hover {
   opacity: 1;
+}
+
+@-webkit-keyframes radio-toggle {
+  0% {
+    background-size: 0;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@-moz-keyframes radio-toggle {
+  0% {
+    background-size: 0;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes radio-toggle {
+  0% {
+    background-size: 0;
+  }
+  100% {
+    background-size: 100%;
+  }
 }
 
 .res-nightmode input[type="checkbox"]:disabled {
@@ -2110,6 +2110,10 @@ div.content {
   top: 5px;
 }
 
+.beta-hint a {
+  top: 5px;
+}
+
 #userbarToggle, .res-nightmode #userbarToggle,
 #header-bottom-right .user,
 #header-bottom-right span a, .res #header-bottom-right span a,
@@ -2888,6 +2892,83 @@ label + #moresearchinfo {
   }
 }
 
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  outline: none;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.res-nightmode body a:link,
+body a:link {
+  color: #2196f3;
+}
+
+.res-nightmode body a:link:hover,
+body a:link:hover {
+  color: #64b5f6;
+}
+
+.res-nightmode body a:link:active,
+body a:link:active {
+  color: #1976d2;
+}
+
+.res-nightmode body a:link:visited,
+body a:link:visited {
+  color: #9575cd;
+}
+
+.res-nightmode body {
+  background-color: #303030 !important;
+}
+
+body {
+  background-color: #fafafa;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: absolute;
+  z-index: -1;
+  height: 223px;
+  width: 100%;
+  content: '';
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
+  background-attachment: scroll, fixed;
+}
+
+.md {
+  max-width: unset;
+}
+
+#wikiactions a,
+#moderation_tools a,
+.footer a,
+.bottommenu a {
+  background: linear-gradient(to top, #00bcd4 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  will-change: background-position;
+}
+
+#wikiactions a:hover,
+#moderation_tools a:hover,
+.footer a:hover,
+.bottommenu a:hover {
+  color: #fff !important;
+  text-decoration: none;
+  background-position: 0 100%;
+}
+
 .reddit-infobar {
   padding-left: 55px !important;
   margin-bottom: 16px;
@@ -3560,81 +3641,4 @@ ul.tabmenu.formtab a.text-button.choice {
 
 .wiki-page .wiki-page-content {
   margin: 16px 0 0;
-}
-
-* {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  outline: none;
-  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-.res-nightmode body a:link,
-body a:link {
-  color: #2196f3;
-}
-
-.res-nightmode body a:link:hover,
-body a:link:hover {
-  color: #64b5f6;
-}
-
-.res-nightmode body a:link:active,
-body a:link:active {
-  color: #1976d2;
-}
-
-.res-nightmode body a:link:visited,
-body a:link:visited {
-  color: #9575cd;
-}
-
-.res-nightmode body {
-  background-color: #303030 !important;
-}
-
-body {
-  background-color: #fafafa;
-  overflow-x: hidden;
-}
-
-body::before {
-  position: absolute;
-  z-index: -1;
-  height: 223px;
-  width: 100%;
-  content: '';
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
-  background-attachment: scroll, fixed;
-}
-
-.md {
-  max-width: unset;
-}
-
-#wikiactions a,
-#moderation_tools a,
-.footer a,
-.bottommenu a {
-  background: linear-gradient(to top, #00bcd4 50%, transparent 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  will-change: background-position;
-}
-
-#wikiactions a:hover,
-#moderation_tools a:hover,
-.footer a:hover,
-.bottommenu a:hover {
-  color: #fff !important;
-  text-decoration: none;
-  background-position: 0 100%;
 }

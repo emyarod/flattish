@@ -1,4 +1,24 @@
-// main: ../main.scss
+// main: ../flattish.scss
+
+// RES settings menu hover animation
+@include keyframes(RES-settings) {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: em(180, 10);
+    height: em(330, 10);
+    opacity: 1;
+  }
+}
+
+// RES macros menu open animation
+@include keyframes(RESmenuopen) {
+  0% { @include transform(scale(0)); }
+  100% { @include transform(scale(1)); }
+}
 
 #RESShortcutsViewport {
   max-height: none !important;
