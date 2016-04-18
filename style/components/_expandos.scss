@@ -12,6 +12,12 @@
 	}
 }
 
+// expando button +/- animation
+@include keyframes(minustoplus) {
+	0% { @include transform(rotate(90deg)); }
+	100% { @include transform(rotate(0)); }
+}
+
 // media and self post expansion buttons
 .res-nightmode .expando-button {
   // base styles
