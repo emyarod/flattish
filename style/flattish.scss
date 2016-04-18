@@ -1,11 +1,11 @@
 // compile
 
 @import '../vendors/bourbon/bourbon';
-@import '_utils/color-list';
-@import '_utils/vars';
-@import '_utils/mixins';
-@import '_utils/functions';
-@import '_utils/addons';
+@import 'utils/color-list';
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/functions';
+@import 'utils/addons';
 
 @import 'components/buttons';
 @import 'components/cards';
