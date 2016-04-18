@@ -1,4 +1,10 @@
-// main: ../main.scss
+// main: ../flattish.scss
+
+// material radio button toggle animation
+@include keyframes(radio-toggle) {
+  0% { background-size: 0; }
+  100% { background-size: 100%; }
+}
 
 // checkbox
 .res-nightmode input[type="checkbox"]:disabled {

@@ -1,5 +1,4 @@
-// main: ../main.scss
-
+// main: ../flattish.scss
 
 // shared styles
 .res-nightmode input[type="text"],
@@ -39,7 +38,6 @@ textarea {
 // macros menu
 .RESMacroDropdown,
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  // left: unset !important; // thx RES
   right: em(16, 10) !important; // thx RES
 }
 
