@@ -1,4 +1,16 @@
-// main: ../main.scss
+// main: ../flattish.scss
+
+// selftext expando animation
+@include keyframes(slide-down) {
+	0% {
+		@include transform(translateY(-50%));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
+}
 
 // media and self post expansion buttons
 .res-nightmode .expando-button {
