@@ -3,7 +3,7 @@ var y;
 $(document).ready(function() {
   $.ajax({
     // url: 'style/main.scss'
-    url: 'style/_utils/_import.scss'
+    url: 'style/utils/_vars.scss'
     // url: 'test.scss'
   })
   .done(function(data) {
@@ -46,10 +46,10 @@ sass.options({ style: Sass.style.expanded }, function(result) {
 sass.preloadFiles(Sass.maps.bourbon.base, Sass.maps.bourbon.directory, Sass.maps.bourbon.files, function() {
   console.log('files loaded');
   // console.log(Sass.maps.bourbon.files);
-  sass.compileFile('bourbon/_bourbon.scss', function(result) {
-    console.log("compiled", result.text);
-    // console.log("file array", result.files);
-  });
+  // sass.compileFile('bourbon/_bourbon.scss', function(result) {
+  //   console.log("compiled", result.text);
+  //   // console.log("file array", result.files);
+  // });
 
   sass.preloadFiles(Sass.maps.flattish.base, Sass.maps.flattish.directory, Sass.maps.flattish.files, function() {
     console.log('files loaded');
