@@ -2,8 +2,8 @@ var y;
 
 $(document).ready(function() {
   $.ajax({
-    // url: 'style/main.scss'
-    url: 'style/utils/_vars.scss'
+    url: 'style/flattish.scss'
+    // url: 'style/utils/_vars.scss'
     // url: 'test.scss'
   })
   .done(function(data) {
@@ -59,7 +59,7 @@ sass.preloadFiles(Sass.maps.bourbon.base, Sass.maps.bourbon.directory, Sass.maps
       // console.log('listfiles ' + list);
     });
 
-    sass.compileFile('flattish/test2.scss', function(result) {
+    sass.compileFile('flattish/flattish.scss', function(result) {
       console.log("compiled", result.text);
       console.log(result.file);
       console.log(result.line);
