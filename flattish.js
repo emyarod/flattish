@@ -57,9 +57,7 @@
       'pages/_submit-page.scss',
       'pages/_top-page.scss',
       'pages/_wiki-page.scss',
-      'flattish.scss',
-      'test.scss',
-      'test2.scss'
+      'flattish.scss'
     ]
   };
 
