@@ -48,7 +48,7 @@ var numStickiedMenus; // number of stickied menus
 var stickyLinkImages;
 var stickyMenuImages;
 
-// spectrum color picker
+// spectrum color pickers
 $('#primaryColorPicker').spectrum({
     preferredFormat: 'hex3',
     color: primary,
@@ -68,7 +68,7 @@ $('#primaryColorPicker').spectrum({
 $('#primaryColorPicker').show();
 
 $('#primaryColorPicker').on('change', function() {
-  // set spectrum value equal to value in input field
+  // set spectrum value equal to input field value
   $('#primaryColorPicker').spectrum('set', $('#primaryColorPicker').val());
 
   // after error handling, set var primary to final spectrum value
@@ -98,24 +98,19 @@ $('#compile').click(function() {
   sass.readFile('flattish/utils/_vars.scss', function callback(content) {
     // (string) content is the file's content,
     //   `undefined` when the read failed
-    console.log(content);
+    console.log('reading _vars.scss');
 
     // register a file to be available for @import
     sass.writeFile('flattish/utils/_vars.scss', content.replace(/(\$)(primary)(:)( ).*?(;)/, '$primary: ' + primary + ';'), function callback(success) {
-      console.log(success);
+      if (success) {
+        console.log('_vars.scss successfully written');
+      }
       // (boolean) success is
       //   `true` when the write was OK,
       //   `false` when it failed
 
-      sass.readFile('flattish/utils/_vars.scss', function callback(content) {
-        console.log('final ' + content);
-      });
-
       sass.compileFile('flattish/flattish.scss', function(result) {
-        // console.log("compiled", result.text);
-        // console.log(result.file);
-        // console.log(result.line);
-        // console.log(result.message);
+        console.log('compiled');
         console.log(result);
         $('#target').html(result.text);
       });
