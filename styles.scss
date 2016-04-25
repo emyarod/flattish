@@ -1,0 +1,19 @@
+// compile
+
+@import 'vendors/bourbon/bourbon';
+
+.color-pickers .form-inputs {
+  display: table;
+
+  input,
+  .sp-replacer {
+    display: table-cell;
+  }
+
+  input { @include border-right-radius(0); }
+
+  .sp-replacer {
+    border-left-width: 0;
+    @include border-left-radius(0);
+  }
+}
