@@ -1,0 +1,489 @@
+// colors
+$black:  #000;
+$white: #fff;
+$color_mine_shaft_approx: #333;
+$red: #f00;
+$yellow: #ff0;
+$green: #0f0;
+$cyan_aqua: #0ff;
+$blue: #00f;
+$magenta: #f0f;
+$color_manhattan_approx: #f0c49b;
+$color_log_cabin_approx: #222;
+$orange:  orange;
+$color_pippin_approx: #fdd;
+$outer-border: #ccc;
+$color_gallery_approx: #eee;
+$color_woodsmoke_approx: #111;
+$disabled: silver;
+$color_pink_swan_approx: #bbb;
+$color_alto_approx: #dddddd;
+$color_mountain_mist_approx: #999;
+$color_silver_chalice_approx: #aaa;
+$color_suva_gray_approx: #888;
+
+// buttons
+$light-button-hover: rgba(#999, 0.2);
+$light-button-focus: rgba($black, 0.12);
+$light-button-active: rgba(#999, 0.4);
+
+// shadows
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;
+
+// fonts
+$font-stack: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+
+// urls
+$transparency: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==');
+$checkmark-dark: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIVJREFUeNpiYBhsgJFMffxAXABlN5JruT4Q3wfi/0DsT64h8UD8HmpIPCWG/KemIfOJCUB+Aoacx6EGBZyHBqI+WsDCwuQ9mhxeg2A210Ntfo8klk9sOMijaURm7yc1UP2RNCMbKE9ODK1HM6iegYLkfx8pligC9lCD7KmRof0ZhjQACDAAceovrtpVBRkAAAAASUVORK5CYII=');
+$checkmark-light: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAMdJREFUOE+tkgsNwzAMRMugEAahEAahEAZhEAqlEAZhEAohEAYh81X2dIm8fKpEspLGvudPOsUYpxE2BIJCroJmEW9qJ+MKaBFhEMNabSy9oIcIPwrB+afvAUFoK4H0tMaQ3XtlrggDhOVVMuT4E5MMG0FBbCEYzjYT7OxLEvIHQLY2zWwQ3D+9luyOQTfKDiFD3iUIfPk8VqrKjgAiSfGFPecrg6HN6m/iBcwiDAo7WiBeawa+Kwh7tZoSCGLMqwlSAzVDhoK+6vH4G0P5wdkAAAAASUVORK5CYII=');
+$clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6SkpKWlpaampqenp6ioqKmpqaqqqqurq/Hx8fLy8vT09PX19ff39/j4+Pn5+fr6+vv7+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAUABQAAAihAP9FoPCvoMGDBy08+EdhQAIJCCMybCDAAYUEARBAlFiQQoMABQhKUJBxY0SPICEYHBnggEmDKAuoPMjS5cGYMxHW3IiT478JJA8M/CjTZ0GgLRekNGpwAsYABHIypcAgQMsITDtWJYBR6NSqMico9cqR6tKfY7GeBCuVwlipDNmefAtTrkSzB1RaIAoXodsABiZAEFB06gIBWC1mLVgBa0AAOw==');
+
+@mixin button-styles {
+	height: 36px;
+	min-width: 64px;
+	padding: 0 8px;
+	border: 0;
+	border-radius: 2px;
+	font-weight: bold;
+	font-family: $font-stack;
+	font-size: 14px;
+	letter-spacing: normal;
+	line-height: 36px;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	background: none transparent;
+	outline: 0;
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	&::-moz-focus-inner { border: 0; }
+
+	&:hover { background-color: $light-button-hover; }
+
+	&:focus:not(:active) { background-color: $light-button-focus; }
+
+	&:active { background-color: $light-button-active; }
+}
+
+// @extend-elements
+// original selectors
+// .sp-sat, .sp-val
+%extend_1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+// original selectors
+// .sp-picker-container, .sp-palette-container
+%extend_2 {
+  position: relative;
+  float: left;
+	padding: 10px;
+	padding-bottom: 300px;
+	margin-bottom: -290px;
+}
+
+// original selectors
+// .sp-preview-inner, .sp-alpha-inner, .sp-thumb-inner
+%extend_3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+	display: block;
+}
+
+
+.sp-container {
+	// box-sizing: content-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+  z-index: 9999994;
+	display: inline-block;
+	padding: 0;
+	*display: inline;
+	*zoom: 1;
+	overflow: hidden;
+	// Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	background-color: $white;
+	border-radius: 2px;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	font: normal 12px $font-stack;
+	box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0px 12px 17px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0px 5px 22px 4px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+
+	&.sp-flat {
+		position: relative;
+		box-shadow: none;
+		background-color: lightgray;
+	}
+
+	button {
+		// Instead of the line below you could use @include user-select($select)
+		user-select: none;
+		color: $black;
+
+		@include button-styles;
+	}
+
+	&.sp-dragging .sp-input,
+  &.sp-input-disabled .sp-input-container,
+  &.sp-buttons-disabled .sp-button-container,
+  &.sp-palette-buttons-disabled .sp-palette-button-container {
+		// Instead of the line below you could use @include user-select($select)
+		user-select: none;
+	}
+}
+
+.sp-top {
+	position: relative;
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.sp-top-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.sp-color {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 20%;
+	font: normal 12px $font-stack;
+}
+
+.sp-hue {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 84%;
+	height: 100%;
+	font: normal 12px $font-stack;
+	// Instead of the line below you could use @include box-sizing($bs)
+  background: linear-gradient(to bottom, $red 0, $yellow 17%, $green 33%, $cyan_aqua 50%, $blue 67%, $magenta 83%, $red 100%);
+	cursor: row-resize;
+}
+
+.sp-clear-enabled {
+	.sp-hue {
+		top: 33px;
+		height: 77.5%;
+	}
+
+	.sp-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 84%;
+		display: block;
+		height: 28px;
+	}
+}
+
+.sp-fill { padding-top: 80%; }
+
+.sp-sat {
+	@extend %extend_1;
+	background-image: linear-gradient(to right, $white, rgba(204, 154, 129, 0));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr='#FFFFFFFF', endColorstr='#00CC9A81');
+}
+
+.sp-val {
+	@extend %extend_1;
+	background-image: linear-gradient(to top, $black, rgba(204, 154, 129, 0));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00CC9A81', endColorstr='#FF000000');
+
+}
+.sp-alpha-enabled {
+	.sp-top { margin-bottom: 18px; }
+	.sp-alpha { display: block; }
+}
+
+.sp-alpha-handle {
+	position: absolute;
+	top: -4px;
+	bottom: -4px;
+	width: 6px;
+	left: 50%;
+  border: 1px solid $black;
+	cursor: pointer;
+	background: $white;
+	opacity: .8;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+}
+
+.sp-alpha {
+  position: relative;
+	bottom: -14px;
+	right: 0;
+	left: 0;
+  display: none;
+	height: 8px;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	background-image: $transparency;
+}
+
+.sp-alpha-inner {
+	border: solid 1px $color_mine_shaft_approx;
+	@extend %extend_3;
+}
+
+.sp-clear {
+	display: none;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	font: normal 12px $font-stack;
+	// Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+
+	&.sp-clear-display { background-position: center; }
+}
+
+.sp-replacer {
+  border: solid 1px $outer-border;
+	border-radius: 4px;
+  margin: 0;
+  padding: 6px 12px;
+  display: inline-block;
+  color: $color_mine_shaft_approx;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	overflow: hidden;
+	cursor: pointer;
+	*zoom: 1;
+	*display: inline;
+  background: $color_gallery_approx;
+	vertical-align: middle;
+
+	&.sp-disabled {
+		cursor: default;
+		border-color: $disabled;
+		color: $disabled;
+	}
+}
+.sp-preview {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  z-index: 0;
+  float: left;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	background-image: $transparency;
+}
+
+.sp-dragger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 5px;
+  border: 1px solid $white;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	// Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	background: $black;
+	cursor: pointer;
+}
+
+.sp-slider {
+	position: absolute;
+	top: 0;
+	left: -1px;
+	right: -1px;
+	height: 3px;
+	// Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	background: $white;
+	opacity: .8;
+}
+
+.sp-palette-only {
+	.sp-picker-container { display: none; }
+	.sp-palette-container { border: 0; }
+}
+
+.sp-initial-disabled {
+	.sp-initial { display: none; }
+	.sp-input-container { width: 100%; }
+}
+
+.sp-1 {
+	height: 17%;
+	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$red', endcolorstr='$yellow');
+}
+
+.sp-2 {
+	height: 16%;
+	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$yellow', endcolorstr='$green');
+}
+
+.sp-3 {
+	height: 17%;
+	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$green', endcolorstr='$cyan_aqua');
+}
+
+.sp-4 {
+	height: 17%;
+	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$cyan_aqua', endcolorstr='$blue');
+}
+
+.sp-5 {
+	height: 16%;
+	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$blue', endcolorstr='$magenta');
+}
+
+.sp-6 {
+	height: 17%;
+	filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$magenta', endcolorstr='$red');
+}
+
+.sp-hidden { display: none !important; }
+
+.sp-cf {
+	*zoom: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+	&::after { clear: both; }
+}
+@media(max-device-width: 480px) {
+	.sp-color { right: 40%; }
+	.sp-hue { left: 63%; }
+	.sp-fill { padding-top: 60%; }
+}
+
+.sp-input-container {
+	float: right;
+	width: 100px;
+	margin-bottom: 4px;
+}
+
+.sp-input.sp-validation-error {
+	border: 1px solid $red;
+	background: $color_pippin_approx;
+}
+
+.sp-picker-container {
+	@extend %extend_2;
+	width: 172px;
+	box-sizing: content-box;
+}
+
+.sp-palette-container {
+	@extend %extend_2;
+}
+
+.sp-palette {
+	*width: 220px;
+	max-width: 220px;
+
+	.sp-thumb-el {
+    position: relative;
+		display: block;
+		float: left;
+    width: 16px;
+    height: 16px;
+    margin: 1px;
+		border: 1px solid $white;
+		cursor: pointer;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+		&:hover,
+    &.sp-thumb-active {
+			border-color: $orange;
+		}
+	}
+
+	span {
+		&:hover,
+    &.sp-thumb-active {
+			border-color: $black;
+		}
+	}
+
+	.sp-thumb-inner {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+
+	.sp-thumb-light.sp-thumb-active .sp-thumb-inner { background-image: $checkmark-dark; }
+
+	.sp-thumb-dark.sp-thumb-active .sp-thumb-inner { background-image: $checkmark-light; }
+}
+
+.sp-palette-toggle {
+	margin-top: 5px;
+}
+
+.sp-thumb-el {
+	position: relative;
+	background-image: $transparency;
+}
+
+.sp-initial {
+  border: solid 1px transparent;
+	float: left;
+
+	span {
+    border: none;
+    margin: 0;
+    display: block;
+    float: left;
+    width: 30px;
+    height: 32px;
+	}
+
+	.sp-clear-display { background-position: center; }
+}
+
+.sp-palette-button-container,
+.sp-button-container {
+	float: right;
+}
+
+.sp-cancel {
+	display: inline-block;
+	color: $black;
+	text-decoration: none;
+	@include button-styles;
+
+	&:hover {
+		color: black;
+		text-decoration: none;
+	}
+}
+
+.sp-preview-inner,
+.sp-thumb-inner {
+  @extend %extend_3;
+}
+
+.sp-clear-display { background: $clear center no-repeat; }
+
+.sp-palette-disabled .sp-palette-container { display: none; }
