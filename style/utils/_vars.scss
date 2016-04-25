@@ -24,6 +24,11 @@ $link-color-hover: get-color('blue', '300');
 $link-color-active: get-color('blue', '700');
 $link-color-visited: get-color('deep-purple', '300');
 
+$link-color-night: get-color('blue', '500');
+$link-color-hover-night: get-color('blue', '300');
+$link-color-active-night: get-color('blue', '700');
+$link-color-visited-night: get-color('deep-purple', '300');
+
 $upvote: get-color('deep-orange', '500');
 $downvote: get-color('indigo', '500');
 $nsfw: get-color('red', 'A200');
