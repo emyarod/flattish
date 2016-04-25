@@ -24,13 +24,13 @@
 		}
 
 		.title {
-			color: $link-color !important;
+			color: $link-color-night !important;
 
-	    &:hover { color: $link-color-hover !important; }
+	    &:hover { color: $link-color-hover-night !important; }
 
-	    &:active { color: $link-color-active !important; }
+	    &:active { color: $link-color-active-night !important; }
 
-	    &:visited { color: $link-color-visited !important; }
+	    &:visited { color: $link-color-visited-night !important; }
 		}
 
 		.tagline { color: $dark-text !important; }
