@@ -12,7 +12,8 @@
     // https://github.com/thoughtbot/bourbon/blob/v4.2.1/app/assets/stylesheets/
     // using rawgit to directly access the github repository via CORS
     // NOTE: that this will only work for preloading, as lazyloading throws security exceptions
-    base: '../vendors/bourbon/',
+    // base: '../vendors/bourbon/',
+    base: 'https://cdn.rawgit.com/thoughtbot/bourbon/v4.2.1/app/assets/stylesheets/',
     files: [
       '_bourbon.scss',
       '_bourbon-deprecated-upcoming.scss',
