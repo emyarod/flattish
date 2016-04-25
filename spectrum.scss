@@ -8,9 +8,10 @@ $green: #0f0;
 $cyan_aqua: #0ff;
 $blue: #00f;
 $magenta: #f0f;
+$orange:  orange;
+$dark-theme-background: #424242;
 $color_manhattan_approx: #f0c49b;
 $color_log_cabin_approx: #222;
-$orange:  orange;
 $color_pippin_approx: #fdd;
 $outer-border: #ccc;
 $color_gallery_approx: #eee;
@@ -67,10 +68,10 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 	&:active { background-color: $light-button-active; }
 }
 
-// @extend-elements
+// mixins
 // original selectors
 // .sp-sat, .sp-val
-%extend_1 {
+@mixin absolutePosition {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -80,22 +81,22 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 
 // original selectors
 // .sp-picker-container, .sp-palette-container
-%extend_2 {
-  position: relative;
+@mixin positionContainers {
+	position: relative;
   float: left;
-	padding: 10px;
-	padding-bottom: 300px;
-	margin-bottom: -290px;
+  padding: 10px;
+  padding-bottom: 300px;
+  margin-bottom: -290px;
 }
 
 // original selectors
 // .sp-preview-inner, .sp-alpha-inner, .sp-thumb-inner
-%extend_3 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+@mixin absolutePositionBlock {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	display: block;
 }
 
@@ -112,7 +113,6 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 	*zoom: 1;
 	overflow: hidden;
 	// Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-	background-color: $white;
 	border-radius: 2px;
 	// Instead of the line below you could use @include user-select($select)
 	user-select: none;
@@ -130,8 +130,6 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 	button {
 		// Instead of the line below you could use @include user-select($select)
 		user-select: none;
-		color: $black;
-
 		@include button-styles;
 	}
 
@@ -141,6 +139,36 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
   &.sp-palette-buttons-disabled .sp-palette-button-container {
 		// Instead of the line below you could use @include user-select($select)
 		user-select: none;
+	}
+}
+
+// light theme
+.sp-light {
+	background-color: $white;
+
+	button,
+	.sp-cancel,
+	.sp-cancel:hover {
+		color: $black;
+	}
+
+	.sp-palette .sp-thumb-el {
+		border: 1px solid $white;
+	}
+}
+
+// dark theme
+.sp-dark {
+	background-color: $dark-theme-background;
+
+	button,
+	.sp-cancel,
+	.sp-cancel:hover {
+		color: $white;
+	}
+
+	.sp-palette .sp-thumb-el {
+		border: 1px solid $dark-theme-background;
 	}
 }
 
@@ -201,13 +229,13 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 .sp-fill { padding-top: 80%; }
 
 .sp-sat {
-	@extend %extend_1;
+	@include absolutePosition;
 	background-image: linear-gradient(to right, $white, rgba(204, 154, 129, 0));
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr='#FFFFFFFF', endColorstr='#00CC9A81');
 }
 
 .sp-val {
-	@extend %extend_1;
+	@include absolutePosition;
 	background-image: linear-gradient(to top, $black, rgba(204, 154, 129, 0));
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00CC9A81', endColorstr='#FF000000');
 
@@ -245,7 +273,7 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 
 .sp-alpha-inner {
 	border: solid 1px $color_mine_shaft_approx;
-	@extend %extend_3;
+	@include absolutePositionBlock;
 }
 
 .sp-clear {
@@ -390,13 +418,13 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 }
 
 .sp-picker-container {
-	@extend %extend_2;
+	@include positionContainers;
 	width: 172px;
 	box-sizing: content-box;
 }
 
 .sp-palette-container {
-	@extend %extend_2;
+	@include positionContainers;
 }
 
 .sp-palette {
@@ -410,7 +438,6 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
     width: 16px;
     height: 16px;
     margin: 1px;
-		border: 1px solid $white;
 		cursor: pointer;
 		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -469,19 +496,15 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 
 .sp-cancel {
 	display: inline-block;
-	color: $black;
 	text-decoration: none;
 	@include button-styles;
 
-	&:hover {
-		color: black;
-		text-decoration: none;
-	}
+	&:hover { text-decoration: none; }
 }
 
 .sp-preview-inner,
 .sp-thumb-inner {
-  @extend %extend_3;
+  @include absolutePositionBlock;
 }
 
 .sp-clear-display { background: $clear center no-repeat; }
