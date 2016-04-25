@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flattish.CSS Theme Editor</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="_sandbox/css/style.css"> -->
+  <link rel="stylesheet" href="spectrum.css">
+  <link rel="stylesheet" href="styles.min.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
    <!--[if lt IE 9]>
@@ -16,25 +17,34 @@
 </head>
 <body>
 	<div class="container">
+    <section class="colors">
+      <div class="row">
+        <h2>Colors</h2>
+        <div class="col-md-4">
+          <div class="color-pickers form-inline">
+            <div class="color-picker form-group">
+              <label for="primaryColor" class="color-picker__label">primary color</label>
+              <div class="form-inputs">
+                <input id="primaryColorPicker" class="color-picker__spectrum form-control" value="#00bcd4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="row">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
       <p id="target"></p>
     </div>
+    <div class="row">
+      <input id="compile" class="btn btn-default" type="submit" value="Compile">
+    </div>
 	</div>
-
-
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-  <!-- <script src="_sandbox/js/ace/ace.js"></script> -->
-  <!-- <script src="_sandbox/js/sass.js/sass.js"></script> -->
-  <!-- <script src="_sandbox/js/bundle.js"></script> -->
   <script src="dist/sass.js"></script>
   <script src="bourbon.js"></script>
   <script src="flattish.js"></script>
+  <script src="spectrum.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
