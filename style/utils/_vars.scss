@@ -24,6 +24,11 @@ $link-color-hover: get-color('blue', '300');
 $link-color-active: get-color('blue', '700');
 $link-color-visited: get-color('deep-purple', '300');
 
+$link-color-night: get-color('blue', '500');
+$link-color-hover-night: get-color('blue', '300');
+$link-color-active-night: get-color('blue', '700');
+$link-color-visited-night: get-color('deep-purple', '300');
+
 $upvote: get-color('deep-orange', '500');
 $downvote: get-color('indigo', '500');
 $nsfw: get-color('red', 'A200');
@@ -92,7 +97,7 @@ $screen-md-min: em(992, 16);
 $screen-lg-min: em(1200, 16);
 
 // addons
-// sticky link/menu background image positions
+// sticky link/menu backgroudn image positions
 $album-bgp: 0 0;
 $album-night-bgp: -60px 0;
 $announcement-bgp: -120px 0;
