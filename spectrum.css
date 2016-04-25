@@ -1,29 +1,3 @@
-.sp-sat, .sp-val {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.sp-picker-container, .sp-palette-container {
-  position: relative;
-  float: left;
-  padding: 10px;
-  padding-bottom: 300px;
-  margin-bottom: -290px;
-}
-
-.sp-alpha-inner, .sp-preview-inner,
-.sp-thumb-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: block;
-}
-
 .sp-container {
   position: absolute;
   top: 0;
@@ -34,7 +8,6 @@
   *display: inline;
   *zoom: 1;
   overflow: hidden;
-  background-color: #fff;
   border-radius: 2px;
   user-select: none;
   font: normal 12px "Roboto", "Helvetica", "Arial", "sans-serif";
@@ -49,7 +22,6 @@
 
 .sp-container button {
   user-select: none;
-  color: #000;
   height: 36px;
   min-width: 64px;
   padding: 0 8px;
@@ -89,6 +61,34 @@
 .sp-container.sp-buttons-disabled .sp-button-container,
 .sp-container.sp-palette-buttons-disabled .sp-palette-button-container {
   user-select: none;
+}
+
+.sp-light {
+  background-color: #fff;
+}
+
+.sp-light button,
+.sp-light .sp-cancel,
+.sp-light .sp-cancel:hover {
+  color: #000;
+}
+
+.sp-light .sp-palette .sp-thumb-el {
+  border: 1px solid #fff;
+}
+
+.sp-dark {
+  background-color: #424242;
+}
+
+.sp-dark button,
+.sp-dark .sp-cancel,
+.sp-dark .sp-cancel:hover {
+  color: #fff;
+}
+
+.sp-dark .sp-palette .sp-thumb-el {
+  border: 1px solid #424242;
 }
 
 .sp-top {
@@ -147,11 +147,21 @@
 }
 
 .sp-sat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: linear-gradient(to right, #fff, rgba(204, 154, 129, 0));
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr='#FFFFFFFF', endColorstr='#00CC9A81');
 }
 
 .sp-val {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: linear-gradient(to top, #000, rgba(204, 154, 129, 0));
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00CC9A81', endColorstr='#FF000000');
 }
@@ -190,6 +200,12 @@
 
 .sp-alpha-inner {
   border: solid 1px #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
 }
 
 .sp-clear {
@@ -346,8 +362,21 @@
 }
 
 .sp-picker-container {
+  position: relative;
+  float: left;
+  padding: 10px;
+  padding-bottom: 300px;
+  margin-bottom: -290px;
   width: 172px;
   box-sizing: content-box;
+}
+
+.sp-palette-container {
+  position: relative;
+  float: left;
+  padding: 10px;
+  padding-bottom: 300px;
+  margin-bottom: -290px;
 }
 
 .sp-palette {
@@ -362,7 +391,6 @@
   width: 16px;
   height: 16px;
   margin: 1px;
-  border: 1px solid #fff;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -422,7 +450,6 @@
 
 .sp-cancel {
   display: inline-block;
-  color: #000;
   text-decoration: none;
   height: 36px;
   min-width: 64px;
@@ -459,8 +486,17 @@
 }
 
 .sp-cancel:hover {
-  color: black;
   text-decoration: none;
+}
+
+.sp-preview-inner,
+.sp-thumb-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
 }
 
 .sp-clear-display {
