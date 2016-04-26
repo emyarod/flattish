@@ -13,9 +13,5 @@ gulp.task('clean', function() {
 });
 
 gulp.task('default', ['clean'], function () {
-  // return gulp.src('src/app.js')
-  //   .pipe(babel())
-  //   .pipe(gulp.dest('./'));
-
   gulp.start('scripts');
 });
