@@ -13,11 +13,11 @@ const paths = {
 gulp.task('scripts', () => {
   return gulp.src(`${paths.src}/js/**/*.js`)
   .pipe(babel())
-  .pipe(gulp.dest(`${paths.dest}/js/'`));
+  .pipe(gulp.dest(`${paths.dest}/js/`));
 });
 
 gulp.task('clean', () => {
-  return del([`${paths.dest}/js'`]);
+  return del([`${paths.dest}/js`]);
 });
 
 gulp.task('default', ['clean'], () => {
