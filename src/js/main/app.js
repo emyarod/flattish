@@ -38,6 +38,26 @@ var brown700 = '#5d4037';
 var grey700 = '#616161';
 var blueGrey700 = '#455a64';
 
+var red300 = '#e57373';
+var pink300 = '#f06292';
+var purple300 = '#ba68c8';
+var deepPurple300 = '#9575cd';
+var indigo300 = '#7986cb';
+var blue300 = '#64b5f6';
+var lightBlue300 = '#4fc3f7';
+var cyan300 = '#4dd0e1';
+var teal300 = '#4db6ac';
+var green300 = '#81c784';
+var lightGreen300 = '#aed581';
+var lime300 = '#dce775';
+var yellow300 = '#fff176';
+var amber300 = '#ffd54f';
+var orange300 = '#ffb74d';
+var deepOrange300 = '#ff8a65';
+var brown300 = '#a1887f';
+var grey300 = '#e0e0e0';
+var blueGrey300 = '#90a4ae';
+
 var white = '#fff';
 var black = '#000';
 
@@ -45,20 +65,124 @@ var black = '#000';
 var colors = {
   primary: cyan500,
   darkPrimary: cyan700,
-  lightPrimary: '#4dd0e1',
+  lightPrimary: cyan300,
   accent: '#ffab40',
   darkAccent: '#ff9100',
   lightAccent: '#ffd180',
 }
 
-var palette = [
+var basePalette = [
   ['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue'],
   ['cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber'],
   ['orange', 'deepOrange', 'brown', 'grey', 'blueGrey'],
 ];
 
+// generate color palettes
+function paletteCreator(newPalette, colorCode) {
+
+  // push the 3 arrays from palette into new array
+  basePalette.forEach((element, index, array) => (
+    newPalette[index] = array[index].slice()
+  ));
+
+  // evaluate each element of nested arrays as variables
+  newPalette.forEach((element, index, array) => {
+    newPalette[index].forEach((element, i, array) => (
+      newPalette[index][i] = eval(element + colorCode)
+    ))
+  });
+
+  // add white and black vars
+  newPalette[newPalette.length - 1].push(white, black);
+}
+
 var primaryPalette = [];
 var darkPrimaryPalette = [];
+var lightPrimaryPalette = [];
+
+var allPalettes = [
+  ['primaryPalette', '500'],
+  ['darkPrimaryPalette', '700'],
+  ['lightPrimaryPalette', '300'],
+];
+
+// create palettes
+allPalettes.forEach((element, index, array) => (
+  paletteCreator(eval(array[index][0]), array[index][1])
+));
+
+// spectrum color pickers
+
+
+
+// initialize all new palettes from an array
+function paletteConstructorArray(yourArrayOfWhatever) {
+
+  // palette constructor
+  function Palette(value) {
+    this.id = `#${value}ColorPicker`,
+    this.swatch = eval(`colors.${value}`),
+    this.value = value,
+    this.colorPalette = `${value}Palette`
+  }
+
+  let newArray = [];
+  for (var i = 0; i < yourArrayOfWhatever.length; i++) {
+    var newConstructor = new Palette(yourArrayOfWhatever[i]);
+    newArray.push(newConstructor);
+  }
+  return newArray;
+}
+
+// var palettes = paletteConstructorArray(['primary', 'darkPrimary', 'lightPrimary']);
+
+var palettes = [];
+
+allPalettes.forEach((element, index, array) => (
+  palettes.push(array[index][0].slice(0, -7))
+));
+
+palettes = paletteConstructorArray(palettes);
+
+console.log(palettes);
+
+function createSpectrum(id, swatch, colorPalette = null, value) {
+  $(id).spectrum({
+    color: swatch,
+    palette: eval(colorPalette),
+    theme: 'sp-light',
+    showInput: true,
+    showInitial: true,
+    showPalette: true,
+    preferredFormat: 'hex3',
+    containerClassName: `${id.slice(1)}Container`,
+    replacerClassName: '',
+  });
+
+  $(id).show();
+
+  $(id).on('change', () => {
+
+    // set spectrum value equal to input field value
+    $(id).spectrum('set', $(id).val());
+
+    // after error handling, set variable to final spectrum value
+    colors[value] = $(`.${id.slice(1)}Container input`).val();
+    console.log(`${value} = ${colors[value]}`);
+  });
+}
+
+palettes.forEach((element, index, array) => (
+  createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].value)
+));
+
+// createSpectrum(palettes[0].id, palettes[0].swatch, palettes[0].colorPalette, palettes[0].value);
+// createSpectrum(palettes[1].id, palettes[1].swatch, palettes[1].colorPalette, palettes[1].value);
+// createSpectrum(palettes[2].id, palettes[2].swatch, palettes[2].colorPalette, palettes[2].value);
+
+// createSpectrum('#primaryColorPicker', colors.primary, 'primary', primaryPalette);
+// createSpectrum('#darkPrimaryColorPicker', colors.darkPrimary, 'darkPrimary', darkPrimaryPalette);
+// createSpectrum('#lightPrimaryColorPicker', colors.lightPrimary, lightPrimaryPalette, 'lightPrimary');
 
 // addons
 // large header
@@ -79,59 +203,6 @@ var numStickiedMenus; // number of stickied menus
 // desired image backgrounds for stickies
 var stickyLinkImages;
 var stickyMenuImages;
-
-// generate color palettes
-function paletteCreator(newPalette, colorCode) {
-
-  // push the 3 arrays from palette into new array
-  palette.forEach((element, index, array) => (
-    newPalette[index] = array[index].slice()
-  ));
-
-
-  // evaluate each element of nested arrays as variables
-  newPalette.forEach((element, index, array) => (
-    newPalette[index].forEach((element, i, array) => (
-      newPalette[index][i] = eval(element + colorCode)
-    ))
-  ));
-
-  // add white and black vars
-  newPalette[newPalette.length - 1].push(white, black);
-}
-
-paletteCreator(primaryPalette, '500');
-paletteCreator(darkPrimaryPalette, '700');
-
-// spectrum color pickers
-function createSpectrum(id, color, assignedVar, showPalette = true, palette = null, theme = 'sp-light') {
-  $(id).spectrum({
-    color: color,
-    showPalette: showPalette,
-    palette: palette,
-    theme: theme,
-    showInput: true,
-    showInitial: true,
-    preferredFormat: 'hex3',
-    containerClassName: `${id.slice(1)}Container`,
-    replacerClassName: '',
-  });
-
-  $(id).show();
-
-  $(id).on('change', () => {
-
-    // set spectrum value equal to input field value
-    $(id).spectrum('set', $(id).val());
-
-    // after error handling, set variable to final spectrum value
-    colors[assignedVar] = $(`.${id.slice(1)}Container input`).val();
-    console.log(`${assignedVar} = ${colors[assignedVar]}`);
-  });
-}
-
-createSpectrum('#primaryColorPicker', colors.primary, 'primary', true, primaryPalette);
-createSpectrum('#darkPrimaryColorPicker', colors.darkPrimary, 'darkPrimary', true, darkPrimaryPalette);
 
 $(document).ready(function() {
   $.ajax({
@@ -167,9 +238,10 @@ $('#compile').click(function() {
     if (content !== undefined) {
       console.log('reading _vars.scss');
 
-      content = content.replace(/(\$primary: .*?;)|(\$dark-primary: .*?;)/g, function(str, p1, p2) {
+      content = content.replace(/(\$primary: .*?;)|(\$dark-primary: .*?;)|(\$light-primary: .*?;)/g, function(str, p1, p2, p3) {
         if(p1) return `$primary: ${colors.primary};`;
         if(p2) return `$dark-primary: ${colors.darkPrimary};`;
+        if(p3) return `$light-primary: ${colors.lightPrimary};`;
       })
 
       // register a file to be available for @import
