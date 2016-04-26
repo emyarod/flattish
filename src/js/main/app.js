@@ -119,7 +119,7 @@ function createSpectrum(id, color, assignedVar, showPalette = true, palette = nu
 
   $(id).show();
 
-  $(id).on('change', function() {
+  $(id).on('change', () => {
 
     // set spectrum value equal to input field value
     $(id).spectrum('set', $(id).val());
@@ -146,9 +146,9 @@ $(document).ready(function() {
 
 var sass = new Sass();
 
-sass.options({ style: Sass.style.expanded }, function(result) {
-  console.log('set options');
-});
+sass.options({ style: Sass.style.expanded }, result => (
+  console.log('set options')
+));
 
 // download the files immediately
 for (var key in Sass.maps) {

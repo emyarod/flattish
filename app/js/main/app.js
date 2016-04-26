@@ -147,7 +147,7 @@ $(document).ready(function () {
 var sass = new Sass();
 
 sass.options({ style: Sass.style.expanded }, function (result) {
-  console.log('set options');
+  return console.log('set options');
 });
 
 // download the files immediately
