@@ -1,32 +1,64 @@
-const red = '#f44336';
-const pink = '#e91e63';
-const purple = '#9c27b0';
-const deepPurple = '#673ab7';
-const indigo = '#3f51b5';
-const blue = '#2196f3';
-const lightBlue = '#03a9f4';
-const cyan = '#00bcd4';
-const teal = '#009688';
-const green = '#4caf50';
-const lightGreen = '#8bc34a';
-const lime = '#cddc39';
-const yellow = '#ffeb3b';
-const amber = '#ffc107';
-const orange = '#ff9800';
-const deepOrange = '#ff5722';
-const brown = '#795548';
-const grey = '#9e9e9e';
-const blueGrey = '#607d8b';
-const white = '#fff';
-const black = '#000';
+var red500 = '#f44336';
+var pink500 = '#e91e63';
+var purple500 = '#9c27b0';
+var deepPurple500 = '#673ab7';
+var indigo500 = '#3f51b5';
+var blue500 = '#2196f3';
+var lightBlue500 = '#03a9f4';
+var cyan500 = '#00bcd4';
+var teal500 = '#009688';
+var green500 = '#4caf50';
+var lightGreen500 = '#8bc34a';
+var lime500 = '#cddc39';
+var yellow500 = '#ffeb3b';
+var amber500 = '#ffc107';
+var orange500 = '#ff9800';
+var deepOrange500 = '#ff5722';
+var brown500 = '#795548';
+var grey500 = '#9e9e9e';
+var blueGrey500 = '#607d8b';
+
+var red700 = '#d32f2f';
+var pink700 = '#c2185b';
+var purple700 = '#7b1fa2';
+var deepPurple700 = '#512da8';
+var indigo700 = '#303f9f';
+var blue700 = '#1976d2';
+var lightBlue700 = '#0288d1';
+var cyan700 = '#0097a7';
+var teal700 = '#00796b';
+var green700 = '#388e3c';
+var lightGreen700 = '#689f38';
+var lime700 = '#afb42b';
+var yellow700 = '#fbc02d';
+var amber700 = '#ffa000';
+var orange700 = '#f57c00';
+var deepOrange700 = '#e64a19';
+var brown700 = '#5d4037';
+var grey700 = '#616161';
+var blueGrey700 = '#455a64';
+
+var white = '#fff';
+var black = '#000';
 
 // colors
-var primary = '#00bcd4';
-var darkPrimary = '#0097a7';
-var lightPrimary = '#4dd0e1';
-var accent = '#ffab40';
-var darkAccent = '#ff9100';
-var lightAccent = '#ffd180';
+var colors = {
+  primary: cyan500,
+  darkPrimary: cyan700,
+  lightPrimary: '#4dd0e1',
+  accent: '#ffab40',
+  darkAccent: '#ff9100',
+  lightAccent: '#ffd180',
+}
+
+var palette = [
+  ['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue'],
+  ['cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber'],
+  ['orange', 'deepOrange', 'brown', 'grey', 'blueGrey'],
+];
+
+var primaryPalette = [];
+var darkPrimaryPalette = [];
 
 // addons
 // large header
@@ -48,33 +80,58 @@ var numStickiedMenus; // number of stickied menus
 var stickyLinkImages;
 var stickyMenuImages;
 
+// generate color palettes
+function paletteCreator(newPalette, colorCode) {
+
+  // push the 3 arrays from palette into new array
+  palette.forEach((element, index, array) => (
+    newPalette[index] = array[index].slice()
+  ));
+
+
+  // evaluate each element of nested arrays as variables
+  newPalette.forEach((element, index, array) => (
+    newPalette[index].forEach((element, i, array) => (
+      newPalette[index][i] = eval(element + colorCode)
+    ))
+  ));
+
+  // add white and black vars
+  newPalette[newPalette.length - 1].push(white, black);
+}
+
+paletteCreator(primaryPalette, '500');
+paletteCreator(darkPrimaryPalette, '700');
+
 // spectrum color pickers
-$('#primaryColorPicker').spectrum({
-    preferredFormat: 'hex3',
-    color: primary,
+function createSpectrum(id, color, assignedVar, showPalette = true, palette = null, theme = 'sp-light') {
+  $(id).spectrum({
+    color: color,
+    showPalette: showPalette,
+    palette: palette,
+    theme: theme,
     showInput: true,
     showInitial: true,
-    showPalette: true,
-    containerClassName: 'primaryColorPickerContainer',
+    preferredFormat: 'hex3',
+    containerClassName: `${id.slice(1)}Container`,
     replacerClassName: '',
-    theme: 'sp-light',
-    palette: [
-      [red, pink, purple, deepPurple, indigo, blue, lightBlue],
-      [cyan, teal, green, lightGreen, lime, yellow, amber],
-      [orange, deepOrange, brown, grey, blueGrey, white, black]
-    ]
-});
+  });
 
-$('#primaryColorPicker').show();
+  $(id).show();
 
-$('#primaryColorPicker').on('change', function() {
-  // set spectrum value equal to input field value
-  $('#primaryColorPicker').spectrum('set', $('#primaryColorPicker').val());
+  $(id).on('change', function() {
 
-  // after error handling, set var primary to final spectrum value
-  primary = $('.primaryColorPickerContainer input').val();
-  console.log('primary color = ' + primary);
-});
+    // set spectrum value equal to input field value
+    $(id).spectrum('set', $(id).val());
+
+    // after error handling, set variable to final spectrum value
+    colors[assignedVar] = $(`.${id.slice(1)}Container input`).val();
+    console.log(`${assignedVar} = ${colors[assignedVar]}`);
+  });
+}
+
+createSpectrum('#primaryColorPicker', colors.primary, 'primary', true, primaryPalette);
+createSpectrum('#darkPrimaryColorPicker', colors.darkPrimary, 'darkPrimary', true, darkPrimaryPalette);
 
 $(document).ready(function() {
   $.ajax({
@@ -93,73 +150,45 @@ sass.options({ style: Sass.style.expanded }, function(result) {
   console.log('set options');
 });
 
-$('#compile').click(function() {
-  // get a file's content
-  sass.readFile('flattish/utils/_vars.scss', function callback(content) {
-    // (string) content is the file's content,
-    //   `undefined` when the read failed
-    console.log('reading _vars.scss');
-
-    // register a file to be available for @import
-    sass.writeFile('flattish/utils/_vars.scss', content.replace(/(\$)(primary)(:)( ).*?(;)/, '$primary: ' + primary + ';'), function callback(success) {
-      if (success) {
-        console.log('_vars.scss successfully written');
-      }
-      // (boolean) success is
-      //   `true` when the write was OK,
-      //   `false` when it failed
-
-      sass.compileFile('flattish/flattish.scss', function(result) {
-        console.log('compiled');
-        console.log(result);
-        $('#target').html(result.text);
-      });
-    });
-  });
-});
-
 // download the files immediately
 for (var key in Sass.maps) {
   if (Sass.maps.hasOwnProperty(key)) {
-    console.log('loading ' + key);
+    console.log(`loading ${key}`);
     sass.preloadFiles(Sass.maps[key].base, Sass.maps[key].directory, Sass.maps[key].files, function() {
-      console.log('files loaded')
+      console.log('files loaded');
     });
   }
 }
 
-// sass.preloadFiles(Sass.maps.bourbon.base, Sass.maps.bourbon.directory, Sass.maps.bourbon.files, function() {
-//   console.log('files loaded');
-//
-//   sass.preloadFiles(Sass.maps.flattish.base, Sass.maps.flattish.directory, Sass.maps.flattish.files, function() {
-//     console.log('files loaded');
-//
-//     // // get a file's content
-//     // sass.readFile('flattish/utils/_vars.scss', function callback(content) {
-//     //   // (string) content is the file's content,
-//     //   //   `undefined` when the read failed
-//     //   console.log(content);
-//     //
-//     //   // register a file to be available for @import
-//     //   sass.writeFile('flattish/utils/_vars.scss', content.replace(/(\$)(primary)(:)( ).*?(;)/, '$primary: ' + primary + ';'), function callback(success) {
-//     //     console.log(success);
-//     //     // (boolean) success is
-//     //     //   `true` when the write was OK,
-//     //     //   `false` when it failed
-//     //
-//     //     sass.readFile('flattish/utils/_vars.scss', function callback(content) {
-//     //       console.log('final ' + content);
-//     //     });
-//     //
-//     //     sass.compileFile('flattish/flattish.scss', function(result) {
-//     //       // console.log("compiled", result.text);
-//     //       // console.log(result.file);
-//     //       // console.log(result.line);
-//     //       // console.log(result.message);
-//     //       console.log(result);
-//     //       $('#target').html(result.text);
-//     //     });
-//     //   });
-//     // });
-//   });
-// });
+$('#compile').click(function() {
+
+  // get a file's content
+  sass.readFile('flattish/utils/_vars.scss', function callback(content) {
+    if (content !== undefined) {
+      console.log('reading _vars.scss');
+
+      content = content.replace(/(\$primary: .*?;)|(\$dark-primary: .*?;)/g, function(str, p1, p2) {
+        if(p1) return `$primary: ${colors.primary};`;
+        if(p2) return `$dark-primary: ${colors.darkPrimary};`;
+      })
+
+      // register a file to be available for @import
+      sass.writeFile('flattish/utils/_vars.scss', content, function callback(success) {
+        if (success) {
+          console.log('_vars.scss successfully written');
+        } else {
+          console.log('writeFile failed');
+        }
+
+        // compile main Sass file
+        sass.compileFile('flattish/flattish.scss', function(result) {
+          console.log('compiled');
+          console.log(result);
+          $('#target').html(result.text);
+        });
+      });
+    } else {
+      console.log('readFile failed');
+    }
+  });
+});
