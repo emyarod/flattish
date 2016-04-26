@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flattish.CSS Theme Editor</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="spectrum.css">
-  <link rel="stylesheet" href="styles.min.css">
+  <link rel="stylesheet" href="app/css/spectrum.min.css">
+  <link rel="stylesheet" href="app/css/styles.min.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
    <!--[if lt IE 9]>
@@ -28,6 +28,12 @@
                 <input id="primaryColorPicker" class="color-picker__spectrum form-control" value="#00bcd4">
               </div>
             </div>
+            <div class="color-picker form-group">
+              <label for="darkPrimaryColor" class="color-picker__label">dark primary color</label>
+              <div class="form-inputs">
+                <input id="darkPrimaryColorPicker" class="color-picker__spectrum form-control" value="#0097a7">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41,10 +47,10 @@
 	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <script src="dist/sass.js"></script>
-  <script src="bourbon.js"></script>
-  <script src="flattish.js"></script>
-  <script src="spectrum.js"></script>
+  <script src="assets/sassjs/sass.js"></script>
+  <script src="app/js/sassjs/bourbon.js"></script>
+  <script src="app/js/sassjs/flattish.js"></script>
+  <script src="app/js/spectrum/spectrum.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
