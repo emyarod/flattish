@@ -1,0 +1,25 @@
+{
+  "name": "flattish",
+  "version": "0.1.0",
+  "description": "CSS theme for reddit",
+  "main": "app/main/app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  },
+  "scripts": {
+    "test": "gulp && git status"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emyarod/flattish.git"
+  },
+  "author": "emyarod",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/emyarod/flattish/issues"
+  },
+  "homepage": "https://github.com/emyarod/flattish#readme"
+}
