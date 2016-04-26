@@ -6,13 +6,11 @@
 
   // files map for bourbon v4.2.1 - http://bourbon.io/
   Sass.maps.bourbon = {
-    // make the source file available in "bourbon/_bourbon.scss"
+    // make the source file available in "../../vendors/bourbon"
     // directory: 'bourbon',
     directory: '../../vendors/bourbon',
-    // https://github.com/thoughtbot/bourbon/blob/v4.2.1/app/assets/stylesheets/
     // using rawgit to directly access the github repository via CORS
     // NOTE: that this will only work for preloading, as lazyloading throws security exceptions
-    // base: '../vendors/bourbon/',
     base: 'https://cdn.rawgit.com/thoughtbot/bourbon/v4.2.1/app/assets/stylesheets/',
     files: [
       '_bourbon.scss',

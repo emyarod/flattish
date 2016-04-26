@@ -4,14 +4,14 @@
   // make sure the namespace is available
   !Sass.maps && (Sass.maps = {});
 
-  // files map for bourbon v4.2.1 - http://bourbon.io/
+  // files map for flattish v0.1 - https://emyarod.github.io/flattish
   Sass.maps.flattish = {
-    // make the source file available in "bourbon/_bourbon.scss"
+    // make the source file available in "flattish/flattish.scss"
     directory: 'flattish',
     // https://github.com/thoughtbot/bourbon/blob/v4.2.1/app/assets/stylesheets/
     // using rawgit to directly access the github repository via CORS
     // NOTE: that this will only work for preloading, as lazyloading throws security exceptions
-    base: '../style',
+    base: '../../style',
     files: [
       'utils/_color-list.scss',
       'utils/_vars.scss',

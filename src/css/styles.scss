@@ -1,6 +1,6 @@
-// compile
+// compressedFilenamePattern: ../../app/css/$1.min.css, expandedFilenamePattern: $1.css
 
-@import 'vendors/bourbon/bourbon';
+@import '../../vendors/bourbon/bourbon';
 
 .color-pickers .form-inputs {
   display: table;
