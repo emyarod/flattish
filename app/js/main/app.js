@@ -298,23 +298,32 @@ var colorList = {
 
 // colors
 var colors = {
-  primary: colorList.cyan['500'],
-  darkPrimary: colorList.cyan['700'],
-  lightPrimary: colorList.cyan['300'],
-  accent: colorList.orange['A200'],
-  darkAccent: colorList.orange['A400'],
-  lightAccent: colorList.orange['A100']
+  primary: 'colorList.cyan[\'500\']',
+  darkPrimary: 'colorList.cyan[\'700\']',
+  lightPrimary: 'colorList.cyan[\'300\']',
+  accent: 'colorList.orange[\'A200\']',
+  darkAccent: 'colorList.orange[\'A400\']',
+  lightAccent: 'colorList.orange[\'A100\']',
+  linkColor: 'colorList.blue[\'500\']',
+  linkColorHover: 'colorList.blue[\'300\']',
+  linkColorActive: 'colorList.blue[\'700\']',
+  linkColorVisited: 'colorList.deepPurple[\'300\']',
+  linkColorNight: 'colorList.blue[\'500\']',
+  linkColorHoverNight: 'colorList.blue[\'300\']',
+  linkColorActiveNight: 'colorList.blue[\'700\']',
+  linkColorVisitedNight: 'colorList.deepPurple[\'300\']'
 };
 
 // generate color palette arrays
 function paletteArrayCreator(newPalette, colorCode) {
-
-  // create base palette array
-  // basePalette = [
-  //   ['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue',],
-  //   ['cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber',],
-  //   ['orange', 'deepOrange', 'brown', 'grey', 'blueGrey',],
-  // ];
+  /**
+   * create base palette array
+   * basePalette = [
+   *   ['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue',],
+   *   ['cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber',],
+   *   ['orange', 'deepOrange', 'brown', 'grey', 'blueGrey',],
+   * ];
+   */
   var basePalette = [];
   var tempArray = [];
 
@@ -349,21 +358,50 @@ var primaryPalette = [];
 var darkPrimaryPalette = [];
 var lightPrimaryPalette = [];
 var accentPalette = [];
+var darkAccentPalette = [];
+var lightAccentPalette = [];
+var linkColorPalette = [];
+var linkColorHoverPalette = [];
+var linkColorActivePalette = [];
+var linkColorVisitedPalette = [];
+var linkColorNightPalette = [];
+var linkColorHoverNightPalette = [];
+var linkColorActiveNightPalette = [];
+var linkColorVisitedNightPalette = [];
 
-var allPalettes = [['primaryPalette', '500'], ['darkPrimaryPalette', '700'], ['lightPrimaryPalette', '300'], ['accentPalette', 'A200']];
+/**
+* var allPalettes = [
+*   ['primaryPalette','500'],
+*   ['darkPrimaryPalette','700'],
+*   ['lightPrimaryPalette','300'],
+*   ['accentPalette','A200'],
+*   ['darkAccentPalette','A400'],
+*   ['lightAccentPalette','A100'],
+*   ...
+* ];
+*/
+var allPalettes = Object.keys(colors).map(function (key) {
+  var colorCode = colors[key].slice(colors[key].indexOf('[') + 1, colors[key].indexOf(']'));
+  return [key + 'Palette', colorCode];
+});
 
 // create HEX code arrays
 allPalettes.forEach(function (element, index, array) {
   return paletteArrayCreator(eval(array[index][0]), array[index][1]);
 });
 
-// spectrum color pickers
-// initialize all new palettes
+/**
+ * spectrum color pickers
+ * initialize all new palettes
+ */
 function paletteConstructorArray(paletteArray) {
 
   // palette constructor
   function Palette(value) {
-    this.id = '#' + value + 'ColorPicker', this.swatch = eval('colors.' + value), this.value = value, this.colorPalette = value + 'Palette';
+    this.id = '#' + value + 'ColorPicker';
+    this.swatch = eval(colors[value]);
+    this.value = value;
+    this.colorPalette = value + 'Palette';
   }
 
   var newArray = [];
@@ -378,14 +416,18 @@ function paletteConstructorArray(paletteArray) {
 
 var palettes = [];
 
-// push jsVar names into palettes array
-// palettes = ["primary", "darkPrimary", "lightPrimary", "accent"];
+/**
+ * push jsVar names into palettes array
+ * palettes = ["primary", "darkPrimary", "lightPrimary", "accent"];
+ */
 allPalettes.forEach(function (element, index, array) {
   return palettes.push(array[index][0].slice(0, -7));
 });
 
-// construct Palette objects
-// palettes =  [Palette, Palette, Palette, Palette];
+/**
+ * construct Palette objects
+ * palettes =  [Palette, Palette, Palette, Palette];
+ */
 palettes = paletteConstructorArray(palettes);
 console.log(palettes);
 
@@ -476,7 +518,6 @@ var cssVars = [];
 
 // create regexp patterns from Palettes
 function regexPatternCreator(args) {
-
   // populate jsVars array
   args.forEach(function (element, index, array) {
     return jsVars.push(array[index].value);
@@ -485,18 +526,28 @@ function regexPatternCreator(args) {
   // generate regex patterns
   var regexPatterns = [];
   jsVars.forEach(function (element, index, array) {
-    var varName = array[index].toString();
+    var varName = array[index];
 
-    // search for capital letters and convert to hyphen + lowercase letter
-    // e.g. darkPrimary => dark-primary
-    if (varName.match(/[A-Z]/) !== null) {
-      var capitalLetter = varName.match(/[A-Z]/)[0];
-      var capitalLetterIndex = varName.match(/[A-Z]/).index;
+    /**
+     * search for capital letters and convert to hyphen + lowercase letter
+     * e.g. darkPrimary => dark-primary
+     */
+    if (varName.match(/[A-Z]/g) !== null) {
+      (function () {
+        var capitalLetters = varName.match(/[A-Z]/g);
 
-      varName = varName.replace(capitalLetter, '-' + capitalLetter.toLowerCase());
-
-      regexPatterns.push('(\\$' + varName + ': .*?;)');
-      cssVars.push(varName);
+        // check if variable name contains more than 1 capital letter
+        if (capitalLetters.length > 1) {
+          capitalLetters.forEach(function (element, index, array) {
+            varName = varName.replace(capitalLetters[index], '-' + capitalLetters[index].toLowerCase());
+          });
+        } else {
+          capitalLetters = varName.match(/[A-Z]/g)[0];
+          varName = varName.replace(capitalLetters, '-' + capitalLetters.toLowerCase());
+        }
+        regexPatterns.push('(\\$' + varName + ': .*?;)');
+        cssVars.push(varName);
+      })();
     } else {
       regexPatterns.push('(\\$' + varName + ': .*?;)');
       cssVars.push(varName);
@@ -521,7 +572,17 @@ $('#compile').click(function () {
 
         for (var i = 0; i < jsVars.length; i++) {
           if (args[i + 1]) {
-            return '$' + cssVars[i] + ': ' + colors[jsVars[i]] + ';';
+            var isHexColor = function isHexColor(string) {
+              return parseInt(string, 16).toString(16) === string.toLowerCase();
+            };
+
+            if (colors[jsVars[i]].indexOf('colorList') !== -1) {
+              return '$' + cssVars[i] + ': ' + eval(colors[jsVars[i]]) + ';';
+            } else {
+              return '$' + cssVars[i] + ': ' + colors[jsVars[i]] + ';';
+            }
+
+            console.log(isHexColor(colors[jsVars[i]]));
           }
         }
       });
