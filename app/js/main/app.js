@@ -1,62 +1,429 @@
 'use strict';
 
-var red500 = '#f44336';
-var pink500 = '#e91e63';
-var purple500 = '#9c27b0';
-var deepPurple500 = '#673ab7';
-var indigo500 = '#3f51b5';
-var blue500 = '#2196f3';
-var lightBlue500 = '#03a9f4';
-var cyan500 = '#00bcd4';
-var teal500 = '#009688';
-var green500 = '#4caf50';
-var lightGreen500 = '#8bc34a';
-var lime500 = '#cddc39';
-var yellow500 = '#ffeb3b';
-var amber500 = '#ffc107';
-var orange500 = '#ff9800';
-var deepOrange500 = '#ff5722';
-var brown500 = '#795548';
-var grey500 = '#9e9e9e';
-var blueGrey500 = '#607d8b';
-
-var red700 = '#d32f2f';
-var pink700 = '#c2185b';
-var purple700 = '#7b1fa2';
-var deepPurple700 = '#512da8';
-var indigo700 = '#303f9f';
-var blue700 = '#1976d2';
-var lightBlue700 = '#0288d1';
-var cyan700 = '#0097a7';
-var teal700 = '#00796b';
-var green700 = '#388e3c';
-var lightGreen700 = '#689f38';
-var lime700 = '#afb42b';
-var yellow700 = '#fbc02d';
-var amber700 = '#ffa000';
-var orange700 = '#f57c00';
-var deepOrange700 = '#e64a19';
-var brown700 = '#5d4037';
-var grey700 = '#616161';
-var blueGrey700 = '#455a64';
-
-var white = '#fff';
-var black = '#000';
+var colorList = {
+  red: {
+    '50': '#ffebee',
+    '100': '#ffcdd2',
+    '200': '#ef9a9a',
+    '300': '#e57373',
+    '400': '#ef5350',
+    '500': '#f44336',
+    '600': '#e53935',
+    '700': '#d32f2f',
+    '800': '#c62828',
+    '900': '#b71c1c',
+    'A100': '#ff8a80',
+    'A200': '#ff5252',
+    'A400': '#ff1744',
+    'A700': '#d50000'
+  },
+  pink: {
+    '50': '#fce4ec',
+    '100': '#f8bbd0',
+    '200': '#f48fb1',
+    '300': '#f06292',
+    '400': '#ec407a',
+    '500': '#e91e63',
+    '600': '#d81b60',
+    '700': '#c2185b',
+    '800': '#ad1457',
+    '900': '#880e4f',
+    'A100': '#ff80ab',
+    'A200': '#ff4081',
+    'A400': '#f50057',
+    'A700': '#c51162'
+  },
+  purple: {
+    '50': '#f3e5f5',
+    '100': '#e1bee7',
+    '200': '#ce93d8',
+    '300': '#ba68c8',
+    '400': '#ab47bc',
+    '500': '#9c27b0',
+    '600': '#8e24aa',
+    '700': '#7b1fa2',
+    '800': '#6a1b9a',
+    '900': '#4a148c',
+    'A100': '#ea80fc',
+    'A200': '#e040fb',
+    'A400': '#d500f9',
+    'A700': '#aa00ff'
+  },
+  deepPurple: {
+    '50': '#ede7f6',
+    '100': '#d1c4e9',
+    '200': '#b39ddb',
+    '300': '#9575cd',
+    '400': '#7e57c2',
+    '500': '#673ab7',
+    '600': '#5e35b1',
+    '700': '#512da8',
+    '800': '#4527a0',
+    '900': '#311b92',
+    'A100': '#b388ff',
+    'A200': '#7c4dff',
+    'A400': '#651fff',
+    'A700': '#6200ea'
+  },
+  indigo: {
+    '50': '#e8eaf6',
+    '100': '#c5cae9',
+    '200': '#9fa8da',
+    '300': '#7986cb',
+    '400': '#5c6bc0',
+    '500': '#3f51b5',
+    '600': '#3949ab',
+    '700': '#303f9f',
+    '800': '#283593',
+    '900': '#1a237e',
+    'A100': '#8c9eff',
+    'A200': '#536dfe',
+    'A400': '#3d5afe',
+    'A700': '#304ffe'
+  },
+  blue: {
+    '50': '#e3f2fd',
+    '100': '#bbdefb',
+    '200': '#90caf9',
+    '300': '#64b5f6',
+    '400': '#42a5f5',
+    '500': '#2196f3',
+    '600': '#1e88e5',
+    '700': '#1976d2',
+    '800': '#1565c0',
+    '900': '#0d47a1',
+    'A100': '#82b1ff',
+    'A200': '#448aff',
+    'A400': '#2979ff',
+    'A700': '#2962ff'
+  },
+  lightBlue: {
+    '50': '#e1f5fe',
+    '100': '#b3e5fc',
+    '200': '#81d4fa',
+    '300': '#4fc3f7',
+    '400': '#29b6f6',
+    '500': '#03a9f4',
+    '600': '#039be5',
+    '700': '#0288d1',
+    '800': '#0277bd',
+    '900': '#01579b',
+    'A100': '#80d8ff',
+    'A200': '#40c4ff',
+    'A400': '#00b0ff',
+    'A700': '#0091ea'
+  },
+  cyan: {
+    '50': '#e0f7fa',
+    '100': '#b2ebf2',
+    '200': '#80deea',
+    '300': '#4dd0e1',
+    '400': '#26c6da',
+    '500': '#00bcd4',
+    '600': '#00acc1',
+    '700': '#0097a7',
+    '800': '#00838f',
+    '900': '#006064',
+    'A100': '#84ffff',
+    'A200': '#18ffff',
+    'A400': '#00e5ff',
+    'A700': '#00b8d4'
+  },
+  teal: {
+    '50': '#e0f2f1',
+    '100': '#b2dfdb',
+    '200': '#80cbc4',
+    '300': '#4db6ac',
+    '400': '#26a69a',
+    '500': '#009688',
+    '600': '#00897b',
+    '700': '#00796b',
+    '800': '#00695c',
+    '900': '#004d40',
+    'A100': '#a7ffeb',
+    'A200': '#64ffda',
+    'A400': '#1de9b6',
+    'A700': '#00bfa5'
+  },
+  green: {
+    '50': '#e8f5e9',
+    '100': '#c8e6c9',
+    '200': '#a5d6a7',
+    '300': '#81c784',
+    '400': '#66bb6a',
+    '500': '#4caf50',
+    '600': '#43a047',
+    '700': '#388e3c',
+    '800': '#2e7d32',
+    '900': '#1b5e20',
+    'A100': '#b9f6ca',
+    'A200': '#69f0ae',
+    'A400': '#00e676',
+    'A700': '#00c853'
+  },
+  lightGreen: {
+    '50': '#f1f8e9',
+    '100': '#dcedc8',
+    '200': '#c5e1a5',
+    '300': '#aed581',
+    '400': '#9ccc65',
+    '500': '#8bc34a',
+    '600': '#7cb342',
+    '700': '#689f38',
+    '800': '#558b2f',
+    '900': '#33691e',
+    'A100': '#ccff90',
+    'A200': '#b2ff59',
+    'A400': '#76ff03',
+    'A700': '#64dd17'
+  },
+  lime: {
+    '50': '#f9fbe7',
+    '100': '#f0f4c3',
+    '200': '#e6ee9c',
+    '300': '#dce775',
+    '400': '#d4e157',
+    '500': '#cddc39',
+    '600': '#c0ca33',
+    '700': '#afb42b',
+    '800': '#9e9d24',
+    '900': '#827717',
+    'A100': '#f4ff81',
+    'A200': '#eeff41',
+    'A400': '#c6ff00',
+    'A700': '#aeea00'
+  },
+  yellow: {
+    '50': '#fffde7',
+    '100': '#fff9c4',
+    '200': '#fff59d',
+    '300': '#fff176',
+    '400': '#ffee58',
+    '500': '#ffeb3b',
+    '600': '#fdd835',
+    '700': '#fbc02d',
+    '800': '#f9a825',
+    '900': '#f57f17',
+    'A100': '#ffff8d',
+    'A200': '#ffff00',
+    'A400': '#ffea00',
+    'A700': '#ffd600'
+  },
+  amber: {
+    '50': '#fff8e1',
+    '100': '#ffecb3',
+    '200': '#ffe082',
+    '300': '#ffd54f',
+    '400': '#ffca28',
+    '500': '#ffc107',
+    '600': '#ffb300',
+    '700': '#ffa000',
+    '800': '#ff8f00',
+    '900': '#ff6f00',
+    'A100': '#ffe57f',
+    'A200': '#ffd740',
+    'A400': '#ffc400',
+    'A700': '#ffab00'
+  },
+  orange: {
+    '50': '#fff3e0',
+    '100': '#ffe0b2',
+    '200': '#ffcc80',
+    '300': '#ffb74d',
+    '400': '#ffa726',
+    '500': '#ff9800',
+    '600': '#fb8c00',
+    '700': '#f57c00',
+    '800': '#ef6c00',
+    '900': '#e65100',
+    'A100': '#ffd180',
+    'A200': '#ffab40',
+    'A400': '#ff9100',
+    'A700': '#ff6d00'
+  },
+  deepOrange: {
+    '50': '#fbe9e7',
+    '100': '#ffccbc',
+    '200': '#ffab91',
+    '300': '#ff8a65',
+    '400': '#ff7043',
+    '500': '#ff5722',
+    '600': '#f4511e',
+    '700': '#e64a19',
+    '800': '#d84315',
+    '900': '#bf360c',
+    'A100': '#ff9e80',
+    'A200': '#ff6e40',
+    'A400': '#ff3d00',
+    'A700': '#dd2c00'
+  },
+  brown: {
+    '50': '#efebe9',
+    '100': '#d7ccc8',
+    '200': '#bcaaa4',
+    '300': '#a1887f',
+    '400': '#8d6e63',
+    '500': '#795548',
+    '600': '#6d4c41',
+    '700': '#5d4037',
+    '800': '#4e342e',
+    '900': '#3e2723'
+  },
+  grey: {
+    '50': '#fafafa',
+    '100': '#f5f5f5',
+    '200': '#eeeeee',
+    '300': '#e0e0e0',
+    '400': '#bdbdbd',
+    '500': '#9e9e9e',
+    '600': '#757575',
+    '700': '#616161',
+    '800': '#424242',
+    '900': '#212121'
+  },
+  blueGrey: {
+    '50': '#eceff1',
+    '100': '#cfd8dc',
+    '200': '#b0bec5',
+    '300': '#90a4ae',
+    '400': '#78909c',
+    '500': '#607d8b',
+    '600': '#546e7a',
+    '700': '#455a64',
+    '800': '#37474f',
+    '900': '#263238',
+    '1000': '#11171a'
+  }
+};
 
 // colors
 var colors = {
-  primary: cyan500,
-  darkPrimary: cyan700,
-  lightPrimary: '#4dd0e1',
-  accent: '#ffab40',
-  darkAccent: '#ff9100',
-  lightAccent: '#ffd180'
+  primary: colorList.cyan['500'],
+  darkPrimary: colorList.cyan['700'],
+  lightPrimary: colorList.cyan['300'],
+  accent: colorList.orange['A200'],
+  darkAccent: colorList.orange['A400'],
+  lightAccent: colorList.orange['A100']
 };
 
-var palette = [['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue'], ['cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber'], ['orange', 'deepOrange', 'brown', 'grey', 'blueGrey']];
+// generate color palette arrays
+function paletteArrayCreator(newPalette, colorCode) {
+
+  // create base palette array
+  // basePalette = [
+  //   ['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue',],
+  //   ['cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber',],
+  //   ['orange', 'deepOrange', 'brown', 'grey', 'blueGrey',],
+  // ];
+  var basePalette = [];
+  var tempArray = [];
+
+  // get color names from colorList
+  for (var i = 0; i < Object.keys(colorList).length; i++) {
+    if (i === 6 || i === 13 || i === Object.keys(colorList).length - 1) {
+      tempArray.push(Object.keys(colorList)[i]);
+      basePalette.push(tempArray);
+      tempArray = [];
+    } else {
+      tempArray.push(Object.keys(colorList)[i]);
+    }
+  }
+
+  // push the 3 arrays that form a palette into new array
+  basePalette.forEach(function (element, index, array) {
+    return newPalette[index] = array[index].slice();
+  });
+
+  // evaluate nested array elements as variables to get HEX codes
+  newPalette.forEach(function (element, index, array) {
+    newPalette[index].forEach(function (element, i, array) {
+      return newPalette[index][i] = colorList[element][colorCode];
+    });
+  });
+
+  // add white and black HEX codes
+  newPalette[newPalette.length - 1].push('#fff', '#000');
+}
 
 var primaryPalette = [];
 var darkPrimaryPalette = [];
+var lightPrimaryPalette = [];
+var accentPalette = [];
+
+var allPalettes = [['primaryPalette', '500'], ['darkPrimaryPalette', '700'], ['lightPrimaryPalette', '300'], ['accentPalette', 'A200']];
+
+// create HEX code arrays
+allPalettes.forEach(function (element, index, array) {
+  return paletteArrayCreator(eval(array[index][0]), array[index][1]);
+});
+
+// spectrum color pickers
+// initialize all new palettes
+function paletteConstructorArray(paletteArray) {
+
+  // palette constructor
+  function Palette(value) {
+    this.id = '#' + value + 'ColorPicker', this.swatch = eval('colors.' + value), this.value = value, this.colorPalette = value + 'Palette';
+  }
+
+  var newArray = [];
+
+  paletteArray.forEach(function (element, index, array) {
+    var newConstructor = new Palette(array[index]);
+    newArray.push(newConstructor);
+  });
+
+  return newArray;
+}
+
+var palettes = [];
+
+// push jsVar names into palettes array
+// palettes = ["primary", "darkPrimary", "lightPrimary", "accent"];
+allPalettes.forEach(function (element, index, array) {
+  return palettes.push(array[index][0].slice(0, -7));
+});
+
+// construct Palette objects
+// palettes =  [Palette, Palette, Palette, Palette];
+palettes = paletteConstructorArray(palettes);
+console.log(palettes);
+
+// generate color swatches based on palettes
+function createSpectrum(id, swatch) {
+  var colorPalette = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+  var value = arguments[3];
+
+  $(id).spectrum({
+    color: swatch,
+    palette: eval(colorPalette),
+    theme: 'sp-light',
+    showInput: true,
+    showInitial: true,
+    showPalette: true,
+    preferredFormat: 'hex3',
+    containerClassName: id.slice(1) + 'Container',
+    replacerClassName: ''
+  });
+
+  // show input text box
+  $(id).show();
+
+  $(id).on('change', function () {
+
+    // set spectrum value equal to input field value
+    $(id).spectrum('set', $(id).val());
+
+    // after error handling, set variable to final spectrum value
+    colors[value] = $('.' + id.slice(1) + 'Container input').val();
+    console.log(value + ' = ' + colors[value]);
+  });
+}
+
+// generate swatches for each palette
+palettes.forEach(function (element, index, array) {
+  return createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].value);
+});
 
 // addons
 // large header
@@ -77,62 +444,6 @@ var numStickiedMenus; // number of stickied menus
 // desired image backgrounds for stickies
 var stickyLinkImages;
 var stickyMenuImages;
-
-// generate color palettes
-function paletteCreator(newPalette, colorCode) {
-
-  // push the 3 arrays from palette into new array
-  palette.forEach(function (element, index, array) {
-    return newPalette[index] = array[index].slice();
-  });
-
-  // evaluate each element of nested arrays as variables
-  newPalette.forEach(function (element, index, array) {
-    return newPalette[index].forEach(function (element, i, array) {
-      return newPalette[index][i] = eval(element + colorCode);
-    });
-  });
-
-  // add white and black vars
-  newPalette[newPalette.length - 1].push(white, black);
-}
-
-paletteCreator(primaryPalette, '500');
-paletteCreator(darkPrimaryPalette, '700');
-
-// spectrum color pickers
-function createSpectrum(id, color, assignedVar) {
-  var showPalette = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
-  var palette = arguments.length <= 4 || arguments[4] === undefined ? null : arguments[4];
-  var theme = arguments.length <= 5 || arguments[5] === undefined ? 'sp-light' : arguments[5];
-
-  $(id).spectrum({
-    color: color,
-    showPalette: showPalette,
-    palette: palette,
-    theme: theme,
-    showInput: true,
-    showInitial: true,
-    preferredFormat: 'hex3',
-    containerClassName: id.slice(1) + 'Container',
-    replacerClassName: ''
-  });
-
-  $(id).show();
-
-  $(id).on('change', function () {
-
-    // set spectrum value equal to input field value
-    $(id).spectrum('set', $(id).val());
-
-    // after error handling, set variable to final spectrum value
-    colors[assignedVar] = $('.' + id.slice(1) + 'Container input').val();
-    console.log(assignedVar + ' = ' + colors[assignedVar]);
-  });
-}
-
-createSpectrum('#primaryColorPicker', colors.primary, 'primary', true, primaryPalette);
-createSpectrum('#darkPrimaryColorPicker', colors.darkPrimary, 'darkPrimary', true, darkPrimaryPalette);
 
 $(document).ready(function () {
   $.ajax({
@@ -160,20 +471,63 @@ for (var key in Sass.maps) {
   }
 }
 
+var jsVars = [];
+var cssVars = [];
+
+// create regexp patterns from Palettes
+function regexPatternCreator(args) {
+
+  // populate jsVars array
+  args.forEach(function (element, index, array) {
+    return jsVars.push(array[index].value);
+  });
+
+  // generate regex patterns
+  var regexPatterns = [];
+  jsVars.forEach(function (element, index, array) {
+    var varName = array[index].toString();
+
+    // search for capital letters and convert to hyphen + lowercase letter
+    // e.g. darkPrimary => dark-primary
+    if (varName.match(/[A-Z]/) !== null) {
+      var capitalLetter = varName.match(/[A-Z]/)[0];
+      var capitalLetterIndex = varName.match(/[A-Z]/).index;
+
+      varName = varName.replace(capitalLetter, '-' + capitalLetter.toLowerCase());
+
+      regexPatterns.push('(\\$' + varName + ': .*?;)');
+      cssVars.push(varName);
+    } else {
+      regexPatterns.push('(\\$' + varName + ': .*?;)');
+      cssVars.push(varName);
+    }
+  });
+
+  return new RegExp('' + regexPatterns.join('|'), 'g');
+}
+
 $('#compile').click(function () {
 
-  // get a file's content
-  sass.readFile('flattish/utils/_vars.scss', function callback(content) {
+  // get file content
+  sass.readFile('flattish/utils/_vars.scss', function (content) {
     if (content !== undefined) {
       console.log('reading _vars.scss');
 
-      content = content.replace(/(\$primary: .*?;)|(\$dark-primary: .*?;)/g, function (str, p1, p2) {
-        if (p1) return '$primary: ' + colors.primary + ';';
-        if (p2) return '$dark-primary: ' + colors.darkPrimary + ';';
+      // replace Sass variables
+      content = content.replace(regexPatternCreator(palettes), function () {
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        for (var i = 0; i < jsVars.length; i++) {
+          if (args[i + 1]) {
+            return '$' + cssVars[i] + ': ' + colors[jsVars[i]] + ';';
+          }
+        }
       });
 
-      // register a file to be available for @import
-      sass.writeFile('flattish/utils/_vars.scss', content, function callback(success) {
+      // register file to be available for @import
+      sass.writeFile('flattish/utils/_vars.scss', content, function (success) {
         if (success) {
           console.log('_vars.scss successfully written');
         } else {
