@@ -455,7 +455,7 @@ function createSpectrum(id, swatch, colorPalette = null, replacerClassName, valu
   $(id).spectrum({
     color: swatch,
     palette: eval(colorPalette),
-    replacerClassName: replacerClassName,
+    replacerClassName,
     theme: 'sp-light',
     showInput: true,
     showInitial: true,
