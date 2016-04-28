@@ -581,7 +581,7 @@ $('#compile').click(() => {
       // replace Sass variables
       content = content.replace(regexPatternCreator(palettes), (...args) => {
         for (var i = 0; i < jsVars.length; i++) {
-          if (args[i+1]) {
+          if (args[i + 1]) {
 
             /**
              * since the default colorList values are strings
