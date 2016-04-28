@@ -421,6 +421,12 @@ function paletteConstructorArray(paletteArray) {
     this.swatch = eval(colors[value]);
     this.value = value;
     this.colorPalette = `${value}Palette`;
+
+    if (value.indexOf('Night') !== -1) {
+      this.replacerClassName = 'nightmode';
+    } else {
+      this.replacerClassName = '';
+    }
   }
 
   let newArray = [];
@@ -441,17 +447,17 @@ palettes = paletteConstructorArray(palettes);
 console.log(palettes);
 
 // generate color swatches based on palettes
-function createSpectrum(id, swatch, colorPalette = null, value) {
+function createSpectrum(id, swatch, colorPalette = null, replacerClassName, value) {
   $(id).spectrum({
     color: swatch,
     palette: eval(colorPalette),
+    replacerClassName: replacerClassName,
     theme: 'sp-light',
     showInput: true,
     showInitial: true,
     showPalette: true,
     preferredFormat: 'hex3',
     containerClassName: `${id.slice(1)}Container`,
-    replacerClassName: '',
   });
 
   // show input text box
@@ -470,7 +476,7 @@ function createSpectrum(id, swatch, colorPalette = null, value) {
 
 // generate swatches for each palette
 palettes.forEach((element, index, array) => (
-  createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].value)
+  createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].replacerClassName, array[index].value)
 ));
 
 // addons
