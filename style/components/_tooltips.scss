@@ -179,6 +179,10 @@ $base-tooltip-selectors: ();
 $spritesheet-tooltip-selectors: ();
 $default-height-selectors: ();
 
+$height-tooltip: 32px;
+$padding-tooltip: 16px;
+$font-size-tooltip: 14px;
+
 @each $key, $map in $tooltip-selector-map {
 	$selector-name: map-get($map, selector-name);
 	$background-position: map-get($map, background-position);
@@ -228,7 +232,6 @@ $default-height-selectors: ();
 	.res-nightmode #{$selector-name} {
 		background-position: $background-night-position;
 	}
-
 }
 
 #{$spritesheet-tooltip-selectors} {
