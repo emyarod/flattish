@@ -122,6 +122,9 @@
 // stickied links/menus addon
 // link/menu, image type, loop counter passthrough
 @mixin sticky-image-switch ($sticky-type, $image, $counter) {
+  $sticky-selector: awesome;
+  $sticky-selector-night: awesome;
+  
   @if $sticky-type == 'link' {
     $sticky-selector: '.titlebox blockquote p:nth-of-type(#{$counter})';
     $sticky-selector-night: '.res-nightmode .titlebox blockquote p:nth-of-type(#{$counter})'
