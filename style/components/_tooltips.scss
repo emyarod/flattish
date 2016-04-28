@@ -14,63 +14,63 @@ $tooltip-selector-map: (
 		width-tooltip: 36,
 		width-parent: 20,
 		content-tooltip: 'Share',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   save-button-one: (
 		selector-name: '.thing:not(.saved) .link-save-button a',
 		width-tooltip: 32,
 		width-parent: 20,
 		content-tooltip: 'Save',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
 	save-button-two: (
 		selector-name: '.thing:not(.saved) .link-unsave-button a',
 		width-tooltip: 32,
 		width-parent: 20,
 		content-tooltip: 'Save',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   unsave-button-one: (
 		selector-name: '.saved .link-unsave-button a',
 		width-tooltip: 48,
 		width-parent: 20,
 		content-tooltip: 'Unsave',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
 	unsave-button-two: (
 		selector-name: '.saved .link-save-button a',
 		width-tooltip: 48,
 		width-parent: 20,
 		content-tooltip: 'Unsave',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   hide-button-one: (
 		selector-name: '.state-button a[action="hide"]',
 		width-tooltip: 31,
 		width-parent: 20,
 		content-tooltip: 'Hide',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   hide-button-two: (
 		selector-name: 'a[data-event-action="hide"]',
 		width-tooltip: 31,
 		width-parent: 20,
 		content-tooltip: 'Hide',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   unhide-button-one: (
 		selector-name: '.state-button a[action="unhide"]',
 		width-tooltip: 46,
 		width-parent: 20,
 		content-tooltip: 'Unhide',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   unhide-button-two: (
 		selector-name: 'a[data-event-action="unhide"]',
 		width-tooltip: 46,
 		width-parent: 20,
 		content-tooltip: 'Unhide',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   delete-button: (
 		selector-name: 'a[data-event-action="delete"]',
@@ -79,7 +79,7 @@ $tooltip-selector-map: (
 		width-tooltip: 40,
 		width-parent: 20,
 		content-tooltip: 'Delete',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   spam-button: (
 		selector-name: 'a[data-event-action="spam"]',
@@ -88,7 +88,7 @@ $tooltip-selector-map: (
 		width-tooltip: 38,
 		width-parent: 20,
 		content-tooltip: 'Spam',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   remove-button: (
 		selector-name: 'a[data-event-action="remove"]',
@@ -97,7 +97,7 @@ $tooltip-selector-map: (
 		width-tooltip: 50,
 		width-parent: 20,
 		content-tooltip: 'Remove',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   approve-button: (
 		selector-name: '.approve-button a',
@@ -106,7 +106,7 @@ $tooltip-selector-map: (
 		width-tooltip: 52,
 		width-parent: 20,
 		content-tooltip: 'Approve',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   report-button: (
 		selector-name: '.reportbtn',
@@ -115,7 +115,7 @@ $tooltip-selector-map: (
 		width-tooltip: 42,
 		width-parent: 20,
 		content-tooltip: 'Report',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   lock-button: (
 		selector-name: 'a[data-event-action="lock"]',
@@ -124,7 +124,7 @@ $tooltip-selector-map: (
 		width-tooltip: 30,
 		width-parent: 20,
 		content-tooltip: 'Lock',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   unlock-button: (
 		selector-name: 'a[data-event-action="unlock"]',
@@ -133,7 +133,7 @@ $tooltip-selector-map: (
 		width-tooltip: 42,
 		width-parent: 20,
 		content-tooltip: 'Unlock',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   mark-nsfw-button: (
 		selector-name: 'a[data-event-action="marknsfw"]',
@@ -142,7 +142,7 @@ $tooltip-selector-map: (
 		width-tooltip: 74,
 		width-parent: 20,
 		content-tooltip: 'Mark NSFW',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   unmark-nsfw-button: (
 		selector-name: 'a[data-event-action="unmarknsfw"]',
@@ -151,7 +151,7 @@ $tooltip-selector-map: (
 		width-tooltip: 90,
 		width-parent: 20,
 		content-tooltip: 'Unmark NSFW',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
   distinguish-button: (
 		selector-name: 'a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"]',
@@ -160,7 +160,7 @@ $tooltip-selector-map: (
 		width-tooltip: 72,
 		width-parent: 20,
 		content-tooltip: 'Distinguish',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   ),
 
   // sidecontentbox
@@ -171,7 +171,7 @@ $tooltip-selector-map: (
 		width-tooltip: 58,
 		width-parent: 20,
 		content-tooltip: 'Clear all',
-    screen-type: 'desktop'
+    screen-type: 'desktop',
   )
 );
 
@@ -187,7 +187,7 @@ $default-height-selectors: ();
 	$width-parent: map-get($map, width-parent);
   $height-parent: map-get($map, height-parent);
 	$content-tooltip: map-get($map, content-tooltip);
-	$screen-type: map-get($map, screen-type);
+  $screen-type: map-get($map, screen-type);
 
 	$base-tooltip-selectors: append($base-tooltip-selectors, unquote('#{$selector-name}'), 'comma');
 
