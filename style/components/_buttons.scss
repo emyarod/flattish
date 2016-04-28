@@ -27,7 +27,7 @@ $button-selector-map: (
 		selector-name: 'button',
 		desired-font-size: 14,
 		color: $primary,
-		button-type: 'flat-button-colored-text'
+		button-type: 'flat-button-colored-text',
   ),
 
 	// titlebox
@@ -35,13 +35,13 @@ $button-selector-map: (
 		selector-name: '.titlebox a.option',
 		desired-font-size: 10,
 		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text'
+		button-type: 'flat-button-colored-text',
   ),
 	add-shortcut-and-dashboard-button: (
 		selector-name: '.res-fancy-toggle-button',
 		desired-font-size: 10,
 		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text'
+		button-type: 'flat-button-colored-text',
   ),
 
 	// submit page
@@ -52,7 +52,7 @@ $button-selector-map: (
 		hover-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
 		ripple-color: $light-primary,
-		button-type: 'raised-colorized-button'
+		button-type: 'raised-colorized-button',
   ),
 
 	// settings page
@@ -63,7 +63,7 @@ $button-selector-map: (
 		hover-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
 		ripple-color: $light-primary,
-		button-type: 'raised-colorized-button'
+		button-type: 'raised-colorized-button',
   ),
 
 	// sidebar submit
@@ -73,7 +73,7 @@ $button-selector-map: (
 		background-color: $primary,
 		hover-color: $dark-primary,
 		ripple-color: $light-primary,
-		button-type: 'flat-colorized-bg-button'
+		button-type: 'flat-colorized-bg-button',
   ),
 	submit-sidebar-card-button-two: (
 		selector-name: '.submit-text .morelink a',
@@ -81,7 +81,7 @@ $button-selector-map: (
 		background-color: $primary,
 		hover-color: $dark-primary,
 		ripple-color: $light-primary,
-		button-type: 'flat-colorized-bg-button'
+		button-type: 'flat-colorized-bg-button',
   ),
 	get-flattish-button: (
 		selector-name: 'a[href$="https://github.com/emyarod/flattish/releases"]',
@@ -96,13 +96,13 @@ $button-selector-map: (
 	comments-page-button-one: (
 		selector-name: '.commentarea .menuarea .spacer + .spacer form',
 		desired-font-size: 13,
-		button-type: 'flat-button-colored-text'
+		button-type: 'flat-button-colored-text',
   ),
 	comments-page-button-two: (
 		selector-name: '#REScommentSubToggle',
 		desired-font-size: 12,
 		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text'
+		button-type: 'flat-button-colored-text',
   ),
 
 	// flair page
@@ -113,14 +113,14 @@ $button-selector-map: (
 		hover-color: $dark-primary,
 		focus-not-active-background-color: $light-primary,
 		ripple-color: $light-primary,
-		button-type: 'raised-colorized-button'
+		button-type: 'raised-colorized-button',
 	),
 
 	// RES tips and tricks
 	guiders_button: (
 	  selector-name: '.guiders_button',
 		desired-font-size: 14,
-		button-type: 'flat-button-colored-text'
+		button-type: 'flat-button-colored-text',
 	)
 );
 
@@ -156,9 +156,8 @@ $night-raised-colorized-button-selectors: ();
 		$default-font-sized-buttons: append($default-font-sized-buttons, unquote('#{$selector-name}'), 'comma');
 	}
 
-
 	// flat buttons
-	@if #{$button-type} == 'flat-button-colored-text' {
+	@if $button-type == 'flat-button-colored-text' {
 		$flat-button-colored-text-selectors: append($flat-button-colored-text-selectors, unquote('#{$selector-name}'), 'comma');
 		$night-flat-button-colored-text-selectors: append($night-flat-button-colored-text-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
 
@@ -175,7 +174,7 @@ $night-raised-colorized-button-selectors: ();
 	}
 
 	// default raised buttons
-	@if #{$button-type} == 'default-raised-button' {
+	@if $button-type == 'default-raised-button' {
 		$default-raised-button-selectors: append($default-raised-button-selectors, unquote('#{$selector-name}'), 'comma');
 		$night-default-raised-button-selectors: append($night-default-raised-button-selectors, unquote('.res-nightmode #{$selector-name}'), 'comma');
 
@@ -210,7 +209,7 @@ $night-raised-colorized-button-selectors: ();
 	}
 
 	// flat buttons with color bg
-	@if #{$button-type} == 'flat-colorized-bg-button' {
+	@if $button-type == 'flat-colorized-bg-button' {
 		@if $background-color != $primary {
 			#{$selector-name} {
 				color: set-text-color($background-color, text) !important;
@@ -225,7 +224,7 @@ $night-raised-colorized-button-selectors: ();
 	}
 
 	// raised buttons with color bg
-	@if #{$button-type} == 'raised-colorized-button' {
+	@if $button-type == 'raised-colorized-button' {
 		@if $background-color != $primary {
 			.res-nightmode #{$selector-name} {
 				background-color: $background-color !important;
