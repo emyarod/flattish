@@ -375,15 +375,9 @@ function paletteArrayCreator(newPalette, colorCode) {
 
   // get color names from colorList
   for (var i = 0; i < Object.keys(colorList).length; i++) {
-    // if (i === 6 || i === 13 || i === Object.keys(colorList).length - 1) {
-    //   tempArray.push(Object.keys(colorList)[i]);
-    //   basePalette.push(tempArray);
-    //   tempArray = [];
-    // } else {
-    //   tempArray.push(Object.keys(colorList)[i]);
-    // }
-    if (i % 78 == 0 || i === Object.keys(colorList).length - 1) {
-      console.log(i);
+
+    // push every 7 values or until array ends
+    if (i % 7 === 6 || i === Object.keys(colorList).length - 1) {
       tempArray.push(Object.keys(colorList)[i]);
       basePalette.push(tempArray);
       tempArray = [];
