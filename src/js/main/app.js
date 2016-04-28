@@ -435,10 +435,9 @@ function paletteConstructorArray(paletteArray) {
 
   let newArray = [];
 
-  paletteArray.forEach((element, index, array) => {
-    let newConstructor = new Palette(array[index]);
-    newArray.push(newConstructor);
-  });
+  paletteArray.forEach((element, index, array) => (
+    newArray.push(new Palette(array[index]))
+  ));
 
   return newArray;
 }
