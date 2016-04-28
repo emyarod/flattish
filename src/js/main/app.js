@@ -296,22 +296,22 @@ var colorList = {
 
 // colors
 var colors = {
-  primary: 'colorList.cyan[\'500\']',
-  darkPrimary: 'colorList.cyan[\'700\']',
-  lightPrimary: 'colorList.cyan[\'300\']',
-  accent: 'colorList.orange[\'A200\']',
-  darkAccent: 'colorList.orange[\'A400\']',
-  lightAccent: 'colorList.orange[\'A100\']',
-  linkColor: 'colorList.blue[\'500\']',
-  linkColorHover: 'colorList.blue[\'300\']',
-  linkColorActive: 'colorList.blue[\'700\']',
-  linkColorVisited: 'colorList.deepPurple[\'300\']',
-  linkColorNight: 'colorList.blue[\'500\']',
-  linkColorHoverNight: 'colorList.blue[\'300\']',
-  linkColorActiveNight: 'colorList.blue[\'700\']',
-  linkColorVisitedNight: 'colorList.deepPurple[\'300\']',
-  upvote: 'colorList.deepOrange[\'500\']',
-  downvote: 'colorList.indigo[\'500\']',
+  primary: `colorList.cyan['500']`,
+  darkPrimary: `colorList.cyan['700']`,
+  lightPrimary: `colorList.cyan['300']`,
+  accent: `colorList.orange['A200']`,
+  darkAccent: `colorList.orange['A400']`,
+  lightAccent: `colorList.orange['A100']`,
+  linkColor: `colorList.blue['500']`,
+  linkColorHover: `colorList.blue['300']`,
+  linkColorActive: `colorList.blue['700']`,
+  linkColorVisited: `colorList.deepPurple['300']`,
+  linkColorNight: `colorList.blue['500']`,
+  linkColorHoverNight: `colorList.blue['300']`,
+  linkColorActiveNight: `colorList.blue['700']`,
+  linkColorVisitedNight: `colorList.deepPurple['300']`,
+  upvote: `colorList.deepOrange['500']`,
+  downvote: `colorList.indigo['500']`,
 }
 
 var primaryPalette = [];
