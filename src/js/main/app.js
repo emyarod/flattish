@@ -310,6 +310,8 @@ var colors = {
   linkColorHoverNight: 'colorList.blue[\'300\']',
   linkColorActiveNight: 'colorList.blue[\'700\']',
   linkColorVisitedNight: 'colorList.deepPurple[\'300\']',
+  upvote: 'colorList.deepOrange[\'500\']',
+  downvote: 'colorList.indigo[\'500\']',
 }
 
 var primaryPalette = [];
@@ -326,6 +328,8 @@ var linkColorNightPalette = [];
 var linkColorHoverNightPalette = [];
 var linkColorActiveNightPalette = [];
 var linkColorVisitedNightPalette = [];
+var upvotePalette = [];
+var downvotePalette = [];
 
 /**
 * create an array of arrays containing palette names and material color codes
