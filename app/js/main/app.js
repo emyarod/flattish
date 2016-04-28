@@ -1,5 +1,7 @@
 'use strict';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var colorList = {
   red: {
     '50': '#ffebee',
@@ -377,7 +379,9 @@ function paletteArrayCreator(newPalette, colorCode) {
 
   // get color names from colorList
   for (var i = 0; i < Object.keys(colorList).length; i++) {
-    if (i === 6 || i === 13 || i === Object.keys(colorList).length - 1) {
+
+    // push every 7 values or until array ends
+    if (i % 7 === 6 || i === Object.keys(colorList).length - 1) {
       tempArray.push(Object.keys(colorList)[i]);
       basePalette.push(tempArray);
       tempArray = [];
@@ -436,10 +440,8 @@ function paletteConstructorArray(paletteArray) {
   }
 
   var newArray = [];
-
   paletteArray.forEach(function (element, index, array) {
-    var newConstructor = new Palette(array[index]);
-    newArray.push(newConstructor);
+    return newArray.push(new Palette(array[index]));
   });
 
   return newArray;
@@ -474,7 +476,6 @@ function createSpectrum(id, swatch) {
   $(id).show();
 
   $(id).on('change', function () {
-
     // set spectrum value equal to input field value
     $(id).spectrum('set', $(id).val());
 
@@ -564,7 +565,22 @@ function regexPatternCreator(args) {
             varName = varName.replace(capitalLetters[index], '-' + capitalLetters[index].toLowerCase());
           });
         } else {
-          capitalLetters = varName.match(/[A-Z]/g)[0];
+          var _varName$match = varName.match(/[A-Z]/g);
+          /**
+           * Array destructuring
+           *
+           * [capitalLetters] = varName.match(/[A-Z]/g);
+           *
+           * instead of
+           *
+           * capitalLetters = varName.match(/[A-Z]/g)[0];
+           */
+
+
+          var _varName$match2 = _slicedToArray(_varName$match, 1);
+
+          capitalLetters = _varName$match2[0];
+
           varName = varName.replace(capitalLetters, '-' + capitalLetters.toLowerCase());
         }
         regexPatterns.push('(\\$' + varName + ': .*?;)');
