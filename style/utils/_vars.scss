@@ -8,7 +8,7 @@
   } @else { @error '=> ERROR'; }
 }
 
-// define colors
+// theme colors
 $primary: get-color('cyan', '500');
 $dark-primary: get-color('cyan', '700');
 $light-primary: get-color('cyan', '300');
@@ -29,12 +29,16 @@ $link-color-hover-night: get-color('blue', '300');
 $link-color-active-night: get-color('blue', '700');
 $link-color-visited-night: get-color('deep-purple', '300');
 
+// vote arrows
 $upvote: get-color('deep-orange', '500');
 $downvote: get-color('indigo', '500');
+
+// misc
 $nsfw: get-color('red', 'A200');
 $tooltip: rgba(get-color('grey', '700'), 0.9);
 $error: rgb(222, 55, 38);
 
+// typography
 $font-stack: ('Roboto', 'Helvetica', 'Arial', sans-serif);
 
 // shadows
@@ -43,7 +47,6 @@ $shadow-key-penumbra-opacity: 0.14;
 $shadow-ambient-shadow-opacity: 0.12;
 $scrim: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%);
 $text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-// $text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
 
 // light theme
 $light-status-bar: get-color('grey', '300');
@@ -96,8 +99,13 @@ $screen-sm-min: em(768, 16);
 $screen-md-min: em(992, 16);
 $screen-lg-min: em(1200, 16);
 
+// tooltips
+$height-tooltip: 32px;
+$padding-tooltip: 16px;
+$font-size-tooltip: 14px;
+
 // addons
-// sticky link/menu backgroudn image positions
+// sticky link/menu background image positions
 $album-bgp: 0 0;
 $album-night-bgp: -60px 0;
 $announcement-bgp: -120px 0;
