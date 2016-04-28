@@ -375,7 +375,15 @@ function paletteArrayCreator(newPalette, colorCode) {
 
   // get color names from colorList
   for (var i = 0; i < Object.keys(colorList).length; i++) {
-    if (i === 6 || i === 13 || i === Object.keys(colorList).length - 1) {
+    // if (i === 6 || i === 13 || i === Object.keys(colorList).length - 1) {
+    //   tempArray.push(Object.keys(colorList)[i]);
+    //   basePalette.push(tempArray);
+    //   tempArray = [];
+    // } else {
+    //   tempArray.push(Object.keys(colorList)[i]);
+    // }
+    if (i % 78 == 0 || i === Object.keys(colorList).length - 1) {
+      console.log(i);
       tempArray.push(Object.keys(colorList)[i]);
       basePalette.push(tempArray);
       tempArray = [];
@@ -434,7 +442,6 @@ function paletteConstructorArray(paletteArray) {
   }
 
   let newArray = [];
-
   paletteArray.forEach((element, index, array) => (
     newArray.push(new Palette(array[index]))
   ));
@@ -467,7 +474,6 @@ function createSpectrum(id, swatch, colorPalette = null, replacerClassName, valu
   $(id).show();
 
   $(id).on('change', () => {
-
     // set spectrum value equal to input field value
     $(id).spectrum('set', $(id).val());
 
