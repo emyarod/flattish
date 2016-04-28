@@ -16,7 +16,7 @@ $color_manhattan_approx: #f0c49b;
 $color_log_cabin_approx: #222;
 $color_pippin_approx: #fdd;
 $outer-border: #ccc;
-$color_gallery_approx: #eee;
+$sp-replacer-background: #fff;
 $color_woodsmoke_approx: #111;
 $disabled: silver;
 $color_pink_swan_approx: #bbb;
@@ -302,7 +302,7 @@ $clear: url('data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6Skp
 	cursor: pointer;
 	*zoom: 1;
 	*display: inline;
-  background: $color_gallery_approx;
+  background: $sp-replacer-background;
 	vertical-align: middle;
 
 	&.sp-disabled {
