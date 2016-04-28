@@ -577,7 +577,7 @@ function regexPatternCreator(args) {
     }
   });
 
-  return new RegExp(`${regexPatterns.join('|')}`, 'g');
+  return new RegExp(regexPatterns.join('|'), 'g');
 }
 
 $('#compile').click(() => {
