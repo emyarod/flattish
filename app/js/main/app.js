@@ -314,7 +314,51 @@ var colors = {
   linkColorVisitedNight: 'colorList.deepPurple[\'300\']'
 };
 
-// generate color palette arrays
+var primaryPalette = [];
+var darkPrimaryPalette = [];
+var lightPrimaryPalette = [];
+var accentPalette = [];
+var darkAccentPalette = [];
+var lightAccentPalette = [];
+var linkColorPalette = [];
+var linkColorHoverPalette = [];
+var linkColorActivePalette = [];
+var linkColorVisitedPalette = [];
+var linkColorNightPalette = [];
+var linkColorHoverNightPalette = [];
+var linkColorActiveNightPalette = [];
+var linkColorVisitedNightPalette = [];
+
+/**
+* create an array of arrays containing palette names and material color codes
+*
+* var paletteNamesAndCodes = [
+*   ['primaryPalette','500'],
+*   ['darkPrimaryPalette','700'],
+*   ['lightPrimaryPalette','300'],
+*   ['accentPalette','A200'],
+*   ['darkAccentPalette','A400'],
+*   ['lightAccentPalette','A100'],
+*   ...
+* ];
+*/
+var paletteNamesAndCodes = Object.keys(colors).map(function (key) {
+  var openingBracketIndex = colors[key].indexOf('[') + 1;
+  var closingBracketIndex = colors[key].indexOf(']');
+  var colorCode = colors[key].slice(openingBracketIndex, closingBracketIndex);
+  return [key + 'Palette', colorCode];
+});
+
+/**
+ * generate color palette arrays
+ * output is based on color codes
+ *
+ * e.g. primaryPalette = [
+ *   ['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4',],
+ *   ['#00bcd4','#009688','#4caf50','#8bc34a','#cddc39','#ffeb3b','#ffc107',],
+ *   ['#ff9800','#ff5722','#795548','#9e9e9e','#607d8b','#fff', '#000'],
+ * ];
+ */
 function paletteArrayCreator(newPalette, colorCode) {
   /**
    * create base palette array
@@ -346,7 +390,7 @@ function paletteArrayCreator(newPalette, colorCode) {
   // evaluate nested array elements as variables to get HEX codes
   newPalette.forEach(function (element, index, array) {
     newPalette[index].forEach(function (element, i, array) {
-      return newPalette[index][i] = colorList[element][colorCode];
+      return newPalette[index][i] = colorList[element][eval(colorCode)];
     });
   });
 
@@ -354,40 +398,17 @@ function paletteArrayCreator(newPalette, colorCode) {
   newPalette[newPalette.length - 1].push('#fff', '#000');
 }
 
-var primaryPalette = [];
-var darkPrimaryPalette = [];
-var lightPrimaryPalette = [];
-var accentPalette = [];
-var darkAccentPalette = [];
-var lightAccentPalette = [];
-var linkColorPalette = [];
-var linkColorHoverPalette = [];
-var linkColorActivePalette = [];
-var linkColorVisitedPalette = [];
-var linkColorNightPalette = [];
-var linkColorHoverNightPalette = [];
-var linkColorActiveNightPalette = [];
-var linkColorVisitedNightPalette = [];
-
 /**
-* var allPalettes = [
-*   ['primaryPalette','500'],
-*   ['darkPrimaryPalette','700'],
-*   ['lightPrimaryPalette','300'],
-*   ['accentPalette','A200'],
-*   ['darkAccentPalette','A400'],
-*   ['lightAccentPalette','A100'],
-*   ...
-* ];
-*/
-var allPalettes = Object.keys(colors).map(function (key) {
-  var colorCode = colors[key].slice(colors[key].indexOf('[') + 1, colors[key].indexOf(']'));
-  return [key + 'Palette', colorCode];
-});
+ * create HEX code arrays by evaluating the arrays of strings
+ * then push jsVar names into palettes array
+ *
+ * palettes = ["primary", "darkPrimary", "lightPrimary", "accent"];
+ */
+var palettes = [];
 
-// create HEX code arrays
-allPalettes.forEach(function (element, index, array) {
-  return paletteArrayCreator(eval(array[index][0]), array[index][1]);
+paletteNamesAndCodes.forEach(function (element, index, array) {
+  paletteArrayCreator(eval(array[index][0]), array[index][1]);
+  palettes.push(array[index][0].slice(0, -7));
 });
 
 /**
@@ -402,6 +423,12 @@ function paletteConstructorArray(paletteArray) {
     this.swatch = eval(colors[value]);
     this.value = value;
     this.colorPalette = value + 'Palette';
+
+    if (value.indexOf('Night') !== -1) {
+      this.replacerClassName = 'nightmode';
+    } else {
+      this.replacerClassName = '';
+    }
   }
 
   var newArray = [];
@@ -414,16 +441,6 @@ function paletteConstructorArray(paletteArray) {
   return newArray;
 }
 
-var palettes = [];
-
-/**
- * push jsVar names into palettes array
- * palettes = ["primary", "darkPrimary", "lightPrimary", "accent"];
- */
-allPalettes.forEach(function (element, index, array) {
-  return palettes.push(array[index][0].slice(0, -7));
-});
-
 /**
  * construct Palette objects
  * palettes =  [Palette, Palette, Palette, Palette];
@@ -434,18 +451,19 @@ console.log(palettes);
 // generate color swatches based on palettes
 function createSpectrum(id, swatch) {
   var colorPalette = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-  var value = arguments[3];
+  var replacerClassName = arguments[3];
+  var value = arguments[4];
 
   $(id).spectrum({
     color: swatch,
     palette: eval(colorPalette),
+    replacerClassName: replacerClassName,
     theme: 'sp-light',
     showInput: true,
     showInitial: true,
     showPalette: true,
     preferredFormat: 'hex3',
-    containerClassName: id.slice(1) + 'Container',
-    replacerClassName: ''
+    containerClassName: id.slice(1) + 'Container'
   });
 
   // show input text box
@@ -464,7 +482,7 @@ function createSpectrum(id, swatch) {
 
 // generate swatches for each palette
 palettes.forEach(function (element, index, array) {
-  return createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].value);
+  return createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].replacerClassName, array[index].value);
 });
 
 // addons
@@ -558,7 +576,6 @@ function regexPatternCreator(args) {
 }
 
 $('#compile').click(function () {
-
   // get file content
   sass.readFile('flattish/utils/_vars.scss', function (content) {
     if (content !== undefined) {
@@ -572,17 +589,16 @@ $('#compile').click(function () {
 
         for (var i = 0; i < jsVars.length; i++) {
           if (args[i + 1]) {
-            var isHexColor = function isHexColor(string) {
-              return parseInt(string, 16).toString(16) === string.toLowerCase();
-            };
 
+            /**
+             * since the default colorList values are strings
+             * we need to evaluate them if they are unchanged by the user
+             */
             if (colors[jsVars[i]].indexOf('colorList') !== -1) {
               return '$' + cssVars[i] + ': ' + eval(colors[jsVars[i]]) + ';';
             } else {
               return '$' + cssVars[i] + ': ' + colors[jsVars[i]] + ';';
             }
-
-            console.log(isHexColor(colors[jsVars[i]]));
           }
         }
       });
