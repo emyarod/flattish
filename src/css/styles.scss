@@ -1,7 +1,10 @@
-// compressedFilenamePattern: ../../app/css/$1.min.css, expandedFilenamePattern: $1.css
+// compileCompressed compressedFilenamePattern: ../../app/css/$1.min.css
 
 @import '../../vendors/bourbon/bourbon';
+@import '../../style/utils/color-list';
+@import '../../style/utils/vars';
 
+// color pickers
 .color-pickers .form-inputs {
   display: table;
 
@@ -10,10 +13,16 @@
     display: table-cell;
   }
 
+  // text field outside of spectrum
   input { @include border-right-radius(0); }
 
+  // spectrum
   .sp-replacer {
     border-left-width: 0;
     @include border-left-radius(0);
+
+    &.nightmode {
+      background-color: $dark-cards;
+    }
   }
 }
