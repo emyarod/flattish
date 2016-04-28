@@ -203,7 +203,7 @@ $night-raised-colorized-button-selectors: ();
 
 	// flat buttons with color bg
 	@if #{$button-type} == 'flat-colorized-bg-button' {
-		@if $background-color != $primary {
+		@if $background-color != $primary and $background-color != null {
 			#{$selector-name} {
 				color: set-text-color($background-color, text) !important;
 
@@ -218,7 +218,7 @@ $night-raised-colorized-button-selectors: ();
 
 	// raised buttons with color bg
 	@if #{$button-type} == 'raised-colorized-button' {
-		@if $background-color != $primary {
+		@if $background-color != $primary and $background-color != null {
 			.res-nightmode #{$selector-name} {
 				background-color: $background-color !important;
 
