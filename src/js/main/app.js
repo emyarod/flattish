@@ -558,7 +558,16 @@ function regexPatternCreator(args) {
           varName = varName.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
         });
       } else {
-        capitalLetters = varName.match(/[A-Z]/g)[0];
+        /**
+         * Array destructuring
+         *
+         * [capitalLetters] = varName.match(/[A-Z]/g);
+         *
+         * instead of
+         *
+         * capitalLetters = varName.match(/[A-Z]/g)[0];
+         */
+        [capitalLetters] = varName.match(/[A-Z]/g);
         varName = varName.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
       }
       regexPatterns.push(`(\\$${varName}: .*?;)`)
