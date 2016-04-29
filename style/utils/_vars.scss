@@ -100,6 +100,31 @@ $screen-md-min: em(992, 16);
 $screen-lg-min: em(1200, 16);
 
 // addons
+
+// large header
+// affects content, footer, header-bottom-left, sidebar, base
+$header-large: true;
+
+// random header
+// affects header, base
+$random-header: true;
+
+// sidebar image
+// affects addons, footer, sidebar
+$sidebar-img: false;
+$sidebar-img-height: 224px;
+
+// pinned topics
+// affects addons, content
+$pinned-topics: true;
+
+$num-stickied-links: 3; // number of stickied links
+$num-stickied-menus: 2; // number of stickied menus
+
+// desired image backgrounds for stickies
+$sticky-link-images: 'help', 'album', 'calendar';
+$sticky-menu-images: 'media', 'shows';
+
 // sticky link/menu background image positions
 $album-bgp: 0 0;
 $album-night-bgp: -60px 0;

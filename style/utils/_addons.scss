@@ -1,15 +1,6 @@
 // main: ../flattish.scss
 
-// large header
-$header-large: true;
-
-// random header
-$random-header: true;
-
 // sidebar image
-$sidebar-img: false;
-$sidebar-img-height: 224px;
-
 @if $sidebar-img {
   .side::after {
     position: absolute;
@@ -25,18 +16,10 @@ $sidebar-img-height: 224px;
 }
 
 // pinned topics
-$pinned-topics: true;
-
-$num-stickied-links: 3; // number of stickied links
-$num-stickied-menus: 2; // number of stickied menus
-
-// desired image backgrounds for stickies
-$sticky-link-images: 'help', 'album', 'calendar';
-$sticky-menu-images: 'media', 'shows';
-
 $stickies-selectors: ();
 
 @if $pinned-topics {
+  
   // add stickied links to map
   @if $num-stickied-links > 0 {
     @for $num-stickied-links from 1 through $num-stickied-links {
@@ -73,7 +56,7 @@ $stickies-selectors: ();
   .res-nightmode .titlebox blockquote::after { background-color: $dark-cards; }
 
   .titlebox blockquote {
-    @if ($header-large == true) {
+    @if $header-large {
       top: 312px;
     } @else {
       top: 239px;
