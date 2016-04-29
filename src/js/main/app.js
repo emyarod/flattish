@@ -549,6 +549,8 @@ var cssColors = [];
 
 // create regexp patterns from Palettes
 function regexPatternCreator() {
+  // generate regex patterns
+  let regexPatterns = [];
 
   function replacer(input) {
     /**
@@ -583,8 +585,6 @@ function regexPatternCreator() {
       cssColors.push(input);
     }
   }
-  // generate regex patterns
-  let regexPatterns = [];
 
   // color variables
   for (var key in colors) {
