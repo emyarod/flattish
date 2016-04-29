@@ -548,125 +548,116 @@ for (var key in Sass.maps) {
   }
 }
 
-var cssColors = [];
+function replacer(input, varNameArray, regexArray) {
+  /**
+  * search for capital letters and convert to hyphen + lowercase letter
+  * e.g. darkPrimary => dark-primary
+  */
+  if (input.match(/[A-Z]/g) !== null) {
+    (function () {
+      var capitalLetters = input.match(/[A-Z]/g);
 
-// create regexp patterns from Palettes
-function regexPatternCreator() {
-
-  function replacer(input) {
-    /**
-     * search for capital letters and convert to hyphen + lowercase letter
-     * e.g. darkPrimary => dark-primary
-     */
-    if (input.match(/[A-Z]/g) !== null) {
-      (function () {
-        var capitalLetters = input.match(/[A-Z]/g);
-
-        // check if variable name contains more than 1 capital letter
-        if (capitalLetters.length > 1) {
-          capitalLetters.forEach(function (element, index, array) {
-            input = input.replace(capitalLetters[index], '-' + capitalLetters[index].toLowerCase());
-          });
-        } else {
-          var _input$match = input.match(/[A-Z]/g);
-          /**
-           * Array destructuring
-           *
-           * [capitalLetters] = input.match(/[A-Z]/g);
-           *
-           * instead of
-           *
-           * capitalLetters = input.match(/[A-Z]/g)[0];
-           */
+      // check if variable name contains more than 1 capital letter
+      if (capitalLetters.length > 1) {
+        capitalLetters.forEach(function (element, index, array) {
+          input = input.replace(capitalLetters[index], '-' + capitalLetters[index].toLowerCase());
+        });
+      } else {
+        var _input$match = input.match(/[A-Z]/g);
+        /**
+        * Array destructuring
+        *
+        * [capitalLetters] = input.match(/[A-Z]/g);
+        *
+        * instead of
+        *
+        * capitalLetters = input.match(/[A-Z]/g)[0];
+        */
 
 
-          var _input$match2 = _slicedToArray(_input$match, 1);
+        var _input$match2 = _slicedToArray(_input$match, 1);
 
-          capitalLetters = _input$match2[0];
+        capitalLetters = _input$match2[0];
 
-          input = input.replace(capitalLetters, '-' + capitalLetters.toLowerCase());
-        }
-        regexPatterns.push('(\\$' + input + ': .*?;)');
-        cssColors.push(input);
-      })();
-    } else {
-      regexPatterns.push('(\\$' + input + ': .*?;)');
-      cssColors.push(input);
-    }
-  }
-  // generate regex patterns
-  var regexPatterns = [];
-
-  // color variables
-  for (var key in colors) {
-    if (colors.hasOwnProperty(key)) {
-      replacer(key);
-      console.log(typeof key === 'undefined' ? 'undefined' : _typeof(key));
-    }
-  }
-
-  if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    console.log('checked');
+        input = input.replace(capitalLetters, '-' + capitalLetters.toLowerCase());
+      }
+      regexArray.push('(\\$' + input + ': .*?;)');
+      varNameArray.push(input);
+    })();
   } else {
-    console.log('not checked');
+    regexArray.push('(\\$' + input + ': .*?;)');
+    varNameArray.push(input);
   }
+}
 
-  // $('#large-header-checkbox:checkbox').change(function() {
-  //   // console.log($(this).prop('checked'));
-  //   if ($(this).prop('checked')) {
-  //     console.log('checked');
-  //   } else {
-  //     console.log('not checked');
-  //   }
-  // });
-
-  return new RegExp(regexPatterns.join('|'), 'g');
+// create regexp patterns
+function regexPatternCreator(regexArray, callback) {
+  callback();
+  return new RegExp(regexArray.join('|'), 'g');
 }
 
 $('#compile').click(function () {
   // get file content
   sass.readFile('flattish/utils/_vars.scss', function (content) {
     if (content !== undefined) {
-      console.log('reading _vars.scss');
+      (function () {
+        console.log('reading _vars.scss');
+        var cssColors = [];
+        var regexPatterns = [];
 
-      // replace Sass variables
-      content = content.replace(regexPatternCreator(), function () {
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
-
-        for (var i = 0; i < Object.keys(colors).length; i++) {
-          if (args[i + 1]) {
-
-            /**
-             * since the default color values are objects
-             * we need to evaluate differently if unchanged by user
-             */
-            if (_typeof(colors[Object.keys(colors)[i]]) === 'object') {
-              var color = colors[Object.keys(colors)[i]];
-              return '$' + cssColors[i] + ': ' + colorList[color.color][color.colorCode] + ';';
-            } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
-              return '$' + cssColors[i] + ': ' + colors[Object.keys(colors)[i]] + ';';
+        // replace Sass variables
+        content = content.replace(regexPatternCreator(regexPatterns, function () {
+          // replace color variables
+          for (var key in colors) {
+            if (colors.hasOwnProperty(key)) {
+              replacer(key, cssColors, regexPatterns);
             }
           }
-        }
-      });
+        }), function () {
+          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
 
-      // register file to be available for @import
-      sass.writeFile('flattish/utils/_vars.scss', content, function (success) {
-        if (success) {
-          console.log('_vars.scss successfully written');
-        } else {
-          console.log('writeFile failed');
-        }
+          for (var i = 0; i < Object.keys(colors).length; i++) {
+            if (args[i + 1]) {
 
-        // compile main Sass file
-        sass.compileFile('flattish/flattish.scss', function (result) {
-          console.log('compiled');
-          console.log(result);
-          $('#target').html(result.text);
+              /**
+               * since the default color values are objects
+               * we need to evaluate differently if unchanged by user
+               */
+              if (_typeof(colors[Object.keys(colors)[i]]) === 'object') {
+                var color = colors[Object.keys(colors)[i]];
+                return '$' + cssColors[i] + ': ' + colorList[color.color][color.colorCode] + ';';
+              } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
+                return '$' + cssColors[i] + ': ' + colors[Object.keys(colors)[i]] + ';';
+              }
+            }
+          }
         });
-      });
+
+        // if ($('#large-header-checkbox:checkbox').prop('checked')) {
+        //   console.log('checked');
+        //   replacer('headerLarge');
+        // } else {
+        //   console.log('not checked');
+        // }
+
+        // register file to be available for @import
+        sass.writeFile('flattish/utils/_vars.scss', content, function (success) {
+          if (success) {
+            console.log('_vars.scss successfully written');
+          } else {
+            console.log('writeFile failed');
+          }
+
+          // compile main Sass file
+          sass.compileFile('flattish/flattish.scss', function (result) {
+            console.log('compiled');
+            console.log(result);
+            $('#target').html(result.text);
+          });
+        });
+      })();
     } else {
       console.log('readFile failed');
     }
