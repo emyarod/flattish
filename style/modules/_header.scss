@@ -7,7 +7,7 @@
   margin-bottom: 15px;
 }
 
-@if $random-header == true {
+@if $random-header {
   // header image when logged in
   // fallback image for logged out users in content.scss
   input[name=uh] {
