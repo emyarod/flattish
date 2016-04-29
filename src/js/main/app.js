@@ -460,7 +460,6 @@ function paletteConstructorArray(paletteArray) {
 
   // palette constructor
   function Palette(key) {
-    // let color = colors[key];
     this.id = `#${key}ColorPicker`;
     this.swatch = colorList[colors[key].color][colors[key].colorCode];
     this.value = key;
