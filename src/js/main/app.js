@@ -593,21 +593,6 @@ function regexPatternCreator() {
     }
   }
 
-  if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    console.log('checked');
-  } else {
-    console.log('not checked');
-  }
-
-  // $('#large-header-checkbox:checkbox').change(function() {
-  //   // console.log($(this).prop('checked'));
-  //   if ($(this).prop('checked')) {
-  //     console.log('checked');
-  //   } else {
-  //     console.log('not checked');
-  //   }
-  // });
-
   return new RegExp(regexPatterns.join('|'), 'g');
 }
 
@@ -635,6 +620,13 @@ $('#compile').click(() => {
           }
         }
       });
+
+      // if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      //   console.log('checked');
+      //   replacer('headerLarge');
+      // } else {
+      //   console.log('not checked');
+      // }
 
       // register file to be available for @import
       sass.writeFile('flattish/utils/_vars.scss', content, (success) => {
