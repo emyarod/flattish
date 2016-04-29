@@ -500,6 +500,17 @@ palettes.forEach((element, index, array) => (
 // large header
 var largeHeader;
 
+console.log($('#large-header-checkbox:checkbox').prop("checked"));
+
+$('#large-header-checkbox:checkbox').change(function() {
+  // console.log($(this).prop("checked"));
+  if ($(this).prop("checked")) {
+    console.log('checked');
+  } else {
+    console.log('not checked');
+  }
+});
+
 // random header
 var randomHeader;
 
@@ -543,53 +554,47 @@ for (var key in Sass.maps) {
   }
 }
 
-var jsVars = [];
 var cssVars = [];
 
 // create regexp patterns from Palettes
 function regexPatternCreator(args) {
-  // populate jsVars array
-  args.forEach((element, index, array) => (
-    jsVars.push(array[index].value)
-  ));
-
   // generate regex patterns
   let regexPatterns = [];
-  jsVars.forEach((element, index, array) => {
-    let varName = array[index];
+  for (var key in colors) {
+    if (colors.hasOwnProperty(key)) {
+      /**
+       * search for capital letters and convert to hyphen + lowercase letter
+       * e.g. darkPrimary => dark-primary
+       */
+      if (key.match(/[A-Z]/g) !== null) {
+        let capitalLetters = key.match(/[A-Z]/g);
 
-    /**
-     * search for capital letters and convert to hyphen + lowercase letter
-     * e.g. darkPrimary => dark-primary
-     */
-    if (varName.match(/[A-Z]/g) !== null) {
-      let capitalLetters = varName.match(/[A-Z]/g);
-
-      // check if variable name contains more than 1 capital letter
-      if (capitalLetters.length > 1) {
-        capitalLetters.forEach((element, index, array) => {
-          varName = varName.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
-        });
+        // check if variable name contains more than 1 capital letter
+        if (capitalLetters.length > 1) {
+          capitalLetters.forEach((element, index, array) => {
+            key = key.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
+          });
+        } else {
+          /**
+           * Array destructuring
+           *
+           * [capitalLetters] = key.match(/[A-Z]/g);
+           *
+           * instead of
+           *
+           * capitalLetters = key.match(/[A-Z]/g)[0];
+           */
+          [capitalLetters] = key.match(/[A-Z]/g);
+          key = key.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
+        }
+        regexPatterns.push(`(\\$${key}: .*?;)`)
+        cssVars.push(key);
       } else {
-        /**
-         * Array destructuring
-         *
-         * [capitalLetters] = varName.match(/[A-Z]/g);
-         *
-         * instead of
-         *
-         * capitalLetters = varName.match(/[A-Z]/g)[0];
-         */
-        [capitalLetters] = varName.match(/[A-Z]/g);
-        varName = varName.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
+        regexPatterns.push(`(\\$${key}: .*?;)`)
+        cssVars.push(key);
       }
-      regexPatterns.push(`(\\$${varName}: .*?;)`)
-      cssVars.push(varName);
-    } else {
-      regexPatterns.push(`(\\$${varName}: .*?;)`)
-      cssVars.push(varName);
     }
-  });
+  }
 
   return new RegExp(regexPatterns.join('|'), 'g');
 }
@@ -602,18 +607,18 @@ $('#compile').click(() => {
 
       // replace Sass variables
       content = content.replace(regexPatternCreator(palettes), (...args) => {
-        for (var i = 0; i < jsVars.length; i++) {
+        for (var i = 0; i < Object.keys(colors).length; i++) {
           if (args[i + 1]) {
 
             /**
              * since the default color values are objects
              * we need to evaluate differently if unchanged by user
              */
-            if (typeof colors[jsVars[i]] === 'object') {
-              let color = colors[jsVars[i]];
+            if (typeof colors[Object.keys(colors)[i]] === 'object') {
+              let color = colors[Object.keys(colors)[i]];
               return `$${cssVars[i]}: ${colorList[color.color][color.colorCode]};`;
-            } else if (typeof colors[jsVars[i]] === 'string') {
-              return `$${cssVars[i]}: ${colors[jsVars[i]]};`;
+            } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
+              return `$${cssVars[i]}: ${colors[Object.keys(colors)[i]]};`;
             }
           }
         }
