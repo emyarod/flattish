@@ -545,55 +545,44 @@ for (var key in Sass.maps) {
   }
 }
 
-var cssColors = [];
+function replacer(input, varNameArray, regexArray) {
+  /**
+  * search for capital letters and convert to hyphen + lowercase letter
+  * e.g. darkPrimary => dark-primary
+  */
+  if (input.match(/[A-Z]/g) !== null) {
+    let capitalLetters = input.match(/[A-Z]/g);
 
-// create regexp patterns from Palettes
-function regexPatternCreator() {
-  // generate regex patterns
-  let regexPatterns = [];
-
-  function replacer(input) {
-    /**
-     * search for capital letters and convert to hyphen + lowercase letter
-     * e.g. darkPrimary => dark-primary
-     */
-    if (input.match(/[A-Z]/g) !== null) {
-      let capitalLetters = input.match(/[A-Z]/g);
-
-      // check if variable name contains more than 1 capital letter
-      if (capitalLetters.length > 1) {
-        capitalLetters.forEach((element, index, array) => {
-          input = input.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
-        });
-      } else {
-        /**
-         * Array destructuring
-         *
-         * [capitalLetters] = input.match(/[A-Z]/g);
-         *
-         * instead of
-         *
-         * capitalLetters = input.match(/[A-Z]/g)[0];
-         */
-        [capitalLetters] = input.match(/[A-Z]/g);
-        input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
-      }
-      regexPatterns.push(`(\\$${input}: .*?;)`)
-      cssColors.push(input);
+    // check if variable name contains more than 1 capital letter
+    if (capitalLetters.length > 1) {
+      capitalLetters.forEach((element, index, array) => {
+        input = input.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
+      });
     } else {
-      regexPatterns.push(`(\\$${input}: .*?;)`)
-      cssColors.push(input);
+      /**
+      * Array destructuring
+      *
+      * [capitalLetters] = input.match(/[A-Z]/g);
+      *
+      * instead of
+      *
+      * capitalLetters = input.match(/[A-Z]/g)[0];
+      */
+      [capitalLetters] = input.match(/[A-Z]/g);
+      input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
     }
+    regexArray.push(`(\\$${input}: .*?;)`)
+    varNameArray.push(input);
+  } else {
+    regexArray.push(`(\\$${input}: .*?;)`)
+    varNameArray.push(input);
   }
+}
 
-  // color variables
-  for (var key in colors) {
-    if (colors.hasOwnProperty(key)) {
-      replacer(key);
-    }
-  }
-
-  return new RegExp(regexPatterns.join('|'), 'g');
+// create regexp patterns
+function regexPatternCreator(regexArray, callback) {
+  callback();
+  return new RegExp(regexArray.join('|'), 'g');
 }
 
 $('#compile').click(() => {
@@ -601,9 +590,18 @@ $('#compile').click(() => {
   sass.readFile('flattish/utils/_vars.scss', (content) => {
     if (content !== undefined) {
       console.log('reading _vars.scss');
+      let cssColors = [];
+      let regexPatterns = [];
 
       // replace Sass variables
-      content = content.replace(regexPatternCreator(), (...args) => {
+      content = content.replace(regexPatternCreator(regexPatterns, () => {
+        // replace color variables
+        for (var key in colors) {
+          if (colors.hasOwnProperty(key)) {
+            replacer(key, cssColors, regexPatterns);
+          }
+        }
+      }), (...args) => {
         for (var i = 0; i < Object.keys(colors).length; i++) {
           if (args[i + 1]) {
 
