@@ -13,7 +13,7 @@
     font-size: 0;
 
     &::after {
-      content: "<3 57";
+      content: '<3 57';
       font-size: 16px;
     }
   }
@@ -23,7 +23,7 @@
 .debuginfo {
   position: relative;
 
-  @if ($header-large) {
+  @if $header-large {
 		@if $sidebar-img {
 			top: 297px + $sidebar-img-height + 16px;
 		} @else {
