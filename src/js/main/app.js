@@ -487,7 +487,13 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
 
 // generate swatches for each palette
 palettes.forEach((element, index, array) => (
-  createSpectrum(array[index].id, array[index].swatch, array[index].colorPalette, array[index].replacerClassName, array[index].value)
+  createSpectrum(
+    array[index].id,
+    array[index].swatch,
+    array[index].colorPalette,
+    array[index].replacerClassName,
+    array[index].value
+  )
 ));
 
 // addons
