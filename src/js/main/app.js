@@ -459,14 +459,14 @@ paletteNamesAndCodes.forEach((element, index, array) => {
 function paletteConstructorArray(paletteArray) {
 
   // palette constructor
-  function Palette(value) {
-    let color = colors[value];
-    this.id = `#${value}ColorPicker`;
-    this.swatch = colorList[color.color][color.colorCode];
-    this.value = value;
-    this.colorPalette = `${value}Palette`;
+  function Palette(key) {
+    // let color = colors[key];
+    this.id = `#${key}ColorPicker`;
+    this.swatch = colorList[colors[key].color][colors[key].colorCode];
+    this.value = key;
+    this.colorPalette = `${key}Palette`;
 
-    if (value.indexOf('Night') !== -1) {
+    if (key.indexOf('Night') !== -1) {
       this.replacerClassName = 'nightmode';
     } else {
       this.replacerClassName = '';
