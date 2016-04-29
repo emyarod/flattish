@@ -504,6 +504,8 @@ palettes.forEach(function (element, index, array) {
 // large header
 var largeHeader;
 
+console.log($('#large-header-checkbox:checkbox').prop('checked'));
+
 // random header
 var randomHeader;
 
@@ -546,61 +548,77 @@ for (var key in Sass.maps) {
   }
 }
 
-var jsVars = [];
-var cssVars = [];
+var cssColors = [];
 
 // create regexp patterns from Palettes
-function regexPatternCreator(args) {
-  // populate jsVars array
-  args.forEach(function (element, index, array) {
-    return jsVars.push(array[index].value);
-  });
+function regexPatternCreator() {
 
-  // generate regex patterns
-  var regexPatterns = [];
-  jsVars.forEach(function (element, index, array) {
-    var varName = array[index];
-
+  function replacer(input) {
     /**
      * search for capital letters and convert to hyphen + lowercase letter
      * e.g. darkPrimary => dark-primary
      */
-    if (varName.match(/[A-Z]/g) !== null) {
+    if (input.match(/[A-Z]/g) !== null) {
       (function () {
-        var capitalLetters = varName.match(/[A-Z]/g);
+        var capitalLetters = input.match(/[A-Z]/g);
 
         // check if variable name contains more than 1 capital letter
         if (capitalLetters.length > 1) {
           capitalLetters.forEach(function (element, index, array) {
-            varName = varName.replace(capitalLetters[index], '-' + capitalLetters[index].toLowerCase());
+            input = input.replace(capitalLetters[index], '-' + capitalLetters[index].toLowerCase());
           });
         } else {
-          var _varName$match = varName.match(/[A-Z]/g);
+          var _input$match = input.match(/[A-Z]/g);
           /**
            * Array destructuring
            *
-           * [capitalLetters] = varName.match(/[A-Z]/g);
+           * [capitalLetters] = input.match(/[A-Z]/g);
            *
            * instead of
            *
-           * capitalLetters = varName.match(/[A-Z]/g)[0];
+           * capitalLetters = input.match(/[A-Z]/g)[0];
            */
 
 
-          var _varName$match2 = _slicedToArray(_varName$match, 1);
+          var _input$match2 = _slicedToArray(_input$match, 1);
 
-          capitalLetters = _varName$match2[0];
+          capitalLetters = _input$match2[0];
 
-          varName = varName.replace(capitalLetters, '-' + capitalLetters.toLowerCase());
+          input = input.replace(capitalLetters, '-' + capitalLetters.toLowerCase());
         }
-        regexPatterns.push('(\\$' + varName + ': .*?;)');
-        cssVars.push(varName);
+        regexPatterns.push('(\\$' + input + ': .*?;)');
+        cssColors.push(input);
       })();
     } else {
-      regexPatterns.push('(\\$' + varName + ': .*?;)');
-      cssVars.push(varName);
+      regexPatterns.push('(\\$' + input + ': .*?;)');
+      cssColors.push(input);
     }
-  });
+  }
+  // generate regex patterns
+  var regexPatterns = [];
+
+  // color variables
+  for (var key in colors) {
+    if (colors.hasOwnProperty(key)) {
+      replacer(key);
+      console.log(typeof key === 'undefined' ? 'undefined' : _typeof(key));
+    }
+  }
+
+  if ($('#large-header-checkbox:checkbox').prop('checked')) {
+    console.log('checked');
+  } else {
+    console.log('not checked');
+  }
+
+  // $('#large-header-checkbox:checkbox').change(function() {
+  //   // console.log($(this).prop('checked'));
+  //   if ($(this).prop('checked')) {
+  //     console.log('checked');
+  //   } else {
+  //     console.log('not checked');
+  //   }
+  // });
 
   return new RegExp(regexPatterns.join('|'), 'g');
 }
@@ -612,23 +630,23 @@ $('#compile').click(function () {
       console.log('reading _vars.scss');
 
       // replace Sass variables
-      content = content.replace(regexPatternCreator(palettes), function () {
+      content = content.replace(regexPatternCreator(), function () {
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
 
-        for (var i = 0; i < jsVars.length; i++) {
+        for (var i = 0; i < Object.keys(colors).length; i++) {
           if (args[i + 1]) {
 
             /**
              * since the default color values are objects
              * we need to evaluate differently if unchanged by user
              */
-            if (_typeof(colors[jsVars[i]]) === 'object') {
-              var color = colors[jsVars[i]];
-              return '$' + cssVars[i] + ': ' + colorList[color.color][color.colorCode] + ';';
-            } else if (typeof colors[jsVars[i]] === 'string') {
-              return '$' + cssVars[i] + ': ' + colors[jsVars[i]] + ';';
+            if (_typeof(colors[Object.keys(colors)[i]]) === 'object') {
+              var color = colors[Object.keys(colors)[i]];
+              return '$' + cssColors[i] + ': ' + colorList[color.color][color.colorCode] + ';';
+            } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
+              return '$' + cssColors[i] + ': ' + colors[Object.keys(colors)[i]] + ';';
             }
           }
         }
