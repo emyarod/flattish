@@ -2176,7 +2176,7 @@ div.content {
 }
 
 .flat-vert.title:hover::after {
-  content: "<3 57";
+  content: '<3 57';
   font-size: 16px;
 }
 
