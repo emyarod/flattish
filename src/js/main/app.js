@@ -500,16 +500,7 @@ palettes.forEach((element, index, array) => (
 // large header
 var largeHeader;
 
-console.log($('#large-header-checkbox:checkbox').prop("checked"));
-
-$('#large-header-checkbox:checkbox').change(function() {
-  // console.log($(this).prop("checked"));
-  if ($(this).prop("checked")) {
-    console.log('checked');
-  } else {
-    console.log('not checked');
-  }
-});
+console.log($('#large-header-checkbox:checkbox').prop('checked'));
 
 // random header
 var randomHeader;
@@ -554,47 +545,68 @@ for (var key in Sass.maps) {
   }
 }
 
-var cssVars = [];
+var cssColors = [];
 
 // create regexp patterns from Palettes
-function regexPatternCreator(args) {
-  // generate regex patterns
-  let regexPatterns = [];
-  for (var key in colors) {
-    if (colors.hasOwnProperty(key)) {
-      /**
-       * search for capital letters and convert to hyphen + lowercase letter
-       * e.g. darkPrimary => dark-primary
-       */
-      if (key.match(/[A-Z]/g) !== null) {
-        let capitalLetters = key.match(/[A-Z]/g);
+function regexPatternCreator() {
 
-        // check if variable name contains more than 1 capital letter
-        if (capitalLetters.length > 1) {
-          capitalLetters.forEach((element, index, array) => {
-            key = key.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
-          });
-        } else {
-          /**
-           * Array destructuring
-           *
-           * [capitalLetters] = key.match(/[A-Z]/g);
-           *
-           * instead of
-           *
-           * capitalLetters = key.match(/[A-Z]/g)[0];
-           */
-          [capitalLetters] = key.match(/[A-Z]/g);
-          key = key.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
-        }
-        regexPatterns.push(`(\\$${key}: .*?;)`)
-        cssVars.push(key);
+  function replacer(input) {
+    /**
+     * search for capital letters and convert to hyphen + lowercase letter
+     * e.g. darkPrimary => dark-primary
+     */
+    if (input.match(/[A-Z]/g) !== null) {
+      let capitalLetters = input.match(/[A-Z]/g);
+
+      // check if variable name contains more than 1 capital letter
+      if (capitalLetters.length > 1) {
+        capitalLetters.forEach((element, index, array) => {
+          input = input.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
+        });
       } else {
-        regexPatterns.push(`(\\$${key}: .*?;)`)
-        cssVars.push(key);
+        /**
+         * Array destructuring
+         *
+         * [capitalLetters] = input.match(/[A-Z]/g);
+         *
+         * instead of
+         *
+         * capitalLetters = input.match(/[A-Z]/g)[0];
+         */
+        [capitalLetters] = input.match(/[A-Z]/g);
+        input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
       }
+      regexPatterns.push(`(\\$${input}: .*?;)`)
+      cssColors.push(input);
+    } else {
+      regexPatterns.push(`(\\$${input}: .*?;)`)
+      cssColors.push(input);
     }
   }
+  // generate regex patterns
+  let regexPatterns = [];
+
+  // color variables
+  for (var key in colors) {
+    if (colors.hasOwnProperty(key)) {
+      replacer(key);
+    }
+  }
+
+  if ($('#large-header-checkbox:checkbox').prop('checked')) {
+    console.log('checked');
+  } else {
+    console.log('not checked');
+  }
+
+  // $('#large-header-checkbox:checkbox').change(function() {
+  //   // console.log($(this).prop('checked'));
+  //   if ($(this).prop('checked')) {
+  //     console.log('checked');
+  //   } else {
+  //     console.log('not checked');
+  //   }
+  // });
 
   return new RegExp(regexPatterns.join('|'), 'g');
 }
@@ -606,7 +618,7 @@ $('#compile').click(() => {
       console.log('reading _vars.scss');
 
       // replace Sass variables
-      content = content.replace(regexPatternCreator(palettes), (...args) => {
+      content = content.replace(regexPatternCreator(), (...args) => {
         for (var i = 0; i < Object.keys(colors).length; i++) {
           if (args[i + 1]) {
 
@@ -616,9 +628,9 @@ $('#compile').click(() => {
              */
             if (typeof colors[Object.keys(colors)[i]] === 'object') {
               let color = colors[Object.keys(colors)[i]];
-              return `$${cssVars[i]}: ${colorList[color.color][color.colorCode]};`;
+              return `$${cssColors[i]}: ${colorList[color.color][color.colorCode]};`;
             } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
-              return `$${cssVars[i]}: ${colors[Object.keys(colors)[i]]};`;
+              return `$${cssColors[i]}: ${colors[Object.keys(colors)[i]]};`;
             }
           }
         }
