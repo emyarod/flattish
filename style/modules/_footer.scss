@@ -23,7 +23,7 @@
 .debuginfo {
   position: relative;
 
-  @if ($header-large) {
+  @if $header-large {
 		@if $sidebar-img {
 			top: 297px + $sidebar-img-height + 16px;
 		} @else {

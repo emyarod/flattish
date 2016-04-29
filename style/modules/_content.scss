@@ -7,7 +7,7 @@
 div.content {
 	position: relative;
 
-	@if ($header-large == true) {
+	@if $header-large {
 		top: 297px;
 	} @else {
 		top: 223px;

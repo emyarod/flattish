@@ -60,7 +60,7 @@ body {
     background-attachment: scroll, fixed;
   }
 
-  @if $random-header == true {
+  @if $random-header {
     &.loggedin::before { display: none; }
   }
 }

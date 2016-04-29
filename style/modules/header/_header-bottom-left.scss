@@ -4,7 +4,7 @@
 #header-bottom-left {
   position: absolute;
 
-  @if ($header-large == true) {
+  @if $header-large {
 		top: 172px;
 	} @else {
     top: 86px;
@@ -84,7 +84,7 @@
 
 @media (min-width: $screen-lg-min) {
   #header-bottom-left {
-    @if ($header-large == true) {
+    @if $header-large {
       top: 245px;
     } @else {
       top: 159px;
