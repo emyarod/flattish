@@ -1,15 +1,6 @@
 // main: ../flattish.scss
 
-// large header
-$header-large: false;
-
-// random header
-$random-header: false;
-
 // sidebar image
-$sidebar-img: false;
-$sidebar-img-height: 224px;
-
 @if $sidebar-img {
   .side::after {
     position: absolute;
@@ -25,18 +16,10 @@ $sidebar-img-height: 224px;
 }
 
 // pinned topics
-$pinned-topics: false;
-
-$num-stickied-links: 0; // number of stickied links
-$num-stickied-menus: 0; // number of stickied menus
-
-// desired image backgrounds for stickies
-$sticky-link-images: '';
-$sticky-menu-images: '';
-
 $stickies-selectors: ();
 
 @if $pinned-topics {
+
   // add stickied links to map
   @if $num-stickied-links > 0 {
     @for $num-stickied-links from 1 through $num-stickied-links {
@@ -73,7 +56,7 @@ $stickies-selectors: ();
   .res-nightmode .titlebox blockquote::after { background-color: $dark-cards; }
 
   .titlebox blockquote {
-    @if ($header-large == true) {
+    @if $header-large {
       top: 312px;
     } @else {
       top: 239px;
@@ -147,6 +130,7 @@ $stickies-selectors: ();
       }
 
       ul {
+        
         // avoids overlap of bg images due to nested ul
         background-image: none !important;
         background-color: transparent !important;
