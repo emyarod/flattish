@@ -362,45 +362,11 @@ var colors = {
   },
 }
 
-var primaryPalette = [];
-var darkPrimaryPalette = [];
-var lightPrimaryPalette = [];
-var accentPalette = [];
-var darkAccentPalette = [];
-var lightAccentPalette = [];
-var linkColorPalette = [];
-var linkColorHoverPalette = [];
-var linkColorActivePalette = [];
-var linkColorVisitedPalette = [];
-var linkColorNightPalette = [];
-var linkColorHoverNightPalette = [];
-var linkColorActiveNightPalette = [];
-var linkColorVisitedNightPalette = [];
-var upvotePalette = [];
-var downvotePalette = [];
-
-/**
-* create an array of arrays containing palette names and material color codes
-*
-* var paletteNamesAndCodes = [
-*   ['primaryPalette','500'],
-*   ['darkPrimaryPalette','700'],
-*   ['lightPrimaryPalette','300'],
-*   ['accentPalette','A200'],
-*   ['darkAccentPalette','A400'],
-*   ['lightAccentPalette','A100'],
-*   ...
-* ];
-*/
-var paletteNamesAndCodes = Object.keys(colors).map((key) => {
-  return [`${key}Palette`, colors[key].colorCode];
-});
-
 /**
  * generate color palette arrays
  * output is based on color codes
  *
- * e.g. primaryPalette = [
+ * e.g. colors['primary'].palette = [
  *   ['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4',],
  *   ['#00bcd4','#009688','#4caf50','#8bc34a','#cddc39','#ffeb3b','#ffc107',],
  *   ['#ff9800','#ff5722','#795548','#9e9e9e','#607d8b','#fff', '#000'],
@@ -447,23 +413,28 @@ function paletteArrayCreator(newPalette, colorCode) {
   newPalette[newPalette.length - 1].push('#fff', '#000');
 }
 
-// create HEX code arrays by evaluating the arrays of strings
-paletteNamesAndCodes.forEach((element, index, array) => {
-  paletteArrayCreator(eval(array[index][0]), array[index][1]);
-});
+for (var key in colors) {
+  if (colors.hasOwnProperty(key)) {
+    // initialize object property
+    colors[key].palette = [];
+
+    // create HEX code arrays
+    paletteArrayCreator(colors[key].palette, colors[key].colorCode);
+  }
+}
 
 /**
  * spectrum color pickers
  * initialize all new palettes
  */
-function paletteConstructorArray(paletteArray) {
+function paletteConstructorArray(keys) {
 
   // palette constructor
   function Palette(key) {
     this.id = `#${key}ColorPicker`;
     this.swatch = colorList[colors[key].color][colors[key].colorCode];
     this.value = key;
-    this.colorPalette = `${key}Palette`;
+    this.colorPalette = colors[key].palette;
 
     if (key.indexOf('Night') !== -1) {
       this.replacerClassName = 'nightmode';
@@ -473,7 +444,7 @@ function paletteConstructorArray(paletteArray) {
   }
 
   let newArray = [];
-  paletteArray.forEach((element, index, array) => (
+  keys.forEach((element, index, array) => (
     newArray.push(new Palette(array[index]))
   ));
 
@@ -488,10 +459,10 @@ var palettes = paletteConstructorArray(Object.keys(colors));
 console.log(palettes);
 
 // generate color swatches based on palettes
-function createSpectrum(id, swatch, colorPalette = null, replacerClassName, value) {
+function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
   $(id).spectrum({
     color: swatch,
-    palette: eval(colorPalette),
+    palette,
     replacerClassName,
     theme: 'sp-light',
     showInput: true,
