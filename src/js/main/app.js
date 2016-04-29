@@ -296,22 +296,70 @@ var colorList = {
 
 // colors
 var colors = {
-  primary: `colorList.cyan['500']`,
-  darkPrimary: `colorList.cyan['700']`,
-  lightPrimary: `colorList.cyan['300']`,
-  accent: `colorList.orange['A200']`,
-  darkAccent: `colorList.orange['A400']`,
-  lightAccent: `colorList.orange['A100']`,
-  linkColor: `colorList.blue['500']`,
-  linkColorHover: `colorList.blue['300']`,
-  linkColorActive: `colorList.blue['700']`,
-  linkColorVisited: `colorList.deepPurple['300']`,
-  linkColorNight: `colorList.blue['500']`,
-  linkColorHoverNight: `colorList.blue['300']`,
-  linkColorActiveNight: `colorList.blue['700']`,
-  linkColorVisitedNight: `colorList.deepPurple['300']`,
-  upvote: `colorList.deepOrange['500']`,
-  downvote: `colorList.indigo['500']`,
+  primary: {
+    color: 'cyan',
+    colorCode: '500',
+  },
+  darkPrimary: {
+    color: 'cyan',
+    colorCode: '700',
+  },
+  lightPrimary: {
+    color: 'cyan',
+    colorCode: '300',
+  },
+  accent: {
+    color: 'orange',
+    colorCode: 'A200',
+  },
+  darkAccent: {
+    color: 'orange',
+    colorCode: 'A400',
+  },
+  lightAccent: {
+    color: 'orange',
+    colorCode: 'A100',
+  },
+  linkColor: {
+    color: 'blue',
+    colorCode: '500',
+  },
+  linkColorHover: {
+    color: 'blue',
+    colorCode: '300',
+  },
+  linkColorActive: {
+    color: 'blue',
+    colorCode: '700',
+  },
+  linkColorVisited: {
+    color: 'deepPurple',
+    colorCode: '300',
+  },
+  linkColorNight: {
+    color: 'blue',
+    colorCode: '500',
+  },
+  linkColorHoverNight: {
+    color: 'blue',
+    colorCode: '300',
+  },
+  linkColorActiveNight: {
+    color: 'blue',
+    colorCode: '700',
+  },
+  linkColorVisitedNight: {
+    color: 'deepPurple',
+    colorCode: '300',
+  },
+  upvote: {
+    color: 'deepOrange',
+    colorCode: '500',
+  },
+  downvote: {
+    color: 'indigo',
+    colorCode: '500',
+  },
 }
 
 var primaryPalette = [];
@@ -345,10 +393,7 @@ var downvotePalette = [];
 * ];
 */
 var paletteNamesAndCodes = Object.keys(colors).map((key) => {
-  let openingBracketIndex = colors[key].indexOf('[') + 1;
-  let closingBracketIndex = colors[key].indexOf(']');
-  let colorCode = colors[key].slice(openingBracketIndex, closingBracketIndex);
-  return [`${key}Palette`, colorCode];
+  return [`${key}Palette`, colors[key].colorCode];
 });
 
 /**
@@ -391,28 +436,20 @@ function paletteArrayCreator(newPalette, colorCode) {
     newPalette[index] = array[index].slice()
   ));
 
-  // evaluate nested array elements as variables to get HEX codes
+  // get HEX codes from nested array elements
   newPalette.forEach((element, index, array) => {
     newPalette[index].forEach((element, i, array) => (
-      newPalette[index][i] = colorList[element][eval(colorCode)]
-    ))
+     newPalette[index][i] = colorList[element][colorCode]
+   ))
   });
 
   // add white and black HEX codes
   newPalette[newPalette.length - 1].push('#fff', '#000');
 }
 
-/**
- * create HEX code arrays by evaluating the arrays of strings
- * then push jsVar names into palettes array
- *
- * palettes = ["primary", "darkPrimary", "lightPrimary", "accent"];
- */
-var palettes = [];
-
+// create HEX code arrays by evaluating the arrays of strings
 paletteNamesAndCodes.forEach((element, index, array) => {
   paletteArrayCreator(eval(array[index][0]), array[index][1]);
-  palettes.push(array[index][0].slice(0, -7));
 });
 
 /**
@@ -423,8 +460,9 @@ function paletteConstructorArray(paletteArray) {
 
   // palette constructor
   function Palette(value) {
+    let color = colors[value];
     this.id = `#${value}ColorPicker`;
-    this.swatch = eval(colors[value]);
+    this.swatch = colorList[color.color][color.colorCode];
     this.value = value;
     this.colorPalette = `${value}Palette`;
 
@@ -444,10 +482,10 @@ function paletteConstructorArray(paletteArray) {
 }
 
 /**
- * construct Palette objects
+ * construct Palette objects from color[key]'s
  * palettes =  [Palette, Palette, Palette, Palette];
  */
-palettes = paletteConstructorArray(palettes);
+var palettes = paletteConstructorArray(Object.keys(colors));
 console.log(palettes);
 
 // generate color swatches based on palettes
@@ -592,12 +630,13 @@ $('#compile').click(() => {
           if (args[i + 1]) {
 
             /**
-             * since the default colorList values are strings
-             * we need to evaluate them if they are unchanged by the user
+             * since the default color values are objects
+             * we need to evaluate differently if unchanged by user
              */
-            if (colors[jsVars[i]].indexOf('colorList') !== -1) {
-              return `$${cssVars[i]}: ${eval(colors[jsVars[i]])};`;
-            } else {
+            if (typeof colors[jsVars[i]] === 'object') {
+              let color = colors[jsVars[i]];
+              return `$${cssVars[i]}: ${colorList[color.color][color.colorCode]};`;
+            } else if (typeof colors[jsVars[i]] === 'string') {
               return `$${cssVars[i]}: ${colors[jsVars[i]]};`;
             }
           }
