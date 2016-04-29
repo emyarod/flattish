@@ -427,7 +427,7 @@ for (var key in colors) {
  * spectrum color pickers
  * initialize all new palettes
  */
-function paletteConstructorArray(keys) {
+function paletteConstructorArray(keyArray) {
 
   // palette constructor
   function Palette(key) {
@@ -444,7 +444,7 @@ function paletteConstructorArray(keys) {
   }
 
   let newArray = [];
-  keys.forEach((element, index, array) => (
+  keyArray.forEach((element, index, array) => (
     newArray.push(new Palette(array[index]))
   ));
 
