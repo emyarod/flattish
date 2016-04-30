@@ -545,7 +545,7 @@ for (var key in Sass.maps) {
   }
 }
 
-function replacer(input, varNameArray, regexArray) {
+function varEditor(input, varNameArray, regexArray) {
   /**
   * search for capital letters and convert to hyphen + lowercase letter
   * e.g. darkPrimary => dark-primary
@@ -598,13 +598,12 @@ $('#compile').click(() => {
         // replace color variables
         for (var key in colors) {
           if (colors.hasOwnProperty(key)) {
-            replacer(key, cssColors, regexPatterns);
+            varEditor(key, cssColors, regexPatterns);
           }
         }
       }), (...args) => {
         for (var i = 0; i < Object.keys(colors).length; i++) {
           if (args[i + 1]) {
-
             /**
              * since the default color values are objects
              * we need to evaluate differently if unchanged by user
