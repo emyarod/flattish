@@ -580,9 +580,22 @@ function varEditor(input, varNameArray, regexArray) {
 }
 
 // create regexp patterns
-function regexPatternCreator(regexArray, callback) {
-  callback();
+function regexPatternCreator(callback, varNameArray, regexArray) {
+  callback(varNameArray, regexArray);
   return new RegExp(regexArray.join('|'), 'g');
+}
+
+function colorVarEditor(varNameArray, regexArray) {
+  // replace color variables
+  for (var key in colors) {
+    if (colors.hasOwnProperty(key)) {
+      varEditor(key, varNameArray, regexArray);
+    }
+  }
+}
+
+function headerVarEditor(varNameArray, regexArray) {
+  varEditor('headerLarge', varNameArray, regexArray);
 }
 
 $('#compile').click(() => {
@@ -594,14 +607,7 @@ $('#compile').click(() => {
       let regexPatterns = [];
 
       // replace Sass variables
-      content = content.replace(regexPatternCreator(regexPatterns, () => {
-        // replace color variables
-        for (var key in colors) {
-          if (colors.hasOwnProperty(key)) {
-            varEditor(key, cssColors, regexPatterns);
-          }
-        }
-      }), (...args) => {
+      content = content.replace(regexPatternCreator(colorVarEditor, cssColors, regexPatterns), (...args) => {
         for (var i = 0; i < Object.keys(colors).length; i++) {
           if (args[i + 1]) {
             /**
@@ -618,12 +624,21 @@ $('#compile').click(() => {
         }
       });
 
-      // if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      //   console.log('checked');
-      //   replacer('headerLarge');
-      // } else {
-      //   console.log('not checked');
-      // }
+      if ($('#large-header-checkbox:checkbox').prop('checked')) {
+        let varNames = [];
+        let testPatterns = [];
+        console.log('checked');
+        content = content.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
+          return `$${varNames[0]}: ${true};`;
+        });
+      } else {
+        let varNames = [];
+        let testPatterns = [];
+        console.log('not checked');
+        content = content.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
+          return `$${varNames[0]}: ${false};`;
+        });
+      }
 
       // register file to be available for @import
       sass.writeFile('flattish/utils/_vars.scss', content, (success) => {
