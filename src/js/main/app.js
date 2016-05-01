@@ -598,10 +598,10 @@ function headerVarEditor(varNameArray, regexArray) {
   varEditor('headerLarge', varNameArray, regexArray);
 }
 
-function replacer(inputString, replacementValue, callback) {
+function replacer(inputString, varEditor, replacementValue, callback) {
   let varNames = [];
   let testPatterns = [];
-  inputString = inputString.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
+  inputString = inputString.replace(regexPatternCreator(varEditor, varNames, testPatterns), (...args) => {
     return callback(varNames, replacementValue, ...args);
   });
   return inputString;
@@ -613,29 +613,21 @@ function booleanCallback(varNames, replacementValue, ...args) {
   }
 }
 
-function colorReplacer(inputString) {
-  let cssColors = [];
-  let regexPatterns = [];
-
-  // replace Sass variables
-  inputString = inputString.replace(regexPatternCreator(colorVarEditor, cssColors, regexPatterns), (...args) => {
-    for (var i = 0; i < Object.keys(colors).length; i++) {
-      if (args[i + 1]) {
-        /**
-         * since the default color values are objects
-         * we need to evaluate differently if unchanged by user
-         */
-        if (typeof colors[Object.keys(colors)[i]] === 'object') {
-          let color = colors[Object.keys(colors)[i]];
-          return `$${cssColors[i]}: ${colorList[color.color][color.colorCode]};`;
-        } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
-          return `$${cssColors[i]}: ${colors[Object.keys(colors)[i]]};`;
-        }
+function colorCallback(varNames, replacementValue, ...args) {
+  for (var i = 0; i < replacementValue.length; i++) {
+    if (args[i + 1]) {
+      /**
+       * since the default color values are objects
+       * we need to evaluate differently if unchanged by user
+       */
+      if (typeof colors[replacementValue[i]] === 'object') {
+        let color = colors[replacementValue[i]];
+        return `$${varNames[i]}: ${colorList[color.color][color.colorCode]};`;
+      } else if (typeof colors[replacementValue[i]] === 'string') {
+        return `$${varNames[i]}: ${colors[replacementValue[i]]};`;
       }
     }
-  });
-
-  return inputString;
+  }
 }
 
 $('#compile').click(() => {
@@ -643,35 +635,18 @@ $('#compile').click(() => {
   sass.readFile('flattish/utils/_vars.scss', (content) => {
     if (content !== undefined) {
       console.log('reading _vars.scss');
-      // let cssColors = [];
-      // let regexPatterns = [];
-      //
-      // // replace Sass variables
-      // content = content.replace(regexPatternCreator(colorVarEditor, cssColors, regexPatterns), (...args) => {
-      //   for (var i = 0; i < Object.keys(colors).length; i++) {
-      //     if (args[i + 1]) {
-      //       /**
-      //        * since the default color values are objects
-      //        * we need to evaluate differently if unchanged by user
-      //        */
-      //       if (typeof colors[Object.keys(colors)[i]] === 'object') {
-      //         let color = colors[Object.keys(colors)[i]];
-      //         return `$${cssColors[i]}: ${colorList[color.color][color.colorCode]};`;
-      //       } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
-      //         return `$${cssColors[i]}: ${colors[Object.keys(colors)[i]]};`;
-      //       }
-      //     }
-      //   }
-      // });
 
-      content = colorReplacer(content);
+      // replace Sass variables
+      // colors
+      content = replacer(content, colorVarEditor, Object.keys(colors), colorCallback);
 
+      // large header
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
         console.log('checked');
-        content = replacer(content, true, booleanCallback);
+        content = replacer(content, headerVarEditor, true, booleanCallback);
       } else {
         console.log('not checked');
-        content = replacer(content, false, booleanCallback);
+        content = replacer(content, headerVarEditor, false, booleanCallback);
       }
 
       // register file to be available for @import
