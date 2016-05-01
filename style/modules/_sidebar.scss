@@ -94,7 +94,12 @@
 	}
 
 	// sidebar markdown area
-	.md table { width: 100%; }
+	.md {
+		table { width: 100%; }
+
+		// hide nightmode compatibility link
+		a[href="#/RES_SR_Config/NightModeCompatible"] { display: none; }
+	}
 }
 
 // login form
