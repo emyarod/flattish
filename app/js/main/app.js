@@ -5,7 +5,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var colorList = {
-  red: {
+  'red': {
     '50': '#ffebee',
     '100': '#ffcdd2',
     '200': '#ef9a9a',
@@ -21,7 +21,7 @@ var colorList = {
     'A400': '#ff1744',
     'A700': '#d50000'
   },
-  pink: {
+  'pink': {
     '50': '#fce4ec',
     '100': '#f8bbd0',
     '200': '#f48fb1',
@@ -37,7 +37,7 @@ var colorList = {
     'A400': '#f50057',
     'A700': '#c51162'
   },
-  purple: {
+  'purple': {
     '50': '#f3e5f5',
     '100': '#e1bee7',
     '200': '#ce93d8',
@@ -53,7 +53,7 @@ var colorList = {
     'A400': '#d500f9',
     'A700': '#aa00ff'
   },
-  deepPurple: {
+  'deepPurple': {
     '50': '#ede7f6',
     '100': '#d1c4e9',
     '200': '#b39ddb',
@@ -69,7 +69,7 @@ var colorList = {
     'A400': '#651fff',
     'A700': '#6200ea'
   },
-  indigo: {
+  'indigo': {
     '50': '#e8eaf6',
     '100': '#c5cae9',
     '200': '#9fa8da',
@@ -85,7 +85,7 @@ var colorList = {
     'A400': '#3d5afe',
     'A700': '#304ffe'
   },
-  blue: {
+  'blue': {
     '50': '#e3f2fd',
     '100': '#bbdefb',
     '200': '#90caf9',
@@ -101,7 +101,7 @@ var colorList = {
     'A400': '#2979ff',
     'A700': '#2962ff'
   },
-  lightBlue: {
+  'lightBlue': {
     '50': '#e1f5fe',
     '100': '#b3e5fc',
     '200': '#81d4fa',
@@ -117,7 +117,7 @@ var colorList = {
     'A400': '#00b0ff',
     'A700': '#0091ea'
   },
-  cyan: {
+  'cyan': {
     '50': '#e0f7fa',
     '100': '#b2ebf2',
     '200': '#80deea',
@@ -133,7 +133,7 @@ var colorList = {
     'A400': '#00e5ff',
     'A700': '#00b8d4'
   },
-  teal: {
+  'teal': {
     '50': '#e0f2f1',
     '100': '#b2dfdb',
     '200': '#80cbc4',
@@ -149,7 +149,7 @@ var colorList = {
     'A400': '#1de9b6',
     'A700': '#00bfa5'
   },
-  green: {
+  'green': {
     '50': '#e8f5e9',
     '100': '#c8e6c9',
     '200': '#a5d6a7',
@@ -165,7 +165,7 @@ var colorList = {
     'A400': '#00e676',
     'A700': '#00c853'
   },
-  lightGreen: {
+  'lightGreen': {
     '50': '#f1f8e9',
     '100': '#dcedc8',
     '200': '#c5e1a5',
@@ -181,7 +181,7 @@ var colorList = {
     'A400': '#76ff03',
     'A700': '#64dd17'
   },
-  lime: {
+  'lime': {
     '50': '#f9fbe7',
     '100': '#f0f4c3',
     '200': '#e6ee9c',
@@ -197,7 +197,7 @@ var colorList = {
     'A400': '#c6ff00',
     'A700': '#aeea00'
   },
-  yellow: {
+  'yellow': {
     '50': '#fffde7',
     '100': '#fff9c4',
     '200': '#fff59d',
@@ -213,7 +213,7 @@ var colorList = {
     'A400': '#ffea00',
     'A700': '#ffd600'
   },
-  amber: {
+  'amber': {
     '50': '#fff8e1',
     '100': '#ffecb3',
     '200': '#ffe082',
@@ -229,7 +229,7 @@ var colorList = {
     'A400': '#ffc400',
     'A700': '#ffab00'
   },
-  orange: {
+  'orange': {
     '50': '#fff3e0',
     '100': '#ffe0b2',
     '200': '#ffcc80',
@@ -245,7 +245,7 @@ var colorList = {
     'A400': '#ff9100',
     'A700': '#ff6d00'
   },
-  deepOrange: {
+  'deepOrange': {
     '50': '#fbe9e7',
     '100': '#ffccbc',
     '200': '#ffab91',
@@ -261,7 +261,7 @@ var colorList = {
     'A400': '#ff3d00',
     'A700': '#dd2c00'
   },
-  brown: {
+  'brown': {
     '50': '#efebe9',
     '100': '#d7ccc8',
     '200': '#bcaaa4',
@@ -273,7 +273,7 @@ var colorList = {
     '800': '#4e342e',
     '900': '#3e2723'
   },
-  grey: {
+  'grey': {
     '50': '#fafafa',
     '100': '#f5f5f5',
     '200': '#eeeeee',
@@ -285,7 +285,7 @@ var colorList = {
     '800': '#424242',
     '900': '#212121'
   },
-  blueGrey: {
+  'blueGrey': {
     '50': '#eceff1',
     '100': '#cfd8dc',
     '200': '#b0bec5',
@@ -453,7 +453,6 @@ function paletteConstructorArray(keyArray) {
   keyArray.forEach(function (element, index, array) {
     return newArray.push(new Palette(array[index]));
   });
-
   return newArray;
 }
 
@@ -548,7 +547,8 @@ for (var key in Sass.maps) {
   }
 }
 
-function replacer(input, varNameArray, regexArray) {
+// edit _vars.scss
+function varEditor(input, varNameArray, regexArray) {
   /**
   * search for capital letters and convert to hyphen + lowercase letter
   * e.g. darkPrimary => dark-primary
@@ -565,14 +565,14 @@ function replacer(input, varNameArray, regexArray) {
       } else {
         var _input$match = input.match(/[A-Z]/g);
         /**
-        * Array destructuring
-        *
-        * [capitalLetters] = input.match(/[A-Z]/g);
-        *
-        * instead of
-        *
-        * capitalLetters = input.match(/[A-Z]/g)[0];
-        */
+         * Array destructuring
+         *
+         * [capitalLetters] = input.match(/[A-Z]/g);
+         *
+         * instead of
+         *
+         * capitalLetters = input.match(/[A-Z]/g)[0];
+         */
 
 
         var _input$match2 = _slicedToArray(_input$match, 1);
@@ -591,73 +591,116 @@ function replacer(input, varNameArray, regexArray) {
 }
 
 // create regexp patterns
-function regexPatternCreator(regexArray, callback) {
-  callback();
+function regexPatternCreator(callback, varNameArray, regexArray) {
+  callback(varNameArray, regexArray);
   return new RegExp(regexArray.join('|'), 'g');
+}
+
+// callback for booleans
+function booleanCallback(varNames, replacementValue) {
+  if (arguments.length <= 3 ? undefined : arguments[3]) {
+    return '$' + varNames[0] + ': ' + replacementValue + ';';
+  }
+}
+
+/**
+ * replace _vars.scss values with values from varEditor()
+ *
+ * function replacer(inputString, varEditor, replacementValue, callback) {
+ *   let varNames = [];
+ *   let testPatterns = [];
+ *   inputString = inputString.replace(regexPatternCreator(varEditor, varNames, testPatterns), (...args) => {
+ *     return callback(varNames, replacementValue, ...args);
+ *   });
+ *   return inputString;
+ * }
+ */
+function replacer(inputString, varType, replacementValue) {
+  var variable = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
+
+  var varNames = [];
+  var testPatterns = [];
+
+  // replace color variables
+  if (varType === 'color') {
+    inputString = inputString.replace(regexPatternCreator(function (varNames, testPatterns) {
+      for (var key in colors) {
+        if (colors.hasOwnProperty(key)) {
+          varEditor(key, varNames, testPatterns);
+        }
+      }
+    }, varNames, testPatterns), function () {
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      for (var i = 0; i < replacementValue.length; i++) {
+        if (args[i + 1]) {
+          /**
+           * since the default color values are objects
+           * we need to evaluate differently if unchanged by user
+           */
+          if (_typeof(colors[replacementValue[i]]) === 'object') {
+            var color = colors[replacementValue[i]];
+            return '$' + varNames[i] + ': ' + colorList[color.color][color.colorCode] + ';';
+          } else if (typeof colors[replacementValue[i]] === 'string') {
+            return '$' + varNames[i] + ': ' + colors[replacementValue[i]] + ';';
+          }
+        }
+      }
+    });
+    return inputString;
+  }
+
+  // replace boolean variables
+  if (varType === 'bool') {
+    inputString = inputString.replace(regexPatternCreator(function (varNames, testPatterns) {
+      varEditor(variable, varNames, testPatterns);
+    }, varNames, testPatterns), function () {
+      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+
+      return booleanCallback.apply(undefined, [varNames, replacementValue].concat(args));
+    });
+    return inputString;
+  }
 }
 
 $('#compile').click(function () {
   // get file content
   sass.readFile('flattish/utils/_vars.scss', function (content) {
     if (content !== undefined) {
-      (function () {
-        console.log('reading _vars.scss');
-        var cssColors = [];
-        var regexPatterns = [];
+      console.log('reading _vars.scss');
 
-        // replace Sass variables
-        content = content.replace(regexPatternCreator(regexPatterns, function () {
-          // replace color variables
-          for (var key in colors) {
-            if (colors.hasOwnProperty(key)) {
-              replacer(key, cssColors, regexPatterns);
-            }
-          }
-        }), function () {
-          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
+      // replace Sass variables
+      // colors
+      content = replacer(content, 'color', Object.keys(colors));
 
-          for (var i = 0; i < Object.keys(colors).length; i++) {
-            if (args[i + 1]) {
+      // large header
+      if ($('#large-header-checkbox:checkbox').prop('checked')) {
+        console.log('checked');
+        content = replacer(content, 'bool', true, 'headerLarge');
+      } else {
+        console.log('not checked');
+        content = replacer(content, 'bool', false, 'headerLarge');
+      }
 
-              /**
-               * since the default color values are objects
-               * we need to evaluate differently if unchanged by user
-               */
-              if (_typeof(colors[Object.keys(colors)[i]]) === 'object') {
-                var color = colors[Object.keys(colors)[i]];
-                return '$' + cssColors[i] + ': ' + colorList[color.color][color.colorCode] + ';';
-              } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
-                return '$' + cssColors[i] + ': ' + colors[Object.keys(colors)[i]] + ';';
-              }
-            }
-          }
+      // register file to be available for @import
+      sass.writeFile('flattish/utils/_vars.scss', content, function (success) {
+        if (success) {
+          console.log('_vars.scss successfully written');
+        } else {
+          console.log('writeFile failed');
+        }
+
+        // compile main Sass file
+        sass.compileFile('flattish/flattish.scss', function (result) {
+          console.log('compiled');
+          console.log(result);
+          $('#target').html(result.text);
         });
-
-        // if ($('#large-header-checkbox:checkbox').prop('checked')) {
-        //   console.log('checked');
-        //   replacer('headerLarge');
-        // } else {
-        //   console.log('not checked');
-        // }
-
-        // register file to be available for @import
-        sass.writeFile('flattish/utils/_vars.scss', content, function (success) {
-          if (success) {
-            console.log('_vars.scss successfully written');
-          } else {
-            console.log('writeFile failed');
-          }
-
-          // compile main Sass file
-          sass.compileFile('flattish/flattish.scss', function (result) {
-            console.log('compiled');
-            console.log(result);
-            $('#target').html(result.text);
-          });
-        });
-      })();
+      });
     } else {
       console.log('readFile failed');
     }
