@@ -598,16 +598,43 @@ function headerVarEditor(varNameArray, regexArray) {
   varEditor('headerLarge', varNameArray, regexArray);
 }
 
-function boolReplacer(inputString, boolValue) {
+function replacer(inputString, replacementValue, callback) {
   let varNames = [];
   let testPatterns = [];
   inputString = inputString.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
+    return callback(varNames, replacementValue, ...args);
+  });
+  return inputString;
+}
 
-    // perform replacement if a match is found
-    if (args[1]) {
-      return `$${varNames[0]}: ${boolValue};`;
+function booleanCallback(varNames, replacementValue, ...args) {
+  if (args[1]) {
+    return `$${varNames[0]}: ${replacementValue};`;
+  }
+}
+
+function colorReplacer(inputString) {
+  let cssColors = [];
+  let regexPatterns = [];
+
+  // replace Sass variables
+  inputString = inputString.replace(regexPatternCreator(colorVarEditor, cssColors, regexPatterns), (...args) => {
+    for (var i = 0; i < Object.keys(colors).length; i++) {
+      if (args[i + 1]) {
+        /**
+         * since the default color values are objects
+         * we need to evaluate differently if unchanged by user
+         */
+        if (typeof colors[Object.keys(colors)[i]] === 'object') {
+          let color = colors[Object.keys(colors)[i]];
+          return `$${cssColors[i]}: ${colorList[color.color][color.colorCode]};`;
+        } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
+          return `$${cssColors[i]}: ${colors[Object.keys(colors)[i]]};`;
+        }
+      }
     }
   });
+
   return inputString;
 }
 
@@ -616,33 +643,35 @@ $('#compile').click(() => {
   sass.readFile('flattish/utils/_vars.scss', (content) => {
     if (content !== undefined) {
       console.log('reading _vars.scss');
-      let cssColors = [];
-      let regexPatterns = [];
+      // let cssColors = [];
+      // let regexPatterns = [];
+      //
+      // // replace Sass variables
+      // content = content.replace(regexPatternCreator(colorVarEditor, cssColors, regexPatterns), (...args) => {
+      //   for (var i = 0; i < Object.keys(colors).length; i++) {
+      //     if (args[i + 1]) {
+      //       /**
+      //        * since the default color values are objects
+      //        * we need to evaluate differently if unchanged by user
+      //        */
+      //       if (typeof colors[Object.keys(colors)[i]] === 'object') {
+      //         let color = colors[Object.keys(colors)[i]];
+      //         return `$${cssColors[i]}: ${colorList[color.color][color.colorCode]};`;
+      //       } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
+      //         return `$${cssColors[i]}: ${colors[Object.keys(colors)[i]]};`;
+      //       }
+      //     }
+      //   }
+      // });
 
-      // replace Sass variables
-      content = content.replace(regexPatternCreator(colorVarEditor, cssColors, regexPatterns), (...args) => {
-        for (var i = 0; i < Object.keys(colors).length; i++) {
-          if (args[i + 1]) {
-            /**
-             * since the default color values are objects
-             * we need to evaluate differently if unchanged by user
-             */
-            if (typeof colors[Object.keys(colors)[i]] === 'object') {
-              let color = colors[Object.keys(colors)[i]];
-              return `$${cssColors[i]}: ${colorList[color.color][color.colorCode]};`;
-            } else if (typeof colors[Object.keys(colors)[i]] === 'string') {
-              return `$${cssColors[i]}: ${colors[Object.keys(colors)[i]]};`;
-            }
-          }
-        }
-      });
+      content = colorReplacer(content);
 
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
         console.log('checked');
-        content = boolReplacer(content, true);
+        content = replacer(content, true, booleanCallback);
       } else {
         console.log('not checked');
-        content = boolReplacer(content, false);
+        content = replacer(content, false, booleanCallback);
       }
 
       // register file to be available for @import
