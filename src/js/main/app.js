@@ -1,5 +1,5 @@
 var colorList = {
-  red: {
+  'red': {
     '50': '#ffebee',
     '100': '#ffcdd2',
     '200': '#ef9a9a',
@@ -15,7 +15,7 @@ var colorList = {
     'A400': '#ff1744',
     'A700': '#d50000'
   },
-  pink: {
+  'pink': {
     '50': '#fce4ec',
     '100': '#f8bbd0',
     '200': '#f48fb1',
@@ -31,7 +31,7 @@ var colorList = {
     'A400': '#f50057',
     'A700': '#c51162'
   },
-  purple: {
+  'purple': {
     '50': '#f3e5f5',
     '100': '#e1bee7',
     '200': '#ce93d8',
@@ -47,7 +47,7 @@ var colorList = {
     'A400': '#d500f9',
     'A700': '#aa00ff'
   },
-  deepPurple: {
+  'deepPurple': {
     '50': '#ede7f6',
     '100': '#d1c4e9',
     '200': '#b39ddb',
@@ -63,7 +63,7 @@ var colorList = {
     'A400': '#651fff',
     'A700': '#6200ea'
   },
-  indigo: {
+  'indigo': {
     '50': '#e8eaf6',
     '100': '#c5cae9',
     '200': '#9fa8da',
@@ -79,7 +79,7 @@ var colorList = {
     'A400': '#3d5afe',
     'A700': '#304ffe'
   },
-  blue: {
+  'blue': {
     '50': '#e3f2fd',
     '100': '#bbdefb',
     '200': '#90caf9',
@@ -95,7 +95,7 @@ var colorList = {
     'A400': '#2979ff',
     'A700': '#2962ff'
   },
-  lightBlue: {
+  'lightBlue': {
     '50': '#e1f5fe',
     '100': '#b3e5fc',
     '200': '#81d4fa',
@@ -111,7 +111,7 @@ var colorList = {
     'A400': '#00b0ff',
     'A700': '#0091ea'
   },
-  cyan: {
+  'cyan': {
     '50': '#e0f7fa',
     '100': '#b2ebf2',
     '200': '#80deea',
@@ -127,7 +127,7 @@ var colorList = {
     'A400': '#00e5ff',
     'A700': '#00b8d4'
   },
-  teal: {
+  'teal': {
     '50': '#e0f2f1',
     '100': '#b2dfdb',
     '200': '#80cbc4',
@@ -143,7 +143,7 @@ var colorList = {
     'A400': '#1de9b6',
     'A700': '#00bfa5'
   },
-  green: {
+  'green': {
     '50': '#e8f5e9',
     '100': '#c8e6c9',
     '200': '#a5d6a7',
@@ -159,7 +159,7 @@ var colorList = {
     'A400': '#00e676',
     'A700': '#00c853'
   },
-  lightGreen: {
+  'lightGreen': {
     '50': '#f1f8e9',
     '100': '#dcedc8',
     '200': '#c5e1a5',
@@ -175,7 +175,7 @@ var colorList = {
     'A400': '#76ff03',
     'A700': '#64dd17'
   },
-  lime: {
+  'lime': {
     '50': '#f9fbe7',
     '100': '#f0f4c3',
     '200': '#e6ee9c',
@@ -191,7 +191,7 @@ var colorList = {
     'A400': '#c6ff00',
     'A700': '#aeea00'
   },
-  yellow: {
+  'yellow': {
     '50': '#fffde7',
     '100': '#fff9c4',
     '200': '#fff59d',
@@ -207,7 +207,7 @@ var colorList = {
     'A400': '#ffea00',
     'A700': '#ffd600'
   },
-  amber: {
+  'amber': {
     '50': '#fff8e1',
     '100': '#ffecb3',
     '200': '#ffe082',
@@ -223,7 +223,7 @@ var colorList = {
     'A400': '#ffc400',
     'A700': '#ffab00'
   },
-  orange: {
+  'orange': {
     '50': '#fff3e0',
     '100': '#ffe0b2',
     '200': '#ffcc80',
@@ -239,7 +239,7 @@ var colorList = {
     'A400': '#ff9100',
     'A700': '#ff6d00'
   },
-  deepOrange: {
+  'deepOrange': {
     '50': '#fbe9e7',
     '100': '#ffccbc',
     '200': '#ffab91',
@@ -255,7 +255,7 @@ var colorList = {
     'A400': '#ff3d00',
     'A700': '#dd2c00'
   },
-  brown: {
+  'brown': {
     '50': '#efebe9',
     '100': '#d7ccc8',
     '200': '#bcaaa4',
@@ -267,7 +267,7 @@ var colorList = {
     '800': '#4e342e',
     '900': '#3e2723'
   },
-  grey: {
+  'grey': {
     '50': '#fafafa',
     '100': '#f5f5f5',
     '200': '#eeeeee',
@@ -279,7 +279,7 @@ var colorList = {
     '800': '#424242',
     '900': '#212121'
   },
-  blueGrey: {
+  'blueGrey': {
     '50': '#eceff1',
     '100': '#cfd8dc',
     '200': '#b0bec5',
@@ -447,7 +447,6 @@ function paletteConstructorArray(keyArray) {
   keyArray.forEach((element, index, array) => (
     newArray.push(new Palette(array[index]))
   ));
-
   return newArray;
 }
 
@@ -545,6 +544,7 @@ for (var key in Sass.maps) {
   }
 }
 
+// edit _vars.scss
 function varEditor(input, varNameArray, regexArray) {
   /**
   * search for capital letters and convert to hyphen + lowercase letter
@@ -560,14 +560,14 @@ function varEditor(input, varNameArray, regexArray) {
       });
     } else {
       /**
-      * Array destructuring
-      *
-      * [capitalLetters] = input.match(/[A-Z]/g);
-      *
-      * instead of
-      *
-      * capitalLetters = input.match(/[A-Z]/g)[0];
-      */
+       * Array destructuring
+       *
+       * [capitalLetters] = input.match(/[A-Z]/g);
+       *
+       * instead of
+       *
+       * capitalLetters = input.match(/[A-Z]/g)[0];
+       */
       [capitalLetters] = input.match(/[A-Z]/g);
       input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
     }
@@ -585,48 +585,64 @@ function regexPatternCreator(callback, varNameArray, regexArray) {
   return new RegExp(regexArray.join('|'), 'g');
 }
 
-function colorVarEditor(varNameArray, regexArray) {
-  // replace color variables
-  for (var key in colors) {
-    if (colors.hasOwnProperty(key)) {
-      varEditor(key, varNameArray, regexArray);
-    }
-  }
-}
-
-function headerVarEditor(varNameArray, regexArray) {
-  varEditor('headerLarge', varNameArray, regexArray);
-}
-
-function replacer(inputString, varEditor, replacementValue, callback) {
-  let varNames = [];
-  let testPatterns = [];
-  inputString = inputString.replace(regexPatternCreator(varEditor, varNames, testPatterns), (...args) => {
-    return callback(varNames, replacementValue, ...args);
-  });
-  return inputString;
-}
-
+// callback for booleans
 function booleanCallback(varNames, replacementValue, ...args) {
   if (args[1]) {
     return `$${varNames[0]}: ${replacementValue};`;
   }
 }
 
-function colorCallback(varNames, replacementValue, ...args) {
-  for (var i = 0; i < replacementValue.length; i++) {
-    if (args[i + 1]) {
-      /**
-       * since the default color values are objects
-       * we need to evaluate differently if unchanged by user
-       */
-      if (typeof colors[replacementValue[i]] === 'object') {
-        let color = colors[replacementValue[i]];
-        return `$${varNames[i]}: ${colorList[color.color][color.colorCode]};`;
-      } else if (typeof colors[replacementValue[i]] === 'string') {
-        return `$${varNames[i]}: ${colors[replacementValue[i]]};`;
+/**
+ * replace _vars.scss values with values from varEditor()
+ *
+ * function replacer(inputString, varEditor, replacementValue, callback) {
+ *   let varNames = [];
+ *   let testPatterns = [];
+ *   inputString = inputString.replace(regexPatternCreator(varEditor, varNames, testPatterns), (...args) => {
+ *     return callback(varNames, replacementValue, ...args);
+ *   });
+ *   return inputString;
+ * }
+ */
+function replacer(inputString, varType, replacementValue, variable = null) {
+  let varNames = [];
+  let testPatterns = [];
+
+  // replace color variables
+  if (varType === 'color') {
+    inputString = inputString.replace(regexPatternCreator((varNames, testPatterns) => {
+      for (var key in colors) {
+        if (colors.hasOwnProperty(key)) {
+          varEditor(key, varNames, testPatterns);
+        }
       }
-    }
+    }, varNames, testPatterns), (...args) => {
+      for (var i = 0; i < replacementValue.length; i++) {
+        if (args[i + 1]) {
+          /**
+           * since the default color values are objects
+           * we need to evaluate differently if unchanged by user
+           */
+          if (typeof colors[replacementValue[i]] === 'object') {
+            let color = colors[replacementValue[i]];
+            return `$${varNames[i]}: ${colorList[color.color][color.colorCode]};`;
+          } else if (typeof colors[replacementValue[i]] === 'string') {
+            return `$${varNames[i]}: ${colors[replacementValue[i]]};`;
+          }
+        }
+      }
+    });
+    return inputString;
+  }
+
+  // replace boolean variables
+  if (varType === 'bool') {
+    inputString = inputString.replace(regexPatternCreator((varNames, testPatterns) => {
+      varEditor(variable, varNames, testPatterns);
+    }, varNames, testPatterns), (...args) => {
+      return booleanCallback(varNames, replacementValue, ...args);
+    });
+    return inputString;
   }
 }
 
@@ -638,15 +654,15 @@ $('#compile').click(() => {
 
       // replace Sass variables
       // colors
-      content = replacer(content, colorVarEditor, Object.keys(colors), colorCallback);
+      content = replacer(content, 'color', Object.keys(colors));
 
       // large header
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
         console.log('checked');
-        content = replacer(content, headerVarEditor, true, booleanCallback);
+        content = replacer(content, 'bool', true, 'headerLarge');
       } else {
         console.log('not checked');
-        content = replacer(content, headerVarEditor, false, booleanCallback);
+        content = replacer(content, 'bool', false, 'headerLarge');
       }
 
       // register file to be available for @import
