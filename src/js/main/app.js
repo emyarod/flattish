@@ -598,6 +598,19 @@ function headerVarEditor(varNameArray, regexArray) {
   varEditor('headerLarge', varNameArray, regexArray);
 }
 
+function boolReplacer(inputString, boolValue) {
+  let varNames = [];
+  let testPatterns = [];
+  inputString = inputString.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
+
+    // perform replacement if a match is found
+    if (args[1]) {
+      return `$${varNames[0]}: ${boolValue};`;
+    }
+  });
+  return inputString;
+}
+
 $('#compile').click(() => {
   // get file content
   sass.readFile('flattish/utils/_vars.scss', (content) => {
@@ -625,19 +638,11 @@ $('#compile').click(() => {
       });
 
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
-        let varNames = [];
-        let testPatterns = [];
         console.log('checked');
-        content = content.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
-          return `$${varNames[0]}: ${true};`;
-        });
+        content = boolReplacer(content, true);
       } else {
-        let varNames = [];
-        let testPatterns = [];
         console.log('not checked');
-        content = content.replace(regexPatternCreator(headerVarEditor, varNames, testPatterns), (...args) => {
-          return `$${varNames[0]}: ${false};`;
-        });
+        content = boolReplacer(content, false);
       }
 
       // register file to be available for @import
