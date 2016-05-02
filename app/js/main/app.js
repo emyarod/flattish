@@ -484,7 +484,7 @@ function createSpectrum(id, swatch) {
   // show input text box
   $(id).show();
 
-  $(id).on('change', function () {
+  $(id).change(function () {
     // set spectrum value equal to input field value
     $(id).spectrum('set', $(id).val());
 
@@ -664,32 +664,29 @@ function replacer(inputString, varType, replacementValue) {
 $('#rotating-header-checkbox:checkbox').change(function () {
   var bezierEasing = [0.4, 0, 0.2, 1];
   if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-    $('#rotating-header').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
+    // show div
+    $('#rotating-header__div').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
 
     // enable input field
-    $('#rotating-header__input').prop('disabled', false).prop('required', true);
+    $('#rotating-header__input').prop({
+      'disabled': false,
+      'required': true,
+      'autofocus': true
+    });
   } else {
-    $('#rotating-header').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
+    // hide div
+    $('#rotating-header__div').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
 
     // disable input field
-    $('#rotating-header__input').prop('disabled', true).prop('required', false);
+    $('#rotating-header__input').prop({
+      'disabled': true,
+      'required': false,
+      'autofocus': false
+    });
   }
 });
 
-$('#rotating-header__input').change(function () {
-  if ($('#rotating-header__input').is(':invalid')) {
-    $('#rotating-header').addClass('has-error');
-
-    // disable compile button if invalid value
-    $('#compile').prop('disabled', true);
-  } else {
-    $('#rotating-header').removeClass('has-error');
-
-    // enable compile button
-    $('#compile').prop('disabled', false);
-  }
-});
-
+// compile
 $('#compile').click(function () {
   // get file content
   sass.readFile('flattish/utils/_vars.scss', function (content) {
