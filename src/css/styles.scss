@@ -28,6 +28,11 @@
 }
 
 // random, rotating header
-#rotating-header {
+#rotating-header__div {
   display: none;
+}
+
+#rotating-header__input option {
+  padding: 15px 0;
+  text-align: center;
 }
