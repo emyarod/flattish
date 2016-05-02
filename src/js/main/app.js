@@ -644,20 +644,28 @@ $('#rotating-header-checkbox:checkbox').change(() => {
   let bezierEasing = [0.4, 0, 0.2, 1];
   if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
     // show div
-    $('#rotating-header').show(200, $.bez(bezierEasing))
+    $('#rotating-header__div').show(200, $.bez(bezierEasing))
       .fadeIn(200, $.bez(bezierEasing))
       .slideDown(200, $.bez(bezierEasing));
 
     // enable input field
-    $('#rotating-header__input').prop('disabled', false).prop('required', true);
+    $('#rotating-header__input').prop({
+      'disabled': false,
+      'required': true,
+      'autofocus': true,
+    });
   } else {
     // hide div
-    $('#rotating-header').hide(200, $.bez(bezierEasing))
+    $('#rotating-header__div').hide(200, $.bez(bezierEasing))
       .fadeOut(200, $.bez(bezierEasing))
       .slideUp(200, $.bez(bezierEasing));
 
     // disable input field
-    $('#rotating-header__input').prop('disabled', true).prop('required', false);
+    $('#rotating-header__input').prop({
+      'disabled': true,
+      'required': false,
+      'autofocus': false,
+    });
   }
 });
 
