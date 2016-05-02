@@ -105,9 +105,10 @@ $screen-lg-min: em(1200, 16);
 // affects content, footer, header-bottom-left, sidebar, base
 $header-large: false;
 
-// random header
+// random, rotating header
 // affects header, base
 $random-header: false;
+$num-header-images: 2;
 
 // sidebar image
 // affects addons, footer, sidebar
