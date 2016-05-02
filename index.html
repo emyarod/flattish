@@ -20,9 +20,13 @@
     <section class="colors">
       <div class="row">
         <div class="col-md-4">
+
+          <!-- COLORS -->
           <div class="color-pickers">
             <h2>Colors</h2>
-            <div class="primary-colors">
+
+            <!-- PRIMARY -->
+            <div id="primary-colors">
               <h3>Primary colors</h3>
               <div class="color-picker form-group">
                 <label for="primaryColor" class="color-picker__label">primary color</label>
@@ -43,7 +47,9 @@
                 </div>
               </div>
             </div>
-            <div class="accent-colors">
+
+            <!-- ACCENT -->
+            <div id="accent-colors">
               <h3>Accent colors</h3>
               <div class="color-picker form-group">
                 <label for="accentColor" class="color-picker__label">accent color</label>
@@ -64,7 +70,9 @@
                 </div>
               </div>
             </div>
-            <div class="link-colors">
+
+            <!-- LINK COLORS -->
+            <div id="link-colors">
               <h3>Link colors</h3>
               <div class="color-picker form-group">
                 <label for="linkColorColor" class="color-picker__label">link color</label>
@@ -72,42 +80,50 @@
                   <input id="linkColorColorPicker" class="color-picker__spectrum form-control" value="#2196f3">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="linkColorHoverColor" class="color-picker__label">link color (hover)</label>
                 <div class="form-inputs">
                   <input id="linkColorHoverColorPicker" class="color-picker__spectrum form-control" value="#64b5f6">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="linkColorActiveColor" class="color-picker__label">link color (active)</label>
                 <div class="form-inputs">
                   <input id="linkColorActiveColorPicker" class="color-picker__spectrum form-control" value="#1976d2">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="linkColorVisitedColor" class="color-picker__label">link color (visited)</label>
                 <div class="form-inputs">
                   <input id="linkColorVisitedColorPicker" class="color-picker__spectrum form-control" value="#9575cd">
                 </div>
               </div>
+
+              <!-- NIGHTMODE LINK COLORS -->
               <div class="color-picker form-group">
                 <label for="linkColorNightColor" class="color-picker__label">nightmode link color</label>
                 <div class="form-inputs">
                   <input id="linkColorNightColorPicker" class="color-picker__spectrum form-control" value="#2196f3">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="linkColorHoverNightColor" class="color-picker__label">nightmode link color (hover)</label>
                 <div class="form-inputs">
                   <input id="linkColorHoverNightColorPicker" class="color-picker__spectrum form-control" value="#64b5f6">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="linkColorActiveNightColor" class="color-picker__label">nightmode link color (active)</label>
                 <div class="form-inputs">
                   <input id="linkColorActiveNightColorPicker" class="color-picker__spectrum form-control" value="#1976d2">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="linkColorVisitedNightColor" class="color-picker__label">nightmode link color (visited)</label>
                 <div class="form-inputs">
@@ -115,7 +131,9 @@
                 </div>
               </div>
             </div>
-            <div class="vote-arrows">
+
+            <!-- VOTE ARROWS -->
+            <div id="vote-arrows">
               <h3>Vote arrows</h3>
               <div class="color-picker form-group">
                 <label for="upvoteColor" class="color-picker__label">upvote</label>
@@ -123,6 +141,7 @@
                   <input id="upvoteColorPicker" class="color-picker__spectrum form-control" value="#ff5722">
                 </div>
               </div>
+
               <div class="color-picker form-group">
                 <label for="downvoteColor" class="color-picker__label">downvote</label>
                 <div class="form-inputs">
@@ -131,36 +150,62 @@
               </div>
             </div>
           </div>
+
+          <!-- ADDONS -->
           <div class="addons">
             <h2>Addons</h2>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="large-header-checkbox">Large header
-              </label>
+
+            <!-- LARGE HEADER -->
+            <div class="addons__checkbox-container form-group">
+              <div class="addons__checkbox checkbox">
+                <label>
+                  <input type="checkbox" id="large-header-checkbox">Large header
+                </label>
+              </div>
             </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="rotating-header-checkbox">Rotating header image
-              </label>
+
+            <!-- RANDOM, ROTATING HEADER -->
+            <div class="addons__checkbox-container form-group">
+              <div class="addons__checkbox checkbox">
+                <label>
+                  <input type="checkbox" id="rotating-header-checkbox">Rotating header image
+                </label>
+              </div>
+
+              <div class="rotating-header__form form-inline">
+                <div class="form-group" id="rotating-header">
+                  <label for="rotating-header__input"># of header images</label>
+                  <input id="rotating-header__input" type="number" class="form-control" value="2" min="2" max="36" step="1" pattern="\d+" disabled>
+                  <small><span id="helpBlock">(min. 2, max. 36)</span></small>
+                </div>
+              </div>
             </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="sidebar-image-checkbox">Sidebar image
-              </label>
+
+            <!-- SIDEBAR IMAGE -->
+            <div class="addons__checkbox-container form-group">
+              <div class="addons__checkbox checkbox">
+                <label>
+                  <input type="checkbox" id="sidebar-image-checkbox">Sidebar image
+                </label>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
+
     <div class="row">
       <p id="target"></p>
     </div>
+
     <div class="row">
       <input id="compile" class="btn btn-default" type="submit" value="Compile">
     </div>
 	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.bez/1.0.11/jquery.bez.min.js"></script>
   <script src="assets/sassjs/sass.js"></script>
   <script src="app/js/sassjs/bourbon.js"></script>
   <script src="app/js/sassjs/flattish.js"></script>
