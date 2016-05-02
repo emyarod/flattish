@@ -23,42 +23,62 @@
       background-attachment: scroll, fixed;
     }
 
-    &[value$="a"] ~ a::after { background-image: $scrim,url(%%header1%%); }
-    &[value$="b"] ~ a::after { background-image: $scrim,url(%%header2%%); }
-    &[value$="c"] ~ a::after { background-image: $scrim,url(%%header3%%); }
-    &[value$="d"] ~ a::after { background-image: $scrim,url(%%header4%%); }
-    &[value$="e"] ~ a::after { background-image: $scrim,url(%%header5%%); }
-    &[value$="f"] ~ a::after { background-image: $scrim,url(%%header6%%); }
-    &[value$="g"] ~ a::after { background-image: $scrim,url(%%header7%%); }
-    &[value$="h"] ~ a::after { background-image: $scrim,url(%%header8%%); }
-    &[value$="i"] ~ a::after { background-image: $scrim,url(%%header9%%); }
-    &[value$="j"] ~ a::after { background-image: $scrim,url(%%header10%%); }
-    &[value$="k"] ~ a::after { background-image: $scrim,url(%%header11%%); }
-    &[value$="l"] ~ a::after { background-image: $scrim,url(%%header12%%); }
-    &[value$="m"] ~ a::after { background-image: $scrim,url(%%header13%%); }
-    &[value$="n"] ~ a::after { background-image: $scrim,url(%%header14%%); }
-    &[value$="o"] ~ a::after { background-image: $scrim,url(%%header15%%); }
-    &[value$="p"] ~ a::after { background-image: $scrim,url(%%header16%%); }
-    &[value$="q"] ~ a::after { background-image: $scrim,url(%%header17%%); }
-    &[value$="r"] ~ a::after { background-image: $scrim,url(%%header18%%); }
-    &[value$="s"] ~ a::after { background-image: $scrim,url(%%header19%%); }
-    &[value$="t"] ~ a::after { background-image: $scrim,url(%%header20%%); }
-    &[value$="u"] ~ a::after { background-image: $scrim,url(%%header21%%); }
-    &[value$="v"] ~ a::after { background-image: $scrim,url(%%header22%%); }
-    &[value$="w"] ~ a::after { background-image: $scrim,url(%%header23%%); }
-    &[value$="x"] ~ a::after { background-image: $scrim,url(%%header24%%); }
-    &[value$="y"] ~ a::after { background-image: $scrim,url(%%header25%%); }
-    &[value$="z"] ~ a::after { background-image: $scrim,url(%%header26%%); }
-    &[value$="0"] ~ a::after { background-image: $scrim,url(%%header27%%); }
-    &[value$="1"] ~ a::after { background-image: $scrim,url(%%header28%%); }
-    &[value$="2"] ~ a::after { background-image: $scrim,url(%%header29%%); }
-    &[value$="3"] ~ a::after { background-image: $scrim,url(%%header30%%); }
-    &[value$="4"] ~ a::after { background-image: $scrim,url(%%header31%%); }
-    &[value$="5"] ~ a::after { background-image: $scrim,url(%%header32%%); }
-    &[value$="6"] ~ a::after { background-image: $scrim,url(%%header33%%); }
-    &[value$="7"] ~ a::after { background-image: $scrim,url(%%header34%%); }
-    &[value$="8"] ~ a::after { background-image: $scrim,url(%%header35%%); }
-    &[value$="9"] ~ a::after { background-image: $scrim,url(%%header36%%); }
+    // declare lists
+    $header-images: ();
+    $group: ();
+    $selectors: ();
+
+    // 36 total values for random, rotating header
+    $values: ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+
+    // number of values assigned to each header
+    $values-per-header: floor(length($values) / $num-header-images);
+
+    // remainder of values after division
+    $remainder: (length($values) - ($num-header-images * $values-per-header));
+
+    // least common multiple
+    $lcm: ($num-header-images * $values-per-header);
+
+    // populate header-images list
+    @for $i from 1 through $num-header-images {
+      $header-images: append($header-images, unquote('header#{$i}'), comma);
+    }
+
+    // assign a header image to each header image group
+    $counter: 1;
+    @for $i from 1 through $num-header-images {
+
+      // assign values for each group
+      @for $counter from $counter through ($values-per-header * $i) {
+        $group: append($group, nth($values, $counter), comma);
+      }
+
+      // assign selectors for each group
+      @for $a from 1 through length($group) {
+        $selectors: append($selectors, unquote('&[value$="#{nth($group, $a)}"] ~ a::after'), comma);
+      }
+
+      // assign selectors for remainder
+      @if $remainder > 0 {
+        $selectors: append($selectors, unquote('&[value$="#{nth($values, ($lcm + $remainder))}"] ~ a::after'), comma);
+      }
+
+      // styles
+      #{$selectors} {
+        background-image: $scrim,url(%%#{nth($header-images, $i)}%%);
+      };
+
+      // clear lists for next iteration
+      $group: ();
+      $selectors: ();
+
+      // increment counter
+      $counter: ($counter + $values-per-header);
+
+      // decrement remainder
+      $remainder: $remainder - 1;
+    }
   }
 }
 
