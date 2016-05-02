@@ -49,14 +49,22 @@ body {
   &::before {
     position: absolute;
     z-index: -1;
+
     @if $header-large {
       height: 420px;
     } @else {
       height: 223px;
     }
+
     width: 100%;
     content: '';
-    background-image: $scrim,url(%%header%%);
+
+    @if $random-header {
+      background-image: $scrim,url(%%header1%%);
+    } @else {
+      background-image: $scrim,url(%%header%%);
+    }
+
     background-attachment: scroll, fixed;
   }
 
