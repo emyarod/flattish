@@ -496,13 +496,6 @@ palettes.forEach((element, index, array) => (
 ));
 
 // addons
-// large header
-var largeHeader;
-
-console.log($('#large-header-checkbox:checkbox').prop('checked'));
-
-// random header
-var randomHeader;
 
 // sidebar image
 var sidebarImage;
@@ -646,6 +639,41 @@ function replacer(inputString, varType, replacementValue, variable = null) {
   }
 }
 
+// rotating header validation
+$('#rotating-header-checkbox:checkbox').change(() => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
+  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+    $('#rotating-header').show(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
+      .slideDown(200, $.bez(bezierEasing));
+
+    // enable input field
+    $('#rotating-header__input').prop('disabled', false).prop('required', true);
+  } else {
+    $('#rotating-header').hide(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
+      .slideUp(200, $.bez(bezierEasing));
+
+    // disable input field
+    $('#rotating-header__input').prop('disabled', true).prop('required', false);
+  }
+});
+
+$('#rotating-header__input').change(() => {
+  if ($('#rotating-header__input').is(':invalid')) {
+    $('#rotating-header').addClass('has-error');
+
+    // disable compile button if invalid value
+    $('#compile').prop('disabled', true);
+  } else {
+    $('#rotating-header').removeClass('has-error');
+
+    // enable compile button
+    $('#compile').prop('disabled', false);
+  }
+});
+
+// compile
 $('#compile').click(() => {
   // get file content
   sass.readFile('flattish/utils/_vars.scss', (content) => {
@@ -663,6 +691,16 @@ $('#compile').click(() => {
       } else {
         console.log('not checked');
         content = replacer(content, 'bool', false, 'headerLarge');
+      }
+
+      // random, rotating header
+      if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+        console.log('checked');
+        content = replacer(content, 'bool', true, 'randomHeader');
+        content = replacer(content, 'bool', $('#rotating-header__input').val(), 'numHeaderImages');
+      } else {
+        console.log('not checked');
+        content = replacer(content, 'bool', false, 'randomHeader');
       }
 
       // register file to be available for @import
