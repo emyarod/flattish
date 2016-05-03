@@ -501,10 +501,6 @@ palettes.forEach(function (element, index, array) {
 
 // addons
 
-// sidebar image
-var sidebarImage;
-var sidebarImageHeight;
-
 // pinned topics
 var pinnedTopics;
 var numStickiedLinks; // number of stickied links
@@ -669,9 +665,8 @@ $('#rotating-header-checkbox:checkbox').change(function () {
 
     // enable input field
     $('#rotating-header__input').prop({
-      'disabled': false,
-      'required': true,
-      'autofocus': true
+      disabled: false,
+      required: true
     });
   } else {
     // hide div
@@ -679,15 +674,88 @@ $('#rotating-header-checkbox:checkbox').change(function () {
 
     // disable input field
     $('#rotating-header__input').prop({
-      'disabled': true,
-      'required': false,
-      'autofocus': false
+      disabled: true,
+      required: false
     });
+  }
+});
+
+// sidebar image validation
+function disableSidebarImgHeight() {
+  // add warning to form group
+  $('#sidebar-image__div .form-group').addClass('has-error');
+
+  // disable compile button
+  $('#compile').addClass('disabled').prop('disabled', true);
+
+  // add tooltip to compile button
+  $('#compile-div').addClass('disabled').tooltip();
+
+  // create input group popover
+  $('.input-group-addon').popover('show');
+}
+
+function enableSidebarImgHeight() {
+  // remove warning from form group
+  $('#sidebar-image__div .form-group').removeClass('has-error');
+
+  // enable compile button
+  $('#compile').removeClass('disabled').prop('disabled', false);
+
+  // remove tooltip from compile button
+  $('#compile-div').removeClass('disabled').tooltip('destroy');
+
+  // destroy input group popover
+  $('.input-group-addon').popover('destroy');
+}
+
+// checkbox events
+$('#sidebar-image-checkbox:checkbox').change(function () {
+  var bezierEasing = [0.4, 0, 0.2, 1];
+  if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    // show div
+    $('#sidebar-image__div').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
+
+    // enable input field
+    $('#sidebar-image__input').prop({
+      disabled: false,
+      required: true
+    });
+
+    // validate input form
+    if ($('#sidebar-image__input').is(':invalid')) {
+      // reset value of image height input
+      $('#sidebar-image__input').val('224');
+    } else {
+      enableSidebarImgHeight();
+    }
+  } else {
+    // hide div
+    $('#sidebar-image__div').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
+
+    // disable input field
+    $('#sidebar-image__input').prop({
+      disabled: true,
+      required: false
+    });
+
+    enableSidebarImgHeight();
+  }
+});
+
+// sidebar image height form validation
+$('#sidebar-image__input').change(function () {
+  if ($('#sidebar-image__input').is(':invalid')) {
+    disableSidebarImgHeight();
+  } else {
+    enableSidebarImgHeight();
   }
 });
 
 // compile
 $('#compile').click(function () {
+  $('input').addClass('disabled').prop('disabled', true);
+
   // get file content
   sass.readFile('flattish/utils/_vars.scss', function (content) {
     if (content !== undefined) {
@@ -716,6 +784,16 @@ $('#compile').click(function () {
         content = replacer(content, 'bool', false, 'randomHeader');
       }
 
+      // sidebar image
+      if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+        console.log('checked');
+        content = replacer(content, 'bool', true, 'sidebarImg');
+        content = replacer(content, 'bool', $('#sidebar-image__input').val(), 'sidebarImgHeight');
+      } else {
+        console.log('not checked');
+        content = replacer(content, 'bool', false, 'sidebarImg');
+      }
+
       // register file to be available for @import
       sass.writeFile('flattish/utils/_vars.scss', content, function (success) {
         if (success) {
@@ -726,6 +804,8 @@ $('#compile').click(function () {
 
         // compile main Sass file
         sass.compileFile('flattish/flattish.scss', function (result) {
+          $('input').removeClass('disabled').prop('disabled', false);
+
           console.log('compiled');
           console.log(result);
           $('#target').html(result.text);
