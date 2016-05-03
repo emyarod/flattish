@@ -36,3 +36,27 @@
   padding: 15px 0;
   text-align: center;
 }
+
+// iframe
+iframe {
+  border: 0;
+}
+
+// compile button
+#compile-div {
+  display: inline-block;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  .btn[disabled] {
+    pointer-events: none;
+  }
+}
+
+// footer
+.footer {
+  margin-top: 100px;
+  padding: 50px 0;
+}
