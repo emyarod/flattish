@@ -752,8 +752,13 @@ $('#sidebar-image__input').change(function () {
   }
 });
 
+$('iframe').load(function () {
+  $('iframe').contents().find('body').css('background-color', 'purple');
+});
+
 // compile
 $('#compile').click(function () {
+  // disable inputs while compiling
   $('input').addClass('disabled').prop('disabled', true);
 
   // get file content
@@ -804,6 +809,7 @@ $('#compile').click(function () {
 
         // compile main Sass file
         sass.compileFile('flattish/flattish.scss', function (result) {
+          // enable inputs after compilation
           $('input').removeClass('disabled').prop('disabled', false);
 
           console.log('compiled');
