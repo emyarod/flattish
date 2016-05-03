@@ -739,6 +739,11 @@ $('#sidebar-image__input').change(() => {
   }
 });
 
+$('iframe').load(() => {
+  $('iframe').contents().find('body').css('background-color', 'purple');
+});
+
+
 // compile
 $('#compile').click(() => {
   // disable inputs while compiling
