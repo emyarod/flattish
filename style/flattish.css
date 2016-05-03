@@ -2266,6 +2266,7 @@ div.content {
 }
 
 #header-bottom-left .pagename {
+  display: inline-block;
   margin: 0;
   color: transparent;
   font-size: 16px;
