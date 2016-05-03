@@ -741,6 +741,9 @@ $('#sidebar-image__input').change(() => {
 
 // compile
 $('#compile').click(() => {
+  // disable inputs while compiling
+  $('input').addClass('disabled').prop('disabled', true);
+
   // get file content
   sass.readFile('flattish/utils/_vars.scss', (content) => {
     if (content !== undefined) {
@@ -789,6 +792,9 @@ $('#compile').click(() => {
 
         // compile main Sass file
         sass.compileFile('flattish/flattish.scss', (result) => {
+          // enable inputs after compilation
+          $('input').removeClass('disabled').prop('disabled', false);
+
           console.log('compiled');
           console.log(result);
           $('#target').html(result.text);
