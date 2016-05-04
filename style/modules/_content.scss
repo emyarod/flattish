@@ -13,7 +13,11 @@ div.content {
 		top: 223px;
 	}
 
-	margin: 0 em(15, 10);
+	@if $pinned-topics {
+  	margin: 0 15px 0 91px;
+  } @else {
+  	margin: 0 15px;
+  }
 }
 
 @if $pinned-topics {
