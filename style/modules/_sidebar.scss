@@ -166,7 +166,7 @@
 // sidecontentbox
 @import "sidebar/sidecontentbox";
 
-@media (min-width: $screen-md-min) {
+@media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
 	.side,
 	.side * {
 		z-index: 2; // higher than content z-index
