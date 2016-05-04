@@ -1934,7 +1934,7 @@ div.content {
   margin: 0 15px;
 }
 
-@media (min-width: 992px) {
+@media (max-resolution: 1dppx) and (min-width: 992px) {
   div.content {
     max-width: calc(100% - 474px);
     margin-left: 64px !important;
@@ -2847,7 +2847,7 @@ label + #moresearchinfo {
   background-color: rgba(97, 97, 97, 0.9);
 }
 
-@media (min-width: 992px) {
+@media (max-resolution: 1dppx) and (min-width: 992px) {
   .side,
   .side * {
     z-index: 2;
@@ -2864,7 +2864,8 @@ label + #moresearchinfo {
   }
 }
 
-html {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -2942,6 +2943,12 @@ body::before {
   color: #fff !important;
   text-decoration: none;
   background-position: 0 100%;
+}
+
+@media (max-resolution: 1dppx) {
+  body {
+    overflow-x: initial;
+  }
 }
 
 .reddit-infobar {
