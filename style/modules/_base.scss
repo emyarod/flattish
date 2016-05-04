@@ -1,6 +1,7 @@
 // main: ../flattish.scss
 
-html {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -83,4 +84,10 @@ body {
 .footer a,
 .bottommenu a {
 	@include link-underline-transition;
+}
+
+@media (max-resolution: 1dppx) {
+  body {
+    overflow-x: initial;
+  }
 }
