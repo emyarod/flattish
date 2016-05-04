@@ -2407,6 +2407,15 @@ div.content {
   background-position: -158px -23px;
 }
 
+.side::after {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 346px;
+  height: 100%;
+  content: '';
+}
+
 .side:hover {
   right: 346px;
 }

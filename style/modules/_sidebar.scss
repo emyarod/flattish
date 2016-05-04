@@ -72,6 +72,16 @@
     background-position: -158px -23px;
 	}
 
+	// transparent element underneath sidebar to prevent flickering during hover
+	&::after {
+	  position: absolute;
+		top: 0;
+		z-index: -1;
+	  width: 346px;
+	  height: 100%;
+		content: '';
+	}
+
 	&:hover {
 
 		// use TRBL animations due to transforms disabling fixed positioning
