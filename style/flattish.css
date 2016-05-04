@@ -2897,7 +2897,7 @@ label + #moresearchinfo {
   .side:hover {
     right: initial;
   }
-  .side::before {
+  .side::before, .side::after {
     display: none;
   }
 }
