@@ -2431,6 +2431,15 @@ div.content {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.side::after {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 346px;
+  height: 100%;
+  content: '';
+}
+
 .side:hover {
   right: 346px;
 }
