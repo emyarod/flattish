@@ -159,7 +159,10 @@
 		&:hover { right: initial; }
 
 		// hide kebab menu icon
-		&::before { display: none; }
+		&::before,
+		&::after {
+			display: none;
+		}
 
 		// use TRBL animations due to transforms disabling fixed positioning
 		// &:hover .spacer { @include transform(none); }
