@@ -19,7 +19,7 @@
 $stickies-selectors: ();
 
 @if $pinned-topics {
-  
+
   // add stickied links to map
   @if $num-stickied-links > 0 {
     @for $num-stickied-links from 1 through $num-stickied-links {
