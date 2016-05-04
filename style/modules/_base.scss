@@ -1,5 +1,10 @@
 // main: ../flattish.scss
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 * {
   font-family: $font-stack;
   outline: none;
@@ -43,7 +48,6 @@ $link-color-visited == $link-color-visited-night {
 
 body {
   background-color: $light-background;
-  overflow-x: hidden;
 
   // header image for logged out users
   &::before {
@@ -80,4 +84,10 @@ body {
 .footer a,
 .bottommenu a {
 	@include link-underline-transition;
+}
+
+@media (max-resolution: 1dppx) {
+  body {
+    overflow-x: initial;
+  }
 }

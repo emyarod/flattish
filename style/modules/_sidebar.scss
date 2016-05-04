@@ -12,6 +12,11 @@
 
 .res-nightmode .side::before { background-position: 0 -59px; }
 
+.side,
+.side::before {
+	@include transition-default;
+}
+
 .side {
 	position: relative;
 
@@ -29,15 +34,19 @@
 		}
 	}
 
+	right: 0;
 	width: 0;
 	margin: 0;
 	padding-top: 85px;
 
 	#ad_sponsorship,
 	#ad_main {
-		box-sizing: content-box; // stupid ad widths
-		width: 302px; // to compensate for box-sizing change
-		padding: 16px 14px !important; // to compensate for box-sizing change
+		// stupid ad widths
+		box-sizing: content-box;
+
+		// to compensate for box-sizing change
+		width: 302px;
+		padding: 16px 14px !important;
 	}
 
 	// first card (containing search and submit)
@@ -61,12 +70,13 @@
     width: 36px;
     content: "";
     background-position: -158px -23px;
-		@include transition-default;
 	}
 
 	&:hover {
 
-		.spacer { @include transform(translateX(-351px)); }
+		// use TRBL animations due to transforms disabling fixed positioning
+		// .spacer { @include transform(translateX(-351px)); }
+		right: 346px;
 
 		// make kebab disappear on hover
 		&::before { opacity: 0; }
@@ -117,7 +127,7 @@
 // sidecontentbox
 @import "sidebar/sidecontentbox";
 
-@media (min-width: $screen-md-min) {
+@media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
 	.side,
 	.side * {
 		z-index: 2; // higher than content z-index
@@ -127,9 +137,12 @@
 		width: 330px;
 		margin-right: 64px;
 
+		&:hover { right: initial; }
+
 		// hide kebab menu icon
 		&::before { display: none; }
 
-		&:hover .spacer { @include transform(none); }
+		// use TRBL animations due to transforms disabling fixed positioning
+		// &:hover .spacer { @include transform(none); }
 	}
 }

@@ -13,18 +13,22 @@ div.content {
 		top: 223px;
 	}
 
-	margin: 0 em(15, 10);
+	@if $pinned-topics {
+  	margin: 0 15px 0 91px;
+  } @else {
+  	margin: 0 15px;
+  }
 }
 
 @if $pinned-topics {
-  @media (min-width: $screen-md-min) {
+  @media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
   	div.content {
   		max-width: calc(100% - 503px);
   		margin-left: 93px !important;
   	}
   }
 } @else {
-  @media (min-width: $screen-md-min) {
+  @media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
   	div.content {
   		max-width: calc(100% - 474px);
   		margin-left: 64px !important;
