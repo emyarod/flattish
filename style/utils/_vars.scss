@@ -94,10 +94,10 @@ $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 // mediaquery break points
-$screen-xs-min: em(480, 16);
-$screen-sm-min: em(768, 16);
-$screen-md-min: em(992, 16);
-$screen-lg-min: em(1200, 16);
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
 
 // addons
 
