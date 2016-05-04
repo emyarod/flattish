@@ -2893,6 +2893,10 @@ label + #moresearchinfo {
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 * {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   outline: none;
@@ -2933,7 +2937,6 @@ body a:link:visited {
 
 body {
   background-color: #fafafa;
-  overflow-x: hidden;
 }
 
 body::before {
