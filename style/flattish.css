@@ -1948,10 +1948,10 @@ a[data-event-action="unhide"] {
 div.content {
   position: relative;
   top: 223px;
-  margin: 0 1.5em;
+  margin: 0 15px;
 }
 
-@media (min-width: 62em) {
+@media (min-width: 992px) {
   div.content {
     max-width: calc(100% - 474px);
     margin-left: 64px !important;
@@ -2341,7 +2341,7 @@ div.content {
   background-position: 0 -117px;
 }
 
-@media (min-width: 75em) {
+@media (min-width: 1200px) {
   #header-bottom-left {
     top: 159px;
     height: 64px;
@@ -2384,9 +2384,17 @@ div.content {
   background-position: 0 -59px;
 }
 
+.side,
+.side::before {
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .side {
   position: relative;
   top: 223px;
+  right: 0;
   width: 0;
   margin: 0;
   padding-top: 85px;
@@ -2423,12 +2431,8 @@ div.content {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.side:hover .spacer {
-  -webkit-transform: translateX(-351px);
-  -moz-transform: translateX(-351px);
-  -ms-transform: translateX(-351px);
-  -o-transform: translateX(-351px);
-  transform: translateX(-351px);
+.side:hover {
+  right: 346px;
 }
 
 .side:hover::before {
@@ -2872,7 +2876,7 @@ label + #moresearchinfo {
   background-color: rgba(97, 97, 97, 0.9);
 }
 
-@media (min-width: 62em) {
+@media (min-width: 992px) {
   .side,
   .side * {
     z-index: 2;
@@ -2881,15 +2885,11 @@ label + #moresearchinfo {
     width: 330px;
     margin-right: 64px;
   }
+  .side:hover {
+    right: initial;
+  }
   .side::before {
     display: none;
-  }
-  .side:hover .spacer {
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
-    -o-transform: none;
-    transform: none;
   }
 }
 
