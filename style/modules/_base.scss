@@ -19,22 +19,22 @@ body {
 $link-color-hover == $link-color-hover-night and
 $link-color-active == $link-color-active-night and
 $link-color-visited == $link-color-visited-night {
-  .res-nightmode body a:link,
-  body a:link {
+  .res-nightmode body a,
+  body a {
     color: $link-color;
     &:hover { color: $link-color-hover; }
     &:active { color: $link-color-active; }
     &:visited { color: $link-color-visited; }
   }
 } @else {
-  .res-nightmode body a:link {
+  .res-nightmode body a {
     color: $link-color-night;
     &:hover { color: $link-color-hover-night; }
     &:active { color: $link-color-active-night; }
     &:visited { color: $link-color-visited-night; }
   }
 
-  body a:link {
+  body a {
     color: $link-color;
     &:hover { color: $link-color-hover; }
     &:active { color: $link-color-active; }
