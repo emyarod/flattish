@@ -3294,23 +3294,23 @@ body {
   box-sizing: border-box;
 }
 
-.res-nightmode body a:link,
-body a:link {
+.res-nightmode body a,
+body a {
   color: #2196f3;
 }
 
-.res-nightmode body a:link:hover,
-body a:link:hover {
+.res-nightmode body a:hover,
+body a:hover {
   color: #64b5f6;
 }
 
-.res-nightmode body a:link:active,
-body a:link:active {
+.res-nightmode body a:active,
+body a:active {
   color: #1976d2;
 }
 
-.res-nightmode body a:link:visited,
-body a:link:visited {
+.res-nightmode body a:visited,
+body a:visited {
   color: #9575cd;
 }
 
