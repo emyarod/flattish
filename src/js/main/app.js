@@ -992,7 +992,7 @@ $('#compile').click(() => {
           let finalPreview = result.text;
 
           finalPreview = finalPreview.replace(/%%dropdown%%/g, '"//b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"//a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"//b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"//b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"//b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"');
-          $('iframe').contents().find('style').text(finalPreview);
+          $('iframe').contents().find('style').text(`html,body{overflow:hidden;}${finalPreview}`);
         });
       });
     } else {
