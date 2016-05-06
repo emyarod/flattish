@@ -755,6 +755,24 @@ function sidebarImgHeight(state) {
 }
 
 // checkbox events
+$('#large-header-checkbox:checkbox').change(function () {
+  if ($('#large-header-checkbox:checkbox').prop('checked')) {
+    // if sidebar image is checked
+    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n          top: 297px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        .side {\n          top: 297px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        div.content {\n          top: 297px;\n        }\n        #header-bottom-left {\n          top: 172px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 245px;\n          }\n        }\n        body::before {\n          height: 420px;\n        }\n        ');
+    } else {
+      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n    \t\t\ttop: 297px;\n      \t}\n        .side {\n          top: 297px;\n        }\n        div.content {\n          top: 297px;\n        }\n        #header-bottom-left {\n          top: 172px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 245px;\n          }\n        }\n        body::before {\n          height: 420px;\n        }\n        ');
+    }
+  } else {
+    // if sidebar image is checked
+    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n          top: 223px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        .side {\n          top: 223px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        div.content {\n          top: 223px;\n        }\n        #header-bottom-left {\n          top: 86px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 159px;\n          }\n        }\n        body::before {\n          height: 223px;\n        }\n        ');
+    } else {
+      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n    \t\t\ttop: 223px;\n      \t}\n        .side {\n          top: 223px;\n        }\n        div.content {\n          top: 223px;\n        }\n        #header-bottom-left {\n          top: 86px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 159px;\n          }\n        }\n        body::before {\n          height: 223px;\n        }\n        ');
+    }
+  }
+});
+
 $('#sidebar-image-checkbox:checkbox').change(function () {
   var bezierEasing = [0.4, 0, 0.2, 1];
   if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
@@ -875,7 +893,7 @@ $('#compile').click(function () {
           var finalPreview = result.text;
 
           finalPreview = finalPreview.replace(/%%dropdown%%/g, '"//b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"//a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"//b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"//b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"//b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"');
-          $('iframe').contents().find('style').text('html,body{overflow:hidden;}' + finalPreview);
+          $('iframe').contents().find('style').text('html,body{overflow-y:hidden;}' + finalPreview);
         });
       });
     } else {
