@@ -51,6 +51,18 @@ iframe {
   border: 0;
 }
 
+.affix {
+  top: 0;
+  // right: 0;
+  margin-left: 25%;
+}
+
+@media (max-width: 768px) {
+  .affix {
+    position: static;
+  }
+}
+
 // compile button
 #compile-div {
   display: inline-block;
