@@ -825,58 +825,7 @@ function replacer(inputString, varType, replacementValue, variable = null) {
   }
 }
 
-// rotating header validation
-$('#rotating-header-checkbox:checkbox').change(() => {
-  let bezierEasing = [0.4, 0, 0.2, 1];
-  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-    // show div
-    $('#rotating-header__div').show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing));
-
-    // enable input field
-    $('#rotating-header__input').prop({
-      disabled: false,
-      required: true,
-    });
-  } else {
-    // hide div
-    $('#rotating-header__div').hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing));
-
-    // disable input field
-    $('#rotating-header__input').prop({
-      disabled: true,
-      required: false,
-    });
-  }
-});
-
-// sidebar image validation
-function sidebarImgHeight(state) {
-  /**
-   * enable/disable
-   *
-   * remove/add warning from form group
-   * enable/disable compile button
-   * remove/add tooltip from compile button
-   * destroy/create input group popover
-   */
-  if (state === 'enable') {
-    $('#sidebar-image__div .form-group').removeClass('has-error');
-    $('#compile').removeClass('disabled').prop('disabled', false);
-    $('#compile-div').removeClass('disabled').tooltip('destroy');
-    $('.input-group-addon').popover('destroy');
-  } else if (state === 'disable') {
-    $('#sidebar-image__div .form-group').addClass('has-error');
-    $('#compile').addClass('disabled').prop('disabled', true);
-    $('#compile-div').addClass('disabled').tooltip();
-    $('.input-group-addon').popover('show');
-  }
-}
-
-// checkbox events
+// large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
     // if sidebar image is checked
@@ -990,6 +939,57 @@ $('#large-header-checkbox:checkbox').change(() => {
     }
   }
 });
+
+// rotating header validation
+$('#rotating-header-checkbox:checkbox').change(() => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
+  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+    // show div
+    $('#rotating-header__div').show(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
+      .slideDown(200, $.bez(bezierEasing));
+
+    // enable input field
+    $('#rotating-header__input').prop({
+      disabled: false,
+      required: true,
+    });
+  } else {
+    // hide div
+    $('#rotating-header__div').hide(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
+      .slideUp(200, $.bez(bezierEasing));
+
+    // disable input field
+    $('#rotating-header__input').prop({
+      disabled: true,
+      required: false,
+    });
+  }
+});
+
+// sidebar image validation
+function sidebarImgHeight(state) {
+  /**
+   * enable/disable
+   *
+   * remove/add warning from form group
+   * enable/disable compile button
+   * remove/add tooltip from compile button
+   * destroy/create input group popover
+   */
+  if (state === 'enable') {
+    $('#sidebar-image__div .form-group').removeClass('has-error');
+    $('#compile').removeClass('disabled').prop('disabled', false);
+    $('#compile-div').removeClass('disabled').tooltip('destroy');
+    $('.input-group-addon').popover('destroy');
+  } else if (state === 'disable') {
+    $('#sidebar-image__div .form-group').addClass('has-error');
+    $('#compile').addClass('disabled').prop('disabled', true);
+    $('#compile-div').addClass('disabled').tooltip();
+    $('.input-group-addon').popover('show');
+  }
+}
 
 $('#sidebar-image-checkbox:checkbox').change(() => {
   let bezierEasing = [0.4, 0, 0.2, 1];
