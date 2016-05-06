@@ -2809,6 +2809,10 @@ input[name=uh][value$="9"] ~ a::after {
   top: -84px;
 }
 
+.side #moderation_tools .collapse-button {
+  display: none;
+}
+
 .side .sidebox.create,
 .side .account-activity-box {
   display: none;
