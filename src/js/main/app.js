@@ -664,32 +664,26 @@ $('#rotating-header-checkbox:checkbox').change(() => {
 });
 
 // sidebar image validation
-function disableSidebarImgHeight() {
-  // add warning to form group
-  $('#sidebar-image__div .form-group').addClass('has-error');
-
-  // disable compile button
-  $('#compile').addClass('disabled').prop('disabled', true);
-
-  // add tooltip to compile button
-  $('#compile-div').addClass('disabled').tooltip();
-
-  // create input group popover
-  $('.input-group-addon').popover('show');
-}
-
-function enableSidebarImgHeight() {
-  // remove warning from form group
-  $('#sidebar-image__div .form-group').removeClass('has-error');
-
-  // enable compile button
-  $('#compile').removeClass('disabled').prop('disabled', false);
-
-  // remove tooltip from compile button
-  $('#compile-div').removeClass('disabled').tooltip('destroy');
-
-  // destroy input group popover
-  $('.input-group-addon').popover('destroy');
+function sidebarImgHeight(state) {
+  /**
+   * enable/disable
+   *
+   * remove/add warning from form group
+   * enable/disable compile button
+   * remove/add tooltip from compile button
+   * destroy/create input group popover
+   */
+  if (state === 'enable') {
+    $('#sidebar-image__div .form-group').removeClass('has-error');
+    $('#compile').removeClass('disabled').prop('disabled', false);
+    $('#compile-div').removeClass('disabled').tooltip('destroy');
+    $('.input-group-addon').popover('destroy');
+  } else if (state === 'disable') {
+    $('#sidebar-image__div .form-group').addClass('has-error');
+    $('#compile').addClass('disabled').prop('disabled', true);
+    $('#compile-div').addClass('disabled').tooltip();
+    $('.input-group-addon').popover('show');
+  }
 }
 
 // checkbox events
@@ -712,7 +706,7 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
       // reset value of image height input
       $('#sidebar-image__input').val('224');
     } else {
-      enableSidebarImgHeight();
+      sidebarImgHeight('enable');
     }
   } else {
     // hide div
@@ -726,16 +720,16 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
       required: false,
     });
 
-    enableSidebarImgHeight();
+    sidebarImgHeight('enable');
   }
 });
 
 // sidebar image height form validation
 $('#sidebar-image__input').change(() => {
   if ($('#sidebar-image__input').is(':invalid')) {
-    disableSidebarImgHeight();
+    sidebarImgHeight('disable');
   } else {
-    enableSidebarImgHeight();
+    sidebarImgHeight('enable');
   }
 });
 
