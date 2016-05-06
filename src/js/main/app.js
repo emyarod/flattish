@@ -480,6 +480,25 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
 
     // change live preview iframe
     let newColor = $(id).val();
+    function hexToRgb(hex) {
+      /**
+       * http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+       */
+
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    }
+
     if (id === '#primaryColorPicker') {
       $('iframe').contents().find('style').append(
         `
@@ -524,25 +543,6 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
         `
       );
     } else if (id === '#lightPrimaryColorPicker') {
-      function hexToRgb(hex) {
-        /**
-         * http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-         */
-
-        // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-        hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-          return r + r + g + g + b + b;
-        });
-
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
-        } : null;
-      }
-
       let rVal = hexToRgb(newColor).r;
       let gVal = hexToRgb(newColor).g;
       let bVal = hexToRgb(newColor).b;
@@ -583,15 +583,16 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
         `
       );
     } else if (id === '#darkAccentColorPicker') {
-      $('iframe').contents().find('style').append(
-        `
-
-        `
-      );
     } else if (id === '#lightAccentColorPicker') {
+      let rVal = hexToRgb(newColor).r;
+      let gVal = hexToRgb(newColor).g;
+      let bVal = hexToRgb(newColor).b;
       $('iframe').contents().find('style').append(
         `
-
+        #header-bottom-left .tabmenu li a,
+        #header-bottom-left .tabmenu li #viewImagesButton {
+          background: transparent radial-gradient(circle, rgba(${rVal}, ${gVal}, ${bVal}, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+        }
         `
       );
     } else if (id === '#linkColorColorPicker') {
