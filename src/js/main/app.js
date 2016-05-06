@@ -478,6 +478,185 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
     // set spectrum value equal to input field value
     $(id).spectrum('set', $(id).val());
 
+    // change live preview iframe
+    let newColor = $(id).val();
+    if (id === '#primaryColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+        .submit-link .morelink a,
+        .submit-text .morelink a,
+        .submit-page button[type="submit"],
+        #sr-form .save-button button,
+        .save-button>button:nth-child(1) {
+          background: ${newColor} radial-gradient(circle,rgba(77,208,225,0.3) 15%,transparent 30%) no-repeat 50% 50%/0!important;
+        }
+        .login-form-side input[type="checkbox"]:checked+label::before,
+        .c-checkbox input[type="checkbox"]:checked+label::before,
+        .flairtoggle input[type="checkbox"]:checked+label::before,
+        .linefield input[type="checkbox"]:checked+label::before,
+        .roundfield-content input[type="checkbox"]:checked+label::before {
+          border-color: ${newColor}!important;
+          background: ${newColor} url("//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png") -246px -138px;
+        }
+        .toggleButton.enabled {
+          background-color: ${newColor};
+        }
+        #wikiactions a,
+        #moderation_tools a,
+        .footer a,
+        .bottommenu a {
+          background: linear-gradient(to top,${newColor} 50%,transparent 50%);
+          background-size: 100% 200%;
+          background-repeat: no-repeat;
+        }
+        `
+      );
+    } else if (id === '#darkPrimaryColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+        .submit-link .morelink a:hover, .submit-text .morelink a:hover,
+        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover {
+          background-color: ${newColor} !important;
+        }
+        .toggleButton.enabled::before {
+          background-color: ${newColor};
+        }
+        `
+      );
+    } else if (id === '#lightPrimaryColorPicker') {
+      function hexToRgb(hex) {
+        /**
+         * http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+         */
+
+        // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+          return r + r + g + g + b + b;
+        });
+
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        } : null;
+      }
+
+      let rVal = hexToRgb(newColor).r;
+      let gVal = hexToRgb(newColor).g;
+      let bVal = hexToRgb(newColor).b;
+      $('iframe').contents().find('style').text(
+        $('iframe').contents().find('style').text()
+          .replace(/rgba\(77,208,225,0\.3\)/g, `rgba(${rVal},${gVal},${bVal},0.3)`)
+      );
+    } else if (id === '#accentColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+        .tabmenu li a:hover::after,
+        .tabmenu li #viewImagesButton:hover::after,
+        ul.tabmenu.formtab li a:hover::after {
+          border-bottom: 2px solid ${newColor};
+        }
+        .tabmenu li.selected a,
+        ul.tabmenu.formtab li.selected a {
+          border-bottom-color: ${newColor};
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="url"]:focus,
+        textarea:focus {
+          border-bottom-color: ${newColor} !important;
+        }
+        #sr-more-link {
+          background-color: ${newColor} !important;
+        }
+        #search:hover::before {
+          color: ${newColor};
+        }
+        #search input[type="text"]:focus {
+          border-bottom: 1px solid${newColor};
+        }
+        label + #moresearchinfo {
+          border-color: ${newColor};
+        }
+        `
+      );
+    } else if (id === '#darkAccentColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#lightAccentColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorHoverColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorActiveColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorVisitedColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorNightColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorHoverNightColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorActiveNightColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#linkColorVisitedNightColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#upvoteColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    } else if (id === '#downvoteColorPicker') {
+      $('iframe').contents().find('style').append(
+        `
+
+        `
+      );
+    }
+
+
     // after error handling, set variable to final spectrum value
     colors[value] = $(`.${id.slice(1)}Container input`).val();
     console.log(`${value} = ${colors[value]}`);
@@ -734,7 +913,8 @@ $('#sidebar-image__input').change(() => {
 });
 
 $('iframe').load(() => {
-  $('iframe').contents().find('body').css('background-color', 'purple');
+  // $('iframe').contents().find('body').css('background-color', 'purple');
+  // $('iframe').contents().find('style').append('body { background-color: purple; }');
 });
 
 
@@ -797,6 +977,11 @@ $('#compile').click(() => {
           console.log('compiled');
           console.log(result);
           $('#target').html(result.text);
+
+          let finalPreview = result.text;
+
+          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"//b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"//a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"//b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"//b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"//b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"');
+          $('iframe').contents().find('style').text(finalPreview);
         });
       });
     } else {
