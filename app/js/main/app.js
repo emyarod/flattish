@@ -512,7 +512,7 @@ function createSpectrum(id, swatch) {
     if (id === '#primaryColorPicker') {
       $('iframe').contents().find('style').append('\n        .submit-link .morelink a,\n        .submit-text .morelink a,\n        .submit-page button[type="submit"],\n        #sr-form .save-button button,\n        .save-button>button:nth-child(1) {\n          background: ' + newColor + ' radial-gradient(circle,rgba(77,208,225,0.3) 15%,transparent 30%) no-repeat 50% 50%/0!important;\n        }\n        .login-form-side input[type="checkbox"]:checked+label::before,\n        .c-checkbox input[type="checkbox"]:checked+label::before,\n        .flairtoggle input[type="checkbox"]:checked+label::before,\n        .linefield input[type="checkbox"]:checked+label::before,\n        .roundfield-content input[type="checkbox"]:checked+label::before {\n          border-color: ' + newColor + '!important;\n          background: ' + newColor + ' url("//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png") -246px -138px;\n        }\n        .toggleButton.enabled {\n          background-color: ' + newColor + ';\n        }\n        #wikiactions a,\n        #moderation_tools a,\n        .footer a,\n        .bottommenu a {\n          background: linear-gradient(to top,' + newColor + ' 50%,transparent 50%);\n          background-size: 100% 200%;\n          background-repeat: no-repeat;\n        }\n        ');
     } else if (id === '#darkPrimaryColorPicker') {
-      $('iframe').contents().find('style').append('\n        .submit-link .morelink a:hover, .submit-text .morelink a:hover,\n        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover {\n          background-color: ' + newColor + ' !important;\n        }\n        .toggleButton.enabled::before {\n          background-color: ' + newColor + ';\n        }\n        ');
+      $('iframe').contents().find('style').append('\n        .submit-link .morelink a:hover, .submit-text .morelink a:hover,\n        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover,\n        .toggleButton.enabled::before {\n          background-color: ' + newColor + ' !important;\n        }\n        ');
     } else if (id === '#lightPrimaryColorPicker') {
       var rVal = hexToRgb(newColor).r;
       var gVal = hexToRgb(newColor).g;
@@ -526,25 +526,17 @@ function createSpectrum(id, swatch) {
       var _bVal = hexToRgb(newColor).b;
       $('iframe').contents().find('style').append('\n        #header-bottom-left .tabmenu li a,\n        #header-bottom-left .tabmenu li #viewImagesButton {\n          background: transparent radial-gradient(circle, rgba(' + _rVal + ', ' + _gVal + ', ' + _bVal + ', 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;\n        }\n        ');
     } else if (id === '#linkColorColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
+      $('iframe').contents().find('style').append('\n        body a,\n        #siteTable > .thing .title {\n          color: ' + newColor + ';\n        }\n        ');
     } else if (id === '#linkColorHoverColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
+      $('iframe').contents().find('style').append('\n        body a:hover,\n        #siteTable > .thing .title:hover {\n          color: ' + newColor + ';\n        }\n        ');
     } else if (id === '#linkColorActiveColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
+      $('iframe').contents().find('style').append('\n        body a:active,\n        #siteTable > .thing .title:active {\n          color: ' + newColor + ';\n        }\n        ');
     } else if (id === '#linkColorVisitedColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
-    } else if (id === '#linkColorNightColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
-    } else if (id === '#linkColorHoverNightColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
-    } else if (id === '#linkColorActiveNightColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
-    } else if (id === '#linkColorVisitedNightColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
-    } else if (id === '#upvoteColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
+      $('iframe').contents().find('style').append('\n        body a:visited,\n        #siteTable > .thing .title:visited {\n          color: ' + newColor + ';\n        }\n        ');
+    } else if (id === '#linkColorNightColorPicker') {} else if (id === '#linkColorHoverNightColorPicker') {} else if (id === '#linkColorActiveNightColorPicker') {} else if (id === '#linkColorVisitedNightColorPicker') {} else if (id === '#upvoteColorPicker') {
+      $('iframe').contents().find('style').append('\n        .sidecontentbox .gadget .thing span.score.likes,\n        #siteTable .score.likes,\n        .thing .link .score.likes {\n          color: ' + newColor + ';\n        }\n        .arrow.upmod::before,\n        .arrow.upmod:hover::before,\n        .arrow.upmod:focus::after,\n        .arrow.up:focus::after {\n          background-color: ' + newColor + ';\n        }\n        ');
     } else if (id === '#downvoteColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
+      $('iframe').contents().find('style').append('\n        .sidecontentbox .gadget .thing span.score.dislikes,\n        #siteTable .score.dislikes,\n        .thing .link .score.dislikes,\n        .sidecontentbox .gadget .thing span.score.dislikes {\n          color: ' + newColor + ';\n        }\n        .arrow.downmod::before,\n        .arrow.downmod:hover::before,\n        .arrow.downmod:focus::after,\n        .arrow.down:focus::after {\n          background-color: ' + newColor + ';\n        }\n        ');
     }
 
     // after error handling, set variable to final spectrum value
