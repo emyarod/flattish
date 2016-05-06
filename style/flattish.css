@@ -973,10 +973,10 @@ ul.tabmenu.formtab li a:hover {
   padding: 0 24px;
 }
 
-.tabmenu li a:after,
-.tabmenu li #viewImagesButton:after,
-.res-nightmode ul.tabmenu.formtab li a:after,
-ul.tabmenu.formtab li a:after {
+.tabmenu li a::after,
+.tabmenu li #viewImagesButton::after,
+.res-nightmode ul.tabmenu.formtab li a::after,
+ul.tabmenu.formtab li a::after {
   position: relative;
   top: -66px;
   left: -24px;
