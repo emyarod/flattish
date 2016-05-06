@@ -598,51 +598,43 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
     } else if (id === '#linkColorColorPicker') {
       $('iframe').contents().find('style').append(
         `
-
+        body a,
+        #siteTable > .thing .title {
+          color: ${newColor};
+        }
         `
       );
     } else if (id === '#linkColorHoverColorPicker') {
       $('iframe').contents().find('style').append(
         `
-
+        body a:hover,
+        #siteTable > .thing .title:hover {
+          color: ${newColor};
+        }
         `
       );
     } else if (id === '#linkColorActiveColorPicker') {
       $('iframe').contents().find('style').append(
         `
-
+        body a:active,
+        #siteTable > .thing .title:active {
+          color: ${newColor};
+        }
         `
       );
     } else if (id === '#linkColorVisitedColorPicker') {
       $('iframe').contents().find('style').append(
         `
-
+        body a:visited,
+        #siteTable > .thing .title:visited {
+          color: ${newColor};
+        }
         `
       );
     } else if (id === '#linkColorNightColorPicker') {
-      $('iframe').contents().find('style').append(
-        `
-
-        `
-      );
     } else if (id === '#linkColorHoverNightColorPicker') {
-      $('iframe').contents().find('style').append(
-        `
-
-        `
-      );
     } else if (id === '#linkColorActiveNightColorPicker') {
-      $('iframe').contents().find('style').append(
-        `
-
-        `
-      );
     } else if (id === '#linkColorVisitedNightColorPicker') {
-      $('iframe').contents().find('style').append(
-        `
-
-        `
-      );
     } else if (id === '#upvoteColorPicker') {
       $('iframe').contents().find('style').append(
         `
