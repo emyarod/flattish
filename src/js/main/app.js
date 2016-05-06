@@ -928,6 +928,16 @@ $('iframe').load(() => {
   // $('iframe').contents().find('style').append('body { background-color: purple; }');
 });
 
+// affix iframe after scroll below header
+$('#iframe-container').affix({
+  offset: {
+    top: $('.header').outerHeight(true),
+    bottom: () => {
+      return ($('#results').outerHeight(true) + 150);
+    },
+  }
+});
+
 
 // compile
 $('#compile').click(() => {
