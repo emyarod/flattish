@@ -2,16 +2,23 @@
 
 // sidebar image
 @if $sidebar-img {
-  .side::after {
+  .titlebox::before {
     position: absolute;
     top: -$sidebar-img-height - 16px;
+    right: -330px;
     display: block;
     height: $sidebar-img-height;
-    width: 100%; // 330px
+    width: 330px; // 100%
     content: '';
     border-radius: 2px;
     background: url(%%sidebar%%) center;
     @include drop-shadow(1);
+  }
+  
+  @media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
+    .titlebox::before {
+      right: 0;
+    }
   }
 }
 
