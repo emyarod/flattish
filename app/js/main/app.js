@@ -490,40 +490,41 @@ function createSpectrum(id, swatch) {
 
     // change live preview iframe
     var newColor = $(id).val();
+    function hexToRgb(hex) {
+      /**
+       * http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+       */
+
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    }
+
     if (id === '#primaryColorPicker') {
       $('iframe').contents().find('style').append('\n        .submit-link .morelink a,\n        .submit-text .morelink a,\n        .submit-page button[type="submit"],\n        #sr-form .save-button button,\n        .save-button>button:nth-child(1) {\n          background: ' + newColor + ' radial-gradient(circle,rgba(77,208,225,0.3) 15%,transparent 30%) no-repeat 50% 50%/0!important;\n        }\n        .login-form-side input[type="checkbox"]:checked+label::before,\n        .c-checkbox input[type="checkbox"]:checked+label::before,\n        .flairtoggle input[type="checkbox"]:checked+label::before,\n        .linefield input[type="checkbox"]:checked+label::before,\n        .roundfield-content input[type="checkbox"]:checked+label::before {\n          border-color: ' + newColor + '!important;\n          background: ' + newColor + ' url("//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png") -246px -138px;\n        }\n        .toggleButton.enabled {\n          background-color: ' + newColor + ';\n        }\n        #wikiactions a,\n        #moderation_tools a,\n        .footer a,\n        .bottommenu a {\n          background: linear-gradient(to top,' + newColor + ' 50%,transparent 50%);\n          background-size: 100% 200%;\n          background-repeat: no-repeat;\n        }\n        ');
     } else if (id === '#darkPrimaryColorPicker') {
       $('iframe').contents().find('style').append('\n        .submit-link .morelink a:hover, .submit-text .morelink a:hover,\n        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover {\n          background-color: ' + newColor + ' !important;\n        }\n        .toggleButton.enabled::before {\n          background-color: ' + newColor + ';\n        }\n        ');
     } else if (id === '#lightPrimaryColorPicker') {
-      var hexToRgb = function hexToRgb(hex) {
-        /**
-         * http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-         */
-
-        // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-        hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-          return r + r + g + g + b + b;
-        });
-
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
-        } : null;
-      };
-
       var rVal = hexToRgb(newColor).r;
       var gVal = hexToRgb(newColor).g;
       var bVal = hexToRgb(newColor).b;
       $('iframe').contents().find('style').text($('iframe').contents().find('style').text().replace(/rgba\(77,208,225,0\.3\)/g, 'rgba(' + rVal + ',' + gVal + ',' + bVal + ',0.3)'));
     } else if (id === '#accentColorPicker') {
       $('iframe').contents().find('style').append('\n        .tabmenu li a:hover::after,\n        .tabmenu li #viewImagesButton:hover::after,\n        ul.tabmenu.formtab li a:hover::after {\n          border-bottom: 2px solid ' + newColor + ';\n        }\n        .tabmenu li.selected a,\n        ul.tabmenu.formtab li.selected a {\n          border-bottom-color: ' + newColor + ';\n        }\n        input[type="text"]:focus,\n        input[type="password"]:focus,\n        input[type="url"]:focus,\n        textarea:focus {\n          border-bottom-color: ' + newColor + ' !important;\n        }\n        #sr-more-link {\n          background-color: ' + newColor + ' !important;\n        }\n        #search:hover::before {\n          color: ' + newColor + ';\n        }\n        #search input[type="text"]:focus {\n          border-bottom: 1px solid' + newColor + ';\n        }\n        label + #moresearchinfo {\n          border-color: ' + newColor + ';\n        }\n        ');
-    } else if (id === '#darkAccentColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
-    } else if (id === '#lightAccentColorPicker') {
-      $('iframe').contents().find('style').append('\n\n        ');
+    } else if (id === '#darkAccentColorPicker') {} else if (id === '#lightAccentColorPicker') {
+      var _rVal = hexToRgb(newColor).r;
+      var _gVal = hexToRgb(newColor).g;
+      var _bVal = hexToRgb(newColor).b;
+      $('iframe').contents().find('style').append('\n        #header-bottom-left .tabmenu li a,\n        #header-bottom-left .tabmenu li #viewImagesButton {\n          background: transparent radial-gradient(circle, rgba(' + _rVal + ', ' + _gVal + ', ' + _bVal + ', 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;\n        }\n        ');
     } else if (id === '#linkColorColorPicker') {
       $('iframe').contents().find('style').append('\n\n        ');
     } else if (id === '#linkColorHoverColorPicker') {
