@@ -2462,6 +2462,10 @@ div.content {
   top: -84px;
 }
 
+.side #moderation_tools .collapse-button {
+  display: none;
+}
+
 .side .sidebox.create,
 .side .account-activity-box {
   display: none;
