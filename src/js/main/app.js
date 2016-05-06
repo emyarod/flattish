@@ -534,11 +534,9 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
       $('iframe').contents().find('style').append(
         `
         .submit-link .morelink a:hover, .submit-text .morelink a:hover,
-        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover {
-          background-color: ${newColor} !important;
-        }
+        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover,
         .toggleButton.enabled::before {
-          background-color: ${newColor};
+          background-color: ${newColor} !important;
         }
         `
       );
@@ -638,17 +636,37 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
     } else if (id === '#upvoteColorPicker') {
       $('iframe').contents().find('style').append(
         `
-
+        .sidecontentbox .gadget .thing span.score.likes,
+        #siteTable .score.likes,
+        .thing .link .score.likes {
+          color: ${newColor};
+        }
+        .arrow.upmod::before,
+        .arrow.upmod:hover::before,
+        .arrow.upmod:focus::after,
+        .arrow.up:focus::after {
+          background-color: ${newColor};
+        }
         `
       );
     } else if (id === '#downvoteColorPicker') {
       $('iframe').contents().find('style').append(
         `
-
+        .sidecontentbox .gadget .thing span.score.dislikes,
+        #siteTable .score.dislikes,
+        .thing .link .score.dislikes,
+        .sidecontentbox .gadget .thing span.score.dislikes {
+          color: ${newColor};
+        }
+        .arrow.downmod::before,
+        .arrow.downmod:hover::before,
+        .arrow.downmod:focus::after,
+        .arrow.down:focus::after {
+          background-color: ${newColor};
+        }
         `
       );
     }
-
 
     // after error handling, set variable to final spectrum value
     colors[value] = $(`.${id.slice(1)}Container input`).val();
