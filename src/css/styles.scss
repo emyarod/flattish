@@ -4,6 +4,15 @@
 @import '../../style/utils/color-list';
 @import '../../style/utils/vars';
 
+// header
+.header {
+  padding: 60px 0;
+
+  h1 {
+    font-size: 60px;
+  }
+}
+
 // color pickers
 .color-pickers .form-inputs {
   display: table;
