@@ -16,11 +16,18 @@
    <![endif]-->
 </head>
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="header">
+        <h1>Flattish.CSS Theme Editor</h1>
+      </div>
+    </div>
+  </div>
 	<div class="container-fluid">
     <section class="colors">
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
 
           <!-- COLORS -->
           <div class="color-pickers">
@@ -239,15 +246,15 @@
           </div>
 
         </div>
-        <div class="col-md-9">
-          <!-- <iframe src="flattish.html" width="100%" height="750px" scrolling="no"></iframe> -->
+        <div class="col-sm-8" id="iframe-container">
           <iframe src="flattish.html" width="100%" height="750px"></iframe>
         </div>
+        <div class="col-sm-1"></div>
       </div>
     </section>
 	</div>
 
-  <div class="container">
+  <div class="container" id="results">
     <div class="row">
       <p id="target"></p>
     </div>
