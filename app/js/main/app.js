@@ -681,6 +681,34 @@ $('#rotating-header-checkbox:checkbox').change(function () {
 });
 
 // sidebar image validation
+function sidebarImgHeight(state) {
+  if (state === 'enable') {
+    // remove warning from form group
+    $('#sidebar-image__div .form-group').removeClass('has-error');
+
+    // enable compile button
+    $('#compile').removeClass('disabled').prop('disabled', false);
+
+    // remove tooltip from compile button
+    $('#compile-div').removeClass('disabled').tooltip('destroy');
+
+    // destroy input group popover
+    $('.input-group-addon').popover('destroy');
+  } else if (state === 'disable') {
+    // add warning to form group
+    $('#sidebar-image__div .form-group').addClass('has-error');
+
+    // disable compile button
+    $('#compile').addClass('disabled').prop('disabled', true);
+
+    // add tooltip to compile button
+    $('#compile-div').addClass('disabled').tooltip();
+
+    // create input group popover
+    $('.input-group-addon').popover('show');
+  }
+}
+
 function disableSidebarImgHeight() {
   // add warning to form group
   $('#sidebar-image__div .form-group').addClass('has-error');
@@ -727,7 +755,7 @@ $('#sidebar-image-checkbox:checkbox').change(function () {
       // reset value of image height input
       $('#sidebar-image__input').val('224');
     } else {
-      enableSidebarImgHeight();
+      sidebarImgHeight('enable');
     }
   } else {
     // hide div
@@ -739,16 +767,16 @@ $('#sidebar-image-checkbox:checkbox').change(function () {
       required: false
     });
 
-    enableSidebarImgHeight();
+    sidebarImgHeight('enable');
   }
 });
 
 // sidebar image height form validation
 $('#sidebar-image__input').change(function () {
   if ($('#sidebar-image__input').is(':invalid')) {
-    disableSidebarImgHeight();
+    sidebarImgHeight('disable');
   } else {
-    enableSidebarImgHeight();
+    sidebarImgHeight('enable');
   }
 });
 
