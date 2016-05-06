@@ -34,39 +34,8 @@
   <!--[if lt IE 9]><script type="text/javascript" src="//www.redditstatic.com/reddit-init-legacy.en.R-8EsEIjdCk.js"></script><![endif]-->
   <script type="text/javascript" id="config">
     r.setup({
-      
-      "expando_preference": "do_not_expand",
-      "debug": false,
-      "has_subscribed": true,
-      "server_time": 1462434702.0,
-      "clicktracker_url": "http://pixel.redditmedia.com/click",
-      "pref_no_profanity": true,
+      "logged": "reddit",
       "cur_domain": "reddit.com",
-      "feature_new_report_dialog": true,
-      "events_collector_url": "https://events.redditmedia.com/v1",
-      "feature_flatlist_events": false,
-      "https_forced": true,
-      "user_in_timeout": false,
-      "is_mobile_native_country": true,
-      "is_fake": false,
-      "renderstyle": "html",
-      "events_collector_key": "RedditFrontend1",
-      "feature_mobile_native_banner": true,
-      "cache_policy": "loggedin_www_new",
-      "new_window": false,
-      "pref_beta": false,
-      "eu_cookie_max_attempts": 3,
-      "pageInfo": {
-        "actionName": "hot.GET_listing",
-        "verification": "adfad553bf3b6c42e703170c536073e9c1f952f0"
-      },
-      "status_msg": {
-        "fetching": "fetching title...",
-        "loading": "loading...",
-        "submitting": "submitting..."
-      },
-      "stats_sample_rate": "5",
-      "eu_cookie": "eu_cookie"
     })
   </script>
   <style type="text/css">
@@ -271,7 +240,8 @@
         <div class="leavemoderator">you are a moderator of this subreddit. (<a href="javascript:void(0)">change</a>)</div>
         <form class="toggle leavecontributor-button " action="#" method="get">
           <input type="hidden" name="executed" value="you are no longer an approved submitter" />
-          <input type="hidden" name="id" /><span class="option main active">you are an approved submitter on this subreddit. (<a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" >leave</a>)</span><span class="option error">stop being an approved submitter? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "leavecontributor", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+          <input type="hidden" name="id" /><span class="option main active">you are an approved submitter on this subreddit. (<a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" >leave</a>)</span><span class="option error">stop being an approved submitter? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "leavecontributor", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span>
+        </form>
         <form class="toggle sr_style_toggle">
           <input id="sr_style_enabled" type="checkbox" name="sr_style_enabled" checked=&quot;checked&quot; disabled>
           <label for="sr_style_enabled">Show this subreddit's theme</label>
@@ -405,7 +375,7 @@
           <a class="thumbnail self may-blank loggedin " href="javascript:void(0)"></a>
           <div class="entry likes">
             <p class="title"><a class="title may-blank loggedin " href="javascript:void(0)" tabindex="1">Example text post. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png" onclick="alert('approved by fiveSeveN_ 29 days ago\n\n(no need to click for this info\u003B just hover over the checkmark next time)')">&#32;
+              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png">&#32;
               <span class="domain">(<a href="javascript:void(0)">self.flattish</a>)</span>
             </p>
             <div class="expando-button collapsed selftext"></div>
@@ -418,89 +388,38 @@
               <li class="link-save-button save-button"><a href="javascript:void(0)">save</a></li>
               <li>
                 <form action="#" method="post" class="state-button hide-button">
-                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide" onclick="change_state(this, 'hide', null);">hide</a></span></form>
+                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide">hide</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle del-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" data-event-action="delete" >delete</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "del", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " data-event-action="delete" >delete</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="spam" >spam</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="spam" >spam</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
                   <input type="hidden" name="executed" value="removed" />
-                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="remove" >remove</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="remove" >remove</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle lock-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="lock" >lock</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "lock", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="lock" >lock</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle marknsfw-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="marknsfw" >nsfw</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "marknsfw", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="marknsfw" >nsfw</a></span>
+                </form>
               </li>
             </ul>
             <div class="reportform report-t3_4dkfp7"></div>
             <div class="expando expando-uninitialized" style='display: none'><span class="error">loading...</span></div>
-          </div>
-          <div class="child"></div>
-          <div class="clearleft"></div>
-        </div>
-        <div class="clearleft"></div>
-        <div class=" thing id-t3_4dkdrj over18 even&#32; link " id="thing_t3_4dkdrj" onclick="click_thing(this)" data-fullname="t3_4dkdrj" data-type="link" data-author="fiveSeveN_" data-author-fullname="" data-subreddit="flattish" data-subreddit-fullname="" data-timestamp="1459919422000"
-            data-rank="4" data-can-ban="true">
-          <p class="parent"></p><span class="rank">4</span>
-          <div class="midcol likes">
-            <div class="arrow upmod login-required access-required" data-event-action="upvote" role="button" aria-label="upvote" tabindex="0"></div>
-            <div class="score dislikes">0</div>
-            <div class="score unvoted">0</div>
-            <div class="score likes">1</div>
-            <div class="arrow down login-required access-required" data-event-action="downvote" role="button" aria-label="downvote" tabindex="0"></div>
-          </div>
-          <a class="thumbnail nsfw may-blank loggedin " href="javascript:void(0)"></a>
-          <div class="entry likes">
-            <p class="title"><a class="title may-blank loggedin " href="javascript:void(0)" tabindex="1">Example NSFW image. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png" onclick="alert('approved by fiveSeveN_ 29 days ago\n\n(no need to click for this info\u003B just hover over the checkmark next time)')">&#32;
-              <span class="domain">(<a href="javascript:void(0)">i.imgur.com</a>)</span>
-            </p>
-            <div class="expando-button collapsed video"></div>
-            <p class="tagline">submitted&#32;
-              <time title="Wed Apr 6 05:10:22 2016 UTC" datetime="2016-04-06T05:10:22+00:00" class="live-timestamp">29 days ago</time>&#32;by&#32;<a href="javascript:void(0)" class="author may-blank">fiveSeveN_</a><span class="userattrs"></span></p>
-            <ul class="flat-list buttons">
-              <li><span class="nsfw-stamp stamp"><acronym title="Adult content: Not Safe For Work">NSFW</acronym></span></li>
-              <li class="first"><a href="javascript:void(0)" data-event-action="comments" class="bylink comments empty may-blank" rel="nofollow">comment</a></li>
-              <li class="share"><a class="post-sharing-button" href="javascript: void 0;">share</a></li>
-              <li class="link-save-button save-button"><a href="javascript:void(0)">save</a></li>
-              <li>
-                <form action="#" method="post" class="state-button hide-button">
-                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide" onclick="change_state(this, 'hide', null);">hide</a></span></form>
-              </li>
-              <li>
-                <form class="toggle del-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" data-event-action="delete" >delete</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "del", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
-              </li>
-              <li>
-                <form class="toggle remove-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="spam" >spam</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
-              </li>
-              <li>
-                <form class="toggle remove-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="removed" />
-                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="remove" >remove</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
-              </li>
-              <li>
-                <form class="toggle lock-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="lock" >lock</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "lock", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
-              </li>
-              <li>
-                <form class="toggle unmarknsfw-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="unmarked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="unmarknsfw" >un-nsfw</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "unmarknsfw", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
-              </li>
-            </ul>
-            <div class="reportform report-t3_4dkdrj"></div>
-            <div class="expando expando-uninitialized" style='display: none' data-cachedhtml=" &lt;div class=&quot;media-preview&quot; id=&quot;media-preview-4dkdrj&quot; style=&quot;max-width: 400px&quot;&gt; &lt;div class=&quot;media-preview-content&quot;&gt; &lt;a href=&quot;http://i.imgur.com/bwAFodx.jpg&quot; class=&quot;may-blank&quot;&gt; &lt;img class=&quot;preview&quot; src=&quot;https://i.redditmedia.com/d7aEM3s2_USU_Apdk5s5kEf2LUsY20kHgnz5EcDqNmE.jpg?w=400&amp;amp;s=245c92ead269a5db47a24eed5600b746&quot; width=&quot;400&quot; height=&quot;464&quot;&gt; &lt;img class=&quot;censored-preview&quot; src=&quot;https://i.redditmedia.com/d7aEM3s2_USU_Apdk5s5kEf2LUsY20kHgnz5EcDqNmE.jpg?w=400&amp;amp;blur=600&amp;amp;px=32&amp;amp;s=1b4369bcb22fdf14d771829dd8bccc5e&quot; width=&quot;400&quot; height=&quot;464&quot;&gt; &lt;/a&gt; &lt;/div&gt; &lt;/div&gt; "><span class="error">loading...</span></div>
           </div>
           <div class="child"></div>
           <div class="clearleft"></div>
@@ -519,7 +438,7 @@
           <a class="thumbnail may-blank loggedin " href="javascript:void(0)"><img src="http://a.thumbs.redditmedia.com/uHDQjMUPZfgkd-ldHl3sv6-NvzAjT7F0iUDld8glF-0.jpg" width='70' height='52' alt=""></a>
           <div class="entry likes">
             <p class="title"><a class="title may-blank loggedin " href="javascript:void(0)" tabindex="1">Example video. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a>
-              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png" onclick="alert('approved by fiveSeveN_ 29 days ago\n\n(no need to click for this info\u003B just hover over the checkmark next time)')">&#32;
+              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png">&#32;
               <span class="domain">(<a href="javascript:void(0)">youtube.com</a>)</span>
             </p>
             <div class="expando-button collapsed video"></div>
@@ -531,28 +450,34 @@
               <li class="link-save-button save-button"><a href="javascript:void(0)">save</a></li>
               <li>
                 <form action="#" method="post" class="state-button hide-button">
-                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide" onclick="change_state(this, 'hide', null);">hide</a></span></form>
+                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide">hide</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle del-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" data-event-action="delete" >delete</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "del", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " data-event-action="delete" >delete</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="spam" >spam</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="spam" >spam</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
                   <input type="hidden" name="executed" value="removed" />
-                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="remove" >remove</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="remove" >remove</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle lock-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="lock" >lock</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "lock", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="lock" >lock</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle marknsfw-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="marknsfw" >nsfw</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "marknsfw", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="marknsfw" >nsfw</a></span>
+                </form>
               </li>
             </ul>
             <div class="reportform report-t3_4dkdp2"></div>
@@ -586,32 +511,39 @@
               <li class="link-save-button save-button"><a href="javascript:void(0)">save</a></li>
               <li>
                 <form action="#" method="post" class="state-button hide-button">
-                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide" onclick="change_state(this, 'hide', null);">hide</a></span></form>
+                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide">hide</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle del-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" data-event-action="delete" >delete</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "del", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " data-event-action="delete" >delete</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="spam" >spam</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="spam" >spam</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
                   <input type="hidden" name="executed" value="removed" />
-                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="remove" >remove</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="remove" >remove</a></span>
+                </form>
               </li>
               <li>
                 <form action="/post/approve" method="post" class="state-button approve-button">
-                  <input type="hidden" name="executed" value="approved" /><span><a href="javascript:void(0)" class=" access-required" data-event-action="approve" onclick="return change_state(this, 'approve');">approve</a></span></form>
+                  <input type="hidden" name="executed" value="approved" /><span><a href="javascript:void(0)" class=" access-required" data-event-action="approve" onclick="return change_state(this, 'approve');">approve</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle lock-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="lock" >lock</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "lock", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="lock" >lock</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle marknsfw-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="marknsfw" >nsfw</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "marknsfw", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="marknsfw" >nsfw</a></span>
+                </form>
               </li>
             </ul>
             <div class="reportform report-t3_4dkdix"></div>
@@ -634,7 +566,7 @@
           <a class="thumbnail default may-blank loggedin " href="javascript:void(0)"></a>
           <div class="entry likes">
             <p class="title"><a class="title may-blank loggedin " href="javascript:void(0)" tabindex="1">Example link post. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a>
-              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png" onclick="alert('approved by fiveSeveN_ 29 days ago\n\n(no need to click for this info\u003B just hover over the checkmark next time)')">&#32;
+              <img class="approval-checkmark" title="approved by fiveSeveN_ 29 days ago" src="http://www.redditstatic.com/green-check.png">&#32;
               <span class="domain">(<a href="javascript:void(0)">lipsum.com</a>)</span>
             </p>
             <p class="tagline">submitted&#32;
@@ -645,32 +577,39 @@
               <li class="link-save-button save-button"><a href="javascript:void(0)">save</a></li>
               <li>
                 <form action="#" method="post" class="state-button hide-button">
-                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide" onclick="change_state(this, 'hide', null);">hide</a></span></form>
+                  <input type="hidden" name="executed" value="hidden" /><span><a href="javascript:void(0)" class=" " data-event-action="hide">hide</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle del-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " onclick="return toggle(this)" data-event-action="delete" >delete</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "del", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="deleted" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton " data-event-action="delete" >delete</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="spam" >spam</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="spammed" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="spam" >spam</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle remove-button " action="#" method="get">
                   <input type="hidden" name="executed" value="removed" />
-                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="remove" >remove</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "remove", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="spam" value="False" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="remove" >remove</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle lock-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="lock" >lock</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "lock", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="locked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="lock" >lock</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle marknsfw-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="marknsfw" >nsfw</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "marknsfw", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="marked" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" data-event-action="marknsfw" >nsfw</a></span>
+                </form>
               </li>
               <li>
                 <form class="toggle rescrape-button " action="#" method="get">
-                  <input type="hidden" name="executed" value="check back in a few minutes" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="retry_thumbnail" >retry thumb</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "rescrape", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span></form>
+                  <input type="hidden" name="executed" value="check back in a few minutes" /><span class="option main active"><a href="javascript:void(0)" class="togglebutton access-required" onclick="return toggle(this)" data-event-action="retry_thumbnail" >retry thumb</a></span><span class="option error">are you sure? &#32;<a href="javascript:void(0)" class="yes" onclick='change_state(this, "rescrape", null, undefined, null)'>yes</a>&#32;/&#32;<a href="javascript:void(0)" class="no" onclick="return toggle(this)">no</a></span>
+                </form>
               </li>
             </ul>
             <div class="reportform report-t3_4dkdgp"></div>
