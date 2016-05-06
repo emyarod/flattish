@@ -107,6 +107,9 @@
 		top: -84px;
 	}
 
+	// hide mod tools collapse button
+	#moderation_tools .collapse-button { display: none; }
+
 	// hide create subreddit button and account activity div
 	.sidebox.create,
 	.account-activity-box {
