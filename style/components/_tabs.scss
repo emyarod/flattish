@@ -31,7 +31,7 @@
   }
 
   // tabmenu bottom border effect on hover
-  &:after {
+  &::after {
     position: relative;
     top: -66px;
     left: -24px;
