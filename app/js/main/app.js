@@ -710,18 +710,27 @@ function replacer(inputString, varType, replacementValue) {
 // large header
 $('#large-header-checkbox:checkbox').change(function () {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    // if sidebar image is checked
+    $('iframe').contents().find('style').append('\n      div.content {\n        top: 297px;\n      }\n      #header-bottom-left {\n        top: 172px;\n      }\n      @media (min-width: 1200px) {\n        #header-bottom-left {\n          top: 245px;\n        }\n      }\n      .side {\n        top: 297px;\n      }\n      body::before {\n        height: 420px;\n      }\n      ');
+    // if pinned topics
+    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('style').append('\n        .titlebox blockquote {\n          top: 312px;\n        }\n        @media (min-width: 992px) {\n          #header-bottom-left {\n            left: 0;\n          }\n        }\n        ');
+    }
+
+    // if sidebar image
     if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n          top: 297px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        .side {\n          top: 297px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        div.content {\n          top: 297px;\n        }\n        #header-bottom-left {\n          top: 172px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 245px;\n          }\n        }\n        body::before {\n          height: 420px;\n        }\n        ');
-    } else {
-      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n    \t\t\ttop: 297px;\n      \t}\n        .side {\n          top: 297px;\n        }\n        div.content {\n          top: 297px;\n        }\n        #header-bottom-left {\n          top: 172px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 245px;\n          }\n        }\n        body::before {\n          height: 420px;\n        }\n        ');
+      $('iframe').contents().find('style').append('\n        .side {\n          top: 297px + ' + $('#sidebar-image__input').val() + ' + 16px;\n        }\n        ');
     }
   } else {
-    // if sidebar image is checked
+    $('iframe').contents().find('style').append('\n      div.content {\n        top: 223px;\n      }\n      #header-bottom-left {\n        top: 86px;\n      }\n      @media (min-width: 1200px) {\n        #header-bottom-left {\n          top: 159px;\n        }\n      }\n      .side {\n        top: 223px;\n      }\n      body::before {\n        height: 223px;\n      }\n      ');
+
+    // if pinned topics
+    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('style').append('\n        .titlebox blockquote {\n          top: 239px;\n        }\n        @media (min-width: 992px) {\n          #header-bottom-left {\n            left: 48px;\n          }\n        }\n        ');
+    }
+
+    // if sidebar image
     if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n          top: 223px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        .side {\n          top: 223px + ' + $('#sidebar-image__input').val() + 'px + 16px;\n        }\n        div.content {\n          top: 223px;\n        }\n        #header-bottom-left {\n          top: 86px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 159px;\n          }\n        }\n        body::before {\n          height: 223px;\n        }\n        ');
-    } else {
-      $('iframe').contents().find('style').append('\n        .footer-parent,\n        .debuginfo {\n    \t\t\ttop: 223px;\n      \t}\n        .side {\n          top: 223px;\n        }\n        div.content {\n          top: 223px;\n        }\n        #header-bottom-left {\n          top: 86px;\n        }\n        @media (min-width: 1200px) {\n          #header-bottom-left {\n            top: 159px;\n          }\n        }\n        body::before {\n          height: 223px;\n        }\n        ');
+      $('iframe').contents().find('style').append('\n        .side {\n          top: 223px + ' + $('#sidebar-image__input').val() + ' + 16px;\n        }\n        ');
     }
   }
 });
