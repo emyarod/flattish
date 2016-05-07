@@ -828,111 +828,98 @@ function replacer(inputString, varType, replacementValue, variable = null) {
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    // if sidebar image is checked
-    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    $('iframe').contents().find('style').append(
+      `
+      div.content {
+        top: 297px;
+      }
+      #header-bottom-left {
+        top: 172px;
+      }
+      @media (min-width: 1200px) {
+        #header-bottom-left {
+          top: 245px;
+        }
+      }
+      .side {
+        top: 297px;
+      }
+      body::before {
+        height: 420px;
+      }
+      `
+    );
+    // if pinned topics
+    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('style').append(
         `
-        .footer-parent,
-        .debuginfo {
-          top: 297px + ${$('#sidebar-image__input').val()}px + 16px;
+        .titlebox blockquote {
+          top: 312px;
         }
-        .side {
-          top: 297px + ${$('#sidebar-image__input').val()}px + 16px;
-        }
-        div.content {
-          top: 297px;
-        }
-        #header-bottom-left {
-          top: 172px;
-        }
-        @media (min-width: 1200px) {
+        @media (min-width: 992px) {
           #header-bottom-left {
-            top: 245px;
+            left: 0;
           }
-        }
-        body::before {
-          height: 420px;
         }
         `
       );
-    } else {
+    }
+
+    // if sidebar image
+    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('style').append(
         `
-        .footer-parent,
-        .debuginfo {
-    			top: 297px;
-      	}
         .side {
-          top: 297px;
-        }
-        div.content {
-          top: 297px;
-        }
-        #header-bottom-left {
-          top: 172px;
-        }
-        @media (min-width: 1200px) {
-          #header-bottom-left {
-            top: 245px;
-          }
-        }
-        body::before {
-          height: 420px;
+          top: 297px + ${$('#sidebar-image__input').val()} + 16px;
         }
         `
       );
     }
   } else {
-    // if sidebar image is checked
-    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    $('iframe').contents().find('style').append(
+      `
+      div.content {
+        top: 223px;
+      }
+      #header-bottom-left {
+        top: 86px;
+      }
+      @media (min-width: 1200px) {
+        #header-bottom-left {
+          top: 159px;
+        }
+      }
+      .side {
+        top: 223px;
+      }
+      body::before {
+        height: 223px;
+      }
+      `
+    );
+
+    // if pinned topics
+    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('style').append(
         `
-        .footer-parent,
-        .debuginfo {
-          top: 223px + ${$('#sidebar-image__input').val()}px + 16px;
+        .titlebox blockquote {
+          top: 239px;
         }
-        .side {
-          top: 223px + ${$('#sidebar-image__input').val()}px + 16px;
-        }
-        div.content {
-          top: 223px;
-        }
-        #header-bottom-left {
-          top: 86px;
-        }
-        @media (min-width: 1200px) {
+        @media (min-width: 992px) {
           #header-bottom-left {
-            top: 159px;
+            left: 48px;
           }
-        }
-        body::before {
-          height: 223px;
         }
         `
       );
-    } else {
+    }
+
+    // if sidebar image
+    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('style').append(
         `
-        .footer-parent,
-        .debuginfo {
-    			top: 223px;
-      	}
         .side {
-          top: 223px;
-        }
-        div.content {
-          top: 223px;
-        }
-        #header-bottom-left {
-          top: 86px;
-        }
-        @media (min-width: 1200px) {
-          #header-bottom-left {
-            top: 159px;
-          }
-        }
-        body::before {
-          height: 223px;
+          top: 223px + ${$('#sidebar-image__input').val()} + 16px;
         }
         `
       );
