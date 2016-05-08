@@ -841,7 +841,6 @@ function inlineStyler(cssObject) {
         for (var property in block) {
           if (block.hasOwnProperty(property)) {
             let value = block[property];
-            console.log(`${property}, ${value}`)
             $('iframe').contents().find(selector).css(property, value);
           }
         }
@@ -856,7 +855,6 @@ $('#large-header-checkbox:checkbox').change(() => {
     inlineStyler({
       'div.content': {
         'top': '297px',
-        'style': 'awesome',
       },
       '#header-bottom-left': {
         'top': '172px',
@@ -922,13 +920,14 @@ $('#large-header-checkbox:checkbox').change(() => {
       '.side': {
         'top': '223px',
       },
-      'body::before': {
-        'height': '223px',
-      },
     });
 
     $('iframe').contents().find('style').append(
       `
+      body::before {
+        height: 223px;
+      }
+
       @media (min-width: 992px) {
         #header-bottom-left {
           left: unset;
@@ -1034,6 +1033,49 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
     } else {
       sidebarImgHeight('enable');
     }
+
+    // validation for live preview
+    if ($('#sidebar-image__input').is(':valid')) {
+      // if large header
+      if ($('#large-header-checkbox:checkbox').prop('checked')) {
+        inlineStyler({
+          '.side': {
+            'top': `${297 + Number($('#sidebar-image__input').val()) + 16}px`,
+          },
+        });
+      } else {
+        inlineStyler({
+          '.side': {
+            'top': `${223 + Number($('#sidebar-image__input').val()) + 16}px`,
+          },
+        });
+      }
+
+      $('iframe').contents().find('style').append(
+        `
+        .titlebox::before {
+          position: absolute;
+          top: ${-Number($('#sidebar-image__input').val()) - 16}px;
+          right: -330px;
+          display: block;
+          height: ${Number($('#sidebar-image__input').val())}px;
+          width: 330px;
+          content: '';
+          border-radius: 2px;
+          background: url("//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png") center;
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+                      0px 2px 2px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+                      0px 1px 5px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+        }
+
+        @media (max-resolution: 1dppx) and (min-width: 992px) {
+          .titlebox::before {
+            right: 0;
+          }
+        }
+        `
+      );
+    }
   } else {
     // hide div
     $('#sidebar-image__div').hide(200, $.bez(bezierEasing))
@@ -1047,6 +1089,36 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
     });
 
     sidebarImgHeight('enable');
+
+    // live preview
+    // if large header
+    if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      inlineStyler({
+        '.side': {
+          'top': '297px',
+        },
+      });
+    } else {
+      inlineStyler({
+        '.side': {
+          'top': '223px',
+        },
+      });
+    }
+
+    $('iframe').contents().find('style').append(
+      `
+      .titlebox::before {
+        display: none;
+      }
+
+      @media (max-resolution: 1dppx) and (min-width: 992px) {
+        .titlebox::before {
+          right: unset;
+        }
+      }
+      `
+    );
   }
 });
 
@@ -1142,7 +1214,7 @@ $('#compile').click(() => {
 
           let finalPreview = result.text;
 
-          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"//b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"//a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"//b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"//b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"//b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"');
+          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"//b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"//a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"//b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"//b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"//b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, '"//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png"');
           $('iframe').contents().find('style').text(`html,body{overflow-y:hidden;}${finalPreview}`);
         });
       });
