@@ -825,17 +825,49 @@ function replacer(inputString, varType, replacementValue, variable = null) {
   }
 }
 
+
+// returns inline styles for live preview
+var inlineStyleSelectors = [];
+
+function inlineStyler(cssObject) {
+  if (typeof cssObject === 'object') {
+    for (var selector in cssObject) {
+      if (inlineStyleSelectors.indexOf(selector) === -1) {
+        inlineStyleSelectors.push(selector);
+      }
+
+      if (cssObject.hasOwnProperty(selector)) {
+        let block = cssObject[selector];
+        for (var property in block) {
+          if (block.hasOwnProperty(property)) {
+            let value = block[property];
+            console.log(`${property}, ${value}`)
+            $('iframe').contents().find(selector).css(property, value);
+          }
+        }
+      }
+    }
+  }
+}
+
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
+    inlineStyler({
+      'div.content': {
+        'top': '297px',
+        'style': 'awesome',
+      },
+      '#header-bottom-left': {
+        'top': '172px',
+      },
+      '.side': {
+        'top': '297px',
+      },
+    });
+
     $('iframe').contents().find('style').append(
       `
-      div.content {
-        top: 297px;
-      }
-      #header-bottom-left {
-        top: 172px;
-      }
       @media (min-width: 992px) {
         #header-bottom-left {
           left: 48px;
@@ -846,9 +878,6 @@ $('#large-header-checkbox:checkbox').change(() => {
           top: 245px;
         }
       }
-      .side {
-        top: 297px;
-      }
       body::before {
         height: 420px;
       }
@@ -856,11 +885,14 @@ $('#large-header-checkbox:checkbox').change(() => {
     );
     // if pinned topics
     if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+      inlineStyler({
+        '.titlebox blockquote': {
+          'top': '312px',
+        },
+      });
+
       $('iframe').contents().find('style').append(
         `
-        .titlebox blockquote {
-          top: 312px;
-        }
         @media (min-width: 992px) {
           #header-bottom-left {
             left: 0;
@@ -872,24 +904,31 @@ $('#large-header-checkbox:checkbox').change(() => {
 
     // if sidebar image
     if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('style').append(
-        `
-        .side {
-          top: 297px + ${$('#sidebar-image__input').val()} + 16px;
-        }
-        `
-      );
+      inlineStyler({
+        '.side': {
+          'top': `${297 + Number($('#sidebar-image__input').val()) + 16}px`,
+        },
+      });
     }
   } else {
     // normal header
+    inlineStyler({
+      'div.content': {
+        'top': '223px',
+      },
+      '#header-bottom-left': {
+        'top': '86px',
+      },
+      '.side': {
+        'top': '223px',
+      },
+      'body::before': {
+        'height': '223px',
+      },
+    });
+
     $('iframe').contents().find('style').append(
       `
-      div.content {
-        top: 223px;
-      }
-      #header-bottom-left {
-        top: 86px;
-      }
       @media (min-width: 992px) {
         #header-bottom-left {
           left: unset;
@@ -900,35 +939,25 @@ $('#large-header-checkbox:checkbox').change(() => {
           top: 159px;
         }
       }
-      .side {
-        top: 223px;
-      }
-      body::before {
-        height: 223px;
-      }
       `
     );
 
     // if pinned topics
     if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('style').append(
-        `
-        .titlebox blockquote {
-          top: 239px;
-        }
-        `
-      );
+      inlineStyler({
+        '.titlebox blockquote': {
+          'top': '239px',
+        },
+      });
     }
 
     // if sidebar image
     if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('style').append(
-        `
-        .side {
-          top: 223px + ${$('#sidebar-image__input').val()} + 16px;
-        }
-        `
-      );
+      inlineStyler({
+        '.side': {
+          'top': `${223 + Number($('#sidebar-image__input').val()) + 16}px`,
+        },
+      });
     }
   }
 });
@@ -1101,6 +1130,11 @@ $('#compile').click(() => {
         sass.compileFile('flattish/flattish.scss', (result) => {
           // enable inputs after compilation
           $('input').removeClass('disabled').prop('disabled', false);
+
+          for (var i = 0; i < inlineStyleSelectors.length; i++) {
+            $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`).removeAttr('style');
+          }
+
 
           console.log('compiled');
           console.log(result);
