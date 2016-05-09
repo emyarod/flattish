@@ -848,6 +848,48 @@ function sidebarImgHeight(state) {
   }
 }
 
+// live preview
+function sidebarImageLivePreview() {
+  if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    // validation for live preview
+    if ($('#sidebar-image__input').is(':valid')) {
+      // if large header
+      if ($('#large-header-checkbox:checkbox').prop('checked')) {
+        inlineStyler({
+          '.side': {
+            'top': 297 + Number($('#sidebar-image__input').val()) + 16 + 'px'
+          }
+        });
+      } else {
+        inlineStyler({
+          '.side': {
+            'top': 223 + Number($('#sidebar-image__input').val()) + 16 + 'px'
+          }
+        });
+      }
+
+      $('iframe').contents().find('style').append('\n        .titlebox::before {\n          position: absolute;\n          top: ' + (-Number($('#sidebar-image__input').val()) - 16) + 'px;\n          right: -330px;\n          display: block;\n          height: ' + Number($('#sidebar-image__input').val()) + 'px;\n          width: 330px;\n          content: \'\';\n          border-radius: 2px;\n          background: url("//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png") center;\n          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),\n                      0px 2px 2px 0px rgba(0, 0, 0, 0.14),\n                      0px 1px 5px 0px rgba(0, 0, 0, 0.12);\n        }\n\n        @media (max-resolution: 1dppx) and (min-width: 992px) {\n          .titlebox::before {\n            right: 0;\n          }\n        }\n        ');
+    }
+  } else {
+    // if large header
+    if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      inlineStyler({
+        '.side': {
+          'top': '297px'
+        }
+      });
+    } else {
+      inlineStyler({
+        '.side': {
+          'top': '223px'
+        }
+      });
+    }
+
+    $('iframe').contents().find('style').append('\n      .titlebox::before {\n        display: none;\n      }\n\n      @media (max-resolution: 1dppx) and (min-width: 992px) {\n        .titlebox::before {\n          right: unset;\n        }\n      }\n      ');
+  }
+}
+
 $('#sidebar-image-checkbox:checkbox').change(function () {
   var bezierEasing = [0.4, 0, 0.2, 1];
   if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
@@ -867,26 +909,6 @@ $('#sidebar-image-checkbox:checkbox').change(function () {
     } else {
       sidebarImgHeight('enable');
     }
-
-    // validation for live preview
-    if ($('#sidebar-image__input').is(':valid')) {
-      // if large header
-      if ($('#large-header-checkbox:checkbox').prop('checked')) {
-        inlineStyler({
-          '.side': {
-            'top': 297 + Number($('#sidebar-image__input').val()) + 16 + 'px'
-          }
-        });
-      } else {
-        inlineStyler({
-          '.side': {
-            'top': 223 + Number($('#sidebar-image__input').val()) + 16 + 'px'
-          }
-        });
-      }
-
-      $('iframe').contents().find('style').append('\n        .titlebox::before {\n          position: absolute;\n          top: ' + (-Number($('#sidebar-image__input').val()) - 16) + 'px;\n          right: -330px;\n          display: block;\n          height: ' + Number($('#sidebar-image__input').val()) + 'px;\n          width: 330px;\n          content: \'\';\n          border-radius: 2px;\n          background: url("//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png") center;\n          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),\n                      0px 2px 2px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),\n                      0px 1px 5px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);\n        }\n\n        @media (max-resolution: 1dppx) and (min-width: 992px) {\n          .titlebox::before {\n            right: 0;\n          }\n        }\n        ');
-    }
   } else {
     // hide div
     $('#sidebar-image__div').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
@@ -898,25 +920,10 @@ $('#sidebar-image-checkbox:checkbox').change(function () {
     });
 
     sidebarImgHeight('enable');
-
-    // live preview
-    // if large header
-    if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.side': {
-          'top': '297px'
-        }
-      });
-    } else {
-      inlineStyler({
-        '.side': {
-          'top': '223px'
-        }
-      });
-    }
-
-    $('iframe').contents().find('style').append('\n      .titlebox::before {\n        display: none;\n      }\n\n      @media (max-resolution: 1dppx) and (min-width: 992px) {\n        .titlebox::before {\n          right: unset;\n        }\n      }\n      ');
   }
+
+  // live preview
+  sidebarImageLivePreview();
 });
 
 // sidebar image height form validation
@@ -925,6 +932,7 @@ $('#sidebar-image__input').change(function () {
     sidebarImgHeight('disable');
   } else {
     sidebarImgHeight('enable');
+    sidebarImageLivePreview();
   }
 });
 
@@ -980,7 +988,7 @@ $('#compile').click(function () {
       if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
         console.log('checked');
         content = replacer(content, 'bool', true, 'sidebarImg');
-        content = replacer(content, 'bool', $('#sidebar-image__input').val(), 'sidebarImgHeight');
+        content = replacer(content, 'bool', $('#sidebar-image__input').val() + 'px', 'sidebarImgHeight');
       } else {
         console.log('not checked');
         content = replacer(content, 'bool', false, 'sidebarImg');
