@@ -47,6 +47,8 @@ gulp.task('default', ['js'], () => {
     port: 8080,
   });
 
+  gulp.watch('index.html', browserSync.reload);
+
   /**
    * add browserSync.reload to the tasks array to make
    * all browsers reload after tasks are complete
