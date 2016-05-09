@@ -1012,28 +1012,9 @@ function sidebarImgHeight(state) {
   }
 }
 
-$('#sidebar-image-checkbox:checkbox').change(() => {
-  let bezierEasing = [0.4, 0, 0.2, 1];
+// live preview
+function sidebarImageLivePreview() {
   if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
-    // show div
-    $('#sidebar-image__div').show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing));
-
-    // enable input field
-    $('#sidebar-image__input').prop({
-      disabled: false,
-      required: true,
-    });
-
-    // validate input form
-    if ($('#sidebar-image__input').is(':invalid')) {
-      // reset value of image height input
-      $('#sidebar-image__input').val('224');
-    } else {
-      sidebarImgHeight('enable');
-    }
-
     // validation for live preview
     if ($('#sidebar-image__input').is(':valid')) {
       // if large header
@@ -1063,9 +1044,9 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
           content: '';
           border-radius: 2px;
           background: url("//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png") center;
-          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-                      0px 2px 2px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-                      0px 1px 5px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+                      0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                      0px 1px 5px 0px rgba(0, 0, 0, 0.12);
         }
 
         @media (max-resolution: 1dppx) and (min-width: 992px) {
@@ -1077,20 +1058,6 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
       );
     }
   } else {
-    // hide div
-    $('#sidebar-image__div').hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing));
-
-    // disable input field
-    $('#sidebar-image__input').prop({
-      disabled: true,
-      required: false,
-    });
-
-    sidebarImgHeight('enable');
-
-    // live preview
     // if large header
     if ($('#large-header-checkbox:checkbox').prop('checked')) {
       inlineStyler({
@@ -1120,6 +1087,46 @@ $('#sidebar-image-checkbox:checkbox').change(() => {
       `
     );
   }
+}
+
+$('#sidebar-image-checkbox:checkbox').change(() => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
+  if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    // show div
+    $('#sidebar-image__div').show(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
+      .slideDown(200, $.bez(bezierEasing));
+
+    // enable input field
+    $('#sidebar-image__input').prop({
+      disabled: false,
+      required: true,
+    });
+
+    // validate input form
+    if ($('#sidebar-image__input').is(':invalid')) {
+      // reset value of image height input
+      $('#sidebar-image__input').val('224');
+    } else {
+      sidebarImgHeight('enable');
+    }
+  } else {
+    // hide div
+    $('#sidebar-image__div').hide(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
+      .slideUp(200, $.bez(bezierEasing));
+
+    // disable input field
+    $('#sidebar-image__input').prop({
+      disabled: true,
+      required: false,
+    });
+
+    sidebarImgHeight('enable');
+  }
+
+  // live preview
+  sidebarImageLivePreview();
 });
 
 // sidebar image height form validation
@@ -1128,6 +1135,7 @@ $('#sidebar-image__input').change(() => {
     sidebarImgHeight('disable');
   } else {
     sidebarImgHeight('enable');
+    sidebarImageLivePreview();
   }
 });
 
@@ -1184,7 +1192,7 @@ $('#compile').click(() => {
       if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
         console.log('checked');
         content = replacer(content, 'bool', true, 'sidebarImg');
-        content = replacer(content, 'bool', $('#sidebar-image__input').val(), 'sidebarImgHeight');
+        content = replacer(content, 'bool', `${$('#sidebar-image__input').val()}px`, 'sidebarImgHeight');
       } else {
         console.log('not checked');
         content = replacer(content, 'bool', false, 'sidebarImg');
@@ -1204,7 +1212,8 @@ $('#compile').click(() => {
           $('input').removeClass('disabled').prop('disabled', false);
 
           for (var i = 0; i < inlineStyleSelectors.length; i++) {
-            $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`).removeAttr('style');
+            $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`)
+            .removeAttr('style');
           }
 
 
