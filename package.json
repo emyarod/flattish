@@ -5,9 +5,11 @@
   "main": "app/main/app.js",
   "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.12.5",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2"
+    "gulp-babel": "^6.1.2",
+    "gulp-uglify": "^1.5.3"
   },
   "scripts": {
     "test": "gulp && git status"
