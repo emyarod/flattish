@@ -49,6 +49,8 @@ gulp.task('default', ['js'], () => {
 
   gulp.watch('index.html', browserSync.reload);
 
+  gulp.watch(`${paths.dest}/css/**/*.css`, browserSync.reload);
+
   /**
    * add browserSync.reload to the tasks array to make
    * all browsers reload after tasks are complete
