@@ -702,9 +702,20 @@ $(document).ready(function() {
     // url: 'style/utils/_vars.scss'
     // url: 'test.scss'
   })
-  .done(function(data) {
+  .done((data) => {
     $('#target').html(data);
   })
+  .done(() => {
+    // affix iframe after scroll below header
+    $('#iframe-container').affix({
+      offset: {
+        top: $('.header').outerHeight(true),
+        bottom: () => {
+          return ($('#results').outerHeight(true) + 150);
+        },
+      }
+    });
+  });
 });
 
 var sass = new Sass();
@@ -1144,15 +1155,59 @@ $('iframe').load(() => {
   // $('iframe').contents().find('style').append('body { background-color: purple; }');
 });
 
-// affix iframe after scroll below header
-$('#iframe-container').affix({
-  offset: {
-    top: $('.header').outerHeight(true),
-    bottom: () => {
-      return ($('#results').outerHeight(true) + 150);
-    },
+// dropzone
+
+// Check for the various File API support.
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  // Great success! All the File APIs are supported.
+  console.log('All File APIS supported');
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+
+function handleFileSelect(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+
+  var files = evt.dataTransfer.files; // FileList object.
+  console.log(files[0]);
+
+  var preview = document.querySelector('img');
+  var reader  = new FileReader();
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  // files is a FileList of File objects. List some properties.
+  var output = [];
+  for (var i = 0, f; f = files[i]; i++) {
+    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+      f.size, ' bytes, last modified: ',
+      f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+      '</li>');
   }
-});
+  if (files[0]) {
+    reader.readAsDataURL(files[0]);
+  }
+  document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+}
+
+function handleDragOver(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+  evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+function previewFile() {
+  var file    = document.querySelector('input[type=file]').files[0];
+
+
+}
+
+// Setup the dnd listeners.
+var dropZone = document.getElementById('drop_zone');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', handleFileSelect, false);
 
 
 // compile
