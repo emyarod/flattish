@@ -1165,49 +1165,93 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
   alert('The File APIs are not fully supported in this browser.');
 }
 
-function handleFileSelect(evt) {
+// image type validation
+// image size validation
+// insert image
+// file size validation
+// file name, file type
+
+function previewFile(input, selector) {
+  let { files: [file] } = input;
+  let reader = new FileReader();
+
+  if (selector === undefined) {
+    selector = input;
+  } else {
+    [selector] = $(selector).find('.dropbox');
+  }
+
+  // reader.addEventListener('load', () => {
+  //   // $(event.currentTarget).parent().css('background-color', 'red');
+  //   // console.log($(selector).parent());
+  //   // base64 reader.result
+  //   $(selector).siblings('.thumb-container')
+  //     .html(`<img src="${reader.result}" width="100" alt="Image preview...">`);
+  //   $(selector).siblings('.file-details')
+  //     .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
+  // }, false);
+
+  reader.onload = () => {
+    $(selector).siblings('.thumb-container')
+      .html(`<img src="${reader.result}" width="100" alt="Image preview...">`);
+    $(selector).siblings('.file-details')
+      .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
+  }
+
+  if (file) {
+    let imageType = /^image\//;
+    // file type validation
+    if (imageType.test(file.type)) {
+      // read contents of uploaded file(s)
+      reader.readAsDataURL(file);
+    } else {
+      // throw error
+      $(selector).siblings('.file-details').html(`<p>Invalid file type!</p>`);
+    }
+  }
+}
+
+var fileSelect = document.getElementById('sidebar-img-dropbox-container');
+var fileElem = document.getElementById('sidebar-img-dropbox');
+
+fileSelect.addEventListener('click', function (evt) {
+  if (fileElem) {
+    // sanitize input field value
+    $(fileElem).val('');
+
+    // activate manual file upload
+    fileElem.click();
+  }
+
+  // // prevent navigation to "#"
+  // evt.preventDefault();
+}, false);
+
+var dropbox;
+
+dropbox = document.getElementById("sidebar-img-dropbox-container");
+dropbox.addEventListener("dragenter", dragenter, false);
+dropbox.addEventListener("dragover", dragover, false);
+dropbox.addEventListener("drop", drop, false);
+
+function dragenter(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+}
+
+function dragover(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+}
+
+function drop(evt) {
   evt.stopPropagation();
   evt.preventDefault();
 
-  var files = evt.dataTransfer.files; // FileList object.
-  console.log(files[0]);
-
-  var preview = document.querySelector('img');
-  var reader  = new FileReader();
-  reader.addEventListener("load", function () {
-    preview.src = reader.result;
-  }, false);
-
-  // files is a FileList of File objects. List some properties.
-  var output = [];
-  for (var i = 0, f; f = files[i]; i++) {
-    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-      f.size, ' bytes, last modified: ',
-      f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-      '</li>');
-  }
-  if (files[0]) {
-    reader.readAsDataURL(files[0]);
-  }
-  document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  // let files = evt.dataTransfer.files;
+  let files = evt.dataTransfer;
+  previewFile(files, evt.currentTarget);
 }
-
-function handleDragOver(evt) {
-  evt.stopPropagation();
-  evt.preventDefault();
-  evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-}
-
-function previewFile() {
-  var file    = document.querySelector('input[type=file]').files[0];
-
-
-}
-
-// Setup the dnd listeners.
-var dropZone = document.getElementById('drop_zone');
-dropZone.addEventListener('dragover', handleDragOver, false);
-dropZone.addEventListener('drop', handleFileSelect, false);
 
 
 // compile
