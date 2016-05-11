@@ -968,10 +968,11 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 // file name, file type
 
 function previewFile(input, selector) {
-  var _input$files = _slicedToArray(input.files, 1);
-
-  var file = _input$files[0];
-
+  console.log('asdf');
+  // let { files: [file] } = input;
+  var file = input.files[0];
+  // console.log(input.files[0]);
+  // console.log(file);
   var reader = new FileReader();
 
   if (selector === undefined) {
