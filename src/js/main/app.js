@@ -1172,7 +1172,11 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 // file name, file type
 
 function previewFile(input, selector) {
-  let { files: [file] } = input;
+  console.log('asdf');
+  // let { files: [file] } = input;
+  let file = input.files[0];
+  // console.log(input.files[0]);
+  // console.log(file);
   let reader = new FileReader();
 
   if (selector === undefined) {
