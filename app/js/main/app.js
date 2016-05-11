@@ -568,6 +568,16 @@ $(document).ready(function () {
     // url: 'test.scss'
   }).done(function (data) {
     $('#target').html(data);
+  }).done(function () {
+    // affix iframe after scroll below header
+    $('#iframe-container').affix({
+      offset: {
+        top: $('.header').outerHeight(true),
+        bottom: function bottom() {
+          return $('#results').outerHeight(true) + 150;
+        }
+      }
+    });
   });
 });
 
@@ -941,15 +951,108 @@ $('iframe').load(function () {
   // $('iframe').contents().find('style').append('body { background-color: purple; }');
 });
 
-// affix iframe after scroll below header
-$('#iframe-container').affix({
-  offset: {
-    top: $('.header').outerHeight(true),
-    bottom: function bottom() {
-      return $('#results').outerHeight(true) + 150;
+// dropzone
+
+// Check for the various File API support.
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  // Great success! All the File APIs are supported.
+  console.log('All File APIS supported');
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+
+// image type validation
+// image size validation
+// insert image
+// file size validation
+// file name, file type
+
+function previewFile(input, selector) {
+  var _input$files = _slicedToArray(input.files, 1);
+
+  var file = _input$files[0];
+
+  var reader = new FileReader();
+
+  if (selector === undefined) {
+    selector = input;
+  } else {
+    var _$$find = $(selector).find('.dropbox');
+
+    var _$$find2 = _slicedToArray(_$$find, 1);
+
+    selector = _$$find2[0];
+  }
+
+  // reader.addEventListener('load', () => {
+  //   // $(event.currentTarget).parent().css('background-color', 'red');
+  //   // console.log($(selector).parent());
+  //   // base64 reader.result
+  //   $(selector).siblings('.thumb-container')
+  //     .html(`<img src="${reader.result}" width="100" alt="Image preview...">`);
+  //   $(selector).siblings('.file-details')
+  //     .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
+  // }, false);
+
+  reader.onload = function () {
+    $(selector).siblings('.thumb-container').html('<img src="' + reader.result + '" width="100" alt="Image preview...">');
+    $(selector).siblings('.file-details').html('<p><strong>' + file.name + '</strong> - ' + file.size + ' bytes</p>');
+  };
+
+  if (file) {
+    var imageType = /^image\//;
+    // file type validation
+    if (imageType.test(file.type)) {
+      // read contents of uploaded file(s)
+      reader.readAsDataURL(file);
+    } else {
+      // throw error
+      $(selector).siblings('.file-details').html('<p>Invalid file type!</p>');
     }
   }
-});
+}
+
+var fileSelect = document.getElementById('sidebar-img-dropbox-container');
+var fileElem = document.getElementById('sidebar-img-dropbox');
+
+fileSelect.addEventListener('click', function (evt) {
+  if (fileElem) {
+    // sanitize input field value
+    $(fileElem).val('');
+
+    // activate manual file upload
+    fileElem.click();
+  }
+
+  // // prevent navigation to "#"
+  // evt.preventDefault();
+}, false);
+
+var dropbox;
+
+dropbox = document.getElementById("sidebar-img-dropbox-container");
+dropbox.addEventListener("dragenter", dragenter, false);
+dropbox.addEventListener("dragover", dragover, false);
+dropbox.addEventListener("drop", drop, false);
+
+function dragenter(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+}
+
+function dragover(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+}
+
+function drop(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+
+  // let files = evt.dataTransfer.files;
+  var files = evt.dataTransfer;
+  previewFile(files, evt.currentTarget);
+}
 
 // compile
 $('#compile').click(function () {
