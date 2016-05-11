@@ -63,6 +63,23 @@ iframe {
   }
 }
 
+// dropzone
+.dropbox-container {
+  width: 100%;
+  padding: 20px;
+  border: 5px dashed #93cdee;
+  border-radius: 5px;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input.dropbox {
+  display: none;
+}
+
 // compile button
 #compile-div {
   display: inline-block;
