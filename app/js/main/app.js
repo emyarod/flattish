@@ -968,11 +968,11 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 // file name, file type
 
 function previewFile(input, selector) {
-  console.log('asdf');
-  // let { files: [file] } = input;
-  var file = input.files[0];
-  // console.log(input.files[0]);
-  // console.log(file);
+  var _input$files = _slicedToArray(input.files, 1);
+
+  var file = _input$files[0];
+  // let file = input.files[0];
+
   var reader = new FileReader();
 
   if (selector === undefined) {
@@ -985,24 +985,14 @@ function previewFile(input, selector) {
     selector = _$$find2[0];
   }
 
-  // reader.addEventListener('load', () => {
-  //   // $(event.currentTarget).parent().css('background-color', 'red');
-  //   // console.log($(selector).parent());
-  //   // base64 reader.result
-  //   $(selector).siblings('.thumb-container')
-  //     .html(`<img src="${reader.result}" width="100" alt="Image preview...">`);
-  //   $(selector).siblings('.file-details')
-  //     .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
-  // }, false);
-
   reader.onload = function () {
     $(selector).siblings('.thumb-container').html('<img src="' + reader.result + '" width="100" alt="Image preview...">');
     $(selector).siblings('.file-details').html('<p><strong>' + file.name + '</strong> - ' + file.size + ' bytes</p>');
   };
 
   if (file) {
-    var imageType = /^image\//;
     // file type validation
+    var imageType = /^image\//;
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
       reader.readAsDataURL(file);
