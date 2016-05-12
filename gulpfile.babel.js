@@ -24,9 +24,7 @@ gulp.task('clean', () => {
  */
 gulp.task('js', ['clean'], () => {
   return gulp.src(`${paths.src}/js/**/*.js`)
-  .pipe(babel({
-    presets: ['es2015'],
-  }))
+  .pipe(babel())
   // .pipe(uglify())
   .pipe(gulp.dest(`${paths.dest}/js/`));
 });
