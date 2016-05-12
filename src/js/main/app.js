@@ -1172,11 +1172,8 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 // file name, file type
 
 function previewFile(input, selector) {
-  console.log('asdf');
-  // let { files: [file] } = input;
-  let file = input.files[0];
-  // console.log(input.files[0]);
-  // console.log(file);
+  let { files: [file] } = input;
+  // let file = input.files[0];
   let reader = new FileReader();
 
   if (selector === undefined) {
@@ -1184,16 +1181,6 @@ function previewFile(input, selector) {
   } else {
     [selector] = $(selector).find('.dropbox');
   }
-
-  // reader.addEventListener('load', () => {
-  //   // $(event.currentTarget).parent().css('background-color', 'red');
-  //   // console.log($(selector).parent());
-  //   // base64 reader.result
-  //   $(selector).siblings('.thumb-container')
-  //     .html(`<img src="${reader.result}" width="100" alt="Image preview...">`);
-  //   $(selector).siblings('.file-details')
-  //     .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
-  // }, false);
 
   reader.onload = () => {
     $(selector).siblings('.thumb-container')
@@ -1203,8 +1190,8 @@ function previewFile(input, selector) {
   }
 
   if (file) {
-    let imageType = /^image\//;
     // file type validation
+    let imageType = /^image\//;
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
       reader.readAsDataURL(file);
