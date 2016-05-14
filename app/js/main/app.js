@@ -510,7 +510,7 @@ function createSpectrum(id, swatch) {
     }
 
     if (id === '#primaryColorPicker') {
-      $('iframe').contents().find('style').append('\n        .submit-link .morelink a,\n        .submit-text .morelink a,\n        .submit-page button[type="submit"],\n        #sr-form .save-button button,\n        .save-button>button:nth-child(1) {\n          background: ' + newColor + ' radial-gradient(circle,rgba(77,208,225,0.3) 15%,transparent 30%) no-repeat 50% 50%/0!important;\n        }\n        .login-form-side input[type="checkbox"]:checked+label::before,\n        .c-checkbox input[type="checkbox"]:checked+label::before,\n        .flairtoggle input[type="checkbox"]:checked+label::before,\n        .linefield input[type="checkbox"]:checked+label::before,\n        .roundfield-content input[type="checkbox"]:checked+label::before {\n          border-color: ' + newColor + '!important;\n          background: ' + newColor + ' url("//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png") -246px -138px;\n        }\n        .toggleButton.enabled {\n          background-color: ' + newColor + ';\n        }\n        #wikiactions a,\n        #moderation_tools a,\n        .footer a,\n        .bottommenu a {\n          background: linear-gradient(to top,' + newColor + ' 50%,transparent 50%);\n          background-size: 100% 200%;\n          background-repeat: no-repeat;\n        }\n        ');
+      $('iframe').contents().find('style').append('\n        .submit-link .morelink a,\n        .submit-text .morelink a,\n        .submit-page button[type="submit"],\n        #sr-form .save-button button,\n        .save-button>button:nth-child(1) {\n          background: ' + newColor + ' radial-gradient(circle,rgba(77,208,225,0.3) 15%,transparent 30%) no-repeat 50% 50%/0!important;\n        }\n        .login-form-side input[type="checkbox"]:checked+label::before,\n        .c-checkbox input[type="checkbox"]:checked+label::before,\n        .flairtoggle input[type="checkbox"]:checked+label::before,\n        .linefield input[type="checkbox"]:checked+label::before,\n        .roundfield-content input[type="checkbox"]:checked+label::before {\n          border-color: ' + newColor + '!important;\n          background: ' + newColor + ' url("https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png") -246px -138px;\n        }\n        .toggleButton.enabled {\n          background-color: ' + newColor + ';\n        }\n        #wikiactions a,\n        #moderation_tools a,\n        .footer a,\n        .bottommenu a {\n          background: linear-gradient(to top,' + newColor + ' 50%,transparent 50%);\n          background-size: 100% 200%;\n          background-repeat: no-repeat;\n        }\n        ');
     } else if (id === '#darkPrimaryColorPicker') {
       $('iframe').contents().find('style').append('\n        .submit-link .morelink a:hover, .submit-text .morelink a:hover,\n        .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover,\n        .toggleButton.enabled::before {\n          background-color: ' + newColor + ' !important;\n        }\n        ');
     } else if (id === '#lightPrimaryColorPicker') {
@@ -768,10 +768,10 @@ $('#large-header-checkbox:checkbox').change(function () {
     }
 
     // if sidebar image
-    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
       inlineStyler({
         '.side': {
-          'top': 297 + Number($('#sidebar-image__input').val()) + 16 + 'px'
+          'top': 297 + Number($('#sidebar-img__input').val()) + 16 + 'px'
         }
       });
     }
@@ -801,10 +801,10 @@ $('#large-header-checkbox:checkbox').change(function () {
     }
 
     // if sidebar image
-    if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+    if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
       inlineStyler({
         '.side': {
-          'top': 223 + Number($('#sidebar-image__input').val()) + 16 + 'px'
+          'top': 223 + Number($('#sidebar-img__input').val()) + 16 + 'px'
         }
       });
     }
@@ -844,41 +844,63 @@ function sidebarImgHeight(state) {
    * enable/disable compile button
    * remove/add tooltip from compile button
    * destroy/create input group popover
+   * enable/disable dropbox container
+   * enable/disable dropbox input
    */
   if (state === 'enable') {
-    $('#sidebar-image__div .form-group').removeClass('has-error');
+    $('#sidebar-img-div .form-group').removeClass('has-error');
     $('#compile').removeClass('disabled').prop('disabled', false);
     $('#compile-div').removeClass('disabled').tooltip('destroy');
-    $('.input-group-addon').popover('destroy');
+    $('#sidebar-img-popover').popover('destroy');
+    $('#sidebar-img-dropbox-container').removeClass('disabled');
+    $('#sidebar-img-dropbox').prop('disabled', false);
   } else if (state === 'disable') {
-    $('#sidebar-image__div .form-group').addClass('has-error');
+    $('#sidebar-img-div .form-group').addClass('has-error');
     $('#compile').addClass('disabled').prop('disabled', true);
     $('#compile-div').addClass('disabled').tooltip();
-    $('.input-group-addon').popover('show');
+    if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+      $('#sidebar-img-popover').popover('show');
+    } else {
+      // destroy popover if checkbox not checked
+      $('#sidebar-img-popover').popover('destroy');
+    }
+
+    $('#sidebar-img-dropbox-container').addClass('disabled');
+    $('#sidebar-img-dropbox').prop('disabled', true);
   }
 }
 
 // live preview
-function sidebarImageLivePreview() {
-  if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+var sidebarImg;
+function sidebarImageLivePreview(image) {
+  var imageURL = void 0;
+  if (image !== undefined) {
+    imageURL = image;
+    sidebarImg = image;
+  } else {
+    imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+    sidebarImg = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+  }
+
+  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
     // validation for live preview
-    if ($('#sidebar-image__input').is(':valid')) {
+    if ($('#sidebar-img__input').is(':valid')) {
       // if large header
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
         inlineStyler({
           '.side': {
-            'top': 297 + Number($('#sidebar-image__input').val()) + 16 + 'px'
+            'top': 297 + Number($('#sidebar-img__input').val()) + 16 + 'px'
           }
         });
       } else {
         inlineStyler({
           '.side': {
-            'top': 223 + Number($('#sidebar-image__input').val()) + 16 + 'px'
+            'top': 223 + Number($('#sidebar-img__input').val()) + 16 + 'px'
           }
         });
       }
 
-      $('iframe').contents().find('style').append('\n        .titlebox::before {\n          position: absolute;\n          top: ' + (-Number($('#sidebar-image__input').val()) - 16) + 'px;\n          right: -330px;\n          display: block;\n          height: ' + Number($('#sidebar-image__input').val()) + 'px;\n          width: 330px;\n          content: \'\';\n          border-radius: 2px;\n          background: url("//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png") center;\n          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),\n                      0px 2px 2px 0px rgba(0, 0, 0, 0.14),\n                      0px 1px 5px 0px rgba(0, 0, 0, 0.12);\n        }\n\n        @media (max-resolution: 1dppx) and (min-width: 992px) {\n          .titlebox::before {\n            right: 0;\n          }\n        }\n        ');
+      $('iframe').contents().find('style').append('\n        .titlebox::before {\n          position: absolute;\n          top: ' + (-Number($('#sidebar-img__input').val()) - 16) + 'px;\n          right: -330px;\n          display: block;\n          height: ' + Number($('#sidebar-img__input').val()) + 'px;\n          width: 330px;\n          content: \'\';\n          border-radius: 2px;\n          background: url(' + imageURL + ') center;\n          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),\n                      0px 2px 2px 0px rgba(0, 0, 0, 0.14),\n                      0px 1px 5px 0px rgba(0, 0, 0, 0.12);\n        }\n\n        @media (max-resolution: 1dppx) and (min-width: 992px) {\n          .titlebox::before {\n            right: 0;\n          }\n        }\n        ');
     }
   } else {
     // if large header
@@ -900,57 +922,6 @@ function sidebarImageLivePreview() {
   }
 }
 
-$('#sidebar-image-checkbox:checkbox').change(function () {
-  var bezierEasing = [0.4, 0, 0.2, 1];
-  if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
-    // show div
-    $('#sidebar-image__div').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
-
-    // enable input field
-    $('#sidebar-image__input').prop({
-      disabled: false,
-      required: true
-    });
-
-    // validate input form
-    if ($('#sidebar-image__input').is(':invalid')) {
-      // reset value of image height input
-      $('#sidebar-image__input').val('224');
-    } else {
-      sidebarImgHeight('enable');
-    }
-  } else {
-    // hide div
-    $('#sidebar-image__div').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
-
-    // disable input field
-    $('#sidebar-image__input').prop({
-      disabled: true,
-      required: false
-    });
-
-    sidebarImgHeight('enable');
-  }
-
-  // live preview
-  sidebarImageLivePreview();
-});
-
-// sidebar image height form validation
-$('#sidebar-image__input').change(function () {
-  if ($('#sidebar-image__input').is(':invalid')) {
-    sidebarImgHeight('disable');
-  } else {
-    sidebarImgHeight('enable');
-    sidebarImageLivePreview();
-  }
-});
-
-$('iframe').load(function () {
-  // $('iframe').contents().find('body').css('background-color', 'purple');
-  // $('iframe').contents().find('style').append('body { background-color: purple; }');
-});
-
 // dropzone
 
 // Check for the various File API support.
@@ -966,14 +937,51 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 // insert image
 // file size validation
 // file name, file type
+// resize image
 
-function previewFile(input, selector) {
+function checkDimensions(file, callback) {
+  var image = new Image();
+  image.onload = function (file) {
+    var width = file.currentTarget.width;
+    var height = file.currentTarget.height;
+    // console.log(width);
+    if (callback) {
+      callback(width, height);
+    }
+  };
+
+  image.src = file.target.result;
+}
+
+function readImg(file, returnBase64) {
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    checkDimensions(event, function (width, height) {
+      if (width !== 330) {
+        console.log('width not 330');
+      } else {
+        console.log('width = ' + width);
+      }
+
+      console.log('height = ' + height);
+    });
+
+    returnBase64(reader);
+
+    // console.log(image.src == reader.result); // true
+    // console.log(image.src); // reader.result
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewImg(input, location) {
+  var selector = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
+
+  // let file = input.files[0];
+
   var _input$files = _slicedToArray(input.files, 1);
 
   var file = _input$files[0];
-  // let file = input.files[0];
-
-  var reader = new FileReader();
 
   if (selector === undefined) {
     selector = input;
@@ -985,17 +993,19 @@ function previewFile(input, selector) {
     selector = _$$find2[0];
   }
 
-  reader.onload = function () {
-    $(selector).siblings('.thumb-container').html('<img src="' + reader.result + '" width="100" alt="Image preview...">');
-    $(selector).siblings('.file-details').html('<p><strong>' + file.name + '</strong> - ' + file.size + ' bytes</p>');
-  };
-
   if (file) {
     // file type validation
     var imageType = /^image\//;
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
-      reader.readAsDataURL(file);
+      readImg(file, function (reader) {
+        if (location = 'sidebar') {
+          sidebarImageLivePreview(reader.result);
+        }
+
+        $(selector).siblings('.thumb-container').html('<img src="' + reader.result + '" width="100" alt="Image preview...">');
+        $(selector).siblings('.file-details').html('<p><strong>' + file.name + '</strong> - ' + file.size + ' bytes</p>');
+      });
     } else {
       // throw error
       $(selector).siblings('.file-details').html('<p>Invalid file type!</p>');
@@ -1003,52 +1013,130 @@ function previewFile(input, selector) {
   }
 }
 
-var fileSelect = document.getElementById('sidebar-img-dropbox-container');
-var fileElem = document.getElementById('sidebar-img-dropbox');
+function createDropbox(option) {
+  var _$$parents$find = $(option).parents('.addons__checkbox-container').find('.dropbox-container');
 
-fileSelect.addEventListener('click', function (evt) {
-  if (fileElem) {
-    // sanitize input field value
-    $(fileElem).val('');
+  var _$$parents$find2 = _slicedToArray(_$$parents$find, 1);
 
-    // activate manual file upload
-    fileElem.click();
+  var fileSelect = _$$parents$find2[0];
+
+  var _$$parents$find3 = $(option).parents('.addons__checkbox-container').find('.dropbox');
+
+  var _$$parents$find4 = _slicedToArray(_$$parents$find3, 1);
+
+  var fileElem = _$$parents$find4[0];
+
+  // dropbox click behavior
+
+  $(fileElem).change(function () {
+    previewImg(event.currentTarget, 'sidebar');
+  });
+
+  // dropbox drag and drop behavior
+  fileSelect.addEventListener('click', function (event) {
+    if (fileElem) {
+      // sanitize input field value
+      $(fileElem).val('');
+
+      // activate manual file upload
+      fileElem.click();
+    }
+
+    // prevent navigation to "#"
+    // event.preventDefault();
+  }, false);
+
+  fileSelect.addEventListener('dragenter', dragenter, false);
+  fileSelect.addEventListener('dragover', dragover, false);
+  fileSelect.addEventListener('drop', drop, false);
+
+  function dragenter(event) {
+    event.stopPropagation();
+    event.preventDefault();
   }
 
-  // // prevent navigation to "#"
-  // evt.preventDefault();
-}, false);
+  function dragover(event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
 
-var dropbox;
+  function drop(event) {
+    event.stopPropagation();
+    event.preventDefault();
 
-dropbox = document.getElementById("sidebar-img-dropbox-container");
-dropbox.addEventListener("dragenter", dragenter, false);
-dropbox.addEventListener("dragover", dragover, false);
-dropbox.addEventListener("drop", drop, false);
-
-function dragenter(evt) {
-  evt.stopPropagation();
-  evt.preventDefault();
+    // let files = event.dataTransfer.files;
+    var files = event.dataTransfer;
+    previewImg(files, 'sidebar', event.currentTarget);
+  }
 }
 
-function dragover(evt) {
-  evt.stopPropagation();
-  evt.preventDefault();
-}
+// sidebar image checkbox
+$('#sidebar-img-checkbox:checkbox').change(function () {
+  var bezierEasing = [0.4, 0, 0.2, 1];
+  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
 
-function drop(evt) {
-  evt.stopPropagation();
-  evt.preventDefault();
+    createDropbox(event.currentTarget);
 
-  // let files = evt.dataTransfer.files;
-  var files = evt.dataTransfer;
-  previewFile(files, evt.currentTarget);
-}
+    // show div
+    $('#sidebar-img-div').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
+
+    // show dropbox container
+    $('#sidebar-img-dropbox-container').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
+
+    // enable input field
+    $('#sidebar-img__input').prop({
+      disabled: false,
+      required: true
+    });
+
+    // validate input form upon checking checkbox
+    if ($('#sidebar-img__input').is(':invalid')) {
+      // reset value of image height input
+      $('#sidebar-img__input').val('224');
+      sidebarImgHeight('enable');
+    } else {
+      sidebarImgHeight('enable');
+    }
+
+    // sidebar image height form validation with each input change
+    $('#sidebar-img__input').change(function () {
+      if ($('#sidebar-img__input').is(':invalid')) {
+        sidebarImgHeight('disable');
+      } else {
+        sidebarImgHeight('enable');
+        sidebarImageLivePreview();
+      }
+    });
+  } else {
+    // hide div
+    $('#sidebar-img-div').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
+
+    $('#sidebar-img-dropbox-container').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
+
+    // disable input field
+    $('#sidebar-img__input').prop({
+      disabled: true,
+      required: false
+    });
+
+    sidebarImgHeight('disable');
+  }
+
+  // live preview
+  sidebarImageLivePreview();
+});
+
+$('iframe').load(function () {
+  // $('iframe').contents().find('body').css('background-color', 'purple');
+  // $('iframe').contents().find('style').append('body { background-color: purple; }');
+});
 
 // compile
 $('#compile').click(function () {
   // disable inputs while compiling
   $('input').addClass('disabled').prop('disabled', true);
+  $('.dropbox-container').addClass('disabled');
+  $('.dropbox').prop('disabled', true);
 
   // get file content
   sass.readFile('flattish/utils/_vars.scss', function (content) {
@@ -1079,10 +1167,10 @@ $('#compile').click(function () {
       }
 
       // sidebar image
-      if ($('#sidebar-image-checkbox:checkbox').prop('checked')) {
+      if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
         console.log('checked');
         content = replacer(content, 'bool', true, 'sidebarImg');
-        content = replacer(content, 'bool', $('#sidebar-image__input').val() + 'px', 'sidebarImgHeight');
+        content = replacer(content, 'bool', $('#sidebar-img__input').val() + 'px', 'sidebarImgHeight');
       } else {
         console.log('not checked');
         content = replacer(content, 'bool', false, 'sidebarImg');
@@ -1100,6 +1188,8 @@ $('#compile').click(function () {
         sass.compileFile('flattish/flattish.scss', function (result) {
           // enable inputs after compilation
           $('input').removeClass('disabled').prop('disabled', false);
+          $('.dropbox-container').removeClass('disabled');
+          $('.dropbox').prop('disabled', false);
 
           for (var i = 0; i < inlineStyleSelectors.length; i++) {
             $('iframe').contents().find(inlineStyleSelectors[i] + '[style]').removeAttr('style');
@@ -1111,7 +1201,7 @@ $('#compile').click(function () {
 
           var finalPreview = result.text;
 
-          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"//b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"//a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"//b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"//b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"//b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"//b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, '"//b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png"');
+          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, sidebarImg);
           $('iframe').contents().find('style').text('html,body{overflow-y:hidden;}' + finalPreview);
         });
       });
