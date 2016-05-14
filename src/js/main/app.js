@@ -1212,7 +1212,7 @@ function createDropbox(option) {
     .find('.dropbox');
 
   // dropbox click behavior
-  $(fileElem).change(() => {
+  $(fileElem).change((event) => {
     previewImg(event.currentTarget, 'sidebar');
   });
 
