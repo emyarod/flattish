@@ -226,35 +226,34 @@
             </div>
 
             <!-- SIDEBAR IMAGE -->
-            <div class="addons__checkbox-container form-group">
+            <div class="addons__checkbox-container form-group" id="sidebar-img">
               <div class="addons__checkbox checkbox">
                 <label>
-                  <input type="checkbox" id="sidebar-image-checkbox">Sidebar image
+                  <input type="checkbox" id="sidebar-img-checkbox">Sidebar image
                 </label>
               </div>
 
-              <div class="addons__form form-inline" id="sidebar-image__div">
+              <div class="addons__form form-inline" id="sidebar-img-div">
                 <div class="form-group">
-                  <label for="sidebar-image__input">sidebar image height</label>
+                  <label for="sidebar-img__input">sidebar image height</label>
                   <div class="input-group">
-                    <input type="number" class="form-control" id="sidebar-image__input" min="0" value="224">
-                    <div class="input-group-addon" data-container="body" data-toggle="popover" data-placement="right" data-content="Please enter a valid value!">px</div>
+                    <input type="number" class="form-control" id="sidebar-img__input" min="0" value="224" disabled>
+                    <div id="sidebar-img-popover" class="input-group-addon" data-container="body" data-toggle="popover" data-placement="right" data-content="Please enter a valid value!">px</div>
                   </div>
                 </div>
               </div>
+
+              <div class="dropbox-container disabled" id="sidebar-img-dropbox-container">
+                <input class="dropbox" id="sidebar-img-dropbox" type="file" accept="image/*" >
+                <p>Drop sidebar image here</p>
+                <div class="thumb-container" id="sidebar-img-dropbox-thumb-container">
+                </div>
+                <output class="file-details" id="sidebar-img-details"></output>
+              </div>
             </div>
           </div>
-
-          <div class="dropbox-container" id="sidebar-img-dropbox-container">
-            <input class="dropbox" id="sidebar-img-dropbox" type="file" accept="image/*" >
-            <p>Drop sidebar image here</p>
-            <div class="thumb-container" id="sidebar-img-dropbox-thumb-container">
-            </div>
-            <output class="file-details" id="sidebar-img-details"></output>
-          </div>
-
-
         </div>
+
         <div class="col-sm-8" id="iframe-container" data-spy="affix">
           <iframe src="flattish.html" width="100%" height="750px"></iframe>
         </div>
