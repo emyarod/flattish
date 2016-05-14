@@ -1254,7 +1254,8 @@ function createDropbox(option) {
   }
 }
 
-$('#sidebar-img-checkbox:checkbox').change(() => {
+// sidebar image checkbox
+$('#sidebar-img-checkbox:checkbox').change((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
 
