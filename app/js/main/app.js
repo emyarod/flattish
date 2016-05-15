@@ -1056,7 +1056,7 @@ function previewImg(input, location) {
   }
 }
 
-function createDropbox(option) {
+function createClickableDropbox(option, location) {
   var _$$parents$find = $(option).parents('.addons__checkbox-container').find('.dropbox-container');
 
   var _$$parents$find2 = _slicedToArray(_$$parents$find, 1);
@@ -1069,64 +1069,106 @@ function createDropbox(option) {
 
   var fileElem = _$$parents$find4[0];
 
+  // dropbox drag and drop behavior
 
-  function dragenter(event) {
-    event.stopPropagation();
-    event.preventDefault();
-  }
+  fileSelect.onclick = function (event) {
+    // sanitize input field value
+    $(fileElem).val('');
 
-  function dragover(event) {
-    event.stopPropagation();
-    event.preventDefault();
-  }
-
-  function drop(event) {
-    event.stopPropagation();
-    event.preventDefault();
-
-    // let files = event.dataTransfer.files;
-    var files = event.dataTransfer;
-    previewImg(files, 'sidebar', event.currentTarget);
-  }
-
-  function listen(event, fileSelect, fileElem) {
-    // dropbox drag and drop behavior
-    fileSelect.addEventListener('click', function (event) {
-      if (fileElem) {
-        // sanitize input field value
-        $(fileElem).val('');
-
-        // activate manual file upload
-        fileElem.click();
-      }
-
-      // prevent navigation to "#"
-      // event.preventDefault();
-    }, false);
-
-    fileSelect.addEventListener('dragenter', dragenter, false);
-    fileSelect.addEventListener('dragover', dragover, false);
-    fileSelect.addEventListener('drop', drop, false);
-  }
-
-  // check if listeners have been created already
-  if (!$(fileSelect).hasClass('listening')) {
-    $(fileSelect).addClass('listening');
-    listen(event, fileSelect, fileElem);
-  }
+    // activate manual file upload
+    fileElem.click();
+  };
 
   // dropbox click behavior
   $(fileElem).change(function (event) {
-    previewImg(event.currentTarget, 'sidebar');
+    previewImg(event.currentTarget, location);
   });
+}
+
+/**
+ * full window drag and drop upload
+ */
+var dropzone = {
+  // flag for triggering dropbox hover css styles
+  counter: 0,
+  location: '',
+  dragenter: function dragenter(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    // increment counter
+    dropzone.counter++;
+  },
+  dragover: function dragover(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    if (!$('body').hasClass('droppable')) {
+      $('body').addClass('droppable');
+    }
+  },
+  drop: function drop(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    var files = event.dataTransfer;
+
+    // add dropbox styles to body
+    if ($('body').hasClass('droppable')) {
+      $('body').removeClass('droppable');
+      dropzone.counter = 0;
+    }
+
+    previewImg(files, dropzone[location], event.currentTarget);
+  },
+  dragleave: function dragleave(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    // decrement counter
+    dropzone.counter--;
+    if (dropzone.counter === 0) {
+      // remove dropbox styles from body
+      if ($('body').hasClass('droppable')) {
+        $('body').removeClass('droppable');
+      }
+    }
+  }
+};
+
+function dragAndDrop(status, location) {
+  var _$3 = $('body');
+
+  var _$4 = _slicedToArray(_$3, 1);
+
+  var bopped = _$4[0];
+
+  // set location for image replacement
+
+  dropzone[location] = location;
+
+  // add or remove event listeners for drag and drop actions
+  for (var key in dropzone) {
+    if (dropzone.hasOwnProperty(key)) {
+      if (typeof dropzone[key] === 'function') {
+        if (status === 'enable') {
+          // add listeners
+          bopped.addEventListener(key, dropzone[key], false);
+        } else if (status === 'disable') {
+          // remove listeners
+          bopped.removeEventListener(key, dropzone[key], false);
+        }
+      }
+    }
+  }
 }
 
 // sidebar image checkbox
 $('#sidebar-img-checkbox:checkbox').change(function (event) {
   var bezierEasing = [0.4, 0, 0.2, 1];
-  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+  createClickableDropbox(event.currentTarget, 'sidebar');
 
-    createDropbox(event.currentTarget);
+  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+    // enable drag and drop listeners
+    dragAndDrop('enable', 'sidebar');
 
     // show div
     $('#sidebar-img-div').show(200, $.bez(bezierEasing)).fadeIn(200, $.bez(bezierEasing)).slideDown(200, $.bez(bezierEasing));
@@ -1150,6 +1192,7 @@ $('#sidebar-img-checkbox:checkbox').change(function (event) {
     }
 
     // sidebar image height form validation with each input change
+    // TODO: bring input validation to drag and drop, remove text input field
     $('#sidebar-img__input').change(function () {
       if ($('#sidebar-img__input').is(':invalid')) {
         sidebarImgHeight('disable');
@@ -1159,9 +1202,13 @@ $('#sidebar-img-checkbox:checkbox').change(function (event) {
       }
     });
   } else {
+    // disable drag and drop listeners
+    dragAndDrop('disable', 'sidebar');
+
     // hide div
     $('#sidebar-img-div').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
 
+    // hide dropbox container
     $('#sidebar-img-dropbox-container').hide(200, $.bez(bezierEasing)).fadeOut(200, $.bez(bezierEasing)).slideUp(200, $.bez(bezierEasing));
 
     // disable input field
