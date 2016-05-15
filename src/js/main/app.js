@@ -1243,107 +1243,106 @@ function previewImg(input, location, selector = undefined) {
   }
 }
 
-function createDropbox(option) {
+function createClickableDropbox(option, location) {
   let [fileSelect] = $(option).parents('.addons__checkbox-container')
   .find('.dropbox-container');
   let [fileElem] = $(option).parents('.addons__checkbox-container')
     .find('.dropbox');
 
-  // flag for triggering dropbox hover css styles
-  let counter = 0;
+  // dropbox drag and drop behavior
+  fileSelect.onclick = (event) => {
+    // sanitize input field value
+    $(fileElem).val('');
 
-  function dragenter(event) {
+    // activate manual file upload
+    fileElem.click();
+  };
+
+  // dropbox click behavior
+  $(fileElem).change((event) => {
+    previewImg(event.currentTarget, location);
+  });
+}
+
+/**
+ * full window drag and drop upload
+ */
+var dropzone = {
+  // flag for triggering dropbox hover css styles
+  counter: 0,
+  location: '',
+  dragenter: (event) => {
     event.stopPropagation();
     event.preventDefault();
 
     // increment counter
-    counter++;
-  }
-
-  function dragover(event) {
+    dropzone.counter++;
+  },
+  dragover: (event) => {
     event.stopPropagation();
     event.preventDefault();
-
     if (!$('body').hasClass('droppable')) {
       $('body').addClass('droppable');
     }
-  }
-
-  function drop(event) {
+  },
+  drop: (event) => {
     event.stopPropagation();
     event.preventDefault();
-
-    // let files = event.dataTransfer.files;
     let files = event.dataTransfer;
+
+    // add dropbox styles to body
     if ($('body').hasClass('droppable')) {
       $('body').removeClass('droppable');
-      counter = 0;
+      dropzone.counter = 0;
     }
 
-    previewImg(files, 'sidebar', event.currentTarget);
-  }
-
-  function dragleave(event) {
+    previewImg(files, dropzone[location], event.currentTarget);
+  },
+  dragleave: (event) => {
     event.stopPropagation();
     event.preventDefault();
 
     // decrement counter
-    counter--;
-    if (counter === 0) {
+    dropzone.counter--;
+    if (dropzone.counter === 0) {
+      // remove dropbox styles from body
       if ($('body').hasClass('droppable')) {
         $('body').removeClass('droppable');
       }
     }
-  }
+  },
+}
 
-  function listen(event, fileSelect, fileElem) {
-    // dropbox drag and drop behavior
-    fileSelect.addEventListener('click', (event) => {
-      if (fileElem) {
-        // sanitize input field value
-        $(fileElem).val('');
+function dragAndDrop(status, location) {
+  let [bopped] = $('body');
 
-        // activate manual file upload
-        fileElem.click();
+  // set location for image replacement
+  dropzone[location] = location;
+
+  // add or remove event listeners for drag and drop actions
+  for (var key in dropzone) {
+    if (dropzone.hasOwnProperty(key)) {
+      if (typeof dropzone[key] === 'function') {
+        if (status === 'enable') {
+          // add listeners
+          bopped.addEventListener(key, dropzone[key], false);
+        } else if (status === 'disable') {
+          // remove listeners
+          bopped.removeEventListener(key, dropzone[key], false);
+        }
       }
-
-      // prevent navigation to "#"
-      // event.preventDefault();
-    }, false);
-
-    let [bopped] = $('body');
-    // bopped.addEventListener('dragenter', dragenter, false);
-    // bopped.addEventListener('dragover', dragover, false);
-    // bopped.addEventListener('drop', drop, false);
-    // bopped.addEventListener('dragleave', dragleave, false);
-
-    fileSelect.addEventListener('dragenter', dragenter, false);
-    fileSelect.addEventListener('dragover', dragover, false);
-    fileSelect.addEventListener('drop', drop, false);
+    }
   }
-
-  // check if listeners have been created already
-  if (!$(fileSelect).hasClass('listening')) {
-    $(fileSelect).addClass('listening');
-    listen(event, fileSelect, fileElem);
-  } else {
-    console.log('stop listening');
-    $(fileSelect).removeClass('listening');
-    listen(event, fileSelect, fileElem, true);
-  }
-
-  // dropbox click behavior
-  $(fileElem).change((event) => {
-    previewImg(event.currentTarget, 'sidebar');
-  });
 }
 
 // sidebar image checkbox
 $('#sidebar-img-checkbox:checkbox').change((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
-  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+  createClickableDropbox(event.currentTarget, 'sidebar');
 
-    createDropbox(event.currentTarget);
+  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+    // enable drag and drop listeners
+    dragAndDrop('enable', 'sidebar');
 
     // show div
     $('#sidebar-img-div').show(200, $.bez(bezierEasing))
@@ -1380,11 +1379,15 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
       }
     });
   } else {
+    // disable drag and drop listeners
+    dragAndDrop('disable', 'sidebar');
+
     // hide div
     $('#sidebar-img-div').hide(200, $.bez(bezierEasing))
       .fadeOut(200, $.bez(bezierEasing))
       .slideUp(200, $.bez(bezierEasing));
 
+    // hide dropbox container
     $('#sidebar-img-dropbox-container').hide(200, $.bez(bezierEasing))
       .fadeOut(200, $.bez(bezierEasing))
       .slideUp(200, $.bez(bezierEasing));
