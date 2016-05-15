@@ -838,6 +838,7 @@ function replacer(inputString, varType, replacementValue, variable = null) {
 
 
 // returns inline styles for live preview
+// FIXME: -- global var
 var inlineStyleSelectors = [];
 
 function inlineStyler(cssObject) {
@@ -1036,15 +1037,32 @@ function sidebarImgHeight(state) {
 }
 
 // live preview
-var sidebarImg;
+// FIXME: -- global var
+var sidebarImgURL;
 function sidebarImageLivePreview(image) {
   let imageURL;
-  if (image !== undefined) {
-    imageURL = image;
-    sidebarImg = image;
+  if (sidebarImgURL === undefined) {
+    if (image === undefined) {
+      imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+      sidebarImgURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+    } else {
+      imageURL = image;
+      sidebarImgURL = image;
+    }
   } else {
-    imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-    sidebarImg = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+    if (image === undefined) {
+      if (sidebarImgURL !== undefined) {
+        imageURL = sidebarImgURL;
+      } else {
+        imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+        sidebarImgURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+      }
+    } else {
+      if (image.search(/data:image\/png;base64,/) !== -1) {
+        imageURL = image;
+        sidebarImgURL = image;
+      }
+    }
   }
 
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
@@ -1142,31 +1160,51 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 function checkDimensions(file, callback) {
   let image = new Image();
   image.onload = (file) => {
-    let width = file.currentTarget.width;
-    let height = file.currentTarget.height;
-    // console.log(width);
+    console.log(`original height = ${image.height}`);
     if (callback) {
-      callback(width, height);
+      callback(image);
     }
   }
 
   image.src = file.target.result;
 }
 
+// TODO: remove text input for sidebar image height and automatically edit stylesheet based on uploaded file
 function readImg(file, returnBase64) {
   let reader = new FileReader();
   reader.onload = (event) => {
-    checkDimensions(event, (width, height) => {
-      if (width !== 330) {
+    checkDimensions(event, (image) => {
+      // resize image if not 330px wide
+      if (image.width !== 330) {
         console.log('width not 330');
-      } else {
-        console.log(`width = ${width}`);
-      }
 
-      console.log(`height = ${height}`);
+        // create canvas element
+        $('.header').after('<canvas id="canvas" width="0" height="0"></canvas>');
+        let [canvas] = $('#canvas');
+        let context = canvas.getContext('2d');
+        let scaleFactor = image.width / 330;
+
+        // resize canvas to exactly fit resized image
+        $('#canvas').prop({
+          'width': '330',
+          'height': `${Math.round(image.height / scaleFactor)}`,
+        });
+        console.log(`new height = ${Math.round(image.height / scaleFactor)}`);
+        $('#sidebar-img__input').val(Math.round(image.height / scaleFactor));
+        context.drawImage(image, 0, 0, 330, image.height / scaleFactor);
+
+        // return base64 for resized image
+        returnBase64(canvas.toDataURL());
+
+        // remove canvas element
+        $('#canvas').remove();
+      } else {
+        console.log(`width = ${image.width}`);
+        $('#sidebar-img__input').val(image.height);
+        returnBase64(reader.result);
+      }
     });
 
-    returnBase64(reader);
 
     // console.log(image.src == reader.result); // true
     // console.log(image.src); // reader.result
@@ -1188,13 +1226,13 @@ function previewImg(input, location, selector = undefined) {
     let imageType = /^image\//;
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
-      readImg(file, (reader) => {
+      readImg(file, (base64) => {
         if (location = 'sidebar') {
-          sidebarImageLivePreview(reader.result);
+          sidebarImageLivePreview(base64);
         }
 
         $(selector).siblings('.thumb-container')
-          .html(`<img src="${reader.result}" width="100" alt="Image preview...">`);
+          .html(`<img src="${base64}" width="100" alt="Image preview...">`);
         $(selector).siblings('.file-details')
           .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
       });
@@ -1211,37 +1249,24 @@ function createDropbox(option) {
   let [fileElem] = $(option).parents('.addons__checkbox-container')
     .find('.dropbox');
 
-  // dropbox click behavior
-  $(fileElem).change((event) => {
-    previewImg(event.currentTarget, 'sidebar');
-  });
-
-  // dropbox drag and drop behavior
-  fileSelect.addEventListener('click', (event) => {
-    if (fileElem) {
-      // sanitize input field value
-      $(fileElem).val('');
-
-      // activate manual file upload
-      fileElem.click();
-    }
-
-    // prevent navigation to "#"
-    // event.preventDefault();
-  }, false);
-
-  fileSelect.addEventListener('dragenter', dragenter, false);
-  fileSelect.addEventListener('dragover', dragover, false);
-  fileSelect.addEventListener('drop', drop, false);
+  // flag for triggering dropbox hover css styles
+  let counter = 0;
 
   function dragenter(event) {
     event.stopPropagation();
     event.preventDefault();
+
+    // increment counter
+    counter++;
   }
 
   function dragover(event) {
     event.stopPropagation();
     event.preventDefault();
+
+    if (!$('body').hasClass('droppable')) {
+      $('body').addClass('droppable');
+    }
   }
 
   function drop(event) {
@@ -1250,8 +1275,67 @@ function createDropbox(option) {
 
     // let files = event.dataTransfer.files;
     let files = event.dataTransfer;
+    if ($('body').hasClass('droppable')) {
+      $('body').removeClass('droppable');
+      counter = 0;
+    }
+
     previewImg(files, 'sidebar', event.currentTarget);
   }
+
+  function dragleave(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    // decrement counter
+    counter--;
+    if (counter === 0) {
+      if ($('body').hasClass('droppable')) {
+        $('body').removeClass('droppable');
+      }
+    }
+  }
+
+  function listen(event, fileSelect, fileElem) {
+    // dropbox drag and drop behavior
+    fileSelect.addEventListener('click', (event) => {
+      if (fileElem) {
+        // sanitize input field value
+        $(fileElem).val('');
+
+        // activate manual file upload
+        fileElem.click();
+      }
+
+      // prevent navigation to "#"
+      // event.preventDefault();
+    }, false);
+
+    let [bopped] = $('body');
+    // bopped.addEventListener('dragenter', dragenter, false);
+    // bopped.addEventListener('dragover', dragover, false);
+    // bopped.addEventListener('drop', drop, false);
+    // bopped.addEventListener('dragleave', dragleave, false);
+
+    fileSelect.addEventListener('dragenter', dragenter, false);
+    fileSelect.addEventListener('dragover', dragover, false);
+    fileSelect.addEventListener('drop', drop, false);
+  }
+
+  // check if listeners have been created already
+  if (!$(fileSelect).hasClass('listening')) {
+    $(fileSelect).addClass('listening');
+    listen(event, fileSelect, fileElem);
+  } else {
+    console.log('stop listening');
+    $(fileSelect).removeClass('listening');
+    listen(event, fileSelect, fileElem, true);
+  }
+
+  // dropbox click behavior
+  $(fileElem).change((event) => {
+    previewImg(event.currentTarget, 'sidebar');
+  });
 }
 
 // sidebar image checkbox
@@ -1395,7 +1479,7 @@ $('#compile').click(() => {
 
           let finalPreview = result.text;
 
-          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, sidebarImg);
+          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, sidebarImgURL);
           $('iframe').contents().find('style').text(`html,body{overflow-y:hidden;}${finalPreview}`);
         });
       });
