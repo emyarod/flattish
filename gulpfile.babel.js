@@ -24,9 +24,9 @@ gulp.task('clean', () => {
  */
 gulp.task('js', ['clean'], () => {
   return gulp.src(`${paths.src}/js/**/*.js`)
-  .pipe(babel())
-  // .pipe(uglify())
-  .pipe(gulp.dest(`${paths.dest}/js/`));
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(gulp.dest(`${paths.dest}/js/`));
 });
 
 /**
