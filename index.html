@@ -160,94 +160,141 @@
           </div>
 
           <!-- ADDONS -->
-          <div class="addons">
+          <div id="addons-container">
             <h2>Addons</h2>
 
-            <!-- LARGE HEADER -->
-            <div class="addons__checkbox-container form-group">
-              <div class="addons__checkbox checkbox">
-                <label>
-                  <input type="checkbox" id="large-header-checkbox">Large header
-                </label>
-              </div>
-            </div>
 
-            <!-- RANDOM, ROTATING HEADER -->
-            <div class="addons__checkbox-container form-group">
-              <div class="addons__checkbox checkbox">
-                <label>
-                  <input type="checkbox" id="rotating-header-checkbox">Rotating header image
-                </label>
-              </div>
+            <!-- ACCORDION -->
+            <div class="panel-group" id="addons-accordion" role="tablist" aria-multiselectable="true">
 
-              <div class="addons__form" id="rotating-header__div">
-                <div class="form-group">
-                  <label for="rotating-header__input">number of header images
-                    <select class="form-control" id="rotating-header__input" size="4" disabled>
-                      <option selected>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
-                      <option>13</option>
-                      <option>14</option>
-                      <option>15</option>
-                      <option>16</option>
-                      <option>17</option>
-                      <option>18</option>
-                      <option>19</option>
-                      <option>20</option>
-                      <option>21</option>
-                      <option>22</option>
-                      <option>23</option>
-                      <option>24</option>
-                      <option>25</option>
-                      <option>26</option>
-                      <option>27</option>
-                      <option>28</option>
-                      <option>29</option>
-                      <option>30</option>
-                      <option>31</option>
-                      <option>32</option>
-                      <option>33</option>
-                      <option>34</option>
-                      <option>35</option>
-                      <option>36</option>
-                    </select>
-                  </label>
+              <!-- LARGE HEADER -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      Large header
+                    </a>
+                    <span id="large-header-label" class="label label-default">Disabled</span>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <div class="addons__checkbox-container form-group">
+                      <div class="addons__checkbox checkbox">
+                        <label>
+                          <input type="checkbox" id="large-header-checkbox">Enable
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- SIDEBAR IMAGE -->
-            <div class="addons__checkbox-container form-group" id="sidebar-img">
-              <div class="addons__checkbox checkbox">
-                <label>
-                  <input type="checkbox" id="sidebar-img-checkbox">Sidebar image
-                </label>
+              <!-- RANDOM, ROTATING HEADER -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Rotating header image
+                    </a>
+                    <span id="rotating-header-label" class="label label-default">Disabled</span>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    <div class="addons__checkbox-container form-group">
+                      <div class="addons__checkbox checkbox">
+                        <label>
+                          <input type="checkbox" id="rotating-header-checkbox">Enable
+                        </label>
+                      </div>
+
+                      <div class="addons__form" id="rotating-header__div">
+                        <div class="form-group">
+                          <label for="rotating-header__input">number of header images
+                            <select class="form-control" id="rotating-header__input" size="4" disabled>
+                              <option selected>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                              <option>10</option>
+                              <option>11</option>
+                              <option>12</option>
+                              <option>13</option>
+                              <option>14</option>
+                              <option>15</option>
+                              <option>16</option>
+                              <option>17</option>
+                              <option>18</option>
+                              <option>19</option>
+                              <option>20</option>
+                              <option>21</option>
+                              <option>22</option>
+                              <option>23</option>
+                              <option>24</option>
+                              <option>25</option>
+                              <option>26</option>
+                              <option>27</option>
+                              <option>28</option>
+                              <option>29</option>
+                              <option>30</option>
+                              <option>31</option>
+                              <option>32</option>
+                              <option>33</option>
+                              <option>34</option>
+                              <option>35</option>
+                              <option>36</option>
+                            </select>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div class="dropbox-container disabled" id="sidebar-img-dropbox-container" data-container="body" data-toggle="popover" data-placement="right" data-content="Please enter a valid image file!">
-                <input class="dropbox" id="sidebar-img-dropbox" type="file" accept="image/*" >
-                <p>Click to upload</p>
-                <p>or</p>
-                <p>Drop sidebar image here</p>
-                <div class="thumb-container" id="sidebar-img-dropbox-thumb-container">
+              <!-- SIDEBAR IMAGE -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Sidebar image
+                    </a>
+                    <span id="sidebar-img-label" class="label label-default">Disabled</span>
+                  </h4>
                 </div>
-                <output class="file-details" id="sidebar-img-details"></output>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+                    <div class="addons__checkbox-container form-group" id="sidebar-img">
+                      <div class="addons__checkbox checkbox">
+                        <label>
+                          <input type="checkbox" id="sidebar-img-checkbox">Enable
+                        </label>
+                      </div>
+
+                      <div class="dropbox-container disabled" id="sidebar-img-dropbox-container" data-container="body" data-toggle="popover" data-placement="right" data-content="Please enter a valid image file!">
+                        <input class="dropbox" id="sidebar-img-dropbox" type="file" accept="image/*" >
+                        <p>Click to upload</p>
+                        <p>or</p>
+                        <p>Drop sidebar image here</p>
+                        <div class="thumb-container" id="sidebar-img-dropbox-thumb-container">
+                        </div>
+                        <output class="file-details" id="sidebar-img-details"></output>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="col-sm-8" id="iframe-container" data-spy="affix">
-          <iframe src="flattish.html" width="100%" height="750px"></iframe>
+          <iframe src="flattish.html" class="embed-responsive-iframe" width="100%" height="750px"></iframe>
         </div>
         <div class="col-sm-1"></div>
       </div>
