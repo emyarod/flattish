@@ -861,6 +861,38 @@ function inlineStyler(cssObject) {
   }
 }
 
+// addon labels
+var addonLabeler = {
+  addons: [
+    'large-header',
+    'rotating-header',
+    'sidebar-img',
+  ],
+  enable: (addon) => {
+    $(`#${addon}-label`)
+      .addClass('label-info')
+      .removeClass('label-default')
+      .html('Enabled');
+
+  },
+  disable: (addon) => {
+    $(`#${addon}-label`)
+      .addClass('label-default')
+      .removeClass('label-info')
+      .html('Disabled');
+  }
+}
+
+addonLabeler.addons.forEach((element, index, array) => {
+  $(`#${element}-checkbox:checkbox`).change(() => {
+    if ($(`#${element}-checkbox:checkbox`).prop('checked')) {
+      addonLabeler.enable(element);
+    } else {
+      addonLabeler.disable(element);
+    }
+  });
+});
+
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
@@ -1011,61 +1043,25 @@ function compileButtonEnabler(state) {
   }
 }
 
-// sidebar image validation
-function sidebarImgHeight(state) {
-  /**
-   * enable/disable
-   *
-   * remove/add warning from form group
-   * destroy/create popover
-   * enable/disable dropbox input
-   */
-  if (state === 'enable') {
-    $('#sidebar-img-dropbox-container').popover('destroy');
-    $('#sidebar-img-dropbox').prop('disabled', false);
-  } else if (state === 'disable') {
-    if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-      $('#sidebar-img-dropbox-container').popover('show');
-    } else {
-      // destroy popover if checkbox not checked
-      $('#sidebar-img-dropbox-container').popover('destroy');
-    }
-
-    $('#sidebar-img-dropbox').prop('disabled', true);
-  }
-}
-
 // live preview
-// FIXME: -- global var
-
 var sidebarImg = {
   height: 224,
   URL: 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png',
+  reset: () => {
+    sidebarImg.height = 224;
+    sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+  }
 }
 
 function sidebarImageLivePreview(image) {
   let imageURL;
-  if (sidebarImg.URL === undefined) {
-    if (image === undefined) {
-      imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-      sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-    } else {
+  if (image === undefined) {
+    imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+    sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+  } else {
+    if (image.search(/data:image\/png;base64,/) !== -1) {
       imageURL = image;
       sidebarImg.URL = image;
-    }
-  } else {
-    if (image === undefined) {
-      if (sidebarImg.URL !== undefined) {
-        imageURL = sidebarImg.URL;
-      } else {
-        imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-        sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-      }
-    } else {
-      if (image.search(/data:image\/png;base64,/) !== -1) {
-        imageURL = image;
-        sidebarImg.URL = image;
-      }
     }
   }
 
@@ -1227,27 +1223,52 @@ function previewImg(input, location, selector = undefined) {
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
       readImg(file, (base64) => {
-        compileButtonEnabler('enable');
-        sidebarImgHeight('enable');
+        // live preview
         if (location = 'sidebar') {
+          console.log('here');
           sidebarImageLivePreview(base64);
         }
 
+        // enable compile button
+        compileButtonEnabler('enable');
+
+        // remove warning label
+        $(selector).parents('.panel-default').find('.label-warning').detach();
+
+        // reset dropbox border color
+        $(selector).parent().css('border-color', '#d9edf7');
+
+        // insert thumbnail
         $(selector).siblings('.thumb-container')
           .html(`<img src="${base64}" width="100" alt="Image preview...">`);
+
+        // show file details
         $(selector).siblings('.file-details')
           .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
       });
     } else {
-      // throw error
-      $(selector).siblings('.file-details').html(`<p>Invalid file type!</p>`);
-      sidebarImgHeight('disable');
+      // disable compile button
       compileButtonEnabler('disable');
+
+      // add warning label
+      $(selector).parents('.panel-default').find('h4')
+        .append(`<span class="label label-warning">Error</span>`);
+
+      // change dropbox border color
+      $(selector).parent().css('border-color', '#f2dede');
+
+      // throw error
+      $(selector).siblings('.file-details')
+        .html(`<p class="bg-danger">Invalid file type!</p>`);
     }
   }
 }
 
 function createClickableDropbox(option, location) {
+  let [fileSelect] = $(option).parents('.addons__checkbox-container')
+    .find('.dropbox-container');
+  let [fileElem] = $(option).parents('.addons__checkbox-container')
+    .find('.dropbox');
   let [thumbnail] = $(option).parents('.addons__checkbox-container')
     .find('.thumb-container');
   let [details] = $(option).parents('.addons__checkbox-container')
@@ -1256,12 +1277,7 @@ function createClickableDropbox(option, location) {
   // sanitize dropbox content
   $(thumbnail).html('');
   $(details).html('');
-
-  let [fileSelect] = $(option).parents('.addons__checkbox-container')
-    .find('.dropbox-container');
-  let [fileElem] = $(option).parents('.addons__checkbox-container')
-    .find('.dropbox');
-
+  $(fileSelect).css('border-color', '#d9edf7');
 
   // dropbox drag and drop behavior
   fileSelect.onclick = (event) => {
@@ -1278,9 +1294,7 @@ function createClickableDropbox(option, location) {
   });
 }
 
-/**
- * full window drag and drop upload
- */
+// full window drag and drop upload
 var dropzone = {
   // flag for triggering dropbox hover css styles
   counter: 0,
@@ -1310,7 +1324,7 @@ var dropzone = {
       dropzone.counter = 0;
     }
 
-    previewImg(files, dropzone[location], event.currentTarget);
+    previewImg(files, dropzone.location, event.currentTarget);
   },
   dragleave: (event) => {
     event.stopPropagation();
@@ -1327,11 +1341,9 @@ var dropzone = {
   },
 }
 
-function dragAndDrop(status, location) {
+// full window drag and drop event listener enabler/disabler
+function dragAndDrop(status) {
   let [bopped] = $('body');
-
-  // set location for image replacement
-  dropzone[location] = location;
 
   // add or remove event listeners for drag and drop actions
   for (var key in dropzone) {
@@ -1353,38 +1365,55 @@ function dragAndDrop(status, location) {
 $('#sidebar-img-checkbox:checkbox').change((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
+  // set dropzone location
+  dropzone.location = 'sidebar';
+
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-    createClickableDropbox(event.currentTarget, 'sidebar');
+    // reset sidebar image URL and dimensions
+    sidebarImg.reset();
+
+    // create dropbox
+    createClickableDropbox(event.currentTarget, dropzone.location);
 
     // enable drag and drop listeners
-    dragAndDrop('enable', 'sidebar');
+    dragAndDrop('enable');
 
     // show div
-    $('#sidebar-img-div').show(200, $.bez(bezierEasing))
+    $('#sidebar-img-div')
+      .show(200, $.bez(bezierEasing))
       .fadeIn(200, $.bez(bezierEasing))
       .slideDown(200, $.bez(bezierEasing));
 
-    // show dropbox container
-    $('#sidebar-img-dropbox-container').show(200, $.bez(bezierEasing))
+    // show and enable dropbox container
+    $('#sidebar-img-dropbox-container')
+      .show(200, $.bez(bezierEasing))
+      .prop('disabled', false)
+      .removeClass('disabled')
       .fadeIn(200, $.bez(bezierEasing))
       .slideDown(200, $.bez(bezierEasing));
-
-    sidebarImgHeight('enable');
   } else {
+    // enable compile button
+    compileButtonEnabler('enable');
+
+    // remove warning labels
+    $('#sidebar-img-label').siblings('.label-warning').detach();
+
     // disable drag and drop listeners
-    dragAndDrop('disable', 'sidebar');
+    dragAndDrop('disable');
 
     // hide div
-    $('#sidebar-img-div').hide(200, $.bez(bezierEasing))
+    $('#sidebar-img-div')
+      .hide(200, $.bez(bezierEasing))
       .fadeOut(200, $.bez(bezierEasing))
       .slideUp(200, $.bez(bezierEasing));
 
-    // hide dropbox container
-    $('#sidebar-img-dropbox-container').hide(200, $.bez(bezierEasing))
+    // hide and disable dropbox container
+    $('#sidebar-img-dropbox-container')
+      .hide(200, $.bez(bezierEasing))
       .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing));
-
-    sidebarImgHeight('disable');
+      .slideUp(200, $.bez(bezierEasing))
+      .prop('disabled', true)
+      .addClass('disabled');
   }
 
   // live preview
@@ -1468,8 +1497,16 @@ $('#compile').click(() => {
 
           let finalPreview = result.text;
 
-          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, sidebarImg.URL);
-          $('iframe').contents().find('style').text(`html,body{overflow-y:hidden;}${finalPreview}`);
+          finalPreview = finalPreview
+            .replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"')
+            .replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"')
+            .replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"')
+            .replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"')
+            .replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"')
+            .replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"')
+            .replace(/%%sidebar%%/g, sidebarImg.URL);
+          $('iframe').contents().find('style')
+            .text(`html,body{overflow-y:hidden;}${finalPreview}`);
         });
       });
     } else {
