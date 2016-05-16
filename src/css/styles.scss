@@ -3,6 +3,7 @@
 @import '../../vendors/bourbon/bourbon';
 @import '../../style/utils/color-list';
 @import '../../style/utils/vars';
+@import '../../style/utils/mixins';
 
 // header
 .header {
@@ -66,6 +67,34 @@ iframe {
 }
 
 // dropboxes
+body {
+  &::before {
+    position: fixed;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    content: '';
+    @include transition-default;
+  }
+
+  &.droppable::before {
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(66, 133, 244);
+    color: #fff;
+    content: 'Drop your file to upload';
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: $text-shadow;
+    background-color: rgba(51, 124, 255, .5);
+  }
+}
+
 .dropbox-container {
   width: 100%;
   margin: 10px 0;
@@ -76,16 +105,6 @@ iframe {
 
   &:hover {
     cursor: pointer;
-  }
-
-  &.disabled {
-    background: repeating-linear-gradient(135deg, lightgray, lightgray 10px, darkgray 10px, darkgray 20px
-    );
-    border: 0;
-
-    &:hover {
-      cursor: not-allowed;
-    }
   }
 }
 
