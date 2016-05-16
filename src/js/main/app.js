@@ -916,7 +916,7 @@ $('#large-header-checkbox:checkbox').change(() => {
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
       inlineStyler({
         '.side': {
-          'top': `${297 + Number($('#sidebar-img__input').val()) + 16}px`,
+          'top': `${297 + sidebarImg.height + 16}px`,
         },
       });
     }
@@ -966,7 +966,7 @@ $('#large-header-checkbox:checkbox').change(() => {
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
       inlineStyler({
         '.side': {
-          'top': `${223 + Number($('#sidebar-img__input').val()) + 16}px`,
+          'top': `${223 + sidebarImg.height + 16}px`,
         },
       });
     }
@@ -1001,113 +1001,114 @@ $('#rotating-header-checkbox:checkbox').change(() => {
   }
 });
 
+function compileButtonEnabler(state) {
+  if (state === 'enable') {
+    $('#compile').removeClass('disabled').prop('disabled', false);
+    $('#compile-div').removeClass('disabled').tooltip('destroy');
+  } else if (state === 'disable') {
+    $('#compile').addClass('disabled').prop('disabled', true);
+    $('#compile-div').addClass('disabled').tooltip();
+  }
+}
+
 // sidebar image validation
 function sidebarImgHeight(state) {
   /**
    * enable/disable
    *
    * remove/add warning from form group
-   * enable/disable compile button
-   * remove/add tooltip from compile button
-   * destroy/create input group popover
-   * enable/disable dropbox container
+   * destroy/create popover
    * enable/disable dropbox input
    */
   if (state === 'enable') {
-    $('#sidebar-img-div .form-group').removeClass('has-error');
-    $('#compile').removeClass('disabled').prop('disabled', false);
-    $('#compile-div').removeClass('disabled').tooltip('destroy');
-    $('#sidebar-img-popover').popover('destroy');
-    $('#sidebar-img-dropbox-container').removeClass('disabled');
+    $('#sidebar-img-dropbox-container').popover('destroy');
     $('#sidebar-img-dropbox').prop('disabled', false);
   } else if (state === 'disable') {
-    $('#sidebar-img-div .form-group').addClass('has-error');
-    $('#compile').addClass('disabled').prop('disabled', true);
-    $('#compile-div').addClass('disabled').tooltip();
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-      $('#sidebar-img-popover').popover('show');
+      $('#sidebar-img-dropbox-container').popover('show');
     } else {
       // destroy popover if checkbox not checked
-      $('#sidebar-img-popover').popover('destroy');
+      $('#sidebar-img-dropbox-container').popover('destroy');
     }
 
-    $('#sidebar-img-dropbox-container').addClass('disabled');
     $('#sidebar-img-dropbox').prop('disabled', true);
   }
 }
 
 // live preview
 // FIXME: -- global var
-var sidebarImgURL;
+
+var sidebarImg = {
+  height: 224,
+  URL: 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png',
+}
+
 function sidebarImageLivePreview(image) {
   let imageURL;
-  if (sidebarImgURL === undefined) {
+  if (sidebarImg.URL === undefined) {
     if (image === undefined) {
       imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-      sidebarImgURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+      sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
     } else {
       imageURL = image;
-      sidebarImgURL = image;
+      sidebarImg.URL = image;
     }
   } else {
     if (image === undefined) {
-      if (sidebarImgURL !== undefined) {
-        imageURL = sidebarImgURL;
+      if (sidebarImg.URL !== undefined) {
+        imageURL = sidebarImg.URL;
       } else {
         imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-        sidebarImgURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+        sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
       }
     } else {
       if (image.search(/data:image\/png;base64,/) !== -1) {
         imageURL = image;
-        sidebarImgURL = image;
+        sidebarImg.URL = image;
       }
     }
   }
 
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-    // validation for live preview
-    if ($('#sidebar-img__input').is(':valid')) {
-      // if large header
-      if ($('#large-header-checkbox:checkbox').prop('checked')) {
-        inlineStyler({
-          '.side': {
-            'top': `${297 + Number($('#sidebar-img__input').val()) + 16}px`,
-          },
-        });
-      } else {
-        inlineStyler({
-          '.side': {
-            'top': `${223 + Number($('#sidebar-img__input').val()) + 16}px`,
-          },
-        });
+    // if large header
+    if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      inlineStyler({
+        '.side': {
+          'top': `${297 + sidebarImg.height + 16}px`,
+        },
+      });
+    } else {
+      inlineStyler({
+        '.side': {
+          'top': `${223 + sidebarImg.height + 16}px`,
+        },
+      });
+    }
+
+    $('iframe').contents().find('style').append(
+      `
+      .titlebox::before {
+        position: absolute;
+        top: ${-sidebarImg.height - 16}px;
+        right: -330px;
+        display: block;
+        height: ${sidebarImg.height}px;
+        width: 330px;
+        content: '';
+        border-radius: 2px;
+        background: url(${imageURL}) center;
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+                    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       }
 
-      $('iframe').contents().find('style').append(
-        `
+      @media (max-resolution: 1dppx) and (min-width: 992px) {
         .titlebox::before {
-          position: absolute;
-          top: ${-Number($('#sidebar-img__input').val()) - 16}px;
-          right: -330px;
-          display: block;
-          height: ${Number($('#sidebar-img__input').val())}px;
-          width: 330px;
-          content: '';
-          border-radius: 2px;
-          background: url(${imageURL}) center;
-          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-                      0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                      0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+          right: 0;
         }
-
-        @media (max-resolution: 1dppx) and (min-width: 992px) {
-          .titlebox::before {
-            right: 0;
-          }
-        }
-        `
-      );
-    }
+      }
+      `
+    );
   } else {
     // if large header
     if ($('#large-header-checkbox:checkbox').prop('checked')) {
@@ -1160,7 +1161,6 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 function checkDimensions(file, callback) {
   let image = new Image();
   image.onload = (file) => {
-    console.log(`original height = ${image.height}`);
     if (callback) {
       callback(image);
     }
@@ -1176,8 +1176,6 @@ function readImg(file, returnBase64) {
     checkDimensions(event, (image) => {
       // resize image if not 330px wide
       if (image.width !== 330) {
-        console.log('width not 330');
-
         // create canvas element
         $('.header').after('<canvas id="canvas" width="0" height="0"></canvas>');
         let [canvas] = $('#canvas');
@@ -1189,8 +1187,11 @@ function readImg(file, returnBase64) {
           'width': '330',
           'height': `${Math.round(image.height / scaleFactor)}`,
         });
-        console.log(`new height = ${Math.round(image.height / scaleFactor)}`);
-        $('#sidebar-img__input').val(Math.round(image.height / scaleFactor));
+
+        // recalculate image height
+        sidebarImg.height = Math.round(image.height / scaleFactor);
+
+        // draw image on canvas to convert to base64
         context.drawImage(image, 0, 0, 330, image.height / scaleFactor);
 
         // return base64 for resized image
@@ -1199,16 +1200,15 @@ function readImg(file, returnBase64) {
         // remove canvas element
         $('#canvas').remove();
       } else {
-        console.log(`width = ${image.width}`);
-        $('#sidebar-img__input').val(image.height);
+        // image height remains
+        sidebarImg.height = image.height;
+
+        // return base64 for resized image
         returnBase64(reader.result);
       }
     });
-
-
-    // console.log(image.src == reader.result); // true
-    // console.log(image.src); // reader.result
   }
+
   reader.readAsDataURL(file);
 }
 
@@ -1227,6 +1227,8 @@ function previewImg(input, location, selector = undefined) {
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
       readImg(file, (base64) => {
+        compileButtonEnabler('enable');
+        sidebarImgHeight('enable');
         if (location = 'sidebar') {
           sidebarImageLivePreview(base64);
         }
@@ -1239,15 +1241,27 @@ function previewImg(input, location, selector = undefined) {
     } else {
       // throw error
       $(selector).siblings('.file-details').html(`<p>Invalid file type!</p>`);
+      sidebarImgHeight('disable');
+      compileButtonEnabler('disable');
     }
   }
 }
 
 function createClickableDropbox(option, location) {
+  let [thumbnail] = $(option).parents('.addons__checkbox-container')
+    .find('.thumb-container');
+  let [details] = $(option).parents('.addons__checkbox-container')
+    .find('.file-details');
+
+  // sanitize dropbox content
+  $(thumbnail).html('');
+  $(details).html('');
+
   let [fileSelect] = $(option).parents('.addons__checkbox-container')
-  .find('.dropbox-container');
+    .find('.dropbox-container');
   let [fileElem] = $(option).parents('.addons__checkbox-container')
     .find('.dropbox');
+
 
   // dropbox drag and drop behavior
   fileSelect.onclick = (event) => {
@@ -1338,9 +1352,10 @@ function dragAndDrop(status, location) {
 // sidebar image checkbox
 $('#sidebar-img-checkbox:checkbox').change((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
-  createClickableDropbox(event.currentTarget, 'sidebar');
 
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+    createClickableDropbox(event.currentTarget, 'sidebar');
+
     // enable drag and drop listeners
     dragAndDrop('enable', 'sidebar');
 
@@ -1354,30 +1369,7 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
       .fadeIn(200, $.bez(bezierEasing))
       .slideDown(200, $.bez(bezierEasing));
 
-    // enable input field
-    $('#sidebar-img__input').prop({
-      disabled: false,
-      required: true,
-    });
-
-    // validate input form upon checking checkbox
-    if ($('#sidebar-img__input').is(':invalid')) {
-      // reset value of image height input
-      $('#sidebar-img__input').val('224');
-      sidebarImgHeight('enable');
-    } else {
-      sidebarImgHeight('enable');
-    }
-
-    // sidebar image height form validation with each input change
-    $('#sidebar-img__input').change(() => {
-      if ($('#sidebar-img__input').is(':invalid')) {
-        sidebarImgHeight('disable');
-      } else {
-        sidebarImgHeight('enable');
-        sidebarImageLivePreview();
-      }
-    });
+    sidebarImgHeight('enable');
   } else {
     // disable drag and drop listeners
     dragAndDrop('disable', 'sidebar');
@@ -1391,12 +1383,6 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
     $('#sidebar-img-dropbox-container').hide(200, $.bez(bezierEasing))
       .fadeOut(200, $.bez(bezierEasing))
       .slideUp(200, $.bez(bezierEasing));
-
-    // disable input field
-    $('#sidebar-img__input').prop({
-      disabled: true,
-      required: false,
-    });
 
     sidebarImgHeight('disable');
   }
@@ -1449,7 +1435,7 @@ $('#compile').click(() => {
       if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
         console.log('checked');
         content = replacer(content, 'bool', true, 'sidebarImg');
-        content = replacer(content, 'bool', `${$('#sidebar-img__input').val()}px`, 'sidebarImgHeight');
+        content = replacer(content, 'bool', `${sidebarImg.height}px`, 'sidebarImgHeight');
       } else {
         console.log('not checked');
         content = replacer(content, 'bool', false, 'sidebarImg');
@@ -1482,7 +1468,7 @@ $('#compile').click(() => {
 
           let finalPreview = result.text;
 
-          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, sidebarImgURL);
+          finalPreview = finalPreview.replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"').replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"').replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"').replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"').replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"').replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"').replace(/%%sidebar%%/g, sidebarImg.URL);
           $('iframe').contents().find('style').text(`html,body{overflow-y:hidden;}${finalPreview}`);
         });
       });
