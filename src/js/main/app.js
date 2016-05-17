@@ -1055,13 +1055,10 @@ var sidebarImg = {
 }
 
 function sidebarImageLivePreview(image) {
-  let imageURL;
   if (image === undefined) {
-    imageURL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
     sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
   } else {
     if (image.search(/data:image\/png;base64,/) !== -1) {
-      imageURL = image;
       sidebarImg.URL = image;
     }
   }
@@ -1093,7 +1090,7 @@ function sidebarImageLivePreview(image) {
         width: 330px;
         content: '';
         border-radius: 2px;
-        background: url(${imageURL}) center;
+        background: url(${sidebarImg.URL}) center;
         box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
                     0px 2px 2px 0px rgba(0, 0, 0, 0.14),
                     0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -1442,7 +1439,7 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
       .addClass('disabled');
   }
 
-  // live preview
+  // reset live preview values
   sidebarImageLivePreview();
 });
 
@@ -1511,17 +1508,19 @@ $('#compile').click(() => {
           $('.dropbox-container').removeClass('disabled');
           $('.dropbox').prop('disabled', false);
 
+          // remove inline styles
           for (var i = 0; i < inlineStyleSelectors.length; i++) {
             $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`)
             .removeAttr('style');
           }
 
-
           console.log('compiled');
           console.log(result);
-          $('#target').html(result.text);
 
-          let finalPreview = result.text;
+          // insert code into <pre>
+          $('#target').html(result.text.trim());
+
+          let finalPreview = result.text.trim();
 
           finalPreview = finalPreview
             .replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"')
@@ -1532,7 +1531,7 @@ $('#compile').click(() => {
             .replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"')
             .replace(/%%sidebar%%/g, sidebarImg.URL);
           $('iframe').contents().find('style')
-            .text(`html,body{overflow-y:hidden;}${finalPreview}`);
+            .html(`html,body{overflow-y:hidden;}${finalPreview}`);
         });
       });
     } else {
