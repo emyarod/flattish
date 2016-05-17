@@ -698,7 +698,7 @@ var stickyMenuImages;
 
 $(document).ready(() => {
   $.ajax({
-    url: 'style/flattish.scss'
+    url: 'style/flattish.min.css'
     // url: 'style/utils/_vars.scss'
     // url: 'test.scss'
   })
@@ -720,7 +720,7 @@ $(document).ready(() => {
 
 var sass = new Sass();
 
-sass.options({ style: Sass.style.expanded }, result => (
+sass.options({ style: Sass.style.compressed }, result => (
   console.log('set options')
 ));
 
@@ -1033,6 +1033,7 @@ $('#rotating-header-checkbox:checkbox').change(() => {
   }
 });
 
+// disable or enable compile button
 function compileButtonEnabler(state) {
   if (state === 'enable') {
     $('#compile').removeClass('disabled').prop('disabled', false);
@@ -1147,13 +1148,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
   alert('The File APIs are not fully supported in this browser.');
 }
 
-// image type validation
-// image size validation
-// insert image
-// file size validation
-// file name, file type
-// resize image
-
+// load file as image to get image dimensions
 function checkDimensions(file, callback) {
   let image = new Image();
   image.onload = (file) => {
@@ -1165,7 +1160,6 @@ function checkDimensions(file, callback) {
   image.src = file.target.result;
 }
 
-// TODO: remove text input for sidebar image height and automatically edit stylesheet based on uploaded file
 function readImg(file, returnBase64) {
   let reader = new FileReader();
   reader.onload = (event) => {
@@ -1173,7 +1167,8 @@ function readImg(file, returnBase64) {
       // resize image if not 330px wide
       if (image.width !== 330) {
         // create canvas element
-        $('.header').after('<canvas id="canvas" width="0" height="0"></canvas>');
+        $('.header')
+          .after('<canvas id="canvas" width="0" height="0"></canvas>');
         let [canvas] = $('#canvas');
         let context = canvas.getContext('2d');
         let scaleFactor = image.width / 330;
@@ -1223,28 +1218,45 @@ function previewImg(input, location, selector = undefined) {
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
       readImg(file, (base64) => {
-        // live preview
-        if (location = 'sidebar') {
-          console.log('here');
-          sidebarImageLivePreview(base64);
+        // validate file size
+        if (file.size > 500000) {
+          // disable compile button
+          compileButtonEnabler('disable');
+
+          // add warning label
+          $(selector).parents('.panel-default').find('h4')
+            .append(`<span class="label label-warning">Error</span>`);
+
+          // change dropbox border color
+          $(selector).parent().css('border-color', '#f2dede');
+
+          // throw error
+          $(selector).siblings('.file-details')
+            .html(`<p class="bg-danger">File size over 500kb!</p>`);
+        } else {
+          if (location = 'sidebar') {
+            // live preview
+            sidebarImageLivePreview(base64);
+
+            // enable compile button
+            compileButtonEnabler('enable');
+
+            // remove warning label
+            $(selector).parents('.panel-default').find('.label-warning')
+              .detach();
+
+            // reset dropbox border color
+            $(selector).parent().css('border-color', '#d9edf7');
+
+            // insert thumbnail
+            $(selector).siblings('.thumb-container')
+              .html(`<img src="${base64}" width="100" alt="Image preview...">`);
+
+            // show file details
+            $(selector).siblings('.file-details')
+              .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
+          }
         }
-
-        // enable compile button
-        compileButtonEnabler('enable');
-
-        // remove warning label
-        $(selector).parents('.panel-default').find('.label-warning').detach();
-
-        // reset dropbox border color
-        $(selector).parent().css('border-color', '#d9edf7');
-
-        // insert thumbnail
-        $(selector).siblings('.thumb-container')
-          .html(`<img src="${base64}" width="100" alt="Image preview...">`);
-
-        // show file details
-        $(selector).siblings('.file-details')
-          .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
       });
     } else {
       // disable compile button
@@ -1360,6 +1372,20 @@ function dragAndDrop(status) {
     }
   }
 }
+
+// enable drag and drop listeners for dropboxes on accordion show
+$('#sidebar-img-panel').on('shown.bs.collapse', (event) => {
+  if ($(event.currentTarget).find('input[type=checkbox]').prop('checked')) {
+    dragAndDrop('enable');
+  }
+});
+
+// disable drag and drop listeners for dropboxes on accordion hide
+$('#sidebar-img-panel').on('hidden.bs.collapse', (event) => {
+  if ($(event.currentTarget).find('input[type=checkbox]').prop('checked')) {
+    dragAndDrop('disable');
+  }
+});
 
 // sidebar image checkbox
 $('#sidebar-img-checkbox:checkbox').change((event) => {
