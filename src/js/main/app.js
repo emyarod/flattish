@@ -698,23 +698,81 @@ var stickyMenuImages;
 
 $(document).ready(() => {
   $.ajax({
-    url: 'style/flattish.min.css'
-    // url: 'style/utils/_vars.scss'
-    // url: 'test.scss'
-  })
-  .done((data) => {
+    url: 'style/flattish.min.css',
+  }).done((data) => {
     $('#target').html(data);
-  })
-  .done(() => {
-    // affix iframe after scroll below header
+  }).done(() => {
+    // affix iframe after scrolling past header
     $('#iframe-container').affix({
       offset: {
         top: $('.header').outerHeight(true),
         bottom: () => {
-          return ($('#results').outerHeight(true) + 150);
+          return (
+            $('#results').outerHeight(true) +
+            $('#addons-container').outerHeight(true)
+          );
         },
       }
     });
+  });
+
+  // copy to clipboard button
+
+  // initialize tooltip
+  $('.btn-clipboard').tooltip({
+    container: 'body',
+  });
+
+  $('.btn-clipboard').click(() => {
+    /**
+     * create a Range interface
+     * set the Range to contain the chosen Node and its elements
+     * make sure nothing is preselected
+     * add Range to Selection
+     */
+    if (document.selection) {
+      // for IE
+      let range = document.body.createTextRange();
+      range.moveToElementText(document.getElementById('target'));
+      range.select();
+    } else if (window.getSelection) {
+      let range = document.createRange();
+      range.selectNode(document.getElementById('target'));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    }
+
+    // copy highlighted text
+    try {
+      let success = document.execCommand('copy');
+      if (success) {
+        // change tooltip text
+        $('.btn-clipboard').trigger('copied', ['Copied!']);
+
+        // un-highlight text
+        window.getSelection().removeAllRanges();
+      } else {
+        $('.btn-clipboard').trigger('copied', ['Copy with Ctrl-c']);
+      }
+    } catch (err) {
+      $('.btn-clipboard').trigger('copied', ['Copy with Ctrl-c']);
+    }
+  });
+
+  /**
+   * update tooltip title
+   *
+   * edit title based on try...catch statement, then reset title to default
+   *
+   * fixTitle method found in Bootstrap source code
+   *   - fetches and replaces `data-original-title` attribute
+   */
+  $('.btn-clipboard').bind('copied', (event, message) => {
+    $(event.currentTarget).attr('title', message)
+      .tooltip('fixTitle')
+      .tooltip('show')
+      .attr('title', 'Copy to clipboard')
+      .tooltip('fixTitle');
   });
 });
 
@@ -749,15 +807,6 @@ function varEditor(input, varNameArray, regexArray) {
         input = input.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
       });
     } else {
-      /**
-       * Array destructuring
-       *
-       * [capitalLetters] = input.match(/[A-Z]/g);
-       *
-       * instead of
-       *
-       * capitalLetters = input.match(/[A-Z]/g)[0];
-       */
       [capitalLetters] = input.match(/[A-Z]/g);
       input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
     }
@@ -1519,6 +1568,7 @@ $('#compile').click(() => {
 
           // insert code into <pre>
           $('#target').html(result.text.trim());
+          $('#clipboard-input').val(result.text.trim());
 
           let finalPreview = result.text.trim();
 
