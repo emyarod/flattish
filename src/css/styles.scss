@@ -5,6 +5,10 @@
 @import '../../style/utils/vars';
 @import '../../style/utils/mixins';
 
+$dropzone-border: rgb(66, 133, 244);
+$dropzone-bg: rgba(51, 124, 255, .5);
+$dropbox-border: #d9edf7;
+
 // header
 .header {
   padding: 60px 0;
@@ -66,6 +70,39 @@ iframe {
   }
 }
 
+// accordions
+#addons-accordion .label {
+  float: right;
+  margin-left: 2px;
+  padding: .3em .6em;
+}
+
+// copy to clipboard button
+.clipboard {
+  position: relative;
+}
+
+.btn-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  display: block;
+  padding: 5px 8px;
+  font-size: 12px;
+  color: #767676;
+  cursor: pointer;
+  background-color: $white;
+  border: 1px solid #e1e1e8;
+  border-radius: 0 4px;
+  @include transition-default;
+
+  &:hover {
+    color: $white;
+    background-color: #563d7c;
+  }
+}
+
 // dropboxes
 body {
   &::before {
@@ -85,27 +122,21 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    border: 2px solid rgb(66, 133, 244);
+    border: 2px solid $dropzone-border;
     color: #fff;
     content: 'Drop your file to upload';
     font-size: 36px;
     font-weight: bold;
     text-shadow: $text-shadow;
-    background-color: rgba(51, 124, 255, .5);
+    background-color: $dropzone-bg;
   }
-}
-
-#addons-accordion .label {
-  float: right;
-  margin-left: 2px;
-  padding: .3em .6em;
 }
 
 .dropbox-container {
   width: 100%;
   margin: 10px 0;
   padding: 20px;
-  border: 5px dashed #d9edf7;
+  border: 5px dashed $dropbox-border;
   border-radius: 5px;
   text-align: center;
 
@@ -114,7 +145,12 @@ body {
   }
 
   &.disabled {
-    background: repeating-linear-gradient(135deg, lightgray, lightgray 10px, darkgray 10px, darkgray 20px
+    background: repeating-linear-gradient(
+      135deg,
+      lightgray,
+      lightgray 10px,
+      darkgray 10px,
+      darkgray 20px
     );
     border: 0;
 
