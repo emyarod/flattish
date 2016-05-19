@@ -190,7 +190,7 @@
               </div>
 
               <!-- RANDOM, ROTATING HEADER -->
-              <div class="panel panel-default">
+              <div class="panel panel-default dropbox-panel">
                 <div class="panel-heading" role="tab" id="headingTwo">
                   <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -257,16 +257,16 @@
               </div>
 
               <!-- SIDEBAR IMAGE -->
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
+              <div class="panel panel-default dropbox-panel">
+                <div class="panel-heading" role="tab" id="sidebar-panel-heading">
                   <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#sidebar-img-panel" aria-expanded="false" aria-controls="sidebar-img-panel">
                       Sidebar image
                     </a>
                     <span id="sidebar-img-label" class="label label-default">Disabled</span>
                   </h4>
                 </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div id="sidebar-img-panel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sidebar-panel-heading">
                   <div class="panel-body">
                     <div class="addons__checkbox-container form-group" id="sidebar-img">
                       <div class="addons__checkbox checkbox">
@@ -275,7 +275,7 @@
                         </label>
                       </div>
 
-                      <div class="dropbox-container disabled" id="sidebar-img-dropbox-container" data-container="body" data-toggle="popover" data-placement="right" data-content="Please enter a valid image file!">
+                      <div class="dropbox-container disabled" id="sidebar-img-dropbox-container">
                         <input class="dropbox" id="sidebar-img-dropbox" type="file" accept="image/*" >
                         <p>Click to upload</p>
                         <p>or</p>
@@ -302,13 +302,16 @@
 
   <div class="container" id="results">
     <div class="row">
-      <p id="target"></p>
+      <div class="clipboard">
+        <span class="btn-clipboard" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">Copy</span>
+      </div>
+      <pre id="target"></pre>
     </div>
 
     <div class="row">
-      <div id="compile-div" title="Please correct all errors!">
+      <div id="compile-div">
         <input id="compile" class="btn btn-default" type="submit" value="Compile">
-      </div>
+      </div><!-- /compile-div -->
     </div>
 
     <div class="footer"></div>
