@@ -1082,7 +1082,10 @@ $('#rotating-header-checkbox:checkbox').change(() => {
   }
 });
 
-// disable or enable compile button
+/**
+ * enable/disable button
+ * update tooltip title
+ */
 function compileButtonEnabler(state) {
   if (state === 'enable') {
     $('#compile').removeClass('disabled').prop('disabled', false);
@@ -1108,9 +1111,7 @@ var sidebarImg = {
 }
 
 function sidebarImageLivePreview(image) {
-  if (image === undefined) {
-    sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
-  } else {
+  if (image !== undefined) {
     if (image.search(/data:image\/png;base64,/) !== -1) {
       sidebarImg.URL = image;
     }
@@ -1210,7 +1211,7 @@ function checkDimensions(file, callback) {
   image.src = file.target.result;
 }
 
-function readImg(file, returnBase64) {
+function readImg(file, location, returnBase64) {
   let reader = new FileReader();
   reader.onload = (event) => {
     checkDimensions(event, (image) => {
@@ -1229,8 +1230,10 @@ function readImg(file, returnBase64) {
           'height': `${Math.round(image.height / scaleFactor)}`,
         });
 
-        // recalculate image height
-        sidebarImg.height = Math.round(image.height / scaleFactor);
+        if (location === 'sidebar') {
+          // recalculate image height
+          sidebarImg.height = Math.round(image.height / scaleFactor);
+        }
 
         // draw image on canvas to convert to base64
         context.drawImage(image, 0, 0, 330, image.height / scaleFactor);
@@ -1238,11 +1241,13 @@ function readImg(file, returnBase64) {
         // return base64 for resized image
         returnBase64(canvas.toDataURL());
 
-        // remove canvas element
-        $('#canvas').remove();
+        // detach canvas element
+        $('#canvas').detach();
       } else {
-        // image height remains
-        sidebarImg.height = image.height;
+        if (location === 'sidebar') {
+          // image height remains
+          sidebarImg.height = image.height;
+        }
 
         // return base64 for resized image
         returnBase64(reader.result);
@@ -1267,7 +1272,7 @@ function previewImg(input, location, selector = undefined) {
     let imageType = /^image\//;
     if (imageType.test(file.type)) {
       // read contents of uploaded file(s)
-      readImg(file, (base64) => {
+      readImg(file, location, (base64) => {
         // validate file size
         if (file.size > 500000) {
           // disable compile button
@@ -1508,6 +1513,14 @@ $('#compile').click(() => {
   $('.dropbox-container').addClass('disabled');
   $('.dropbox').prop('disabled', true);
 
+  // remove save images button while compiling
+  $('#save-images').detach();
+
+  // disable drag and drop listeners while compiling
+  if ($('.dropbox-panel').find('.in').length > 0) {
+    dragAndDrop('disable');
+  }
+
   // get file content
   sass.readFile('flattish/utils/_vars.scss', (content) => {
     if (content !== undefined) {
@@ -1586,6 +1599,18 @@ $('#compile').click(() => {
             .replace(/%%sidebar%%/g, sidebarImg.URL);
           $('iframe').contents().find('style')
             .html(`html,body{overflow-y:hidden;}${finalPreview}`);
+
+          // save image button
+          if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+            if (sidebarImg.URL.search(/data:image\/png;base64,/) !== -1) {
+              $('#compile-div').append(`<a id="save-images" class="btn btn-default" href="${sidebarImg.URL}" download="sidebar.png">Save images</a>`);
+            }
+          }
+
+          // re-enable drag and drop listeners if a dropbox panel is expanded
+          if ($('.dropbox-panel').find('.in').length > 0) {
+            dragAndDrop('enable');
+          }
         });
       });
     } else {
