@@ -515,7 +515,7 @@ function createSpectrum(id, swatch, palette = null, replacerClassName, value) {
         .linefield input[type="checkbox"]:checked+label::before,
         .roundfield-content input[type="checkbox"]:checked+label::before {
           border-color: ${newColor}!important;
-          background: ${newColor} url("https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png") -246px -138px;
+          background: ${newColor} url('../../../img/sprites/spritesheet.png') -246px -138px;
         }
         .toggleButton.enabled {
           background-color: ${newColor};
@@ -1103,10 +1103,10 @@ function compileButtonEnabler(state) {
 // live preview
 var sidebarImg = {
   height: 224,
-  URL: 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png',
+  URL: '',
   reset: () => {
     sidebarImg.height = 224;
-    sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+    sidebarImg.URL = '../../../img/sidebar.png';
   }
 }
 
@@ -1590,12 +1590,12 @@ $('#compile').click(() => {
           let finalPreview = result.text.trim();
 
           finalPreview = finalPreview
-            .replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"')
-            .replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"')
-            .replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"')
-            .replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"')
-            .replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"')
-            .replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"')
+            .replace(/%%dropdown%%/g, '../../../img/src/sidebar/dropdown--arrow-drop-down.png')
+            .replace(/%%dropdown-night%%/g, '../../../img/src/sidebar/dropdown-night--arrow-drop-down.png')
+            .replace(/%%header%%/g, '../../../img/headers/header.png')
+            .replace(/%%spritesheet%%/g, '../../../img/sprites/spritesheet.png')
+            .replace(/%%save%%/g, '../../../img/sprites/save.png')
+            .replace(/%%hide%%/g, '../../../img/sprites/hide.png')
             .replace(/%%sidebar%%/g, sidebarImg.URL);
           $('iframe').contents().find('style')
             .html(`html,body{overflow-y:hidden;}${finalPreview}`);
