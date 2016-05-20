@@ -1,6 +1,5 @@
 'use strict';
 
-// include gulp and tools used
 import gulp from 'gulp';
 import webpack from 'webpack-stream';
 import browserSync from 'browser-sync';
@@ -11,7 +10,7 @@ const paths = {
   dest: 'app',
 };
 
-// clean out destination folders and rebuild from source
+// clean out destination folders before rebuilding from source
 gulp.task('clean', () => {
   return del([`${paths.dest}/js`]);
 });
@@ -28,14 +27,10 @@ gulp.task('webpack', ['clean'], () => {
     .pipe(gulp.dest(`${paths.dest}/js/`));
 });
 
-/**
- * watchers
- *
- * create a task that ensures `webpack` completes before reloading browsers
- */
+// run `webpack` before reloading browsers
 gulp.task('js-watch', ['webpack'], browserSync.reload);
 
-// default
+// default task
 gulp.task('default', ['webpack'], () => {
   // static server
   browserSync.init({
@@ -51,9 +46,6 @@ gulp.task('default', ['webpack'], () => {
     `${paths.dest}/css/**/*.css`,
   ], browserSync.reload);
 
-  /**
-   * add browserSync.reload to the tasks array to make
-   * all browsers reload after tasks are complete
-   */
+  // run `js-watch` task on file changes
   gulp.watch(`${paths.src}/js/**/*.js`, ['js-watch']);
 });
