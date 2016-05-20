@@ -1,6 +1,8 @@
 import '../../css/spectrum.scss';
 import '../../css/styles.scss';
 
+import 'jquery-bez';
+
 import '../sassjs/bourbon.js';
 import '../sassjs/flattish.js';
 import '../spectrum/spectrum.js';
