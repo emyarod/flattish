@@ -17,7 +17,8 @@ gulp.task('clean', () => {
 });
 
 /**
- * transpile to ES2015 via babel
+ * bundle modules and dependencies
+ * transpile ES6 to ES2015 via babel
  * mangle and uglify
  * output to destination
  */
@@ -30,7 +31,7 @@ gulp.task('webpack', ['clean'], () => {
 /**
  * watchers
  *
- * create a task that ensures the `js` task completes before reloading browsers
+ * create a task that ensures the `webpack` task completes before reloading browsers
  */
 gulp.task('js-watch', ['webpack'], browserSync.reload);
 
