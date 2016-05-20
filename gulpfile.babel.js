@@ -31,7 +31,7 @@ gulp.task('webpack', ['clean'], () => {
 /**
  * watchers
  *
- * create a task that ensures the `webpack` task completes before reloading browsers
+ * create a task that ensures `webpack` completes before reloading browsers
  */
 gulp.task('js-watch', ['webpack'], browserSync.reload);
 
