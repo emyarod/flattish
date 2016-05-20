@@ -16,6 +16,8 @@ gulp.task('clean', () => {
 });
 
 /**
+ * stream webpack config with babel presets and optimizations
+ *
  * bundle modules and dependencies
  * transpile ES6 to ES2015 via babel
  * mangle and uglify
