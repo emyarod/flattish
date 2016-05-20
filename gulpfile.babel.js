@@ -2,8 +2,7 @@
 
 // include gulp and tools used
 import gulp from 'gulp';
-import babel from 'gulp-babel';
-import uglify from 'gulp-uglify';
+import webpack from 'webpack-stream';
 import browserSync from 'browser-sync';
 import del from 'del';
 
@@ -18,14 +17,13 @@ gulp.task('clean', () => {
 });
 
 /**
- * transpile from ES2015 via babel
- * uglify
+ * transpile to ES2015 via babel
+ * mangle and uglify
  * output to destination
  */
-gulp.task('js', ['clean'], () => {
-  return gulp.src(`${paths.src}/js/**/*.js`)
-    .pipe(babel())
-    .pipe(uglify())
+gulp.task('webpack', ['clean'], () => {
+  return gulp.src(`${paths.src}/js/test.js`)
+    .pipe(webpack( require('./webpack.config.js') ))
     .pipe(gulp.dest(`${paths.dest}/js/`));
 });
 
@@ -34,10 +32,10 @@ gulp.task('js', ['clean'], () => {
  *
  * create a task that ensures the `js` task completes before reloading browsers
  */
-gulp.task('js-watch', ['js'], browserSync.reload);
+gulp.task('js-watch', ['webpack'], browserSync.reload);
 
 // default
-gulp.task('default', ['js'], () => {
+gulp.task('default', ['webpack'], () => {
   // static server
   browserSync.init({
     server: {
@@ -47,9 +45,10 @@ gulp.task('default', ['js'], () => {
     port: 8080,
   });
 
-  gulp.watch('index.html', browserSync.reload);
-
-  gulp.watch(`${paths.dest}/css/**/*.css`, browserSync.reload);
+  gulp.watch([
+    'index.html',
+    `${paths.dest}/css/**/*.css`,
+  ], browserSync.reload);
 
   /**
    * add browserSync.reload to the tasks array to make
