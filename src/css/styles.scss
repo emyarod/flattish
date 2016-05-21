@@ -71,6 +71,10 @@ iframe {
 }
 
 // accordions
+.panel-title > a {
+  font-size: 12px;
+}
+
 #addons-accordion .label {
   float: right;
   margin-left: 2px;
