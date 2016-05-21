@@ -920,12 +920,12 @@ $('#compile').click(() => {
           let finalPreview = result.text.trim();
 
           finalPreview = finalPreview
-            .replace(/%%dropdown%%/g, '../../../img/src/sidebar/dropdown--arrow-drop-down.png')
-            .replace(/%%dropdown-night%%/g, '../../../img/src/sidebar/dropdown-night--arrow-drop-down.png')
-            .replace(/%%header%%/g, '../../../img/headers/header.png')
-            .replace(/%%spritesheet%%/g, '../../../img/sprites/spritesheet.png')
-            .replace(/%%save%%/g, '../../../img/sprites/save.png')
-            .replace(/%%hide%%/g, '../../../img/sprites/hide.png')
+            .replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"')
+            .replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"')
+            .replace(/%%header%%/g, '"https://b.thumbs.redditmedia.com/fRsvIUIv8r1kjAnVvvPnYkxDLjzLMaNx3qDq8lVW-_c.png"')
+            .replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"')
+            .replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"')
+            .replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"')
             .replace(/%%sidebar%%/g, sidebarImg.URL);
           $('iframe').contents().find('style')
             .html(`html,body{overflow-y:hidden;}${finalPreview}`);
