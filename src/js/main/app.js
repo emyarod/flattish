@@ -436,7 +436,7 @@ var sidebarImg = {
   URL: '',
   reset: () => {
     sidebarImg.height = 224;
-    sidebarImg.URL = '../../../img/sidebar.png';
+    sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
   }
 }
 
