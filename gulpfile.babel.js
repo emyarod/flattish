@@ -12,7 +12,7 @@ const paths = {
 
 // clean out destination folders before rebuilding from source
 gulp.task('clean', () => {
-  return del([`${paths.dest}/js`]);
+  return del([`${paths.dest}`]);
 });
 
 /**
@@ -43,11 +43,11 @@ gulp.task('default', ['webpack'], () => {
     port: 8080,
   });
 
-  gulp.watch([
-    'index.html',
-    `${paths.dest}/css/**/*.css`,
-  ], browserSync.reload);
+  gulp.watch('index.html', browserSync.reload);
 
   // run `js-watch` task on file changes
-  gulp.watch(`${paths.src}/js/**/*.js`, ['js-watch']);
+  gulp.watch([
+    `${paths.src}/js/**/*.js`,
+    `${paths.src}/css/*.scss`,
+  ], ['js-watch']);
 });
