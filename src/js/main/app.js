@@ -590,36 +590,42 @@ function readImg(file, location, returnBase64) {
 
 function previewImg(input, location, selector = undefined) {
   // let file = input.files[0];
-  let { files: [file] } = input;
-  if (selector === undefined) {
-    selector = input;
-  } else {
-    [selector] = $(selector).find('.dropbox');
-  }
+  let imageType = /^image\//;
+  if (location === 'sidebar') {
+    let { files: [file] } = input;
+    if (selector === undefined) {
+      // click and upload
+      selector = input;
+    } else {
+      // drag and drop
+      [selector] = $(selector).find('.active').find('.dropbox');
+    }
 
-  if (file) {
-    // file type validation
-    let imageType = /^image\//;
-    if (imageType.test(file.type)) {
-      // read contents of uploaded file(s)
-      readImg(file, location, (base64) => {
-        // validate file size
-        if (file.size > 500000) {
-          // disable compile button
-          compileButtonEnabler('disable');
+    // remove warning labels
+    $(selector).parents('.panel-default').find('h4 > .label-warning')
+      .detach();
 
-          // add warning label
-          $(selector).parents('.panel-default').find('h4')
-            .append(`<span class="label label-warning">Error</span>`);
+    if (file) {
+      // file type validation
+      if (imageType.test(file.type)) {
+        // read contents of uploaded file(s)
+        readImg(file, location, (base64) => {
+          // validate file size
+          if (file.size > 500000) {
+            // disable compile button
+            compileButtonEnabler('disable');
 
-          // change dropbox border color
-          $(selector).parent().css('border-color', '#f2dede');
+            // add warning label
+            $(selector).parents('.panel-default').find('h4')
+              .append(`<span class="label label-warning">Error</span>`);
 
-          // throw error
-          $(selector).siblings('.file-details')
-            .html(`<p class="bg-danger">File size over 500kb!</p>`);
-        } else {
-          if (location = 'sidebar') {
+            // change dropbox border color
+            $(selector).parent().css('border-color', '#f2dede');
+
+            // throw error
+            $(selector).siblings('.file-details')
+              .html(`<p class="bg-danger">Images must be under 500kb!</p>`);
+          } else {
             // live preview
             sidebarImageLivePreview(base64);
 
@@ -641,22 +647,22 @@ function previewImg(input, location, selector = undefined) {
             $(selector).siblings('.file-details')
               .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
           }
-        }
-      });
-    } else {
-      // disable compile button
-      compileButtonEnabler('disable');
+        });
+      } else {
+        // disable compile button
+        compileButtonEnabler('disable');
 
-      // add warning label
-      $(selector).parents('.panel-default').find('h4')
-        .append(`<span class="label label-warning">Error</span>`);
+        // add warning label
+        $(selector).parents('.panel-default').find('h4')
+          .append(`<span class="label label-warning">Error</span>`);
 
-      // change dropbox border color
-      $(selector).parent().css('border-color', '#f2dede');
+        // change dropbox border color
+        $(selector).parent().css('border-color', '#f2dede');
 
-      // throw error
-      $(selector).siblings('.file-details')
-        .html(`<p class="bg-danger">Invalid file type!</p>`);
+        // throw error
+        $(selector).siblings('.file-details')
+          .html(`<p class="bg-danger">Invalid file type!</p>`);
+      }
     }
   }
 }
@@ -758,8 +764,12 @@ function dragAndDrop(status) {
   }
 }
 
-// enable drag and drop listeners for dropboxes on accordion show
+// sidebar image checkbox
 $('#sidebar-img-panel').on('shown.bs.collapse', (event) => {
+  // add active class
+  $(event.currentTarget).addClass('active');
+
+  // enable event listeners
   if ($(event.currentTarget).find('input[type=checkbox]').prop('checked')) {
     dragAndDrop('enable');
   }
@@ -767,6 +777,10 @@ $('#sidebar-img-panel').on('shown.bs.collapse', (event) => {
 
 // disable drag and drop listeners for dropboxes on accordion hide
 $('#sidebar-img-panel').on('hidden.bs.collapse', (event) => {
+  // remove active class
+  $(event.currentTarget).removeClass('active');
+
+  // disable event listeners
   if ($(event.currentTarget).find('input[type=checkbox]').prop('checked')) {
     dragAndDrop('disable');
   }
@@ -780,6 +794,9 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
   dropzone.location = 'sidebar';
 
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+    // add active class
+    $(event.currentTarget).parent('.panel-collapse').addClass('active');
+
     // reset sidebar image URL and dimensions
     sidebarImg.reset();
 
@@ -789,20 +806,17 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
     // enable drag and drop listeners
     dragAndDrop('enable');
 
-    // show div
-    $('#sidebar-img-div')
-      .show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing));
-
     // show and enable dropbox container
     $('#sidebar-img-dropbox-container')
       .show(200, $.bez(bezierEasing))
-      .prop('disabled', false)
-      .removeClass('disabled')
       .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing));
+      .slideDown(200, $.bez(bezierEasing))
+      .prop('disabled', false)
+      .removeClass('disabled');
   } else {
+    // remove active class
+    $(event.currentTarget).parent('.panel-collapse').removeClass('active');
+
     // enable compile button
     compileButtonEnabler('enable');
 
@@ -811,12 +825,6 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
 
     // disable drag and drop listeners
     dragAndDrop('disable');
-
-    // hide div
-    $('#sidebar-img-div')
-      .hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing));
 
     // hide and disable dropbox container
     $('#sidebar-img-dropbox-container')
