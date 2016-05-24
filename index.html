@@ -19,14 +19,13 @@
       </div>
     </div>
   </div>
-	<div class="container-fluid">
-    <section class="colors">
+	<div class="container-fluid"> <!-- .container-fluid -->
+    <section class="colors"> <!-- .colors -->
       <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-sm-2">
-
+        <div class="col-sm-2"> <!-- .col-sm-2 -->
           <!-- COLORS -->
-          <div class="color-pickers">
+          <div class="color-pickers"> <!-- .color-pickers -->
             <h2>Colors</h2>
 
             <!-- PRIMARY -->
@@ -153,27 +152,66 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> <!-- .color-pickers -->
+        </div> <!-- .col-sm-2 -->
 
+        <div class="col-sm-8" id="iframe-container" data-spy="affix">
+          <iframe src="flattish.html" class="embed-responsive-iframe" width="100%" height="750px"></iframe>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+    </section> <!-- .colors -->
+	</div> <!-- .container-fluid -->
+
+  <div class="container" id="addons">
+    <div class="row">
+      <!-- <div class="col-sm-1"></div> -->
+      <div class="col-sm-12">
+        <h2>Addons</h2>
+        <div class="col-sm-3">
           <!-- ADDONS -->
-          <div id="addons-container">
-            <h2>Addons</h2>
+          <div id="addons-container"> <!-- #addons-container -->
+            <div>
+              <!-- NAV PILLS -->
+              <ul class="nav nav-pills nav-stacked" role="tablist">
+                <!-- LARGE HEADER PILL -->
+                <li role="presentation">
+                  <a href="#large-header-panel" aria-controls="large-header-panel" role="tab" data-toggle="tab">Large header<span id="large-header-label" class="label label-default">Disabled</span></a>
+                </li>
 
-            <!-- ACCORDION -->
-            <div class="panel-group" id="addons-accordion" role="tablist" aria-multiselectable="true">
+                <!-- ROTATING HEADER PILL -->
+                <li role="presentation">
+                  <a href="#rotating-header-panel" aria-controls="rotating-header-panel" role="tab" data-toggle="tab">Rotating header<span id="rotating-header-label" class="label label-default">Disabled</span></a>
+                </li>
 
+                <!-- SIDEBAR IMAGE PILL -->
+                <li role="presentation">
+                  <a href="#sidebar-img-panel" aria-controls="sidebar-img-panel" role="tab" data-toggle="tab">Sidebar image<span id="sidebar-img-label" class="label label-default">Disabled</span></a>
+                </li>
+
+                <!-- PINNED TOPICS PILL -->
+                <li role="presentation">
+                  <a href="#pinned-topics" aria-controls="pinned-topics-panel" role="tab" data-toggle="tab">Pinned topics<span id="pinned-topics-label" class="label label-default">Disabled</span></a>
+                </li>
+              </ul>
+              <!-- NAV PILLS -->
+            </div>
+          </div> <!-- #addons-container -->
+          <!-- ADDONS -->
+
+        </div>
+        <div class="col-sm-9">
+          <div id="addon-expansion">
+            <!-- TAB PANES -->
+            <div class="tab-content">
               <!-- LARGE HEADER -->
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      Large header
-                    </a>
-                    <span id="large-header-label" class="label label-default">Disabled</span>
-                  </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div role="tabpanel" class="tab-pane fade" id="large-header-panel">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Large header</h3>
+                  </div>
                   <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex soluta quaerat, dolor exercitationem fugiat ab magnam molestias blanditiis nulla iusto nostrum, ratione voluptate pariatur et doloremque alias beatae repudiandae culpa!</p>
                     <div class="addons__checkbox-container form-group">
                       <div class="addons__checkbox checkbox">
                         <label>
@@ -184,19 +222,16 @@
                   </div>
                 </div>
               </div>
+              <!-- LARGE HEADER -->
 
-              <!-- RANDOM, ROTATING HEADER -->
-              <div class="panel panel-default dropbox-panel">
-                <div class="panel-heading" role="tab" id="rotating-header-heading">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#rotating-header-panel" aria-expanded="false" aria-controls="rotating-header-panel">
-                      Rotating header image
-                    </a>
-                    <span id="rotating-header-label" class="label label-default">Disabled</span>
-                  </h4>
-                </div>
-                <div id="rotating-header-panel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rotating-header-heading">
+              <!-- ROTATING HEADER -->
+              <div role="tabpanel" class="tab-pane fade" id="rotating-header-panel">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Rotating header</h3>
+                  </div>
                   <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis neque qui temporibus sequi doloribus, aut maxime porro, aperiam suscipit sed. Vel vero eveniet doloremque ullam quas distinctio vitae quos dicta!</p>
                     <div class="addons__checkbox-container form-group">
                       <div class="addons__checkbox checkbox">
                         <label>
@@ -204,66 +239,74 @@
                         </label>
                       </div>
 
+                      <div class="dropbox-container disabled" id="rotating-header-dropbox-container">
+                        <input class="dropbox" id="rotating-header-dropbox" type="file" accept="image/*" >
+                        <p>Click to upload</p>
+                        <p>or</p>
+                        <p>Drop rotating header image here</p>
+                        <div class="thumb-container" id="rotating-header-dropbox-thumb-container">
+                        </div>
+                        <output class="file-details" id="rotating-header-details"></output>
+                      </div>
+
                       <div class="addons__form" id="rotating-header__div">
                         <div class="form-group">
-                          <label for="rotating-header__input">number of header images
-                            <select class="form-control" id="rotating-header__input" size="4" disabled>
-                              <option selected>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                              <option>6</option>
-                              <option>7</option>
-                              <option>8</option>
-                              <option>9</option>
-                              <option>10</option>
-                              <option>11</option>
-                              <option>12</option>
-                              <option>13</option>
-                              <option>14</option>
-                              <option>15</option>
-                              <option>16</option>
-                              <option>17</option>
-                              <option>18</option>
-                              <option>19</option>
-                              <option>20</option>
-                              <option>21</option>
-                              <option>22</option>
-                              <option>23</option>
-                              <option>24</option>
-                              <option>25</option>
-                              <option>26</option>
-                              <option>27</option>
-                              <option>28</option>
-                              <option>29</option>
-                              <option>30</option>
-                              <option>31</option>
-                              <option>32</option>
-                              <option>33</option>
-                              <option>34</option>
-                              <option>35</option>
-                              <option>36</option>
-                            </select>
+                          <label for="rotating-header__input">
+                            number of header images
                           </label>
+                          <select class="form-control" id="rotating-header__input" size="4" disabled>
+                            <option selected>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                            <option>32</option>
+                            <option>33</option>
+                            <option>34</option>
+                            <option>35</option>
+                            <option>36</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- ROTATING HEADER -->
 
               <!-- SIDEBAR IMAGE -->
-              <div class="panel panel-default dropbox-panel">
-                <div class="panel-heading" role="tab" id="sidebar-panel-heading">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#addons-accordion" href="#sidebar-img-panel" aria-expanded="false" aria-controls="sidebar-img-panel">
-                      Sidebar image
-                    </a>
-                    <span id="sidebar-img-label" class="label label-default">Disabled</span>
-                  </h4>
-                </div>
-                <div id="sidebar-img-panel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sidebar-panel-heading">
+              <div role="tabpanel" class="tab-pane fade" id="sidebar-img-panel">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
                   <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos magnam, iure ex tenetur corporis adipisci nihil dolorum. Suscipit itaque fugit earum ratione id officia enim pariatur sapiente, dignissimos provident quisquam.</p>
                     <div class="addons__checkbox-container form-group" id="sidebar-img">
                       <div class="addons__checkbox checkbox">
                         <label>
@@ -284,24 +327,46 @@
                   </div>
                 </div>
               </div>
+              <!-- SIDEBAR IMAGE -->
+
+              <!-- PINNED TOPICS -->
+              <div role="tabpanel" class="tab-pane fade" id="pinned-topics-panel">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quod porro ex. Veniam modi porro non saepe facere ipsum eveniet laudantium hic, nulla ducimus asperiores incidunt sit expedita quod, quam.</p>
+                    <div class="addons__checkbox-container form-group">
+                      <div class="addons__checkbox checkbox">
+                        <label>
+                          <input type="checkbox" id="pinned-topics-checkbox">Enable
+                        </label>
+                      </div>
+
+                      <button id="add-topic" type="button" class="btn btn-primary" disabled>Add topic</button>
+                      <button id="remove-topic" type="button" class="btn btn-primary" disabled>Add topic</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- PINNED TOPICS -->
             </div>
+            <!-- TAB PANES -->
           </div>
         </div>
-
-        <div class="col-sm-8" id="iframe-container" data-spy="affix">
-          <iframe src="flattish.html" class="embed-responsive-iframe" width="100%" height="750px"></iframe>
-        </div>
-        <div class="col-sm-1"></div>
       </div>
-    </section>
-	</div>
 
-  <div class="container" id="results">
+    </div>
+
     <div class="row">
-      <div class="clipboard">
-        <span class="btn-clipboard" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">Copy</span>
+      <div class="col-sm-12">
+        <h3>Output</h3>
+        <div class="clipboard">
+          <span class="btn-clipboard" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">Copy</span>
+        </div>
+        <pre id="target"></pre>
       </div>
-      <pre id="target"></pre>
     </div>
 
     <div class="row">
