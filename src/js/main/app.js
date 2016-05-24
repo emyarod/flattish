@@ -15,17 +15,6 @@ import {
   createSpectrum,
 } from './colorpickers.js';
 
-// addons
-
-// pinned topics
-var pinnedTopics;
-var numStickiedLinks; // number of stickied links
-var numStickiedMenus; // number of stickied menus
-
-// desired image backgrounds for stickies
-var stickyLinkImages;
-var stickyMenuImages;
-
 $(document).ready(() => {
   $.ajax({
     url: 'style/flattish.min.css',
@@ -39,7 +28,7 @@ $(document).ready(() => {
         bottom: () => {
           return (
             $('#results').outerHeight(true) +
-            $('#addons-container').outerHeight(true)
+            $('#addons').outerHeight(true)
           );
         },
       }
@@ -246,6 +235,7 @@ var addonLabeler = {
     'large-header',
     'rotating-header',
     'sidebar-img',
+    'pinned-topics',
   ],
   enable: (addon) => {
     $(`#${addon}-label`)
@@ -598,12 +588,11 @@ function previewImg(input, location, selector = undefined) {
       selector = input;
     } else {
       // drag and drop
-      [selector] = $(selector).find('.active').find('.dropbox');
+      [selector] = $('#sidebar-img-dropbox');
     }
 
     // remove warning labels
-    $(selector).parents('.panel-default').find('h4 > .label-warning')
-      .detach();
+    $('a[href="#sidebar-img-panel"]').find('.label-warning').detach();
 
     if (file) {
       // file type validation
@@ -616,8 +605,8 @@ function previewImg(input, location, selector = undefined) {
             compileButtonEnabler('disable');
 
             // add warning label
-            $(selector).parents('.panel-default').find('h4')
-              .append(`<span class="label label-warning">Error</span>`);
+            $('a[href="#sidebar-img-panel"]')
+              .prepend(`<span class="label label-warning">Error</span>`);
 
             // change dropbox border color
             $(selector).parent().css('border-color', '#f2dede');
@@ -653,17 +642,22 @@ function previewImg(input, location, selector = undefined) {
         compileButtonEnabler('disable');
 
         // add warning label
-        $(selector).parents('.panel-default').find('h4')
-          .append(`<span class="label label-warning">Error</span>`);
+        $('a[href="#sidebar-img-panel"]')
+          .prepend(`<span class="label label-warning">Error</span>`);
 
         // change dropbox border color
         $(selector).parent().css('border-color', '#f2dede');
+
+        // wipe thumbnail
+        $(selector).siblings('.thumb-container').html('');
 
         // throw error
         $(selector).siblings('.file-details')
           .html(`<p class="bg-danger">Invalid file type!</p>`);
       }
     }
+  } else if (location == 'rotating-header') {
+    console.log('header');
   }
 }
 
@@ -764,25 +758,82 @@ function dragAndDrop(status) {
   }
 }
 
-// sidebar image checkbox
-$('#sidebar-img-panel').on('shown.bs.collapse', (event) => {
-  // add active class
-  $(event.currentTarget).addClass('active');
+$('a[href="#rotating-header-panel"]').on('hide.bs.tab', (e) => {
+  // disable drag and drop listeners
+  dragAndDrop('disable');
+  console.log('rotating-header disable');
+});
 
-  // enable event listeners
-  if ($(event.currentTarget).find('input[type=checkbox]').prop('checked')) {
+$('a[href="#rotating-header-panel"]').on('shown.bs.tab', (e) => {
+  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+    // enable drag and drop listeners
     dragAndDrop('enable');
+    console.log('rotating-header enable');
+    // set dropzone location
+    dropzone.location = 'rotating-header';
   }
 });
 
-// disable drag and drop listeners for dropboxes on accordion hide
-$('#sidebar-img-panel').on('hidden.bs.collapse', (event) => {
-  // remove active class
-  $(event.currentTarget).removeClass('active');
+// sidebar image checkbox
+$('#rotating-header-checkbox:checkbox').change((event) => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
 
-  // disable event listeners
-  if ($(event.currentTarget).find('input[type=checkbox]').prop('checked')) {
+  // set dropzone location
+  dropzone.location = 'rotating-header';
+
+  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+    // reset sidebar image URL and dimensions
+    sidebarImg.reset();
+
+    // create dropbox
+    createClickableDropbox(event.currentTarget, dropzone.location);
+
+    // enable drag and drop listeners
+    dragAndDrop('enable');
+
+    // show and enable dropbox container
+    $('#rotating-header-dropbox-container')
+      .show(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
+      .slideDown(200, $.bez(bezierEasing))
+      .prop('disabled', false)
+      .removeClass('disabled');
+  } else {
+    // enable compile button
+    compileButtonEnabler('enable');
+
+    // remove warning labels
+    $('#rotating-header-label').siblings('.label-warning').detach();
+
+    // disable drag and drop listeners
     dragAndDrop('disable');
+
+    // hide and disable dropbox container
+    $('#rotating-header-dropbox-container')
+      .hide(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
+      .slideUp(200, $.bez(bezierEasing))
+      .prop('disabled', true)
+      .addClass('disabled');
+  }
+
+  // reset live preview values
+  sidebarImageLivePreview();
+});
+
+$('a[href="#sidebar-img-panel"]').on('hide.bs.tab', (e) => {
+  // disable drag and drop listeners
+  dragAndDrop('disable');
+  console.log('sidebar disable');
+});
+
+$('a[href="#sidebar-img-panel"]').on('shown.bs.tab', (e) => {
+  if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+    // enable drag and drop listeners
+    dragAndDrop('enable');
+    console.log('sidebar enable');
+    // set dropzone location
+    dropzone.location = 'sidebar';
   }
 });
 
@@ -794,9 +845,6 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
   dropzone.location = 'sidebar';
 
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-    // add active class
-    $(event.currentTarget).parent('.panel-collapse').addClass('active');
-
     // reset sidebar image URL and dimensions
     sidebarImg.reset();
 
@@ -814,9 +862,6 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
       .prop('disabled', false)
       .removeClass('disabled');
   } else {
-    // remove active class
-    $(event.currentTarget).parent('.panel-collapse').removeClass('active');
-
     // enable compile button
     compileButtonEnabler('enable');
 
@@ -837,6 +882,57 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
 
   // reset live preview values
   sidebarImageLivePreview();
+});
+
+var numStickiedLinks; // number of stickied links
+var numStickiedMenus; // number of stickied menus
+
+// desired image backgrounds for stickies
+var stickyLinkImages;
+var stickyMenuImages;
+
+// pinned topics
+$('#pinned-topics-checkbox:checkbox').change(() => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
+
+  if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+    // show and enable dropbox container
+    $('#add-topic')
+      .show(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
+      .slideDown(200, $.bez(bezierEasing))
+      .prop('disabled', false);
+  } else {
+    // hide and disable dropbox container
+    $('#add-topic')
+      .hide(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
+      .slideUp(200, $.bez(bezierEasing))
+      .prop('disabled', true);
+  }
+});
+
+let pinnedTopics = {
+
+}
+
+$('#add-topic').click((event) => {
+  $('#addon-expansion').append(`
+    <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option4" autocomplete="off"> Radio 4
+      </label>
+    </div>
+    `)
 });
 
 $('iframe').load(() => {
