@@ -509,6 +509,89 @@ function sidebarImageLivePreview(image) {
   }
 }
 
+// live preview
+var rotatingHeaders = {};
+
+function rotatingHeaderLivePreview(image) {
+  // console.log(image);
+  // if (image !== undefined) {
+  //   if (image.search(/data:image\/png;base64,/) !== -1) {
+  //     sidebarImg.URL = image;
+  //   }
+  // }
+  //
+  // if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+  //   // if large header
+  //   if ($('#large-header-checkbox:checkbox').prop('checked')) {
+  //     inlineStyler({
+  //       '.side': {
+  //         'top': `${297 + sidebarImg.height + 16}px`,
+  //       },
+  //     });
+  //   } else {
+  //     inlineStyler({
+  //       '.side': {
+  //         'top': `${223 + sidebarImg.height + 16}px`,
+  //       },
+  //     });
+  //   }
+  //
+  //   $('iframe').contents().find('style').append(
+  //     `
+  //     .titlebox::before {
+  //       position: absolute;
+  //       top: ${-sidebarImg.height - 16}px;
+  //       right: -330px;
+  //       display: block;
+  //       height: ${sidebarImg.height}px;
+  //       width: 330px;
+  //       content: '';
+  //       border-radius: 2px;
+  //       background: url(${sidebarImg.URL}) center;
+  //       box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+  //                   0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+  //                   0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  //     }
+  //
+  //     @media (max-resolution: 1dppx) and (min-width: 992px) {
+  //       .titlebox::before {
+  //         right: 0;
+  //       }
+  //     }
+  //     `
+  //   );
+  // } else {
+  //   // if large header
+  //   if ($('#large-header-checkbox:checkbox').prop('checked')) {
+  //     inlineStyler({
+  //       '.side': {
+  //         'top': '297px',
+  //       },
+  //     });
+  //   } else {
+  //     inlineStyler({
+  //       '.side': {
+  //         'top': '223px',
+  //       },
+  //     });
+  //   }
+  //
+  //   $('iframe').contents().find('style').append(
+  //     `
+  //     .titlebox::before {
+  //       display: none;
+  //     }
+  //
+  //     @media (max-resolution: 1dppx) and (min-width: 992px) {
+  //       .titlebox::before {
+  //         right: unset;
+  //       }
+  //     }
+  //     `
+  //   );
+  // }
+}
+
 // dropzone
 
 // Check for the various File API support.
@@ -579,8 +662,52 @@ function readImg(file, location, returnBase64) {
 }
 
 function previewImg(input, location, selector = undefined) {
-  // let file = input.files[0];
+  // image type regex
   let imageType = /^image\//;
+
+  function validationError(selector, location, validationType) {
+    // determine selector for labels
+    let labelSelector;
+    if (location === 'sidebar') {
+      labelSelector = 'a[href="#sidebar-img-panel"]';
+    } else if (location === 'rotating-header') {
+      labelSelector = 'a[href="#rotating-header-panel"]';
+    }
+
+    // determine error message based on validation tests
+    let errorMessage;
+    if (validationType === 'size') {
+      errorMessage = 'Images must be under 500kb!';
+    } else if (validationType === 'type') {
+      errorMessage = 'Invalid file type!';
+    } else if (validationType === 'amount') {
+      errorMessage = 'Must upload at least 2 images!';
+    }
+
+    // remove warning labels
+    $(labelSelector).find('.label-warning').detach();
+
+    // disable compile button
+    compileButtonEnabler('disable');
+
+    // add warning label
+    $(labelSelector)
+      .prepend(`<span class="label label-warning">Error</span>`);
+
+    // change dropbox border color
+    $(selector).parent().css('border-color', '#f2dede');
+
+    // wipe thumbnail
+    $(selector).siblings('.thumb-container').html('');
+
+    // throw error
+    $(selector).siblings('.file-details')
+      .html(`<p class="bg-danger">${errorMessage}</p>`);
+
+    // exit function
+    return;
+  }
+
   if (location === 'sidebar') {
     let { files: [file] } = input;
     if (selector === undefined) {
@@ -594,6 +721,10 @@ function previewImg(input, location, selector = undefined) {
     // remove warning labels
     $('a[href="#sidebar-img-panel"]').find('.label-warning').detach();
 
+    // wipe thumbnail and file details
+    $(selector).siblings('.thumb-container').html('');
+    $(selector).siblings('.file-details').html('');
+
     if (file) {
       // file type validation
       if (imageType.test(file.type)) {
@@ -601,19 +732,8 @@ function previewImg(input, location, selector = undefined) {
         readImg(file, location, (base64) => {
           // validate file size
           if (file.size > 500000) {
-            // disable compile button
-            compileButtonEnabler('disable');
-
-            // add warning label
-            $('a[href="#sidebar-img-panel"]')
-              .prepend(`<span class="label label-warning">Error</span>`);
-
-            // change dropbox border color
-            $(selector).parent().css('border-color', '#f2dede');
-
-            // throw error
-            $(selector).siblings('.file-details')
-              .html(`<p class="bg-danger">Images must be under 500kb!</p>`);
+            // return error due to file size
+            validationError(selector, dropzone.location, 'size');
           } else {
             // live preview
             sidebarImageLivePreview(base64);
@@ -630,34 +750,99 @@ function previewImg(input, location, selector = undefined) {
 
             // insert thumbnail
             $(selector).siblings('.thumb-container')
-              .html(`<img src="${base64}" width="100" alt="Image preview...">`);
+              .append(`<img src="${base64}" width="100" alt="Image preview...">`);
 
             // show file details
             $(selector).siblings('.file-details')
-              .html(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
+              .append(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
           }
         });
       } else {
-        // disable compile button
-        compileButtonEnabler('disable');
-
-        // add warning label
-        $('a[href="#sidebar-img-panel"]')
-          .prepend(`<span class="label label-warning">Error</span>`);
-
-        // change dropbox border color
-        $(selector).parent().css('border-color', '#f2dede');
-
-        // wipe thumbnail
-        $(selector).siblings('.thumb-container').html('');
-
-        // throw error
-        $(selector).siblings('.file-details')
-          .html(`<p class="bg-danger">Invalid file type!</p>`);
+        validationError(selector, dropzone.location, 'type');
       }
     }
   } else if (location == 'rotating-header') {
     console.log('header');
+
+    let { files: fileObj } = input;
+    console.log(fileObj);
+    if (selector === undefined) {
+      // click and upload
+      selector = input;
+    } else {
+      // drag and drop
+      [selector] = $('#rotating-header-dropbox');
+    }
+
+    // remove warning labels
+    $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
+
+    // wipe thumbnail and file details
+    $(selector).siblings('.thumb-container').html('');
+    $(selector).siblings('.file-details').html('');
+
+    // validate number of file uploads is greater than 1
+    if (fileObj.length > 1) {
+      // will track number of header images uploaded
+      let counter = 1;
+
+      for (var key in fileObj) {
+        if (fileObj.hasOwnProperty(key)) {
+          if (fileObj) {
+            let filename = fileObj[key].name;
+            let filesize = fileObj[key].size;
+
+            // file type validation
+            if (imageType.test(fileObj[key].type)) {
+              // read contents of uploaded file(s)
+              readImg(fileObj[key], location, (base64) => {
+                // validate file size
+                if (filesize > 500000) {
+                  // return error due to file size
+                  validationError(selector, dropzone.location, 'size');
+                } else {
+                  // edit rotatingHeaders object
+                  rotatingHeaders[`header${counter}`] = {
+                    URL: base64,
+                  };
+
+                  // increment counter
+                  counter++;
+
+                  // live preview
+                  // sidebarImageLivePreview(base64);
+                  rotatingHeaderLivePreview(base64);
+
+                  // enable compile button
+                  compileButtonEnabler('enable');
+
+                  // remove warning label
+                  $(selector).parents('.panel-default').find('.label-warning')
+                    .detach();
+
+                  // reset dropbox border color
+                  $(selector).parent().css('border-color', '#d9edf7');
+
+                  // insert thumbnail
+                  $(selector).siblings('.thumb-container')
+                    .append(`<img src="${base64}" width="100" alt="Image preview...">`);
+
+                  // show file details
+                  $(selector).siblings('.file-details')
+                    .append(`<p><strong>${filename}</strong> - ${filesize} bytes</p>`);
+                }
+              });
+            } else {
+              validationError(selector, dropzone.location, 'type');
+            }
+          }
+        }
+      }
+
+      console.log(rotatingHeaders);
+    } else {
+      validationError(selector, dropzone.location, 'amount');
+    }
   }
 }
 
@@ -783,7 +968,7 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
 
   if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
     // reset sidebar image URL and dimensions
-    sidebarImg.reset();
+    // sidebarImg.reset();
 
     // create dropbox
     createClickableDropbox(event.currentTarget, dropzone.location);
@@ -818,7 +1003,7 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
   }
 
   // reset live preview values
-  sidebarImageLivePreview();
+  // sidebarImageLivePreview();
 });
 
 $('a[href="#sidebar-img-panel"]').on('hide.bs.tab', (e) => {
