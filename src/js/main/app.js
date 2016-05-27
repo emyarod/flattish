@@ -513,7 +513,8 @@ function sidebarImageLivePreview(image) {
 var rotatingHeaders = {};
 
 function rotatingHeaderLivePreview(image) {
-  // console.log(image);
+  // live preview
+
   // if (image !== undefined) {
   //   if (image.search(/data:image\/png;base64,/) !== -1) {
   //     sidebarImg.URL = image;
@@ -665,22 +666,22 @@ function previewImg(input, location, selector = undefined) {
   // image type regex
   let imageType = /^image\//;
 
-  function validationError(selector, location, validationType) {
+  function validationError(criterion) {
     // determine selector for labels
     let labelSelector;
-    if (location === 'sidebar') {
+    if (dropzone.location === 'sidebar') {
       labelSelector = 'a[href="#sidebar-img-panel"]';
-    } else if (location === 'rotating-header') {
+    } else if (dropzone.location === 'rotating-header') {
       labelSelector = 'a[href="#rotating-header-panel"]';
     }
 
     // determine error message based on validation tests
     let errorMessage;
-    if (validationType === 'size') {
+    if (criterion === 'size') {
       errorMessage = 'Images must be under 500kb!';
-    } else if (validationType === 'type') {
+    } else if (criterion === 'type') {
       errorMessage = 'Invalid file type!';
-    } else if (validationType === 'amount') {
+    } else if (criterion === 'amount') {
       errorMessage = 'Must upload at least 2 images!';
     }
 
@@ -698,14 +699,31 @@ function previewImg(input, location, selector = undefined) {
     $(selector).parent().css('border-color', '#f2dede');
 
     // wipe thumbnail
-    $(selector).siblings('.thumb-container').html('');
+    $(selector).siblings('.thumb-container').empty();
 
     // throw error
     $(selector).siblings('.file-details')
       .html(`<p class="bg-danger">${errorMessage}</p>`);
+  }
 
-    // exit function
-    return;
+  function validationSuccess(base64, filename, filesize) {
+    // enable compile button
+    compileButtonEnabler('enable');
+
+    // remove warning label
+    $(selector).parents('.panel-default').find('.label-warning')
+      .detach();
+
+    // reset dropbox border color
+    $(selector).parent().css('border-color', '#d9edf7');
+
+    // insert thumbnail
+    $(selector).siblings('.thumb-container')
+      .append(`<img src="${base64}" width="100" alt="Image preview...">`);
+
+    // show file details
+    $(selector).siblings('.file-details')
+      .append(`<p><strong>${filename}</strong> - ${filesize} bytes</p>`);
   }
 
   if (location === 'sidebar') {
@@ -722,10 +740,13 @@ function previewImg(input, location, selector = undefined) {
     $('a[href="#sidebar-img-panel"]').find('.label-warning').detach();
 
     // wipe thumbnail and file details
-    $(selector).siblings('.thumb-container').html('');
-    $(selector).siblings('.file-details').html('');
+    $(selector).siblings('.thumb-container').empty();
+    $(selector).siblings('.file-details').empty();
 
     if (file) {
+      let filename = file.name;
+      let filesize = file.size;
+
       // file type validation
       if (imageType.test(file.type)) {
         // read contents of uploaded file(s)
@@ -733,39 +754,20 @@ function previewImg(input, location, selector = undefined) {
           // validate file size
           if (file.size > 500000) {
             // return error due to file size
-            validationError(selector, dropzone.location, 'size');
+            validationError('size');
           } else {
             // live preview
             sidebarImageLivePreview(base64);
 
-            // enable compile button
-            compileButtonEnabler('enable');
-
-            // remove warning label
-            $(selector).parents('.panel-default').find('.label-warning')
-              .detach();
-
-            // reset dropbox border color
-            $(selector).parent().css('border-color', '#d9edf7');
-
-            // insert thumbnail
-            $(selector).siblings('.thumb-container')
-              .append(`<img src="${base64}" width="100" alt="Image preview...">`);
-
-            // show file details
-            $(selector).siblings('.file-details')
-              .append(`<p><strong>${file.name}</strong> - ${file.size} bytes</p>`);
+            validationSuccess(base64, filename, filesize);
           }
         });
       } else {
-        validationError(selector, dropzone.location, 'type');
+        validationError('type');
       }
     }
   } else if (location == 'rotating-header') {
-    console.log('header');
-
     let { files: fileObj } = input;
-    console.log(fileObj);
     if (selector === undefined) {
       // click and upload
       selector = input;
@@ -778,8 +780,11 @@ function previewImg(input, location, selector = undefined) {
     $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
 
     // wipe thumbnail and file details
-    $(selector).siblings('.thumb-container').html('');
-    $(selector).siblings('.file-details').html('');
+    $(selector).siblings('.thumb-container').empty();
+    $(selector).siblings('.file-details').empty();
+
+    // flag for exiting for...in loop
+    let abort = false;
 
     // validate number of file uploads is greater than 1
     if (fileObj.length > 1) {
@@ -787,7 +792,10 @@ function previewImg(input, location, selector = undefined) {
       let counter = 1;
 
       for (var key in fileObj) {
-        if (fileObj.hasOwnProperty(key)) {
+        if (abort) {
+          // exit loop
+          break;
+        } else if (fileObj.hasOwnProperty(key)) {
           if (fileObj) {
             let filename = fileObj[key].name;
             let filesize = fileObj[key].size;
@@ -799,7 +807,7 @@ function previewImg(input, location, selector = undefined) {
                 // validate file size
                 if (filesize > 500000) {
                   // return error due to file size
-                  validationError(selector, dropzone.location, 'size');
+                  validationError('size');
                 } else {
                   // edit rotatingHeaders object
                   rotatingHeaders[`header${counter}`] = {
@@ -813,35 +821,29 @@ function previewImg(input, location, selector = undefined) {
                   // sidebarImageLivePreview(base64);
                   rotatingHeaderLivePreview(base64);
 
-                  // enable compile button
-                  compileButtonEnabler('enable');
+                  if (!abort) {
+                    validationSuccess(base64, filename, filesize);
+                  }
 
-                  // remove warning label
-                  $(selector).parents('.panel-default').find('.label-warning')
-                    .detach();
-
-                  // reset dropbox border color
-                  $(selector).parent().css('border-color', '#d9edf7');
-
-                  // insert thumbnail
-                  $(selector).siblings('.thumb-container')
-                    .append(`<img src="${base64}" width="100" alt="Image preview...">`);
-
-                  // show file details
-                  $(selector).siblings('.file-details')
-                    .append(`<p><strong>${filename}</strong> - ${filesize} bytes</p>`);
                 }
               });
             } else {
-              validationError(selector, dropzone.location, 'type');
+              validationError('type');
+
+              // edit flag
+              abort = true;
             }
           }
         }
       }
 
+      // need callback after looping through rotatingHeaders obj
       console.log(rotatingHeaders);
     } else {
-      validationError(selector, dropzone.location, 'amount');
+      validationError('amount');
+
+      // edit flag
+      abort = true;
     }
   }
 }
@@ -857,8 +859,8 @@ function createClickableDropbox(option, location) {
     .find('.file-details');
 
   // sanitize dropbox content
-  $(thumbnail).html('');
-  $(details).html('');
+  $(thumbnail).empty();
+  $(details).empty();
   $(fileSelect).css('border-color', '#d9edf7');
 
   // dropbox drag and drop behavior
