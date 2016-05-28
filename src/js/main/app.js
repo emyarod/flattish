@@ -513,13 +513,18 @@ function sidebarImageLivePreview(image) {
 var rotatingHeaders = {};
 
 function rotatingHeaderLivePreview(image) {
-  // live preview
+  console.log(Object.keys(rotatingHeaders));
+  let values = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+    'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+    's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0',
+    '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  ];
 
-  // if (image !== undefined) {
-  //   if (image.search(/data:image\/png;base64,/) !== -1) {
-  //     sidebarImg.URL = image;
-  //   }
-  // }
+  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+    // inlineStyler({});
+  }
+
   //
   // if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
   //   // if large header
@@ -786,65 +791,81 @@ function previewImg(input, location, selector = undefined) {
     // flag for exiting for...in loop
     let abort = false;
 
-    // validate number of file uploads is greater than 1
-    if (fileObj.length > 1) {
-      // will track number of header images uploaded
-      let counter = 1;
+    const loop = (callback) => {
+      // validate number of file uploads is greater than 1
+      if (fileObj.length > 1) {
+        // will track number of header images uploaded
+        let counter = 1;
 
-      for (var key in fileObj) {
-        if (abort) {
-          // exit loop
-          break;
-        } else if (fileObj.hasOwnProperty(key)) {
-          if (fileObj) {
-            let filename = fileObj[key].name;
-            let filesize = fileObj[key].size;
+        for (var key in fileObj) {
+          if (abort) {
+            // exit loop
+            break;
+          } else if (fileObj.hasOwnProperty(key)) {
+            if (fileObj) {
+              let filename = fileObj[key].name;
+              let filesize = fileObj[key].size;
 
-            // file type validation
-            if (imageType.test(fileObj[key].type)) {
-              // read contents of uploaded file(s)
-              readImg(fileObj[key], location, (base64) => {
-                // validate file size
-                if (filesize > 500000) {
-                  // return error due to file size
-                  validationError('size');
-                } else {
-                  // edit rotatingHeaders object
-                  rotatingHeaders[`header${counter}`] = {
-                    URL: base64,
-                  };
+              // file type validation
+              if (imageType.test(fileObj[key].type)) {
+                // read contents of uploaded file(s)
+                readImg(fileObj[key], location, (base64) => {
+                  // validate file size
+                  if (filesize > 500000) {
+                    // return error due to file size
+                    validationError('size');
+                  } else {
+                    // edit rotatingHeaders object
+                    rotatingHeaders[`header${counter}`] = {
+                      URL: base64,
+                    };
 
-                  // increment counter
-                  counter++;
+                    if (counter !== fileObj.length) {
+                      // increment counter
+                      counter++;
+                    }
 
-                  // live preview
-                  // sidebarImageLivePreview(base64);
-                  rotatingHeaderLivePreview(base64);
+                    // console.log(`counter = ${counter}`);
+                    // console.log(`length = ${fileObj.length}`);
 
-                  if (!abort) {
-                    validationSuccess(base64, filename, filesize);
+                    console.log('aaa');
+                    // console.log(rotatingHeaders);
+
+                    // live preview
+                    // sidebarImageLivePreview(base64);
+                    // rotatingHeaderLivePreview(base64);
+
+                    if (!abort) {
+                      validationSuccess(base64, filename, filesize);
+                    }
                   }
+                });
+              } else {
+                validationError('type');
 
-                }
-              });
-            } else {
-              validationError('type');
-
-              // edit flag
-              abort = true;
+                // edit flag
+                abort = true;
+              }
             }
           }
         }
+      } else {
+        validationError('amount');
+
+        // edit flag
+        abort = true;
       }
 
-      // need callback after looping through rotatingHeaders obj
-      console.log(rotatingHeaders);
-    } else {
-      validationError('amount');
-
-      // edit flag
-      abort = true;
+      callback();
     }
+
+    loop(() => {
+      console.log('ccc');
+      console.log(rotatingHeaders);
+    });
+
+    console.log('bbb');
+    console.log(rotatingHeaders);
   }
 }
 
