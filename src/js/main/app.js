@@ -513,7 +513,8 @@ function sidebarImageLivePreview(image) {
 var rotatingHeaders = {};
 
 function rotatingHeaderLivePreview(image) {
-  console.log(Object.keys(rotatingHeaders));
+  let headerImages = Object.keys(rotatingHeaders);
+  let numHeaders = Object.keys(rotatingHeaders).length;
   let values = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
     'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
@@ -521,9 +522,20 @@ function rotatingHeaderLivePreview(image) {
     '1', '2', '3', '4', '5', '6', '7', '8', '9',
   ];
 
+  // number of values assigned to each header
+  let valuesPerHeader = Math.floor(values.length / numHeaders);
+
+  // remainder of values after division
+  let remainder = values.length - (numHeaders * valuesPerHeader);
+
+  // least common multiple
+  let lcm = numHeaders * valuesPerHeader;
+
   if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
     // inlineStyler({});
   }
+
+  // ^^^ forget this, just do the save images business
 
   //
   // if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
@@ -704,11 +716,11 @@ function previewImg(input, location, selector = undefined) {
     $(selector).parent().css('border-color', '#f2dede');
 
     // wipe thumbnail
-    $(selector).siblings('.thumb-container').empty();
+    $(selector).siblings('.thumbnail-column').find('.thumb-container').empty();
 
     // throw error
-    $(selector).siblings('.file-details')
-      .html(`<p class="bg-danger">${errorMessage}</p>`);
+    $(selector).siblings('.bg-danger').detach();
+    $(selector).siblings('.thumbnail-column').before(`<p class="bg-danger">${errorMessage}</p>`);
   }
 
   function validationSuccess(base64, filename, filesize) {
@@ -723,11 +735,11 @@ function previewImg(input, location, selector = undefined) {
     $(selector).parent().css('border-color', '#d9edf7');
 
     // insert thumbnail
-    $(selector).siblings('.thumb-container')
-      .append(`<img src="${base64}" width="100" alt="Image preview...">`);
+    $(selector).siblings('.thumbnail-column').find('.thumb-container')
+      .append(`<img src="${base64}" style="max-width:100%;max-height:50px" alt="Image preview..."><br>`);
 
     // show file details
-    $(selector).siblings('.file-details')
+    $(selector).siblings('.details-column').find('.file-details')
       .append(`<p><strong>${filename}</strong> - ${filesize} bytes</p>`);
   }
 
@@ -745,8 +757,9 @@ function previewImg(input, location, selector = undefined) {
     $('a[href="#sidebar-img-panel"]').find('.label-warning').detach();
 
     // wipe thumbnail and file details
-    $(selector).siblings('.thumb-container').empty();
-    $(selector).siblings('.file-details').empty();
+    $(selector).siblings('.thumbnail-column').find('.thumb-container').empty();
+    $(selector).siblings('.bg-danger').detach();
+    $(selector).siblings('.details-column').find('.file-details').empty();
 
     if (file) {
       let filename = file.name;
@@ -785,87 +798,71 @@ function previewImg(input, location, selector = undefined) {
     $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
 
     // wipe thumbnail and file details
-    $(selector).siblings('.thumb-container').empty();
-    $(selector).siblings('.file-details').empty();
+    $(selector).siblings('.thumbnail-column').find('.thumb-container').empty();
+    $(selector).siblings('.bg-danger').detach();
+    $(selector).siblings('.details-column').find('.file-details').empty();
 
     // flag for exiting for...in loop
     let abort = false;
 
-    const loop = (callback) => {
-      // validate number of file uploads is greater than 1
-      if (fileObj.length > 1) {
-        // will track number of header images uploaded
-        let counter = 1;
+    // validate number of file uploads is greater than 1
+    if (fileObj.length > 1) {
+      // will track number of header images uploaded
+      let counter = 1;
 
-        for (var key in fileObj) {
-          if (abort) {
-            // exit loop
-            break;
-          } else if (fileObj.hasOwnProperty(key)) {
-            if (fileObj) {
-              let filename = fileObj[key].name;
-              let filesize = fileObj[key].size;
+      for (var key in fileObj) {
+        if (abort) {
+          // exit loop
+          break;
+        } else if (fileObj.hasOwnProperty(key)) {
+          if (fileObj) {
+            let filename = fileObj[key].name;
+            let filesize = fileObj[key].size;
 
-              // file type validation
-              if (imageType.test(fileObj[key].type)) {
-                // read contents of uploaded file(s)
-                readImg(fileObj[key], location, (base64) => {
-                  // validate file size
-                  if (filesize > 500000) {
-                    // return error due to file size
-                    validationError('size');
+            // file type validation
+            if (imageType.test(fileObj[key].type)) {
+              // read contents of uploaded file(s)
+              readImg(fileObj[key], location, (base64) => {
+                // validate file size
+                if (filesize > 500000) {
+                  // return error due to file size
+                  validationError('size');
+                } else {
+                  // edit rotatingHeaders object
+                  rotatingHeaders[`header${counter}`] = {
+                    URL: base64,
+                  };
+
+                  if (counter !== fileObj.length) {
+                    // increment counter
+                    counter++;
                   } else {
-                    // edit rotatingHeaders object
-                    rotatingHeaders[`header${counter}`] = {
-                      URL: base64,
-                    };
-
-                    if (counter !== fileObj.length) {
-                      // increment counter
-                      counter++;
-                    }
-
-                    // console.log(`counter = ${counter}`);
-                    // console.log(`length = ${fileObj.length}`);
-
-                    console.log('aaa');
-                    // console.log(rotatingHeaders);
-
-                    // live preview
-                    // sidebarImageLivePreview(base64);
-                    // rotatingHeaderLivePreview(base64);
-
-                    if (!abort) {
-                      validationSuccess(base64, filename, filesize);
-                    }
+                    rotatingHeaderLivePreview(base64);
                   }
-                });
-              } else {
-                validationError('type');
 
-                // edit flag
-                abort = true;
-              }
+                  // live preview
+                  // sidebarImageLivePreview(base64);
+
+                  if (!abort) {
+                    validationSuccess(base64, filename, filesize);
+                  }
+                }
+              });
+            } else {
+              validationError('type');
+
+              // edit flag
+              abort = true;
             }
           }
         }
-      } else {
-        validationError('amount');
-
-        // edit flag
-        abort = true;
       }
+    } else {
+      validationError('amount');
 
-      callback();
+      // edit flag
+      abort = true;
     }
-
-    loop(() => {
-      console.log('ccc');
-      console.log(rotatingHeaders);
-    });
-
-    console.log('bbb');
-    console.log(rotatingHeaders);
   }
 }
 
