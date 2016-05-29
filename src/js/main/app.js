@@ -35,7 +35,9 @@ $(document).ready(() => {
     });
   });
 
-  // copy to clipboard button
+  /**
+   * copy to clipboard button
+   */
 
   // initialize tooltip
   $('.btn-clipboard').tooltip({
@@ -708,6 +710,12 @@ function previewImg(input, location, selector = undefined) {
     // disable compile button
     compileButtonEnabler('disable');
 
+    // wipe thumbnail(s) and file details
+    $(selector).siblings('.uploaded').empty();
+
+    // remove error text
+    $(selector).siblings('.bg-danger').detach();
+
     // add warning label
     $(labelSelector)
       .prepend(`<span class="label label-warning">Error</span>`);
@@ -715,12 +723,9 @@ function previewImg(input, location, selector = undefined) {
     // change dropbox border color
     $(selector).parent().css('border-color', '#f2dede');
 
-    // wipe thumbnail
-    $(selector).siblings('.thumbnail-column').find('.thumb-container').empty();
-
     // throw error
-    $(selector).siblings('.bg-danger').detach();
-    $(selector).siblings('.thumbnail-column').before(`<p class="bg-danger">${errorMessage}</p>`);
+    $(selector).siblings('.uploaded')
+      .before(`<p class="bg-danger">${errorMessage}</p>`);
   }
 
   function validationSuccess(base64, filename, filesize) {
@@ -735,11 +740,11 @@ function previewImg(input, location, selector = undefined) {
     $(selector).parent().css('border-color', '#d9edf7');
 
     // insert thumbnail
-    $(selector).siblings('.thumbnail-column').find('.thumb-container')
-      .append(`<img src="${base64}" style="max-width:100%;max-height:50px" alt="Image preview..."><br>`);
+    $(selector).siblings('.uploaded')
+      .append(`<div class="col-md-3"><div class="thumbnail"><img src="${base64}" style="max-height:50px" alt="Image preview..."></div></div>`);
 
     // show file details
-    $(selector).siblings('.details-column').find('.file-details')
+    $(selector).siblings('.uploaded').find('.thumbnail').last()
       .append(`<p><strong>${filename}</strong> - ${filesize} bytes</p>`);
   }
 
@@ -756,10 +761,11 @@ function previewImg(input, location, selector = undefined) {
     // remove warning labels
     $('a[href="#sidebar-img-panel"]').find('.label-warning').detach();
 
-    // wipe thumbnail and file details
-    $(selector).siblings('.thumbnail-column').find('.thumb-container').empty();
+    // remove error text
     $(selector).siblings('.bg-danger').detach();
-    $(selector).siblings('.details-column').find('.file-details').empty();
+
+    // wipe thumbnail(s) and file details
+    $(selector).siblings('.uploaded').empty();
 
     if (file) {
       let filename = file.name;
@@ -797,10 +803,11 @@ function previewImg(input, location, selector = undefined) {
     // remove warning labels
     $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
 
-    // wipe thumbnail and file details
-    $(selector).siblings('.thumbnail-column').find('.thumb-container').empty();
+    // remove error text
     $(selector).siblings('.bg-danger').detach();
-    $(selector).siblings('.details-column').find('.file-details').empty();
+
+    // wipe thumbnail(s) and file details
+    $(selector).siblings('.uploaded').empty();
 
     // flag for exiting for...in loop
     let abort = false;
@@ -827,6 +834,9 @@ function previewImg(input, location, selector = undefined) {
                 if (filesize > 500000) {
                   // return error due to file size
                   validationError('size');
+
+                  // edit flag
+                  abort = true;
                 } else {
                   // edit rotatingHeaders object
                   rotatingHeaders[`header${counter}`] = {
@@ -839,9 +849,6 @@ function previewImg(input, location, selector = undefined) {
                   } else {
                     rotatingHeaderLivePreview(base64);
                   }
-
-                  // live preview
-                  // sidebarImageLivePreview(base64);
 
                   if (!abort) {
                     validationSuccess(base64, filename, filesize);
@@ -871,14 +878,12 @@ function createClickableDropbox(option, location) {
     .find('.dropbox-container');
   let [fileElem] = $(option).parents('.addons__checkbox-container')
     .find('.dropbox');
-  let [thumbnail] = $(option).parents('.addons__checkbox-container')
-    .find('.thumb-container');
-  let [details] = $(option).parents('.addons__checkbox-container')
-    .find('.file-details');
+
+  let [uploaded] = $(option).parents('.addons__checkbox-container')
+    .find('.uploaded');
 
   // sanitize dropbox content
-  $(thumbnail).empty();
-  $(details).empty();
+  $(uploaded).empty();
   $(fileSelect).css('border-color', '#d9edf7');
 
   // dropbox drag and drop behavior
