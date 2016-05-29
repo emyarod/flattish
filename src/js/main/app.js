@@ -711,6 +711,9 @@ function previewImg(input, location, selector = undefined) {
     // wipe thumbnail(s) and file details
     $(selector).siblings('.uploaded').empty();
 
+    // reset rotatingHeaders object
+    rotatingHeaders = {};
+
     // flag for exiting for...in loop
     let abort = false;
 
@@ -742,18 +745,72 @@ function previewImg(input, location, selector = undefined) {
                 } else {
                   // edit rotatingHeaders object
                   rotatingHeaders[`header${counter}`] = {
+                    name: filename,
                     URL: base64,
                   };
+
+                  if (!abort) {
+                    validationSuccess(base64, filename, filesize);
+                  }
 
                   if (counter !== fileObj.length) {
                     // increment counter
                     counter++;
                   } else {
-                    console.log(rotatingHeaders);
-                  }
+                    $(selector).siblings('.uploaded').find('.thumbnail')
+                      .click((event) =>{
+                      /**
+                       * removes header image when thumbnail is clicked
+                       *
+                       * EXAMPLE:
+                       * given the following object rotatingHeaders
+                       *
+                       * rotatingHeaders = {
+                       *   header1: { URL: 'a', },
+                       *   header2: { URL: 'b', },
+                       *   header3: { URL: 'c', },
+                       *   header4: { URL: 'd', },
+                       * }
+                       *
+                       * if 'header2' is to be removed,
+                       * 'header2' takes on the value of 'header3',
+                       * 'header3' takes on the value of 'header4',
+                       * and 'header4' is removed from the object
+                       * so ultimately we are left with
+                       *
+                       * rotatingHeaders = {
+                       *   header1: { URL: 'a', },
+                       *   header2: { URL: 'c', },
+                       *   header3: { URL: 'd', },
+                       * }
+                       */
 
-                  if (!abort) {
-                    validationSuccess(base64, filename, filesize);
+                      /**
+                       * `index` is the integer indicating the position of
+                       * the clicked element relative to its sibling elements
+                       * within the jQuery object.
+                       */
+                      let index = $('#rotating-header-dropbox-container .thumbnail')
+                        .index(event.currentTarget);
+                      let toBeDeleted = Object.keys(rotatingHeaders).length;
+
+                      // loop to reassign keys and values
+                      for (var i = index + 1; i < toBeDeleted; i++) {
+                        let newKey = `header${i}`;
+                        let oldKey = `header${i + 1}`;
+                        console.log(`${newKey} becomes ${oldKey}`);
+                        rotatingHeaders[newKey] = rotatingHeaders[oldKey];
+                      }
+
+                      // delete the removed key
+                      console.log(`delete header${toBeDeleted}`);
+                      delete rotatingHeaders[`header${toBeDeleted}`];
+
+                      console.log(rotatingHeaders);
+                    });
+
+                    console.log(rotatingHeaders);
+                    console.log(Object.keys(rotatingHeaders).length);
                   }
                 }
               });
@@ -775,7 +832,7 @@ function previewImg(input, location, selector = undefined) {
   }
 }
 
-function createClickableDropbox(option, location) {
+function clickableDropbox(option, location, status) {
   let [fileSelect] = $(option).parents('.addons__checkbox-container')
     .find('.dropbox-container');
   let [fileElem] = $(option).parents('.addons__checkbox-container')
@@ -788,24 +845,28 @@ function createClickableDropbox(option, location) {
   $(uploaded).empty();
   $(fileSelect).css('border-color', '#d9edf7');
 
-  // dropbox drag and drop behavior
-  fileSelect.onclick = (event) => {
-    // sanitize input field value
-    $(fileElem).val('');
+  if (status === 'enable') {
+    // dropbox drag and drop behavior
+    fileSelect.onclick = (event) => {
+      // sanitize input field value
+      $(fileElem).val('');
 
-    // activate manual file upload unless thumbnail is clicked
-    if ($(event.target).is('.thumbnail')) {
-      event.preventDefault();
-      return;
-    } else {
-      fileElem.click();
-    }
-  };
+      // activate manual file upload unless thumbnail is clicked
+      if ($(event.target).is('.thumbnail')) {
+        event.preventDefault();
+        return;
+      } else {
+        fileElem.click();
+      }
+    };
 
-  // dropbox click behavior
-  $(fileElem).change((event) => {
-    previewImg(event.currentTarget, location);
-  });
+    // dropbox click behavior
+    $(fileElem).change((event) => {
+      previewImg(event.currentTarget, location);
+    });
+  } else if (status === 'disable') {
+    $(fileElem).unbind();
+  }
 }
 
 // full window drag and drop upload
@@ -902,8 +963,11 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
     // reset sidebar image URL and dimensions
     // sidebarImg.reset();
 
+    // empty rotatingHeaders object
+    rotatingHeaders = {};
+
     // create dropbox
-    createClickableDropbox(event.currentTarget, dropzone.location);
+    clickableDropbox(event.currentTarget, dropzone.location, 'enable');
 
     // enable drag and drop listeners
     dragAndDrop('enable');
@@ -924,6 +988,9 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
 
     // remove warning labels
     $('#rotating-header-label').siblings('.label-warning').detach();
+
+    // destroy dropbox
+    clickableDropbox(event.currentTarget, dropzone.location, 'disable');
 
     // disable drag and drop listeners
     dragAndDrop('disable');
@@ -969,7 +1036,7 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
     sidebarImg.reset();
 
     // create dropbox
-    createClickableDropbox(event.currentTarget, dropzone.location);
+    clickableDropbox(event.currentTarget, dropzone.location, 'enable');
 
     // enable drag and drop listeners
     dragAndDrop('enable');
@@ -990,6 +1057,9 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
 
     // remove warning labels
     $('#sidebar-img-label').siblings('.label-warning').detach();
+
+    // destroy dropbox
+    clickableDropbox(event.currentTarget, dropzone.location, 'disable');
 
     // disable drag and drop listeners
     dragAndDrop('disable');
