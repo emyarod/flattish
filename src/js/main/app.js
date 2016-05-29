@@ -793,8 +793,13 @@ function createClickableDropbox(option, location) {
     // sanitize input field value
     $(fileElem).val('');
 
-    // activate manual file upload
-    fileElem.click();
+    // activate manual file upload unless thumbnail is clicked
+    if ($(event.target).is('.thumbnail')) {
+      event.preventDefault();
+      return;
+    } else {
+      fileElem.click();
+    }
   };
 
   // dropbox click behavior
