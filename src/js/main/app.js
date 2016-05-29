@@ -612,9 +612,6 @@ function previewImg(input, location, selector = undefined) {
     // disable compile button
     compileButtonEnabler('disable');
 
-    // wipe thumbnail(s) and file details
-    $(selector).siblings('.uploaded').empty();
-
     // remove error text
     $(selector).siblings('.bg-danger').detach();
 
@@ -679,6 +676,9 @@ function previewImg(input, location, selector = undefined) {
         readImg(file, location, (base64) => {
           // validate file size
           if (file.size > 500000) {
+            // wipe thumbnail(s) and file details
+            $(selector).siblings('.uploaded').empty();
+
             // return error due to file size
             validationError('size');
           } else {
@@ -689,6 +689,10 @@ function previewImg(input, location, selector = undefined) {
           }
         });
       } else {
+        // wipe thumbnail(s) and file details
+        $(selector).siblings('.uploaded').empty();
+
+        // return error due to file type
         validationError('type');
       }
     }
@@ -737,6 +741,9 @@ function previewImg(input, location, selector = undefined) {
               readImg(fileObj[key], location, (base64) => {
                 // validate file size
                 if (filesize > 500000) {
+                  // wipe thumbnail(s) and file details
+                  $(selector).siblings('.uploaded').empty();
+
                   // return error due to file size
                   validationError('size');
 
@@ -798,23 +805,32 @@ function previewImg(input, location, selector = undefined) {
                       for (var i = index + 1; i < toBeDeleted; i++) {
                         let newKey = `header${i}`;
                         let oldKey = `header${i + 1}`;
-                        console.log(`${newKey} becomes ${oldKey}`);
                         rotatingHeaders[newKey] = rotatingHeaders[oldKey];
                       }
 
-                      // delete the removed key
-                      console.log(`delete header${toBeDeleted}`);
+                      // delete the removed key from rotatingHeaders
                       delete rotatingHeaders[`header${toBeDeleted}`];
 
+                      // remove thumbnail markup
+                      $(event.currentTarget).parent().fadeOut().remove();
+
                       console.log(rotatingHeaders);
+
+                      // return error if fewer than 2 headers have been uploaded
+                      if (Object.keys(rotatingHeaders).length < 2) {
+                        validationError('amount');
+                      }
                     });
 
                     console.log(rotatingHeaders);
-                    console.log(Object.keys(rotatingHeaders).length);
                   }
                 }
               });
             } else {
+              // wipe thumbnail(s) and file details
+              $(selector).siblings('.uploaded').empty();
+
+              // return error due to file type
               validationError('type');
 
               // edit flag
@@ -824,6 +840,10 @@ function previewImg(input, location, selector = undefined) {
         }
       }
     } else {
+      // wipe thumbnail(s) and file details
+      $(selector).siblings('.uploaded').empty();
+
+      // return error if fewer than 2 headers have been uploaded
       validationError('amount');
 
       // edit flag
@@ -865,6 +885,7 @@ function clickableDropbox(option, location, status) {
       previewImg(event.currentTarget, location);
     });
   } else if (status === 'disable') {
+    // remove dropbox change event handler
     $(fileElem).unbind();
   }
 }
