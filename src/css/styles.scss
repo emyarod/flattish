@@ -171,6 +171,36 @@ input.dropbox {
   display: none;
 }
 
+#rotating-header-dropbox-container .thumbnail {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: calc(100% - 20px);
+    width: calc(100% - 30px);
+    border-radius: 4px;
+    content: '';
+    @include transition-default;
+  }
+
+  &:hover::before {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 20px);
+    width: calc(100% - 30px);
+    border-radius: 4px;
+    color: #fff;
+    content: '\e083';
+    font-family: 'Glyphicons Halflings';
+    font-size: 36px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
 // compile button
 #compile-div {
   display: inline-block;
