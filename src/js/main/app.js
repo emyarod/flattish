@@ -514,104 +514,6 @@ function sidebarImageLivePreview(image) {
 // live preview
 var rotatingHeaders = {};
 
-function rotatingHeaderLivePreview(image) {
-  let headerImages = Object.keys(rotatingHeaders);
-  let numHeaders = Object.keys(rotatingHeaders).length;
-  let values = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-    'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-    's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0',
-    '1', '2', '3', '4', '5', '6', '7', '8', '9',
-  ];
-
-  // number of values assigned to each header
-  let valuesPerHeader = Math.floor(values.length / numHeaders);
-
-  // remainder of values after division
-  let remainder = values.length - (numHeaders * valuesPerHeader);
-
-  // least common multiple
-  let lcm = numHeaders * valuesPerHeader;
-
-  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-    // inlineStyler({});
-  }
-
-  // ^^^ forget this, just do the save images business
-
-  //
-  // if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-  //   // if large header
-  //   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-  //     inlineStyler({
-  //       '.side': {
-  //         'top': `${297 + sidebarImg.height + 16}px`,
-  //       },
-  //     });
-  //   } else {
-  //     inlineStyler({
-  //       '.side': {
-  //         'top': `${223 + sidebarImg.height + 16}px`,
-  //       },
-  //     });
-  //   }
-  //
-  //   $('iframe').contents().find('style').append(
-  //     `
-  //     .titlebox::before {
-  //       position: absolute;
-  //       top: ${-sidebarImg.height - 16}px;
-  //       right: -330px;
-  //       display: block;
-  //       height: ${sidebarImg.height}px;
-  //       width: 330px;
-  //       content: '';
-  //       border-radius: 2px;
-  //       background: url(${sidebarImg.URL}) center;
-  //       box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-  //                   0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-  //                   0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  //     }
-  //
-  //     @media (max-resolution: 1dppx) and (min-width: 992px) {
-  //       .titlebox::before {
-  //         right: 0;
-  //       }
-  //     }
-  //     `
-  //   );
-  // } else {
-  //   // if large header
-  //   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-  //     inlineStyler({
-  //       '.side': {
-  //         'top': '297px',
-  //       },
-  //     });
-  //   } else {
-  //     inlineStyler({
-  //       '.side': {
-  //         'top': '223px',
-  //       },
-  //     });
-  //   }
-  //
-  //   $('iframe').contents().find('style').append(
-  //     `
-  //     .titlebox::before {
-  //       display: none;
-  //     }
-  //
-  //     @media (max-resolution: 1dppx) and (min-width: 992px) {
-  //       .titlebox::before {
-  //         right: unset;
-  //       }
-  //     }
-  //     `
-  //   );
-  // }
-}
-
 // dropzone
 
 // Check for the various File API support.
@@ -638,41 +540,41 @@ function readImg(file, location, returnBase64) {
   let reader = new FileReader();
   reader.onload = (event) => {
     checkDimensions(event, (image) => {
-      // resize image if not 330px wide
-      if (image.width !== 330) {
-        // create canvas element
-        $('.header')
-          .after('<canvas id="canvas" width="0" height="0"></canvas>');
-        let [canvas] = $('#canvas');
-        let context = canvas.getContext('2d');
-        let scaleFactor = image.width / 330;
+      if (location === 'sidebar') {
+        // resize image if not 330px wide
+        if (image.width !== 330) {
+          // create canvas element
+          $('.header')
+            .after('<canvas id="canvas" width="0" height="0"></canvas>');
+          let [canvas] = $('#canvas');
+          let context = canvas.getContext('2d');
+          let scaleFactor = image.width / 330;
 
-        // resize canvas to exactly fit resized image
-        $('#canvas').prop({
-          'width': '330',
-          'height': `${Math.round(image.height / scaleFactor)}`,
-        });
+          // resize canvas to exactly fit resized image
+          $('#canvas').prop({
+            'width': '330',
+            'height': `${Math.round(image.height / scaleFactor)}`,
+          });
 
-        if (location === 'sidebar') {
           // recalculate image height
           sidebarImg.height = Math.round(image.height / scaleFactor);
-        }
 
-        // draw image on canvas to convert to base64
-        context.drawImage(image, 0, 0, 330, image.height / scaleFactor);
+          // draw image on canvas to convert to base64
+          context.drawImage(image, 0, 0, 330, image.height / scaleFactor);
 
-        // return base64 for resized image
-        returnBase64(canvas.toDataURL());
+          // return base64 for resized image
+          returnBase64(canvas.toDataURL());
 
-        // detach canvas element
-        $('#canvas').detach();
-      } else {
-        if (location === 'sidebar') {
+          // detach canvas element
+          $('#canvas').detach();
+        } else {
           // image height remains
           sidebarImg.height = image.height;
-        }
 
-        // return base64 for resized image
+          // return base64 for resized image
+          returnBase64(reader.result);
+        }
+      } else if (location === 'rotating-header') {
         returnBase64(reader.result);
       }
     });
@@ -847,7 +749,7 @@ function previewImg(input, location, selector = undefined) {
                     // increment counter
                     counter++;
                   } else {
-                    rotatingHeaderLivePreview(base64);
+                    console.log(rotatingHeaders);
                   }
 
                   if (!abort) {
