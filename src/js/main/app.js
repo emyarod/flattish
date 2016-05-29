@@ -886,7 +886,7 @@ $('a[href="#rotating-header-panel"]').on('shown.bs.tab', (e) => {
   }
 });
 
-// sidebar image checkbox
+// rotating header checkbox
 $('#rotating-header-checkbox:checkbox').change((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
@@ -903,13 +903,16 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
     // enable drag and drop listeners
     dragAndDrop('enable');
 
-    // show and enable dropbox container
     $('#rotating-header-dropbox-container')
+      // show and enable dropbox container
       .show(200, $.bez(bezierEasing))
       .fadeIn(200, $.bez(bezierEasing))
       .slideDown(200, $.bez(bezierEasing))
       .prop('disabled', false)
-      .removeClass('disabled');
+      .removeClass('disabled')
+
+      // remove error message
+      .find('.bg-danger').detach();
   } else {
     // enable compile button
     compileButtonEnabler('enable');
@@ -966,13 +969,16 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
     // enable drag and drop listeners
     dragAndDrop('enable');
 
-    // show and enable dropbox container
     $('#sidebar-img-dropbox-container')
+      // show and enable dropbox container
       .show(200, $.bez(bezierEasing))
       .fadeIn(200, $.bez(bezierEasing))
       .slideDown(200, $.bez(bezierEasing))
       .prop('disabled', false)
-      .removeClass('disabled');
+      .removeClass('disabled')
+
+      // remove error message
+      .find('.bg-danger').detach();
   } else {
     // enable compile button
     compileButtonEnabler('enable');
