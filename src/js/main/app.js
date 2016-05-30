@@ -516,6 +516,7 @@ var rotatingHeaders = {};
 
 // dropzone
 
+// TODO: check fallback
 // Check for the various File API support.
 if (window.File && window.FileReader && window.FileList && window.Blob) {
   // Great success! All the File APIs are supported.
@@ -536,6 +537,7 @@ function checkDimensions(file, callback) {
   image.src = file.target.result;
 }
 
+// read input and output base64
 function readImg(file, location, returnBase64) {
   let reader = new FileReader();
   reader.onload = (event) => {
@@ -759,7 +761,7 @@ function previewImg(input, location, selector = undefined) {
                   validationSuccess(base64, filename, filesize);
                 }
 
-                // return error if fewer than 2 headers have been uploaded
+                // error if fewer than 2 headers have been uploaded
                 if (Object.keys(rotatingHeaders).length < 2) {
                   validationError('amount');
                 }
@@ -769,11 +771,13 @@ function previewImg(input, location, selector = undefined) {
                   counter++;
                   position++;
                 } else {
+                  // remove all handlers attached
                   $(selector).siblings('.uploaded').find('.thumbnail')
                     .unbind();
+
+                  // click to remove
                   $(selector).siblings('.uploaded').find('.thumbnail')
                     .click((event) =>{
-                      console.log('here');
                     /**
                      * removes header image when thumbnail is clicked
                      *
@@ -788,9 +792,11 @@ function previewImg(input, location, selector = undefined) {
                      * }
                      *
                      * if 'header2' is to be removed,
-                     * 'header2' takes on the value of 'header3',
-                     * 'header3' takes on the value of 'header4',
-                     * and 'header4' is removed from the object
+                     *
+                     * 1) 'header2' takes on the value of 'header3'
+                     * 2) 'header3' takes on the value of 'header4'
+                     * 3) 'header4' is removed from the object
+                     *
                      * so ultimately we are left with
                      *
                      * rotatingHeaders = {
@@ -804,15 +810,16 @@ function previewImg(input, location, selector = undefined) {
                      * `index` is the integer indicating the position of
                      * the clicked element relative to its sibling elements
                      * within the jQuery object.
+                     *
+                     * toBeDeleted always points at the the last key in
+                     * rotatingHeaders
                      */
                     // FIXME: remove console.logs
                     let index = $('#rotating-header-dropbox-container .thumbnail')
                       .index(event.currentTarget);
                     let toBeDeleted = Object.keys(rotatingHeaders).length;
-                    console.log(`index = ${index}`);
-                    console.log(`length = ${toBeDeleted}`);
 
-                    // loop to reassign keys and values
+                    // reassign keys and values
                     for (var i = index + 1; i < toBeDeleted; i++) {
                       let newKey = `header${i}`;
                       let oldKey = `header${i + 1}`;
@@ -962,6 +969,8 @@ function dragAndDrop(status) {
   }
 }
 
+
+// TODO: DRY
 $('a[href="#rotating-header-panel"]').on('hide.bs.tab', (e) => {
   // disable drag and drop listeners
   dragAndDrop('disable');
@@ -986,9 +995,6 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
   dropzone.location = 'rotating-header';
 
   if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-    // reset sidebar image URL and dimensions
-    // sidebarImg.reset();
-
     // empty rotatingHeaders object
     rotatingHeaders = {};
 
@@ -1001,8 +1007,8 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
     $('#rotating-header-dropbox-container')
       // show and enable dropbox container
       .show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing))
+        .fadeIn(200, $.bez(bezierEasing))
+        .slideDown(200, $.bez(bezierEasing))
       .prop('disabled', false)
       .removeClass('disabled')
 
@@ -1024,14 +1030,11 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
     // hide and disable dropbox container
     $('#rotating-header-dropbox-container')
       .hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing))
+        .fadeOut(200, $.bez(bezierEasing))
+        .slideUp(200, $.bez(bezierEasing))
       .prop('disabled', true)
       .addClass('disabled');
   }
-
-  // reset live preview values
-  // sidebarImageLivePreview();
 });
 
 $('a[href="#sidebar-img-panel"]').on('hide.bs.tab', (e) => {
@@ -1070,8 +1073,8 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
     $('#sidebar-img-dropbox-container')
       // show and enable dropbox container
       .show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing))
+        .fadeIn(200, $.bez(bezierEasing))
+        .slideDown(200, $.bez(bezierEasing))
       .prop('disabled', false)
       .removeClass('disabled')
 
@@ -1093,8 +1096,8 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
     // hide and disable dropbox container
     $('#sidebar-img-dropbox-container')
       .hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing))
+        .fadeOut(200, $.bez(bezierEasing))
+        .slideUp(200, $.bez(bezierEasing))
       .prop('disabled', true)
       .addClass('disabled');
   }
@@ -1118,19 +1121,21 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
     // show and enable dropbox container
     $('#add-topic')
       .show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing))
+        .fadeIn(200, $.bez(bezierEasing))
+        .slideDown(200, $.bez(bezierEasing))
       .prop('disabled', false);
   } else {
     // hide and disable dropbox container
     $('#add-topic')
       .hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing))
+        .fadeOut(200, $.bez(bezierEasing))
+        .slideUp(200, $.bez(bezierEasing))
       .prop('disabled', true);
   }
 });
 
+
+// TODO: pinned topics
 let pinnedTopics = {
 
 }
@@ -1154,6 +1159,8 @@ $('#add-topic').click((event) => {
     `)
 });
 
+
+// FIXME: remove this if unneeded
 $('iframe').load(() => {
   // $('iframe').contents().find('body').css('background-color', 'purple');
   // $('iframe').contents().find('style').append('body { background-color: purple; }');
@@ -1183,6 +1190,7 @@ $('#compile').click(() => {
       // colors
       content = replacer(content, 'color', Object.keys(colors));
 
+      // TODO: see if this can be DRY-ed
       // large header
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
         console.log('checked');
