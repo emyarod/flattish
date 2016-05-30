@@ -766,7 +766,8 @@ function previewImg(input, location, selector = undefined) {
                   validationError('amount');
                 } else{
                   // remove warning labels
-                  $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
+                  $('a[href="#rotating-header-panel"]').find('.label-warning')
+                    .detach();
 
                   // remove error text
                   $(selector).siblings('.bg-danger').detach();
