@@ -712,142 +712,145 @@ function previewImg(input, location, selector = undefined) {
     // remove error text
     $(selector).siblings('.bg-danger').detach();
 
-    // wipe thumbnail(s) and file details
-    $(selector).siblings('.uploaded').empty();
-
-    // reset rotatingHeaders object
-    rotatingHeaders = {};
-
     // flag for exiting for...in loop
     let abort = false;
 
-    // validate number of file uploads is greater than 1
-    if (fileObj.length > 1) {
-      // will track number of header images uploaded
-      let counter = 1;
+    // will track number of header images uploaded in current loop iteration
+    let counter = 1;
 
-      for (var key in fileObj) {
-        if (abort) {
-          // exit loop
-          break;
-        } else if (fileObj.hasOwnProperty(key)) {
-          if (fileObj) {
-            let filename = fileObj[key].name;
-            let filesize = fileObj[key].size;
+    // will track number of total header images stored in rotatingHeaders
+    let position;
+    if (Object.keys(rotatingHeaders).length != 0) {
+      position = Object.keys(rotatingHeaders).length + 1;
+    } else {
+      position = 1;
+    }
 
-            // file type validation
-            if (imageType.test(fileObj[key].type)) {
-              // read contents of uploaded file(s)
-              readImg(fileObj[key], location, (base64) => {
-                // validate file size
-                if (filesize > 500000) {
-                  // wipe thumbnail(s) and file details
-                  $(selector).siblings('.uploaded').empty();
+    for (var key in fileObj) {
+      if (abort) {
+        // exit loop
+        break;
+      } else if (fileObj.hasOwnProperty(key)) {
+        if (fileObj) {
+          let filename = fileObj[key].name;
+          let filesize = fileObj[key].size;
 
-                  // return error due to file size
-                  validationError('size');
+          // file type validation
+          if (imageType.test(fileObj[key].type)) {
+            // read contents of uploaded file(s)
+            readImg(fileObj[key], location, (base64) => {
+              // validate file size
+              if (filesize > 500000) {
+                // return error due to file size
+                validationError('size');
 
-                  // edit flag
-                  abort = true;
+                // edit flag
+                abort = true;
+              } else {
+                // edit rotatingHeaders object
+                console.log(`position = ${position}`);
+                rotatingHeaders[`header${position}`] = {
+                  // FIXME: -- filename for debugging
+                  name: filename,
+                  URL: base64,
+                };
+
+                if (!abort) {
+                  validationSuccess(base64, filename, filesize);
+                }
+
+                // return error if fewer than 2 headers have been uploaded
+                if (Object.keys(rotatingHeaders).length < 2) {
+                  validationError('amount');
+                }
+
+                if (counter !== fileObj.length) {
+                  // increment counter and position
+                  counter++;
+                  position++;
                 } else {
-                  // edit rotatingHeaders object
-                  rotatingHeaders[`header${counter}`] = {
-                    name: filename,
-                    URL: base64,
-                  };
+                  $(selector).siblings('.uploaded').find('.thumbnail')
+                    .unbind();
+                  $(selector).siblings('.uploaded').find('.thumbnail')
+                    .click((event) =>{
+                      console.log('here');
+                    /**
+                     * removes header image when thumbnail is clicked
+                     *
+                     * EXAMPLE:
+                     * given the following object rotatingHeaders
+                     *
+                     * rotatingHeaders = {
+                     *   header1: { URL: 'a', },
+                     *   header2: { URL: 'b', },
+                     *   header3: { URL: 'c', },
+                     *   header4: { URL: 'd', },
+                     * }
+                     *
+                     * if 'header2' is to be removed,
+                     * 'header2' takes on the value of 'header3',
+                     * 'header3' takes on the value of 'header4',
+                     * and 'header4' is removed from the object
+                     * so ultimately we are left with
+                     *
+                     * rotatingHeaders = {
+                     *   header1: { URL: 'a', },
+                     *   header2: { URL: 'c', },
+                     *   header3: { URL: 'd', },
+                     * }
+                     */
 
-                  if (!abort) {
-                    validationSuccess(base64, filename, filesize);
-                  }
+                    /**
+                     * `index` is the integer indicating the position of
+                     * the clicked element relative to its sibling elements
+                     * within the jQuery object.
+                     */
+                    // FIXME: remove console.logs
+                    let index = $('#rotating-header-dropbox-container .thumbnail')
+                      .index(event.currentTarget);
+                    let toBeDeleted = Object.keys(rotatingHeaders).length;
+                    console.log(`index = ${index}`);
+                    console.log(`length = ${toBeDeleted}`);
 
-                  if (counter !== fileObj.length) {
-                    // increment counter
-                    counter++;
-                  } else {
-                    $(selector).siblings('.uploaded').find('.thumbnail')
-                      .click((event) =>{
-                      /**
-                       * removes header image when thumbnail is clicked
-                       *
-                       * EXAMPLE:
-                       * given the following object rotatingHeaders
-                       *
-                       * rotatingHeaders = {
-                       *   header1: { URL: 'a', },
-                       *   header2: { URL: 'b', },
-                       *   header3: { URL: 'c', },
-                       *   header4: { URL: 'd', },
-                       * }
-                       *
-                       * if 'header2' is to be removed,
-                       * 'header2' takes on the value of 'header3',
-                       * 'header3' takes on the value of 'header4',
-                       * and 'header4' is removed from the object
-                       * so ultimately we are left with
-                       *
-                       * rotatingHeaders = {
-                       *   header1: { URL: 'a', },
-                       *   header2: { URL: 'c', },
-                       *   header3: { URL: 'd', },
-                       * }
-                       */
+                    // loop to reassign keys and values
+                    for (var i = index + 1; i < toBeDeleted; i++) {
+                      let newKey = `header${i}`;
+                      let oldKey = `header${i + 1}`;
+                      console.log(`${newKey} becomes ${oldKey}`);
+                      rotatingHeaders[newKey] = rotatingHeaders[oldKey];
+                    }
 
-                      /**
-                       * `index` is the integer indicating the position of
-                       * the clicked element relative to its sibling elements
-                       * within the jQuery object.
-                       */
-                      let index = $('#rotating-header-dropbox-container .thumbnail')
-                        .index(event.currentTarget);
-                      let toBeDeleted = Object.keys(rotatingHeaders).length;
+                    // delete the removed key from rotatingHeaders
+                    console.log(`delete header${toBeDeleted}`);
+                    delete rotatingHeaders[`header${toBeDeleted}`];
 
-                      // loop to reassign keys and values
-                      for (var i = index + 1; i < toBeDeleted; i++) {
-                        let newKey = `header${i}`;
-                        let oldKey = `header${i + 1}`;
-                        rotatingHeaders[newKey] = rotatingHeaders[oldKey];
-                      }
-
-                      // delete the removed key from rotatingHeaders
-                      delete rotatingHeaders[`header${toBeDeleted}`];
-
-                      // remove thumbnail markup
-                      $(event.currentTarget).parent().fadeOut().remove();
-
-                      console.log(rotatingHeaders);
-
-                      // return error if fewer than 2 headers have been uploaded
-                      if (Object.keys(rotatingHeaders).length < 2) {
-                        validationError('amount');
-                      }
-                    });
+                    // remove thumbnail markup
+                    $(event.currentTarget).parent().fadeOut().remove();
 
                     console.log(rotatingHeaders);
-                  }
+
+                    // return error if fewer than 2 headers have been uploaded
+                    if (Object.keys(rotatingHeaders).length < 2) {
+                      validationError('amount');
+                    }
+                  });
+
+                  console.log(rotatingHeaders);
                 }
-              });
-            } else {
-              // wipe thumbnail(s) and file details
-              $(selector).siblings('.uploaded').empty();
+              }
+            });
+          } else {
+            // wipe thumbnail(s) and file details
+            $(selector).siblings('.uploaded').empty();
 
-              // return error due to file type
-              validationError('type');
+            // return error due to file type
+            validationError('type');
 
-              // edit flag
-              abort = true;
-            }
+            // edit flag
+            abort = true;
           }
         }
       }
-    } else {
-      // wipe thumbnail(s) and file details
-      $(selector).siblings('.uploaded').empty();
-
-      // return error if fewer than 2 headers have been uploaded
-      validationError('amount');
-
-      // edit flag
-      abort = true;
     }
   }
 }
@@ -863,6 +866,8 @@ function clickableDropbox(option, location, status) {
 
   // sanitize dropbox content
   $(uploaded).empty();
+
+  // recolor dropbox border
   $(fileSelect).css('border-color', '#d9edf7');
 
   if (status === 'enable') {
