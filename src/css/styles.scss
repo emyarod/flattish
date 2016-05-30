@@ -41,7 +41,7 @@ $dropbox-border: #d9edf7;
   }
 }
 
-// hide addon input forms
+// hide addon input form when addon option is disabled
 .addons__form,
 .dropbox-container,
 #add-topic,
@@ -110,7 +110,7 @@ iframe {
   }
 }
 
-// dropboxes
+// dropzones (drag and drop)
 body {
   &::before {
     position: fixed;
@@ -139,6 +139,7 @@ body {
   }
 }
 
+// dropboxes
 .dropbox-container {
   width: 100%;
   margin: 10px 0;
@@ -171,6 +172,7 @@ input.dropbox {
   display: none;
 }
 
+// 'click to remove' uploaded header images
 #rotating-header-dropbox-container .thumbnail {
   &::before {
     position: absolute;
