@@ -2,6 +2,7 @@ import '../../css/spectrum.scss';
 import '../../css/styles.scss';
 
 import 'jquery-bez';
+import JSZip from 'jszip';
 
 import '../sassjs/bourbon.js';
 import '../sassjs/flattish.js';
@@ -373,34 +374,6 @@ $('#large-header-checkbox:checkbox').change(() => {
         },
       });
     }
-  }
-});
-
-// rotating header validation
-$('#rotating-header-checkbox:checkbox').change(() => {
-  let bezierEasing = [0.4, 0, 0.2, 1];
-  if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-    // show div
-    $('#rotating-header__div').show(200, $.bez(bezierEasing))
-      .fadeIn(200, $.bez(bezierEasing))
-      .slideDown(200, $.bez(bezierEasing));
-
-    // enable input field
-    $('#rotating-header__input').prop({
-      disabled: false,
-      required: true,
-    });
-  } else {
-    // hide div
-    $('#rotating-header__div').hide(200, $.bez(bezierEasing))
-      .fadeOut(200, $.bez(bezierEasing))
-      .slideUp(200, $.bez(bezierEasing));
-
-    // disable input field
-    $('#rotating-header__input').prop({
-      disabled: true,
-      required: false,
-    });
   }
 });
 
@@ -1211,7 +1184,7 @@ $('#compile').click(() => {
       if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
         console.log('checked');
         content = replacer(content, 'bool', true, 'randomHeader');
-        content = replacer(content, 'bool', $('#rotating-header__input').val(), 'numHeaderImages');
+        content = replacer(content, 'bool', Object.keys(rotatingHeaders).length, 'numHeaderImages');
       } else {
         console.log('not checked');
         content = replacer(content, 'bool', false, 'randomHeader');
@@ -1269,11 +1242,26 @@ $('#compile').click(() => {
             .html(`html,body{overflow-y:hidden;}${finalPreview}`);
 
           // save image button
-          if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-            if (sidebarImg.URL.search(/data:image\/png;base64,/) !== -1) {
-              $('#compile-div').append(`<a id="save-images" class="btn btn-default" href="${sidebarImg.URL}" download="sidebar.png">Save images</a>`);
-            }
-          }
+          // if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+          //   if (sidebarImg.URL.search(/data:image\/png;base64,/) !== -1) {
+          //     $('#compile-div').append(`<a id="save-images" class="btn btn-default" href="${sidebarImg.URL}" download="sidebar.png">Save images</a>`);
+          //   }
+          // }
+
+          // for (var key in rotatingHeaders) {
+          //   if (rotatingHeaders.hasOwnProperty(key)) {
+          //     zip.file(`images/${[key]}.png`, rotatingHeaders[key].URL);
+          //   }
+          // }
+          //
+          // zip.file('images/sidebar.png', sidebarImg.URL);
+
+          // if ($('#compile-div').find('#save-images').length === 0) {
+          //   console.log('here');
+          //   $('#compile-div').append(`<a id="save-images" class="btn btn-default">Save images</a>`);
+          // } else {
+          //   $('#save-images').unbind();
+          // }
 
           // re-enable drag and drop listeners if a dropbox panel is expanded
           if ($('.dropbox-panel').find('.in').length > 0) {
@@ -1286,3 +1274,47 @@ $('#compile').click(() => {
     }
   });
 });
+
+(function () {
+  var zip = new JSZip();
+  zip.file("Hello.txt", "Hello world\n");
+
+  function bindEvent(el, eventName, eventHandler) {
+    if (el.addEventListener){
+      // standard way
+      el.addEventListener(eventName, eventHandler, false);
+    } else if (el.attachEvent){
+      // old IE
+      el.attachEvent('on'+eventName, eventHandler);
+    }
+  }
+
+  // Blob
+  var blobLink = document.getElementById('blob');
+  if (JSZip.support.blob) {
+    function downloadWithBlob() {
+      console.log('asdf');
+      zip.generateAsync({type:"blob"}).then(function (blob) {
+        saveAs(blob, "hello.zip");
+      }, function (err) {
+          blobLink.innerHTML += " " + err;
+      });
+      return false;
+    }
+    bindEvent(blobLink, 'click', downloadWithBlob);
+  } else {
+    blobLink.innerHTML += " (not supported on this browser)";
+  }
+
+  // data URI
+  function downloadWithDataURI() {
+    zip.generateAsync({type:"base64"}).then(function (base64) {
+      window.location = "data:application/zip;base64," + base64;
+    }, function (err) {
+      // shouldn't happen with a base64...
+    });
+  }
+  var dataUriLink = document.getElementById('data_uri');
+  bindEvent(dataUriLink, 'click', downloadWithDataURI);
+
+})();
