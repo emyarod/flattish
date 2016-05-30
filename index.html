@@ -323,8 +323,9 @@
     <div class="row">
       <div id="compile-div">
         <input id="compile" class="btn btn-default" type="submit" value="Compile">
-        <button id="blob" class="btn btn-primary">click to download</button>
-        <button id="data_uri" class="btn btn-primary">click to download</button>
+        <button id="save-images" class="btn btn-primary" disabled>
+          Save images
+        </button>
       </div><!-- /compile-div -->
     </div>
 
@@ -333,6 +334,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="assets/sassjs/sass.js"></script>
+  <script src="assets/jszip/jszip.min.js"></script>
+  <script src="assets/jszip/FileSaver.js"></script>
   <script src="app/js/bundle.js"></script>
 </body>
 </html>
