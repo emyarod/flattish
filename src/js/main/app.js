@@ -764,6 +764,12 @@ function previewImg(input, location, selector = undefined) {
                 // error if fewer than 2 headers have been uploaded
                 if (Object.keys(rotatingHeaders).length < 2) {
                   validationError('amount');
+                } else{
+                  // remove warning labels
+                  $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
+
+                  // remove error text
+                  $(selector).siblings('.bg-danger').detach();
                 }
 
                 if (counter !== fileObj.length) {
@@ -777,7 +783,7 @@ function previewImg(input, location, selector = undefined) {
 
                   // click to remove
                   $(selector).siblings('.uploaded').find('.thumbnail')
-                    .click((event) =>{
+                    .click((event) => {
                     /**
                      * removes header image when thumbnail is clicked
                      *
