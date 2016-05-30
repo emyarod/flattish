@@ -2,7 +2,6 @@ import '../../css/spectrum.scss';
 import '../../css/styles.scss';
 
 import 'jquery-bez';
-import JSZip from 'jszip';
 
 import '../sassjs/bourbon.js';
 import '../sassjs/flattish.js';
@@ -992,8 +991,32 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
       .prop('disabled', false)
       .removeClass('disabled')
 
-      // remove error message
-      .find('.bg-danger').detach();
+    // remove error message
+    .find('.bg-danger').detach();
+
+
+    /**
+     * IIFE to instantly display error on rotating header addon enable
+     * throwing error on addon enable forces user to take action
+     */
+    (function () {
+      let labelSelector = 'a[href="#rotating-header-panel"]';
+      let [selector] = $('#rotating-header-dropbox');
+
+      // disable compile button
+      compileButtonEnabler('disable');
+
+      // add warning label
+      $(labelSelector)
+      .prepend(`<span class="label label-warning">Error</span>`);
+
+      // change dropbox border color
+      $(selector).parent().css('border-color', '#f2dede');
+
+      // throw error
+      $(selector).siblings('.uploaded')
+      .before(`<p class="bg-danger">Must upload at least 2 images!</p>`);
+    }());
   } else {
     // enable compile button
     compileButtonEnabler('enable');
@@ -1153,8 +1176,13 @@ $('#compile').click(() => {
   $('.dropbox-container').addClass('disabled');
   $('.dropbox').prop('disabled', true);
 
-  // remove save images button while compiling
-  $('#save-images').detach();
+  // hide 'save images' button and remove attached event handlers
+  let bezierEasing = [0.4, 0, 0.2, 1];
+  $('#save-images')
+    .fadeOut(200, $.bez(bezierEasing))
+    .hide(200, $.bez(bezierEasing))
+    .prop('disabled', true)
+    .unbind();
 
   // disable drag and drop listeners while compiling
   if ($('.dropbox-panel').find('.in').length > 0) {
@@ -1221,15 +1249,15 @@ $('#compile').click(() => {
             .removeAttr('style');
           }
 
-          console.log('compiled');
           console.log(result);
 
-          // insert code into <pre>
+          // insert stylesheet CSS into <pre>
           $('#target').html(result.text.trim());
           $('#clipboard-input').val(result.text.trim());
 
           let finalPreview = result.text.trim();
 
+          // replace variable names in live preview CSS
           finalPreview = finalPreview
             .replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"')
             .replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"')
@@ -1238,30 +1266,80 @@ $('#compile').click(() => {
             .replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"')
             .replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"')
             .replace(/%%sidebar%%/g, sidebarImg.URL);
+
+          // inject live preview CSS into iframe
           $('iframe').contents().find('style')
             .html(`html,body{overflow-y:hidden;}${finalPreview}`);
 
-          // save image button
-          // if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-          //   if (sidebarImg.URL.search(/data:image\/png;base64,/) !== -1) {
-          //     $('#compile-div').append(`<a id="save-images" class="btn btn-default" href="${sidebarImg.URL}" download="sidebar.png">Save images</a>`);
-          //   }
-          // }
+          // zip images if rotating header or sidebar image addon is enabled
+          if ($('#sidebar-img-checkbox:checkbox').prop('checked') || $('#rotating-header-checkbox:checkbox').prop('checked')) {
+            (function () {
+              const zip = new JSZip();
 
-          // for (var key in rotatingHeaders) {
-          //   if (rotatingHeaders.hasOwnProperty(key)) {
-          //     zip.file(`images/${[key]}.png`, rotatingHeaders[key].URL);
-          //   }
-          // }
-          //
-          // zip.file('images/sidebar.png', sidebarImg.URL);
+              // rotating headers
+              if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+                for (var key in rotatingHeaders) {
+                  if (rotatingHeaders.hasOwnProperty(key)) {
+                    zip.file(
+                      `images/${[key]}.png`,
+                      rotatingHeaders[key].URL.substr(rotatingHeaders[key].URL.indexOf(',')+1),
+                      { base64: true, }
+                    );
+                  }
+                }
+              }
 
-          // if ($('#compile-div').find('#save-images').length === 0) {
-          //   console.log('here');
-          //   $('#compile-div').append(`<a id="save-images" class="btn btn-default">Save images</a>`);
-          // } else {
-          //   $('#save-images').unbind();
-          // }
+              // sidebar image
+              if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+                // only zips if user uploads own image
+                if (sidebarImg.URL.search(/data:image\/png;base64,/) !== -1) {
+                  console.log('we got base64');
+                  zip.file(
+                    'images/sidebar.png',
+                    sidebarImg.URL.substr(sidebarImg.URL.indexOf(',')+1),
+                    { base64: true, }
+                  );
+                }
+              }
+
+              // show 'save images button'
+              $('#save-images')
+                .show(200, $.bez(bezierEasing))
+                .fadeIn(200, $.bez(bezierEasing))
+                .prop('disabled', false);
+
+              // Blob
+              let blobLink = document.getElementById('save-images');
+              if (JSZip.support.blob) {
+                function downloadWithBlob() {
+                  zip.generateAsync({ type: 'blob' }).then((blob) => {
+                    saveAs(blob, 'flattish_images.zip');
+                  }, (err) => {
+                    blobLink.innerHTML += ` ${err}`;
+                  });
+
+                  return false;
+                }
+
+                // download blob zip on 'save images' button click
+                $('#save-images').click(() => {
+                  downloadWithBlob();
+                });
+              } else {
+                blobLink.innerHTML += " (not supported on this browser)";
+                // // data URI
+                // function downloadWithDataURI() {
+                //   zip.generateAsync({type:"base64"}).then(function (base64) {
+                //     window.location = "data:application/zip;base64," + base64;
+                //   }, function (err) {
+                //     // shouldn't happen with a base64...
+                //   });
+                // }
+                // var dataUriLink = document.getElementById('save-images');
+                // bindEvent(dataUriLink, 'click', downloadWithDataURI);
+              }
+            })();
+          }
 
           // re-enable drag and drop listeners if a dropbox panel is expanded
           if ($('.dropbox-panel').find('.in').length > 0) {
@@ -1274,47 +1352,3 @@ $('#compile').click(() => {
     }
   });
 });
-
-(function () {
-  var zip = new JSZip();
-  zip.file("Hello.txt", "Hello world\n");
-
-  function bindEvent(el, eventName, eventHandler) {
-    if (el.addEventListener){
-      // standard way
-      el.addEventListener(eventName, eventHandler, false);
-    } else if (el.attachEvent){
-      // old IE
-      el.attachEvent('on'+eventName, eventHandler);
-    }
-  }
-
-  // Blob
-  var blobLink = document.getElementById('blob');
-  if (JSZip.support.blob) {
-    function downloadWithBlob() {
-      console.log('asdf');
-      zip.generateAsync({type:"blob"}).then(function (blob) {
-        saveAs(blob, "hello.zip");
-      }, function (err) {
-          blobLink.innerHTML += " " + err;
-      });
-      return false;
-    }
-    bindEvent(blobLink, 'click', downloadWithBlob);
-  } else {
-    blobLink.innerHTML += " (not supported on this browser)";
-  }
-
-  // data URI
-  function downloadWithDataURI() {
-    zip.generateAsync({type:"base64"}).then(function (base64) {
-      window.location = "data:application/zip;base64," + base64;
-    }, function (err) {
-      // shouldn't happen with a base64...
-    });
-  }
-  var dataUriLink = document.getElementById('data_uri');
-  bindEvent(dataUriLink, 'click', downloadWithDataURI);
-
-})();
