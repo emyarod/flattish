@@ -16,6 +16,45 @@ import {
 } from './colorpickers.js';
 
 $(document).ready(() => {
+  /**
+   * read default sidebar image as a binary file
+   * and create an 8-bit unsigned integer array from the raw bytes
+   */
+  let oReq = new XMLHttpRequest();
+  oReq.open('GET', '/img/sidebar.png', true);
+
+  // specifies the response type
+  oReq.responseType = 'arraybuffer';
+
+  oReq.onload = function(oEvent) {
+    // create an 8-bit unsigned integer array from the raw bytes
+    let arr = new Uint8Array(oReq.response);
+
+    /**
+     * Convert the int array to a binary string
+     * We have to use apply() as we are converting an *array*
+     * and String.fromCharCode() takes one or more single values, not
+     * an array.
+     *
+     * shoutouts to MDN and https://stackoverflow.com/q/20035615
+     */
+    let raw = String.fromCharCode.apply(null, arr);
+
+    /**
+     * btoa() function creates a base-64 encoded ASCII string
+     * from a "string" of binary data
+     */
+    let b64 = btoa(raw);
+
+    // add content before base64 data (scheme, datatype, etc)
+    let dataURL = `data:image/png;base64,${b64}`;
+    sidebarImg.URL = dataURL;
+    sidebarImg.URLreset = dataURL;
+  };
+
+  // sends ajax request
+  oReq.send();
+
   $.ajax({
     url: 'style/flattish.min.css',
   }).done((data) => {
@@ -400,7 +439,7 @@ var sidebarImg = {
   URL: '',
   reset: () => {
     sidebarImg.height = 224;
-    sidebarImg.URL = 'https://b.thumbs.redditmedia.com/_hGE-XHXCAJOIsz4vtml2tiYvqyCc_R2K0oJgt1qeWI.png';
+    sidebarImg.URL = sidebarImg.URLreset;
   }
 }
 
@@ -483,8 +522,83 @@ function sidebarImageLivePreview(image) {
   }
 }
 
-// live preview
+// rotating headers
 var rotatingHeaders = {};
+
+// click to remove uploaded header images
+function clickToRemove(status) {
+  if (status === 'bind') {
+    $('#rotating-header-dropbox').siblings('.uploaded').find('.thumbnail')
+      .click((event) => {
+      /**
+       * removes header image when thumbnail is clicked
+       *
+       * EXAMPLE:
+       * given the following object rotatingHeaders
+       *
+       * rotatingHeaders = {
+       *   header1: { URL: 'a', },
+       *   header2: { URL: 'b', },
+       *   header3: { URL: 'c', },
+       *   header4: { URL: 'd', },
+       * }
+       *
+       * if 'header2' is to be removed,
+       *
+       * 1) 'header2' takes on the value of 'header3'
+       * 2) 'header3' takes on the value of 'header4'
+       * 3) 'header4' is removed from the object
+       *
+       * so ultimately we are left with
+       *
+       * rotatingHeaders = {
+       *   header1: { URL: 'a', },
+       *   header2: { URL: 'c', },
+       *   header3: { URL: 'd', },
+       * }
+       */
+
+      /**
+       * `index` is the integer indicating the position of
+       * the clicked element relative to its sibling elements
+       * within the jQuery object.
+       *
+       * toBeDeleted always points at the the last key in
+       * rotatingHeaders
+       */
+      // FIXME: remove console.logs
+      let index = $('#rotating-header-dropbox-container .thumbnail')
+        .index(event.currentTarget);
+      let toBeDeleted = Object.keys(rotatingHeaders).length;
+
+      // reassign keys and values
+      for (var i = index + 1; i < toBeDeleted; i++) {
+        let newKey = `header${i}`;
+        let oldKey = `header${i + 1}`;
+        console.log(`${newKey} becomes ${oldKey}`);
+        rotatingHeaders[newKey] = rotatingHeaders[oldKey];
+      }
+
+      // delete the removed key from rotatingHeaders
+      console.log(`delete header${toBeDeleted}`);
+      delete rotatingHeaders[`header${toBeDeleted}`];
+
+      // remove thumbnail markup
+      $(event.currentTarget).parent().fadeOut().remove();
+
+      console.log(rotatingHeaders);
+
+      // return error if fewer than 2 headers have been uploaded
+      if (Object.keys(rotatingHeaders).length < 2) {
+        validationError('amount');
+      }
+    });
+  } else if (status === 'unbind') {
+    // remove all handlers attached
+    $('#rotating-header-dropbox').siblings('.uploaded').find('.thumbnail')
+      .unbind();
+  }
+}
 
 // dropzone
 
@@ -751,75 +865,10 @@ function previewImg(input, location, selector = undefined) {
                   position++;
                 } else {
                   // remove all handlers attached
-                  $(selector).siblings('.uploaded').find('.thumbnail')
-                    .unbind();
+                  clickToRemove('unbind');
 
                   // click to remove
-                  $(selector).siblings('.uploaded').find('.thumbnail')
-                    .click((event) => {
-                    /**
-                     * removes header image when thumbnail is clicked
-                     *
-                     * EXAMPLE:
-                     * given the following object rotatingHeaders
-                     *
-                     * rotatingHeaders = {
-                     *   header1: { URL: 'a', },
-                     *   header2: { URL: 'b', },
-                     *   header3: { URL: 'c', },
-                     *   header4: { URL: 'd', },
-                     * }
-                     *
-                     * if 'header2' is to be removed,
-                     *
-                     * 1) 'header2' takes on the value of 'header3'
-                     * 2) 'header3' takes on the value of 'header4'
-                     * 3) 'header4' is removed from the object
-                     *
-                     * so ultimately we are left with
-                     *
-                     * rotatingHeaders = {
-                     *   header1: { URL: 'a', },
-                     *   header2: { URL: 'c', },
-                     *   header3: { URL: 'd', },
-                     * }
-                     */
-
-                    /**
-                     * `index` is the integer indicating the position of
-                     * the clicked element relative to its sibling elements
-                     * within the jQuery object.
-                     *
-                     * toBeDeleted always points at the the last key in
-                     * rotatingHeaders
-                     */
-                    // FIXME: remove console.logs
-                    let index = $('#rotating-header-dropbox-container .thumbnail')
-                      .index(event.currentTarget);
-                    let toBeDeleted = Object.keys(rotatingHeaders).length;
-
-                    // reassign keys and values
-                    for (var i = index + 1; i < toBeDeleted; i++) {
-                      let newKey = `header${i}`;
-                      let oldKey = `header${i + 1}`;
-                      console.log(`${newKey} becomes ${oldKey}`);
-                      rotatingHeaders[newKey] = rotatingHeaders[oldKey];
-                    }
-
-                    // delete the removed key from rotatingHeaders
-                    console.log(`delete header${toBeDeleted}`);
-                    delete rotatingHeaders[`header${toBeDeleted}`];
-
-                    // remove thumbnail markup
-                    $(event.currentTarget).parent().fadeOut().remove();
-
-                    console.log(rotatingHeaders);
-
-                    // return error if fewer than 2 headers have been uploaded
-                    if (Object.keys(rotatingHeaders).length < 2) {
-                      validationError('amount');
-                    }
-                  });
+                  clickToRemove('bind');
 
                   console.log(rotatingHeaders);
                 }
@@ -1175,6 +1224,7 @@ $('#compile').click(() => {
   $('input').addClass('disabled').prop('disabled', true);
   $('.dropbox-container').addClass('disabled');
   $('.dropbox').prop('disabled', true);
+  clickToRemove('unbind');
 
   // hide 'save images' button and remove attached event handlers
   let bezierEasing = [0.4, 0, 0.2, 1];
@@ -1282,7 +1332,9 @@ $('#compile').click(() => {
                   if (rotatingHeaders.hasOwnProperty(key)) {
                     zip.file(
                       `images/${[key]}.png`,
-                      rotatingHeaders[key].URL.substr(rotatingHeaders[key].URL.indexOf(',')+1),
+
+                      // remove content before base64 data
+                      rotatingHeaders[key].URL.substr(rotatingHeaders[key].URL.indexOf(',') + 1),
                       { base64: true, }
                     );
                   }
@@ -1291,15 +1343,13 @@ $('#compile').click(() => {
 
               // sidebar image
               if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-                // only zips if user uploads own image
-                if (sidebarImg.URL.search(/data:image\/png;base64,/) !== -1) {
-                  console.log('we got base64');
-                  zip.file(
-                    'images/sidebar.png',
-                    sidebarImg.URL.substr(sidebarImg.URL.indexOf(',')+1),
-                    { base64: true, }
-                  );
-                }
+                zip.file(
+                  'images/sidebar.png',
+
+                  // remove content before base64 data
+                  sidebarImg.URL.substr(sidebarImg.URL.indexOf(',') + 1),
+                  { base64: true, }
+                );
               }
 
               // show 'save images button'
@@ -1325,18 +1375,6 @@ $('#compile').click(() => {
                 $('#save-images').click(() => {
                   downloadWithBlob();
                 });
-              } else {
-                blobLink.innerHTML += " (not supported on this browser)";
-                // // data URI
-                // function downloadWithDataURI() {
-                //   zip.generateAsync({type:"base64"}).then(function (base64) {
-                //     window.location = "data:application/zip;base64," + base64;
-                //   }, function (err) {
-                //     // shouldn't happen with a base64...
-                //   });
-                // }
-                // var dataUriLink = document.getElementById('save-images');
-                // bindEvent(dataUriLink, 'click', downloadWithDataURI);
               }
             })();
           }
@@ -1345,6 +1383,9 @@ $('#compile').click(() => {
           if ($('.dropbox-panel').find('.in').length > 0) {
             dragAndDrop('enable');
           }
+
+          // re-enable click to remove
+          clickToRemove('bind');
         });
       });
     } else {
