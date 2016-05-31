@@ -191,7 +191,7 @@
 
                 <!-- PINNED TOPICS PILL -->
                 <li role="presentation">
-                  <a href="#pinned-topics" aria-controls="pinned-topics-panel" role="tab" data-toggle="tab">Pinned topics<span id="pinned-topics-label" class="label label-default">Disabled</span></a>
+                  <a href="#pinned-topics-panel" aria-controls="pinned-topics-panel" role="tab" data-toggle="tab">Pinned topics<span id="pinned-topics-label" class="label label-default">Disabled</span></a>
                 </li>
               </ul>
               <!-- NAV PILLS -->
@@ -201,6 +201,7 @@
 
         </div>
         <div class="col-sm-9">
+          <!-- #addon-expansion -->
           <div id="addon-expansion">
             <!-- TAB PANES -->
             <div class="tab-content">
@@ -256,7 +257,7 @@
               <div role="tabpanel" class="tab-pane fade" id="sidebar-img-panel">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
+                    <h3 class="panel-title">Sidebar image</h3>
                   </div>
                   <div class="panel-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos magnam, iure ex tenetur corporis adipisci nihil dolorum. Suscipit itaque fugit earum ratione id officia enim pariatur sapiente, dignissimos provident quisquam.</p>
@@ -284,7 +285,7 @@
               <div role="tabpanel" class="tab-pane fade" id="pinned-topics-panel">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
+                    <h3 class="panel-title">Pinned topics</h3>
                   </div>
                   <div class="panel-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quod porro ex. Veniam modi porro non saepe facere ipsum eveniet laudantium hic, nulla ducimus asperiores incidunt sit expedita quod, quam.</p>
@@ -295,8 +296,12 @@
                         </label>
                       </div>
 
-                      <button id="add-topic" type="button" class="btn btn-primary" disabled>Add topic</button>
-                      <button id="remove-topic" type="button" class="btn btn-primary" disabled>Add topic</button>
+                      <div id="pinned-topics-control">
+                        <button id="add-topic" type="button" class="btn btn-primary" disabled>Add topic</button>
+                        <button id="remove-topic" type="button" class="btn btn-primary" disabled>Add topic</button>
+                      </div>
+
+                      <div id="pinned-topics-config" class="col-md-12"></div>
                     </div>
                   </div>
                 </div>
@@ -305,6 +310,7 @@
             </div>
             <!-- TAB PANES -->
           </div>
+          <!-- #addon-expansion -->
         </div>
       </div>
 
