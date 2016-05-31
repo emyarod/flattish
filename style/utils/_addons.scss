@@ -23,9 +23,32 @@
 }
 
 // pinned topics
-$stickies-selectors: ();
-
 @if $pinned-topics {
+  $stickies-selectors: ();
+
+  // number of stickied links
+  $num-stickied-links: 0;
+
+  // number of stickied menus
+  $num-stickied-menus: 0;
+
+  // desired image backgrounds for stickies
+  $sticky-link-images: ();
+  $sticky-menu-images: ();
+
+
+  @each $key, $map in $pinned-map {
+    $type: map-get($map, type);
+    $image: map-get($map, image);
+
+    @if $type == 'link' {
+      $num-stickied-links: $num-stickied-links + 1;
+      $sticky-link-images: append($sticky-link-images, $image, 'comma');
+    } @else if $type == 'menu' {
+      $num-stickied-menus: $num-stickied-menus + 1;
+      $sticky-menu-images: append($sticky-menu-images, $image, 'comma');
+    }
+  }
 
   // add stickied links to map
   @if $num-stickied-links > 0 {
@@ -49,14 +72,14 @@ $stickies-selectors: ();
 
   // assign image backgrounds
   @if $num-stickied-links > 0 {
-    @for $num-stickied-links from 1 through $num-stickied-links {
-      @include sticky-image-switch(link, nth($sticky-link-images, $num-stickied-links), $num-stickied-links);
+    @for $i from 1 through $num-stickied-links {
+      @include sticky-image-switch('link', nth($sticky-link-images, $i), $i);
     }
   }
 
   @if $num-stickied-menus > 0 {
-    @for $num-stickied-menus from 1 through $num-stickied-menus {
-      @include sticky-image-switch(menu, nth($sticky-menu-images, $num-stickied-menus), $num-stickied-menus);
+    @for $i from 1 through $num-stickied-menus {
+      @include sticky-image-switch('menu', nth($sticky-menu-images, $i), $i);
     }
   }
 
