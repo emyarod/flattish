@@ -1189,8 +1189,8 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
 // TODO: pinned topics
 let pinnedTopics = {
-  counter: 0,
-}
+
+};
 
 $('#add-topic').click((event) => {
   $('#pinned-topics-config').append(`
