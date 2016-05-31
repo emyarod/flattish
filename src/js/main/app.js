@@ -527,6 +527,8 @@ var rotatingHeaders = {};
 
 // click to remove uploaded header images
 function clickToRemove(status) {
+  let [selector] = $('#rotating-header-dropbox');
+
   if (status === 'bind') {
     $('#rotating-header-dropbox').siblings('.uploaded').find('.thumbnail')
       .click((event) => {
@@ -590,7 +592,7 @@ function clickToRemove(status) {
 
       // return error if fewer than 2 headers have been uploaded
       if (Object.keys(rotatingHeaders).length < 2) {
-        validationError('amount');
+        validationError(selector, 'amount');
       }
     });
   } else if (status === 'unbind') {
@@ -671,49 +673,49 @@ function readImg(file, location, returnBase64) {
   reader.readAsDataURL(file);
 }
 
+function validationError(selector, criterion) {
+  // determine selector for labels
+  let labelSelector;
+  if (dropzone.location === 'sidebar') {
+    labelSelector = 'a[href="#sidebar-img-panel"]';
+  } else if (dropzone.location === 'rotating-header') {
+    labelSelector = 'a[href="#rotating-header-panel"]';
+  }
+
+  // determine error message based on validation tests
+  let errorMessage;
+  if (criterion === 'size') {
+    errorMessage = 'Images must be under 500kb!';
+  } else if (criterion === 'type') {
+    errorMessage = 'Invalid file type!';
+  } else if (criterion === 'amount') {
+    errorMessage = 'Must upload at least 2 images!';
+  }
+
+  // remove warning labels
+  $(labelSelector).find('.label-warning').detach();
+
+  // disable compile button
+  compileButtonEnabler('disable');
+
+  // remove error text
+  $(selector).siblings('.bg-danger').detach();
+
+  // add warning label
+  $(labelSelector)
+    .prepend(`<span class="label label-warning">Error</span>`);
+
+  // change dropbox border color
+  $(selector).parent().css('border-color', '#f2dede');
+
+  // throw error
+  $(selector).siblings('.uploaded')
+    .before(`<p class="bg-danger">${errorMessage}</p>`);
+}
+
 function previewImg(input, location, selector = undefined) {
   // image type regex
   let imageType = /^image\//;
-
-  function validationError(criterion) {
-    // determine selector for labels
-    let labelSelector;
-    if (dropzone.location === 'sidebar') {
-      labelSelector = 'a[href="#sidebar-img-panel"]';
-    } else if (dropzone.location === 'rotating-header') {
-      labelSelector = 'a[href="#rotating-header-panel"]';
-    }
-
-    // determine error message based on validation tests
-    let errorMessage;
-    if (criterion === 'size') {
-      errorMessage = 'Images must be under 500kb!';
-    } else if (criterion === 'type') {
-      errorMessage = 'Invalid file type!';
-    } else if (criterion === 'amount') {
-      errorMessage = 'Must upload at least 2 images!';
-    }
-
-    // remove warning labels
-    $(labelSelector).find('.label-warning').detach();
-
-    // disable compile button
-    compileButtonEnabler('disable');
-
-    // remove error text
-    $(selector).siblings('.bg-danger').detach();
-
-    // add warning label
-    $(labelSelector)
-      .prepend(`<span class="label label-warning">Error</span>`);
-
-    // change dropbox border color
-    $(selector).parent().css('border-color', '#f2dede');
-
-    // throw error
-    $(selector).siblings('.uploaded')
-      .before(`<p class="bg-danger">${errorMessage}</p>`);
-  }
 
   function validationSuccess(base64, filename, filesize) {
     // enable compile button
@@ -768,7 +770,7 @@ function previewImg(input, location, selector = undefined) {
             $(selector).siblings('.uploaded').empty();
 
             // return error due to file size
-            validationError('size');
+            validationError(selector, 'size');
           } else {
             // live preview
             sidebarImageLivePreview(base64);
@@ -781,7 +783,7 @@ function previewImg(input, location, selector = undefined) {
         $(selector).siblings('.uploaded').empty();
 
         // return error due to file type
-        validationError('type');
+        validationError(selector, 'type');
       }
     }
   } else if (location == 'rotating-header') {
@@ -830,7 +832,7 @@ function previewImg(input, location, selector = undefined) {
               // validate file size
               if (filesize > 500000) {
                 // return error due to file size
-                validationError('size');
+                validationError(selector, 'size');
 
                 // edit flag
                 abort = true;
@@ -849,7 +851,7 @@ function previewImg(input, location, selector = undefined) {
 
                 // error if fewer than 2 headers have been uploaded
                 if (Object.keys(rotatingHeaders).length < 2) {
-                  validationError('amount');
+                  validationError(selector, 'amount');
                 } else{
                   // remove warning labels
                   $('a[href="#rotating-header-panel"]').find('.label-warning')
@@ -879,7 +881,7 @@ function previewImg(input, location, selector = undefined) {
             $(selector).siblings('.uploaded').empty();
 
             // return error due to file type
-            validationError('type');
+            validationError(selector, 'type');
 
             // edit flag
             abort = true;
@@ -1034,9 +1036,7 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
 
     $('#rotating-header-dropbox-container')
       // show and enable dropbox container
-      .show(200, $.bez(bezierEasing))
         .fadeIn(200, $.bez(bezierEasing))
-        .slideDown(200, $.bez(bezierEasing))
       .prop('disabled', false)
       .removeClass('disabled')
 
@@ -1081,9 +1081,7 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
 
     // hide and disable dropbox container
     $('#rotating-header-dropbox-container')
-      .hide(200, $.bez(bezierEasing))
-        .fadeOut(200, $.bez(bezierEasing))
-        .slideUp(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
       .prop('disabled', true)
       .addClass('disabled');
   }
@@ -1124,9 +1122,7 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
 
     $('#sidebar-img-dropbox-container')
       // show and enable dropbox container
-      .show(200, $.bez(bezierEasing))
-        .fadeIn(200, $.bez(bezierEasing))
-        .slideDown(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
       .prop('disabled', false)
       .removeClass('disabled')
 
@@ -1147,9 +1143,7 @@ $('#sidebar-img-checkbox:checkbox').change((event) => {
 
     // hide and disable dropbox container
     $('#sidebar-img-dropbox-container')
-      .hide(200, $.bez(bezierEasing))
-        .fadeOut(200, $.bez(bezierEasing))
-        .slideUp(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing))
       .prop('disabled', true)
       .addClass('disabled');
   }
@@ -1166,35 +1160,18 @@ var stickyLinkImages;
 var stickyMenuImages;
 
 // pinned topics
-$('#pinned-topics-checkbox:checkbox').change(() => {
+function addTopic() {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
-  if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-    // show and enable dropbox container
-    $('#add-topic')
-      .show(200, $.bez(bezierEasing))
-        .fadeIn(200, $.bez(bezierEasing))
-        .slideDown(200, $.bez(bezierEasing))
-      .prop('disabled', false);
-  } else {
-    // hide and disable dropbox container
-    $('#add-topic')
-      .hide(200, $.bez(bezierEasing))
-        .fadeOut(200, $.bez(bezierEasing))
-        .slideUp(200, $.bez(bezierEasing))
-      .prop('disabled', true);
-  }
-});
-
-
-// TODO: pinned topics
-let topicSettings = {
-  counter: 0,
-};
-
-$('#add-topic').click((event) => {
+  // increment counter
   topicSettings.counter++;
   console.log(topicSettings.counter);
+
+  // enable remove topic button if more than 1 topic
+  if (topicSettings.counter > 1) {
+    $('#remove-topic').prop('disabled', false);
+  }
+
   $('#pinned-topics-config').append(`
     <div class="pinned-topic col-md-12" id="topic${topicSettings.counter}">
       <h4>Topic ${topicSettings.counter}</h4>
@@ -1237,6 +1214,64 @@ $('#add-topic').click((event) => {
       </div>
     </div>
   `);
+
+  $(`#topic${topicSettings.counter}`).hide()
+    .fadeIn(200, $.bez(bezierEasing));
+}
+
+$('#pinned-topics-checkbox:checkbox').change(() => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
+
+  if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+    // show and enable control buttons div
+    $('#pinned-topics-control').show(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing));
+
+    // enable buttons
+    $('#add-topic').prop('disabled', false);
+
+    // prepopulate with 1 topic
+    addTopic();
+  } else {
+    // hide and disable control buttons div
+    $('#pinned-topics-control').hide(200, $.bez(bezierEasing))
+      .fadeOut(200, $.bez(bezierEasing));
+
+    // disable buttons
+    $('#add-topic').prop('disabled', true);
+    $('#remove-topic').prop('disabled', true);
+
+    // clear topics
+    $('#pinned-topics-config').empty();
+  }
+});
+
+
+// TODO: make sure there is minimum 1 topic
+let topicSettings = {
+  counter: 0,
+};
+
+$('#add-topic').click((event) => {
+  addTopic();
+});
+
+$('#remove-topic').click((event) => {
+  let bezierEasing = [0.4, 0, 0.2, 1];
+  // decrement if more than 1 topic
+  if (topicSettings.counter > 1) {
+    topicSettings.counter--;
+    console.log(topicSettings.counter);
+    $('#pinned-topics-config .pinned-topic').last()
+      .fadeOut(200, $.bez(bezierEasing), () => {
+        $('#pinned-topics-config .pinned-topic').last().remove();
+    });
+  }
+
+  // disable remove topic button if only 1 topic remains
+  if (topicSettings.counter === 1) {
+    $('#remove-topic').prop('disabled', true);
+  }
 });
 
 
@@ -1256,10 +1291,8 @@ $('#compile').click(() => {
 
   // hide 'save images' button and remove attached event handlers
   let bezierEasing = [0.4, 0, 0.2, 1];
-  $('#save-images')
+  $('#save-images').prop('disabled', true)
     .fadeOut(200, $.bez(bezierEasing))
-    .hide(200, $.bez(bezierEasing))
-    .prop('disabled', true)
     .unbind();
 
   // disable drag and drop listeners while compiling
@@ -1381,10 +1414,9 @@ $('#compile').click(() => {
               }
 
               // show 'save images button'
-              $('#save-images')
+              $('#save-images').prop('disabled', false)
                 .show(200, $.bez(bezierEasing))
-                .fadeIn(200, $.bez(bezierEasing))
-                .prop('disabled', false);
+                .fadeIn(200, $.bez(bezierEasing));
 
               // Blob
               let blobLink = document.getElementById('save-images');
