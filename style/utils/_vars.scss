@@ -119,12 +119,7 @@ $sidebar-img-height: 224px;
 // affects addons, content
 $pinned-topics: false;
 
-$num-stickied-links: 0; // number of stickied links
-$num-stickied-menus: 0; // number of stickied menus
-
-// desired image backgrounds for stickies
-$sticky-link-images: '';
-$sticky-menu-images: '';
+$pinned-map: ();
 
 // sticky link/menu background image positions
 $album-bgp: 0 0;
