@@ -103,12 +103,12 @@ $screen-lg-min: 1200px;
 
 // large header
 // affects addons, content, footer, header-bottom-left, sidebar, base
-$header-large: true;
+$header-large: false;
 
 // random, rotating header
 // affects header, base
-$random-header: true;
-$num-header-images: 36;
+$random-header: false;
+$num-header-images: 2;
 
 // sidebar image
 // affects addons, footer, sidebar
@@ -117,30 +117,9 @@ $sidebar-img-height: 224px;
 
 // pinned topics
 // affects addons, content
-$pinned-topics: true;
+$pinned-topics: false;
 
-$pinned-map: (
-  topic1: (
-    type: 'link',
-    image: 'help',
-  ),
-  topic2: (
-    type: 'link',
-    image: 'album',
-  ),
-  topic3: (
-    type: 'link',
-    image: 'calendar',
-  ),
-  topic4: (
-    type: 'menu',
-    image: 'media',
-  ),
-  topic5: (
-    type: 'menu',
-    image: 'shows',
-  ),
-);
+$pinned-map: ();
 
 // sticky link/menu background image positions
 $album-bgp: 0 0;
