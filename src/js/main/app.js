@@ -1189,11 +1189,11 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
 // TODO: pinned topics
 let pinnedTopics = {
-
+  counter: 0,
 }
 
 $('#add-topic').click((event) => {
-  $('#addon-expansion').append(`
+  $('#pinned-topics-config').append(`
     <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
       <label class="btn btn-primary active">
         <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1
