@@ -138,9 +138,9 @@
     #{$sticky-selector-night} { background-position: $album-night-bgp; }
   }
 
-  @if $image == 'announcement' {
-    #{$sticky-selector} { background-position: $announcement-bgp; }
-    #{$sticky-selector-night} { background-position: $announcement-night-bgp; }
+  @if $image == 'notice' {
+    #{$sticky-selector} { background-position: $notice-bgp; }
+    #{$sticky-selector-night} { background-position: $notice-night-bgp; }
   }
 
   @if $image == 'calendar' {
@@ -153,9 +153,9 @@
     #{$sticky-selector-night} { background-position: $help-night-bgp; }
   }
 
-  @if $image == 'information' {
-    #{$sticky-selector} { background-position: $information-bgp; }
-    #{$sticky-selector-night} { background-position: $information-night-bgp; }
+  @if $image == 'info' {
+    #{$sticky-selector} { background-position: $info-bgp; }
+    #{$sticky-selector-night} { background-position: $info-night-bgp; }
   }
 
   @if $image == 'media' {
