@@ -1188,27 +1188,55 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
 
 // TODO: pinned topics
-let pinnedTopics = {
-
+let topicSettings = {
+  counter: 0,
 };
 
 $('#add-topic').click((event) => {
+  topicSettings.counter++;
+  console.log(topicSettings.counter);
   $('#pinned-topics-config').append(`
-    <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
-      <label class="btn btn-primary active">
-        <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1
-      </label>
-      <label class="btn btn-primary">
-        <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
-      </label>
-      <label class="btn btn-primary">
-        <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
-      </label>
-      <label class="btn btn-primary">
-        <input type="radio" name="options" id="option4" autocomplete="off"> Radio 4
-      </label>
+    <div class="pinned-topic col-md-12" id="topic${topicSettings.counter}">
+      <h4>Topic ${topicSettings.counter}</h4>
+      <div class="col-md-12 topic-type">
+        <h5>Type</h5>
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="options" autocomplete="off" checked>Link
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off">Menu
+          </label>
+        </div>
+      </div>
+      <div class="col-md-12 topic-image">
+        <h5>Background image</h5>
+        <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="options" autocomplete="off" checked> Album
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off"> Notice
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off"> Calendar
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off"> Help
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off"> Info
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off"> Media
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off"> Shows
+          </label>
+        </div>
+      </div>
     </div>
-    `)
+  `);
 });
 
 
