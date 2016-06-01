@@ -1211,6 +1211,42 @@ function addTopic() {
     .fadeIn(200, $.bez(bezierEasing));
 }
 
+// live preview
+$('#pinned-topics-checkbox:checkbox').change(() => {
+  if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+    $('iframe').contents().find('head').append(`
+      <style class="pinned-topics" type="text/css">
+        div.content {
+          margin: 0 15px 0 91px;
+        }
+
+        @media (max-resolution: 1dppx) and (min-width: 992px) {
+          div.content {
+            max-width: calc(100% - 503px);
+            margin-left: 93px !important;
+          }
+        }
+      </style>
+    `);
+
+    // if large header
+    if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('head').append(`
+        <style class="large-header pinned-topics" type="text/css">
+          @media (min-width: 992px) {
+            #header-bottom-left {
+              left: 0;
+            }
+          }
+        </style>
+      `);
+    }
+  } else {
+    $('iframe').contents().find('head .pinned-topics').detach();
+  }
+});
+
+// live preview
 $('#pinned-topics-checkbox:checkbox').change(() => {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
