@@ -368,6 +368,18 @@ $('#large-header-checkbox:checkbox').change(() => {
         </style>
         `
       );
+    } else {
+      $('iframe').contents().find('head').append(
+        `
+        <style class="large-header " type="text/css">
+          @media (min-width: 992px) {
+            #header-bottom-left {
+              left: 48px;
+            }
+          }
+        </style>
+        `
+      );
     }
 
     // if sidebar image
@@ -1219,6 +1231,7 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
     $('#add-topic').prop('disabled', false);
 
     // prepopulate with 1 topic
+    topicSettings.counter = 0;
     addTopic();
   } else {
     // hide and disable control buttons div
@@ -1343,10 +1356,10 @@ $('#compile').click(() => {
           $('.dropbox').prop('disabled', false);
 
           // remove inline styles
-          for (var i = 0; i < inlineStyleSelectors.length; i++) {
-            $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`)
-            .removeAttr('style');
-          }
+          // for (var i = 0; i < inlineStyleSelectors.length; i++) {
+          //   $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`)
+          //   .removeAttr('style');
+          // }
 
           console.log(result);
 
