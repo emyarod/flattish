@@ -306,111 +306,116 @@ addonLabeler.addons.forEach((element, index, array) => {
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    inlineStyler({
-      'div.content': {
-        'top': '297px',
-      },
-      '#header-bottom-left': {
-        'top': '172px',
-      },
-      '.side': {
-        'top': '297px',
-      },
-    });
-
-    $('iframe').contents().find('style').append(
+    $('iframe').contents().find('head').append(
       `
-      @media (min-width: 992px) {
-        #header-bottom-left {
-          left: 48px;
+      <style class="large-header" type="text/css">
+        div.content,
+        .side {
+          top: 297px;
         }
-      }
-      @media (min-width: 1200px) {
-        #header-bottom-left {
-          top: 245px;
-        }
-      }
-      body::before {
-        height: 420px;
-      }
-      `
-    );
-    // if pinned topics
-    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.titlebox blockquote': {
-          'top': '312px',
-        },
-      });
 
-      $('iframe').contents().find('style').append(
-        `
+        #header-bottom-left {
+          top: 172px;
+        }
+
         @media (min-width: 992px) {
           #header-bottom-left {
-            left: 0;
+            left: 48px;
           }
         }
+        @media (min-width: 1200px) {
+          #header-bottom-left {
+            top: 245px;
+          }
+        }
+        body::before {
+          height: 420px;
+        }
+      </style>
+      `
+    );
+
+    // if pinned topics
+    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+      // inlineStyler({
+      //   '.titlebox blockquote': {
+      //     'top': '312px',
+      //   },
+      // });
+      //
+      // $('iframe').contents().find('style').append(
+      //   `
+      //   @media (min-width: 992px) {
+      //     #header-bottom-left {
+      //       left: 0;
+      //     }
+      //   }
+      //   `
+      // );
+
+      $('iframe').contents().find('head').append(
+        `
+        <style class="large-header pinned-topics" type="text/css">
+          .titlebox blockquote {
+            top: 312px;
+          }
+
+          @media (min-width: 992px) {
+            #header-bottom-left {
+              left: 0;
+            }
+          }
+        </style>
         `
       );
     }
 
     // if sidebar image
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.side': {
-          'top': `${297 + sidebarImg.height + 16}px`,
-        },
-      });
+      $('iframe').contents().find('head').append(
+        `
+        <style class="large-header sidebar-image" type="text/css">
+          .side {
+            top: ${297 + sidebarImg.height + 16}px;
+          }
+        </style>
+        `
+      );
     }
   } else {
     // normal header
-    inlineStyler({
-      'div.content': {
-        'top': '223px',
-      },
-      '#header-bottom-left': {
-        'top': '86px',
-      },
-      '.side': {
-        'top': '223px',
-      },
-    });
-
-    $('iframe').contents().find('style').append(
-      `
-      body::before {
-        height: 223px;
-      }
-
-      @media (min-width: 992px) {
-        #header-bottom-left {
-          left: unset;
-        }
-      }
-      @media (min-width: 1200px) {
-        #header-bottom-left {
-          top: 159px;
-        }
-      }
-      `
-    );
+    $('iframe').contents().find('.large-header').detach();
 
     // if pinned topics
     if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.titlebox blockquote': {
-          'top': '239px',
-        },
-      });
+      // inlineStyler({
+      //   '.titlebox blockquote': {
+      //     'top': '239px',
+      //   },
+      // });
+
+      $('iframe').contents().find('head').append(
+        `
+        <style class="pinned-topics" type="text/css">
+          .titlebox blockquote {
+            top: 239px;
+          }
+        </style>
+        `
+      );
     }
 
     // if sidebar image
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.side': {
-          'top': `${223 + sidebarImg.height + 16}px`,
-        },
-      });
+      $('iframe').contents().find('head').append(
+        `
+        <style class="sidebar-image" type="text/css">
+          .side {
+            top: ${223 + sidebarImg.height + 16}px;
+          }
+        </style>
+        `
+      );
     }
   }
 });
@@ -453,72 +458,55 @@ function sidebarImageLivePreview(image) {
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
     // if large header
     if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.side': {
-          'top': `${297 + sidebarImg.height + 16}px`,
-        },
-      });
+      $('iframe').contents().find('head').append(
+        `
+        <style class="sidebar-image large-header" type="text/css">
+          .side {
+            top: ${297 + sidebarImg.height + 16}px;
+          }
+        </style>
+        `
+      );
     } else {
-      inlineStyler({
-        '.side': {
-          'top': `${223 + sidebarImg.height + 16}px`,
-        },
-      });
+      $('iframe').contents().find('head').append(
+        `
+        <style class="sidebar-image large-header" type="text/css">
+          .side {
+            top: ${223 + sidebarImg.height + 16}px;
+          }
+        </style>
+        `
+      );
     }
 
-    $('iframe').contents().find('style').append(
+    $('iframe').contents().find('head').append(
       `
-      .titlebox::before {
-        position: absolute;
-        top: ${-sidebarImg.height - 16}px;
-        right: -330px;
-        display: block;
-        height: ${sidebarImg.height}px;
-        width: 330px;
-        content: '';
-        border-radius: 2px;
-        background: url(${sidebarImg.URL}) center;
-        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-                    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-      }
-
-      @media (max-resolution: 1dppx) and (min-width: 992px) {
+      <style class="sidebar-image" type="text/css">
         .titlebox::before {
-          right: 0;
+          position: absolute;
+          top: ${-sidebarImg.height - 16}px;
+          right: -330px;
+          display: block;
+          height: ${sidebarImg.height}px;
+          width: 330px;
+          content: '';
+          border-radius: 2px;
+          background: url(${sidebarImg.URL}) center;
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+                      0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                      0px 1px 5px 0px rgba(0, 0, 0, 0.12);
         }
-      }
+
+        @media (max-resolution: 1dppx) and (min-width: 992px) {
+          .titlebox::before {
+            right: 0;
+          }
+        }
+      </style>
       `
     );
   } else {
-    // if large header
-    if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      inlineStyler({
-        '.side': {
-          'top': '297px',
-        },
-      });
-    } else {
-      inlineStyler({
-        '.side': {
-          'top': '223px',
-        },
-      });
-    }
-
-    $('iframe').contents().find('style').append(
-      `
-      .titlebox::before {
-        display: none;
-      }
-
-      @media (max-resolution: 1dppx) and (min-width: 992px) {
-        .titlebox::before {
-          right: unset;
-        }
-      }
-      `
-    );
+    $('iframe').contents().find('.sidebar-image').detach();
   }
 }
 
@@ -1380,8 +1368,12 @@ $('#compile').click(() => {
             .replace(/%%sidebar%%/g, sidebarImg.URL);
 
           // inject live preview CSS into iframe
-          $('iframe').contents().find('style')
-            .html(`html,body{overflow-y:hidden;}${finalPreview}`);
+          // $('iframe').contents().find('#final-preview').detach();
+          // $('iframe').contents().find('head').append(`
+          //   <style id="final-preview" type="text/css">
+          //     ${finalPreview}
+          //   </style>
+          // `);
 
           // zip images if rotating header or sidebar image addon is enabled
           if ($('#sidebar-img-checkbox:checkbox').prop('checked') || $('#rotating-header-checkbox:checkbox').prop('checked')) {
