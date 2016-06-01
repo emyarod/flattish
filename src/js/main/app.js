@@ -306,55 +306,9 @@ addonLabeler.addons.forEach((element, index, array) => {
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    $('iframe').contents().find('head').append(
-      `
-      <style class="large-header" type="text/css">
-        div.content,
-        .side {
-          top: 297px;
-        }
-
-        #header-bottom-left {
-          top: 172px;
-        }
-
-        @media (min-width: 992px) {
-          #header-bottom-left {
-            left: 48px;
-          }
-        }
-        @media (min-width: 1200px) {
-          #header-bottom-left {
-            top: 245px;
-          }
-        }
-        body::before {
-          height: 420px;
-        }
-      </style>
-      `
-    );
-
     // if pinned topics
     if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      // inlineStyler({
-      //   '.titlebox blockquote': {
-      //     'top': '312px',
-      //   },
-      // });
-      //
-      // $('iframe').contents().find('style').append(
-      //   `
-      //   @media (min-width: 992px) {
-      //     #header-bottom-left {
-      //       left: 0;
-      //     }
-      //   }
-      //   `
-      // );
-
-      $('iframe').contents().find('head').append(
-        `
+      $('iframe').contents().find('head').append(`
         <style class="large-header pinned-topics" type="text/css">
           .titlebox blockquote {
             top: 312px;
@@ -366,69 +320,95 @@ $('#large-header-checkbox:checkbox').change(() => {
             }
           }
         </style>
-        `
-      );
+      `);
     } else {
-      $('iframe').contents().find('head').append(
-        `
-        <style class="large-header " type="text/css">
+      $('iframe').contents().find('head').append(`
+        <style class="large-header" type="text/css">
           @media (min-width: 992px) {
             #header-bottom-left {
               left: 48px;
             }
           }
         </style>
-        `
-      );
+      `);
+    }
+
+    // if rotating header
+    if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('head').append(`
+        <style class="large-header rotating-header" type="text/css">
+          input[name=uh] ~ a::after {
+            height: 420px;
+          }
+        </style>
+      `);
     }
 
     // if sidebar image
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(
-        `
+      $('iframe').contents().find('head').append(`
         <style class="large-header sidebar-image" type="text/css">
           .side {
             top: ${297 + sidebarImg.height + 16}px;
           }
         </style>
-        `
-      );
+      `);
+    } else {
+      $('iframe').contents().find('head').append(`
+        <style class="large-header" type="text/css">
+          .side {
+            top: 297px;
+          }
+        </style>
+      `);
     }
-  } else {
-    // normal header
-    $('iframe').contents().find('.large-header').detach();
 
+    $('iframe').contents().find('head').append(`
+      <style class="large-header" type="text/css">
+        div.content {
+          top: 297px;
+        }
+
+        #header-bottom-left {
+          top: 172px;
+        }
+
+        @media (min-width: 1200px) {
+          #header-bottom-left {
+            top: 245px;
+          }
+        }
+
+        body::before {
+          height: 420px;
+        }
+      </style>
+    `);
+
+  } else {
     // if pinned topics
     if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      // inlineStyler({
-      //   '.titlebox blockquote': {
-      //     'top': '239px',
-      //   },
-      // });
-
-      $('iframe').contents().find('head').append(
-        `
+      $('iframe').contents().find('head').append(`
         <style class="pinned-topics" type="text/css">
           .titlebox blockquote {
             top: 239px;
           }
         </style>
-        `
-      );
+      `);
     }
 
     // if sidebar image
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(
-        `
+      $('iframe').contents().find('head').append(`
         <style class="sidebar-image" type="text/css">
           .side {
             top: ${223 + sidebarImg.height + 16}px;
           }
         </style>
-        `
-      );
+      `);
     }
+
+    $('iframe').contents().find('head .large-header').detach();
   }
 });
 
@@ -470,19 +450,17 @@ function sidebarImageLivePreview(image) {
   if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
     // if large header
     if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(
-        `
+      $('iframe').contents().find('head').append(`
         <style class="sidebar-image large-header" type="text/css">
           .side {
             top: ${297 + sidebarImg.height + 16}px;
           }
         </style>
-        `
-      );
+      `);
     } else {
       $('iframe').contents().find('head').append(
         `
-        <style class="sidebar-image large-header" type="text/css">
+        <style class="sidebar-image" type="text/css">
           .side {
             top: ${223 + sidebarImg.height + 16}px;
           }
@@ -491,8 +469,7 @@ function sidebarImageLivePreview(image) {
       );
     }
 
-    $('iframe').contents().find('head').append(
-      `
+    $('iframe').contents().find('head').append(`
       <style class="sidebar-image" type="text/css">
         .titlebox::before {
           position: absolute;
@@ -515,10 +492,20 @@ function sidebarImageLivePreview(image) {
           }
         }
       </style>
-      `
-    );
+    `);
   } else {
-    $('iframe').contents().find('.sidebar-image').detach();
+    // if large header
+    if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('head').append(`
+        <style class="large-header" type="text/css">
+          .side {
+            top: 297px;
+          }
+        </style>
+      `);
+    }
+
+    $('iframe').contents().find('head .sidebar-image').detach();
   }
 }
 
@@ -1160,6 +1147,11 @@ var stickyLinkImages;
 var stickyMenuImages;
 
 // pinned topics
+// TODO: make sure there is minimum 1 topic
+let topicSettings = {
+  counter: 0,
+};
+
 function addTopic() {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
@@ -1247,16 +1239,12 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
   }
 });
 
-
-// TODO: make sure there is minimum 1 topic
-let topicSettings = {
-  counter: 0,
-};
-
+// add topic
 $('#add-topic').click((event) => {
   addTopic();
 });
 
+// remove topic
 $('#remove-topic').click((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
   // decrement if more than 1 topic
