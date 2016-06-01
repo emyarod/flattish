@@ -102,7 +102,7 @@ $screen-lg-min: 1200px;
 // addons
 
 // large header
-// affects addons, content, footer, header-bottom-left, sidebar, base
+// affects addons, content, footer, header, header-bottom-left, sidebar, base
 $header-large: false;
 
 // random, rotating header
@@ -116,9 +116,10 @@ $sidebar-img: false;
 $sidebar-img-height: 224px;
 
 // pinned topics
-// affects addons, content
+// affects addons, content, header-bottom-left
 $pinned-topics: false;
 
+// cannot be empty if $pinned-topics
 $pinned-map: ();
 
 // sticky link/menu background image positions
