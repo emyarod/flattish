@@ -111,12 +111,12 @@ $random-header: true;
 $num-header-images: 36;
 
 // sidebar image
-// affects addons, content, header-bottom-left
+// affects addons, footer, sidebar
 $sidebar-img: false;
 $sidebar-img-height: 224px;
 
 // pinned topics
-// affects addons, content
+// affects addons, content, header-bottom-left
 $pinned-topics: true;
 
 // cannot be empty if $pinned-topics
