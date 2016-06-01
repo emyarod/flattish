@@ -17,7 +17,13 @@
       right: -16px;
       z-index: -1;
       width: 1920px;
-      height: 420px;
+
+      @if $header-large {
+        height: 420px;
+      } @else {
+        height: 223px;
+      }
+
       content: '';
       pointer-events: none;
       background-attachment: scroll, fixed;
