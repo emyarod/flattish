@@ -44,8 +44,7 @@ $dropbox-border: #d9edf7;
 // hide addon input form when addon option is disabled
 .addons__form,
 .dropbox-container,
-#add-topic,
-#remove-topic {
+#pinned-topics-control {
   display: none;
 }
 
