@@ -52,8 +52,22 @@ $(document).ready(() => {
     sidebarImg.URLreset = dataURL;
   };
 
-  // sends ajax request
-  oReq.send();
+  /**
+   * read default stickies image as a binary file
+   * and create an 8-bit unsigned integer array from the raw bytes
+   */
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', '/img/sprites/stickies.png', true);
+  xhr.responseType = 'arraybuffer';
+  xhr.onload = function(oEvent) {
+    let arr = new Uint8Array(xhr.response);
+    let raw = String.fromCharCode.apply(null, arr);
+    let b64 = btoa(raw);
+    let dataURL = `data:image/png;base64,${b64}`;
+    stickies.URL = dataURL;
+  };
+
+  xhr.send();
 
   $.ajax({
     url: 'style/flattish.min.css',
@@ -1148,6 +1162,17 @@ var stickyMenuImages;
 
 // pinned topics
 // TODO: make sure there is minimum 1 topic
+let stickies = {
+  URL: '',
+  album: '0 0',
+  notice: '-120px 0',
+  calendar: '-60px -60px',
+  help: '0 -120px',
+  info: '-120px -120px',
+  media: '-180px -60px',
+  shows: '0 -180px',
+};
+
 let topicSettings = {
   counter: 0,
   reset: () => {
@@ -1285,6 +1310,12 @@ function addTopic() {
         </div>
       </div>
     </div>
+  `);
+
+  $('iframe').contents().find('blockquote.pinned-topics').append(`
+    <p id="topic${topicSettings.counter}">
+      <a href="javascript:void(0)">reddit: the front page of the internet</a>
+    </p>
   `);
 
   // add new key and values to topicSettings
@@ -1435,6 +1466,33 @@ function addTopic() {
     /**
      * TOPIC IMAGE LISTENERS
      */
+    switch (true) {
+      case topicImage === 'album':
+        console.log(`topicImage === 'album'`);
+        break;
+      case topicImage === 'notice':
+        console.log(`topicImage === 'notice'`);
+        break;
+      case topicImage === 'calendar':
+        console.log(`topicImage === 'calendar'`);
+        break;
+      case topicImage === 'help':
+        console.log(`topicImage === 'help'`);
+        break;
+      case topicImage === 'info':
+        console.log(`topicImage === 'info'`);
+        break;
+      case topicImage === 'media':
+        console.log(`topicImage === 'media'`);
+        break;
+      case topicImage === 'shows':
+        console.log(`topicImage === 'shows'`);
+        break;
+      default:
+        // album
+        break;
+    }
+    
     console.log(topicSettings);
   });
 
@@ -1446,8 +1504,107 @@ function addTopic() {
 // live preview
 $('#pinned-topics-checkbox:checkbox').change(() => {
   if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+    $('iframe').contents().find('.usertext-body .md').prepend(`
+      <blockquote class="pinned-topics"></blockquote>
+    `);
+
     $('iframe').contents().find('head').append(`
       <style class="pinned-topics" type="text/css">
+        .res-nightmode .titlebox blockquote::after {
+          background-color: #424242;
+        }
+
+        .titlebox blockquote {
+          position: fixed;
+          left: 16px;
+          border: 0;
+          margin: 0 !important;
+          padding: 0;
+        }
+
+        .titlebox blockquote::after {
+          position: absolute;
+          top: 0;
+          z-index: -1;
+          display: block;
+          height: 100%;
+          width: 60px;
+          content: '';
+          border-radius: 2px;
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+          0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
+          background-color: #fff;
+        }
+
+        .titlebox blockquote p,
+        .titlebox blockquote ul,
+        .titlebox blockquote a {
+          border-bottom-right-radius: 2px;
+          border-top-right-radius: 2px;
+        }
+
+        .titlebox blockquote p,
+        .titlebox blockquote ul {
+          width: 60px;
+          height: 60px;
+          margin: 0 !important;
+          overflow: hidden;
+          background-repeat: no-repeat;
+          background-position: 16px 50%;
+        }
+
+        .titlebox blockquote p:hover {
+          width: 100%;
+          background-color: #00bcd4 !important;
+        }
+
+        .titlebox blockquote a {
+          display: block;
+          height: 60px;
+          border-left-width: 60px;
+          border-left-style: solid;
+          border-left-color: transparent;
+          padding: 0 16px;
+          line-height: 60px;
+          font-size: 14px;
+          color: #fff !important;
+          background-clip: padding-box;
+          background-color: #616161;
+        }
+
+        .titlebox blockquote a:hover {
+          color: #00bcd4 !important;
+        }
+
+        .titlebox blockquote ul {
+          padding: 0;
+        }
+
+        .titlebox blockquote ul:hover {
+          width: 100%;
+          overflow: visible;
+          background-color: #00bcd4 !important;
+        }
+
+        .titlebox blockquote ul ul {
+          background-image: none !important;
+          background-color: transparent !important;
+        }
+
+        .titlebox blockquote ul ul:hover {
+          background-color: transparent !important;
+        }
+
+        .titlebox blockquote ul li {
+          list-style-type: none;
+        }
+
+        .titlebox blockquote ul li a {
+          border: 0;
+          margin-left: 60px;
+        }
+
         div.content {
           margin: 0 15px 0 91px;
         }
@@ -1465,6 +1622,10 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
     if ($('#large-header-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('head').append(`
         <style class="large-header pinned-topics" type="text/css">
+          .titlebox blockquote {
+            top: 312px;
+          }
+
           @media (min-width: 992px) {
             #header-bottom-left {
               left: 0;
@@ -1472,9 +1633,18 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
           }
         </style>
       `);
+    } else {
+      $('iframe').contents().find('head').append(`
+        <style class="large-header pinned-topics" type="text/css">
+          .titlebox blockquote {
+            top: 239px;
+          }
+        </style>
+      `);
     }
   } else {
     $('iframe').contents().find('head .pinned-topics').detach();
+    $('iframe').contents().find('.md .pinned-topics').detach();
   }
 });
 
@@ -1644,7 +1814,8 @@ $('#compile').click(() => {
             .replace(/%%spritesheet%%/g, '"https://b.thumbs.redditmedia.com/WwVfPsjJK8fP59rNqswJrUJTWvS9kCK83eSjybERWMw.png"')
             .replace(/%%save%%/g, '"https://b.thumbs.redditmedia.com/BSYuVoMV0MOiH4OA6vtW8VqLePOAqwnC69QrPmjRHgk.png"')
             .replace(/%%hide%%/g, '"https://b.thumbs.redditmedia.com/KIFC2QeI3sY7e9pL4_MqCgo5n9x5QwVmgcovfNm8RJc.png"')
-            .replace(/%%sidebar%%/g, sidebarImg.URL);
+            .replace(/%%sidebar%%/g, sidebarImg.URL)
+            .replace(/%%stickies%%/g, stickies.URL);
 
           // inject live preview CSS into iframe
           // $('iframe').contents().find('#final-preview').detach();
