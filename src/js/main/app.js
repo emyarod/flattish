@@ -1150,14 +1150,27 @@ var stickyMenuImages;
 // TODO: make sure there is minimum 1 topic
 let topicSettings = {
   counter: 0,
+  reset: () => {
+    // delete all keys except counter and reset function
+    for (var key in topicSettings) {
+      if (topicSettings.hasOwnProperty(key)) {
+        if (key !== 'counter' && key !== 'reset') {
+          delete topicSettings[key];
+        }
+      }
+    }
+
+    // reset counter
+    topicSettings.counter = 0;
+  },
 };
 
+// add pinned topic and event listeners for each topic
 function addTopic() {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
   // increment counter
   topicSettings.counter++;
-  console.log(topicSettings.counter);
 
   // enable remove topic button if more than 1 topic
   if (topicSettings.counter > 1) {
@@ -1167,17 +1180,6 @@ function addTopic() {
   $('#pinned-topics-config').append(`
     <div class="pinned-topic col-md-12" id="topic${topicSettings.counter}">
       <h4>Topic ${topicSettings.counter}</h4>
-      <div class="col-md-12 topic-type">
-        <h5>Type</h5>
-        <div class="btn-group btn-group-justified" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="radio" name="options" autocomplete="off" checked>Link
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="options" autocomplete="off">Menu
-          </label>
-        </div>
-      </div>
       <div class="col-md-12 topic-image">
         <h5>Background image</h5>
         <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
@@ -1204,9 +1206,207 @@ function addTopic() {
           </label>
         </div>
       </div>
+      <div class="col-md-12 topic-type">
+        <h5>Type</h5>
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="options" autocomplete="off" checked>Link
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" autocomplete="off">Menu
+          </label>
+        </div>
+        <div id="topic${topicSettings.counter}-link-container">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="topic${topicSettings.counter}-text" class="col-md-1">Text</label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <div class="input-group-addon">[</div>
+                  <input type="text" class="form-control" id="topic${topicSettings.counter}-text" placeholder="reddit: the front page of the internet" required>
+                  <div class="input-group-addon">]</div>
+                </div>
+              </div>
+              <label for="topic${topicSettings.counter}-link" class="col-md-1">Link</label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <div class="input-group-addon">(</div>
+                  <input type="url" class="form-control" id="topic${topicSettings.counter}-link" placeholder="https://www.reddit.com/" required>
+                  <div class="input-group-addon">)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="topic${topicSettings.counter}-menu-container" style="display:none">
+          <div class="menulinks">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label for="topic${topicSettings.counter}-menulink-1" class="col-md-2 control-label">URL 1</label>
+                <div class="col-md-10">
+                  <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink-1" placeholder="https://www.reddit.com/" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label for="topic${topicSettings.counter}-menulink-2" class="col-md-2 control-label">URL 2</label>
+                <div class="col-md-10">
+                  <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink-2" placeholder="https://www.reddit.com/" disabled>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-group" id="topic${topicSettings.counter}-menulinks-control" aria-label="topic${topicSettings.counter}-menulinks-control">
+            <button type="button" class="btn btn-primary add-menulink" disabled>+</button>
+            <button type="button" class="btn btn-primary remove-menulink" disabled>-</button>
+          </div>
+        </div>
+      </div>
     </div>
   `);
 
+  // add new key and values to topicSettings
+  topicSettings[`topic${topicSettings.counter}`] = {
+    type: $(`#topic${topicSettings.counter} .topic-type .active`)
+      .text()
+      .trim()
+      .toLowerCase(),
+    image: $(`#topic${topicSettings.counter} .topic-image .active`)
+      .text()
+      .trim()
+      .toLowerCase(),
+    menulinks: 2,
+  };
+
+  // unbind old listener
+  $(`#topic${topicSettings.counter}`).unbind();
+
+  // for each topic, add event listener
+  $(`#topic${topicSettings.counter}`).change((event) => {
+    let currentTopic = $(event.currentTarget).attr('id');
+    let topicType = $(`#${currentTopic} .topic-type .active`)
+      .text()
+      .trim()
+      .toLowerCase();
+    let topicImage = $(`#${currentTopic} .topic-image .active`)
+      .text()
+      .trim()
+      .toLowerCase();
+
+    topicSettings[currentTopic].type = topicType;
+    topicSettings[currentTopic].image = topicImage;
+
+    /**
+     * TOPIC TYPE LISTENERS
+     */
+    if (topicType === 'link') {
+      /**
+       * IF LINK IS CHOSEN
+       */
+
+      topicSettings[currentTopic].menulinks = 2;
+      $(`#${currentTopic}-menu-container .form-horizontal`).slice(2)
+        .remove();
+
+      // hide, disable, and unrequire pinned menu inputs
+      $(`#${currentTopic}-menu-container`).hide();
+      $(`.${currentTopic}-menulink, #${currentTopic}-menulinks-control .add-menulink`)
+        .prop({
+          'disabled': true,
+          'required': false,
+      });
+
+      // enable, require, and show pinned link input
+      $(`#${currentTopic}-text, #${currentTopic}-link`).prop({
+        'disabled': false,
+        'required': true,
+      });
+
+      $(`#${currentTopic}-link-container`).fadeIn(200, $.bez(bezierEasing));
+    } else if (topicType === 'menu') {
+      /**
+       * IF MENU IS CHOSEN
+       */
+
+      // hide, disable, and unrequire pinned link input
+      $(`#${currentTopic}-link-container`).hide();
+      $(`#${currentTopic}-text, #${currentTopic}-link`).prop({
+        'disabled': true,
+        'required': false,
+      });
+
+      // enable, require, and show pinned menu inputs
+      $(`.${currentTopic}-menulink, #${currentTopic}-menulinks-control .add-menulink`)
+        .prop({
+          'disabled': false,
+          'required': true,
+      });
+
+      $(`#${currentTopic}-menu-container`).fadeIn(200, $.bez(bezierEasing));
+    }
+
+    /**
+     * MENULINK CONTROLS
+     *
+     * control # of menulinks per pinned menu
+     */
+
+    //  unbind old listener
+    $(`#${currentTopic} .add-menulink,
+      #${currentTopic} .remove-menulink`).unbind();
+
+    // add new listeners
+    $(`#${currentTopic} .add-menulink`).click(() => {
+      // increment number of menulinks for this particular topic
+      topicSettings[currentTopic].menulinks++;
+
+      // enable remove menulink button if more than 2 menulinks are present
+      if (topicSettings[currentTopic].menulinks > 2) {
+        $(`#${currentTopic}-menulinks-control .remove-menulink`)
+        .prop('disabled', false);
+      }
+
+      // append markup
+      $(`#${currentTopic}-menu-container .menulinks`).append(`
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" class="col-md-2 control-label">URL ${topicSettings[currentTopic].menulinks}</label>
+            <div class="col-md-10">
+              <input type="url" class="form-control ${currentTopic}-menulink" id="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" placeholder="https://www.reddit.com/">
+            </div>
+          </div>
+        </div>
+      `);
+
+      console.log(topicSettings);
+    });
+
+    $(`#${currentTopic} .remove-menulink`).click(() => {
+      // decrement number of menulinks for this particular topic (if amount > 2)
+      if (topicSettings[currentTopic].menulinks > 2) {
+        topicSettings[currentTopic].menulinks--;
+      }
+
+      // disable remove menulink button if only 2 menulinks remain
+      if (topicSettings[currentTopic].menulinks === 2) {
+        $(`#${currentTopic}-menulinks-control .remove-menulink`)
+        .prop('disabled', true);
+      }
+
+      // remove last menulink input form
+      $(`#${currentTopic}-menu-container .form-horizontal`).last().remove();
+
+      console.log(topicSettings);
+    });
+
+    /**
+     * TOPIC IMAGE LISTENERS
+     */
+    console.log(topicSettings);
+  });
+
+  // fade in markup
   $(`#topic${topicSettings.counter}`).hide()
     .fadeIn(200, $.bez(bezierEasing));
 }
@@ -1258,9 +1458,12 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
     // enable buttons
     $('#add-topic').prop('disabled', false);
 
+    // reset topicSettings object
+    topicSettings.reset();
+
     // prepopulate with 1 topic
-    topicSettings.counter = 0;
     addTopic();
+    console.log(topicSettings);
   } else {
     // hide and disable control buttons div
     $('#pinned-topics-control').hide(200, $.bez(bezierEasing))
@@ -1278,19 +1481,26 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 // add topic
 $('#add-topic').click((event) => {
   addTopic();
+  console.log(topicSettings);
 });
 
 // remove topic
 $('#remove-topic').click((event) => {
   let bezierEasing = [0.4, 0, 0.2, 1];
-  // decrement if more than 1 topic
   if (topicSettings.counter > 1) {
-    topicSettings.counter--;
-    console.log(topicSettings.counter);
+    // delete key
+    delete topicSettings[`topic${topicSettings.counter}`];
+
+    // remove markup and all bound events
     $('#pinned-topics-config .pinned-topic').last()
       .fadeOut(200, $.bez(bezierEasing), () => {
         $('#pinned-topics-config .pinned-topic').last().remove();
     });
+
+    // decrement counter
+    topicSettings.counter--;
+
+    console.log(topicSettings);
   }
 
   // disable remove topic button if only 1 topic remains
