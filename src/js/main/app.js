@@ -1183,25 +1183,25 @@ function addTopic() {
       <div class="col-md-12 topic-image">
         <h5>Background image</h5>
         <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
-          <label class="btn btn-primary active">
+          <label class="btn btn-default active">
             <input type="radio" name="options" autocomplete="off" checked> Album
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off"> Notice
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off"> Calendar
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off"> Help
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off"> Info
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off"> Media
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off"> Shows
           </label>
         </div>
@@ -1209,17 +1209,17 @@ function addTopic() {
       <div class="col-md-12 topic-type">
         <h5>Type</h5>
         <div class="btn-group btn-group-justified" data-toggle="buttons">
-          <label class="btn btn-primary active">
+          <label class="btn btn-default active">
             <input type="radio" name="options" autocomplete="off" checked>Link
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-default">
             <input type="radio" name="options" autocomplete="off">Menu
           </label>
         </div>
         <div id="topic${topicSettings.counter}-link-container">
           <div class="form-horizontal">
             <div class="form-group">
-              <label for="topic${topicSettings.counter}-text" class="col-md-1">Text</label>
+              <label for="topic${topicSettings.counter}-text" class="col-md-2 control-label">Hyperlink</label>
               <div class="col-md-5">
                 <div class="input-group">
                   <div class="input-group-addon">[</div>
@@ -1227,7 +1227,6 @@ function addTopic() {
                   <div class="input-group-addon">]</div>
                 </div>
               </div>
-              <label for="topic${topicSettings.counter}-link" class="col-md-1">Link</label>
               <div class="col-md-5">
                 <div class="input-group">
                   <div class="input-group-addon">(</div>
@@ -1240,20 +1239,42 @@ function addTopic() {
         </div>
         <div id="topic${topicSettings.counter}-menu-container" style="display:none">
           <div class="menulinks">
-            <div class="form-horizontal">
-              <div class="form-group">
-                <label for="topic${topicSettings.counter}-menulink-1" class="col-md-2 control-label">URL 1</label>
-                <div class="col-md-10">
-                  <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink-1" placeholder="https://www.reddit.com/" disabled>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="topic${topicSettings.counter}-menulink1-text" class="col-md-2 control-label">Hyperlink 1</label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <div class="input-group-addon">[</div>
+                  <input type="text" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink1-text" placeholder="reddit: the front page of the internet" required>
+                  <div class="input-group-addon">]</div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <div class="input-group-addon">(</div>
+                  <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
+                  <div class="input-group-addon">)</div>
                 </div>
               </div>
             </div>
+          </div>
             <div class="form-horizontal">
               <div class="form-group">
-                <label for="topic${topicSettings.counter}-menulink-2" class="col-md-2 control-label">URL 2</label>
-                <div class="col-md-10">
-                  <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink-2" placeholder="https://www.reddit.com/" disabled>
+                <label for="topic${topicSettings.counter}-menulink2-text" class="col-md-2 control-label">Hyperlink 2</label>
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <div class="input-group-addon">[</div>
+                    <input type="text" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink2-text" placeholder="reddit: the front page of the internet" required>
+                    <div class="input-group-addon">]</div>
                   </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <div class="input-group-addon">(</div>
+                    <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
+                    <div class="input-group-addon">)</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1371,9 +1392,20 @@ function addTopic() {
       $(`#${currentTopic}-menu-container .menulinks`).append(`
         <div class="form-horizontal">
           <div class="form-group">
-            <label for="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" class="col-md-2 control-label">URL ${topicSettings[currentTopic].menulinks}</label>
-            <div class="col-md-10">
-              <input type="url" class="form-control ${currentTopic}-menulink" id="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" placeholder="https://www.reddit.com/">
+            <label for="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" class="col-md-2 control-label">Hyperlink ${topicSettings[currentTopic].menulinks}</label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <div class="input-group-addon">[</div>
+                <input type="text" class="form-control topic${currentTopic}-menulink" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" placeholder="reddit: the front page of the internet" required>
+                <div class="input-group-addon">]</div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="input-group">
+                <div class="input-group-addon">(</div>
+                <input type="url" class="form-control topic${currentTopic}-menulink" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-link" placeholder="https://www.reddit.com/" required>
+                <div class="input-group-addon">)</div>
+              </div>
             </div>
           </div>
         </div>
