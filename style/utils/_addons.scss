@@ -24,8 +24,6 @@
 
 // pinned topics
 @if $pinned-topics {
-  $stickies-selectors: ();
-
   // number of stickied links
   $num-stickied-links: 0;
 
@@ -41,6 +39,7 @@
     $type: map-get($map, type);
     $image: map-get($map, image);
 
+    // calculate number of sticky links and sticky menus
     @if $type == 'link' {
       $num-stickied-links: $num-stickied-links + 1;
       $sticky-link-images: append($sticky-link-images, $image, 'comma');
@@ -48,26 +47,6 @@
       $num-stickied-menus: $num-stickied-menus + 1;
       $sticky-menu-images: append($sticky-menu-images, $image, 'comma');
     }
-  }
-
-  // add stickied links to map
-  @if $num-stickied-links > 0 {
-    @for $num-stickied-links from 1 through $num-stickied-links {
-      $stickies-selectors: append($stickies-selectors, unquote('.res-nightmode .titlebox blockquote p:nth-of-type(#{$num-stickied-links})'), 'comma');
-      $stickies-selectors: append($stickies-selectors, unquote('.titlebox blockquote p:nth-of-type(#{$num-stickied-links})'), 'comma');
-    }
-  }
-
-  // add stickied menus to map
-  @if $num-stickied-menus > 0 {
-    @for $num-stickied-menus from 1 through $num-stickied-menus {
-      $stickies-selectors: append($stickies-selectors, unquote('.res-nightmode .titlebox blockquote ul:nth-of-type(#{$num-stickied-menus})'), 'comma');
-      $stickies-selectors: append($stickies-selectors, unquote('.titlebox blockquote ul:nth-of-type(#{$num-stickied-menus})'), 'comma');
-    }
-  }
-
-  #{$stickies-selectors} {
-    background: url(%%stickies%%) no-repeat;
   }
 
   // assign image backgrounds
@@ -123,8 +102,7 @@
       height: 60px;
       margin: 0 !important;
       overflow: hidden;
-      background-repeat: no-repeat;
-      background-position: 16px 50%;
+      background: url(%%stickies%%) no-repeat;
     }
 
     p:hover {
