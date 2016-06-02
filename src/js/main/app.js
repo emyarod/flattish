@@ -407,6 +407,12 @@ $('#large-header-checkbox:checkbox').change(() => {
           .titlebox blockquote {
             top: 239px;
           }
+          
+          @media (min-width: 992px) {
+            #header-bottom-left {
+              left: 48px;
+            }
+          }
         </style>
       `);
     }
@@ -1161,7 +1167,8 @@ var stickyLinkImages;
 var stickyMenuImages;
 
 // pinned topics
-// TODO: make sure there is minimum 1 topic
+// TODO: edit source stylesheets
+// TODO: sidebar markdown generator
 let stickies = {
   URL: '',
   album: '0 0',
