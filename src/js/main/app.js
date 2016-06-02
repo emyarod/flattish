@@ -407,12 +407,6 @@ $('#large-header-checkbox:checkbox').change(() => {
           .titlebox blockquote {
             top: 239px;
           }
-          
-          @media (min-width: 992px) {
-            #header-bottom-left {
-              left: 48px;
-            }
-          }
         </style>
       `);
     }
@@ -1696,6 +1690,19 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
       `);
     }
   } else {
+    // if large header
+    if ($('#large-header-checkbox:checkbox').prop('checked')) {
+      $('iframe').contents().find('head').append(`
+        <style class="large-header" type="text/css">
+          @media (min-width: 992px) {
+            #header-bottom-left {
+              left: 48px;
+            }
+          }
+        </style>
+      `);
+    }
+
     $('iframe').contents().find('head .pinned-topics').detach();
     $('iframe').contents().find('.md .pinned-topics').detach();
   }
