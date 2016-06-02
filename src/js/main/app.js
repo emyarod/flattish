@@ -1376,6 +1376,13 @@ function addTopic() {
       });
 
       $(`#${currentTopic}-link-container`).fadeIn(200, $.bez(bezierEasing));
+
+      // live preview
+      $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+        <p id="${currentTopic}">
+           <a href="javascript:void(0)">reddit: the front page of the internet</a>
+        </p>
+      `);
     } else if (topicType === 'menu') {
       /**
        * IF MENU IS CHOSEN
@@ -1396,6 +1403,22 @@ function addTopic() {
       });
 
       $(`#${currentTopic}-menu-container`).fadeIn(200, $.bez(bezierEasing));
+
+      // live preview
+      $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+        <ul id="${currentTopic}">
+          <li>
+            <ul>
+              <li>
+                <a id="${currentTopic}-menulink-1" href="javascript:void(0)">reddit: the front page of the internet</a>
+              </li>
+              <li>
+                <a id="${currentTopic}-menulink-2" href="javascript:void(0)">reddit: the front page of the internet</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      `);
     }
 
     /**
@@ -1442,6 +1465,13 @@ function addTopic() {
         </div>
       `);
 
+      // live preview
+      $('iframe').contents().find(`#${currentTopic} ul`).append(`
+        <li>
+          <a id="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" href="javascript:void(0)">reddit: the front page of the internet</a>
+        </li>
+      `);
+
       console.log(topicSettings);
     });
 
@@ -1460,6 +1490,9 @@ function addTopic() {
       // remove last menulink input form
       $(`#${currentTopic}-menu-container .form-horizontal`).last().remove();
 
+      // live preview
+      $('iframe').contents().find(`#${currentTopic} ul li`).last().remove();
+
       console.log(topicSettings);
     });
 
@@ -1468,31 +1501,45 @@ function addTopic() {
      */
     switch (true) {
       case topicImage === 'album':
-        console.log(`topicImage === 'album'`);
+        $('iframe').contents()
+          .find(`blockquote.pinned-topics #${currentTopic}`)
+          .css('background-position', stickies.album);
         break;
       case topicImage === 'notice':
-        console.log(`topicImage === 'notice'`);
+      $('iframe').contents()
+        .find(`blockquote.pinned-topics #${currentTopic}`)
+        .css('background-position', stickies.notice);
         break;
       case topicImage === 'calendar':
-        console.log(`topicImage === 'calendar'`);
+      $('iframe').contents()
+        .find(`blockquote.pinned-topics #${currentTopic}`)
+        .css('background-position', stickies.calendar);
         break;
       case topicImage === 'help':
-        console.log(`topicImage === 'help'`);
+      $('iframe').contents()
+        .find(`blockquote.pinned-topics #${currentTopic}`)
+        .css('background-position', stickies.help);
         break;
       case topicImage === 'info':
-        console.log(`topicImage === 'info'`);
+      $('iframe').contents()
+        .find(`blockquote.pinned-topics #${currentTopic}`)
+        .css('background-position', stickies.info);
         break;
       case topicImage === 'media':
-        console.log(`topicImage === 'media'`);
+      $('iframe').contents()
+        .find(`blockquote.pinned-topics #${currentTopic}`)
+        .css('background-position', stickies.media);
         break;
       case topicImage === 'shows':
-        console.log(`topicImage === 'shows'`);
+      $('iframe').contents()
+        .find(`blockquote.pinned-topics #${currentTopic}`)
+        .css('background-position', stickies.shows);
         break;
       default:
         // album
         break;
     }
-    
+
     console.log(topicSettings);
   });
 
@@ -1550,8 +1597,7 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
           height: 60px;
           margin: 0 !important;
           overflow: hidden;
-          background-repeat: no-repeat;
-          background-position: 16px 50%;
+          background: url(${stickies.URL}) no-repeat;
         }
 
         .titlebox blockquote p:hover {
@@ -1709,6 +1755,10 @@ $('#remove-topic').click((event) => {
   if (topicSettings.counter === 1) {
     $('#remove-topic').prop('disabled', true);
   }
+
+  // live preview
+  $('iframe').contents().find('blockquote.pinned-topics').children().last()
+    .remove();
 });
 
 
