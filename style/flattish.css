@@ -1,8 +1,4 @@
 @charset "UTF-8";
-.res-nightmode .titlebox blockquote p:nth-of-type(1), .titlebox blockquote p:nth-of-type(1), .res-nightmode .titlebox blockquote p:nth-of-type(2), .titlebox blockquote p:nth-of-type(2), .res-nightmode .titlebox blockquote p:nth-of-type(3), .titlebox blockquote p:nth-of-type(3), .res-nightmode .titlebox blockquote ul:nth-of-type(1), .titlebox blockquote ul:nth-of-type(1), .res-nightmode .titlebox blockquote ul:nth-of-type(2), .titlebox blockquote ul:nth-of-type(2) {
-  background: url(%%stickies%%) no-repeat;
-}
-
 .titlebox blockquote p:nth-of-type(1) {
   background-position: 0 -120px;
 }
@@ -82,8 +78,7 @@
   height: 60px;
   margin: 0 !important;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: 16px 50%;
+  background: url(%%stickies%%) no-repeat;
 }
 
 .titlebox blockquote p:hover {
