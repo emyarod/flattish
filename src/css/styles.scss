@@ -207,6 +207,11 @@ input.dropbox {
   margin-top: 15px;
 }
 
+// pinned topics horizontal forms
+.form-horizontal {
+  margin: 15px 0;
+}
+
 // compile button
 #compile-div {
   display: inline-block;
@@ -218,10 +223,6 @@ input.dropbox {
   .btn[disabled] {
     pointer-events: none;
   }
-}
-
-.form-horizontal {
-  margin: 15px 0;
 }
 
 // download button
