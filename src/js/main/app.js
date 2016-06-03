@@ -48,7 +48,7 @@ $(document).ready(() => {
       // specifies the response type
       xhrList[i].responseType = 'arraybuffer';
 
-      xhrList[i].onload = function(oEvent) {
+      xhrList[i].onload = (oEvent) => {
         // create an 8-bit unsigned integer array from the raw bytes
         let arr = new Uint8Array(xhrList[i].response);
 
