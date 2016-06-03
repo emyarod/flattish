@@ -547,8 +547,7 @@ function clickToRemove(status) {
   let [selector] = $('#rotating-header-dropbox');
 
   if (status === 'bind') {
-    $('#rotating-header-dropbox').siblings('.uploaded').find('.thumbnail')
-      .click((event) => {
+    $('#rotating-header-dropbox ~ .uploaded .thumbnail').click((event) => {
       /**
        * removes header image when thumbnail is clicked
        *
@@ -614,8 +613,7 @@ function clickToRemove(status) {
     });
   } else if (status === 'unbind') {
     // remove all handlers attached
-    $('#rotating-header-dropbox').siblings('.uploaded').find('.thumbnail')
-      .unbind();
+    $('#rotating-header-dropbox ~ .uploaded .thumbnail').unbind();
   }
 }
 
@@ -765,7 +763,7 @@ function previewImg(input, location, selector = undefined) {
     }
 
     // remove warning labels
-    $('a[href="#sidebar-img-panel"]').find('.label-warning').detach();
+    $('a[href="#sidebar-img-panel"] .label-warning').detach();
 
     // remove error text
     $(selector).siblings('.bg-danger').detach();
@@ -814,7 +812,7 @@ function previewImg(input, location, selector = undefined) {
     }
 
     // remove warning labels
-    $('a[href="#rotating-header-panel"]').find('.label-warning').detach();
+    $('a[href="#rotating-header-panel"] .label-warning').detach();
 
     // remove error text
     $(selector).siblings('.bg-danger').detach();
@@ -871,7 +869,7 @@ function previewImg(input, location, selector = undefined) {
                   validationError(selector, 'amount');
                 } else{
                   // remove warning labels
-                  $('a[href="#rotating-header-panel"]').find('.label-warning')
+                  $('a[href="#rotating-header-panel"] .label-warning')
                     .detach();
 
                   // remove error text
@@ -1053,12 +1051,12 @@ $('#rotating-header-checkbox:checkbox').change((event) => {
 
     $('#rotating-header-dropbox-container')
       // show and enable dropbox container
-        .fadeIn(200, $.bez(bezierEasing))
+      .fadeIn(200, $.bez(bezierEasing))
       .prop('disabled', false)
       .removeClass('disabled')
 
-    // remove error message
-    .find('.bg-danger').detach();
+      // remove error message
+      .find('.bg-danger').detach();
 
 
     /**
@@ -1287,14 +1285,14 @@ function addTopic() {
               <div class="col-md-5">
                 <div class="input-group">
                   <div class="input-group-addon">[</div>
-                  <input type="text" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink1-text" placeholder="reddit: the front page of the internet" required>
+                  <input type="text" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-text" id="topic${topicSettings.counter}-menulink1-text" placeholder="reddit: the front page of the internet" disabled>
                   <div class="input-group-addon">]</div>
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="input-group">
                   <div class="input-group-addon">(</div>
-                  <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
+                  <input type="url" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-link" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
                   <div class="input-group-addon">)</div>
                 </div>
               </div>
@@ -1306,14 +1304,14 @@ function addTopic() {
                 <div class="col-md-5">
                   <div class="input-group">
                     <div class="input-group-addon">[</div>
-                    <input type="text" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink2-text" placeholder="reddit: the front page of the internet" required>
+                    <input type="text" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-text" id="topic${topicSettings.counter}-menulink2-text" placeholder="reddit: the front page of the internet" disabled>
                     <div class="input-group-addon">]</div>
                   </div>
                 </div>
                 <div class="col-md-5">
                   <div class="input-group">
                     <div class="input-group-addon">(</div>
-                    <input type="url" class="form-control topic${topicSettings.counter}-menulink" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
+                    <input type="url" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-link" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
                     <div class="input-group-addon">)</div>
                   </div>
                 </div>
@@ -1395,11 +1393,20 @@ function addTopic() {
       $(`#${currentTopic}-link-container`).fadeIn(200, $.bez(bezierEasing));
 
       // live preview
-      $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
-        <p id="${currentTopic}">
-           <a href="javascript:void(0)">reddit: the front page of the internet</a>
-        </p>
-      `);
+      if (!$(`#${currentTopic}-text`).val()) {
+        $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+          <p id="${currentTopic}">
+            <a href="javascript:void(0)">reddit: the front page of the internet</a>
+          </p>
+        `);
+      } else {
+        $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+          <p id="${currentTopic}">
+            <a href="javascript:void(0)">${$(`#${currentTopic}-text`).val()}</a>
+          </p>
+        `);
+      }
+
     } else if (topicType === 'menu') {
       /**
        * IF MENU IS CHOSEN
@@ -1422,20 +1429,51 @@ function addTopic() {
       $(`#${currentTopic}-menu-container`).fadeIn(200, $.bez(bezierEasing));
 
       // live preview
-      $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
-        <ul id="${currentTopic}">
-          <li>
-            <ul>
-              <li>
-                <a id="${currentTopic}-menulink-1" href="javascript:void(0)">reddit: the front page of the internet</a>
-              </li>
-              <li>
-                <a id="${currentTopic}-menulink-2" href="javascript:void(0)">reddit: the front page of the internet</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      `);
+      if (!$(`.${currentTopic}-menulink-text`).val()) {
+        $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+          <ul id="${currentTopic}">
+            <li>
+              <ul>
+                <li>
+                  <a id="${currentTopic}-menulink-1" href="javascript:void(0)">reddit: the front page of the internet</a>
+                </li>
+                <li>
+                  <a id="${currentTopic}-menulink-2" href="javascript:void(0)">reddit: the front page of the internet</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        `);
+      } else {
+        let menuLinksContent = {};
+        $(`.${currentTopic}-menulink-text`).each((index, value) => {
+          // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+          let id = value.id;
+          id = `${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+          menuLinksContent[id] = $(`#${value.id}`).val();
+        });
+
+        let replacementMarkup = '';
+        for (var key in menuLinksContent) {
+          if (menuLinksContent.hasOwnProperty(key)) {
+            replacementMarkup = `${replacementMarkup}
+            <li>
+              <a id="${key}" href="javascript:void(0)">${menuLinksContent[key]}</a>
+            </li>`;
+          }
+        }
+
+        $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+          <ul id="${currentTopic}">
+            <li>
+              <ul>
+                ${replacementMarkup}
+              </ul>
+            </li>
+          </ul>
+        `);
+      }
     }
 
     /**
@@ -1467,14 +1505,14 @@ function addTopic() {
             <div class="col-md-5">
               <div class="input-group">
                 <div class="input-group-addon">[</div>
-                <input type="text" class="form-control topic${currentTopic}-menulink" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" placeholder="reddit: the front page of the internet" required>
+                <input type="text" class="form-control topic${currentTopic}-menulink topic${currentTopic}-menulink-text" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" placeholder="reddit: the front page of the internet" required>
                 <div class="input-group-addon">]</div>
               </div>
             </div>
             <div class="col-md-5">
               <div class="input-group">
                 <div class="input-group-addon">(</div>
-                <input type="url" class="form-control topic${currentTopic}-menulink" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-link" placeholder="https://www.reddit.com/" required>
+                <input type="url" class="form-control topic${currentTopic}-menulink topic${currentTopic}-menulink-link" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-link" placeholder="https://www.reddit.com/" required>
                 <div class="input-group-addon">)</div>
               </div>
             </div>
@@ -1560,10 +1598,87 @@ function addTopic() {
     console.log(topicSettings);
   });
 
+  // unbind old listeners
+  $(`#topic${topicSettings.counter}-text`).unbind();
+  $(`.topic${topicSettings.counter}-menulink-text`).unbind();
+  $(`#pinned-topics-panel input:required`).unbind();
+
+  // live preview for pinned links
+  $(`#topic${topicSettings.counter}-text`).keyup((event) => {
+    $('iframe').contents()
+      .find(`#topic${topicSettings.counter} a`)
+      .text($(event.currentTarget).val());
+  });
+
+  // live preview for pinned menus
+  $(`.topic${topicSettings.counter}-menulink-text`).keyup((event) => {
+    // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+    let id = $(event.currentTarget).attr('id');
+    id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+    $('iframe').contents().find(id).text($(event.currentTarget).val());
+  });
+
+  // validation for required input forms
+  $('#pinned-topics-panel input:required').keyup((event) => {
+    let test = true;
+    $('#pinned-topics-panel input:required').each((index, value) => {
+      // disable compile if required fields are empty
+      if (!$(value).val()) {
+        test = false;
+      }
+    });
+
+    if (test) {
+      pinnedTopicsValidation('enable');
+    } else {
+      pinnedTopicsValidation('disable');
+    }
+  });
+
   // fade in markup
   $(`#topic${topicSettings.counter}`).hide()
     .fadeIn(200, $.bez(bezierEasing));
 }
+
+// pinned topics validation
+function pinnedTopicsValidation(status) {
+  if (status === 'disable') {
+    // remove warning labels
+    $('a[href="#pinned-topics-panel"] .label-warning').detach();
+
+    // disable compile button
+    compileButtonEnabler('disable');
+
+    // add warning label
+    $('a[href="#pinned-topics-panel"]')
+      .prepend(`<span class="label label-warning">Error</span>`);
+  } else if (status === 'enable') {
+    // enable compile button
+    compileButtonEnabler('enable');
+
+    // remove warning labels
+    $('a[href="#pinned-topics-panel"] .label-warning').detach();
+  }
+}
+
+$('a[href="#pinned-topics-panel"]').on('hide.bs.tab', (e) => {
+  if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+    let test = true;
+    $('#pinned-topics-panel input:required').each((index, value) => {
+      // disable compile if required fields are empty
+      if (!$(value).val()) {
+        test = false;
+      }
+    });
+
+    if (test) {
+      pinnedTopicsValidation('enable');
+    } else {
+      pinnedTopicsValidation('disable');
+    }
+  }
+});
 
 // live preview
 $('#pinned-topics-checkbox:checkbox').change(() => {
@@ -1741,6 +1856,16 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
     // prepopulate with 1 topic
     addTopic();
+
+    // disable compile button until required forms are filled
+    $('#pinned-topics-panel input:required').each((index, value) => {
+      if (!$(value).val()) {
+        pinnedTopicsValidation('disable');
+      } else {
+        pinnedTopicsValidation('enable');
+      }
+    });
+
     console.log(topicSettings);
   } else {
     // hide and disable control buttons div
@@ -1753,6 +1878,9 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
     // clear topics
     $('#pinned-topics-config').empty();
+
+    // clear warning labels and enable compile button
+    pinnedTopicsValidation('enable');
   }
 });
 
