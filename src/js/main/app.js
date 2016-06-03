@@ -17,57 +17,73 @@ import {
 
 $(document).ready(() => {
   /**
-   * read default sidebar image as a binary file
-   * and create an 8-bit unsigned integer array from the raw bytes
+   * read default images as binary files
+   * and create 8-bit unsigned integer arrays from the raw bytes
    */
-  let oReq = new XMLHttpRequest();
-  oReq.open('GET', '/img/sidebar.png', true);
-
-  // specifies the response type
-  oReq.responseType = 'arraybuffer';
-
-  oReq.onload = function(oEvent) {
-    // create an 8-bit unsigned integer array from the raw bytes
-    let arr = new Uint8Array(oReq.response);
-
-    /**
-     * Convert the int array to a binary string
-     * We have to use apply() as we are converting an *array*
-     * and String.fromCharCode() takes one or more single values, not
-     * an array.
-     *
-     * shoutouts to MDN and https://stackoverflow.com/q/20035615
-     */
-    let raw = String.fromCharCode.apply(null, arr);
-
-    /**
-     * btoa() function creates a base-64 encoded ASCII string
-     * from a "string" of binary data
-     */
-    let b64 = btoa(raw);
-
-    // add content before base64 data (scheme, datatype, etc)
-    let dataURL = `data:image/png;base64,${b64}`;
-    sidebarImg.URL = dataURL;
-    sidebarImg.URLreset = dataURL;
-  };
+  var xhrList = [];
+  var urlList = [
+    'img/sidebar.png',
+    'img/sprites/stickies.png',
+  ];
 
   /**
-   * read default stickies image as a binary file
-   * and create an 8-bit unsigned integer array from the raw bytes
+   * loop XHRs (shoutouts to https://stackoverflow.com/q/13445809/)
+   *
+   * introduce an IIFE for each loop iteration:
+   *
+   * code inside the function has its own `i`,
+   * meaning that when the `onload` function is called,
+   * it will access the parameter `i` of the anonymous function
+   * and not the `i` of the outer scope
+   * (even though that function has completed)
+   * so the correct xhrList element will be processed each time
    */
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', '/img/sprites/stickies.png', true);
-  xhr.responseType = 'arraybuffer';
-  xhr.onload = function(oEvent) {
-    let arr = new Uint8Array(xhr.response);
-    let raw = String.fromCharCode.apply(null, arr);
-    let b64 = btoa(raw);
-    let dataURL = `data:image/png;base64,${b64}`;
-    stickies.URL = dataURL;
-  };
+  for (var i = 0; i < urlList.length; i++) {
+    (function(i) {
+      'use strict';
 
-  xhr.send();
+      xhrList[i] = new XMLHttpRequest();
+      xhrList[i].open('GET', urlList[i], true);
+
+      // specifies the response type
+      xhrList[i].responseType = 'arraybuffer';
+
+      xhrList[i].onload = function(oEvent) {
+        // create an 8-bit unsigned integer array from the raw bytes
+        let arr = new Uint8Array(xhrList[i].response);
+
+        /**
+         * Convert the int array to a binary string
+         * We have to use apply() as we are converting an *array*
+         * and String.fromCharCode() takes one or more single values, not
+         * an array.
+         *
+         * shoutouts to MDN and https://stackoverflow.com/q/20035615
+         */
+        let raw = String.fromCharCode.apply(null, arr);
+
+        /**
+         * btoa() function creates a base-64 encoded ASCII string
+         * from a "string" of binary data
+         */
+        let b64 = btoa(raw);
+
+        // add content before base64 data (scheme, datatype, etc)
+        let dataURL = `data:image/png;base64,${b64}`;
+
+        // if sidebar, edit sidebar object properties
+        if ((/sidebar/).test(urlList[i])) {
+          sidebarImg.URL = dataURL;
+          sidebarImg.URLreset = dataURL;
+        } else {
+          // otherwise, edit stickies object properties
+          stickies.URL = dataURL;
+        }
+      };
+
+      xhrList[i].send();
+    }(i));
+  }
 
   $.ajax({
     url: 'style/flattish.min.css',
