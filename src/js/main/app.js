@@ -1301,14 +1301,14 @@ function addTopic() {
             <div class="form-group">
               <label for="topic${topicSettings.counter}-text" class="col-md-2 control-label">Hyperlink</label>
               <div class="col-md-5">
-                <div class="input-group">
+                <div class="input-group has-error">
                   <div class="input-group-addon">[</div>
                   <input type="text" class="form-control" id="topic${topicSettings.counter}-text" placeholder="reddit: the front page of the internet" required>
                   <div class="input-group-addon">]</div>
                 </div>
               </div>
               <div class="col-md-5">
-                <div class="input-group">
+                <div class="input-group has-error">
                   <div class="input-group-addon">(</div>
                   <input type="url" class="form-control" id="topic${topicSettings.counter}-link" placeholder="https://www.reddit.com/" required>
                   <div class="input-group-addon">)</div>
@@ -1323,14 +1323,14 @@ function addTopic() {
             <div class="form-group">
               <label for="topic${topicSettings.counter}-menulink1-text" class="col-md-2 control-label">Hyperlink 1</label>
               <div class="col-md-5">
-                <div class="input-group">
+                <div class="input-group has-error">
                   <div class="input-group-addon">[</div>
                   <input type="text" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-text" id="topic${topicSettings.counter}-menulink1-text" placeholder="reddit: the front page of the internet" disabled>
                   <div class="input-group-addon">]</div>
                 </div>
               </div>
               <div class="col-md-5">
-                <div class="input-group">
+                <div class="input-group has-error">
                   <div class="input-group-addon">(</div>
                   <input type="url" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-link" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
                   <div class="input-group-addon">)</div>
@@ -1342,14 +1342,14 @@ function addTopic() {
               <div class="form-group">
                 <label for="topic${topicSettings.counter}-menulink2-text" class="col-md-2 control-label">Hyperlink 2</label>
                 <div class="col-md-5">
-                  <div class="input-group">
+                  <div class="input-group has-error">
                     <div class="input-group-addon">[</div>
                     <input type="text" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-text" id="topic${topicSettings.counter}-menulink2-text" placeholder="reddit: the front page of the internet" disabled>
                     <div class="input-group-addon">]</div>
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <div class="input-group">
+                  <div class="input-group has-error">
                     <div class="input-group-addon">(</div>
                     <input type="url" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-link" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
                     <div class="input-group-addon">)</div>
@@ -1418,7 +1418,7 @@ function addTopic() {
         .prop({
           'disabled': true,
           'required': false,
-      });
+        });
 
       // enable, require, and show pinned link input
       $(`#${currentTopic}-text, #${currentTopic}-link`).prop({
@@ -1447,15 +1447,37 @@ function addTopic() {
       pinnedTopicsTestRequiredFields();
 
       // unbind old listeners
-      $(`#${currentTopic}-text`).unbind();
-      $(`.${currentTopic}-menulink-text`).unbind();
       $(`#pinned-topics-panel input:required`).unbind();
 
       // live preview for pinned links
       $(`#${currentTopic}-text`).keyup((event) => {
-        $('iframe').contents()
-          .find(`#${currentTopic} a`)
-          .text($(event.currentTarget).val());
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(`#${currentTopic} a`)
+            .text('reddit: the front page of the internet');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group')
+            .removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(`#${currentTopic} a`)
+            .text($(event.currentTarget).val());
+        }
+      });
+
+      // URL keyup listener
+      $('#pinned-topics-panel input[type="url"]').keyup((event) => {
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group').removeClass('has-error');
+        }
       });
 
       // validation for required input forms
@@ -1479,7 +1501,7 @@ function addTopic() {
         .prop({
           'disabled': false,
           'required': true,
-      });
+        });
 
       $(`#${currentTopic}-menu-container`).fadeIn(200, $.bez(bezierEasing));
 
@@ -1522,8 +1544,6 @@ function addTopic() {
       pinnedTopicsTestRequiredFields();
 
       // unbind old listeners
-      $(`#${currentTopic}-text`).unbind();
-      $(`.${currentTopic}-menulink-text`).unbind();
       $(`#pinned-topics-panel input:required`).unbind();
 
       // live preview for pinned menus
@@ -1532,7 +1552,32 @@ function addTopic() {
         let id = $(event.currentTarget).attr('id');
         id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
 
-        $('iframe').contents().find(id).text($(event.currentTarget).val());
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(id)
+            .text('reddit: the front page of the internet');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group')
+            .removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(id).text($(event.currentTarget).val());
+        }
+      });
+
+      // URL keyup listener
+      $('#pinned-topics-panel input[type="url"]').keyup((event) => {
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group').removeClass('has-error');
+        }
       });
 
       // validation for required input forms
@@ -1568,14 +1613,14 @@ function addTopic() {
           <div class="form-group">
             <label for="${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" class="col-md-2 control-label">Hyperlink ${topicSettings[currentTopic].menulinks}</label>
             <div class="col-md-5">
-              <div class="input-group">
+              <div class="input-group has-error">
                 <div class="input-group-addon">[</div>
                 <input type="text" class="form-control ${currentTopic}-menulink ${currentTopic}-menulink-text" id="${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" placeholder="reddit: the front page of the internet" required>
                 <div class="input-group-addon">]</div>
               </div>
             </div>
             <div class="col-md-5">
-              <div class="input-group">
+              <div class="input-group has-error">
                 <div class="input-group-addon">(</div>
                 <input type="url" class="form-control ${currentTopic}-menulink ${currentTopic}-menulink-link" id="${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-link" placeholder="https://www.reddit.com/" required>
                 <div class="input-group-addon">)</div>
@@ -1589,8 +1634,6 @@ function addTopic() {
       pinnedTopicsTestRequiredFields();
 
       // unbind old listeners
-      $(`#${currentTopic}-text`).unbind();
-      $(`.${currentTopic}-menulink-text`).unbind();
       $(`#pinned-topics-panel input:required`).unbind();
 
       // live preview for pinned menus
@@ -1599,7 +1642,32 @@ function addTopic() {
         let id = $(event.currentTarget).attr('id');
         id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
 
-        $('iframe').contents().find(id).text($(event.currentTarget).val());
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(id)
+            .text('reddit: the front page of the internet');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group')
+            .removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(id).text($(event.currentTarget).val());
+        }
+      });
+
+      // URL keyup listener
+      $('#pinned-topics-panel input[type="url"]').keyup((event) => {
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group').removeClass('has-error');
+        }
       });
 
       // live preview
@@ -1684,15 +1752,25 @@ function addTopic() {
   });
 
   // unbind old listeners
-  $(`#topic${topicSettings.counter}-text`).unbind();
-  $(`.topic${topicSettings.counter}-menulink-text`).unbind();
   $(`#pinned-topics-panel input:required`).unbind();
 
   // live preview for pinned links
   $(`#topic${topicSettings.counter}-text`).keyup((event) => {
-    $('iframe').contents()
-      .find(`#topic${topicSettings.counter} a`)
-      .text($(event.currentTarget).val());
+    if (!$(event.currentTarget).val()) {
+      // add error class to input group
+      $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+      // replace iframe values with default
+      $('iframe').contents().find(`#topic${topicSettings.counter} a`)
+        .text('reddit: the front page of the internet');
+    } else {
+      // remove error class from input group
+      $(event.currentTarget).parent('.input-group').removeClass('has-error');
+
+      // replace iframe values
+      $('iframe').contents().find(`#topic${topicSettings.counter} a`)
+        .text($(event.currentTarget).val());
+    }
   });
 
   // live preview for pinned menus
@@ -1703,6 +1781,18 @@ function addTopic() {
 
     $('iframe').contents().find(id).text($(event.currentTarget).val());
   });
+
+  // URL keyup listener
+  $('#pinned-topics-panel input[type="url"]').keyup((event) => {
+    if (!$(event.currentTarget).val()) {
+      // add error class to input group
+      $(event.currentTarget).parent('.input-group').addClass('has-error');
+    } else {
+      // remove error class from input group
+      $(event.currentTarget).parent('.input-group').removeClass('has-error');
+    }
+  });
+
 
   // validation for required input forms
   $('#pinned-topics-panel input:required').keyup((event) => {
