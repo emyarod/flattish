@@ -1177,6 +1177,9 @@ var stickyMenuImages;
 // pinned topics
 // TODO: edit source stylesheets
 // TODO: sidebar markdown generator
+
+// TODO: live preview for menu items
+// TODO: instant warning label (on keyup)
 let stickies = {
   URL: '',
   album: '0 0',
@@ -1204,6 +1207,46 @@ let topicSettings = {
     topicSettings.counter = 0;
   },
 };
+
+// pinned topics validation
+function pinnedTopicsValidation(status) {
+  if (status === 'disable') {
+    // remove warning labels
+    $('a[href="#pinned-topics-panel"] .label-warning').detach();
+
+    // disable compile button
+    compileButtonEnabler('disable');
+
+    // add warning label
+    $('a[href="#pinned-topics-panel"]')
+      .prepend(`<span class="label label-warning">Error</span>`);
+  } else if (status === 'enable') {
+    // enable compile button
+    compileButtonEnabler('enable');
+
+    // remove warning labels
+    $('a[href="#pinned-topics-panel"] .label-warning').detach();
+  }
+}
+
+// check if required fields are filled
+function pinnedTopicsTestRequiredFields() {
+  let test = true;
+  $('#pinned-topics-panel input:required').each((index, value) => {
+    // fail test if required fields are empty
+    if (!$(value).val()) {
+      test = false;
+    }
+  });
+
+  if (test) {
+    // disable compile button until required forms are filled
+    pinnedTopicsValidation('enable');
+  } else {
+    // clear warning labels and enable compile button
+    pinnedTopicsValidation('disable');
+  }
+}
 
 // add pinned topic and event listeners for each topic
 function addTopic() {
@@ -1407,6 +1450,34 @@ function addTopic() {
         `);
       }
 
+      // test required fields on topic type change
+      pinnedTopicsTestRequiredFields();
+
+      // unbind old listeners
+      $(`#${currentTopic}-text`).unbind();
+      $(`.${currentTopic}-menulink-text`).unbind();
+      $(`#pinned-topics-panel input:required`).unbind();
+
+      // live preview for pinned links
+      $(`#${currentTopic}-text`).keyup((event) => {
+        $('iframe').contents()
+          .find(`#${currentTopic} a`)
+          .text($(event.currentTarget).val());
+      });
+
+      // live preview for pinned menus
+      $(`.${currentTopic}-menulink-text`).keyup((event) => {
+        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+        let id = $(event.currentTarget).attr('id');
+        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+        $('iframe').contents().find(id).text($(event.currentTarget).val());
+      });
+
+      // validation for required input forms
+      $('#pinned-topics-panel input:required').keyup((event) => {
+        pinnedTopicsTestRequiredFields();
+      });
     } else if (topicType === 'menu') {
       /**
        * IF MENU IS CHOSEN
@@ -1474,6 +1545,35 @@ function addTopic() {
           </ul>
         `);
       }
+
+      // test required fields on topic type change
+      pinnedTopicsTestRequiredFields();
+
+      // unbind old listeners
+      $(`#${currentTopic}-text`).unbind();
+      $(`.${currentTopic}-menulink-text`).unbind();
+      $(`#pinned-topics-panel input:required`).unbind();
+
+      // live preview for pinned links
+      $(`#${currentTopic}-text`).keyup((event) => {
+        $('iframe').contents()
+          .find(`#${currentTopic} a`)
+          .text($(event.currentTarget).val());
+      });
+
+      // live preview for pinned menus
+      $(`.${currentTopic}-menulink-text`).keyup((event) => {
+        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+        let id = $(event.currentTarget).attr('id');
+        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+        $('iframe').contents().find(id).text($(event.currentTarget).val());
+      });
+
+      // validation for required input forms
+      $('#pinned-topics-panel input:required').keyup((event) => {
+        pinnedTopicsTestRequiredFields();
+      });
     }
 
     /**
@@ -1621,64 +1721,13 @@ function addTopic() {
 
   // validation for required input forms
   $('#pinned-topics-panel input:required').keyup((event) => {
-    let test = true;
-    $('#pinned-topics-panel input:required').each((index, value) => {
-      // disable compile if required fields are empty
-      if (!$(value).val()) {
-        test = false;
-      }
-    });
-
-    if (test) {
-      pinnedTopicsValidation('enable');
-    } else {
-      pinnedTopicsValidation('disable');
-    }
+    pinnedTopicsTestRequiredFields();
   });
 
   // fade in markup
   $(`#topic${topicSettings.counter}`).hide()
     .fadeIn(200, $.bez(bezierEasing));
 }
-
-// pinned topics validation
-function pinnedTopicsValidation(status) {
-  if (status === 'disable') {
-    // remove warning labels
-    $('a[href="#pinned-topics-panel"] .label-warning').detach();
-
-    // disable compile button
-    compileButtonEnabler('disable');
-
-    // add warning label
-    $('a[href="#pinned-topics-panel"]')
-      .prepend(`<span class="label label-warning">Error</span>`);
-  } else if (status === 'enable') {
-    // enable compile button
-    compileButtonEnabler('enable');
-
-    // remove warning labels
-    $('a[href="#pinned-topics-panel"] .label-warning').detach();
-  }
-}
-
-$('a[href="#pinned-topics-panel"]').on('hide.bs.tab', (e) => {
-  if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-    let test = true;
-    $('#pinned-topics-panel input:required').each((index, value) => {
-      // disable compile if required fields are empty
-      if (!$(value).val()) {
-        test = false;
-      }
-    });
-
-    if (test) {
-      pinnedTopicsValidation('enable');
-    } else {
-      pinnedTopicsValidation('disable');
-    }
-  }
-});
 
 // live preview
 $('#pinned-topics-checkbox:checkbox').change(() => {
@@ -1857,14 +1906,8 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
     // prepopulate with 1 topic
     addTopic();
 
-    // disable compile button until required forms are filled
-    $('#pinned-topics-panel input:required').each((index, value) => {
-      if (!$(value).val()) {
-        pinnedTopicsValidation('disable');
-      } else {
-        pinnedTopicsValidation('enable');
-      }
-    });
+    // validation for required input forms
+    pinnedTopicsTestRequiredFields();
 
     console.log(topicSettings);
   } else {
@@ -1876,7 +1919,7 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
     $('#add-topic').prop('disabled', true);
     $('#remove-topic').prop('disabled', true);
 
-    // clear topics
+    // clear topics, data, and event handlers
     $('#pinned-topics-config').empty();
 
     // clear warning labels and enable compile button
