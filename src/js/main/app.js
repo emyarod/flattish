@@ -1177,9 +1177,6 @@ var stickyMenuImages;
 // pinned topics
 // TODO: edit source stylesheets
 // TODO: sidebar markdown generator
-
-// TODO: live preview for menu items
-// TODO: instant warning label (on keyup)
 let stickies = {
   URL: '',
   album: '0 0',
@@ -1240,10 +1237,10 @@ function pinnedTopicsTestRequiredFields() {
   });
 
   if (test) {
-    // disable compile button until required forms are filled
+    // clear warning labels and enable compile button
     pinnedTopicsValidation('enable');
   } else {
-    // clear warning labels and enable compile button
+    // disable compile button until required forms are filled
     pinnedTopicsValidation('disable');
   }
 }
@@ -1415,10 +1412,6 @@ function addTopic() {
        * IF LINK IS CHOSEN
        */
 
-      topicSettings[currentTopic].menulinks = 2;
-      $(`#${currentTopic}-menu-container .form-horizontal`).slice(2)
-        .remove();
-
       // hide, disable, and unrequire pinned menu inputs
       $(`#${currentTopic}-menu-container`).hide();
       $(`.${currentTopic}-menulink, #${currentTopic}-menulinks-control .add-menulink`)
@@ -1465,15 +1458,6 @@ function addTopic() {
           .text($(event.currentTarget).val());
       });
 
-      // live preview for pinned menus
-      $(`.${currentTopic}-menulink-text`).keyup((event) => {
-        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
-        let id = $(event.currentTarget).attr('id');
-        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
-
-        $('iframe').contents().find(id).text($(event.currentTarget).val());
-      });
-
       // validation for required input forms
       $('#pinned-topics-panel input:required').keyup((event) => {
         pinnedTopicsTestRequiredFields();
@@ -1500,51 +1484,39 @@ function addTopic() {
       $(`#${currentTopic}-menu-container`).fadeIn(200, $.bez(bezierEasing));
 
       // live preview
-      if (!$(`.${currentTopic}-menulink-text`).val()) {
-        $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
-          <ul id="${currentTopic}">
-            <li>
-              <ul>
-                <li>
-                  <a id="${currentTopic}-menulink-1" href="javascript:void(0)">reddit: the front page of the internet</a>
-                </li>
-                <li>
-                  <a id="${currentTopic}-menulink-2" href="javascript:void(0)">reddit: the front page of the internet</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        `);
-      } else {
-        let menuLinksContent = {};
-        $(`.${currentTopic}-menulink-text`).each((index, value) => {
-          // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
-          let id = value.id;
-          id = `${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+      let menuLinksContent = {};
+      $(`.${currentTopic}-menulink-text`).each((index, value) => {
+        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+        let id = value.id;
+        id = `${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
 
+        // assign key-value pair
+        if (!$(`#${value.id}`).val()) {
+          menuLinksContent[id] = 'reddit: the front page of the internet';
+        } else {
           menuLinksContent[id] = $(`#${value.id}`).val();
-        });
-
-        let replacementMarkup = '';
-        for (var key in menuLinksContent) {
-          if (menuLinksContent.hasOwnProperty(key)) {
-            replacementMarkup = `${replacementMarkup}
-            <li>
-              <a id="${key}" href="javascript:void(0)">${menuLinksContent[key]}</a>
-            </li>`;
-          }
         }
+      });
 
-        $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
-          <ul id="${currentTopic}">
-            <li>
-              <ul>
-                ${replacementMarkup}
-              </ul>
-            </li>
-          </ul>
-        `);
+      let replacementMarkup = '';
+      for (var key in menuLinksContent) {
+        if (menuLinksContent.hasOwnProperty(key)) {
+          replacementMarkup = `${replacementMarkup}
+          <li>
+            <a id="${key}" href="javascript:void(0)">${menuLinksContent[key]}</a>
+          </li>`;
+        }
       }
+
+      $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
+        <ul id="${currentTopic}">
+          <li>
+            <ul>
+              ${replacementMarkup}
+            </ul>
+          </li>
+        </ul>
+      `);
 
       // test required fields on topic type change
       pinnedTopicsTestRequiredFields();
@@ -1553,13 +1525,6 @@ function addTopic() {
       $(`#${currentTopic}-text`).unbind();
       $(`.${currentTopic}-menulink-text`).unbind();
       $(`#pinned-topics-panel input:required`).unbind();
-
-      // live preview for pinned links
-      $(`#${currentTopic}-text`).keyup((event) => {
-        $('iframe').contents()
-          .find(`#${currentTopic} a`)
-          .text($(event.currentTarget).val());
-      });
 
       // live preview for pinned menus
       $(`.${currentTopic}-menulink-text`).keyup((event) => {
@@ -1582,7 +1547,7 @@ function addTopic() {
      * control # of menulinks per pinned menu
      */
 
-    //  unbind old listener
+    // unbind old listener
     $(`#${currentTopic} .add-menulink,
       #${currentTopic} .remove-menulink`).unbind();
 
@@ -1601,24 +1566,41 @@ function addTopic() {
       $(`#${currentTopic}-menu-container .menulinks`).append(`
         <div class="form-horizontal">
           <div class="form-group">
-            <label for="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" class="col-md-2 control-label">Hyperlink ${topicSettings[currentTopic].menulinks}</label>
+            <label for="${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" class="col-md-2 control-label">Hyperlink ${topicSettings[currentTopic].menulinks}</label>
             <div class="col-md-5">
               <div class="input-group">
                 <div class="input-group-addon">[</div>
-                <input type="text" class="form-control topic${currentTopic}-menulink topic${currentTopic}-menulink-text" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" placeholder="reddit: the front page of the internet" required>
+                <input type="text" class="form-control ${currentTopic}-menulink ${currentTopic}-menulink-text" id="${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-text" placeholder="reddit: the front page of the internet" required>
                 <div class="input-group-addon">]</div>
               </div>
             </div>
             <div class="col-md-5">
               <div class="input-group">
                 <div class="input-group-addon">(</div>
-                <input type="url" class="form-control topic${currentTopic}-menulink topic${currentTopic}-menulink-link" id="topic${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-link" placeholder="https://www.reddit.com/" required>
+                <input type="url" class="form-control ${currentTopic}-menulink ${currentTopic}-menulink-link" id="${currentTopic}-menulink${topicSettings[currentTopic].menulinks}-link" placeholder="https://www.reddit.com/" required>
                 <div class="input-group-addon">)</div>
               </div>
             </div>
           </div>
         </div>
       `);
+
+      // validation for required input forms
+      pinnedTopicsTestRequiredFields();
+
+      // unbind old listeners
+      $(`#${currentTopic}-text`).unbind();
+      $(`.${currentTopic}-menulink-text`).unbind();
+      $(`#pinned-topics-panel input:required`).unbind();
+
+      // live preview for pinned menus
+      $(`.${currentTopic}-menulink-text`).keyup((event) => {
+        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+        let id = $(event.currentTarget).attr('id');
+        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+        $('iframe').contents().find(id).text($(event.currentTarget).val());
+      });
 
       // live preview
       $('iframe').contents().find(`#${currentTopic} ul`).append(`
@@ -1644,6 +1626,9 @@ function addTopic() {
 
       // remove last menulink input form
       $(`#${currentTopic}-menu-container .form-horizontal`).last().remove();
+
+      // validation for required input forms
+      pinnedTopicsTestRequiredFields();
 
       // live preview
       $('iframe').contents().find(`#${currentTopic} ul li`).last().remove();
