@@ -1230,8 +1230,13 @@ function pinnedTopicsValidation(status) {
 function pinnedTopicsTestRequiredFields() {
   let test = true;
   $('#pinned-topics-panel input:required').each((index, value) => {
-    // fail test if required fields are empty
-    if (!$(value).val()) {
+    // for URL inputs, validate URLs
+    if ($(value).attr('type') === 'url') {
+      if (!re_weburl.test($(value).val())) {
+        test = false;
+      }
+    } else if (!$(value).val()) {
+      // fail test if required fields are empty
       test = false;
     }
   });
@@ -1247,6 +1252,116 @@ function pinnedTopicsTestRequiredFields() {
 
 // add pinned topic and event listeners for each topic
 function addTopic() {
+  /**
+   * LIVE PREVIEW FUNCTIONS
+   *   `topicSettings.counter` refers to the latest topic that has been added
+   *   `currentTopic` refers to the topic being modified at the current time
+   * 1. pinned links
+   * 2. pinned menus
+   * 3. URL input fields
+   */
+
+  // 1. live preview for pinned links
+  function pinnedLinksLivePreview(topicNum) {
+    if (topicNum === topicSettings.counter) {
+      $(`#topic${topicNum}-text`).keyup((event) => {
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(`#topic${topicNum} a`)
+            .text('reddit: the front page of the internet');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group').removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(`#topic${topicNum} a`)
+            .text($(event.currentTarget).val());
+        }
+      });
+    } else {
+      // topicNum === currentTopic
+      $(`#${topicNum}-text`).keyup((event) => {
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(`#${topicNum} a`)
+            .text('reddit: the front page of the internet');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group')
+            .removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(`#${topicNum} a`)
+            .text($(event.currentTarget).val());
+        }
+      });
+    }
+  }
+
+  // 2. live preview for pinned menus
+  function pinnedMenulinksLivePreview(topicNum) {
+    if (topicNum === topicSettings.counter) {
+      $(`.topic${topicNum}-menulink-text`).keyup((event) => {
+        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+        let id = $(event.currentTarget).attr('id');
+        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+        $('iframe').contents().find(id).text($(event.currentTarget).val());
+      });
+    } else {
+      // topicNum === currentTopic
+      $(`.${topicNum}-menulink-text`).keyup((event) => {
+        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
+        let id = $(event.currentTarget).attr('id');
+        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent('.input-group').addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(id)
+            .text('reddit: the front page of the internet');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent('.input-group')
+            .removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(id).text($(event.currentTarget).val());
+        }
+      });
+    }
+  }
+
+  // 3. URL keyup listener
+  function URLkeyupListener() {
+    $('#pinned-topics-panel input[type="url"]').keyup((event) => {
+      if (!$(event.currentTarget).val() || !re_weburl.test($(event.currentTarget).val())) {
+        // add error class to input group
+        $(event.currentTarget).parent().addClass('has-error')
+
+        // remove duplicate error messages
+        $(event.currentTarget).parent().siblings('.text-danger').detach();
+
+        // add error message
+        $(event.currentTarget).parent().after('<p class="text-danger">Invalid URL!</p>');
+      } else {
+        // remove error class from input group
+        $(event.currentTarget).parent().removeClass('has-error');
+
+        // remove error messages
+        $(event.currentTarget).parent().siblings('.text-danger').detach();
+      }
+    });
+  }
+
   let bezierEasing = [0.4, 0, 0.2, 1];
 
   // increment counter
@@ -1257,6 +1372,9 @@ function addTopic() {
     $('#remove-topic').prop('disabled', false);
   }
 
+  /**
+   * DEFAULT MARKUP
+   */
   $('#pinned-topics-config').append(`
     <div class="pinned-topic col-md-12" id="topic${topicSettings.counter}">
       <h4>Topic ${topicSettings.counter}</h4>
@@ -1367,6 +1485,7 @@ function addTopic() {
     </div>
   `);
 
+  // default live preview contents
   $('iframe').contents().find('blockquote.pinned-topics').append(`
     <p id="topic${topicSettings.counter}">
       <a href="javascript:void(0)">reddit: the front page of the internet</a>
@@ -1385,6 +1504,10 @@ function addTopic() {
       .toLowerCase(),
     menulinks: 2,
   };
+
+  /**
+   * EVENT LISTENERS
+   */
 
   // unbind old listener
   $(`#topic${topicSettings.counter}`).unbind();
@@ -1406,10 +1529,12 @@ function addTopic() {
 
     /**
      * TOPIC TYPE LISTENERS
+     * 1. LINK option is chosen
+     * 2. MENU option is chosen
      */
     if (topicType === 'link') {
       /**
-       * IF LINK IS CHOSEN
+       * 1. IF LINK IS CHOSEN
        */
 
       // hide, disable, and unrequire pinned menu inputs
@@ -1450,35 +1575,10 @@ function addTopic() {
       $(`#pinned-topics-panel input:required`).unbind();
 
       // live preview for pinned links
-      $(`#${currentTopic}-text`).keyup((event) => {
-        if (!$(event.currentTarget).val()) {
-          // add error class to input group
-          $(event.currentTarget).parent('.input-group').addClass('has-error');
-
-          // replace iframe values with default
-          $('iframe').contents().find(`#${currentTopic} a`)
-            .text('reddit: the front page of the internet');
-        } else {
-          // remove error class from input group
-          $(event.currentTarget).parent('.input-group')
-            .removeClass('has-error');
-
-          // replace iframe values
-          $('iframe').contents().find(`#${currentTopic} a`)
-            .text($(event.currentTarget).val());
-        }
-      });
+      pinnedLinksLivePreview(currentTopic);
 
       // URL keyup listener
-      $('#pinned-topics-panel input[type="url"]').keyup((event) => {
-        if (!$(event.currentTarget).val()) {
-          // add error class to input group
-          $(event.currentTarget).parent('.input-group').addClass('has-error');
-        } else {
-          // remove error class from input group
-          $(event.currentTarget).parent('.input-group').removeClass('has-error');
-        }
-      });
+      URLkeyupListener();
 
       // validation for required input forms
       $('#pinned-topics-panel input:required').keyup((event) => {
@@ -1486,7 +1586,7 @@ function addTopic() {
       });
     } else if (topicType === 'menu') {
       /**
-       * IF MENU IS CHOSEN
+       * 2. IF MENU IS CHOSEN
        */
 
       // hide, disable, and unrequire pinned link input
@@ -1547,38 +1647,10 @@ function addTopic() {
       $(`#pinned-topics-panel input:required`).unbind();
 
       // live preview for pinned menus
-      $(`.${currentTopic}-menulink-text`).keyup((event) => {
-        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
-        let id = $(event.currentTarget).attr('id');
-        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
-
-        if (!$(event.currentTarget).val()) {
-          // add error class to input group
-          $(event.currentTarget).parent('.input-group').addClass('has-error');
-
-          // replace iframe values with default
-          $('iframe').contents().find(id)
-            .text('reddit: the front page of the internet');
-        } else {
-          // remove error class from input group
-          $(event.currentTarget).parent('.input-group')
-            .removeClass('has-error');
-
-          // replace iframe values
-          $('iframe').contents().find(id).text($(event.currentTarget).val());
-        }
-      });
+      pinnedMenulinksLivePreview(currentTopic);
 
       // URL keyup listener
-      $('#pinned-topics-panel input[type="url"]').keyup((event) => {
-        if (!$(event.currentTarget).val()) {
-          // add error class to input group
-          $(event.currentTarget).parent('.input-group').addClass('has-error');
-        } else {
-          // remove error class from input group
-          $(event.currentTarget).parent('.input-group').removeClass('has-error');
-        }
-      });
+      URLkeyupListener();
 
       // validation for required input forms
       $('#pinned-topics-panel input:required').keyup((event) => {
@@ -1596,7 +1668,7 @@ function addTopic() {
     $(`#${currentTopic} .add-menulink,
       #${currentTopic} .remove-menulink`).unbind();
 
-    // add new listeners
+    // add menulink
     $(`#${currentTopic} .add-menulink`).click(() => {
       // increment number of menulinks for this particular topic
       topicSettings[currentTopic].menulinks++;
@@ -1637,38 +1709,10 @@ function addTopic() {
       $(`#pinned-topics-panel input:required`).unbind();
 
       // live preview for pinned menus
-      $(`.${currentTopic}-menulink-text`).keyup((event) => {
-        // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
-        let id = $(event.currentTarget).attr('id');
-        id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
-
-        if (!$(event.currentTarget).val()) {
-          // add error class to input group
-          $(event.currentTarget).parent('.input-group').addClass('has-error');
-
-          // replace iframe values with default
-          $('iframe').contents().find(id)
-            .text('reddit: the front page of the internet');
-        } else {
-          // remove error class from input group
-          $(event.currentTarget).parent('.input-group')
-            .removeClass('has-error');
-
-          // replace iframe values
-          $('iframe').contents().find(id).text($(event.currentTarget).val());
-        }
-      });
+      pinnedMenulinksLivePreview(currentTopic);
 
       // URL keyup listener
-      $('#pinned-topics-panel input[type="url"]').keyup((event) => {
-        if (!$(event.currentTarget).val()) {
-          // add error class to input group
-          $(event.currentTarget).parent('.input-group').addClass('has-error');
-        } else {
-          // remove error class from input group
-          $(event.currentTarget).parent('.input-group').removeClass('has-error');
-        }
-      });
+      URLkeyupListener();
 
       // live preview
       $('iframe').contents().find(`#${currentTopic} ul`).append(`
@@ -1676,10 +1720,9 @@ function addTopic() {
           <a id="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" href="javascript:void(0)">reddit: the front page of the internet</a>
         </li>
       `);
-
-      console.log(topicSettings);
     });
 
+    // remove menulink
     $(`#${currentTopic} .remove-menulink`).click(() => {
       // decrement number of menulinks for this particular topic (if amount > 2)
       if (topicSettings[currentTopic].menulinks > 2) {
@@ -1700,8 +1743,6 @@ function addTopic() {
 
       // live preview
       $('iframe').contents().find(`#${currentTopic} ul li`).last().remove();
-
-      console.log(topicSettings);
     });
 
     /**
@@ -1747,52 +1788,19 @@ function addTopic() {
         // album
         break;
     }
-
-    console.log(topicSettings);
   });
 
   // unbind old listeners
   $(`#pinned-topics-panel input:required`).unbind();
 
   // live preview for pinned links
-  $(`#topic${topicSettings.counter}-text`).keyup((event) => {
-    if (!$(event.currentTarget).val()) {
-      // add error class to input group
-      $(event.currentTarget).parent('.input-group').addClass('has-error');
-
-      // replace iframe values with default
-      $('iframe').contents().find(`#topic${topicSettings.counter} a`)
-        .text('reddit: the front page of the internet');
-    } else {
-      // remove error class from input group
-      $(event.currentTarget).parent('.input-group').removeClass('has-error');
-
-      // replace iframe values
-      $('iframe').contents().find(`#topic${topicSettings.counter} a`)
-        .text($(event.currentTarget).val());
-    }
-  });
+  pinnedLinksLivePreview(topicSettings.counter);
 
   // live preview for pinned menus
-  $(`.topic${topicSettings.counter}-menulink-text`).keyup((event) => {
-    // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
-    let id = $(event.currentTarget).attr('id');
-    id = `#${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
-
-    $('iframe').contents().find(id).text($(event.currentTarget).val());
-  });
+  pinnedMenulinksLivePreview(topicSettings.counter);
 
   // URL keyup listener
-  $('#pinned-topics-panel input[type="url"]').keyup((event) => {
-    if (!$(event.currentTarget).val()) {
-      // add error class to input group
-      $(event.currentTarget).parent('.input-group').addClass('has-error');
-    } else {
-      // remove error class from input group
-      $(event.currentTarget).parent('.input-group').removeClass('has-error');
-    }
-  });
-
+  URLkeyupListener();
 
   // validation for required input forms
   $('#pinned-topics-panel input:required').keyup((event) => {
@@ -1800,11 +1808,10 @@ function addTopic() {
   });
 
   // fade in markup
-  $(`#topic${topicSettings.counter}`).hide()
-    .fadeIn(200, $.bez(bezierEasing));
+  $(`#topic${topicSettings.counter}`).hide().fadeIn(200, $.bez(bezierEasing));
 }
 
-// live preview
+// live preview markup
 $('#pinned-topics-checkbox:checkbox').change(() => {
   if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
     $('iframe').contents().find('.usertext-body .md').prepend(`
@@ -1963,7 +1970,7 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
   }
 });
 
-// live preview
+// pinned topics controls
 $('#pinned-topics-checkbox:checkbox').change(() => {
   let bezierEasing = [0.4, 0, 0.2, 1];
 
@@ -1983,8 +1990,6 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
     // validation for required input forms
     pinnedTopicsTestRequiredFields();
-
-    console.log(topicSettings);
   } else {
     // hide and disable control buttons div
     $('#pinned-topics-control').hide(200, $.bez(bezierEasing))
@@ -2023,8 +2028,6 @@ $('#remove-topic').click((event) => {
 
     // decrement counter
     topicSettings.counter--;
-
-    console.log(topicSettings);
   }
 
   // disable remove topic button if only 1 topic remains
