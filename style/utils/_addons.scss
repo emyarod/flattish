@@ -137,14 +137,6 @@
         background-color: $primary !important;
       }
 
-      ul {
-        // avoids overlap of bg images due to nested ul
-        background-image: none !important;
-        background-color: transparent !important;
-
-        &:hover { background-color: transparent !important; }
-      }
-
       li {
         list-style-type: none;
 
