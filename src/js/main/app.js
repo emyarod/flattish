@@ -2,6 +2,7 @@ import '../../css/spectrum.scss';
 import '../../css/styles.scss';
 
 import 'jquery-bez';
+import toMarkdown from 'to-markdown';
 
 import '../sassjs/bourbon.js';
 import '../sassjs/flattish.js';
@@ -14,6 +15,8 @@ import {
   palettes,
   createSpectrum,
 } from './colorpickers.js';
+
+// TODO: documentation
 
 $(document).ready(() => {
   /**
@@ -105,64 +108,67 @@ $(document).ready(() => {
   });
 
   /**
-   * copy to clipboard button
+   * copy to clipboard buttons
    */
 
-  // initialize tooltip
-  $('.btn-clipboard').tooltip({
-    container: 'body',
-  });
+  let clipboards = ['target', 'sidebarmd'];
+  clipboards.forEach((element, index, array) => {
+    // initialize tooltips
+    $(`#${element}-clipboard`).tooltip({
+      container: 'body',
+    });
 
-  $('.btn-clipboard').click(() => {
-    /**
-     * create a Range interface
-     * set the Range to contain the chosen Node and its elements
-     * make sure nothing is preselected
-     * add Range to Selection
-     */
-    if (document.selection) {
-      // for IE
-      let range = document.body.createTextRange();
-      range.moveToElementText(document.getElementById('target'));
-      range.select();
-    } else if (window.getSelection) {
-      let range = document.createRange();
-      range.selectNode(document.getElementById('target'));
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-    }
-
-    // copy highlighted text
-    try {
-      let success = document.execCommand('copy');
-      if (success) {
-        // change tooltip text
-        $('.btn-clipboard').trigger('copied', ['Copied!']);
-
-        // un-highlight text
+    $(`#${element}-clipboard`).click(() => {
+      /**
+       * create a Range interface
+       * set the Range to contain the chosen Node and its elements
+       * make sure nothing is preselected
+       * add Range to Selection
+       */
+      if (document.selection) {
+        // for IE
+        let range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(`${element}`));
+        range.select();
+      } else if (window.getSelection) {
+        let range = document.createRange();
+        range.selectNode(document.getElementById(`${element}`));
         window.getSelection().removeAllRanges();
-      } else {
-        $('.btn-clipboard').trigger('copied', ['Copy with Ctrl-c']);
+        window.getSelection().addRange(range);
       }
-    } catch (err) {
-      $('.btn-clipboard').trigger('copied', ['Copy with Ctrl-c']);
-    }
-  });
 
-  /**
-   * update tooltip title
-   *
-   * edit title based on try...catch statement, then reset title to default
-   *
-   * fixTitle method found in Bootstrap source code
-   *   - fetches and replaces `data-original-title` attribute
-   */
-  $('.btn-clipboard').bind('copied', (event, message) => {
-    $(event.currentTarget).attr('title', message)
-      .tooltip('fixTitle')
-      .tooltip('show')
-      .attr('title', 'Copy to clipboard')
-      .tooltip('fixTitle');
+      // copy highlighted text
+      try {
+        let success = document.execCommand('copy');
+        if (success) {
+          // change tooltip text
+          $(`#${element}-clipboard`).trigger('copied', ['Copied!']);
+
+          // un-highlight text
+          window.getSelection().removeAllRanges();
+        } else {
+          $(`#${element}-clipboard`).trigger('copied', ['Copy with Ctrl-c']);
+        }
+      } catch (err) {
+        $(`#${element}-clipboard`).trigger('copied', ['Copy with Ctrl-c']);
+      }
+    });
+
+    /**
+     * update tooltip title
+     *
+     * edit title based on try...catch statement, then reset title to default
+     *
+     * fixTitle method found in Bootstrap source code
+     *   - fetches and replaces `data-original-title` attribute
+     */
+    $(`#${element}-clipboard`).bind('copied', (event, message) => {
+      $(event.currentTarget).attr('title', message)
+        .tooltip('fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('fixTitle');
+    });
   });
 });
 
@@ -1176,7 +1182,6 @@ var stickyLinkImages;
 var stickyMenuImages;
 
 // pinned topics
-// TODO: edit source stylesheets
 // TODO: sidebar markdown generator
 let stickies = {
   URL: '',
@@ -2064,6 +2069,8 @@ $('#compile').click(() => {
     .fadeOut(200, $.bez(bezierEasing))
     .unbind();
 
+  $('#sidebarmd-container').fadeOut(200, $.bez(bezierEasing));
+
   // disable drag and drop listeners while compiling
   if ($('.dropbox-panel').find('.in').length > 0) {
     dragAndDrop('disable');
@@ -2158,7 +2165,16 @@ $('#compile').click(() => {
 
           // insert stylesheet CSS into <pre>
           $('#target').html(result.text.trim());
-          $('#clipboard-input').val(result.text.trim());
+          // $('#clipboard-input').val(result.text.trim());
+
+          if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+            let sidebarMarkup = `<blockquote>${$('iframe').contents()
+              .find('blockquote.pinned-topics').html().trim()}</blockquote>`;
+
+            $('#sidebarmd').html(toMarkdown(sidebarMarkup));
+            $('#sidebarmd-container')
+              .fadeIn(200, $.bez(bezierEasing));
+          }
 
           let finalPreview = result.text.trim();
 
@@ -2215,7 +2231,6 @@ $('#compile').click(() => {
 
               // show 'save images button'
               $('#save-images').prop('disabled', false)
-                .show(200, $.bez(bezierEasing))
                 .fadeIn(200, $.bez(bezierEasing));
 
               // Blob
