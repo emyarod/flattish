@@ -114,15 +114,6 @@
   background-color: #00bcd4 !important;
 }
 
-.titlebox blockquote ul ul {
-  background-image: none !important;
-  background-color: transparent !important;
-}
-
-.titlebox blockquote ul ul:hover {
-  background-color: transparent !important;
-}
-
 .titlebox blockquote ul li {
   list-style-type: none;
 }
