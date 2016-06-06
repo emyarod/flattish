@@ -175,12 +175,13 @@ sass.options({ style: Sass.style.compressed }, result => (
 // download the files immediately
 for (var key in Sass.maps) {
   if (Sass.maps.hasOwnProperty(key)) {
-    console.log(`loading ${key}`);
     sass.preloadFiles(Sass.maps[key].base, Sass.maps[key].directory, Sass.maps[key].files, () => {
       console.log('files loaded');
     });
   }
 }
+
+// TODO: nest compile functions
 
 // edit _vars.scss
 function varEditor(input, varNameArray, regexArray) {
@@ -220,7 +221,6 @@ function booleanCallback(varNames, replacementValue, ...args) {
     return `$${varNames[0]}: ${replacementValue};`;
   }
 }
-
 /**
  * replace _vars.scss values with values from varEditor()
  *
@@ -278,6 +278,7 @@ function replacer(inputString, varType, replacementValue, variable = null) {
 
 // returns inline styles for live preview
 // FIXME: -- global var
+// TODO: possibly deprecate inlineStyler function
 var inlineStyleSelectors = [];
 
 function inlineStyler(cssObject) {
@@ -1788,6 +1789,8 @@ function addTopic() {
         // album
         break;
     }
+
+    console.log(topicSettings);
   });
 
   // unbind old listeners
@@ -2071,38 +2074,63 @@ $('#compile').click(() => {
     if (content !== undefined) {
       console.log('reading _vars.scss');
 
-      // replace Sass variables
+      /**
+       * REPLACE SASS VARIABLES
+       *
+       * replacer(inputString, varType, replacementValue, variable = null)
+       */
       // colors
       content = replacer(content, 'color', Object.keys(colors));
 
       // TODO: see if this can be DRY-ed
       // large header
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
-        console.log('checked');
         content = replacer(content, 'bool', true, 'headerLarge');
       } else {
-        console.log('not checked');
         content = replacer(content, 'bool', false, 'headerLarge');
       }
 
       // random, rotating header
       if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-        console.log('checked');
         content = replacer(content, 'bool', true, 'randomHeader');
         content = replacer(content, 'bool', Object.keys(rotatingHeaders).length, 'numHeaderImages');
       } else {
-        console.log('not checked');
         content = replacer(content, 'bool', false, 'randomHeader');
       }
 
       // sidebar image
       if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-        console.log('checked');
         content = replacer(content, 'bool', true, 'sidebarImg');
         content = replacer(content, 'bool', `${sidebarImg.height}px`, 'sidebarImgHeight');
       } else {
-        console.log('not checked');
         content = replacer(content, 'bool', false, 'sidebarImg');
+      }
+
+      // pinned topics
+      if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+        content = replacer(content, 'bool', true, 'pinnedTopics');
+
+        // create Sass map
+        let map = '';
+        for (var key in topicSettings) {
+          if (topicSettings.hasOwnProperty(key)) {
+            if (typeof topicSettings[key] === 'object') {
+              map += `
+                ${key}: (
+                  type: ${topicSettings[key].type},
+                  image: ${topicSettings[key].image},
+                ),
+              `;
+            }
+          }
+        }
+
+        map = `(${map})`;
+
+        // edit Sass map in source file
+        content = replacer(content, 'bool', map, 'pinnedMap');
+      } else {
+        content = replacer(content, 'bool', false, 'pinnedTopics');
       }
 
       // register file to be available for @import
