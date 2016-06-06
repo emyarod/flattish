@@ -83,32 +83,6 @@ iframe {
   padding: .3em .6em;
 }
 
-// copy to clipboard button
-.clipboard {
-  position: relative;
-}
-
-.btn-clipboard {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 5;
-  display: block;
-  padding: 5px 8px;
-  font-size: 12px;
-  color: #767676;
-  cursor: pointer;
-  background-color: $white;
-  border: 1px solid #e1e1e8;
-  border-radius: 0 4px;
-  @include transition-default;
-
-  &:hover {
-    color: $white;
-    background-color: #563d7c;
-  }
-}
-
 // dropzones (drag and drop)
 body {
   &::before {
@@ -210,6 +184,36 @@ input.dropbox {
 // pinned topics horizontal forms
 .form-horizontal {
   margin: 15px 0;
+}
+
+// copy to clipboard button
+.clipboard {
+  position: relative;
+}
+
+.btn-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  display: block;
+  padding: 5px 8px;
+  font-size: 12px;
+  color: #767676;
+  cursor: pointer;
+  background-color: $white;
+  border: 1px solid #e1e1e8;
+  border-radius: 0 4px;
+  @include transition-default;
+
+  &:hover {
+    color: $white;
+    background-color: #563d7c;
+  }
+}
+
+#sidebarmd-container {
+  display: none;
 }
 
 // compile button
