@@ -37,7 +37,7 @@ gulp.task('minify', ['clean'], () => {
  */
 gulp.task('webpack', ['minify'], () => {
   return gulp.src(`${paths.src}/js/test.js`)
-    .pipe(webpack( import './webpack.config.js' ))
+    .pipe(webpack( require('./webpack.config.js') ))
     .pipe(gulp.dest(`${paths.dest}/js/`));
 });
 
@@ -55,7 +55,7 @@ gulp.task('default', ['webpack'], () => {
     port: 8080,
   });
 
-  gulp.watch('index.html', browserSync.reload);
+  gulp.watch(`${paths.src}/index.html`, browserSync.reload);
 
   // run `js-watch` task on file changes
   gulp.watch([
