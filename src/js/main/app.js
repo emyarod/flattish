@@ -1456,7 +1456,7 @@ function addTopic() {
               <div class="col-md-5">
                 <div class="input-group has-error">
                   <div class="input-group-addon">(</div>
-                  <input type="url" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-link" id="topic${topicSettings.counter}-menulink2-link" placeholder="https://www.reddit.com/" disabled>
+                  <input type="url" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menulink-link" id="topic${topicSettings.counter}-menulink1-link" placeholder="https://www.reddit.com/" disabled>
                   <div class="input-group-addon">)</div>
                 </div>
               </div>
@@ -1494,7 +1494,7 @@ function addTopic() {
   // default live preview contents
   $('iframe').contents().find('blockquote.pinned-topics').append(`
     <p id="topic${topicSettings.counter}">
-      <a href="javascript:void(0)">reddit: the front page of the internet</a>
+      <a href="https://reddit.com" onclick="return false">reddit: the front page of the internet</a>
     </p>
   `);
 
@@ -1563,17 +1563,18 @@ function addTopic() {
       if (!$(`#${currentTopic}-text`).val()) {
         $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
           <p id="${currentTopic}">
-            <a href="javascript:void(0)">reddit: the front page of the internet</a>
+            <a href="https://reddit.com" onclick="return false">reddit: the front page of the internet</a>
           </p>
         `);
       } else {
         $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
           <p id="${currentTopic}">
-            <a href="javascript:void(0)">${$(`#${currentTopic}-text`).val()}</a>
+            <a href="${$(`#${currentTopic}-link`).val()}">${$(`#${currentTopic}-text`).val()}</a>
           </p>
         `);
       }
 
+      // TODO: DRY
       // test required fields on topic type change
       pinnedTopicsTestRequiredFields();
 
@@ -1611,27 +1612,43 @@ function addTopic() {
 
       $(`#${currentTopic}-menu-container`).fadeIn(200, $.bez(bezierEasing));
 
-      // live preview
+      // live preview menulink text
       let menuLinksContent = {};
       $(`.${currentTopic}-menulink-text`).each((index, value) => {
         // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
         let id = value.id;
         id = `${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+        menuLinksContent[id] = {};
 
         // assign key-value pair
         if (!$(`#${value.id}`).val()) {
-          menuLinksContent[id] = 'reddit: the front page of the internet';
+          menuLinksContent[id].text = 'reddit: the front page of the internet';
         } else {
-          menuLinksContent[id] = $(`#${value.id}`).val();
+          menuLinksContent[id].text = $(`#${value.id}`).val();
         }
       });
 
+      // live preview menulink links
+      $(`.${currentTopic}-menulink-link`).each((index, value) => {
+        // manipulate from `topic1-menulink1-link` to `topic1-menulink-1`
+        let id = value.id;
+        id = `${id.slice(0, -5).slice(0, -1)}-${id.slice(0, -5).slice(-1)}`;
+
+        // assign key-value pair
+        if (!$(`#${value.id}`).val()) {
+          menuLinksContent[id].link = 'https://reddit.com/';
+        } else {
+          menuLinksContent[id].link = $(`#${value.id}`).val();
+        }
+      });
+
+      // insert markup
       let replacementMarkup = '';
       for (var key in menuLinksContent) {
         if (menuLinksContent.hasOwnProperty(key)) {
           replacementMarkup = `${replacementMarkup}
           <li>
-            <a id="${key}" href="javascript:void(0)">${menuLinksContent[key]}</a>
+            <a id="${key}" href="${menuLinksContent[key].link}" onclick="return false">${menuLinksContent[key].text}</a>
           </li>`;
         }
       }
@@ -1646,6 +1663,7 @@ function addTopic() {
         </ul>
       `);
 
+      // TODO: DRY
       // test required fields on topic type change
       pinnedTopicsTestRequiredFields();
 
@@ -1723,7 +1741,7 @@ function addTopic() {
       // live preview
       $('iframe').contents().find(`#${currentTopic} ul`).append(`
         <li>
-          <a id="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" href="javascript:void(0)">reddit: the front page of the internet</a>
+          <a id="${currentTopic}-menulink-${topicSettings[currentTopic].menulinks}" href="https://reddit.com" onclick"return false"=>reddit: the front page of the internet</a>
         </li>
       `);
     });
@@ -2198,6 +2216,7 @@ $('#compile').click(() => {
           //   </style>
           // `);
 
+          // TODO: zip stickies image
           // zip images if rotating header or sidebar image addon is enabled
           if ($('#sidebar-img-checkbox:checkbox').prop('checked') || $('#rotating-header-checkbox:checkbox').prop('checked')) {
             (function () {
