@@ -1,9 +1,10 @@
 'use strict';
 
 import gulp from 'gulp';
+import del from 'del';
 import webpack from 'webpack-stream';
 import browserSync from 'browser-sync';
-import del from 'del';
+import htmlmin from 'gulp-htmlmin';
 
 const paths = {
   src: 'src',
@@ -15,6 +16,17 @@ gulp.task('clean', () => {
   return del([`${paths.dest}`]);
 });
 
+gulp.task('minify', ['clean'], () => {
+  return gulp.src(`${paths.src}/*.html`)
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true,
+    }))
+    .pipe(gulp.dest('./'));
+});
+
 /**
  * stream webpack config with babel presets and optimizations
  *
@@ -23,9 +35,9 @@ gulp.task('clean', () => {
  * mangle and uglify
  * output to destination
  */
-gulp.task('webpack', ['clean'], () => {
+gulp.task('webpack', ['minify'], () => {
   return gulp.src(`${paths.src}/js/test.js`)
-    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(webpack( import './webpack.config.js' ))
     .pipe(gulp.dest(`${paths.dest}/js/`));
 });
 
@@ -49,5 +61,7 @@ gulp.task('default', ['webpack'], () => {
   gulp.watch([
     `${paths.src}/js/**/*.js`,
     `${paths.src}/css/*.scss`,
+    './webpack.config.js',
+    './gulpfile.babel.js',
   ], ['js-watch']);
 });
