@@ -55,10 +55,9 @@ gulp.task('default', ['webpack'], () => {
     port: 8080,
   });
 
-  gulp.watch(`${paths.src}/index.html`, browserSync.reload);
-
   // run `js-watch` task on file changes
   gulp.watch([
+    `${paths.src}/index.html`,
     `${paths.src}/js/**/*.js`,
     `${paths.src}/css/*.scss`,
     './webpack.config.js',
