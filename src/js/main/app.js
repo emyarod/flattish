@@ -244,7 +244,7 @@ function replacer(inputString, varType, replacementValue, variable = null) {
       return `$${varNames[0]}: ${replacementValue};`;
     }
   }
-  
+
   let varNames = [];
   let testPatterns = [];
 
@@ -283,32 +283,6 @@ function replacer(inputString, varType, replacementValue, variable = null) {
       return booleanCallback(varNames, replacementValue, ...args);
     });
     return inputString;
-  }
-}
-
-
-// returns inline styles for live preview
-// FIXME: -- global var
-// TODO: possibly deprecate inlineStyler function
-var inlineStyleSelectors = [];
-
-function inlineStyler(cssObject) {
-  if (typeof cssObject === 'object') {
-    for (var selector in cssObject) {
-      if (inlineStyleSelectors.indexOf(selector) === -1) {
-        inlineStyleSelectors.push(selector);
-      }
-
-      if (cssObject.hasOwnProperty(selector)) {
-        let block = cssObject[selector];
-        for (var property in block) {
-          if (block.hasOwnProperty(property)) {
-            let value = block[property];
-            $('iframe').contents().find(selector).css(property, value);
-          }
-        }
-      }
-    }
   }
 }
 
