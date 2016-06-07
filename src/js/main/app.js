@@ -183,7 +183,6 @@ $('#compile').click(() => {
       // colors
       content = replacer(content, 'color', Object.keys(colors));
 
-      // TODO: see if this can be DRY-ed
       // large header
       if ($('#large-header-checkbox:checkbox').prop('checked')) {
         content = replacer(content, 'bool', true, 'headerLarge');
@@ -275,7 +274,6 @@ $('#compile').click(() => {
           let finalPreview = result.text.trim();
 
           // replace variable names in live preview CSS
-          // TODO: replace rotating headers
           finalPreview = finalPreview
             .replace(/%%dropdown%%/g, '"https://b.thumbs.redditmedia.com/n8Tjs0Bql4bCTP1yXHT6uyQ2FiNxqvyiqX0dmgEvGtU.png"')
             .replace(/%%dropdown-night%%/g, '"https://a.thumbs.redditmedia.com/2OhDOWNjWv07gPH_SInBCkIGV-Vvh79bOivLCefF-Y0.png"')
