@@ -271,8 +271,8 @@ $('#compile').click(() => {
              * insert sidebar markdown into <pre>
              * edit to fit reddit markdown parser
              */
-            $('#sidebarmd').html(toMarkdown(sidebarMarkup)
-              .replace(/> \n/g, '\n># \n'));
+            $('#sidebarmd').html(`${toMarkdown(sidebarMarkup)
+              .replace(/> \n/g, '\n># \n')}\n\n[This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)`);
 
             // show markdown container
             $('#sidebarmd-container')
