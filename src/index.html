@@ -24,12 +24,9 @@
       <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-2"> <!-- .col-sm-2 -->
-          <!-- COLORS -->
           <div class="color-pickers"> <!-- .color-pickers -->
             <h2>Colors</h2>
-
-            <!-- PRIMARY -->
-            <div id="primary-colors">
+            <div id="primary-colors"> <!-- #primary-colors -->
               <h3>Primary colors</h3>
               <div class="color-picker form-group">
                 <label for="primaryColor" class="color-picker__label">primary color</label>
@@ -49,10 +46,9 @@
                   <input id="lightPrimaryColorPicker" class="color-picker__spectrum form-control" value="#4dd0e1">
                 </div>
               </div>
-            </div>
+            </div> <!-- /#primary-colors -->
 
-            <!-- ACCENT -->
-            <div id="accent-colors">
+            <div id="accent-colors"> <!-- #accent-colors -->
               <h3>Accent colors</h3>
               <div class="color-picker form-group">
                 <label for="accentColor" class="color-picker__label">accent color</label>
@@ -72,10 +68,9 @@
                   <input id="lightAccentColorPicker" class="color-picker__spectrum form-control" value="#ffd180">
                 </div>
               </div>
-            </div>
+            </div> <!-- /#accent-colors -->
 
-            <!-- LINK COLORS -->
-            <div id="link-colors">
+            <div id="link-colors"> <!-- #link-colors -->
               <h3>Link colors</h3>
               <div class="color-picker form-group">
                 <label for="linkColorColor" class="color-picker__label">link color</label>
@@ -133,10 +128,10 @@
                   <input id="linkColorVisitedNightColorPicker" class="color-picker__spectrum form-control" value="#9575cd">
                 </div>
               </div>
-            </div>
+              <!-- /NIGHTMODE LINK COLORS -->
+            </div> <!-- /#link-colors -->
 
-            <!-- VOTE ARROWS -->
-            <div id="vote-arrows">
+            <div id="vote-arrows"> <!-- #vote-arrows -->
               <h3>Vote arrows</h3>
               <div class="color-picker form-group">
                 <label for="upvoteColor" class="color-picker__label">upvote</label>
@@ -151,17 +146,17 @@
                   <input id="downvoteColorPicker" class="color-picker__spectrum form-control" value="#3f51b5">
                 </div>
               </div>
-            </div>
-          </div> <!-- .color-pickers -->
-        </div> <!-- .col-sm-2 -->
+            </div> <!-- /#vote-arrows -->
+          </div> <!-- /.color-pickers -->
+        </div> <!-- /.col-sm-2 -->
 
         <div class="col-sm-8" id="iframe-container" data-spy="affix">
           <iframe src="flattish.html" class="embed-responsive-iframe" width="100%" height="750px"></iframe>
         </div>
         <div class="col-sm-1"></div>
       </div>
-    </section> <!-- .colors -->
-	</div> <!-- .container-fluid -->
+    </section> <!-- /.colors -->
+	</div> <!-- /.container-fluid -->
 
   <div class="container" id="addons">
     <div class="row">
@@ -178,26 +173,30 @@
                 <li role="presentation">
                   <a href="#large-header-panel" aria-controls="large-header-panel" role="tab" data-toggle="tab">Large header<span id="large-header-label" class="label label-default">Disabled</span></a>
                 </li>
+                <!-- /LARGE HEADER PILL -->
 
                 <!-- ROTATING HEADER PILL -->
                 <li role="presentation">
                   <a href="#rotating-header-panel" aria-controls="rotating-header-panel" role="tab" data-toggle="tab">Rotating header<span id="rotating-header-label" class="label label-default">Disabled</span></a>
                 </li>
+                <!-- /ROTATING HEADER PILL -->
 
                 <!-- SIDEBAR IMAGE PILL -->
                 <li role="presentation">
                   <a href="#sidebar-img-panel" aria-controls="sidebar-img-panel" role="tab" data-toggle="tab">Sidebar image<span id="sidebar-img-label" class="label label-default">Disabled</span></a>
                 </li>
+                <!-- /SIDEBAR IMAGE PILL -->
 
                 <!-- PINNED TOPICS PILL -->
                 <li role="presentation">
                   <a href="#pinned-topics-panel" aria-controls="pinned-topics-panel" role="tab" data-toggle="tab">Pinned topics<span id="pinned-topics-label" class="label label-default">Disabled</span></a>
                 </li>
+                <!-- /PINNED TOPICS PILL -->
               </ul>
-              <!-- NAV PILLS -->
+              <!-- /NAV PILLS -->
             </div>
-          </div> <!-- #addons-container -->
-          <!-- ADDONS -->
+          </div> <!-- /#addons-container -->
+          <!-- /ADDONS -->
 
         </div>
         <div class="col-sm-9">
@@ -205,7 +204,7 @@
           <div id="addon-expansion">
             <!-- TAB PANES -->
             <div class="tab-content">
-              <!-- LARGE HEADER -->
+              <!-- LARGE HEADER TAB PANE -->
               <div role="tabpanel" class="tab-pane fade" id="large-header-panel">
                 <div class="panel panel-default">
                   <div class="panel-heading">
@@ -223,9 +222,9 @@
                   </div>
                 </div>
               </div>
-              <!-- LARGE HEADER -->
+              <!-- /LARGE HEADER TAB PANE -->
 
-              <!-- ROTATING HEADER -->
+              <!-- ROTATING HEADER TAB PANE -->
               <div role="tabpanel" class="tab-pane fade" id="rotating-header-panel">
                 <div class="panel panel-default">
                   <div class="panel-heading">
@@ -251,9 +250,9 @@
                   </div>
                 </div>
               </div>
-              <!-- ROTATING HEADER -->
+              <!-- /ROTATING HEADER TAB PANE -->
 
-              <!-- SIDEBAR IMAGE -->
+              <!-- SIDEBAR IMAGE TAB PANE -->
               <div role="tabpanel" class="tab-pane fade" id="sidebar-img-panel">
                 <div class="panel panel-default">
                   <div class="panel-heading">
@@ -279,9 +278,9 @@
                   </div>
                 </div>
               </div>
-              <!-- SIDEBAR IMAGE -->
+              <!-- /SIDEBAR IMAGE TAB PANE -->
 
-              <!-- PINNED TOPICS -->
+              <!-- PINNED TOPICS TAB PANE -->
               <div role="tabpanel" class="tab-pane fade" id="pinned-topics-panel">
                 <div class="panel panel-default">
                   <div class="panel-heading">
@@ -306,11 +305,11 @@
                   </div>
                 </div>
               </div>
-              <!-- PINNED TOPICS -->
+              <!-- /PINNED TOPICS TAB PANE -->
             </div>
-            <!-- TAB PANES -->
+            <!-- /TAB PANES -->
           </div>
-          <!-- #addon-expansion -->
+          <!-- /#addon-expansion -->
         </div>
       </div>
 
@@ -326,7 +325,7 @@
           </div>
           <pre id="target"></pre>
         </div>
-        <!-- COMPILED STYLESHEET -->
+        <!-- /COMPILED STYLESHEET -->
 
         <!-- SIDEBAR MARKDOWN -->
         <div id="sidebarmd-container">
@@ -336,7 +335,7 @@
           </div>
           <pre id="sidebarmd"></pre>
         </div>
-        <!-- SIDEBAR MARKDOWN -->
+        <!-- /SIDEBAR MARKDOWN -->
       </div>
     </div>
 
