@@ -300,6 +300,7 @@ function previewImg(input, location, selector = undefined) {
 
                 // edit flag
                 abort = true;
+                return false;
               } else {
                 // edit rotatingHeaders object
                 rotatingHeaders[`header${position}`] = {
@@ -308,6 +309,8 @@ function previewImg(input, location, selector = undefined) {
 
                 if (!abort) {
                   validationSuccess(base64, filename, filesize);
+                } else {
+                  return false;
                 }
 
                 // error if fewer than 2 headers have been uploaded
