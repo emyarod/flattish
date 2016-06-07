@@ -307,7 +307,7 @@ export function createSpectrum(id, swatch, palette = null, replacerClassName, va
 
     // after error handling, set variable to final spectrum value
     colors[value] = $(`.${id.slice(1)}Container input`).val();
-    console.log(`${value} = ${colors[value]}`);
+    // console.log(`${value} = ${colors[value]}`);
   });
 }
 
