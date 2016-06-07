@@ -126,6 +126,11 @@ $(document).ready(() => {
   });
 
   initializeClipboards();
+
+  // fade in compile button
+  let bezierEasing = [0.4, 0, 0.2, 1];
+  $('#compile-div').fadeIn(200, $.bez(bezierEasing))
+    .css('display', 'inline-block');
 });
 
 var sass = new Sass();
