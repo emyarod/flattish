@@ -223,10 +223,6 @@ input.dropbox {
   &.disabled {
     cursor: not-allowed;
   }
-
-  .btn[disabled] {
-    pointer-events: none;
-  }
 }
 
 // download button
