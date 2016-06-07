@@ -390,7 +390,6 @@ function addTopic() {
         `);
       }
 
-      // TODO: DRY
       // test required fields on topic type change
       pinnedTopicsTestRequiredFields();
 
@@ -475,7 +474,6 @@ function addTopic() {
         </ul>
       `);
 
-      // TODO: DRY
       // test required fields on topic type change
       pinnedTopicsTestRequiredFields();
 
