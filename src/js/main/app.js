@@ -1655,11 +1655,7 @@ function addTopic() {
 
       $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
         <ul id="${currentTopic}">
-          <li>
-            <ul>
-              ${replacementMarkup}
-            </ul>
-          </li>
+          ${replacementMarkup}
         </ul>
       `);
 
@@ -2076,9 +2072,9 @@ $('iframe').load(() => {
 // compile
 $('#compile').click(() => {
   // disable inputs while compiling
-  $('input').addClass('disabled').prop('disabled', true);
-  $('.dropbox-container').addClass('disabled');
-  $('.dropbox').prop('disabled', true);
+  $('input, label.btn, button, .dropbox-container').addClass('disabled');
+  $('label.btn, button').css('pointer-events', 'none');
+  $('input, .dropbox').prop('disabled', true);
   clickToRemove('unbind');
 
   // hide 'save images' button and remove attached event handlers
@@ -2169,15 +2165,10 @@ $('#compile').click(() => {
         // compile main Sass file
         sass.compileFile('flattish/flattish.scss', (result) => {
           // enable inputs after compilation
-          $('input').removeClass('disabled').prop('disabled', false);
-          $('.dropbox-container').removeClass('disabled');
-          $('.dropbox').prop('disabled', false);
-
-          // remove inline styles
-          // for (var i = 0; i < inlineStyleSelectors.length; i++) {
-          //   $('iframe').contents().find(`${inlineStyleSelectors[i]}[style]`)
-          //   .removeAttr('style');
-          // }
+          $('input, label.btn, button, .dropbox-container')
+            .removeClass('disabled');
+          $('label.btn, button').css('pointer-events', 'auto');
+          $('input, .dropbox').prop('disabled', false);
 
           console.log(result);
 
@@ -2189,7 +2180,14 @@ $('#compile').click(() => {
             let sidebarMarkup = `<blockquote>${$('iframe').contents()
               .find('blockquote.pinned-topics').html().trim()}</blockquote>`;
 
-            $('#sidebarmd').html(toMarkdown(sidebarMarkup));
+            /**
+             * insert sidebar markdown into <pre>
+             * edit to fit reddit markdown parse
+             */
+            $('#sidebarmd').html(toMarkdown(sidebarMarkup)
+              .replace(/> \n/g, '\n># \n'));
+
+            // show markdown container
             $('#sidebarmd-container')
               .fadeIn(200, $.bez(bezierEasing));
           }
@@ -2208,15 +2206,7 @@ $('#compile').click(() => {
             .replace(/%%sidebar%%/g, sidebarImg.URL)
             .replace(/%%stickies%%/g, stickies.URL);
 
-          // inject live preview CSS into iframe
-          // $('iframe').contents().find('#final-preview').detach();
-          // $('iframe').contents().find('head').append(`
-          //   <style id="final-preview" type="text/css">
-          //     ${finalPreview}
-          //   </style>
-          // `);
-
-          // TODO: zip stickies image
+          // TODO: zip stickies image and all relevent images
           // zip images if rotating header or sidebar image addon is enabled
           if ($('#sidebar-img-checkbox:checkbox').prop('checked') || $('#rotating-header-checkbox:checkbox').prop('checked')) {
             (function () {
