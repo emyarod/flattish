@@ -152,7 +152,8 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 // compile
 $('#compile').click(() => {
   // disable inputs while compiling
-  $('input, label.btn, button, .dropbox-container').addClass('disabled');
+  $('input, label.btn, button, .dropbox-container, #compile-div')
+  .addClass('disabled');
   $('label.btn, button').css('pointer-events', 'none');
   $('input, .dropbox').prop('disabled', true);
   clickToRemove('unbind');
@@ -244,7 +245,7 @@ $('#compile').click(() => {
         // compile main Sass file
         sass.compileFile('flattish/flattish.scss', (result) => {
           // enable inputs after compilation
-          $('input, label.btn, button, .dropbox-container')
+          $('input, label.btn, button, .dropbox-container, #compile-div')
             .removeClass('disabled');
           $('label.btn, button').css('pointer-events', 'auto');
           $('input, .dropbox').prop('disabled', false);
