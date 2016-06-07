@@ -9,12 +9,7 @@ import '../sassjs/flattish.js';
 import '../spectrum/spectrum.js';
 
 import { colorList, colors } from './colors/colorlist.js';
-import {
-  paletteArrayCreator,
-  paletteConstructorArray,
-  palettes,
-  createSpectrum,
-} from './colors/colorpickers.js';
+import './colors/colorpickers.js';
 
 // TODO: documentation
 
@@ -198,44 +193,6 @@ for (var key in Sass.maps) {
 
 // TODO: nest compile functions
 
-// edit _vars.scss
-function varEditor(input, varNameArray, regexArray) {
-  /**
-  * search for capital letters and convert to hyphen + lowercase letter
-  * e.g. darkPrimary => dark-primary
-  */
-  if (input.match(/[A-Z]/g) !== null) {
-    let capitalLetters = input.match(/[A-Z]/g);
-
-    // check if variable name contains more than 1 capital letter
-    if (capitalLetters.length > 1) {
-      capitalLetters.forEach((element, index, array) => {
-        input = input.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
-      });
-    } else {
-      [capitalLetters] = input.match(/[A-Z]/g);
-      input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
-    }
-    regexArray.push(`(\\$${input}: .*?;)`)
-    varNameArray.push(input);
-  } else {
-    regexArray.push(`(\\$${input}: .*?;)`)
-    varNameArray.push(input);
-  }
-}
-
-// create regexp patterns
-function regexPatternCreator(callback, varNameArray, regexArray) {
-  callback(varNameArray, regexArray);
-  return new RegExp(regexArray.join('|'), 'g');
-}
-
-// callback for booleans
-function booleanCallback(varNames, replacementValue, ...args) {
-  if (args[1]) {
-    return `$${varNames[0]}: ${replacementValue};`;
-  }
-}
 /**
  * replace _vars.scss values with values from varEditor()
  *
@@ -249,6 +206,45 @@ function booleanCallback(varNames, replacementValue, ...args) {
  * }
  */
 function replacer(inputString, varType, replacementValue, variable = null) {
+  // edit _vars.scss
+  function varEditor(input, varNameArray, regexArray) {
+    /**
+    * search for capital letters and convert to hyphen + lowercase letter
+    * e.g. darkPrimary => dark-primary
+    */
+    if (input.match(/[A-Z]/g) !== null) {
+      let capitalLetters = input.match(/[A-Z]/g);
+
+      // check if variable name contains more than 1 capital letter
+      if (capitalLetters.length > 1) {
+        capitalLetters.forEach((element, index, array) => {
+          input = input.replace(capitalLetters[index], `-${capitalLetters[index].toLowerCase()}`);
+        });
+      } else {
+        [capitalLetters] = input.match(/[A-Z]/g);
+        input = input.replace(capitalLetters, `-${capitalLetters.toLowerCase()}`);
+      }
+      regexArray.push(`(\\$${input}: .*?;)`)
+      varNameArray.push(input);
+    } else {
+      regexArray.push(`(\\$${input}: .*?;)`)
+      varNameArray.push(input);
+    }
+  }
+
+  // create regexp patterns
+  function regexPatternCreator(callback, varNameArray, regexArray) {
+    callback(varNameArray, regexArray);
+    return new RegExp(regexArray.join('|'), 'g');
+  }
+
+  // callback for booleans
+  function booleanCallback(varNames, replacementValue, ...args) {
+    if (args[1]) {
+      return `$${varNames[0]}: ${replacementValue};`;
+    }
+  }
+  
   let varNames = [];
   let testPatterns = [];
 
