@@ -1,4 +1,4 @@
-import { colorList, colors } from './colorlist.js';
+import { colorList, colors } from './_colorlist.js';
 
 /**
  * generate color palette arrays
