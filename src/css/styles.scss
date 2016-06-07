@@ -225,6 +225,31 @@ input.dropbox {
   }
 }
 
+@keyframes loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.compiling {
+  height: 34px;
+
+  &::after {
+    position: relative;
+    top: -17px;
+    left: 17px;
+    display: block;
+    height: 16px;
+    width: 16px;
+    content: '';
+
+    border: 2px solid #563d7c;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: .75s linear infinite loading;
+  }
+}
+
 // download button
 #save-images {
   display: none;
