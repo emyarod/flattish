@@ -8,13 +8,13 @@ import '../sassjs/bourbon.js';
 import '../sassjs/flattish.js';
 import '../spectrum/spectrum.js';
 
-import { colorList, colors } from './colorlist.js';
+import { colorList, colors } from './colors/colorlist.js';
 import {
   paletteArrayCreator,
   paletteConstructorArray,
   palettes,
   createSpectrum,
-} from './colorpickers.js';
+} from './colors/colorpickers.js';
 
 // TODO: documentation
 
