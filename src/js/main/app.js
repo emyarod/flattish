@@ -18,6 +18,8 @@ import {
 
 // TODO: documentation
 
+let defaultImages = {};
+
 $(document).ready(() => {
   /**
    * read default images as binary files
@@ -26,6 +28,11 @@ $(document).ready(() => {
   var xhrList = [];
   var urlList = [
     'img/sidebar.png',
+    'img/sprites/dropdown.png',
+    'img/sprites/dropdown-night.png',
+    'img/sprites/hide.png',
+    'img/sprites/save.png',
+    'img/sprites/spritesheet.png',
     'img/sprites/stickies.png',
   ];
 
@@ -78,9 +85,11 @@ $(document).ready(() => {
         if ((/sidebar/).test(urlList[i])) {
           sidebarImg.URL = dataURL;
           sidebarImg.URLreset = dataURL;
-        } else {
+        } else if ((/stickies/).test(urlList[i])) {
           // otherwise, edit stickies object properties
           stickies.URL = dataURL;
+        } else {
+          defaultImages[urlList[i].slice(12, -4)] = dataURL;
         }
       };
 
@@ -2182,7 +2191,7 @@ $('#compile').click(() => {
 
             /**
              * insert sidebar markdown into <pre>
-             * edit to fit reddit markdown parse
+             * edit to fit reddit markdown parser
              */
             $('#sidebarmd').html(toMarkdown(sidebarMarkup)
               .replace(/> \n/g, '\n># \n'));
@@ -2206,62 +2215,76 @@ $('#compile').click(() => {
             .replace(/%%sidebar%%/g, sidebarImg.URL)
             .replace(/%%stickies%%/g, stickies.URL);
 
-          // TODO: zip stickies image and all relevent images
           // zip images if rotating header or sidebar image addon is enabled
-          if ($('#sidebar-img-checkbox:checkbox').prop('checked') || $('#rotating-header-checkbox:checkbox').prop('checked')) {
-            (function () {
-              const zip = new JSZip();
+          (function () {
+            const zip = new JSZip();
 
-              // rotating headers
-              if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
-                for (var key in rotatingHeaders) {
-                  if (rotatingHeaders.hasOwnProperty(key)) {
-                    zip.file(
-                      `images/${[key]}.png`,
-
-                      // remove content before base64 data
-                      rotatingHeaders[key].URL.substr(rotatingHeaders[key].URL.indexOf(',') + 1),
-                      { base64: true, }
-                    );
-                  }
-                }
-              }
-
-              // sidebar image
-              if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
-                zip.file(
-                  'images/sidebar.png',
-
-                  // remove content before base64 data
-                  sidebarImg.URL.substr(sidebarImg.URL.indexOf(',') + 1),
+            // default required images
+            for (var key in defaultImages) {
+              if (defaultImages.hasOwnProperty(key)) {
+                zip.file(`images/${[key]}.png`,
+                  defaultImages[key]
+                    .substr(defaultImages[key].indexOf(',') + 1),
                   { base64: true, }
                 );
               }
+            }
 
-              // show 'save images button'
-              $('#save-images').prop('disabled', false)
-                .fadeIn(200, $.bez(bezierEasing));
-
-              // Blob
-              let blobLink = document.getElementById('save-images');
-              if (JSZip.support.blob) {
-                function downloadWithBlob() {
-                  zip.generateAsync({ type: 'blob' }).then((blob) => {
-                    saveAs(blob, 'flattish_images.zip');
-                  }, (err) => {
-                    blobLink.innerHTML += ` ${err}`;
-                  });
-
-                  return false;
+            // rotating headers
+            if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
+              for (var key in rotatingHeaders) {
+                if (rotatingHeaders.hasOwnProperty(key)) {
+                  zip.file(`images/${[key]}.png`,
+                    // remove content before base64 data
+                    rotatingHeaders[key].URL
+                      .substr(rotatingHeaders[key].URL.indexOf(',') + 1),
+                    { base64: true, }
+                  );
                 }
-
-                // download blob zip on 'save images' button click
-                $('#save-images').click(() => {
-                  downloadWithBlob();
-                });
               }
-            })();
-          }
+            }
+
+            // sidebar image
+            if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
+              zip.file('images/sidebar.png',
+                // remove content before base64 data
+                sidebarImg.URL.substr(sidebarImg.URL.indexOf(',') + 1),
+                { base64: true, }
+              );
+            }
+
+            // pinned topics
+            if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
+              zip.file('images/stickies.png',
+                // remove content before base64 data
+                stickies.URL.substr(sidebarImg.URL.indexOf(',') + 1),
+                { base64: true, }
+              );
+            }
+
+            // show 'save images button'
+            $('#save-images').prop('disabled', false)
+              .fadeIn(200, $.bez(bezierEasing));
+
+            // Blob
+            let blobLink = document.getElementById('save-images');
+            if (JSZip.support.blob) {
+              function downloadWithBlob() {
+                zip.generateAsync({ type: 'blob' }).then((blob) => {
+                  saveAs(blob, 'flattish_images.zip');
+                }, (err) => {
+                  blobLink.innerHTML += ` ${err}`;
+                });
+
+                return false;
+              }
+
+              // download blob zip on 'save images' button click
+              $('#save-images').click(() => {
+                downloadWithBlob();
+              });
+            }
+          })();
 
           // re-enable drag and drop listeners if a dropbox panel is expanded
           if ($('.dropbox-panel').find('.in').length > 0) {
