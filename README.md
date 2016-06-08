@@ -19,13 +19,9 @@ Tabs and buttons will trigger animations and effects on hovering or clicking.
 
 ### Night mode
 
-Flattish also features a dark theme for RES nightmode users!
+Flattish also features a dark theme for RES night mode users!
 
 ![nightmode](http://i.imgur.com/JCMF8ZG.png)
-
-**Make sure you add the following line to the sidebar of your subreddit:**
-
-    [This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)
 
 ### Addons
 
@@ -64,6 +60,16 @@ There are three options to get started with using flattish:
 * Customize your own version of flattish with the [theme editor](#customize)
 
 * Use the latest, untested, and unreleased [development build](#help-develop-flattish)
+
+**After moving the stylesheet to your subreddit and uploading all of the necessary images, be sure to do the following:**
+
+Add the following line to the sidebar of your subreddit
+
+    [This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)
+
+Edit subreddit settings to label submit buttons
+
+![submit-labels](http://i.imgur.com/62oZlBf.png)
 
 #### Download
 
