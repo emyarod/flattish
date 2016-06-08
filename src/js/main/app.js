@@ -170,7 +170,8 @@ $('#compile').click(() => {
     .fadeOut(200, $.bez(bezierEasing))
     .unbind();
 
-  $('#sidebarmd-container').fadeOut(200, $.bez(bezierEasing));
+  $('#target-container, #sidebarmd-container')
+    .fadeOut(200, $.bez(bezierEasing));
 
   // disable drag and drop listeners while compiling
   if ($('.dropbox-panel').find('.in').length > 0) {
@@ -273,11 +274,11 @@ $('#compile').click(() => {
              */
             $('#sidebarmd').html(`${toMarkdown(sidebarMarkup)
               .replace(/> \n/g, '\n># \n')}\n\n[This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)`);
-
-            // show markdown container
-            $('#sidebarmd-container')
-              .fadeIn(200, $.bez(bezierEasing));
           }
+
+          // show markdown container
+          $('#target-container, #sidebarmd-container')
+            .fadeIn(200, $.bez(bezierEasing));
 
           let finalPreview = result.text.trim();
 
