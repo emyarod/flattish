@@ -293,8 +293,8 @@ function previewImg(input, location, selector = undefined) {
           if (imageType.test(fileObj[key].type)) {
             // read contents of uploaded file(s)
             readImg(fileObj[key], location, (base64) => {
-              // validate file size
-              if (filesize > 500000) {
+              // validate file size in KiB
+              if (filesize > 512000) {
                 // return error due to file size
                 validationError(selector, 'size');
 
