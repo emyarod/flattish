@@ -1,6 +1,6 @@
 {
   "name": "flattish",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CSS theme for reddit",
   "main": "app/main/app.js",
   "dependencies": {},
