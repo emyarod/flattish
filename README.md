@@ -63,11 +63,11 @@ There are three options to get started with using flattish:
 
 **After moving the stylesheet to your subreddit and uploading all of the necessary images, be sure to do the following:**
 
-Add the following line to the sidebar of your subreddit
+* Add the following line to the sidebar of your subreddit
 
     [This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)
 
-Edit subreddit settings to label submit buttons
+* Edit subreddit settings to label submit buttons (/r/yoursubreddit/about/edit)
 
 ![submit-labels](http://i.imgur.com/62oZlBf.png)
 
