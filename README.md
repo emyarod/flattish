@@ -5,7 +5,7 @@
 
 ## Features
 
-Flattish draws heavily from Material Design, from its animations to color palettes to components, including buttons, cards, dialogs, lists, menus, tabs, and more.
+Flattish draws heavily from Material Design, from its animations to color palettes to components, including buttons, cards, dialogs, lists, menus, tabs, and more. The stylesheet is designed around Google's [Roboto](https://material-design.storage.googleapis.com/publish/material_v_8/material_ext_publish/0B0J8hsRkk91LRjU4U1NSeXdjd1U/RobotoTTF.zip) font, which is free to download.
 
 ### Material components and animations
 
