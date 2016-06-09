@@ -25,7 +25,7 @@ Flattish also features a dark theme for RES night mode users!
 
 ### Addons
 
-Flattish can be extended with several addons.
+Flattish can be extended with several addons. Refer to the [wiki](https://github.com/emyarod/flattish/wiki) for more details.
 
 #### Large header
 
@@ -41,13 +41,13 @@ Examples of this addon in action can be seen on subreddits like [/r/kpop](https:
 
 #### Sidebar image
 
-Display an image on the sidebar of your subreddit. Sidebar images should be 330px wide. Depending on the height of your image, you will have to edit the base CSS. Refer to the [wiki](https://github.com/emyarod/flattish/wiki) for more details.
+Display an image on the sidebar of your subreddit. Sidebar images should be 330px wide. Depending on the height of your image, you will have to edit the base CSS.
 
 ![sidebar-image](http://i.imgur.com/RFUU8Pf.gif)
 
 #### Pinned topics
 
-Pin important announcements, content, or resources next to the main list of posts. Pinned content can be in the form of links or dropdown menus. Choose from seven different icons to represent each pinned item. Refer to the [wiki](https://github.com/emyarod/flattish/wiki) for more details.
+Pin important announcements, content, or resources next to the main list of posts. Pinned content can be in the form of links or dropdown menus. Choose from seven different icons to represent each pinned item.
 
 ![pinned-topics](http://i.imgur.com/sskt1M3.gif)
 
@@ -55,11 +55,28 @@ Pin important announcements, content, or resources next to the main list of post
 
 There are three options to get started with using flattish:
 
-* [Download](#download) and use the latest release build
-
 * Customize your own version of flattish with the [theme editor](#customize)
 
+* [Download](#download) and use the latest release build
+
 * Use the latest, untested, and unreleased [development build](#help-develop-flattish)
+
+#### Customize
+
+[Use the flattish customizer to tailor the base stylesheet to your sub!](http://emyarod.github.io/flattish/) This option allows for the quickest vanilla setup out of the box, while also being the easiest to customize right from the start.
+
+#### Download
+
+[Download the latest release of flattish.css from the project's releases page!](https://github.com/emyarod/flattish/releases) This option allows for more control over the changes you wish to make to the base theme, but is also more complicated to extend compared to using the theme editor.
+
+#### Help develop flattish
+
+If you wish to develop the latest, cutting edge (and not completely tested) version of flattish:
+
+1. Clone the flattish repo: `git clone https://github.com/emyarod/flattish.git`
+2. Setup and install the necessary dependencies, [Sass](https://github.com/sass/sass) and [Bourbon](http://bourbon.io/)
+
+---
 
 **After moving the stylesheet to your subreddit and uploading all of the necessary images, be sure to do the following:**
 
@@ -70,21 +87,6 @@ There are three options to get started with using flattish:
 * Edit subreddit settings to label submit buttons (/r/yoursubreddit/about/edit)
 
 ![submit-labels](http://i.imgur.com/62oZlBf.png)
-
-#### Download
-
-[Download the latest release of flattish.css from the project's releases page!](https://github.com/emyarod/flattish/releases)
-
-#### Customize
-
-[Use the flattish customizer to tailor the base stylesheet to your sub!](http://emyarod.github.io/flattish/)
-
-#### Help develop flattish
-
-If you wish to develop the latest, cutting edge (and not completely tested) version of flattish:
-
-1. Clone the flattish repo: `git clone https://github.com/emyarod/flattish.git`
-2. Setup and install the necessary dependencies, [Sass](https://github.com/sass/sass) and [Bourbon](http://bourbon.io/)
 
 ---
 
