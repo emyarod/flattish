@@ -65,7 +65,7 @@ There are three options to get started with using flattish:
 
 * Add the following line to the sidebar of your subreddit
 
-    [This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)
+`[This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)`
 
 * Edit subreddit settings to label submit buttons (/r/yoursubreddit/about/edit)
 
