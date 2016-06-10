@@ -16,12 +16,9 @@
 .res-nightmode .commentarea .menuarea .toggle a { color: $dark-secondary-text; }
 
 .commentarea {
-  position: relative;
-
   .panestack-title,
   .menuarea {
     margin: 0;
-    width: 100%;
   }
 
   // # of comments and thread subscribe button area
