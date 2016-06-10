@@ -123,6 +123,10 @@
   margin-left: 60px;
 }
 
+.res-nightmode .flair-fan {
+  color: #ff99cc;
+}
+
 .res-nightmode .flair-fan,
 .flair-fan {
   font-size: 10px;
@@ -999,6 +1003,7 @@ input[type="text"],
 input[type="password"],
 input[type="url"],
 textarea {
+  border-width: 1px;
   border-color: #757575;
   border-radius: 2px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -1014,7 +1019,7 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-  border-bottom-color: #ffab40 !important;
+  border-color: #ffab40 !important;
 }
 
 .res-nightmode input[type="text"],
@@ -1077,11 +1082,6 @@ textarea {
 
 .RESMacroDropdownList li a:hover {
   background-color: #f5f5f5 !important;
-}
-
-.usertext-edit {
-  margin: 0 auto;
-  max-width: unset !important;
 }
 
 .usertext-edit textarea {
@@ -1716,12 +1716,6 @@ div.content {
 .infobar.newsletterbar {
   width: 100%;
   overflow: visible;
-}
-
-@media (min-width: 992px) {
-  div.content {
-    margin-right: 410px;
-  }
 }
 
 .footer {
@@ -2776,7 +2770,6 @@ label + #moresearchinfo {
   }
   .side {
     width: 330px;
-    margin-right: 64px;
   }
 }
 
@@ -2850,14 +2843,9 @@ body::before {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.commentarea {
-  position: relative;
-}
-
 .commentarea .panestack-title,
 .commentarea .menuarea {
   margin: 0;
-  width: 100%;
 }
 
 .commentarea .panestack-title {
