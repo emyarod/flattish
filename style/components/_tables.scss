@@ -22,15 +22,7 @@ th {
   vertical-align: bottom;
   text-overflow: ellipsis;
   letter-spacing: 0;
-  color: $light-secondary-text;
-}
-
-td:first-of-type,
-th:first-of-type {
-}
-
-td:last-of-type,
-th:last-of-type {
+  color: $light-text;
 }
 
 .res-nightmode tbody tr:hover {
@@ -50,6 +42,5 @@ tbody tr {
 }
 
 td {
-  @include border-width(1px 0 !important) ;
   border-color: $light-divider-text !important;
 }
