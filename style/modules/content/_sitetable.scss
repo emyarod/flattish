@@ -33,13 +33,13 @@
 		}
 
 		.title {
-			color: $link-color-night !important;
+			// color: $link-color-night !important;
 
-	    &:hover { color: $link-color-hover-night !important; }
+	    // &:hover { color: $link-color-hover-night !important; }
 
-	    &:active { color: $link-color-active-night !important; }
+	    // &:active { color: $link-color-active-night !important; }
 
-	    &:visited { color: $link-color-visited-night !important; }
+	    // &:visited { color: $link-color-visited-night !important; }
 		}
 
 		.tagline { color: $dark-text !important; }
@@ -84,7 +84,8 @@
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
-			background-color: rgba($light-app-bar, 1);
+			// background-color: rgba($light-app-bar, 1);
+			background-color: #f7f7f7;
 		}
 
 		.entry.RES-keyNav-activeElement {
