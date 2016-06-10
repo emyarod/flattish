@@ -1,5 +1,9 @@
 // main: ../../flattish.scss
 
+.userbarShow form.logout {
+  display: inline-block !important;
+}
+
 #userbarToggle,
 #header-bottom-right .user,
 #header-bottom-right span a,
@@ -121,18 +125,18 @@
   &:hover { opacity: 1; }
 }
 
-.res #header-bottom-right {
-  @extend #header-bottom-right;
-}
-
+.res #header-bottom-right,
 #header-bottom-right {
   position: absolute;
-  top: 35px;
   height: 20px;
   margin-right: 16px;
   padding: 0;
   background-color: transparent !important;
 }
+
+.res #header-bottom-right { top: 35px; }
+
+#header-bottom-right { top: 40px; }
 
 .res-nightmode #userbarToggle {
   @extend #userbarToggle;
