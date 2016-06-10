@@ -31,6 +31,7 @@
       font-variant: normal;
       line-height: 53px;
       text-transform: lowercase;
+      @include transition-default;
     }
 
     &:hover a {
