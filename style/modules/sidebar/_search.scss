@@ -14,15 +14,9 @@
 	// text field
 	input[type="text"] {
 		height: 39px;
-		outline: none;
 		width: 100%;
-
-		&:hover {
-			// style placeholder text
-			@include placeholder { color: transparent; }
-		}
-
-		&:focus { border-bottom: 1px solid $accent; }
+		border: 0;
+		outline: none;
 	}
 
 	// magnifying glass icon
