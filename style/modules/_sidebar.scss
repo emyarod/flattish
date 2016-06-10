@@ -17,26 +17,7 @@
 	@include transition-default;
 }
 
-.side {
-	position: relative;
-
-	@if $header-large {
-		@if $sidebar-img {
-			top: 297px + $sidebar-img-height + 16px;
-		} @else {
-			top: 297px;
-		}
-	} @else {
-		@if $sidebar-img {
-			top: 223px + $sidebar-img-height + 16px;
-		} @else {
-			top: 223px;
-		}
-	}
-
-	right: 0;
-	width: 0;
-	margin: 0;
+.side {;
 	padding-top: 85px;
 
 	#ad_sponsorship,
@@ -60,18 +41,6 @@
 		}
 	}
 
-	// kebab menu
-	&::before {
-    position: fixed;
-    top: 215px;
-    right: 1.5em;
-    display: block;
-    height: 36px;
-    width: 36px;
-    content: "";
-    background-position: -158px -23px;
-	}
-
 	// transparent element underneath sidebar to prevent flickering during hover
 	&::after {
 	  position: absolute;
@@ -80,16 +49,6 @@
 	  width: 346px;
 	  height: 100%;
 		content: '';
-	}
-
-	&:hover {
-
-		// use TRBL animations due to transforms disabling fixed positioning
-		// .spacer { @include transform(translateX(-346px)); }
-		right: 346px;
-
-		// make kebab disappear on hover
-		&::before { opacity: 0; }
 	}
 
 	.spacer:first-of-type,
@@ -179,7 +138,7 @@
 // sidecontentbox
 @import "sidebar/sidecontentbox";
 
-@media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
+@media (min-width: $screen-md-min) {
 	.side,
 	.side * {
 		z-index: 2; // higher than content z-index
@@ -189,15 +148,8 @@
 		width: 330px;
 		margin-right: 64px;
 
-		&:hover { right: initial; }
-
-		// hide kebab menu icon
-		&::before,
-		&::after, {
+		&::after {
 			display: none;
 		}
-
-		// use TRBL animations due to transforms disabling fixed positioning
-		// &:hover .spacer { @include transform(none); }
 	}
 }
