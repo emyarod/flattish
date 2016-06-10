@@ -19,7 +19,8 @@
 .thumbnail,
 .thumbnail.self,
 .thumbnail.default {
-	border-radius: 50%;
+	// border-radius: 50%;
+	border-radius: 2px;
 	font-size: inherit;
 	margin: 0 16px 0 0;
 	max-height: 70px;
