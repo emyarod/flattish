@@ -1,4 +1,4 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
 .res-nightmode #moderation_tools .title h1,
 .res-nightmode .sidecontentbox .title h1 {
@@ -93,4 +93,8 @@
 			}
 		}
 	}
+}
+
+.sidecontentbox .gadget .right a::after {
+	right: 60px;
 }
