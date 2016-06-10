@@ -5,7 +5,8 @@
 .res-nightmode div.content { background-color: transparent !important; }
 
 div.content {
-	max-width: calc(100% - 503px);
+	margin-right: 350px;
+	// max-width: calc(100% - 503px);
 	margin-left: 93px !important;
 }
 
@@ -13,4 +14,8 @@ div.content {
 .infobar.newsletterbar {
 	width: 100%;
 	overflow: visible;
+}
+
+@media (min-width: $screen-md-min) {
+	div.content { margin-right: 410px; }
 }
