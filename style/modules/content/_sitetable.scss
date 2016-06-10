@@ -180,8 +180,6 @@
 
 .error {	color: $error; }
 
-.entry { overflow: visible; }
-
 .thing[data-type="link"] .entry {
 	margin-left: 133px;
 }
@@ -190,13 +188,13 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
-	margin: 0 5%;
+	margin: 0;
 
 	li {
 		height: 20px;
 		line-height: 18px;
 
-		&.first { flex: 1 1 auto; }
+		&.first { flex: 0 1 auto; }
 
 		&:not(.first) {
 			flex: 0 1 auto;
