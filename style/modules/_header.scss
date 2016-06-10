@@ -10,6 +10,11 @@
 @if $random-header {
   // header image when logged in
   // fallback image for logged out users in content.scss
+  .pinHeader-subanduser,
+  .pinHeader-userbar {
+    input[name=uh] ~ a::after { position: static; }
+  }
+
   input[name=uh] {
     ~ a::after {
       position: absolute;
