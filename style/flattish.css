@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .titlebox blockquote p:nth-of-type(1) {
   background-position: 0 -120px;
 }
@@ -68,6 +67,9 @@
 .titlebox blockquote p,
 .titlebox blockquote ul,
 .titlebox blockquote a {
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
 }
@@ -129,12 +131,50 @@
 
 .res-nightmode .flair-fan,
 .flair-fan {
-  font-size: 10px;
+  font-size: 11px;
   padding: 2px;
   color: #ff007e;
   border: 1px;
   border-style: solid;
   border-color: #d1d1d1;
+}
+
+a[href$="/spoiler"] {
+  background: #00bcd4 !important;
+  color: #00bcd4 !important;
+}
+
+a[href$="/spoiler"]:hover {
+  color: #ffab40 !important;
+}
+
+.linkflair-Discussion .linkflairlabel,
+.linkflair-Edit .linkflairlabel,
+.linkflair-spoiler .linkflairlabel {
+  background-color: transparent;
+  border: none;
+  color: #00bcd4;
+  font-size: 16px;
+}
+
+.linkflair-announcement .linkflairlabel {
+  padding: 2px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #000;
+}
+
+body:not(.comments-page) .linkflair-spoiler a.title {
+  background: #000 !important;
+  color: #000 !important;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body:not(.comments-page) .linkflair-spoiler a.title:hover {
+  background: transparent !important;
+  color: #00bcd4 !important;
 }
 
 .res-nightmode button,
@@ -352,7 +392,7 @@ button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .comm
 .gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice, .locked-infobar,
 #searchexpando, #siteTable > .thing, .guider,
 .link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
-  padding: 8px !important;
+  padding: 5px !important;
   border: 0 !important;
   border-radius: 2px !important;
 }
@@ -604,6 +644,9 @@ select option {
   background-color: #fff;
   opacity: 0;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #sr-header-area .drop-choices.srdrop.inuse, .drop-choices.lightdrop.inuse {
@@ -756,7 +799,6 @@ select option {
 .RESDialogSmall,
 .RESDialogSmall * {
   box-sizing: content-box;
-  border: 0 !important;
 }
 
 @-webkit-keyframes button-ripple {
@@ -901,7 +943,7 @@ th {
   vertical-align: bottom;
   text-overflow: ellipsis;
   letter-spacing: 0;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .res-nightmode tbody tr:hover {
@@ -923,7 +965,6 @@ tbody tr:hover {
 }
 
 td {
-  border-width: 1px 0 !important;
   border-color: rgba(0, 0, 0, 0.12) !important;
 }
 
@@ -1745,9 +1786,14 @@ div.content {
   background: transparent !important;
 }
 
+.pinHeader-subanduser input[name=uh] ~ a::after,
+.pinHeader-userbar input[name=uh] ~ a::after {
+  position: static;
+}
+
 input[name=uh] ~ a::after {
   position: absolute;
-  top: -40px;
+  top: -35px;
   right: -16px;
   z-index: -1;
   width: 100vw;
@@ -1995,38 +2041,6 @@ input[name=uh][value$="9"] ~ a::after {
   background-color: #ffab40 !important;
 }
 
-@media (max-resolution: 1dppx) and (min-width: 992px) {
-  #sr-header-area {
-    position: relative;
-    top: -30px;
-  }
-  #sr-header-area::after {
-    position: absolute;
-    top: 25px;
-    width: 100%;
-    content: '▼';
-    color: rgba(255, 255, 255, 0.57);
-    font-size: 14px;
-    text-align: center;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  }
-  #sr-header-area:hover {
-    top: 0;
-  }
-  #sr-header-area:hover::after {
-    opacity: 0;
-    height: 10px;
-  }
-}
-
-.beta-hint a {
-  top: 5px;
-}
-
-.beta-hint a {
-  top: 5px;
-}
-
 #userbarToggle, .res-nightmode #userbarToggle,
 #header-bottom-right .user,
 #header-bottom-right span a, .res #header-bottom-right span a,
@@ -2194,6 +2208,9 @@ input[name=uh][value$="9"] ~ a::after {
   font-variant: normal;
   line-height: 53px;
   text-transform: lowercase;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #header-bottom-left .pagename:hover a {
@@ -2415,28 +2432,9 @@ input[name=uh][value$="9"] ~ a::after {
 
 #search input[type="text"] {
   height: 39px;
-  outline: none;
   width: 100%;
-}
-
-#search input[type="text"]:hover::-webkit-input-placeholder {
-  color: transparent;
-}
-
-#search input[type="text"]:hover::-moz-placeholder {
-  color: transparent;
-}
-
-#search input[type="text"]:hover:-moz-placeholder {
-  color: transparent;
-}
-
-#search input[type="text"]:hover:-ms-input-placeholder {
-  color: transparent;
-}
-
-#search input[type="text"]:focus {
-  border-bottom: 1px solid #ffab40;
+  border: 0;
+  outline: none;
 }
 
 #search input[type="submit"] {
@@ -3069,6 +3067,24 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
   padding: 2px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 2px;
+  background-color: #fff;
+}
+
+.commentarea .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+  background-color: #fff !important;
+}
+
+.commentarea .comment .comment,
+.commentarea .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment {
+  background-color: #f1f1f1 !important;
 }
 
 .comment .entry {
