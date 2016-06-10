@@ -127,12 +127,6 @@
 	&.dislikes { color: $downvote; }
 }
 
-// mod approved post
-.domain,
-.approval-checkmark {
-	float: right;
-}
-
 // expando related
 .self .expanded ~ .expando .usertext-body {
 	@include animation(0.2s slide-down $animation-curve-default forwards);
