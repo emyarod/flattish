@@ -64,6 +64,7 @@ $night-menu-list-selectors: ('.res-nightmode .RESDropdownList li');
   background-color: $light-cards;
   opacity: 0;
   @include drop-shadow(1);
+  @include transition-default;
 
   &.inuse {
     max-height: 690px;
