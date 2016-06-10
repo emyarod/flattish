@@ -203,9 +203,8 @@ html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .commen
 
 // non-nightmode
 html.res-commentBoxes .comment {
-  margin: 0 0 16px !important;
-  padding: 16px !important;
-  overflow: visible;
+  margin: 0 0 8px !important;
+  padding: 8px !important;
 }
 
 html.res-commentBoxes.res-commentBoxes-rounded .comment {
@@ -215,10 +214,6 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 .res .comment,
 .comment {
 
-  &:hover { @include drop-shadow(3); }
-
-  .md p { margin: 15px 0; }
-
   .child {
     border: 0;
 
@@ -226,37 +221,15 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
   }
 }
 
-.comment { margin: 0 0 16px; }
-
-// odd
-.commentarea .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
-  background-color: $white;
-}
-
-// RES even comments
-.res .commentarea .comment .comment,
-.res .commentarea .comment .comment .comment .comment,
-.res .commentarea .comment .comment .comment .comment .comment .comment,
-.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
-.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
-// default even comments, combined to reduce character count
-.commentarea .comment .comment,
-.commentarea .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
-.commentarea .comment .comment .comment .comment .comment .comment {
-	background-color: $light-background !important;
+.comment {
+  margin: 0 0 16px;
+  border: 1px solid $light-divider-text;
+  border-radius: 2px;
 }
 
 // RES active element highlighting
 .comment .entry {
   border-right: 2px solid transparent;
-  margin-bottom: 16px;
 
   &.RES-keyNav-activeElement {
     border-right-color: $primary;
