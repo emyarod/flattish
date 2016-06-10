@@ -10,15 +10,9 @@
 	background-color: transparent !important;
 }
 
-.res-nightmode .side::before { background-position: 0 -59px; }
-
-.side,
-.side::before {
-	@include transition-default;
-}
-
-.side {;
+.side {
 	padding-top: 85px;
+	width: 330px;
 
 	#ad_sponsorship,
 	#ad_main {
@@ -39,16 +33,6 @@
 			position: relative;
 			top: -85px;
 		}
-	}
-
-	// transparent element underneath sidebar to prevent flickering during hover
-	&::after {
-	  position: absolute;
-		top: 0;
-		z-index: -1;
-	  width: 346px;
-	  height: 100%;
-		content: '';
 	}
 
 	.spacer:first-of-type,
@@ -121,6 +105,8 @@
 			}
 		}
 	}
+
+	@include transition-default;
 }
 
 // login form
@@ -147,9 +133,5 @@
 	.side {
 		width: 330px;
 		margin-right: 64px;
-
-		&::after {
-			display: none;
-		}
 	}
 }
