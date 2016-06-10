@@ -1590,11 +1590,6 @@ h6,
   color: #3f51b5;
 }
 
-.domain,
-.approval-checkmark {
-  float: right;
-}
-
 .self .expanded ~ .expando .usertext-body {
   -webkit-animation: 0.2s slide-down cubic-bezier(0.4, 0, 0.2, 1) forwards;
   -moz-animation: 0.2s slide-down cubic-bezier(0.4, 0, 0.2, 1) forwards;
