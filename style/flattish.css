@@ -989,8 +989,8 @@ input[type="text"],
 input[type="password"],
 input[type="url"],
 textarea {
-  border-width: 0 0 1px !important;
-  border-color: transparent transparent #757575 !important;
+  border-color: #757575;
+  border-radius: 2px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   background-color: transparent !important;
   box-shadow: none !important;
@@ -1019,12 +1019,11 @@ input[type="password"],
 input[type="url"],
 textarea {
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0;
 }
 
 .RESMacroDropdown,
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  right: 1.6em !important;
+  right: 16px !important;
 }
 
 .res-nightmode .RESMacroDropdown {
@@ -1035,17 +1034,17 @@ textarea {
 .RESMacroDropdown {
   display: block;
   margin: 0;
-  font-size: 1em;
+  font-size: 10px;
   border: 0;
-  border-radius: 0.2em;
+  border-radius: 2px;
   background-color: #fff;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  width: 11.8em;
-  max-height: 69em;
-  margin-top: 1em;
+  width: 118px;
+  max-height: 690px;
+  margin-top: 10px;
   transform-origin: 100% 0;
   -webkit-animation: RESmenuopen 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-animation: RESmenuopen 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1063,7 +1062,7 @@ textarea {
 
 .RESMacroDropdownList li a {
   color: rgba(0, 0, 0, 0.87) !important;
-  padding: 1.6em !important;
+  padding: 16px !important;
 }
 
 .RESMacroDropdownList li a:hover {
@@ -1077,7 +1076,7 @@ textarea {
 
 .usertext-edit textarea {
   width: 100%;
-  margin-bottom: 0.64286em !important;
+  margin-bottom: 9px !important;
 }
 
 .usertext-edit > .markdownEditor-wrapper {
@@ -1085,7 +1084,7 @@ textarea {
 }
 
 .bottom-area {
-  margin-bottom: 0.76923em;
+  margin-bottom: 10px;
 }
 
 .res-nightmode .RESDialogSmall.livePreview > h3 {
@@ -3460,7 +3459,8 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 }
 
 .comment {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+  padding: 2px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 2px;
 }
