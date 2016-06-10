@@ -108,13 +108,7 @@
 		.domain a { color: $light-secondary-text; }
 
 		// link action icons
-		.buttons li {
-			a { color: $light-text; }
-
-			// &:not(.first):not(:first-child) { opacity: 0; }
-		}
-
-		// &:hover .buttons li:not(.first):not(:first-child) { opacity: 1; }
+		.buttons li a { color: $light-text; }
 	}
 }
 
