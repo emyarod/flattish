@@ -15,7 +15,3 @@ div.content {
 	width: 100%;
 	overflow: visible;
 }
-
-@media (min-width: $screen-md-min) {
-	div.content { margin-right: 410px; }
-}
