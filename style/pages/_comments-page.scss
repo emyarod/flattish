@@ -223,6 +223,26 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
   padding: 2px;
   border: 1px solid $light-divider-text;
   border-radius: 2px;
+  background-color: $white;
+}
+
+// odd
+.commentarea .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+  background-color: $white !important;
+}
+
+// default even comments, combined to reduce character count
+.commentarea .comment .comment,
+.commentarea .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.commentarea .comment .comment .comment .comment .comment .comment {
+	background-color: $light-background !important;
 }
 
 // RES active element highlighting
