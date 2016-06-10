@@ -1,10 +1,10 @@
 // main: ../flattish.scss
 
 #header {
-  z-index: auto;
-  height: 0;
+  height: 223px;
   border: 0;
   margin-bottom: 15px;
+  background: transparent;
 }
 
 @if $random-header {
@@ -16,7 +16,7 @@
       top: -40px;
       right: -16px;
       z-index: -1;
-      width: 1920px;
+      width: 100vw;
 
       @if $header-large {
         height: 420px;
