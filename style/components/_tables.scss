@@ -7,10 +7,7 @@
 
 table {
   border: 1px solid $light-divider-text;
-  font-size: 13px;
-  white-space: nowrap;
   background-color: $light-cards;
-  @include drop-shadow(1);
 }
 
 thead {
@@ -22,25 +19,18 @@ thead {
 }
 
 th {
-  height: 48px;
-  border: 0 !important;
   vertical-align: bottom;
   text-overflow: ellipsis;
-  line-height: 24px !important;
   letter-spacing: 0;
-  font-size: 12px !important;
   color: $light-secondary-text;
-  padding: 0 18px 8px 18px !important;
 }
 
 td:first-of-type,
 th:first-of-type {
-  padding-left: 24px !important;
 }
 
 td:last-of-type,
 th:last-of-type {
-  padding-right: 24px !important;
 }
 
 .res-nightmode tbody tr:hover {
@@ -48,7 +38,6 @@ th:last-of-type {
 }
 
 tbody tr {
-  height: 48px;
   @include transition(background-color .28s $animation-curve-default);
 
   &:hover {
@@ -61,8 +50,6 @@ tbody tr {
 }
 
 td {
-  height: 48px;
   @include border-width(1px 0 !important) ;
   border-color: $light-divider-text !important;
-  padding: 12px 18px !important;
 }
