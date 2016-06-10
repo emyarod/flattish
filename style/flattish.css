@@ -3161,6 +3161,25 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
   margin-right: 10px;
 }
 
+.flair-fan {
+  font-size: 10px;
+  padding: 2px;
+  color: #ff007e;
+  border: 1px;
+  border-style: solid;
+  border-color: #d1d1d1;
+}
+
+.res-nightmode .flair-fan {
+  font-size: 10px;
+  padding: 2px;
+  color: #ff99cc;
+  border: 1px;
+  border-style: solid;
+  border-color: #d1d1d1;
+}
+
+
 .usertable span {
   display: inline-flex;
 }
