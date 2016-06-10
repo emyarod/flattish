@@ -8,15 +8,6 @@
   color: $light-text;
   font-size: 16px;
   transition: none;
-
-  &:hover {
-    font-size: 0;
-
-    &::after {
-      content: '<3 57';
-      font-size: 16px;
-    }
-  }
 }
 
 .footer-parent,
