@@ -93,6 +93,7 @@
     p,
     ul,
     a {
+      @include transition-default;
       @include border-right-radius(2px);
     }
 
