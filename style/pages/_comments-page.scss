@@ -222,7 +222,8 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 }
 
 .comment {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+  padding: 2px;
   border: 1px solid $light-divider-text;
   border-radius: 2px;
 }
