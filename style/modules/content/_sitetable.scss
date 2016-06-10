@@ -1,5 +1,14 @@
 // main: ../../flattish.scss
 
+.organic-listing {
+	overflow: inherit;
+	border: 0;
+
+	.link.promotedlink.promoted, .link.promotedlink.external {
+		width: 100%;
+	}
+}
+
 // temporary empty state
 #noresults {
 	padding: 16px;
@@ -181,6 +190,7 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
+	margin: 0 5%;
 
 	li {
 		height: 20px;
@@ -218,6 +228,13 @@ a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)
 	height: 20px;
 	width: 20px;
 	font-size: 0;
+}
+
+.pretty-button {
+	margin-bottom: 0;
+	padding: 0;
+	border: 0;
+	background: inherit;
 }
 
 .link-save-button a,
