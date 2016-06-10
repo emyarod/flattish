@@ -1,4 +1,4 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
 .res-nightmode #search {
 
@@ -11,30 +11,6 @@
 }
 
 #search {
-
-	// search label
-	&::before {
-		position: absolute;
-		top: 26px;
-		left: 24px;
-		content: "search";
-		color: transparent;
-		font-size: 13px;
-		@include transition-default;
-	}
-
-	&:hover {
-
-		// search label hover behavior
-		&::before {
-			top: 3px;
-			left: 12px;
-			margin: 0;
-			color: $accent;
-	    @include transform(scale(0.85));
-		}
-	}
-
 	// text field
 	input[type="text"] {
 		height: 39px;
@@ -67,15 +43,14 @@
 // style searchexpando
 #searchexpando {
 	position: relative;
-	top: 17px;
-	right: 16px;
 	z-index: 2147483647; // WTF RES?????
-	width: 330px;
 	margin: 0;
 	font-size: 10px;
 	transition: initial;
 	border: 0;
 	border-radius: 0 0 2px 2px;
+	background-color: transparent;
+	box-shadow: none !important;
 
 	label {
 		font-size: 13px;
