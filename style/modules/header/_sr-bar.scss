@@ -7,8 +7,6 @@
 }
 
 #sr-header-area {
-  position: relative;
-  top: 0;
   z-index: 20;
   height: em(30, 10);
   border: 0;
@@ -16,18 +14,6 @@
   line-height: em(30, 10);
   overflow: visible !important; // for RES subreddit manager users
 
-  // // triangle icon
-  // &::after {
-  //   position: absolute;
-  //   top: 25px;
-  //   width: 100%;
-  //   content: '▼';
-  //   color: rgba($white, 0.57);
-  //   font-size: 14px;
-  //   text-align: center;
-  //   text-shadow: $text-shadow;
-  // }
-  //
   &:hover {
     top: 0;
 
@@ -112,7 +98,7 @@
     &:hover {
       top: 0;
 
-      &::after { opacity: 0; }
+      &::after { opacity: 0; height: 10px; }
     }
   }
 }
