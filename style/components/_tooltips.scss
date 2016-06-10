@@ -83,8 +83,8 @@ $tooltip-selector-map: (
   ),
   spam-button: (
 		selector-name: 'a[data-event-action="spam"]',
-		background-position: -198px -97px,
-		background-night-position: -96px -63px,
+		background-position: -198px -97px !important,
+		background-night-position: -96px -63px !important,
 		width-tooltip: 38,
 		width-parent: 20,
 		content-tooltip: 'Spam',
@@ -92,8 +92,8 @@ $tooltip-selector-map: (
   ),
   remove-button: (
 		selector-name: 'a[data-event-action="remove"]',
-		background-position: -200px -77px,
-		background-night-position: -36px -63px,
+		background-position: -200px -77px !important,
+		background-night-position: -36px -63px !important,
 		width-tooltip: 50,
 		width-parent: 20,
 		content-tooltip: 'Remove',
@@ -270,7 +270,7 @@ $font-size-tooltip: 14px;
 }
 
 #{$spritesheet-tooltip-selectors} {
-  background-image: url(%%spritesheet%%);
+  background-image: url(%%spritesheet%%) !important;
 }
 
 #{$default-height-selectors} {
