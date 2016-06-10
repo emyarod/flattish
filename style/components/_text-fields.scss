@@ -9,15 +9,14 @@ input[type="text"],
 input[type="password"],
 input[type="url"],
 textarea {
-  // @include border-width(0 0 1px !important);
+  border-width: 1px;
   border-color: get-color("grey", "600");
-  // @include border-color(transparent transparent get-color("grey", "600") !important);
   border-radius: 2px;
   font-family: $font-stack;
   background-color: transparent !important;
   box-shadow: none !important;
 
-  &:focus { border-bottom-color: $accent !important; }
+  &:focus { border-color: $accent !important; }
 }
 
 // nightmode
@@ -81,8 +80,6 @@ textarea {
 
 // text editor container
 .usertext-edit {
-  margin: 0 auto;
-  max-width: unset !important;
 
   textarea {
     width: 100%;
