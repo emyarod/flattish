@@ -111,10 +111,10 @@
 		.buttons li {
 			a { color: $light-text; }
 
-			&:not(.first):not(:first-child) { opacity: 0; }
+			// &:not(.first):not(:first-child) { opacity: 0; }
 		}
 
-		&:hover .buttons li:not(.first):not(:first-child) { opacity: 1; }
+		// &:hover .buttons li:not(.first):not(:first-child) { opacity: 1; }
 	}
 }
 
@@ -206,83 +206,4 @@
 			}
 		}
 	}
-}
-
-li a.post-sharing-button,
-.link-save-button a,
-.link-unsave-button a,
-.hide-button a,
-.unhide-button a,
-a[data-event-action="delete"],
-a[data-event-action="spam"],
-a[data-event-action="remove"],
-.approve-button a,
-.reportbtn,
-a[data-event-action="lock"],
-a[data-event-action="unlock"],
-a[data-event-action="marknsfw"],
-a[data-event-action="unmarknsfw"],
-a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)"] {
-	height: 20px;
-	width: 20px;
-	font-size: 0;
-}
-
-.pretty-button {
-	margin-bottom: 0;
-	padding: 0;
-	border: 0;
-	background: inherit;
-}
-
-.link-save-button a,
-.link-unsave-button a,
-.state-button a[action="hide"],
-a[data-event-action="hide"],
-.state-button a[action="unhide"],
-a[data-event-action="unhide"], {
-	transition: background 1s steps(59);
-}
-
-.res-nightmode .thing:not(.saved) .link-save-button a,
-.res-nightmode .thing:not(.saved) .link-unsave-button a {
-	background: url(%%save%%) 0 -20px;
-}
-.res-nightmode .saved .link-unsave-button a,
-.res-nightmode .saved .link-save-button a {
-	background: url(%%save%%) -1180px -20px;
-}
-
-// save button
-.thing:not(.saved) .link-save-button a,
-.thing:not(.saved) .link-unsave-button a {
-	background: url(%%save%%) 0 0;
-}
-
-// unsave button
-.saved .link-unsave-button a,
-.saved .link-save-button a {
-	background: url(%%save%%) -1180px 0;
-}
-
-// hide button
-.state-button a[action="hide"],
-a[data-event-action="hide"] {
-	background: url(%%hide%%) 0 0;
-}
-
-.res-nightmode .state-button a[action="hide"],
-.res-nightmode a[data-event-action="hide"] {
-	background: url(%%hide%%) 0 -20px;
-}
-
-// unhide button
-.state-button a[action="unhide"],
-a[data-event-action="unhide"] {
-	background: url(%%hide%%) -1180px 0;
-}
-
-.res-nightmode .state-button a[action="unhide"],
-.res-nightmode a[data-event-action="unhide"] {
-	background: url(%%hide%%) -1180px -20px;
 }
