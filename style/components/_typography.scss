@@ -30,36 +30,6 @@ h6,
   color: set-text-color($light-cards, text);
 }
 
-h1,
-.md h1 {
-  font-size: 36px;
-}
-
-h2,
-.md h2 {
-  font-size: 30px;
-}
-
-h3,
-.md h3 {
-  font-size: 24px;
-}
-
-h4,
-.md h4 {
-  font-size: 18px;
-}
-
-h5,
-.md h5 {
-  font-size: 14px;
-}
-
-h6,
-.md h6 {
-  font-size: 12px;
-}
-
 .res-nightmode .gray { color: $dark-secondary-text; }
 .gray { color: $light-secondary-text; }
 
