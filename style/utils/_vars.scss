@@ -30,8 +30,8 @@ $link-color-active-night: get-color('blue', '700');
 $link-color-visited-night: get-color('deep-purple', '300');
 
 // vote arrows
-$upvote: get-color('deep-orange', '500');
-$downvote: get-color('indigo', '500');
+$upvote: #c60c30;
+$downvote: #063c6d;
 
 // misc
 $nsfw: get-color('red', 'A200');
@@ -39,7 +39,7 @@ $tooltip: rgba(get-color('grey', '700'), 0.9);
 $error: rgb(222, 55, 38);
 
 // typography
-$font-stack: ('Roboto', 'Helvetica', 'Arial', sans-serif);
+$font-stack: ('Helvetica', 'Arial', sans-serif);
 
 // shadows
 $shadow-key-umbra-opacity: 0.2;
