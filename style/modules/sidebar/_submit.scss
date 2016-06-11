@@ -1,4 +1,4 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
 .submit-link,
 .submit-text {
@@ -39,6 +39,7 @@
 		font-size: 14px;
 		font-weight: bold;
 		content: "Submit a new:";
+		padding: 8px !important;
 	}
 }
 
