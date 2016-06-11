@@ -1,7 +1,7 @@
 // main: ../flattish.scss
 
-.res-nightmode .flair-fan { color: #ff99cc !important; }
-.flair-fan { color: #ff007e; }
+.res-nightmode .flair-fan { color: $pink-night !important; }
+.flair-fan { color: $pink; }
 
 .res-nightmode .flair-fan,
 .flair-fan {
