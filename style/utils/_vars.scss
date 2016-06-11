@@ -148,17 +148,17 @@ $pinned-map: (
 );
 
 // sticky link/menu background image positions
-$album-bgp: 0 0;
-$album-night-bgp: -60px 0;
+$album-bgp: 0 -10px;
+$album-night-bgp: -60px -10px;
 $notice-bgp: -120px 0;
 $notice-night-bgp: 0 -60px;
-$calendar-bgp: -60px -60px;
-$calendar-night-bgp: -120px -60px;
-$help-bgp: 0 -120px;
-$help-night-bgp: -60px -120px;
+$calendar-bgp: -60px -70px;
+$calendar-night-bgp: -120px -70px;
+$help-bgp: 0 -130px;
+$help-night-bgp: -60px -130px;
 $info-bgp: -120px -120px;
 $info-night-bgp: -180px 0;
-$media-bgp: -180px -60px;
-$media-night-bgp: -180px -120px;
-$shows-bgp: 0 -180px;
-$shows-night-bgp: -60px -180px;
+$media-bgp: -180px -70px;
+$media-night-bgp: -180px -130px;
+$shows-bgp: 0 -190px;
+$shows-night-bgp: -60px -190px;
