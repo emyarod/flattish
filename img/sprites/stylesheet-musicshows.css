@@ -1,0 +1,41 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-music-show-icon_01 {
+    width: 104px;
+    height: 100px;
+    background-position: -1px -1px;
+}
+
+.sprite-music-show-icon_02 {
+    width: 104px;
+    height: 100px;
+    background-position: -107px -1px;
+}
+
+.sprite-music-show-icon_03 {
+    width: 104px;
+    height: 100px;
+    background-position: -1px -103px;
+}
+
+.sprite-music-show-icon_04 {
+    width: 104px;
+    height: 100px;
+    background-position: -107px -103px;
+}
+
+.sprite-music-show-icon_05 {
+    width: 104px;
+    height: 100px;
+    background-position: -213px -1px;
+}
+
+.sprite-music-show-icon_06 {
+    width: 104px;
+    height: 100px;
+    background-position: -213px -103px;
+}
