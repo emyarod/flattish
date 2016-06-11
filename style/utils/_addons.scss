@@ -34,7 +34,6 @@
   $sticky-link-images: ();
   $sticky-menu-images: ();
 
-
   @each $key, $map in $pinned-map {
     $type: map-get($map, type);
     $image: map-get($map, image);
@@ -62,7 +61,44 @@
     }
   }
 
-  .res-nightmode .titlebox blockquote::after { background-color: $dark-cards; }
+  .res-nightmode .titlebox blockquote {
+    p {
+      background-color: $dark-background;
+
+      a {
+        color: $dark-secondary-text !important;
+        background-color: $dark-background;
+      }
+    }
+
+    ul:first-of-type {
+      background-color: $dark-background;
+
+      li:first-of-type {
+        color: $dark-secondary-text !important;
+        background-color: $dark-background;
+      }
+
+      li:not(:first-of-type) {
+        color: $dark-secondary-text !important;
+        background-color: $dark-background;
+
+        &:hover { color: $light-primary; }
+
+        a { color: $dark-secondary-text; }
+      }
+    }
+
+    ul:nth-of-type(2) {
+      background-color: $dark-background;
+
+
+      li:first-of-type {
+        color: $dark-secondary-text !important;
+        background-color: $dark-background;
+      }
+    }
+  }
 
   .titlebox blockquote {
     @if $header-large {
@@ -71,24 +107,9 @@
       top: 239px;
     }
 
-    position: absolute;
-    left: 16px;
     border: 0;
     margin: 0 !important;
     padding: 0;
-
-    &::after {
-      position: absolute;
-      top: 0;
-      z-index: -1;
-      display: block;
-      height: 100%;
-      width: 60px;
-      content: '';
-      border-radius: 2px;
-      @include drop-shadow(1);
-      background-color: $light-cards;
-    }
 
     p,
     ul,
@@ -99,54 +120,155 @@
 
     p,
     ul {
-      width: 60px;
-      height: 60px;
-      margin: 0 !important;
-      overflow: hidden;
       background: url(%%stickies%%) no-repeat;
     }
 
-    p:hover {
+    p {
       width: 100%;
-      background-color: $primary !important;
-    }
+      height: 40px;
+      margin: 10px 0 !important;
+      background-color: $light-background;
 
-    a {
-      display: block;
-      height: 60px;
-      border: 0;
-      margin-left: 60px;
-      padding: 0 16px;
-      line-height: 60px;
-      font-size: 14px;
-      color: $dark-text !important;
-      background-clip: padding-box;
-      background-color: rgba($tooltip, 1);
+      &:hover { background-color: $light-primary; }
 
-      &:hover {
-        color: $primary !important;
+      a {
+        display: block;
+        height: 40px;
+        border-color: transparent;
+        border-style: solid;
+        @include border-width(0 0 0 60px);
+        padding: 0;
+        line-height: 40px;
+        font-size: 14px;
+        color: $light-secondary-text !important;
+        font-weight: bold;
+        background-color: $light-background;
+        background-clip: padding-box;
+
+        &:hover {
+          background-color: $light-primary;
+          color: $dark-text !important;
+        }
       }
     }
 
     ul {
-      padding: 0;
-      background-color: transparent !important;
+      padding-left: 0;
+    }
 
-      &:hover {
-        width: 100%;
-        overflow: visible;
-        background-color: $primary !important;
+    ul:first-of-type {
+      padding-left: 0;
+      // background: url(%%stickies%%) no-repeat;
+      background-color: $light-background;
+
+      li:first-of-type {
+        height: 40px;
+        margin-left: 60px;
+        line-height: 40px;
+        font-size: 14px;
+        color: $light-secondary-text !important;
+        font-weight: bold;
+        background-color: $light-background;
       }
 
-      li {
-        list-style-type: none;
+      li:not(:first-of-type) {
+        padding: 5px 0 5px 10px;
+        line-height: 20px;
+        font-size: 14px;
+        color: $light-secondary-text !important;
+        background-color: $light-background;
+        @include transition-default;
 
-        // different styles for links within ul
+        &:hover {
+          background-color: $tooltip;
+
+          a {
+            font-weight: bold;
+            color: $light-primary;
+          }
+        }
+
         a {
-          border: 0;
-          margin-left: 60px;
+          display: block;
+          color: $light-secondary-text;
         }
       }
     }
+
+    ul:nth-of-type(2) {
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: center;
+      align-items: flex-start;
+      margin-top: 5px;
+      background-color: $light-background;
+
+
+      li:first-of-type {
+        height: 40px;
+        width: 100%;
+        margin-left: 60px;
+        line-height: 40px;
+        font-size: 14px;
+        color: $light-secondary-text !important;
+        font-weight: bold;
+        background-color: $light-background;
+      }
+
+      li:not(:first-of-type) {
+        height: 100px;
+        width: 104px;
+        // background-color: $dark-cards;
+        margin-bottom: 5px;
+        display: block;
+        position: relative;
+        width: 104px;
+        height: 100px;
+        overflow: hidden;
+
+        &:hover::before {
+          transform: scale(1.25);
+        }
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          content: '';
+          background: url(%%spritesheet-musicshows%%);
+          @include transition-default;
+        }
+
+        a {
+          background: $scrim;
+          display: block;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          line-height: 180px;
+          font-weight: bold;
+          color: $dark-secondary-text;
+          text-transform: uppercase;
+          font-size: 10px;
+          @include transition-default;
+
+          &:hover { color: $pink; }
+        }
+      }
+
+      li:nth-of-type(2)::before { background-position: -107px -1px; }
+      li:nth-of-type(3)::before { background-position: -213px -1px; }
+      li:nth-of-type(4)::before { background-position: -107px -103px; }
+      li:nth-of-type(5)::before { background-position: -1px -1px; }
+      li:nth-of-type(6)::before { background-position: -213px -103px; }
+      li:nth-of-type(7)::before { background-position: -1px -103px; }
+    }
+
+    li { list-style-type: none; }
   }
 }
