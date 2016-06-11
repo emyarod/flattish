@@ -31,7 +31,17 @@
       font-variant: normal;
       line-height: 53px;
       text-transform: lowercase;
-      @include transition-default;
+      // @include transition-default;
+
+      &:hover {
+        font-size: 0;
+
+        &::after {
+          font-size: 16px;
+          content: '케이팝';
+          color: #ff007e;
+        }
+      }
     }
 
     &:hover a {
