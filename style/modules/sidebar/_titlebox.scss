@@ -1,4 +1,4 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
 .res-nightmode .titlebox {
 
@@ -36,6 +36,7 @@
 
 .titlebox {
 	z-index: 0;
+	padding: 8px;
 
 	// title
 	a.hover {
