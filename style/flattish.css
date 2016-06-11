@@ -1,52 +1,82 @@
 @charset "UTF-8";
 .titlebox blockquote p:nth-of-type(1) {
-  background-position: 0 -120px;
+  background-position: 0 -130px;
 }
 
 .res-nightmode .titlebox blockquote p:nth-of-type(1) {
-  background-position: -60px -120px;
+  background-position: -60px -130px;
 }
 
 .titlebox blockquote p:nth-of-type(2) {
-  background-position: 0 0;
+  background-position: 0 -10px;
 }
 
 .res-nightmode .titlebox blockquote p:nth-of-type(2) {
-  background-position: -60px 0;
+  background-position: -60px -10px;
 }
 
 .titlebox blockquote p:nth-of-type(3) {
-  background-position: -60px -60px;
+  background-position: -60px -70px;
 }
 
 .res-nightmode .titlebox blockquote p:nth-of-type(3) {
-  background-position: -120px -60px;
+  background-position: -120px -70px;
 }
 
 .titlebox blockquote ul:nth-of-type(1) {
-  background-position: -180px -60px;
+  background-position: -180px -70px;
 }
 
 .res-nightmode .titlebox blockquote ul:nth-of-type(1) {
-  background-position: -180px -120px;
+  background-position: -180px -130px;
 }
 
 .titlebox blockquote ul:nth-of-type(2) {
-  background-position: 0 -180px;
+  background-position: 0 -190px;
 }
 
 .res-nightmode .titlebox blockquote ul:nth-of-type(2) {
-  background-position: -60px -180px;
+  background-position: -60px -190px;
 }
 
-.res-nightmode .titlebox blockquote ul {
-  padding: 0;
-  background-color: transparent !important;
+.res-nightmode .titlebox blockquote p {
+  background-color: #303030;
 }
 
-.res-nightmode .titlebox blockquote ul:nth-of-type(1):hover ~ ul li {
-  background-color: #424242;
-  color: transparent !important;
+.res-nightmode .titlebox blockquote p a {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background-color: #303030;
+}
+
+.res-nightmode .titlebox blockquote ul:first-of-type {
+  background-color: #303030;
+}
+
+.res-nightmode .titlebox blockquote ul:first-of-type li:first-of-type {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background-color: #303030;
+}
+
+.res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type) {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background-color: #303030;
+}
+
+.res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type):hover {
+  color: #4dd0e1;
+}
+
+.res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type) a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.res-nightmode .titlebox blockquote ul:nth-of-type(2) {
+  background-color: #303030;
+}
+
+.res-nightmode .titlebox blockquote ul:nth-of-type(2) li:first-of-type {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background-color: #303030;
 }
 
 .titlebox blockquote {
@@ -59,140 +89,190 @@
 .titlebox blockquote p,
 .titlebox blockquote ul,
 .titlebox blockquote a {
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-.titlebox blockquote li {
+.titlebox blockquote p,
+.titlebox blockquote ul {
+  background: url(%%stickies%%) no-repeat;
+}
+
+.titlebox blockquote p {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 !important;
+  background-color: #f1f1f1;
+}
+
+.titlebox blockquote p:hover {
+  background-color: #4dd0e1;
+}
+
+.titlebox blockquote p a {
+  display: block;
+  height: 40px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 0 0 60px;
+  padding: 0;
+  line-height: 40px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-weight: bold;
+  background-color: #f1f1f1;
+  background-clip: padding-box;
+}
+
+.titlebox blockquote p a:hover {
+  background-color: #4dd0e1;
+  color: #fff !important;
+}
+
+.titlebox blockquote ul {
+  padding-left: 0;
+}
+
+.titlebox blockquote ul:first-of-type {
+  padding-left: 0;
+  background-color: #f1f1f1;
+}
+
+.titlebox blockquote ul:first-of-type li:first-of-type {
+  height: 40px;
+  margin-left: 60px;
+  line-height: 40px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+.titlebox blockquote ul:first-of-type li:not(:first-of-type) {
+  padding: 5px 0 5px 10px;
+  line-height: 20px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54) !important;
+  background-color: #f1f1f1;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.titlebox blockquote p,
-.titlebox blockquote ul {
-  height: 60px;
-  margin: 0 !important;
-  overflow: hidden;
-  background: url(%%stickies%%) no-repeat;
+.titlebox blockquote ul:first-of-type li:not(:first-of-type):hover {
+  background-color: rgba(97, 97, 97, 0.9);
 }
 
-.titlebox blockquote p:hover {
+.titlebox blockquote ul:first-of-type li:not(:first-of-type):hover a {
+  font-weight: bold;
+  color: #4dd0e1;
+}
+
+.titlebox blockquote ul:first-of-type li:not(:first-of-type) a {
+  display: block;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.titlebox blockquote ul:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-start;
+  margin-top: 5px;
+  background-color: #f1f1f1;
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:first-of-type {
+  height: 40px;
   width: 100%;
-  background-color: #00bcd4 !important;
-}
-
-.titlebox blockquote p:hover a {
-  background-color: #4dd0e1;
-}
-
-.titlebox blockquote p:hover::before {
-  position: absolute;
-  top: 0;
-  left: -60px;
-  display: block;
-  height: 40px;
-  width: 60px;
-  content: '';
-  background-color: rgba(97, 97, 97, 0.9);
-  pointer-events: none;
-}
-
-.titlebox blockquote ul li:first-of-type,
-.titlebox blockquote a {
-  display: block;
-  height: 60px;
-  border: 0;
   margin-left: 60px;
-  padding: 0 16px;
-  line-height: 60px;
-  font-size: 14px;
-  color: #fff !important;
-  background-clip: padding-box;
-  background-color: #616161;
-}
-
-.titlebox blockquote li a:hover {
-  color: #00bcd4 !important;
-}
-
-.titlebox blockquote ul {
-  padding: 0;
-  background-color: transparent !important;
-}
-
-.titlebox blockquote ul:nth-of-type(1):hover li a {
-  top: -240px;
-  height: 60px;
-}
-
-.titlebox blockquote ul:nth-of-type(1):hover li a::before {
-  position: absolute;
-  top: 0;
-  left: -60px;
-  display: block;
-  height: 60px;
-  width: 60px;
-  content: '';
-  background-color: rgba(97, 97, 97, 0.9);
-  pointer-events: none;
-}
-
-.titlebox blockquote ul:nth-of-type(1):hover ~ ul li {
-  background-color: white;
-}
-
-.titlebox blockquote ul:nth-of-type(1):hover li:last-of-type a::after {
-  position: absolute;
-  top: 120px;
-  left: -60px;
-  display: block;
-  height: 60px;
-  width: 60px;
-  content: '';
-  background-color: rgba(97, 97, 97, 0.9);
-  pointer-events: none;
-}
-
-.titlebox blockquote ul:nth-of-type(2):hover li a {
-  top: -300px;
-  height: 40px;
   line-height: 40px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-weight: bold;
+  background-color: #f1f1f1;
 }
 
-.titlebox blockquote ul:nth-of-type(2):hover li a::before {
+.titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) {
+  height: 100px;
+  width: 104px;
+  margin-bottom: 5px;
+  display: block;
+  position: relative;
+  width: 104px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type):hover::before {
+  transform: scale(1.25);
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type)::before {
   position: absolute;
   top: 0;
-  left: -60px;
-  display: block;
-  height: 40px;
-  width: 60px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
   content: '';
-  background-color: rgba(97, 97, 97, 0.9);
-  pointer-events: none;
+  background: url(%%spritesheet-musicshows%%);
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.titlebox blockquote ul:hover {
-  overflow: visible;
-  background-color: #00bcd4 !important;
+.titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) a {
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%);
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 180px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  font-size: 10px;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.titlebox blockquote ul:hover li:first-of-type {
-  background-color: #4dd0e1;
+.titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) a:hover {
+  color: #ff007e;
 }
 
-.titlebox blockquote ul:hover li a {
-  position: relative;
-  background-color: #424242;
+.titlebox blockquote ul:nth-of-type(2) li:nth-of-type(2)::before {
+  background-position: -107px -1px;
 }
 
-.titlebox blockquote ul li {
+.titlebox blockquote ul:nth-of-type(2) li:nth-of-type(3)::before {
+  background-position: -213px -1px;
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:nth-of-type(4)::before {
+  background-position: -107px -103px;
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:nth-of-type(5)::before {
+  background-position: -1px -1px;
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:nth-of-type(6)::before {
+  background-position: -213px -103px;
+}
+
+.titlebox blockquote ul:nth-of-type(2) li:nth-of-type(7)::before {
+  background-position: -1px -103px;
+}
+
+.titlebox blockquote li {
   list-style-type: none;
-}
-
-.titlebox blockquote ul li:first-of-type, .titlebox blockquote ul li a {
-  border: 0;
-  margin-left: 60px;
 }
 
 .res-nightmode .flair-fan {
@@ -221,18 +301,42 @@ button {
   font-size: 10px !important;
 }
 
-.res-nightmode .titlebox a.option,
 .titlebox a.option {
-  color: #4caf50 !important;
+  color: #fff !important;
+  background: #4caf50 radial-gradient(circle, rgba(0, 0, 0, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+}
+
+.titlebox a.option:focus {
+  outline: 0;
+  background-size: 1000% !important;
+}
+
+.titlebox a.option:hover {
+  background-color: #81c784 !important;
 }
 
 .res-fancy-toggle-button {
   font-size: 10px !important;
 }
 
-.res-nightmode .res-fancy-toggle-button,
 .res-fancy-toggle-button {
-  color: #4caf50 !important;
+  color: #fff !important;
+  background: #4caf50 radial-gradient(circle, rgba(0, 0, 0, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+  -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+  transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
+}
+
+.res-fancy-toggle-button:focus {
+  outline: 0;
+  background-size: 1000% !important;
+}
+
+.res-fancy-toggle-button:hover {
+  background-color: #81c784 !important;
 }
 
 .side a[href="/r/kpop/about/rules"] {
@@ -308,35 +412,35 @@ button, .submit-page button[type="submit"], #sr-form .save-button button, .submi
   font-size: 14px !important;
 }
 
-.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .guiders_button {
+.res-nightmode button, .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .guiders_button {
   background-color: transparent !important;
 }
 
-.res-nightmode button:hover, .res-nightmode .titlebox a.option:hover, .res-nightmode .res-fancy-toggle-button:hover, .res-nightmode .commentarea .menuarea .spacer + .spacer form:hover, .res-nightmode #REScommentSubToggle:hover, .res-nightmode .guiders_button:hover {
+.res-nightmode button:hover, .res-nightmode .commentarea .menuarea .spacer + .spacer form:hover, .res-nightmode #REScommentSubToggle:hover, .res-nightmode .guiders_button:hover {
   background-color: rgba(204, 204, 204, 0.15) !important;
 }
 
-.res-nightmode button:focus:not(:active), .res-nightmode .titlebox a.option:focus:not(:active), .res-nightmode .res-fancy-toggle-button:focus:not(:active), .res-nightmode .commentarea .menuarea .spacer + .spacer form:focus:not(:active), .res-nightmode #REScommentSubToggle:focus:not(:active), .res-nightmode .guiders_button:focus:not(:active) {
+.res-nightmode button:focus:not(:active), .res-nightmode .commentarea .menuarea .spacer + .spacer form:focus:not(:active), .res-nightmode #REScommentSubToggle:focus:not(:active), .res-nightmode .guiders_button:focus:not(:active) {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.res-nightmode button:active, .res-nightmode .titlebox a.option:active, .res-nightmode .res-fancy-toggle-button:active, .res-nightmode .commentarea .menuarea .spacer + .spacer form:active, .res-nightmode #REScommentSubToggle:active, .res-nightmode .guiders_button:active {
+.res-nightmode button:active, .res-nightmode .commentarea .menuarea .spacer + .spacer form:active, .res-nightmode #REScommentSubToggle:active, .res-nightmode .guiders_button:active {
   background-color: rgba(204, 204, 204, 0.25) !important;
 }
 
-button, .titlebox a.option, .res-fancy-toggle-button, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .guiders_button {
+button, .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .guiders_button {
   background: none transparent !important;
 }
 
-button:hover, .titlebox a.option:hover, .res-fancy-toggle-button:hover, .commentarea .menuarea .spacer + .spacer form:hover, #REScommentSubToggle:hover, .guiders_button:hover {
+button:hover, .commentarea .menuarea .spacer + .spacer form:hover, #REScommentSubToggle:hover, .guiders_button:hover {
   background-color: rgba(153, 153, 153, 0.2) !important;
 }
 
-button:focus:not(:active), .titlebox a.option:focus:not(:active), .res-fancy-toggle-button:focus:not(:active), .commentarea .menuarea .spacer + .spacer form:focus:not(:active), #REScommentSubToggle:focus:not(:active), .guiders_button:focus:not(:active) {
+button:focus:not(:active), .commentarea .menuarea .spacer + .spacer form:focus:not(:active), #REScommentSubToggle:focus:not(:active), .guiders_button:focus:not(:active) {
   background-color: rgba(0, 0, 0, 0.12) !important;
 }
 
-button:active, .titlebox a.option:active, .res-fancy-toggle-button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScommentSubToggle:active, .guiders_button:active {
+button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScommentSubToggle:active, .guiders_button:active {
   background-color: rgba(153, 153, 153, 0.4) !important;
 }
 
@@ -927,8 +1031,6 @@ select option {
 .thing.over18 > .thumbnail,
 .pref-lang.choice,
 .logout a,
-#header-img,
-#header-img.default-header,
 .res-nightmode .side::before,
 .side::before,
 .res-nightmode #search input[type="submit"],
@@ -1273,11 +1375,11 @@ input[type="checkbox"]:disabled {
   cursor: auto;
 }
 
-.res-nightmode .login-form-side input[type="checkbox"] + label::before, .res-nightmode .c-checkbox input[type="checkbox"] + label::before, .res-nightmode .flairtoggle input[type="checkbox"] + label::before, .res-nightmode .linefield input[type="checkbox"] + label::before, .res-nightmode .roundfield-content input[type="checkbox"] + label::before {
+.res-nightmode .login-form-side input[type="checkbox"] + label::before, .res-nightmode .c-checkbox input[type="checkbox"] + label::before, .res-nightmode .flairtoggle input[type="checkbox"] + label::before, .res-nightmode .sr_style_toggle input[type="checkbox"] + label::before, .res-nightmode .linefield input[type="checkbox"] + label::before, .res-nightmode .roundfield-content input[type="checkbox"] + label::before {
   border: 2px solid rgba(255, 255, 255, 0.7) !important;
 }
 
-.login-form-side input[type="checkbox"], .c-checkbox input[type="checkbox"], .flairtoggle input[type="checkbox"], .linefield input[type="checkbox"], .roundfield-content input[type="checkbox"] {
+.login-form-side input[type="checkbox"], .c-checkbox input[type="checkbox"], .flairtoggle input[type="checkbox"], .sr_style_toggle input[type="checkbox"], .linefield input[type="checkbox"], .roundfield-content input[type="checkbox"] {
   display: none;
   width: 0;
   height: 0;
@@ -1292,7 +1394,7 @@ input[type="checkbox"]:disabled {
   appearance: none;
 }
 
-.login-form-side input[type="checkbox"] + label::before, .c-checkbox input[type="checkbox"] + label::before, .flairtoggle input[type="checkbox"] + label::before, .linefield input[type="checkbox"] + label::before, .roundfield-content input[type="checkbox"] + label::before {
+.login-form-side input[type="checkbox"] + label::before, .c-checkbox input[type="checkbox"] + label::before, .flairtoggle input[type="checkbox"] + label::before, .sr_style_toggle input[type="checkbox"] + label::before, .linefield input[type="checkbox"] + label::before, .roundfield-content input[type="checkbox"] + label::before {
   display: inline-block;
   height: 16px;
   width: 16px;
@@ -1304,7 +1406,7 @@ input[type="checkbox"]:disabled {
   cursor: pointer;
 }
 
-.login-form-side input[type="checkbox"]:checked + label::before, .c-checkbox input[type="checkbox"]:checked + label::before, .flairtoggle input[type="checkbox"]:checked + label::before, .linefield input[type="checkbox"]:checked + label::before, .roundfield-content input[type="checkbox"]:checked + label::before {
+.login-form-side input[type="checkbox"]:checked + label::before, .c-checkbox input[type="checkbox"]:checked + label::before, .flairtoggle input[type="checkbox"]:checked + label::before, .sr_style_toggle input[type="checkbox"]:checked + label::before, .linefield input[type="checkbox"]:checked + label::before, .roundfield-content input[type="checkbox"]:checked + label::before {
   border-color: #00bcd4 !important;
   background: #00bcd4 url(%%spritesheet%%) -246px -138px;
   -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1364,6 +1466,112 @@ input[type="checkbox"]:disabled {
 .toggleButton .toggleOn,
 .toggleButton .toggleOff {
   display: none;
+}
+
+a[href$="#twitter-btn"]:hover::after {
+  -webkit-transform: translateY(44px);
+  -moz-transform: translateY(44px);
+  -ms-transform: translateY(44px);
+  -o-transform: translateY(44px);
+  transform: translateY(44px);
+}
+
+a[href$="#twitter-btn"]::after {
+  right: 13px;
+  width: 76px;
+  content: "Twitter";
+}
+
+a[href$="#lastfm-btn"]:hover::after {
+  -webkit-transform: translateY(44px);
+  -moz-transform: translateY(44px);
+  -ms-transform: translateY(44px);
+  -o-transform: translateY(44px);
+  transform: translateY(44px);
+}
+
+a[href$="#lastfm-btn"]::after {
+  right: 15px;
+  width: 80px;
+  content: "Last.fm";
+}
+
+a[href$="#steam-btn"]:hover::after {
+  -webkit-transform: translateY(44px);
+  -moz-transform: translateY(44px);
+  -ms-transform: translateY(44px);
+  -o-transform: translateY(44px);
+  transform: translateY(44px);
+}
+
+a[href$="#steam-btn"]::after {
+  right: 12px;
+  width: 74px;
+  content: "Steam";
+}
+
+a[href$="#irc-btn"]:hover::after {
+  -webkit-transform: translateY(44px);
+  -moz-transform: translateY(44px);
+  -ms-transform: translateY(44px);
+  -o-transform: translateY(44px);
+  transform: translateY(44px);
+}
+
+a[href$="#irc-btn"]::after {
+  right: 18px;
+  width: 86px;
+  content: "Snoonet IRC";
+}
+
+.sidecontentbox .gadget .right a {
+  background-position: -116px 0;
+}
+
+.sidecontentbox .gadget .right a::after {
+  right: 35px;
+  width: 90px;
+  content: "Clear all";
+}
+
+.res-nightmode .sidecontentbox .gadget .right a {
+  background-position: -134px 0;
+}
+
+.sidecontentbox .gadget .right a {
+  background-image: url(%%spritesheet%%) !important;
+}
+
+.sidecontentbox .gadget .right a:hover::after {
+  -webkit-transform: translateY(14px);
+  -moz-transform: translateY(14px);
+  -ms-transform: translateY(14px);
+  -o-transform: translateY(14px);
+  transform: translateY(14px);
+}
+
+a[href$="#twitter-btn"]::after, a[href$="#lastfm-btn"]::after, a[href$="#steam-btn"]::after, a[href$="#irc-btn"]::after, .sidecontentbox .gadget .right a::after {
+  position: relative;
+  z-index: 10;
+  display: block;
+  height: 32px;
+  padding: 0 16px;
+  visibility: hidden;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 32px;
+  text-align: center;
+  background-color: rgba(97, 97, 97, 0);
+  border-radius: 2px;
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a[href$="#twitter-btn"]:hover::after, a[href$="#lastfm-btn"]:hover::after, a[href$="#steam-btn"]:hover::after, a[href$="#irc-btn"]:hover::after, .sidecontentbox .gadget .right a:hover::after {
+  visibility: visible;
+  background-color: rgba(97, 97, 97, 0.9);
 }
 
 .res-nightmode h1,
@@ -1437,29 +1645,82 @@ h6,
   background-color: #063c6d;
 }
 
+@keyframes upvote {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: -20px;
+    opacity: 0;
+  }
+}
+
+@keyframes downvote {
+  from {
+    bottom: 0;
+    opacity: 1;
+  }
+  to {
+    bottom: -20px;
+    opacity: 0;
+  }
+}
+
+.res-nightmode .arrow,
 .arrow {
   height: 15px;
   width: 30px;
 }
 
-.arrow.upmod, .arrow.up, .arrow.downmod, .arrow.down {
-  background: url(%%upboatsndownboats%%);
-}
-
-.arrow.upmod {
-  background-position: 0px 0px;
-}
-
-.arrow.up {
-  background-position: 30px 0px;
-}
-
-.arrow.downmod {
-  background-position: 0px 15px;
-}
-
+.res-nightmode .arrow.upmod, .res-nightmode .arrow.up, .res-nightmode .arrow.downmod, .res-nightmode .arrow.down,
+.arrow.upmod,
+.arrow.up,
+.arrow.downmod,
 .arrow.down {
-  background-position: 30px 14px;
+  background: url(%%upboatsndownboats%%) !important;
+}
+
+.res-nightmode .arrow.upmod:focus::after, .res-nightmode .arrow.downmod:focus::after,
+.arrow.upmod:focus::after,
+.arrow.downmod:focus::after {
+  display: block;
+  font-size: 12px;
+  opacity: 0;
+}
+
+.res-nightmode .arrow.upmod,
+.arrow.upmod {
+  background-position: 0 0 !important;
+}
+
+.res-nightmode .arrow.upmod:focus::after,
+.arrow.upmod:focus::after {
+  content: '위';
+  color: #c60c30;
+  animation: 1.5s upvote;
+}
+
+.res-nightmode .arrow.up,
+.arrow.up {
+  background-position: 30px 0 !important;
+}
+
+.res-nightmode .arrow.downmod,
+.arrow.downmod {
+  background-position: 0 15px !important;
+}
+
+.res-nightmode .arrow.downmod:focus::after,
+.arrow.downmod:focus::after {
+  content: '아래';
+  color: #063c6d;
+  animation: 1.5s downvote;
+}
+
+.res-nightmode .arrow.down,
+.arrow.down {
+  background-position: 30px 14px !important;
 }
 
 .organic-listing {
@@ -2209,11 +2470,11 @@ input[name=uh][value$="9"] ~ a::after {
 
 #header-img,
 #header-img.default-header {
-  height: 53px;
+  height: 67px;
   width: 0;
   margin: 0 0 0 40px;
-  padding-right: 35px;
-  background-position: 0 -117px;
+  padding-right: 120px;
+  background: url(%%snoo-2%%);
 }
 
 @media (min-width: 1200px) {
@@ -2521,6 +2782,17 @@ label + #moresearchinfo {
   color: #fff;
 }
 
+.res .titlebox .usertext-body {
+  clear: both;
+}
+
+.res .titlebox .fancy-toggle-button {
+  float: none;
+  margin-top: unset;
+  padding-left: 0;
+  border-left: unset;
+}
+
 .titlebox {
   z-index: 0;
   padding: 8px;
@@ -2529,24 +2801,47 @@ label + #moresearchinfo {
 .titlebox a.hover {
   color: rgba(0, 0, 0, 0.87);
   font-size: 19px;
+  padding: 2px 0 0 2px;
 }
 
 .titlebox .subButtons {
   display: flex;
   justify-content: space-around;
+  float: right;
+  flex-direction: column;
+  height: 165px;
+  width: 40%;
+  padding-left: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  margin-bottom: 5px;
+}
+
+.titlebox a.option, .titlebox .res-fancy-toggle-button {
+  height: unset !important;
+}
+
+.titlebox .fancy-toggle-button {
+  float: right;
+  padding-left: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .titlebox a.option {
-  padding: 11.5px 7px !important;
   background-image: none;
 }
 
 .titlebox a.option.remove {
-  color: #f44336 !important;
+  background-color: #f44336 !important;
+}
+
+.titlebox .toggle a.option.active {
+  display: inline-block;
+  width: 100%;
 }
 
 .titlebox .subscribers,
 .titlebox .users-online {
+  padding-left: 2px;
   color: rgba(0, 0, 0, 0.54);
   display: block;
 }
@@ -2574,6 +2869,7 @@ label + #moresearchinfo {
 .titlebox .leavemoderator,
 .titlebox form.toggle,
 .titlebox .tagline {
+  padding-left: 5px;
   font-size: 10px;
 }
 
