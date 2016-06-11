@@ -45,7 +45,7 @@
   &.up,
   &.downmod,
   &.down {
-		background-image: url(%%upboatsndownboats%%);
+		background: url(%%upboatsndownboats%%) !important;
 	}
 
 	&.upmod:focus::after,
@@ -56,7 +56,7 @@
 	}
 
 	&.upmod {
-		background-position: 0px 0px;
+		background-position: 0 0 !important;
 
 		&:focus::after {
 			content: '위';
@@ -65,10 +65,10 @@
 		}
 	}
 
-	&.up { background-position: 30px 0px; }
+	&.up { background-position: 30px 0 !important; }
 
 	&.downmod {
-		background-position: 0px 15px;
+		background-position: 0 15px !important;
 
 		&:focus::after {
 			content: '아래';
@@ -77,5 +77,5 @@
 		}
 	}
 
-	&.down { background-position: 30px 14px; }
+	&.down { background-position: 30px 14px !important; }
 }
