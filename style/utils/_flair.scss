@@ -1,12 +1,12 @@
 // main: ../flattish.scss
 
-.res-nightmode .flair-fan { color: #ff99cc; }
+.res-nightmode .flair-fan { color: #ff99cc !important; }
+.flair-fan { color: #ff007e; }
 
 .res-nightmode .flair-fan,
 .flair-fan {
   font-size: 11px;
   padding: 2px;
-  color: #ff007e;
   border: 1px;
   border-style: solid;
   border-color: #d1d1d1;
