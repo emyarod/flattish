@@ -26,6 +26,17 @@
 }
 
 // default arrow styles -- also affects sidebar vote arrows
+@keyframes upvote {
+	from { top: 0; opacity: 1; }
+	to { top: -20px; opacity: 0; }
+}
+
+@keyframes downvote {
+	from { bottom: 0; opacity: 1; }
+	to { bottom: -20px; opacity: 0; }
+}
+
+.res-nightmode .arrow,
 .arrow {
 	height: 15px;
 	width: 30px;
@@ -34,14 +45,37 @@
   &.up,
   &.downmod,
   &.down {
-		background: url(%%upboatsndownboats%%);
+		background-image: url(%%upboatsndownboats%%);
 	}
 
-	&.upmod { background-position: 0px 0px; }
+	&.upmod:focus::after,
+	&.downmod:focus::after {
+		display: block;
+		font-size: 12px;
+		opacity: 0;
+	}
+
+	&.upmod {
+		background-position: 0px 0px;
+
+		&:focus::after {
+			content: '위';
+			color: $upvote;
+			animation: 1.5s upvote;
+		}
+	}
 
 	&.up { background-position: 30px 0px; }
 
-	&.downmod { background-position: 0px 15px; }
+	&.downmod {
+		background-position: 0px 15px;
+
+		&:focus::after {
+			content: '아래';
+			color: $downvote;
+			animation: 1.5s downvote;
+		}
+	}
 
 	&.down { background-position: 30px 14px; }
 }
