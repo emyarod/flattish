@@ -31,17 +31,21 @@ $button-selector-map: (
   ),
 
 	// titlebox
-  subreddit-subscribe-button: (
+	subreddit-subscribe-button: (
 		selector-name: '.titlebox a.option',
 		desired-font-size: 10,
-		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text',
+		background-color: get-color("green", "500"),
+		hover-color: get-color("green", '300'),
+		ripple-color: transparent,
+		button-type: 'flat-colorized-bg-button',
   ),
 	add-shortcut-and-dashboard-button: (
 		selector-name: '.res-fancy-toggle-button',
 		desired-font-size: 10,
-		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text',
+		background-color: get-color("green", "500"),
+		hover-color: get-color("green", '300'),
+		ripple-color: transparent,
+		button-type: 'flat-colorized-bg-button',
   ),
 
 	// submit page

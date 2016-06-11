@@ -34,6 +34,17 @@
 	.md p { color: $dark-text; }
 }
 
+.res .titlebox {
+	.usertext-body { clear: both; }
+
+	.fancy-toggle-button {
+		float: none;
+		margin-top: unset;
+		padding-left: 0;
+		border-left: unset;
+	}
+}
+
 .titlebox {
 	z-index: 0;
 	padding: 8px;
@@ -42,23 +53,47 @@
 	a.hover {
 		color: $light-text;
 		font-size: 19px;
+		padding: 2px 0 0 2px;
 	}
 
 	// subscribe and dashboard buttons
 	.subButtons {
 		display: flex;
 		justify-content: space-around;
+		float: right;
+		flex-direction: column;
+		height: 165px;
+		width: 40%;
+		padding-left: 10px;
+		border-left: 1px solid $light-divider-text;
+		margin-bottom: 5px;
+	}
+
+	a.option, .res-fancy-toggle-button {
+		height: unset !important;
+	}
+
+	.fancy-toggle-button {
+		float: right;
+		// margin-top: 60px;
+		padding-left: 10px;
+		border-left: 1px solid $light-divider-text;
 	}
 
 	a.option {
-		padding: 11.5px 7px !important;
 		background-image: none;
 
-		&.remove { color: get-color("red", "500") !important; } // thx nightmode
+		&.remove { background-color: get-color("red", "500") !important; } // thx nightmode
+	}
+
+	.toggle a.option.active {
+		display: inline-block;
+		width: 100%;
 	}
 
 	.subscribers,
 	.users-online {
+		padding-left: 2px;
 		color: $light-secondary-text;
 		display: block; // moves text below sub button for non-RES users
 	}
@@ -88,7 +123,9 @@
 	.leavemoderator,
 	form.toggle,
 	.tagline {
+		padding-left: 5px;
 		font-size: 10px;
+		// width: 60%;
 	}
 
 	.bottom {
