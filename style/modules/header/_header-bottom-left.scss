@@ -86,11 +86,11 @@
 // snooface
 #header-img,
 #header-img.default-header {
-  height: 53px;
+  height: 67px;
   width: 0;
   @include margin(0 0 0 40px);
-  padding-right: 35px; // makes space for snoo visibility
-  background-position: 0 -117px;
+  padding-right: 120px; // makes space for snoo visibility
+  background: url(%%snoo-2%%);
 }
 
 @media (min-width: $screen-md-min) {
