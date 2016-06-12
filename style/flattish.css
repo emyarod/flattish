@@ -248,27 +248,27 @@
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(2)::before {
-  background-position: -107px -1px;
+  background-position: 0 -100px;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(3)::before {
-  background-position: -213px -1px;
+  background-position: -104px -100px;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(4)::before {
-  background-position: -107px -103px;
+  background-position: -208px 0;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(5)::before {
-  background-position: -1px -1px;
+  background-position: -208px -100px;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(6)::before {
-  background-position: -213px -103px;
+  background-position: -104px 0;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(7)::before {
-  background-position: -1px -103px;
+  background-position: 0 -200px;
 }
 
 .titlebox blockquote li {
@@ -1519,9 +1519,9 @@ a[href$="#irc-btn"]:hover::after {
 }
 
 a[href$="#irc-btn"]::after {
-  right: 18px;
-  width: 86px;
-  content: "Snoonet IRC";
+  right: 4px;
+  width: 58px;
+  content: "IRC";
 }
 
 .sidecontentbox .gadget .right a {
@@ -1801,6 +1801,7 @@ h6,
   height: auto !important;
   margin: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+  padding: 2px !important;
 }
 
 #siteTable > .thing.RES-keyNav-activeThing {
@@ -1869,7 +1870,7 @@ h6,
 }
 
 .tagline {
-  margin: 8px 0;
+  margin: 7px 0;
 }
 
 .res-nightmode .link .usertext-body .md {
@@ -2989,7 +2990,6 @@ label + #moresearchinfo {
 
 .sidecontentbox .gadget .right a {
   display: block;
-  float: right;
   height: 20px;
   width: 20px;
   color: transparent;
@@ -2999,10 +2999,6 @@ label + #moresearchinfo {
   height: 20px;
   width: 20px;
   background-color: rgba(97, 97, 97, 0.9);
-}
-
-.sidecontentbox .gadget .right a::after {
-  right: 60px;
 }
 
 @media (min-width: 992px) {
@@ -3333,7 +3329,6 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 
 .comment .entry.RES-keyNav-activeElement {
   border-right-color: #00bcd4;
-  padding-left: 5px;
 }
 
 html.res-nightmode .RES-keyNav-activeElement,
@@ -3735,6 +3730,8 @@ a[href$="/spoiler"]:hover {
   background-color: transparent;
   border: none;
   color: #00bcd4;
+  font-size: 16px;
+  vertical-align: -5px;
 }
 
 .linkflair-announcement .linkflairlabel {
