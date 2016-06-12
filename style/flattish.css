@@ -381,7 +381,7 @@ button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="
   min-width: 64px;
   padding: 0 8px !important;
   border: 0 !important;
-  border-radius: 2px;
+  border-radius: 2px !important;
   font-weight: bold;
   font-family: "Helvetica", "Arial", sans-serif;
   letter-spacing: normal;
