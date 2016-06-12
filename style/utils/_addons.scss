@@ -261,12 +261,23 @@
         }
       }
 
-      li:nth-of-type(2)::before { background-position: -107px -1px; }
-      li:nth-of-type(3)::before { background-position: -213px -1px; }
-      li:nth-of-type(4)::before { background-position: -107px -103px; }
-      li:nth-of-type(5)::before { background-position: -1px -1px; }
-      li:nth-of-type(6)::before { background-position: -213px -103px; }
-      li:nth-of-type(7)::before { background-position: -1px -103px; }
+      // mcd
+      li:nth-of-type(2)::before { background-position: 0 -100px; }
+
+      // mubank
+      li:nth-of-type(3)::before { background-position: -104px -100px; }
+
+      // mucore
+      li:nth-of-type(4)::before { background-position: -208px 0; }
+
+      // show champ
+      li:nth-of-type(5)::before { background-position: -208px -100px; }
+
+      // inki
+      li:nth-of-type(6)::before { background-position: -104px 0; }
+
+      // sketchbook
+      li:nth-of-type(7)::before { background-position: 0 -200px; }
     }
 
     li { list-style-type: none; }
