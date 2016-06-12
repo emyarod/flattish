@@ -39,7 +39,7 @@
 
   // sorted/navigate by
   .menuarea {
-    margin-bottom: 17px;
+    margin-bottom: 5px;
 
     .spacer + .spacer {
       display: block;
@@ -51,7 +51,7 @@
     .toggle a { color: $light-secondary-text; }
   }
 
-  &> .usertext { @include margin(null null 16px 0); }
+  &> .usertext { @include margin(null null 5px 0); }
 }
 
 // offset inline styling
@@ -135,7 +135,7 @@
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
-  margin: 0 0 16px 0;
+  margin: 0 0 5px 0;
   border: 0;
 
   .title::after {
