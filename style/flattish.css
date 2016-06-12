@@ -44,7 +44,7 @@
 }
 
 .res-nightmode .titlebox blockquote p a {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7);
   background-color: #303030;
 }
 
@@ -53,12 +53,12 @@
 }
 
 .res-nightmode .titlebox blockquote ul:first-of-type li:first-of-type {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7);
   background-color: #303030;
 }
 
 .res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type) {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7);
   background-color: #303030;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .res-nightmode .titlebox blockquote ul:nth-of-type(2) li:first-of-type {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7);
   background-color: #303030;
 }
 
@@ -103,7 +103,6 @@
 .titlebox blockquote p {
   width: 100%;
   height: 40px;
-  margin: 10px 0 !important;
   background-color: #f1f1f1;
 }
 
@@ -120,7 +119,7 @@
   padding: 0;
   line-height: 40px;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.54) !important;
+  color: rgba(0, 0, 0, 0.54);
   font-weight: bold;
   background-color: #f1f1f1;
   background-clip: padding-box;
@@ -128,11 +127,25 @@
 
 .titlebox blockquote p a:hover {
   background-color: #4dd0e1;
-  color: #fff !important;
+  color: #fff;
 }
 
 .titlebox blockquote ul {
   padding-left: 0;
+}
+
+.titlebox blockquote ul li {
+  list-style-type: none;
+}
+
+.titlebox blockquote ul li:first-of-type {
+  height: 40px;
+  margin-left: 60px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
+  line-height: 40px;
+  background-color: #f1f1f1;
 }
 
 .titlebox blockquote ul:first-of-type {
@@ -140,21 +153,11 @@
   background-color: #f1f1f1;
 }
 
-.titlebox blockquote ul:first-of-type li:first-of-type {
-  height: 40px;
-  margin-left: 60px;
-  line-height: 40px;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.54) !important;
-  font-weight: bold;
-  background-color: #f1f1f1;
-}
-
 .titlebox blockquote ul:first-of-type li:not(:first-of-type) {
   padding: 5px 0 5px 30px;
   line-height: 20px;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.54) !important;
+  color: rgba(0, 0, 0, 0.54);
   background-color: #f1f1f1;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -187,28 +190,23 @@
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:first-of-type {
-  height: 40px;
   width: 100%;
-  margin-left: 60px;
-  line-height: 40px;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.54) !important;
-  font-weight: bold;
-  background-color: #f1f1f1;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) {
+  position: relative;
+  display: block;
   height: 100px;
   width: 104px;
   margin-bottom: 5px;
-  display: block;
-  position: relative;
-  width: 104px;
-  height: 100px;
   overflow: hidden;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type):hover::before {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  -o-transform: scale(1.25);
   transform: scale(1.25);
 }
 
@@ -227,19 +225,16 @@
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) a {
-  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%);
   display: block;
   height: 100%;
   width: 100%;
-  text-align: center;
-  line-height: 180px;
+  font-size: 10px;
   font-weight: bold;
+  line-height: 180px;
+  text-align: center;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
-  font-size: 10px;
-  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%);
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) a:hover {
@@ -268,10 +263,6 @@
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(7)::before {
   background-position: 0 -200px;
-}
-
-.titlebox blockquote li {
-  list-style-type: none;
 }
 
 .res-nightmode .flair-fan {
@@ -2602,6 +2593,24 @@ input[name=uh][value$="9"] ~ a::after {
   background-position: -150px 0;
 }
 
+#remember-me .recover-password:hover {
+  font-size: 0;
+}
+
+#remember-me .recover-password:hover::after {
+  margin-left: 1em;
+  content: 'rememBER me';
+  font-size: x-small;
+  vertical-align: middle;
+}
+
+.login-form-side:hover::after {
+  position: relative;
+  top: -24px;
+  left: 26px;
+  content: "i'm in da-da-da-danger pinocchio~";
+}
+
 .c-checkbox input[type="checkbox"] + label::before {
   vertical-align: -4px;
 }
@@ -2783,7 +2792,6 @@ label + #moresearchinfo {
 
 .res .titlebox .usertext-body {
   clear: both;
-  padding-top: 1px;
 }
 
 .res .titlebox .fancy-toggle-button {
@@ -2806,14 +2814,10 @@ label + #moresearchinfo {
 
 .titlebox .subButtons {
   display: flex;
-  justify-content: space-around;
   float: right;
   flex-direction: column;
-  height: 165px;
-  width: 40%;
-  padding-left: 10px;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
-  margin-bottom: 5px;
+  padding: 0 15px 0 25px;
 }
 
 .titlebox a.option, .titlebox .res-fancy-toggle-button {
