@@ -377,15 +377,15 @@ button {
 
 button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/about/rules"], .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"], .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .save-button > button:nth-child(1), .guiders_button,
 .res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .submit-page button[type="submit"], .res-nightmode #sr-form .save-button button, .res-nightmode .submit-link .morelink a, .res-nightmode .submit-text .morelink a, .res-nightmode .side a[href="/r/kpop/about/rules"], .res-nightmode .side a[href="/r/kpop/wiki/relatedsubs"], .res-nightmode .side a[href="/r/kpop/wiki/usefulsites"], .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .save-button > button:nth-child(1), .res-nightmode .guiders_button {
-  height: 36px !important;
-  min-width: 64px !important;
+  height: 36px;
+  min-width: 64px;
   padding: 0 8px !important;
   border: 0 !important;
   border-radius: 2px;
   font-weight: bold;
   font-family: "Helvetica", "Arial", sans-serif;
   letter-spacing: normal;
-  line-height: 36px !important;
+  line-height: 36px;
   text-align: center;
   text-transform: uppercase;
   outline: 0;
@@ -2615,12 +2615,8 @@ input[name=uh][value$="9"] ~ a::after {
   vertical-align: -4px;
 }
 
-.res-nightmode #login_login-main button {
-  background-color: #424242;
-}
-
-.res-nightmode #login_login-main button:hover {
-  border-radius: 2px !important;
+.res-nightmode .login-form-side .submit {
+  background-color: transparent !important;
 }
 
 #login_login-main {
@@ -2801,6 +2797,11 @@ label + #moresearchinfo {
   border-left: unset;
 }
 
+.res .titlebox a.option, .res .titlebox .res-fancy-toggle-button {
+  height: auto;
+  line-height: 2em;
+}
+
 .titlebox {
   z-index: 0;
   padding: 8px;
@@ -2817,11 +2818,13 @@ label + #moresearchinfo {
   float: right;
   flex-direction: column;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
   padding: 0 15px 0 25px;
 }
 
-.titlebox a.option, .titlebox .res-fancy-toggle-button {
-  height: unset !important;
+.titlebox a.option {
+  height: auto;
   border-radius: 2px;
 }
 
@@ -2846,9 +2849,9 @@ label + #moresearchinfo {
 
 .titlebox .subscribers,
 .titlebox .users-online {
+  display: block;
   padding-left: 6px;
   color: rgba(0, 0, 0, 0.54);
-  display: block;
 }
 
 .titlebox .subscribers .number {
