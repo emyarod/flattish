@@ -1,4 +1,23 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
+
+// danger
+#remember-me .recover-password:hover {
+  font-size: 0;
+
+  &::after {
+    margin-left: 1em;
+    content: 'rememBER me';
+    font-size: x-small;
+    vertical-align: middle;
+  }
+}
+
+.login-form-side:hover::after {
+  position: relative;
+  top: -24px;
+  left: 26px;
+  content: "i'm in da-da-da-danger pinocchio~";
+}
 
 // sign up/login modal
 .c-checkbox input[type="checkbox"] + label::before {
@@ -19,7 +38,6 @@
 }
 
 .res-nightmode .login-form-side label { color: $dark-text !important; }
-
 
 // material checkbox
 .login-form-side input[type="checkbox"]+label::before { vertical-align: -25%; }
