@@ -15,7 +15,8 @@ a[href$="/spoiler"] {
   background-color: transparent;
   border: none;
   color: $primary;
-  // font-size: 16px;
+  font-size: 16px;
+  vertical-align: -5px;
 }
 
 .linkflair-announcement .linkflairlabel {

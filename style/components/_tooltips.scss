@@ -33,10 +33,10 @@ $tooltip-selector-map: (
   ),
   irc-button: (
 		selector-name: 'a[href$="#irc-btn"]',
-		width-tooltip: 54,
+		width-tooltip: 26,
 		width-parent: 50,
     height-parent: 50,
-		content-tooltip: 'Snoonet IRC',
+		content-tooltip: 'IRC',
     screen-type: 'desktop',
   ),
 

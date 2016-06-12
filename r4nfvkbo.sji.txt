@@ -1,0 +1,44 @@
+﻿Merge remote-tracking branch 'origin/rkp' into rkp
+
+# Conflicts:
+#	style/flattish.min.css
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch rkp
+# Your branch and 'origin/rkp' have diverged,
+# and have 1 and 9 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   img/sprites/spritesheet-musicshows.png
+#	new file:   img/sprites/stickies-stylesheet.css
+#	deleted:    img/sprites/stylesheet-musicshows.css
+#	new file:   img/src/reddit/stickies/immortalsong.png
+#	new file:   img/src/reddit/stickies/inkigayo.png
+#	new file:   img/src/reddit/stickies/mcd.png
+#	new file:   img/src/reddit/stickies/mubank.png
+#	new file:   img/src/reddit/stickies/mucore.png
+#	new file:   img/src/reddit/stickies/showchampion.png
+#	new file:   img/src/reddit/stickies/sketchbook.png
+#	modified:   style/components/_tooltips.scss
+#	modified:   style/flattish.css
+#	deleted:    style/flattish.min.css
+#	modified:   style/modules/content/_sitetable.scss
+#	modified:   style/modules/sidebar/_sidecontentbox.scss
+#	modified:   style/pages/_comments-page.scss
+#	modified:   style/utils/_addons.scss
+#	modified:   style/utils/_rkp.scss
+#
+# Changes not staged for commit:
+#	modified:   style/flattish.scss
+#
+

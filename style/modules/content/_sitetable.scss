@@ -81,6 +81,7 @@
 		height: auto !important;
 		margin: 0;
 		border-bottom: 1px solid $light-divider-text !important;
+		padding: 2px !important;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
@@ -138,7 +139,7 @@
 }
 
 // "submitted by"
-.tagline { margin: 8px 0; }
+.tagline { margin: 7px 0; }
 
 // selftext body
 .res-nightmode .link .usertext-body .md { border-color: $dark-text; }
