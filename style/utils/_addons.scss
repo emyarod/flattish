@@ -157,7 +157,7 @@
     }
 
     ul:first-of-type {
-      padding-left: 0;
+      padding: 0 0 8px;
       // background: url(%%stickies%%) no-repeat;
       background-color: $light-background;
 
@@ -172,7 +172,7 @@
       }
 
       li:not(:first-of-type) {
-        padding: 5px 0 5px 10px;
+        padding: 5px 0 5px 30px;
         line-height: 20px;
         font-size: 14px;
         color: $light-secondary-text !important;
