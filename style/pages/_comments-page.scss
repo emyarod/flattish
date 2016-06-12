@@ -249,10 +249,7 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 .comment .entry {
   border-right: 2px solid transparent;
 
-  &.RES-keyNav-activeElement {
-    border-right-color: $primary;
-    padding-left: 5px;
-  }
+  &.RES-keyNav-activeElement { border-right-color: $primary; }
 }
 
 
