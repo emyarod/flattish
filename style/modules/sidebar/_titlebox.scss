@@ -1,5 +1,6 @@
 // main: ../../flattish.scss
 
+// nightmode
 .res-nightmode .titlebox {
 
 	// title
@@ -34,6 +35,7 @@
 	.md p { color: $dark-text; }
 }
 
+// res
 .res .titlebox {
 	.usertext-body { clear: both; }
 
@@ -45,11 +47,12 @@
 	}
 
 	a.option, .res-fancy-toggle-button {
-		height: auto !important;
-		line-height: 2em !important;
+		height: auto;
+		line-height: 2em;
 	}
 }
 
+// default
 .titlebox {
 	z-index: 0;
 	padding: 8px;
@@ -67,17 +70,18 @@
 		float: right;
 		flex-direction: column;
 		border-left: 1px solid $light-divider-text;
+		border-bottom: 5px solid transparent;
+		border-top: 5px solid transparent;
 		padding: 0 15px 0 25px;
 	}
 
-	a.option, .res-fancy-toggle-button {
-		height: unset !important;
+	a.option {
+		height: auto;
 		border-radius: 2px;
 	}
 
 	.fancy-toggle-button {
 		float: right;
-		// margin-top: 60px;
 		padding: 5px 20px 5px 30px;
 		border-left: 1px solid $light-divider-text;
 	}
@@ -85,7 +89,8 @@
 	a.option {
 		background-image: none;
 
-		&.remove { background-color: get-color("red", "500") !important; } // thx nightmode
+		// thx nightmode
+		&.remove { background-color: get-color('red', '500') !important; }
 	}
 
 	.toggle a.option.active {
@@ -95,9 +100,9 @@
 
 	.subscribers,
 	.users-online {
+		display: block; // moves text below sub button for non-RES users
 		padding-left: 6px;
 		color: $light-secondary-text;
-		display: block; // moves text below sub button for non-RES users
 	}
 
 	// subscribers
