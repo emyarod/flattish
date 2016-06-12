@@ -25,10 +25,8 @@
 }
 
 // sidebar login card
-.res-nightmode #login_login-main button {
-	background-color: $dark-cards;
-
-	&:hover { border-radius: 2px !important; }
+.res-nightmode .login-form-side .submit {
+	background-color: transparent !important;
 }
 
 #login_login-main {
