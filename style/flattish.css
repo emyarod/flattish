@@ -2142,10 +2142,10 @@ input[name=uh][value$="9"] ~ a::after {
 
 #sr-header-area {
   z-index: 20;
-  height: 3em;
+  height: 30px;
   border: 0;
   font-size: 10px;
-  line-height: 3em;
+  line-height: 30px;
   overflow: visible !important;
 }
 
@@ -2163,13 +2163,13 @@ input[name=uh][value$="9"] ~ a::after {
 }
 
 #sr-header-area .dropdown.srdrop {
-  height: 3em;
+  height: 30px;
   padding: 0;
   cursor: pointer;
 }
 
 #sr-header-area .dropdown.srdrop .selected {
-  margin: 1.4em 1em 1em;
+  margin: 14px 10px 10px;
   padding: 0;
   text-indent: -999em;
 }
@@ -2179,7 +2179,7 @@ input[name=uh][value$="9"] ~ a::after {
 }
 
 #sr-header-area .drop-choices.srdrop.inuse {
-  margin-left: 1em;
+  margin-left: 10px;
 }
 
 #sr-header-area .dropdown.srdrop .selected {
@@ -2189,8 +2189,8 @@ input[name=uh][value$="9"] ~ a::after {
 
 #sr-header-area .dropdown.srdrop .selected, #sr-header-area .dropdown.srdrop .selected::before, #sr-header-area .dropdown.srdrop .selected::after {
   display: block;
-  width: 2em;
-  height: 0.2em;
+  width: 20px;
+  height: 2px;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2203,11 +2203,11 @@ input[name=uh][value$="9"] ~ a::after {
 }
 
 #sr-header-area .dropdown.srdrop .selected::before {
-  top: -0.6em;
+  top: -6px;
 }
 
 #sr-header-area .dropdown.srdrop .selected::after {
-  top: 0.6em;
+  top: 6px;
 }
 
 #sr-header-area .dropdown.srdrop:hover .selected,
@@ -2487,7 +2487,6 @@ input[name=uh][value$="9"] ~ a::after {
     line-height: 62px;
   }
   #header-bottom-left .tabmenu {
-    position: static;
     left: initial;
     top: initial;
     width: initial;
@@ -3056,7 +3055,7 @@ body::before {
   height: 223px;
   width: 100%;
   content: '';
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), linear-gradient(to right, #dd5e89 0%, #f7bb97 100%);
   background-attachment: scroll, fixed;
 }
 
@@ -3432,11 +3431,11 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 .combined-search-page .search-result {
-  margin: 0 0 1.6em 0;
+  margin: 0 0 16px 0;
 }
 
 .combined-search-page .search-result.has-thumbnail > .thumbnail {
-  max-height: 5.83333em;
+  max-height: 70px;
 }
 
 .combined-search-page .search-result.has-thumbnail > .thumbnail img {
