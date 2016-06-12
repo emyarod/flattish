@@ -35,10 +35,7 @@
 }
 
 .res .titlebox {
-	.usertext-body {
-		clear: both;
-		padding-top: 1px;
-	}
+	.usertext-body { clear: both; }
 
 	.fancy-toggle-button {
 		float: none;
@@ -46,6 +43,8 @@
 		padding: 0;
 		border-left: unset;
 	}
+
+	a.option, .res-fancy-toggle-button { line-height: 2em !important; }
 }
 
 .titlebox {
@@ -62,14 +61,10 @@
 	// subscribe and dashboard buttons
 	.subButtons {
 		display: flex;
-		justify-content: space-around;
 		float: right;
 		flex-direction: column;
-		height: 165px;
-		width: 40%;
-		padding-left: 10px;
 		border-left: 1px solid $light-divider-text;
-		margin-bottom: 5px;
+		padding: 0 15px 0 25px;
 	}
 
 	a.option, .res-fancy-toggle-button {
