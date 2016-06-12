@@ -136,7 +136,7 @@
 }
 
 .titlebox blockquote ul:first-of-type {
-  padding-left: 0;
+  padding: 0 0 8px;
   background-color: #f1f1f1;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .titlebox blockquote ul:first-of-type li:not(:first-of-type) {
-  padding: 5px 0 5px 10px;
+  padding: 5px 0 5px 30px;
   line-height: 20px;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.54) !important;
@@ -530,7 +530,7 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 .gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice, .locked-infobar,
 #searchexpando, #siteTable > .thing, .guider,
 .link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
-  padding: 5px !important;
+  padding: 8px !important;
   border: 0 !important;
   border-radius: 2px !important;
 }
@@ -2532,7 +2532,7 @@ input[name=uh][value$="9"] ~ a::after {
 
 .side .spacer {
   width: 330px;
-  margin: 0 0 15px;
+  margin: 0 0 5px;
 }
 
 .side .spacer:first-of-type {
@@ -2734,7 +2734,7 @@ label + #moresearchinfo {
   position: relative;
   top: -15px;
   display: block;
-  height: 98px;
+  height: 88px;
   width: 330px;
   font-size: 14px;
   font-weight: bold;
@@ -2783,12 +2783,13 @@ label + #moresearchinfo {
 
 .res .titlebox .usertext-body {
   clear: both;
+  padding-top: 1px;
 }
 
 .res .titlebox .fancy-toggle-button {
   float: none;
   margin-top: unset;
-  padding-left: 0;
+  padding: 0;
   border-left: unset;
 }
 
@@ -2822,7 +2823,7 @@ label + #moresearchinfo {
 
 .titlebox .fancy-toggle-button {
   float: right;
-  padding-left: 10px;
+  padding: 5px 20px 5px 30px;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -2841,7 +2842,7 @@ label + #moresearchinfo {
 
 .titlebox .subscribers,
 .titlebox .users-online {
-  padding-left: 2px;
+  padding-left: 6px;
   color: rgba(0, 0, 0, 0.54);
   display: block;
 }
@@ -2849,6 +2850,7 @@ label + #moresearchinfo {
 .titlebox .subscribers .number {
   font-weight: bold;
   font-size: 24px;
+  margin-right: 1px;
 }
 
 .titlebox .subscribers .word {
@@ -2871,6 +2873,12 @@ label + #moresearchinfo {
 .titlebox .tagline {
   padding-left: 5px;
   font-size: 10px;
+}
+
+.titlebox .tagline {
+  margin-left: 0;
+  padding: 5px;
+  text-align: center;
 }
 
 .titlebox .bottom {
@@ -3099,7 +3107,7 @@ body::before {
 }
 
 .commentarea .menuarea {
-  margin-bottom: 17px;
+  margin-bottom: 5px;
 }
 
 .commentarea .menuarea .spacer + .spacer {
@@ -3117,7 +3125,7 @@ body::before {
 }
 
 .commentarea > .usertext {
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   margin-left: 0;
 }
 
@@ -3213,7 +3221,7 @@ body::before {
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
-  margin: 0 0 16px 0;
+  margin: 0 0 5px 0;
   border: 0;
 }
 

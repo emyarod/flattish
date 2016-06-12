@@ -35,12 +35,15 @@
 }
 
 .res .titlebox {
-	.usertext-body { clear: both; }
+	.usertext-body {
+		clear: both;
+		padding-top: 1px;
+	}
 
 	.fancy-toggle-button {
 		float: none;
 		margin-top: unset;
-		padding-left: 0;
+		padding: 0;
 		border-left: unset;
 	}
 }
@@ -77,7 +80,7 @@
 	.fancy-toggle-button {
 		float: right;
 		// margin-top: 60px;
-		padding-left: 10px;
+		padding: 5px 20px 5px 30px;
 		border-left: 1px solid $light-divider-text;
 	}
 
@@ -94,7 +97,7 @@
 
 	.subscribers,
 	.users-online {
-		padding-left: 2px;
+		padding-left: 6px;
 		color: $light-secondary-text;
 		display: block; // moves text below sub button for non-RES users
 	}
@@ -104,6 +107,7 @@
 		.number {
 			font-weight: bold;
 			font-size: 24px;
+			margin-right: 1px;
 		}
 
 		.word { font-size: 13px; }
@@ -127,6 +131,13 @@
 		padding-left: 5px;
 		font-size: 10px;
 		// width: 60%;
+	}
+
+	.tagline {
+		margin-left: 0;
+		padding: 5px;
+		text-align: center;
+
 	}
 
 	.bottom {
