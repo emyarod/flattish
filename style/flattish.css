@@ -2819,6 +2819,7 @@ label + #moresearchinfo {
 
 .titlebox a.option, .titlebox .res-fancy-toggle-button {
   height: unset !important;
+  border-radius: 2px;
 }
 
 .titlebox .fancy-toggle-button {
