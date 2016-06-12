@@ -66,7 +66,7 @@
       background-color: $dark-background;
 
       a {
-        color: $dark-secondary-text !important;
+        color: $dark-secondary-text;
         background-color: $dark-background;
       }
     }
@@ -75,12 +75,12 @@
       background-color: $dark-background;
 
       li:first-of-type {
-        color: $dark-secondary-text !important;
+        color: $dark-secondary-text;
         background-color: $dark-background;
       }
 
       li:not(:first-of-type) {
-        color: $dark-secondary-text !important;
+        color: $dark-secondary-text;
         background-color: $dark-background;
 
         &:hover { color: $light-primary; }
@@ -94,7 +94,7 @@
 
 
       li:first-of-type {
-        color: $dark-secondary-text !important;
+        color: $dark-secondary-text;
         background-color: $dark-background;
       }
     }
@@ -121,7 +121,6 @@
     p {
       width: 100%;
       height: 40px;
-      margin: 10px 0 !important;
       background-color: $light-background;
 
       &:hover { background-color: $light-primary; }
@@ -135,64 +134,70 @@
         padding: 0;
         line-height: 40px;
         font-size: 14px;
-        color: $light-secondary-text !important;
+        color: $light-secondary-text;
         font-weight: bold;
         background-color: $light-background;
         background-clip: padding-box;
 
         &:hover {
           background-color: $light-primary;
-          color: $dark-text !important;
+          color: $dark-text;
         }
       }
     }
 
     // pinned menus
-    ul { padding-left: 0; }
+    ul {
+      padding-left: 0;
 
-    // media & discussion menu
-    ul:first-of-type {
-      padding: 0 0 8px;
-      // background: url(%%stickies%%) no-repeat;
-      background-color: $light-background;
+      li {
+        list-style-type: none;
 
-      li:first-of-type {
-        height: 40px;
-        margin-left: 60px;
-        line-height: 40px;
-        font-size: 14px;
-        color: $light-secondary-text !important;
-        font-weight: bold;
-        background-color: $light-background;
+        // list titles
+        &:first-of-type {
+          height: 40px;
+          margin-left: 60px;
+          font-size: 14px;
+          font-weight: bold;
+          color: $light-secondary-text;
+          line-height: 40px;
+          background-color: $light-background;
+        }
       }
 
-      li:not(:first-of-type) {
-        padding: 5px 0 5px 30px;
-        line-height: 20px;
-        font-size: 14px;
-        color: $light-secondary-text !important;
+      // media & discussion menu
+      &:first-of-type {
+        padding: 0 0 8px;
         background-color: $light-background;
-        @include transition-default;
 
-        &:hover {
-          background-color: $tooltip;
+        li:not(:first-of-type) {
+          padding: 5px 0 5px 30px;
+          line-height: 20px;
+          font-size: 14px;
+          color: $light-secondary-text;
+          background-color: $light-background;
+          @include transition-default;
+
+          &:hover {
+            background-color: $tooltip;
+
+            a {
+              font-weight: bold;
+              color: $light-primary;
+            }
+          }
 
           a {
-            font-weight: bold;
-            color: $light-primary;
+            display: block;
+            color: $light-secondary-text;
           }
-        }
-
-        a {
-          display: block;
-          color: $light-secondary-text;
         }
       }
     }
 
     // music shows
     ul:nth-of-type(2) {
-      display:flex;
+      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -201,79 +206,67 @@
       margin-top: 5px;
       background-color: $light-background;
 
-      // title
-      li:first-of-type {
-        height: 40px;
-        width: 100%;
-        margin-left: 60px;
-        line-height: 40px;
-        font-size: 14px;
-        color: $light-secondary-text !important;
-        font-weight: bold;
-        background-color: $light-background;
-      }
+      li {
+        // title
+        &:first-of-type { width: 100%; }
 
-      // tiles
-      li:not(:first-of-type) {
-        height: 100px;
-        width: 104px;
-        margin-bottom: 5px;
-        display: block;
-        position: relative;
-        width: 104px;
-        height: 100px;
-        overflow: hidden;
-
-        &:hover::before { transform: scale(1.25); }
-
-        &::before {
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: -1;
-          width: 100%;
-          height: 100%;
-          content: '';
-          background: url(%%spritesheet-musicshows%%);
-          @include transition-default;
-        }
-
-        a {
-          background: $scrim;
+        // tiles
+        &:not(:first-of-type) {
+          position: relative;
           display: block;
-          height: 100%;
-          width: 100%;
-          text-align: center;
-          line-height: 180px;
-          font-weight: bold;
-          color: $dark-secondary-text;
-          text-transform: uppercase;
-          font-size: 10px;
-          @include transition-default;
+          height: 100px;
+          width: 104px;
+          margin-bottom: 5px;
+          overflow: hidden;
 
-          &:hover { color: $pink; }
+          &:hover::before { @include transform(scale(1.25)); }
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background: url(%%spritesheet-musicshows%%);
+            @include transition-default;
+          }
+
+          a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 180px;
+            text-align: center;
+            color: $dark-secondary-text;
+            text-transform: uppercase;
+            background: $scrim;
+
+            &:hover { color: $pink; }
+          }
         }
+
+        // mcd
+        &:nth-of-type(2)::before { background-position: 0 -100px; }
+
+        // mubank
+        &:nth-of-type(3)::before { background-position: -104px -100px; }
+
+        // mucore
+        &:nth-of-type(4)::before { background-position: -208px 0; }
+
+        // show champ
+        &:nth-of-type(5)::before { background-position: -208px -100px; }
+
+        // inki
+        &:nth-of-type(6)::before { background-position: -104px 0; }
+
+        // sketchbook
+        &:nth-of-type(7)::before { background-position: 0 -200px; }
       }
-
-      // mcd
-      li:nth-of-type(2)::before { background-position: 0 -100px; }
-
-      // mubank
-      li:nth-of-type(3)::before { background-position: -104px -100px; }
-
-      // mucore
-      li:nth-of-type(4)::before { background-position: -208px 0; }
-
-      // show champ
-      li:nth-of-type(5)::before { background-position: -208px -100px; }
-
-      // inki
-      li:nth-of-type(6)::before { background-position: -104px 0; }
-
-      // sketchbook
-      li:nth-of-type(7)::before { background-position: 0 -200px; }
     }
-
-    li { list-style-type: none; }
   }
 }
