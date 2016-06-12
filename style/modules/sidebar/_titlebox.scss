@@ -44,7 +44,10 @@
 		border-left: unset;
 	}
 
-	// a.option, .res-fancy-toggle-button { line-height: 2em !important; }
+	a.option, .res-fancy-toggle-button {
+		height: auto !important;
+		line-height: 2em !important;
+	}
 }
 
 .titlebox {
