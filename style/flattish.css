@@ -1296,7 +1296,7 @@ textarea {
 .thumbnail.default {
   border-radius: 2px;
   font-size: inherit;
-  margin: 0 16px 0 0;
+  margin: 2px 16px 0 0;
   max-height: 70px;
 }
 
@@ -1939,7 +1939,7 @@ h6,
 
 .modtools-page div.content,
 div.content {
-  margin-right: 350px;
+  margin-right: 340px;
 }
 
 .infobar.newsletterbar {
@@ -1970,7 +1970,7 @@ div.content {
 #header {
   height: 223px;
   border: 0;
-  margin-bottom: 15px;
+  margin-bottom: 7px;
   background: transparent !important;
 }
 
