@@ -32,6 +32,9 @@
 		opacity: 1;
 	}
 
+	// subscribe and dashboard buttons container
+	.subButtons { border-left-color: $dark-divider-text; }
+
 	.md p { color: $dark-text; }
 }
 
@@ -46,7 +49,8 @@
 		border-left: unset;
 	}
 
-	a.option, .res-fancy-toggle-button {
+	a.option,
+	.res-fancy-toggle-button {
 		height: auto;
 		line-height: 2em;
 	}
@@ -64,7 +68,7 @@
 		padding: 2px 0 0 2px;
 	}
 
-	// subscribe and dashboard buttons
+	// subscribe and dashboard buttons container
 	.subButtons {
 		display: flex;
 		float: right;
@@ -75,11 +79,6 @@
 		padding: 0 15px 0 25px;
 	}
 
-	a.option {
-		height: auto;
-		border-radius: 2px;
-	}
-
 	.fancy-toggle-button {
 		float: right;
 		padding: 5px 20px 5px 30px;
@@ -87,6 +86,8 @@
 	}
 
 	a.option {
+		height: auto;
+		border-radius: 2px;
 		background-image: none;
 
 		// thx nightmode
@@ -133,7 +134,6 @@
 	.tagline {
 		padding-left: 5px;
 		font-size: 10px;
-		// width: 60%;
 	}
 
 	.tagline {
@@ -150,6 +150,11 @@
 
 	// material checkbox
 	.flairtoggle input[type="checkbox"]+label::before { vertical-align: -25%; }
+
+	form.flairtoggle {
+		padding-right: 5px;
+		overflow: hidden;
+	}
 }
 
 // subscribe button tooltip
