@@ -4,7 +4,8 @@
 	overflow: inherit;
 	border: 0;
 
-	.link.promotedlink.promoted, .link.promotedlink.external {
+	.link.promotedlink.promoted,
+	.link.promotedlink.external {
 		width: 100%;
 	}
 }
@@ -30,16 +31,6 @@
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
 			background-color: rgba($dark-app-bar, 1) !important;
-		}
-
-		.title {
-			// color: $link-color-night !important;
-
-	    // &:hover { color: $link-color-hover-night !important; }
-
-	    // &:active { color: $link-color-active-night !important; }
-
-	    // &:visited { color: $link-color-visited-night !important; }
 		}
 
 		.tagline { color: $dark-text !important; }
@@ -81,7 +72,7 @@
 		height: auto !important;
 		margin: 0;
 		border-bottom: 1px solid $light-divider-text !important;
-		padding: 2px !important;
+		padding: 5px !important;
 
 		// RES active post highlight
 		&.RES-keyNav-activeThing {
@@ -135,11 +126,11 @@
 
 .tagline,
 .flat-list.buttons {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 // "submitted by"
-.tagline { margin: 7px 0; }
+.tagline { margin: 8px 0; }
 
 // selftext body
 .res-nightmode .link .usertext-body .md { border-color: $dark-text; }
