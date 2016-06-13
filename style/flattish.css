@@ -1792,7 +1792,7 @@ h6,
   height: auto !important;
   margin: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
-  padding: 5px !important;
+  padding: 5px 5px 3px 5px !important;
 }
 
 #siteTable > .thing.RES-keyNav-activeThing {
