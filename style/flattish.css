@@ -1718,7 +1718,8 @@ h6,
   border: 0;
 }
 
-.organic-listing .link.promotedlink.promoted, .organic-listing .link.promotedlink.external {
+.organic-listing .link.promotedlink.promoted,
+.organic-listing .link.promotedlink.external {
   width: 100%;
 }
 
@@ -1791,7 +1792,7 @@ h6,
   height: auto !important;
   margin: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
-  padding: 2px !important;
+  padding: 5px !important;
 }
 
 #siteTable > .thing.RES-keyNav-activeThing {
@@ -1856,11 +1857,11 @@ h6,
 
 .tagline,
 .flat-list.buttons {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .tagline {
-  margin: 7px 0;
+  margin: 8px 0;
 }
 
 .res-nightmode .link .usertext-body .md {
@@ -2782,6 +2783,10 @@ label + #moresearchinfo {
   opacity: 1;
 }
 
+.res-nightmode .titlebox .subButtons {
+  border-left-color: rgba(255, 255, 255, 0.12);
+}
+
 .res-nightmode .titlebox .md p {
   color: #fff;
 }
@@ -2797,7 +2802,8 @@ label + #moresearchinfo {
   border-left: unset;
 }
 
-.res .titlebox a.option, .res .titlebox .res-fancy-toggle-button {
+.res .titlebox a.option,
+.res .titlebox .res-fancy-toggle-button {
   height: auto;
   line-height: 2em;
 }
@@ -2823,11 +2829,6 @@ label + #moresearchinfo {
   padding: 0 15px 0 25px;
 }
 
-.titlebox a.option {
-  height: auto;
-  border-radius: 2px;
-}
-
 .titlebox .fancy-toggle-button {
   float: right;
   padding: 5px 20px 5px 30px;
@@ -2835,6 +2836,8 @@ label + #moresearchinfo {
 }
 
 .titlebox a.option {
+  height: auto;
+  border-radius: 2px;
   background-image: none;
 }
 
@@ -2895,6 +2898,11 @@ label + #moresearchinfo {
 
 .titlebox .flairtoggle input[type="checkbox"] + label::before {
   vertical-align: -25%;
+}
+
+.titlebox form.flairtoggle {
+  padding-right: 5px;
+  overflow: hidden;
 }
 
 .res-nightmode .hover-bubble.multi-selector strong {
