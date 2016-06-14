@@ -2489,12 +2489,6 @@ input[name=uh][value$="9"] ~ a::after {
     height: 64px;
     margin: 0 0 0 16px;
   }
-  #header-img-a ~ .pagename,
-  #header-img-a ~ .tabmenu {
-    position: relative;
-    top: -2px;
-    display: inline-block;
-  }
 }
 
 .side,
