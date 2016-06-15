@@ -16,7 +16,7 @@ a[href$="/spoiler"] {
   border: none;
   color: $primary;
   font-size: 16px;
-  vertical-align: -5px;
+  vertical-align: -4px;
 }
 
 .linkflair-announcement .linkflairlabel {
@@ -40,4 +40,4 @@ body:not(.comments-page) .linkflair-spoiler a.title {
 }
 
 // stickied posts
-.stickied .title { color: #ff007e !important; }
+.stickied .title { color: $pink !important; }
