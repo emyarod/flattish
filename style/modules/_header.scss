@@ -67,12 +67,12 @@
 
       // assign selectors for each group
       @for $a from 1 through length($group) {
-        $selectors: append($selectors, unquote('&[value$="#{nth($group, $a)}"] ~ a::after'), comma);
+        $selectors: append($selectors, unquote('&[value^="#{nth($group, $a)}"] ~ a::after'), comma);
       }
 
       // assign selectors for remainder
       @if $remainder > 0 {
-        $selectors: append($selectors, unquote('&[value$="#{nth($values, ($lcm + $remainder))}"] ~ a::after'), comma);
+        $selectors: append($selectors, unquote('&[value^="#{nth($values, ($lcm + $remainder))}"] ~ a::after'), comma);
       }
 
       // styles
