@@ -3747,7 +3747,7 @@ a[href$="/spoiler"]:hover {
   border: none;
   color: #00bcd4;
   font-size: 16px;
-  vertical-align: -5px;
+  vertical-align: -4px;
 }
 
 .linkflair-announcement .linkflairlabel {
