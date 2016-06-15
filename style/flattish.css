@@ -1983,147 +1983,147 @@ input[name=uh] ~ a::after {
   background-attachment: scroll, fixed;
 }
 
-input[name=uh][value$="a"] ~ a::after {
+input[name=uh][value^="a"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header1%%);
 }
 
-input[name=uh][value$="b"] ~ a::after {
+input[name=uh][value^="b"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header2%%);
 }
 
-input[name=uh][value$="c"] ~ a::after {
+input[name=uh][value^="c"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header3%%);
 }
 
-input[name=uh][value$="d"] ~ a::after {
+input[name=uh][value^="d"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header4%%);
 }
 
-input[name=uh][value$="e"] ~ a::after {
+input[name=uh][value^="e"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header5%%);
 }
 
-input[name=uh][value$="f"] ~ a::after {
+input[name=uh][value^="f"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header6%%);
 }
 
-input[name=uh][value$="g"] ~ a::after {
+input[name=uh][value^="g"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header7%%);
 }
 
-input[name=uh][value$="h"] ~ a::after {
+input[name=uh][value^="h"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header8%%);
 }
 
-input[name=uh][value$="i"] ~ a::after {
+input[name=uh][value^="i"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header9%%);
 }
 
-input[name=uh][value$="j"] ~ a::after {
+input[name=uh][value^="j"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header10%%);
 }
 
-input[name=uh][value$="k"] ~ a::after {
+input[name=uh][value^="k"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header11%%);
 }
 
-input[name=uh][value$="l"] ~ a::after {
+input[name=uh][value^="l"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header12%%);
 }
 
-input[name=uh][value$="m"] ~ a::after {
+input[name=uh][value^="m"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header13%%);
 }
 
-input[name=uh][value$="n"] ~ a::after {
+input[name=uh][value^="n"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header14%%);
 }
 
-input[name=uh][value$="o"] ~ a::after {
+input[name=uh][value^="o"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header15%%);
 }
 
-input[name=uh][value$="p"] ~ a::after {
+input[name=uh][value^="p"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header16%%);
 }
 
-input[name=uh][value$="q"] ~ a::after {
+input[name=uh][value^="q"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header17%%);
 }
 
-input[name=uh][value$="r"] ~ a::after {
+input[name=uh][value^="r"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header18%%);
 }
 
-input[name=uh][value$="s"] ~ a::after {
+input[name=uh][value^="s"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header19%%);
 }
 
-input[name=uh][value$="t"] ~ a::after {
+input[name=uh][value^="t"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header20%%);
 }
 
-input[name=uh][value$="u"] ~ a::after {
+input[name=uh][value^="u"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header21%%);
 }
 
-input[name=uh][value$="v"] ~ a::after {
+input[name=uh][value^="v"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header22%%);
 }
 
-input[name=uh][value$="w"] ~ a::after {
+input[name=uh][value^="w"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header23%%);
 }
 
-input[name=uh][value$="x"] ~ a::after {
+input[name=uh][value^="x"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header24%%);
 }
 
-input[name=uh][value$="y"] ~ a::after {
+input[name=uh][value^="y"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header25%%);
 }
 
-input[name=uh][value$="z"] ~ a::after {
+input[name=uh][value^="z"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header26%%);
 }
 
-input[name=uh][value$="0"] ~ a::after {
+input[name=uh][value^="0"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header27%%);
 }
 
-input[name=uh][value$="1"] ~ a::after {
+input[name=uh][value^="1"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header28%%);
 }
 
-input[name=uh][value$="2"] ~ a::after {
+input[name=uh][value^="2"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header29%%);
 }
 
-input[name=uh][value$="3"] ~ a::after {
+input[name=uh][value^="3"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header30%%);
 }
 
-input[name=uh][value$="4"] ~ a::after {
+input[name=uh][value^="4"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header31%%);
 }
 
-input[name=uh][value$="5"] ~ a::after {
+input[name=uh][value^="5"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header32%%);
 }
 
-input[name=uh][value$="6"] ~ a::after {
+input[name=uh][value^="6"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header33%%);
 }
 
-input[name=uh][value$="7"] ~ a::after {
+input[name=uh][value^="7"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header34%%);
 }
 
-input[name=uh][value$="8"] ~ a::after {
+input[name=uh][value^="8"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header35%%);
 }
 
-input[name=uh][value$="9"] ~ a::after {
+input[name=uh][value^="9"] ~ a::after {
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header36%%);
 }
 
