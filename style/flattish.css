@@ -329,7 +329,7 @@ button {
   background-color: #81c784 !important;
 }
 
-.side a[href="/r/kpop/about/rules"] {
+.side a[href="/r/kpop/wiki/rules"] {
   color: rgba(0, 0, 0, 0.87) !important;
   background: #ffab40 radial-gradient(circle, rgba(255, 209, 128, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -337,12 +337,12 @@ button {
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
 }
 
-.side a[href="/r/kpop/about/rules"]:focus {
+.side a[href="/r/kpop/wiki/rules"]:focus {
   outline: 0;
   background-size: 1000% !important;
 }
 
-.side a[href="/r/kpop/about/rules"]:hover {
+.side a[href="/r/kpop/wiki/rules"]:hover {
   background-color: #ff9100 !important;
 }
 
@@ -375,8 +375,8 @@ button {
   color: #fff;
 }
 
-button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/about/rules"], .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"], .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .save-button > button:nth-child(1), .guiders_button,
-.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .submit-page button[type="submit"], .res-nightmode #sr-form .save-button button, .res-nightmode .submit-link .morelink a, .res-nightmode .submit-text .morelink a, .res-nightmode .side a[href="/r/kpop/about/rules"], .res-nightmode .side a[href="/r/kpop/wiki/relatedsubs"], .res-nightmode .side a[href="/r/kpop/wiki/usefulsites"], .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .save-button > button:nth-child(1), .res-nightmode .guiders_button {
+button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/wiki/rules"], .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"], .commentarea .menuarea .spacer + .spacer form, #REScommentSubToggle, .save-button > button:nth-child(1), .guiders_button,
+.res-nightmode button, .res-nightmode .titlebox a.option, .res-nightmode .res-fancy-toggle-button, .res-nightmode .submit-page button[type="submit"], .res-nightmode #sr-form .save-button button, .res-nightmode .submit-link .morelink a, .res-nightmode .submit-text .morelink a, .res-nightmode .side a[href="/r/kpop/wiki/rules"], .res-nightmode .side a[href="/r/kpop/wiki/relatedsubs"], .res-nightmode .side a[href="/r/kpop/wiki/usefulsites"], .res-nightmode .commentarea .menuarea .spacer + .spacer form, .res-nightmode #REScommentSubToggle, .res-nightmode .save-button > button:nth-child(1), .res-nightmode .guiders_button {
   height: 36px;
   min-width: 64px;
   padding: 0 8px !important;
@@ -393,12 +393,12 @@ button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button::-moz-focus-inner, .titlebox a.option::-moz-focus-inner, .res-fancy-toggle-button::-moz-focus-inner, .submit-page button[type="submit"]::-moz-focus-inner, #sr-form .save-button button::-moz-focus-inner, .submit-link .morelink a::-moz-focus-inner, .submit-text .morelink a::-moz-focus-inner, .side a[href="/r/kpop/about/rules"]::-moz-focus-inner, .side a[href="/r/kpop/wiki/relatedsubs"]::-moz-focus-inner, .side a[href="/r/kpop/wiki/usefulsites"]::-moz-focus-inner, .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, #REScommentSubToggle::-moz-focus-inner, .save-button > button:nth-child(1)::-moz-focus-inner, .guiders_button::-moz-focus-inner,
-.res-nightmode button::-moz-focus-inner, .res-nightmode .titlebox a.option::-moz-focus-inner, .res-nightmode .res-fancy-toggle-button::-moz-focus-inner, .res-nightmode .submit-page button[type="submit"]::-moz-focus-inner, .res-nightmode #sr-form .save-button button::-moz-focus-inner, .res-nightmode .submit-link .morelink a::-moz-focus-inner, .res-nightmode .submit-text .morelink a::-moz-focus-inner, .res-nightmode .side a[href="/r/kpop/about/rules"]::-moz-focus-inner, .res-nightmode .side a[href="/r/kpop/wiki/relatedsubs"]::-moz-focus-inner, .res-nightmode .side a[href="/r/kpop/wiki/usefulsites"]::-moz-focus-inner, .res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, .res-nightmode #REScommentSubToggle::-moz-focus-inner, .res-nightmode .save-button > button:nth-child(1)::-moz-focus-inner, .res-nightmode .guiders_button::-moz-focus-inner {
+button::-moz-focus-inner, .titlebox a.option::-moz-focus-inner, .res-fancy-toggle-button::-moz-focus-inner, .submit-page button[type="submit"]::-moz-focus-inner, #sr-form .save-button button::-moz-focus-inner, .submit-link .morelink a::-moz-focus-inner, .submit-text .morelink a::-moz-focus-inner, .side a[href="/r/kpop/wiki/rules"]::-moz-focus-inner, .side a[href="/r/kpop/wiki/relatedsubs"]::-moz-focus-inner, .side a[href="/r/kpop/wiki/usefulsites"]::-moz-focus-inner, .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, #REScommentSubToggle::-moz-focus-inner, .save-button > button:nth-child(1)::-moz-focus-inner, .guiders_button::-moz-focus-inner,
+.res-nightmode button::-moz-focus-inner, .res-nightmode .titlebox a.option::-moz-focus-inner, .res-nightmode .res-fancy-toggle-button::-moz-focus-inner, .res-nightmode .submit-page button[type="submit"]::-moz-focus-inner, .res-nightmode #sr-form .save-button button::-moz-focus-inner, .res-nightmode .submit-link .morelink a::-moz-focus-inner, .res-nightmode .submit-text .morelink a::-moz-focus-inner, .res-nightmode .side a[href="/r/kpop/wiki/rules"]::-moz-focus-inner, .res-nightmode .side a[href="/r/kpop/wiki/relatedsubs"]::-moz-focus-inner, .res-nightmode .side a[href="/r/kpop/wiki/usefulsites"]::-moz-focus-inner, .res-nightmode .commentarea .menuarea .spacer + .spacer form::-moz-focus-inner, .res-nightmode #REScommentSubToggle::-moz-focus-inner, .res-nightmode .save-button > button:nth-child(1)::-moz-focus-inner, .res-nightmode .guiders_button::-moz-focus-inner {
   border: 0;
 }
 
-button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/about/rules"], .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"], .save-button > button:nth-child(1), .guiders_button {
+button, .submit-page button[type="submit"], #sr-form .save-button button, .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/wiki/rules"], .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"], .save-button > button:nth-child(1), .guiders_button {
   font-size: 14px !important;
 }
 
@@ -2563,7 +2563,7 @@ input[name=uh][value^="9"] ~ a::after {
   display: none;
 }
 
-.side .md a[href="/r/kpop/about/rules"], .side .md a[href="/r/kpop/wiki/relatedsubs"], .side .md a[href="/r/kpop/wiki/usefulsites"] {
+.side .md a[href="/r/kpop/wiki/rules"], .side .md a[href="/r/kpop/wiki/relatedsubs"], .side .md a[href="/r/kpop/wiki/usefulsites"] {
   display: block;
   margin: 15px 0;
 }
