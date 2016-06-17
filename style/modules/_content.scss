@@ -6,9 +6,10 @@
 
 .modtools-page div.content,
 div.content {
-	margin-right: 340px;
-	// max-width: calc(100% - 503px);
-	// margin-left: 93px !important;
+	margin : {
+		right: 345px;
+		left: 10px;
+	}
 }
 
 // reddit newsletter infobar
