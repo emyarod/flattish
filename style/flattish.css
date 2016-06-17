@@ -1931,7 +1931,8 @@ h6,
 
 .modtools-page div.content,
 div.content {
-  margin-right: 340px;
+  margin-right: 345px;
+  margin-left: 10px;
 }
 
 .infobar.newsletterbar {
@@ -2500,6 +2501,7 @@ input[name=uh][value^="9"] ~ a::after {
 .res-nightmode .side,
 .side {
   background-color: transparent !important;
+  margin-right: 10px;
 }
 
 .side {
@@ -3079,7 +3081,7 @@ body::before {
 
 .reddit-infobar {
   padding-left: 55px !important;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
 
 .res-nightmode #REScommentSubToggle {
