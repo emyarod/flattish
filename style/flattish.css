@@ -2015,6 +2015,7 @@ div.content {
 
 #sr-header-area:hover::after {
   opacity: 0;
+  height: 0;
 }
 
 #sr-header-area .sr-list {
