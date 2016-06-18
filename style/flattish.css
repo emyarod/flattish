@@ -2018,11 +2018,6 @@ div.content {
   height: 0;
 }
 
-#sr-header-area .sr-list {
-  margin: 0;
-  padding: 0;
-}
-
 #sr-header-area .dropdown.srdrop {
   height: 3em;
   padding: 0;
