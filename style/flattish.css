@@ -2135,25 +2135,10 @@ input[name=uh][value^="9"] ~ a::after {
 }
 
 #sr-header-area {
-  z-index: 20;
   height: 30px;
   border: 0;
   font-size: 10px;
   line-height: 30px;
-  overflow: visible !important;
-}
-
-#sr-header-area:hover {
-  top: 0;
-}
-
-#sr-header-area:hover::after {
-  opacity: 0;
-}
-
-#sr-header-area .sr-list {
-  margin: 0;
-  padding: 0;
 }
 
 #sr-header-area .dropdown.srdrop {
