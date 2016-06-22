@@ -14,12 +14,6 @@ div.content {
 	} @else {
 		top: 223px;
 	}
-
-	@if $pinned-topics {
-  	margin-left: 92px;
-  } @else {
-		margin-left: 15px;
-  }
 }
 
 // reddit newsletter infobar
