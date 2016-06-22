@@ -1,6 +1,12 @@
 // main: ../flattish.scss
 
 $card-selectors-map: (
+	// sitetable promoted link
+	promoted-link: (
+		selector-name: '.link.promotedlink.promoted, .link.promotedlink.external',
+		depth: 1
+	),
+
 	// compose page
 	compose-message: (
 		selector-name: '#compose-message',
@@ -58,14 +64,6 @@ $card-selectors-map: (
 		selector-name: '.commentarea > .usertext',
 		depth: 1
 	),
-	res-comment: (
-		selector-name: '.res .comment',
-		depth: 1
-	),
-	comment: (
-		selector-name: '.comment',
-		depth: 1
-	),
 	archived-infobar: (
 		selector-name: '.archived-infobar',
 		depth: 1
@@ -119,7 +117,7 @@ $card-selectors-map: (
 	// sidebar search
 	searchexpando: (
 		selector-name: '#searchexpando',
-		depth: 1
+		depth: 0
 	),
 
 	// sidebar submit
@@ -230,7 +228,7 @@ $alt-bg-card-selector-map: (
 #{$alt-bg-card-selectors},
 #{$alt-depth-card-selectors},
 #{$default-card-selectors} {
-	padding: 16px !important;
+	padding: 10px !important;
 	border: 0 !important;
 	border-radius: 2px !important;
 }

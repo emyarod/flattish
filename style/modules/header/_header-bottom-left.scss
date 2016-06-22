@@ -44,7 +44,6 @@
     position: absolute;
     left: 0;
     top: 73px;
-    width: 100vw; // fuck IE8 support
     padding-left: 16px;
     margin-top: 0;
 
@@ -83,18 +82,6 @@
   background-position: 0 -117px;
 }
 
-@media (min-width: $screen-md-min) {
-  #header-bottom-left {
-    @if $header-large {
-      @if $pinned-topics {
-        left: 0;
-      } @else {
-        left: 48px;
-      }
-    }
-  }
-}
-
 @media (min-width: $screen-lg-min) {
   #header-bottom-left {
     @if $header-large {
@@ -113,7 +100,6 @@
 
     // restore initial tabmenu values
     .tabmenu {
-      position: static;
       left: initial;
       top: initial;
       width: initial;
@@ -125,14 +111,5 @@
   #header-img.default-header {
     height: 64px;
     @include margin(0 0 0 16px);
-  }
-
-  #header-img-a ~ {
-    .pagename,
-    .tabmenu {
-      position: relative;
-      top: -2px;
-      display: inline-block;
-    }
   }
 }

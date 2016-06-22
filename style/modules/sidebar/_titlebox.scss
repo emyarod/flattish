@@ -1,5 +1,6 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
+// nightmode
 .res-nightmode .titlebox {
 
 	// title
@@ -31,35 +32,79 @@
 		opacity: 1;
 	}
 
+	// subscribe and dashboard buttons container
+	.subButtons { border-left-color: $dark-divider-text; }
+
 	.md p { color: $dark-text; }
+}
+
+// res
+.res .titlebox {
+	.usertext-body { clear: both; }
+
+	.fancy-toggle-button {
+		float: none;
+		margin-top: unset;
+		padding: 0;
+		border-left: unset;
+	}
+
+	a.option,
+	.res-fancy-toggle-button {
+		height: auto;
+		line-height: 2em;
+	}
 }
 
 .titlebox {
 	z-index: 0;
+	padding: 8px;
 
 	// title
 	a.hover {
 		color: $light-text;
 		font-size: 19px;
+		padding: 2px 0 0 2px;
 	}
 
-	// subscribe and dashboard buttons
+	// subscribe and dashboard buttons container
 	.subButtons {
 		display: flex;
-		justify-content: space-around;
+		float: right;
+		flex-direction: column;
+		padding: 0 15px 0 25px;
+		border : {
+			left: 1px solid $light-divider-text;
+			bottom: 5px solid transparent;
+			top: 5px solid transparent;
+		}
+	}
+
+	.fancy-toggle-button {
+		float: right;
+		padding: 5px 20px 5px 30px;
+		border-left: 1px solid $light-divider-text;
 	}
 
 	a.option {
-		padding: 11.5px 7px !important;
+		height: auto;
+		border-radius: 2px;
 		background-image: none;
 
-		&.remove { color: get-color("red", "500") !important; } // thx nightmode
+		// thx nightmode
+		&.remove { background-color: get-color('red', '500') !important; }
+	}
+
+	.toggle a.option.active {
+		display: inline-block;
+		width: 100%;
 	}
 
 	.subscribers,
 	.users-online {
-		color: $light-secondary-text;
 		display: block; // moves text below sub button for non-RES users
+		padding-left: 6px;
+		color: $light-secondary-text;
 	}
 
 	// subscribers
@@ -67,9 +112,16 @@
 		.number {
 			font-weight: bold;
 			font-size: 24px;
+			margin-right: 1px;
 		}
 
 		.word { font-size: 13px; }
+	}
+
+	.tagline {
+		margin-left: 0;
+		padding: 5px;
+		text-align: center;
 	}
 
 	.users-online {
@@ -87,6 +139,7 @@
 	.leavemoderator,
 	form.toggle,
 	.tagline {
+		padding-left: 5px;
 		font-size: 10px;
 	}
 
@@ -97,6 +150,11 @@
 
 	// material checkbox
 	.flairtoggle input[type="checkbox"]+label::before { vertical-align: -25%; }
+
+	form.flairtoggle {
+		padding-right: 5px;
+		overflow: hidden;
+	}
 }
 
 // subscribe button tooltip

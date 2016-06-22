@@ -1,9 +1,20 @@
 // main: ../../flattish.scss
 
-// temporary empty state
-#noresults {
-	padding: 16px;
+// promoted links
+.organic-listing {
+	overflow: inherit;
+	border: 0;
+
+	.link.promotedlink {
+		&.promoted,
+		&.external {
+			width: 100%;
+		}
+	}
 }
+
+// temporary empty state
+#noresults { padding: 16px; }
 
 // post rank
 .rank { display: none; }
@@ -136,7 +147,7 @@
 
 .tagline,
 .flat-list.buttons {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 // "submitted by"
@@ -181,12 +192,13 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
+	margin: 0;
 
 	li {
 		height: 20px;
 		line-height: 18px;
 
-		&.first { flex: 1 1 auto; }
+		&.first { flex: 0 1 auto; }
 
 		&:not(.first) {
 			flex: 0 1 auto;
@@ -218,6 +230,13 @@ a[data-event-action="distinguish"][onclick="return toggle_distinguish_span(this)
 	height: 20px;
 	width: 20px;
 	font-size: 0;
+}
+
+.pretty-button {
+	margin-bottom: 0;
+	padding: 0;
+	border: 0;
+	background: inherit;
 }
 
 .link-save-button a,
