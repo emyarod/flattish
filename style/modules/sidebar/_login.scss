@@ -1,4 +1,4 @@
-// main: ../../main.scss
+// main: ../../flattish.scss
 
 // sign up/login modal
 .c-checkbox input[type="checkbox"] + label::before {
@@ -6,8 +6,8 @@
 }
 
 // sidebar login card
-.res-nightmode #login_login-main button {
-	background-color: $dark-cards;
+.res-nightmode .login-form-side .submit {
+	background-color: transparent !important;
 
 	&:hover { border-radius: 2px !important; }
 }

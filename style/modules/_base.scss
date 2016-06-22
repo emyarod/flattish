@@ -1,14 +1,9 @@
 // main: ../flattish.scss
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 * {
   font-family: $font-stack;
   outline: none;
-  @include transition-default();
+  @include transition-default;
 }
 
 *,
@@ -77,17 +72,9 @@ body {
   }
 }
 
-.md { max-width: unset; }
-
 #wikiactions a,
 #moderation_tools a,
 .footer a,
 .bottommenu a {
 	@include link-underline-transition;
-}
-
-@media (max-resolution: 1dppx) {
-  body {
-    overflow-x: initial;
-  }
 }

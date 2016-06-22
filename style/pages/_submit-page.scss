@@ -49,12 +49,12 @@ ul.tabmenu.formtab {
 .formtabs-content {
   width: 100%;
   border: 0;
-  margin-bottom: em(17, 10);
+  margin-bottom: 17px;
   @include border-top-radius(0);
 
   // gold infobar
   .infobar {
-    padding: em(13, 16);
+    padding: 13px;
     @include drop-shadow(0);
   }
 }
@@ -99,13 +99,13 @@ ul.tabmenu.formtab {
 
 // brick
 .content.submit .info-notice {
-  margin-bottom: em(15, 13);
+  margin-bottom: 15px;
   border: 0;
 }
 
 // sidebar
 .submit-page .side {
-  padding-top: em(55, 10);
+  padding-top: 55px;
 
-  .spacer:first-of-type { top: em(-2, 10); }
+  .spacer:first-of-type { top: -2px; }
 }

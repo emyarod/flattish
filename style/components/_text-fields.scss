@@ -9,13 +9,17 @@ input[type="text"],
 input[type="password"],
 input[type="url"],
 textarea {
-  @include border-width(0 0 1px !important);
-  @include border-color(transparent transparent get-color("grey", "600") !important);
+  border : {
+    width: 1px;
+    color: get-color('grey', '600');
+    radius: 2px;
+  }
+
   font-family: $font-stack;
   background-color: transparent !important;
   box-shadow: none !important;
 
-  &:focus { border-bottom-color: $accent !important; }
+  &:focus { border-color: $accent !important; }
 }
 
 // nightmode
@@ -36,32 +40,15 @@ textarea {
 }
 
 // macros menu
-.RESMacroDropdown,
-.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  right: em(16, 10) !important; // thx RES
-}
-
 .res-nightmode .RESMacroDropdown {
   border: 0;
   background-color: $dark-cards !important;
 }
 
 .RESMacroDropdown {
-  display: block;
-  margin: 0;
-  font-size: em(10, 10);
-  border: 0;
-  border-radius: em(2, 10);
+  font-size: 10px;
+  border-radius: 2px;
   background-color: $light-cards;
-  @include drop-shadow(1);
-}
-
-.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  width: em(118, 10);
-  max-height: em(690, 10);
-  margin-top: em(10, 10);
-  transform-origin: 100% 0;
-  @include animation(RESmenuopen 0.2s $animation-curve-default);
 }
 
 .res-nightmode .RESMacroDropdownList li a {
@@ -73,26 +60,22 @@ textarea {
 
 .RESMacroDropdownList li a {
   color: $light-text !important; // thx RES
-  padding: em(16, 10) !important; // thx RES
 
   &:hover { background-color: $light-app-bar !important;  } // thx RES
 }
 
 // text editor container
 .usertext-edit {
-  margin: 0 auto;
-  max-width: unset !important;
-
   textarea {
     width: 100%;
-    margin-bottom: em(9, 14) !important; // override global reddit styles
+    margin-bottom: 9px !important; // override global reddit styles
   }
 
   // comment style buttons and character counter
   & > .markdownEditor-wrapper { width: auto; } // override inline styling
 }
 
-.bottom-area { margin-bottom: em(10, 13); }
+.bottom-area { margin-bottom: 10px; }
 
 // live preview
 .res-nightmode .RESDialogSmall.livePreview {
