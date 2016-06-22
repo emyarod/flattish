@@ -19,10 +19,10 @@
 
 .res-nightmode .combined-search-page .search-result p { color: $dark-text; }
 
-.combined-search-page .search-result { margin: 0 0 em(16, 10) 0; }
+.combined-search-page .search-result { margin: 0 0 16px 0; }
 
 .combined-search-page .search-result.has-thumbnail > .thumbnail {
-  max-height: em(70, 12);
+  max-height: 70px;
 
   img { width: unset; }
 }
