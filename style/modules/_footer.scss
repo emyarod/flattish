@@ -21,7 +21,8 @@
 
 .footer-parent,
 .debuginfo {
-  position: relative;
+  // !important because of RES
+  position: relative !important;
 
   @if $header-large {
 		@if $sidebar-img {
