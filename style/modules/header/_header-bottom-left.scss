@@ -44,7 +44,6 @@
     position: absolute;
     left: 0;
     top: 73px;
-    width: 100vw; // fuck IE8 support
     padding-left: 16px;
     margin-top: 0;
 
@@ -113,7 +112,6 @@
 
     // restore initial tabmenu values
     .tabmenu {
-      position: static;
       left: initial;
       top: initial;
       width: initial;
@@ -125,14 +123,5 @@
   #header-img.default-header {
     height: 64px;
     @include margin(0 0 0 16px);
-  }
-
-  #header-img-a ~ {
-    .pagename,
-    .tabmenu {
-      position: relative;
-      top: -2px;
-      display: inline-block;
-    }
   }
 }
