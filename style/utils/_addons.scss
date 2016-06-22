@@ -113,9 +113,8 @@
     a {
       display: block;
       height: 60px;
-      border-left-width: 60px;
-      border-left-style: solid;
-      border-left-color: transparent;
+      border: 0;
+      margin-left: 60px;
       padding: 0 16px;
       line-height: 60px;
       font-size: 14px;
@@ -130,6 +129,7 @@
 
     ul {
       padding: 0;
+      background-color: transparent !important;
 
       &:hover {
         width: 100%;

@@ -81,7 +81,7 @@ $night-menu-list-selectors: ('.res-nightmode .RESDropdownList li');
 }
 
 #{$menu-list-selectors} {
-  padding: 16px;
+  padding: 8px;
   color: $light-text !important;
 
   &:hover { background-color: $light-app-bar !important; }

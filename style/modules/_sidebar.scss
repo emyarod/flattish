@@ -8,13 +8,7 @@
 .res-nightmode .side,
 .side {
 	background-color: transparent !important;
-}
-
-.res-nightmode .side::before { background-position: 0 -59px; }
-
-.side,
-.side::before {
-	@include transition-default;
+	margin-right: 15px;
 }
 
 .side {
@@ -34,9 +28,7 @@
 		}
 	}
 
-	right: 0;
-	width: 0;
-	margin: 0;
+	width: 330px;
 	padding-top: 85px;
 
 	#ad_sponsorship,
@@ -55,42 +47,10 @@
 		margin: 0 0 15px;
 
 		&:first-of-type {
+			padding: 0 !important;
 			position: relative;
 			top: -85px;
 		}
-	}
-
-	// kebab menu
-	&::before {
-    position: fixed;
-    top: 215px;
-    right: 1.5em;
-    display: block;
-    height: 36px;
-    width: 36px;
-    content: "";
-    background-position: -158px -23px;
-		@include transition-default;
-	}
-
-	// transparent element underneath sidebar to prevent flickering during hover
-	&::after {
-	  position: absolute;
-		top: 0;
-		z-index: -1;
-	  width: 346px;
-	  height: 100%;
-		content: '';
-	}
-
-	&:hover {
-
-		// use TRBL animations due to transforms disabling fixed positioning
-		// .spacer { @include transform(translateX(-346px)); }
-		right: 346px;
-
-		// make kebab disappear on hover
-		&::before { opacity: 0; }
 	}
 
 	.spacer:first-of-type,
@@ -148,26 +108,3 @@
 
 // sidecontentbox
 @import "sidebar/sidecontentbox";
-
-@media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
-	.side,
-	.side * {
-		z-index: 2; // higher than content z-index
-	}
-
-	.side {
-		width: 330px;
-		margin-right: 64px;
-
-		&:hover { right: initial; }
-
-		// hide kebab menu icon
-		&::before,
-		&::after {
-			display: none;
-		}
-
-		// use TRBL animations due to transforms disabling fixed positioning
-		// &:hover .spacer { @include transform(none); }
-	}
-}

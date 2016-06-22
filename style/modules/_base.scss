@@ -8,7 +8,7 @@ body {
 * {
   font-family: $font-stack;
   outline: none;
-  @include transition-default();
+  @include transition-default;
 }
 
 *,
@@ -76,8 +76,6 @@ body {
     &.loggedin::before { display: none; }
   }
 }
-
-.md { max-width: unset; }
 
 #wikiactions a,
 #moderation_tools a,

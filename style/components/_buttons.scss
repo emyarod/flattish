@@ -1,15 +1,15 @@
 // main: ../flattish.scss
 
 @mixin global-button-styles {
-	height: 36px !important;
-	min-width: 64px !important;
+	height: 36px;
+	min-width: 64px;
 	padding: 0 8px !important;
 	border: 0 !important;
-	border-radius: 2px;
+	border-radius: 2px !important;
 	font-weight: bold;
 	font-family: $font-stack;
 	letter-spacing: normal;
-	line-height: 36px !important;
+	line-height: 36px;
 	text-align: center;
 	text-transform: uppercase;
 	outline: 0;
@@ -34,14 +34,18 @@ $button-selector-map: (
   subreddit-subscribe-button: (
 		selector-name: '.titlebox a.option',
 		desired-font-size: 10,
-		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text',
+		background-color: get-color('green', '500'),
+		hover-color: get-color('green', '300'),
+		ripple-color: transparent,
+		button-type: 'flat-colorized-bg-button',
   ),
 	add-shortcut-and-dashboard-button: (
 		selector-name: '.res-fancy-toggle-button',
 		desired-font-size: 10,
-		color: get-color("green", "500"),
-		button-type: 'flat-button-colored-text',
+		background-color: get-color('green', '500'),
+		hover-color: get-color('green', '300'),
+		ripple-color: transparent,
+		button-type: 'flat-colorized-bg-button',
   ),
 
 	// submit page
@@ -101,7 +105,7 @@ $button-selector-map: (
 	comments-page-button-two: (
 		selector-name: '#REScommentSubToggle',
 		desired-font-size: 12,
-		color: get-color("green", "500"),
+		color: get-color('green', '500'),
 		button-type: 'flat-button-colored-text',
   ),
 

@@ -16,12 +16,9 @@
 .res-nightmode .commentarea .menuarea .toggle a { color: $dark-secondary-text; }
 
 .commentarea {
-  position: relative;
-
   .panestack-title,
   .menuarea {
     margin: 0;
-    width: 100%;
   }
 
   // # of comments and thread subscribe button area
@@ -42,7 +39,7 @@
 
   // sorted/navigate by
   .menuarea {
-    margin-bottom: 17px;
+    margin-bottom: 5px;
 
     .spacer + .spacer {
       display: block;
@@ -54,7 +51,7 @@
     .toggle a { color: $light-secondary-text; }
   }
 
-  &> .usertext { @include margin(null null 16px 0); }
+  &> .usertext { @include margin(null null 5px 0); }
 }
 
 // offset inline styling
@@ -82,7 +79,6 @@
 
 // comment save button bar
 .usertext {
-
   button { margin: 0; } // fuck you RES
 
   .bottom-area { line-height: 36px; }
@@ -118,27 +114,24 @@
   background-color: $primary;
 }
 
-#BigEditor {
+#BigEditor .RESDialogSmall {
+  border: 0;
+  border-radius: 2px;
+  @include drop-shadow(1);
 
-  .RESDialogSmall {
-    border: 0;
-    border-radius: 2px;
-    @include drop-shadow(2);
-
-    h3 {
-      height: 38px;
-      color: set-text-color($primary, text);
-      background-color: $primary;
-    }
-
-    .md h3 { height: unset; }
+  h3 {
+    height: 38px;
+    color: set-text-color($primary, text);
+    background-color: $primary;
   }
+
+  .md h3 { height: unset; }
 }
 
 .gold-accent.comment-visits-box {
   width: 100%;
   max-width: unset;
-  margin: 0 0 16px 0;
+  margin: 0 0 5px 0;
   border: 0;
 
   .title::after {
@@ -174,7 +167,7 @@
 // infobar when viewing specific permalinked comments
 .infobar {
   margin: 0 0 16px;
-  padding: 16px;
+  padding: 5px;
   border: 0;
   border-radius: 2px;
   @include drop-shadow(1);
@@ -203,30 +196,28 @@ html.res-nightmode .res-commentBoxes .comment .comment .comment .comment .commen
 
 // non-nightmode
 html.res-commentBoxes .comment {
-  margin: 0 0 16px !important;
-  padding: 16px !important;
-  overflow: visible;
+  margin: 0 0 5px !important;
+  padding: 5px !important;
 }
 
 html.res-commentBoxes.res-commentBoxes-rounded .comment {
   border-radius: 2px !important;
 }
 
-.res .comment,
-.comment {
+.res .comment .child,
+.comment .child {
+  border: 0;
 
-  &:hover { @include drop-shadow(3); }
-
-  .md p { margin: 15px 0; }
-
-  .child {
-    border: 0;
-
-    .usertext-buttons { margin-bottom: 16px; }
-  }
+  .usertext-buttons { margin-bottom: 16px; }
 }
 
-.comment { margin: 0 0 16px; }
+.comment {
+  margin: 0 0 8px;
+  padding: 2px;
+  border: 1px solid $light-divider-text;
+  border-radius: 2px;
+  background-color: $white;
+}
 
 // odd
 .commentarea .comment .comment .comment,
@@ -234,15 +225,9 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 .commentarea .comment .comment .comment .comment .comment .comment .comment,
 .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment,
 .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
-  background-color: $white;
+  background-color: $white !important;
 }
 
-// RES even comments
-.res .commentarea .comment .comment,
-.res .commentarea .comment .comment .comment .comment,
-.res .commentarea .comment .comment .comment .comment .comment .comment,
-.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
-.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment,
 // default even comments, combined to reduce character count
 .commentarea .comment .comment,
 .commentarea .comment .comment .comment .comment,
@@ -256,12 +241,8 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 // RES active element highlighting
 .comment .entry {
   border-right: 2px solid transparent;
-  margin-bottom: 16px;
 
-  &.RES-keyNav-activeElement {
-    border-right-color: $primary;
-    padding-left: 5px;
-  }
+  &.RES-keyNav-activeElement { border-right-color: $primary; }
 }
 
 
