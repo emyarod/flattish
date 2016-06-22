@@ -4,8 +4,10 @@
 
 .res-nightmode div.content { background-color: transparent !important; }
 
+.modtools-page div.content,
 div.content {
 	position: relative;
+	margin-right: 360px;
 
 	@if $header-large {
 		top: 297px;
@@ -14,25 +16,9 @@ div.content {
 	}
 
 	@if $pinned-topics {
-  	margin: 0 15px 0 91px;
+  	margin-left: 92px;
   } @else {
-  	margin: 0 15px;
-  }
-}
-
-@if $pinned-topics {
-  @media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
-  	div.content {
-  		max-width: calc(100% - 503px);
-  		margin-left: 93px !important;
-  	}
-  }
-} @else {
-  @media (max-resolution: 1dppx) and (min-width: $screen-md-min) {
-  	div.content {
-  		max-width: calc(100% - 474px);
-  		margin-left: 64px !important;
-  	}
+		margin-left: 15px;
   }
 }
 
