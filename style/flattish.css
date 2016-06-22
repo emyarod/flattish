@@ -1976,7 +1976,6 @@ div.content {
   position: relative;
   margin-right: 360px;
   top: 223px;
-  margin-left: 15px;
 }
 
 .infobar.newsletterbar {
@@ -2926,7 +2925,7 @@ body::before {
   height: 223px;
   width: 100%;
   content: '';
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.57) 80%), url(%%header%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header%%);
   background-attachment: scroll, fixed;
 }
 

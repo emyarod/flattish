@@ -62,33 +62,38 @@
     }
   }
 
-  .res-nightmode .titlebox blockquote::after { background-color: $dark-cards; }
-
-  .titlebox blockquote {
-    @if $header-large {
-      top: 312px;
-    } @else {
-      top: 239px;
+  .res-nightmode .titlebox blockquote {
+    // pinned links
+    p a {
+      color: $dark-secondary-text;
     }
 
-    position: fixed;
-    left: 16px;
+    // pinned menus
+    ul {
+      background-color: $dark-background !important;
+
+      // menu title
+      li:first-of-type {
+        color: $dark-secondary-text;
+        background-color: $dark-background;
+      }
+
+      // menu items
+      li:not(:first-of-type) {
+        color: $dark-secondary-text;
+        background-color: $dark-background;
+
+        &:hover { color: $light-primary; }
+
+        a { color: $dark-secondary-text; }
+      }
+    }
+  }
+
+  .titlebox blockquote {
     border: 0;
     margin: 0 !important;
     padding: 0;
-
-    &::after {
-      position: absolute;
-      top: 0;
-      z-index: -1;
-      display: block;
-      height: 100%;
-      width: 60px;
-      content: '';
-      border-radius: 2px;
-      @include drop-shadow(1);
-      background-color: $light-cards;
-    }
 
     p,
     ul,
@@ -98,52 +103,80 @@
 
     p,
     ul {
-      width: 60px;
-      height: 60px;
-      margin: 0 !important;
-      overflow: hidden;
       background: url(%%stickies%%) no-repeat;
     }
 
-    p:hover {
+    // pinned links
+    p {
       width: 100%;
-      background-color: $primary !important;
-    }
+      height: 40px;
+      background-color: $primary;
 
-    a {
-      display: block;
-      height: 60px;
-      border: 0;
-      margin-left: 60px;
-      padding: 0 16px;
-      line-height: 60px;
-      font-size: 14px;
-      color: $dark-text !important;
-      background-clip: padding-box;
-      background-color: rgba($tooltip, 1);
+      &:hover { background-color: $light-primary; }
 
-      &:hover {
-        color: $primary !important;
+      a {
+        display: block;
+        height: 40px;
+        border-color: transparent;
+        border-style: solid;
+        @include border-width(0 0 0 60px);
+        padding: 0;
+        line-height: 40px;
+        font-size: 14px;
+        color: $dark-secondary-text;
+        font-weight: bold;
+        background-color: $primary;
+        background-clip: padding-box;
+
+        &:hover {
+          background-color: $light-primary;
+          color: $dark-text;
+        }
       }
     }
 
+    // pinned menus
     ul {
       padding: 0;
-      background-color: transparent !important;
-
-      &:hover {
-        width: 100%;
-        overflow: visible;
-        background-color: $primary !important;
-      }
+      margin-bottom: 8px;
+      background-color: $light-background;
 
       li {
         list-style-type: none;
 
-        // different styles for links within ul
-        a {
-          border: 0;
+        // menu titles
+        &:first-of-type {
+          height: 40px;
           margin-left: 60px;
+          font-size: 14px;
+          font-weight: bold;
+          color: $light-secondary-text;
+          line-height: 40px;
+          background-color: $light-background;
+        }
+
+        // menu items
+        &:not(:first-of-type) {
+          padding: 5px 0 5px 30px;
+          line-height: 20px;
+          font-size: 14px;
+          color: $light-secondary-text;
+          background-color: $light-background;
+          @include transition-default;
+
+          &:hover {
+            background-color: $tooltip;
+
+            a {
+              font-weight: bold;
+              color: $light-primary;
+            }
+          }
+
+          a {
+            display: block;
+            color: $light-secondary-text;
+          }
         }
       }
     }
