@@ -10,13 +10,19 @@
 @if $random-header {
   // header image when logged in
   // fallback image for logged out users in content.scss
+  .pinHeader-subanduser,
+  .pinHeader-userbar {
+    input[name=uh] ~ a::after { position: static; }
+  }
+
   input[name=uh] {
     ~ a::after {
       position: absolute;
       top: -40px;
       right: -16px;
       z-index: -1;
-      width: 1920px;
+      width: 100vw;
+      background-position: top center;
 
       @if $header-large {
         height: 420px;
@@ -62,12 +68,12 @@
 
       // assign selectors for each group
       @for $a from 1 through length($group) {
-        $selectors: append($selectors, unquote('&[value$="#{nth($group, $a)}"] ~ a::after'), comma);
+        $selectors: append($selectors, unquote('&[value^="#{nth($group, $a)}"] ~ a::after'), comma);
       }
 
       // assign selectors for remainder
       @if $remainder > 0 {
-        $selectors: append($selectors, unquote('&[value$="#{nth($values, ($lcm + $remainder))}"] ~ a::after'), comma);
+        $selectors: append($selectors, unquote('&[value^="#{nth($values, ($lcm + $remainder))}"] ~ a::after'), comma);
       }
 
       // styles
