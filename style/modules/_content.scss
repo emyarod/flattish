@@ -7,7 +7,10 @@
 .modtools-page div.content,
 div.content {
 	position: relative;
-	margin-right: 360px;
+	margin : {
+		left: 15px;
+		right: 360px;
+	}
 
 	@if $header-large {
 		top: 297px;

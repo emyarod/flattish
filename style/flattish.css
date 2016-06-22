@@ -1974,6 +1974,7 @@ a[data-event-action="unhide"] {
 .modtools-page div.content,
 div.content {
   position: relative;
+  margin-left: 15px;
   margin-right: 360px;
   top: 223px;
 }
