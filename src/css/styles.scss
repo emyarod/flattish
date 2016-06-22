@@ -55,7 +55,12 @@ $dropbox-border: #d9edf7;
 }
 
 // iframe
+#iframe-container {
+  height: 1000px;
+}
+
 iframe {
+  height: 100%;
   border: 0;
 }
 
