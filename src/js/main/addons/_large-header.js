@@ -1,3 +1,5 @@
+import { sidebarImg } from './_sidebar-image.js';
+
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
