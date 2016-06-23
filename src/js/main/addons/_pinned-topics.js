@@ -129,6 +129,13 @@ function addTopic() {
   // 2. live preview for pinned menus
   function pinnedMenulinksLivePreview(topicNum) {
     if (topicNum === topicSettings.counter) {
+      // menu titles
+      $(`#topic${topicNum}-menutitle`).keyup((event) => {
+        $('iframe').contents().find(`#topic${topicNum}-menutitle`)
+          .text($(event.currentTarget).val());
+      });
+
+      // menulink text
       $(`.topic${topicNum}-menulink-text`).keyup((event) => {
         // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
         let id = $(event.currentTarget).attr('id');
@@ -138,6 +145,28 @@ function addTopic() {
       });
     } else {
       // topicNum === currentTopic
+      // menu titles
+      $(`#${topicNum}-menutitle`).keyup((event) => {
+        if (!$(event.currentTarget).val()) {
+          // add error class to input group
+          $(event.currentTarget).parent() .closest('.form-group')
+            .addClass('has-error');
+
+          // replace iframe values with default
+          $('iframe').contents().find(`#${topicNum}-menutitle`)
+            .text('Menu title');
+        } else {
+          // remove error class from input group
+          $(event.currentTarget).parent().closest('.form-group')
+            .removeClass('has-error');
+
+          // replace iframe values
+          $('iframe').contents().find(`#${topicNum}-menutitle`)
+            .text($(event.currentTarget).val());
+        }
+      });
+
+      // menulink text
       $(`.${topicNum}-menulink-text`).keyup((event) => {
         // manipulate from `topic1-menulink1-text` to `topic1-menulink-1`
         let id = $(event.currentTarget).attr('id');
@@ -260,6 +289,12 @@ function addTopic() {
         <div id="topic${topicSettings.counter}-menu-container" style="display:none">
           <div class="menulinks">
           <div class="form-horizontal">
+            <div class="form-group has-error">
+              <label for="topic${topicSettings.counter}-menutitle" class="col-md-2 control-label">Menu Title</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control topic${topicSettings.counter}-menulink topic${topicSettings.counter}-menutitle" id="topic${topicSettings.counter}-menutitle" placeholder="Menu title" disabled>
+              </div>
+            </div>
             <div class="form-group">
               <label for="topic${topicSettings.counter}-menulink1-text" class="col-md-2 control-label">Hyperlink 1</label>
               <div class="col-md-5">
@@ -458,6 +493,11 @@ function addTopic() {
       });
 
       // insert markup
+      let replacementTitle = $(`#${currentTopic}-menutitle`).val();
+      if (!$(`#${currentTopic}-menutitle`).val()) {
+        replacementTitle = 'Menu Title';
+      }
+
       let replacementMarkup = '';
       for (var key in menuLinksContent) {
         if (menuLinksContent.hasOwnProperty(key)) {
@@ -470,6 +510,7 @@ function addTopic() {
 
       $('iframe').contents().find(`#${currentTopic}`).replaceWith(`
         <ul id="${currentTopic}">
+          <li id=${currentTopic}-menutitle>${replacementTitle}</li>
           ${replacementMarkup}
         </ul>
       `);
@@ -657,55 +698,46 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
         .res-nightmode .titlebox blockquote p a {
           color: rgba(255, 255, 255, 0.7);
         }
-
         .res-nightmode .titlebox blockquote ul {
           background-color: #303030 !important;
         }
-
         .res-nightmode .titlebox blockquote ul li:first-of-type {
           color: rgba(255, 255, 255, 0.7);
           background-color: #303030;
         }
-
         .res-nightmode .titlebox blockquote ul li:not(:first-of-type) {
           color: rgba(255, 255, 255, 0.7);
           background-color: #303030;
         }
-
         .res-nightmode .titlebox blockquote ul li:not(:first-of-type):hover {
-          color: #4dd0e1;
+          color: ${$('#lightPrimaryColorPicker').val()};
         }
-
         .res-nightmode .titlebox blockquote ul li:not(:first-of-type) a {
           color: rgba(255, 255, 255, 0.7);
         }
-
         .titlebox blockquote {
           border: 0;
           margin: 0 !important;
           padding: 0;
         }
-
         .titlebox blockquote p,
         .titlebox blockquote ul,
         .titlebox blockquote a {
           border-top-right-radius: 2px;
           border-bottom-right-radius: 2px;
         }
-
         .titlebox blockquote p,
         .titlebox blockquote ul {
           background: url(${stickies.URL}) no-repeat 0 -10px;
         }
-
         .titlebox blockquote p {
           width: 100%;
           height: 40px;
-          background-color: #00bcd4;
+          background-color: ${$('#primaryColorPicker').val()};
         }
-
-        .titlebox blockquote p:hover { background-color: #4dd0e1; }
-
+        .titlebox blockquote p:hover {
+          background-color: ${$('#lightPrimaryColorPicker').val()};
+        }
         .titlebox blockquote p a {
           display: block;
           height: 40px;
@@ -717,25 +749,21 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
           font-size: 14px;
           color: rgba(255, 255, 255, 0.7);
           font-weight: bold;
-          background-color: #00bcd4;
+          background-color: ${$('#primaryColorPicker').val()};
           background-clip: padding-box;
         }
-
         .titlebox blockquote p a:hover {
-          background-color: #4dd0e1;
+          background-color: ${$('#lightPrimaryColorPicker').val()};
           color: #fff;
         }
-
         .titlebox blockquote ul {
           padding: 0;
           margin-bottom: 8px;
           background-color: #fafafa;
         }
-
         .titlebox blockquote ul li {
           list-style-type: none;
         }
-
         .titlebox blockquote ul li:first-of-type {
           height: 40px;
           margin-left: 60px;
@@ -745,7 +773,6 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
           line-height: 40px;
           background-color: #fafafa;
         }
-
         .titlebox blockquote ul li:not(:first-of-type) {
           padding: 5px 0 5px 30px;
           line-height: 20px;
@@ -753,16 +780,13 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
           color: rgba(0, 0, 0, 0.54);
           background-color: #fafafa;
         }
-
         .titlebox blockquote ul li:not(:first-of-type):hover {
           background-color: rgba(97, 97, 97, 0.9);
         }
-
         .titlebox blockquote ul li:not(:first-of-type):hover a {
           font-weight: bold;
-          color: #4dd0e1;
+          color: ${$('#lightPrimaryColorPicker').val()};
         }
-
         .titlebox blockquote ul li:not(:first-of-type) a {
           display: block;
           color: rgba(0, 0, 0, 0.54);
