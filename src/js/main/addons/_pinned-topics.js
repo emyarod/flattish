@@ -1,13 +1,13 @@
 import { compileButtonEnabler } from './_compile-button-enabler.js';
 export var stickies = {
   URL: '',
-  album: '0 0',
-  notice: '-120px 0',
-  calendar: '-60px -60px',
-  help: '0 -120px',
-  info: '-120px -120px',
-  media: '-180px -60px',
-  shows: '0 -180px',
+  album: '0 -10px',
+  notice: '-120px -10px',
+  calendar: '-60px -70px',
+  help: '0 -130px',
+  info: '-120px -130px',
+  media: '-180px -70px',
+  shows: '0 -190px',
 };
 
 export var topicSettings = {
@@ -654,109 +654,118 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
 
     $('iframe').contents().find('head').append(`
       <style class="pinned-topics" type="text/css">
-        .res-nightmode .titlebox blockquote::after {
-          background-color: #424242;
+        .res-nightmode .titlebox blockquote p a {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .res-nightmode .titlebox blockquote ul {
+          background-color: #303030 !important;
+        }
+
+        .res-nightmode .titlebox blockquote ul li:first-of-type {
+          color: rgba(255, 255, 255, 0.7);
+          background-color: #303030;
+        }
+
+        .res-nightmode .titlebox blockquote ul li:not(:first-of-type) {
+          color: rgba(255, 255, 255, 0.7);
+          background-color: #303030;
+        }
+
+        .res-nightmode .titlebox blockquote ul li:not(:first-of-type):hover {
+          color: #4dd0e1;
+        }
+
+        .res-nightmode .titlebox blockquote ul li:not(:first-of-type) a {
+          color: rgba(255, 255, 255, 0.7);
         }
 
         .titlebox blockquote {
-          position: fixed;
-          left: 16px;
           border: 0;
           margin: 0 !important;
           padding: 0;
         }
 
-        .titlebox blockquote::after {
-          position: absolute;
-          top: 0;
-          z-index: -1;
-          display: block;
-          height: 100%;
-          width: 60px;
-          content: '';
-          border-radius: 2px;
-          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-          0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-          0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
-          background-color: #fff;
-        }
-
         .titlebox blockquote p,
         .titlebox blockquote ul,
         .titlebox blockquote a {
-          border-bottom-right-radius: 2px;
           border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
         }
 
         .titlebox blockquote p,
         .titlebox blockquote ul {
-          width: 60px;
-          height: 60px;
-          margin: 0 !important;
-          overflow: hidden;
-          background: url(${stickies.URL}) no-repeat;
+          background: url(${stickies.URL}) no-repeat 0 -10px;
         }
 
-        .titlebox blockquote p:hover {
+        .titlebox blockquote p {
           width: 100%;
-          background-color: #00bcd4 !important;
+          height: 40px;
+          background-color: #00bcd4;
         }
 
-        .titlebox blockquote a {
+        .titlebox blockquote p:hover { background-color: #4dd0e1; }
+
+        .titlebox blockquote p a {
           display: block;
-          height: 60px;
-          border-left-width: 60px;
-          border-left-style: solid;
-          border-left-color: transparent;
-          padding: 0 16px;
-          line-height: 60px;
+          height: 40px;
+          border-color: transparent;
+          border-style: solid;
+          border-width: 0 0 0 60px;
+          padding: 0;
+          line-height: 40px;
           font-size: 14px;
-          color: #fff !important;
+          color: rgba(255, 255, 255, 0.7);
+          font-weight: bold;
+          background-color: #00bcd4;
           background-clip: padding-box;
-          background-color: #616161;
         }
 
-        .titlebox blockquote a:hover {
-          color: #00bcd4 !important;
+        .titlebox blockquote p a:hover {
+          background-color: #4dd0e1;
+          color: #fff;
         }
 
         .titlebox blockquote ul {
           padding: 0;
-        }
-
-        .titlebox blockquote ul:hover {
-          width: 100%;
-          overflow: visible;
-          background-color: #00bcd4 !important;
-        }
-
-        .titlebox blockquote ul ul {
-          background-image: none !important;
-          background-color: transparent !important;
-        }
-
-        .titlebox blockquote ul ul:hover {
-          background-color: transparent !important;
+          margin-bottom: 8px;
+          background-color: #fafafa;
         }
 
         .titlebox blockquote ul li {
           list-style-type: none;
         }
 
-        .titlebox blockquote ul li a {
-          border: 0;
+        .titlebox blockquote ul li:first-of-type {
+          height: 40px;
           margin-left: 60px;
+          font-size: 14px;
+          font-weight: bold;
+          color: rgba(0, 0, 0, 0.54);
+          line-height: 40px;
+          background-color: #fafafa;
         }
 
-        div.content {
-          margin: 0 15px 0 91px;
+        .titlebox blockquote ul li:not(:first-of-type) {
+          padding: 5px 0 5px 30px;
+          line-height: 20px;
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.54);
+          background-color: #fafafa;
         }
 
-        @media (max-resolution: 1dppx) and (min-width: 992px) {
-          div.content {
-            max-width: calc(100% - 503px);
-            margin-left: 93px !important;
-          }
+        .titlebox blockquote ul li:not(:first-of-type):hover {
+          background-color: rgba(97, 97, 97, 0.9);
+        }
+
+        .titlebox blockquote ul li:not(:first-of-type):hover a {
+          font-weight: bold;
+          color: #4dd0e1;
+        }
+
+        .titlebox blockquote ul li:not(:first-of-type) a {
+          display: block;
+          color: rgba(0, 0, 0, 0.54);
         }
       </style>
     `);
