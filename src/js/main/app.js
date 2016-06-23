@@ -255,13 +255,14 @@ $('#compile').click(() => {
           if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
             let sidebarMarkup = `<blockquote>${$('iframe').contents()
               .find('blockquote.pinned-topics').html().trim()}</blockquote>`;
+            const RESNM = '[This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)';
 
             /**
              * insert sidebar markdown into <pre>
              * edit to fit reddit markdown parser
              */
-            $('#sidebarmd').html(`${toMarkdown(sidebarMarkup)
-              .replace(/> \n/g, '\n># \n')}\n\n[This subreddit is night mode compatible](#/RES_SR_Config/NightModeCompatible)`);
+            $('#sidebarmd').html(`${RESNM}\n\n${toMarkdown(sidebarMarkup)
+              .replace(/> \n/g, '\n># \n')}`);
           }
 
           // show markdown container
