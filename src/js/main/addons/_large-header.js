@@ -1,33 +1,6 @@
 // large header
 $('#large-header-checkbox:checkbox').change(() => {
   if ($('#large-header-checkbox:checkbox').prop('checked')) {
-    // if pinned topics
-    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(`
-        <style class="large-header pinned-topics" type="text/css">
-          .titlebox blockquote {
-            top: 312px;
-          }
-
-          @media (min-width: 992px) {
-            #header-bottom-left {
-              left: 0;
-            }
-          }
-        </style>
-      `);
-    } else {
-      $('iframe').contents().find('head').append(`
-        <style class="large-header" type="text/css">
-          @media (min-width: 992px) {
-            #header-bottom-left {
-              left: 48px;
-            }
-          }
-        </style>
-      `);
-    }
-
     // if rotating header
     if ($('#rotating-header-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('head').append(`
@@ -81,17 +54,6 @@ $('#large-header-checkbox:checkbox').change(() => {
     `);
 
   } else {
-    // if pinned topics
-    if ($('#pinned-topics-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(`
-        <style class="pinned-topics" type="text/css">
-          .titlebox blockquote {
-            top: 239px;
-          }
-        </style>
-      `);
-    }
-
     // if sidebar image
     if ($('#sidebar-img-checkbox:checkbox').prop('checked')) {
       $('iframe').contents().find('head').append(`
