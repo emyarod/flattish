@@ -105,6 +105,10 @@ $screen-lg-min: 1200px;
 // affects addons, content, footer, header, header-bottom-left, sidebar, base
 $header-large: false;
 
+@if $header-large {
+  $scrim: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 55%);
+}
+
 // random, rotating header
 // affects header, base
 $random-header: false;
