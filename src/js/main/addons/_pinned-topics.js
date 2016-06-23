@@ -760,45 +760,7 @@ $('#pinned-topics-checkbox:checkbox').change(() => {
         }
       </style>
     `);
-
-    // if large header
-    if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(`
-        <style class="large-header pinned-topics" type="text/css">
-          .titlebox blockquote {
-            top: 312px;
-          }
-
-          @media (min-width: 992px) {
-            #header-bottom-left {
-              left: 0;
-            }
-          }
-        </style>
-      `);
-    } else {
-      $('iframe').contents().find('head').append(`
-        <style class="large-header pinned-topics" type="text/css">
-          .titlebox blockquote {
-            top: 239px;
-          }
-        </style>
-      `);
-    }
   } else {
-    // if large header
-    if ($('#large-header-checkbox:checkbox').prop('checked')) {
-      $('iframe').contents().find('head').append(`
-        <style class="large-header" type="text/css">
-          @media (min-width: 992px) {
-            #header-bottom-left {
-              left: 48px;
-            }
-          }
-        </style>
-      `);
-    }
-
     $('iframe').contents().find('head .pinned-topics').detach();
     $('iframe').contents().find('.md .pinned-topics').detach();
   }
