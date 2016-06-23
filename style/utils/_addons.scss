@@ -119,7 +119,7 @@
         height: 40px;
         border-color: transparent;
         border-style: solid;
-        @include border-width(0 0 0 60px);
+        border-width: 0 0 0 60px;
         padding: 0;
         line-height: 40px;
         font-size: 14px;
@@ -162,7 +162,6 @@
           font-size: 14px;
           color: $light-secondary-text;
           background-color: $light-background;
-          @include transition-default;
 
           &:hover {
             background-color: $tooltip;
