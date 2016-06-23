@@ -149,6 +149,7 @@ export function createSpectrum(id, swatch, palette = null, replacerClassName, va
         .login-form-side input[type="checkbox"]:checked+label::before,
         .c-checkbox input[type="checkbox"]:checked+label::before,
         .flairtoggle input[type="checkbox"]:checked+label::before,
+        .sr_style_toggle input[type="checkbox"]:checked+label::before,
         .linefield input[type="checkbox"]:checked+label::before,
         .roundfield-content input[type="checkbox"]:checked+label::before {
           border-color: ${newColor}!important;
@@ -164,6 +165,10 @@ export function createSpectrum(id, swatch, palette = null, replacerClassName, va
           background: linear-gradient(to top,${newColor} 50%,transparent 50%);
           background-size: 100% 200%;
           background-repeat: no-repeat;
+        }
+        .titlebox blockquote p,
+        .titlebox blockquote p a {
+          background-color: ${newColor};
         }
         `
       );
@@ -227,6 +232,14 @@ export function createSpectrum(id, swatch, palette = null, replacerClassName, va
         #header-bottom-left .tabmenu li a,
         #header-bottom-left .tabmenu li #viewImagesButton {
           background: transparent radial-gradient(circle, rgba(${rVal}, ${gVal}, ${bVal}, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+        }
+        .res-nightmode .titlebox blockquote ul li:not(:first-of-type):hover,
+        .titlebox blockquote ul li:not(:first-of-type):hover a {
+          color: ${newColor};
+        }
+        .titlebox blockquote p:hover,
+        .titlebox blockquote p a:hover {
+          background-color: ${newColor};
         }
         `
       );
