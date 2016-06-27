@@ -136,13 +136,4 @@
     height: 64px;
     @include margin(0 0 0 16px);
   }
-
-  #header-img-a ~ {
-    .pagename,
-    .tabmenu {
-      // position: relative;
-      // top: -2px;
-      // display: inline-block;
-    }
-  }
 }
