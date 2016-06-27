@@ -2466,6 +2466,7 @@ input[name=uh][value^="9"] ~ a::after {
     line-height: 62px;
   }
   #header-bottom-left .tabmenu {
+    position: static;
     left: initial;
     top: initial;
     width: initial;
