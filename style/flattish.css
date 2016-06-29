@@ -2479,11 +2479,6 @@ input[name=uh][value^="9"] ~ a::after {
   }
 }
 
-.side,
-.side * {
-  z-index: 1000;
-}
-
 .res-nightmode .side,
 .side {
   background-color: transparent !important;
