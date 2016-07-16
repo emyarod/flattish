@@ -17,6 +17,10 @@
     visibility: visible;
     opacity: 1;
 
+    a.choice {
+      padding: 16px;
+    }
+
     a.choice,
     form {
       display: inline-block;
