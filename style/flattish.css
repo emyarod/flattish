@@ -1297,6 +1297,7 @@ textarea {
 }
 
 .thumbnail.self, .thumbnail.default {
+  border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   height: 70px;
   width: 70px;
@@ -3689,6 +3690,10 @@ ul.tabmenu.formtab a.text-button.choice {
   max-height: unset;
   visibility: visible;
   opacity: 1;
+}
+
+.top-page .content .menuarea .drop-choices.lightdrop a.choice {
+  padding: 16px;
 }
 
 .top-page .content .menuarea .drop-choices.lightdrop a.choice,
