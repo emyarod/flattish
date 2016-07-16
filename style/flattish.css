@@ -3524,6 +3524,10 @@ ul.tabmenu.formtab a.text-button.choice {
   opacity: 1;
 }
 
+.top-page .content .menuarea .drop-choices.lightdrop a.choice {
+  padding: 16px;
+}
+
 .top-page .content .menuarea .drop-choices.lightdrop a.choice,
 .top-page .content .menuarea .drop-choices.lightdrop form {
   display: inline-block;
