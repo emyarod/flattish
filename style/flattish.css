@@ -2146,7 +2146,7 @@ div.content {
   background-color: transparent !important;
 }
 
-.res #header-bottom-right {
+html.res #header-bottom-right {
   top: 35px;
 }
 
@@ -2322,7 +2322,7 @@ div.content {
   background-position: 0 -117px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   #header-bottom-left {
     top: 159px;
     height: 64px;
