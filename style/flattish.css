@@ -2167,7 +2167,7 @@ div.content {
   background-color: transparent !important;
 }
 
-.res #header-bottom-right {
+html.res #header-bottom-right {
   top: 35px;
 }
 
@@ -2343,7 +2343,7 @@ div.content {
   background-position: 0 -117px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   #header-bottom-left {
     top: 159px;
     height: 64px;
@@ -3554,6 +3554,10 @@ ul.tabmenu.formtab a.text-button.choice {
   max-height: unset;
   visibility: visible;
   opacity: 1;
+}
+
+.top-page .content .menuarea .drop-choices.lightdrop a.choice {
+  padding: 16px;
 }
 
 .top-page .content .menuarea .drop-choices.lightdrop a.choice,
