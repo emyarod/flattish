@@ -2271,7 +2271,7 @@ input[name=uh][value^="9"] ~ a::after {
   background-color: transparent !important;
 }
 
-.res #header-bottom-right {
+html.res #header-bottom-right {
   top: 35px;
 }
 
@@ -2457,7 +2457,7 @@ input[name=uh][value^="9"] ~ a::after {
   background: url(%%snoo-2%%);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   #header-bottom-left {
     top: 159px;
     height: 64px;
