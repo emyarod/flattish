@@ -24,8 +24,8 @@
 	width: 330px;
 	padding-top: 85px;
 
-	#ad_sponsorship,
-	#ad_main {
+	#ad_main,
+	#ad_main_top {
 		// stupid ad widths
 		box-sizing: content-box;
 
@@ -47,18 +47,12 @@
 	}
 
 	.spacer:first-of-type,
-	#ad_sponsorship,
 	.titlebox,
 	#moderation_tools,
 	#ad_main,
+	#ad_main_top,
 	.sidecontentbox {
 		font-size: 100%;
-	}
-
-	// sponsorship box & advertisement
-	#ad_sponsorship {
-		position: relative;
-		top: -84px;
 	}
 
 	// hide mod tools collapse button
@@ -85,6 +79,11 @@
 			}
 		}
 	}
+}
+
+#ad_main_top {
+	position: relative;
+	top: -84px;
 }
 
 // login form

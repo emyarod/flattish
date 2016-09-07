@@ -91,16 +91,16 @@ $card-selectors-map: (
 		selector-name: '.side .spacer:first-of-type',
 		depth: 1
 	),
-	ad_sponsorship: (
-		selector-name: '.side #ad_sponsorship',
-		depth: 1
-	),
 	titlebox: (
 		selector-name: '.side .titlebox',
 		depth: 1
 	),
 	side-moderation_tools: (
 		selector-name: '.side #moderation_tools',
+		depth: 1
+	),
+	side-ad_main_top: (
+		selector-name: '.side #ad_main_top',
 		depth: 1
 	),
 	side-ad_main: (
