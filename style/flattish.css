@@ -503,24 +503,24 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
-.res-nightmode .link.promotedlink.promoted, .link.promotedlink.external, .res-nightmode #compose-message, .res-nightmode .wiki-page-content, .res-nightmode .combined-search-page .searchpane, .res-nightmode .combined-search-page .search-result, .res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, .res-nightmode #image-upload, .res-nightmode .linefield, .res-nightmode .searchpane, .res-nightmode .commentarea .menuarea, .res-nightmode .commentarea > .usertext, .res-nightmode .archived-infobar, .res-nightmode .formtabs-content, .res-nightmode .tabpane-content, .res-nightmode .modtools-page > div.content, .res-nightmode .side .spacer:first-of-type, .res-nightmode .side #ad_sponsorship, .res-nightmode .side .titlebox, .res-nightmode .side #moderation_tools, .res-nightmode .side #ad_main, .res-nightmode .side .sidecontentbox, .res-nightmode .submit-link::before, .res-nightmode #login_login-main, .res-nightmode .hover-bubble.multi-selector, .res-nightmode .flairselector, .res-nightmode .footer {
+.res-nightmode .link.promotedlink.promoted, .link.promotedlink.external, .res-nightmode #compose-message, .res-nightmode .wiki-page-content, .res-nightmode .combined-search-page .searchpane, .res-nightmode .combined-search-page .search-result, .res-nightmode #subreddit_stylesheet, .res-nightmode ul#image-preview-list li, .res-nightmode #image-upload, .res-nightmode .linefield, .res-nightmode .searchpane, .res-nightmode .commentarea .menuarea, .res-nightmode .commentarea > .usertext, .res-nightmode .archived-infobar, .res-nightmode .formtabs-content, .res-nightmode .tabpane-content, .res-nightmode .modtools-page > div.content, .res-nightmode .side .spacer:first-of-type, .res-nightmode .side .titlebox, .res-nightmode .side #moderation_tools, .res-nightmode .side #ad_main_top, .res-nightmode .side #ad_main, .res-nightmode .side .sidecontentbox, .res-nightmode .submit-link::before, .res-nightmode #login_login-main, .res-nightmode .hover-bubble.multi-selector, .res-nightmode .flairselector, .res-nightmode .footer {
   background-color: #424242 !important;
   color: #fff;
 }
 
-.link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
+.link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side .titlebox, .side #moderation_tools, .side #ad_main_top, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice, .locked-infobar,
-.link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
+.link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side .titlebox, .side #moderation_tools, .side #ad_main_top, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
 .gold-accent.comment-visits-box, .linkinfo, .content.submit .info-notice, .locked-infobar,
 #searchexpando, #siteTable > .thing, .guider,
-.link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side #ad_sponsorship, .side .titlebox, .side #moderation_tools, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
+.link.promotedlink.promoted, .link.promotedlink.external, #compose-message, .wiki-page-content, .combined-search-page .searchpane, .combined-search-page .search-result, #subreddit_stylesheet, ul#image-preview-list li, #image-upload, .linefield, .searchpane, .commentarea .menuarea, .commentarea > .usertext, .archived-infobar, .formtabs-content, .tabpane-content, .modtools-page > div.content, .side .spacer:first-of-type, .side .titlebox, .side #moderation_tools, .side #ad_main_top, .side #ad_main, .side .sidecontentbox, .submit-link::before, #login_login-main, .hover-bubble.multi-selector, .flairselector, .footer {
   padding: 8px !important;
   border: 0 !important;
   border-radius: 2px !important;
@@ -2494,8 +2494,8 @@ html.res #header-bottom-right {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.side #ad_sponsorship,
-.side #ad_main {
+.side #ad_main,
+.side #ad_main_top {
   box-sizing: content-box;
   width: 302px;
   padding: 16px 14px !important;
@@ -2512,17 +2512,12 @@ html.res #header-bottom-right {
 }
 
 .side .spacer:first-of-type,
-.side #ad_sponsorship,
 .side .titlebox,
 .side #moderation_tools,
 .side #ad_main,
+.side #ad_main_top,
 .side .sidecontentbox {
   font-size: 100%;
-}
-
-.side #ad_sponsorship {
-  position: relative;
-  top: -84px;
 }
 
 .side #moderation_tools .collapse-button {
@@ -2571,6 +2566,11 @@ html.res #header-bottom-right {
 
 .side .md a[href$="#irc-btn"] {
   background-position: -150px 0;
+}
+
+#ad_main_top {
+  position: relative;
+  top: -84px;
 }
 
 #remember-me .recover-password:hover {
