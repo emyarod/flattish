@@ -3535,6 +3535,10 @@ ul.tabmenu.formtab a.text-button.choice {
   top: -2px;
 }
 
+.content .menuarea .spacer {
+  margin: 0;
+}
+
 .res-nightmode .top-page .content .menuarea {
   background-color: #424242;
 }
