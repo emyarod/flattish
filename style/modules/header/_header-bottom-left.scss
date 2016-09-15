@@ -47,16 +47,12 @@
 
     li {
       // tab styles
-      a,
-      #viewImagesButton {
+      a {
         @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
       }
 
       // styles tabs
-      a,
-      #viewImagesButton {
-        width: initial;
-      }
+      a { width: initial; }
 
       // ensures selected tab remains unchanged
       &.selected a { background-color: transparent; }
