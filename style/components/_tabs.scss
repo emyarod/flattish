@@ -17,42 +17,39 @@
   display: inline-block;
   height: 66px;
   padding: 0 24px;
-  font-weight: bold;
-  text-transform: uppercase;
   border-bottom-color: transparent;
   border-bottom-style: solid;
-  @include border-width(0 0 2px 0);
+  @include border-width(0 0 3px);
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow: hidden;
+  @include transform(translateZ(0));
+  @include backface-visibility(hidden);
 
-  &:hover {
-    margin: 0;
-    padding: 0 24px;
+  &::before {
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    z-index: -1;
+    height: 2px;
+    content: '';
+    background: $accent;
+    @include transition(right 0.2s $animation-curve-default);
   }
 
-  // tabmenu bottom border effect on hover
-  &::after {
-    position: relative;
-    top: -66px;
-    left: -24px;
-    display: block;
-    width: 0;
-    height: inherit;
-    content: "";
-    border-bottom: 2px solid transparent;
-    @include transition(border-bottom 0.2s $animation-curve-default, width 0.2s $animation-curve-default);
-  }
-
-  &:hover::after {
-    @include calc(width, "100% - -48px"); // double negative works but not addition...wtf css?
-    border-bottom: 2px solid $accent;
+  &:hover::before,
+  &:focus::before,
+  &:active::before {
+    right: 0;
   }
 }
 
 @mixin selected-tab {
-  margin: 0;
-  padding: 0 24px;
-  border-bottom-color: $accent;
   border-bottom-style: solid;
-  @include border-width(0 0 2px 0);
+  @include border-width(0 0 3px);
+
+  &::before { right: 0; }
 }
 
 // header-bottom-left, flair page, and submit page
@@ -62,7 +59,6 @@ ul.tabmenu.formtab {
 }
 
 .tabmenu li a,
-.tabmenu li #viewImagesButton,
 .res-nightmode ul.tabmenu.formtab li a,
 ul.tabmenu.formtab li a {
   @include base-tab-anchor-styles;

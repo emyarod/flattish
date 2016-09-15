@@ -64,6 +64,6 @@ gulp.task('readme', ['clean'], () => {
 
 // run `create-dist` on stylesheet or readme change
 gulp.task('default', ['css', 'images', 'readme'], () => {
-  gulp.watch('./**/*.scss', ['css']);
+  gulp.watch('./**/*.scss', ['css', 'images', 'readme']);
   gulp.watch(['./style/flattish.min.css', './README.md'], ['css', 'images', 'readme']);
 });
