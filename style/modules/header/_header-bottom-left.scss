@@ -1,5 +1,3 @@
-// main: ../../flattish.scss
-
 // header image, pagename, tabmenu
 #header-bottom-left {
   position: absolute;
@@ -31,7 +29,6 @@
       font-variant: normal;
       line-height: 53px;
       text-transform: lowercase;
-      // @include transition-default;
 
       &:hover {
         font-size: 0;
@@ -60,16 +57,12 @@
 
     li {
       // tab styles
-      a,
-      #viewImagesButton {
+      a {
         @include tab-list-anchors(true, transparent, $light-accent, $primary, $dark-secondary-text, $dark-text);
       }
 
       // styles tabs
-      a,
-      #viewImagesButton {
-        width: initial;
-      }
+      a { width: initial; }
 
       // ensures selected tab remains unchanged
       &.selected a { background-color: transparent; }
