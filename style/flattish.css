@@ -1087,51 +1087,48 @@ ul.tabmenu.formtab {
 }
 
 .tabmenu li a,
-.tabmenu li #viewImagesButton,
 .res-nightmode ul.tabmenu.formtab li a,
 ul.tabmenu.formtab li a {
   display: inline-block;
   height: 66px;
   padding: 0 24px;
+  border: 0;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom-color: transparent;
-  border-bottom-style: solid;
-  border-width: 0 0 2px;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-.tabmenu li a:hover,
-.tabmenu li #viewImagesButton:hover,
-.res-nightmode ul.tabmenu.formtab li a:hover,
-ul.tabmenu.formtab li a:hover {
-  margin: 0;
-  padding: 0 24px;
+.tabmenu li a::before,
+.res-nightmode ul.tabmenu.formtab li a::before,
+ul.tabmenu.formtab li a::before {
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  z-index: -1;
+  height: 2px;
+  content: '';
+  background: #ffab40;
+  -webkit-transition: right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.tabmenu li a::after,
-.tabmenu li #viewImagesButton::after,
-.res-nightmode ul.tabmenu.formtab li a::after,
-ul.tabmenu.formtab li a::after {
-  position: relative;
-  top: -66px;
-  left: -24px;
-  display: block;
-  width: 0;
-  height: inherit;
-  content: "";
-  border-bottom: 2px solid transparent;
-  -webkit-transition: border-bottom 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: border-bottom 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: border-bottom 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.tabmenu li a:hover::after,
-.tabmenu li #viewImagesButton:hover::after,
-.res-nightmode ul.tabmenu.formtab li a:hover::after,
-ul.tabmenu.formtab li a:hover::after {
-  width: -webkit-calc(100% - -48px);
-  width: calc(100% - -48px);
-  border-bottom: 2px solid #ffab40;
+.tabmenu li a:hover::before, .tabmenu li a:focus::before, .tabmenu li a:active::before,
+.res-nightmode ul.tabmenu.formtab li a:hover::before,
+.res-nightmode ul.tabmenu.formtab li a:focus::before,
+.res-nightmode ul.tabmenu.formtab li a:active::before,
+ul.tabmenu.formtab li a:hover::before,
+ul.tabmenu.formtab li a:focus::before,
+ul.tabmenu.formtab li a:active::before {
+  right: 0;
 }
 
 .tabmenu li {
@@ -1140,11 +1137,12 @@ ul.tabmenu.formtab li a:hover::after {
 
 .tabmenu li.selected a,
 ul.tabmenu.formtab li.selected a {
-  margin: 0;
-  padding: 0 24px;
-  border-bottom-color: #ffab40;
-  border-bottom-style: solid;
-  border-width: 0 0 2px;
+  border: 0;
+}
+
+.tabmenu li.selected a::before,
+ul.tabmenu.formtab li.selected a::before {
+  right: 0;
 }
 
 .res-nightmode input[type="text"],
@@ -2179,7 +2177,7 @@ input[name=uh][value^="9"] ~ a::after {
 
 #sr-header-area .dropdown.srdrop .selected::before, #sr-header-area .dropdown.srdrop .selected::after {
   position: absolute;
-  content: "";
+  content: '';
 }
 
 #sr-header-area .dropdown.srdrop .selected::before {
@@ -2413,8 +2411,7 @@ html.res #header-bottom-right {
   margin-top: 0;
 }
 
-#header-bottom-left .tabmenu li a,
-#header-bottom-left .tabmenu li #viewImagesButton {
+#header-bottom-left .tabmenu li a {
   color: rgba(255, 255, 255, 0.7) !important;
   background: transparent radial-gradient(circle, rgba(255, 209, 128, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -2422,19 +2419,16 @@ html.res #header-bottom-right {
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
 }
 
-#header-bottom-left .tabmenu li a:focus,
-#header-bottom-left .tabmenu li #viewImagesButton:focus {
+#header-bottom-left .tabmenu li a:focus {
   outline: 0;
   background-size: 1000% !important;
 }
 
-#header-bottom-left .tabmenu li a:hover,
-#header-bottom-left .tabmenu li #viewImagesButton:hover {
+#header-bottom-left .tabmenu li a:hover {
   color: #fff !important;
 }
 
-#header-bottom-left .tabmenu li a,
-#header-bottom-left .tabmenu li #viewImagesButton {
+#header-bottom-left .tabmenu li a {
   width: initial;
 }
 
