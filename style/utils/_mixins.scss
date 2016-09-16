@@ -1,5 +1,3 @@
-// main: ../flattish.scss
-
 // shadows
 
 // Focus shadow mixin.
@@ -79,8 +77,8 @@
 
 // burger
 @mixin burger($width, $height, $gutter, $border-radius, $color: set-text-color($light-primary, hint-text)) {
-  $burger-height: $height !global;
-  $burger-gutter: $gutter !global;
+  $burger-height: $height;
+  $burger-gutter: $gutter;
   position: relative;
 
   &, &::before, &::after {
@@ -96,7 +94,7 @@
 
   &::before, &::after {
     position: absolute;
-    content: "";
+    content: '';
   }
 
   &::before { top: -($height + $gutter); }
