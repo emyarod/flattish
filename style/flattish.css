@@ -845,9 +845,7 @@ ul.tabmenu.formtab li a {
   display: inline-block;
   height: 66px;
   padding: 0 24px;
-  border-bottom-color: transparent;
-  border-bottom-style: solid;
-  border-width: 0 0 3px;
+  border: 0;
   font-weight: bold;
   text-transform: uppercase;
   overflow: hidden;
@@ -892,8 +890,7 @@ ul.tabmenu.formtab li a:active::before {
 
 .tabmenu li.selected a,
 ul.tabmenu.formtab li.selected a {
-  border-bottom-style: solid;
-  border-width: 0 0 3px;
+  border: 0;
 }
 
 .tabmenu li.selected a::before,
