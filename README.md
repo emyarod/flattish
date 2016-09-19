@@ -100,4 +100,5 @@ If you come across a bug while using flattish, please help me by [reporting the 
 * [Sass Burger](https://github.com/jorenvanhee/sass-burger)
 * [kazuend](https://twitter.com/kazuend)
 * [Stitches](https://github.com/draeton/stitches)
+* [Hover.css](https://github.com/IanLunn/Hover)
 * Kel Diobrando
