@@ -193,29 +193,23 @@ export function createSpectrum(id, swatch, palette = null, replacerClassName, va
     } else if (id === '#accentColorPicker') {
       $('iframe').contents().find('style').append(
         `
-        .tabmenu li a:hover::after,
-        .tabmenu li #viewImagesButton:hover::after,
-        ul.tabmenu.formtab li a:hover::after {
-          border-bottom: 2px solid ${newColor};
+        .tabmenu li a::before,
+        .res-nightmode ul.tabmenu.formtab li a::before,
+        ul.tabmenu.formtab li a::before {
+          background: ${newColor};
         }
-        .tabmenu li.selected a,
-        ul.tabmenu.formtab li.selected a {
-          border-bottom-color: ${newColor};
-        }
+        .res-nightmode input[type="text"]:focus,
+        .res-nightmode input[type="password"]:focus,
+        .res-nightmode input[type="url"]:focus,
+        .res-nightmode textarea:focus,
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="url"]:focus,
         textarea:focus {
-          border-bottom-color: ${newColor} !important;
+          border-color: ${newColor} !important;
         }
         #sr-more-link {
           background-color: ${newColor} !important;
-        }
-        #search:hover::before {
-          color: ${newColor};
-        }
-        #search input[type="text"]:focus {
-          border-bottom: 1px solid${newColor};
         }
         label + #moresearchinfo {
           border-color: ${newColor};
