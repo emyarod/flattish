@@ -1,7 +1,7 @@
 # flattish.css
 **Flattish** is a Reddit CSS theme written according to Google's [Material Design](https://www.google.com/design/spec/material-design/introduction.html) specifications.
 
-![Flattish](http://i.imgur.com/m0eTQm5.png)
+![Flattish](http://i.imgur.com/BMFkbxy.png)
 
 ## Features
 
@@ -21,7 +21,7 @@ Tabs and buttons will trigger animations and effects on hovering or clicking.
 
 Flattish also features a dark theme for RES night mode users!
 
-![nightmode](http://i.imgur.com/JCMF8ZG.png)
+![nightmode](http://i.imgur.com/ZDCfeGs.png)
 
 ### Addons
 
@@ -31,7 +31,7 @@ Flattish can be extended with several addons. Refer to the [wiki](https://github
 
 This addon will increase the height of the header to accomodate larger images. Large header images should be 420px tall.
 
-![large-header](http://i.imgur.com/rm0kYL7.png)
+![large-header](http://i.imgur.com/kDHN3Uk.jpg)
 
 #### Rotating header image
 
@@ -49,7 +49,7 @@ Display an image on the sidebar of your subreddit. Sidebar images should be 330p
 
 Pin important announcements, content, or resources next to the main list of posts. Pinned content can be in the form of links or dropdown menus. Choose from seven different icons to represent each pinned item.
 
-![pinned-topics](http://i.imgur.com/sskt1M3.gif)
+![pinned-topics](http://i.imgur.com/rgidfhZ.gif)
 
 ## Setup and installation
 
@@ -102,5 +102,6 @@ If you come across a bug while using flattish, please help me by [reporting the 
 * [Sass Burger](https://github.com/jorenvanhee/sass-burger)
 * [kazuend](https://twitter.com/kazuend)
 * [Stitches](https://github.com/draeton/stitches)
+* [Hover.css](https://github.com/IanLunn/Hover)
 * Kel Diobrando
 * traducer

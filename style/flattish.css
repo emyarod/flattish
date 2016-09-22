@@ -2347,7 +2347,6 @@ html.res #header-bottom-right {
     line-height: 62px;
   }
   #header-bottom-left .tabmenu {
-    position: static;
     left: initial;
     top: initial;
     width: initial;
