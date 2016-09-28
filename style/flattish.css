@@ -710,11 +710,11 @@ select option {
 .expando-button.selftext.expanded,
 .expando-button.selftext.expanded:hover,
 .res-nightmode .thumbnail.self,
+.res-nightmode .thumbnail.nsfw,
 .res-nightmode .thumbnail.default,
 .thumbnail.self,
+.thumbnail.nsfw,
 .thumbnail.default,
-.res-nightmode .thing.over18 > .thumbnail,
-.thing.over18 > .thumbnail,
 .res-nightmode .link .arrow.upmod,
 .res-nightmode .link .arrow.up,
 .res-nightmode .reddit-link .arrow.upmod,
@@ -1627,6 +1627,93 @@ h6,
 
 .arrow.downmod:focus::after, .arrow.down:focus::after {
   background-color: #3f51b5;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .res-nightmode .expando-button.video.collapsed,
+  .res-nightmode .expando-button.video.collapsed:hover,
+  .res-nightmode .expando-button.video.expanded,
+  .res-nightmode .expando-button.video.expanded:hover,
+  .res-nightmode .expando-button.image.collapsed,
+  .res-nightmode .expando-button.image.collapsed:hover,
+  .res-nightmode .expando-button.image.expanded,
+  .res-nightmode .expando-button.image.expanded:hover,
+  .res-nightmode .expando-button.gallery.collapsed,
+  .res-nightmode .expando-button.gallery.collapsed:hover,
+  .res-nightmode .expando-button.gallery.expanded,
+  .res-nightmode .expando-button.gallery.expanded:hover,
+  .res-nightmode .expando-button.selftext.collapsed,
+  .res-nightmode .expando-button.selftext.collapsed:hover,
+  .res-nightmode .expando-button.selftext.expanded,
+  .res-nightmode .expando-button.selftext.expanded:hover,
+  .expando-button.video.collapsed,
+  .expando-button.video.collapsed:hover,
+  .expando-button.video.expanded,
+  .expando-button.video.expanded:hover,
+  .expando-button.image.collapsed,
+  .expando-button.image.collapsed:hover,
+  .expando-button.image.expanded,
+  .expando-button.image.expanded:hover,
+  .expando-button.gallery.collapsed,
+  .expando-button.gallery.collapsed:hover,
+  .expando-button.gallery.expanded,
+  .expando-button.gallery.expanded:hover,
+  .expando-button.selftext.collapsed,
+  .expando-button.selftext.collapsed:hover,
+  .expando-button.selftext.expanded,
+  .expando-button.selftext.expanded:hover,
+  .res-nightmode .thumbnail.self,
+  .res-nightmode .thumbnail.nsfw,
+  .res-nightmode .thumbnail.default,
+  .thumbnail.self,
+  .thumbnail.nsfw,
+  .thumbnail.default {
+    background-image: url(%%hidpi%%);
+    background-repeat: no-repeat;
+    background-size: 72px 568px;
+  }
+  .res-nightmode .thumbnail.self {
+    background-position: -2px -498px !important;
+  }
+  .res-nightmode .thumbnail.default {
+    background-position: -2px -353px !important;
+  }
+  .res-nightmode .thumbnail.nsfw {
+    background-position: -2px -105px !important;
+  }
+  .thumbnail.self {
+    background-position: -2px -426px;
+  }
+  .thumbnail.default {
+    background-position: -2px -282px;
+  }
+  .thumbnail.nsfw {
+    background-position: -2px -105px;
+  }
+  .res-nightmode .expando-button.video.collapsed, .res-nightmode .expando-button.video.collapsed:hover, .res-nightmode .expando-button.video.expanded, .res-nightmode .expando-button.video.expanded:hover {
+    background-position: -1px -203px !important;
+  }
+  .res-nightmode .expando-button.image.collapsed, .res-nightmode .expando-button.image.collapsed:hover, .res-nightmode .expando-button.image.expanded, .res-nightmode .expando-button.image.expanded:hover {
+    background-position: -1px -79px !important;
+  }
+  .res-nightmode .expando-button.gallery.collapsed, .res-nightmode .expando-button.gallery.collapsed:hover, .res-nightmode .expando-button.gallery.expanded, .res-nightmode .expando-button.gallery.expanded:hover {
+    background-position: -1px -28px !important;
+  }
+  .res-nightmode .expando-button.selftext.collapsed, .res-nightmode .expando-button.selftext.collapsed:hover, .res-nightmode .expando-button.selftext.expanded, .res-nightmode .expando-button.selftext.expanded:hover {
+    background-position: -1px -256px !important;
+  }
+  .expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
+    background-position: -2px -177px;
+  }
+  .expando-button.image.collapsed, .expando-button.image.collapsed:hover, .expando-button.image.expanded, .expando-button.image.expanded:hover {
+    background-position: -2px -53px !important;
+  }
+  .expando-button.gallery.collapsed, .expando-button.gallery.collapsed:hover, .expando-button.gallery.expanded, .expando-button.gallery.expanded:hover {
+    background-position: -2px -2px !important;
+  }
+  .expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
+    background-position: -1px -230px;
+  }
 }
 
 .organic-listing {
