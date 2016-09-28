@@ -1017,6 +1017,10 @@ textarea {
   background-position: -216px 0 !important;
 }
 
+.res-nightmode .thumbnail.nsfw {
+  background-position: -36px -83px !important;
+}
+
 .thumbnail,
 .thumbnail.self,
 .thumbnail.default {
@@ -1032,9 +1036,9 @@ textarea {
 }
 
 .thumbnail.self, .thumbnail.default {
-  border: 1px solid rgba(0, 0, 0, 0.54);
   height: 70px;
   width: 70px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
   opacity: 0.38;
 }
 
@@ -1050,17 +1054,14 @@ textarea {
   background-position: -106px -141px;
 }
 
-.res-nightmode .thing.over18 > .thumbnail {
-  background-position: -36px -83px !important;
-}
-
-.thing.over18 > .thumbnail {
-  background-position: -36px -83px;
+.thumbnail.nsfw {
+  height: 70px;
   border: 0 !important;
+  background-position: -36px -83px;
   opacity: 0.87;
 }
 
-.thing.over18 > .thumbnail:hover {
+.thumbnail.nsfw:hover {
   opacity: 1;
 }
 
