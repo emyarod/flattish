@@ -1,5 +1,3 @@
-// compile
-
 @import '../vendors/bourbon/bourbon';
 @import 'utils/color-list';
 @import 'utils/vars';
@@ -24,6 +22,7 @@
 @import 'components/tooltips';
 @import 'components/typography';
 @import 'components/vote-arrows';
+@import 'components/hidpi';
 
 @import 'modules/content';
 @import 'modules/footer';
