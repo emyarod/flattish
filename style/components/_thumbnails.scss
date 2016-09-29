@@ -19,7 +19,6 @@
 .thumbnail,
 .thumbnail.self,
 .thumbnail.default {
-	border-radius: 50%;
 	font-size: inherit;
 	margin: 0 16px 0 0;
 	max-height: 70px;
@@ -36,6 +35,7 @@
 	&.default {
 		height: 70px;
 		width: 70px;
+		border-radius: 50%;
 		border: 1px solid $light-secondary-text;
 		opacity: 0.38;
 
