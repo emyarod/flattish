@@ -1,5 +1,3 @@
-// main: ../flattish.scss
-
 // thumbnail
 .res-nightmode .thumbnail {
 
@@ -14,14 +12,16 @@
 	&.self { background-position: -176px -140px !important; }
 
 	&.default { background-position: -216px 0 !important; }
+
+	&.nsfw { background-position: -36px -83px !important; }
 }
 
 .thumbnail,
 .thumbnail.self,
 .thumbnail.default {
-	border-radius: 2px;
+	border-radius: 50%;
 	font-size: inherit;
-	margin: 2px 16px 0 0;
+	margin: 0 16px 0 0;
 	max-height: 70px;
 }
 
@@ -34,10 +34,9 @@
 
 	&.self,
 	&.default {
-		border-radius: 50%;
-		border: 1px solid $light-secondary-text;
 		height: 70px;
 		width: 70px;
+		border: 1px solid $light-secondary-text;
 		opacity: 0.38;
 
 		&:hover { opacity: 0.5; }
@@ -46,17 +45,13 @@
 	&.self { background-position: -220px -70px; }
 
 	&.default { background-position: -106px -141px; }
-}
 
-// nsfw thumbnail styling
-.res-nightmode .thing.over18 > .thumbnail {
-	background-position: -36px -83px !important;
-}
+	&.nsfw {
+		height: 70px;
+		border: 0 !important;
+		background-position: -36px -83px;
+		opacity: 0.87;
 
-.thing.over18 > .thumbnail {
-	background-position: -36px -83px;
-	border: 0 !important;
-	opacity: 0.87;
-
-	&:hover { opacity: 1; }
+		&:hover { opacity: 1; }
+	}
 }
