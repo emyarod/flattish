@@ -186,5 +186,14 @@
 				text-decoration: none;
 			}
 		}
+
+		a.flairselectbtn[data-event-action="editflair"] {
+			font-size: 0;
+
+			&::after {
+				font-size: 11px;
+				content: 'flair your post';
+			}
+		}
 	}
 }
