@@ -1,0 +1,147 @@
+@include hidpi(2) {
+  .res-nightmode .expando-button.video.collapsed,
+  .res-nightmode .expando-button.video.collapsed:hover,
+  .res-nightmode .expando-button.video.expanded,
+  .res-nightmode .expando-button.video.expanded:hover,
+  .res-nightmode .expando-button.image.collapsed,
+  .res-nightmode .expando-button.image.collapsed:hover,
+  .res-nightmode .expando-button.image.expanded,
+  .res-nightmode .expando-button.image.expanded:hover,
+  .res-nightmode .expando-button.gallery.collapsed,
+  .res-nightmode .expando-button.gallery.collapsed:hover,
+  .res-nightmode .expando-button.gallery.expanded,
+  .res-nightmode .expando-button.gallery.expanded:hover,
+  .res-nightmode .expando-button.selftext.collapsed,
+  .res-nightmode .expando-button.selftext.collapsed:hover,
+  .res-nightmode .expando-button.selftext.expanded,
+  .res-nightmode .expando-button.selftext.expanded:hover,
+  .expando-button.video.collapsed,
+  .expando-button.video.collapsed:hover,
+  .expando-button.video.expanded,
+  .expando-button.video.expanded:hover,
+  .expando-button.image.collapsed,
+  .expando-button.image.collapsed:hover,
+  .expando-button.image.expanded,
+  .expando-button.image.expanded:hover,
+  .expando-button.gallery.collapsed,
+  .expando-button.gallery.collapsed:hover,
+  .expando-button.gallery.expanded,
+  .expando-button.gallery.expanded:hover,
+  .expando-button.selftext.collapsed,
+  .expando-button.selftext.collapsed:hover,
+  .expando-button.selftext.expanded,
+  .expando-button.selftext.expanded:hover,
+  .res-nightmode .thumbnail.self,
+  .res-nightmode .thumbnail.nsfw,
+  .res-nightmode .thumbnail.default,
+  .thumbnail.self,
+  .thumbnail.nsfw,
+  .thumbnail.default {
+    background : {
+      image: url(%%hidpi%%);
+      repeat: no-repeat;
+      size: 72px 568px;
+    }
+  }
+
+  // thumbnail
+  .res-nightmode .thumbnail {
+    &.self { background-position: -2px -498px !important; }
+
+    &.default { background-position: -2px -353px !important; }
+
+    &.nsfw { background-position: -2px -105px !important; }
+  }
+
+  .thumbnail {
+    &.self { background-position: -2px -426px; }
+
+    &.default { background-position: -2px -282px; }
+
+    &.nsfw { background-position: -2px -105px; }
+  }
+
+  // media and self post expansion buttons
+  .res-nightmode .expando-button {
+    // video expandos
+    &.video {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -1px -203px !important;
+      }
+    }
+
+    // image expandos
+    &.image {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -1px -79px !important;
+      }
+    }
+
+    // photo album expandos
+    &.gallery {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -1px -28px !important;
+      }
+    }
+
+    // self expandos
+    &.selftext {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -1px -256px !important;
+      }
+    }
+  }
+
+  .expando-button {
+    &.video {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -2px -177px;
+      }
+    }
+
+    // image expandos
+    &.image {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -2px -53px !important;
+      }
+    }
+
+    // photo album expandos
+    &.gallery {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -2px -2px !important;
+      }
+    }
+
+    // self expandos
+    &.selftext {
+      &.collapsed,
+      &.collapsed:hover,
+      &.expanded,
+      &.expanded:hover {
+        background-position: -1px -230px;
+      }
+    }
+  }
+}
