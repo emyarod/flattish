@@ -1287,7 +1287,6 @@ textarea {
 .thumbnail,
 .thumbnail.self,
 .thumbnail.default {
-  border-radius: 50%;
   font-size: inherit;
   margin: 0 16px 0 0;
   max-height: 70px;
@@ -1301,6 +1300,7 @@ textarea {
 .thumbnail.self, .thumbnail.default {
   height: 70px;
   width: 70px;
+  border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   opacity: 0.38;
 }
@@ -2009,6 +2009,15 @@ h6,
   display: inline-block;
   background-repeat: no-repeat;
   text-decoration: none;
+}
+
+.flat-list.buttons li a.flairselectbtn[data-event-action="editflair"] {
+  font-size: 0;
+}
+
+.flat-list.buttons li a.flairselectbtn[data-event-action="editflair"]::after {
+  font-size: 11px;
+  content: 'flair your post';
 }
 
 .res-nightmode div.content {
