@@ -63,7 +63,7 @@
 }
 
 .res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type):hover {
-  color: #ffb74d;
+  color: #ff9800;
 }
 
 .res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type) a {
@@ -107,7 +107,7 @@
 }
 
 .titlebox blockquote p:hover {
-  background-color: #ffb74d;
+  background-color: #ff9800;
 }
 
 .titlebox blockquote p a {
@@ -126,7 +126,7 @@
 }
 
 .titlebox blockquote p a:hover {
-  background-color: #ffb74d;
+  background-color: #ff9800;
   color: #fff;
 }
 
@@ -170,7 +170,7 @@
 
 .titlebox blockquote ul:first-of-type li:not(:first-of-type):hover a {
   font-weight: bold;
-  color: #ffb74d;
+  color: #ff9800;
 }
 
 .titlebox blockquote ul:first-of-type li:not(:first-of-type) a {
@@ -238,7 +238,7 @@
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) a:hover {
-  color: #ff9800;
+  color: #e65100;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(2)::before {
@@ -266,11 +266,11 @@
 }
 
 .res-nightmode .flair-fan {
-  color: #ff9800 !important;
+  color: #e65100 !important;
 }
 
 .flair-fan {
-  color: #ff9800;
+  color: #e65100;
 }
 
 .res-nightmode .flair-fan,
@@ -284,7 +284,7 @@
 
 .res-nightmode button,
 button {
-  color: #ff9800 !important;
+  color: #e65100 !important;
 }
 
 .titlebox a.option {
@@ -437,7 +437,7 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"],
 .submit-page button[type="submit"], #sr-form .save-button button, .save-button > button:nth-child(1) {
   color: #fff !important;
-  background: #ff9800 radial-gradient(circle, rgba(255, 183, 77, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+  background: #e65100 radial-gradient(circle, rgba(255, 152, 0, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -464,7 +464,7 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 
 .submit-page button[type="submit"]:focus:not(:active), #sr-form .save-button button:focus:not(:active), .save-button > button:nth-child(1):focus:not(:active) {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  background-color: #ffb74d !important;
+  background-color: #ff9800 !important;
 }
 
 #searchexpando {
@@ -493,8 +493,8 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 
 .res-nightmode .content.submit .info-notice,
 .content.submit .info-notice {
-  background-color: rgba(255, 183, 77, 0.38) !important;
-  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: rgba(255, 152, 0, 0.38) !important;
+  color: #fff !important;
 }
 
 .res-nightmode .locked-infobar,
@@ -1228,7 +1228,7 @@ textarea {
 }
 
 .res-nightmode .RESDialogSmall.livePreview > h3 {
-  background-color: #ff9800;
+  background-color: #e65100;
   color: #fff;
 }
 
@@ -1238,7 +1238,7 @@ textarea {
 
 .RESDialogSmall.livePreview > h3 {
   height: 40px;
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 .RESDialogSmall.livePreview .gearIcon {
@@ -1396,8 +1396,8 @@ input[type="checkbox"]:disabled {
 }
 
 .login-form-side input[type="checkbox"]:checked + label::before, .c-checkbox input[type="checkbox"]:checked + label::before, .flairtoggle input[type="checkbox"]:checked + label::before, .sr_style_toggle input[type="checkbox"]:checked + label::before, .linefield input[type="checkbox"]:checked + label::before, .roundfield-content input[type="checkbox"]:checked + label::before {
-  border-color: #ff9800 !important;
-  background: #ff9800 url(%%spritesheet%%) -246px -138px;
+  border-color: #e65100 !important;
+  background: #e65100 url(%%spritesheet%%) -246px -138px;
   -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1408,7 +1408,7 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton.enabled {
-  background-color: #ffb74d;
+  background-color: #ff9800;
 }
 
 .res-nightmode .toggleButton:not(.enabled)::before {
@@ -1416,7 +1416,7 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton.enabled::before {
-  background-color: #ffb74d;
+  background-color: #ff9800;
 }
 
 .toggleButton {
@@ -1427,7 +1427,7 @@ input[type="checkbox"]:disabled {
 }
 
 .toggleButton.enabled {
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 .toggleButton::before {
@@ -1890,13 +1890,13 @@ h6,
 }
 
 #siteTable > .thing .title {
-  color: #ff9800;
+  color: #e65100;
   line-height: 1.35;
   margin: 0;
 }
 
 #siteTable > .thing .title:hover {
-  color: #ffb74d;
+  color: #ff9800;
 }
 
 #siteTable > .thing .title:active {
@@ -2445,7 +2445,7 @@ html.res #header-bottom-right {
 }
 
 #RESSearchMenuItem:hover {
-  color: rgba(255, 152, 0, 0.38) !important;
+  color: rgba(230, 81, 0, 0.38) !important;
   background-color: transparent !important;
 }
 
@@ -2491,7 +2491,7 @@ html.res #header-bottom-right {
 #header-bottom-left .pagename a:hover::after {
   font-size: 16px;
   content: '케이팝';
-  color: #ff9800;
+  color: #e65100;
 }
 
 #header-bottom-left .pagename:hover a {
@@ -3113,22 +3113,34 @@ label + #moresearchinfo {
   box-sizing: border-box;
 }
 
-.res-nightmode body a,
-body a {
+.res-nightmode body a {
   color: #ff9800;
 }
 
-.res-nightmode body a:hover,
-body a:hover {
+.res-nightmode body a:hover {
   color: #ffb74d;
 }
 
-.res-nightmode body a:active,
+.res-nightmode body a:active {
+  color: #f57c00;
+}
+
+.res-nightmode body a:visited {
+  color: #9575cd;
+}
+
+body a {
+  color: #e65100;
+}
+
+body a:hover {
+  color: #ff9800;
+}
+
 body a:active {
   color: #f57c00;
 }
 
-.res-nightmode body a:visited,
 body a:visited {
   color: #9575cd;
 }
@@ -3283,7 +3295,7 @@ body::before {
 
 .res-nightmode #BigEditor .RESDialogSmall h3 {
   color: #fff;
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 #BigEditor .RESDialogSmall {
@@ -3295,7 +3307,7 @@ body::before {
 #BigEditor .RESDialogSmall h3 {
   height: 38px;
   color: #fff;
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 #BigEditor .RESDialogSmall .md h3 {
@@ -3419,7 +3431,7 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 }
 
 .comment .entry.RES-keyNav-activeElement {
-  border-right-color: #ff9800;
+  border-right-color: #e65100;
 }
 
 html.res-nightmode .RES-keyNav-activeElement,
@@ -3432,7 +3444,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .new-comment .usertext-body {
   margin: 15px 0;
   border-color: transparent;
-  background-color: rgba(255, 183, 77, 0.12);
+  background-color: rgba(255, 152, 0, 0.12);
 }
 
 .linklisting .md,
@@ -3468,7 +3480,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .flair-settings + .tabmenu li.selected a {
   color: #fff !important;
   font-size: inherit;
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 .flair-settings + .tabmenu #tab-grant a.choice {
@@ -3609,8 +3621,8 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 .linefield table input[type="radio"]:not([id*="spam"]):checked + label::before {
-  border-color: #ff9800;
-  background-image: radial-gradient(circle, #ff9800 50%, transparent 50%);
+  border-color: #e65100;
+  background-image: radial-gradient(circle, #e65100 50%, transparent 50%);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -webkit-animation: radio-toggle 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3667,7 +3679,7 @@ ul#image-preview-list .preview img {
 
 .res-nightmode ul.tabmenu.formtab li.selected a {
   color: #fff !important;
-  background-color: #ff9800 !important;
+  background-color: #e65100 !important;
 }
 
 ul.tabmenu.formtab {
@@ -3689,7 +3701,7 @@ ul.tabmenu.formtab li a:hover {
 ul.tabmenu.formtab li.selected a {
   color: #fff !important;
   font-size: inherit;
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 ul.tabmenu.formtab a.link-button.choice {
@@ -3807,7 +3819,7 @@ ul.tabmenu.formtab a.text-button.choice {
   color: #fff;
   text-decoration: none;
   background: none;
-  background-color: #ff9800;
+  background-color: #e65100;
 }
 
 .wiki-page .wiki-page-content {
@@ -3828,7 +3840,7 @@ a[href$="/spoiler"]:hover {
 .linkflair-spoiler .linkflairlabel {
   background-color: transparent;
   border: none;
-  color: #ff9800;
+  color: #e65100;
   font-size: 16px;
   vertical-align: -4px;
 }
@@ -3852,9 +3864,9 @@ body:not(.comments-page) .linkflair-spoiler a.title {
 .res-nightmode body:not(.comments-page) .linkflair-spoiler a.title:hover,
 body:not(.comments-page) .linkflair-spoiler a.title:hover {
   background: transparent !important;
-  color: #ff9800 !important;
+  color: #e65100 !important;
 }
 
 .stickied .title {
-  color: #ff9800 !important;
+  color: #e65100 !important;
 }
