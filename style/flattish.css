@@ -63,7 +63,7 @@
 }
 
 .res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type):hover {
-  color: #4dd0e1;
+  color: #ffb74d;
 }
 
 .res-nightmode .titlebox blockquote ul:first-of-type li:not(:first-of-type) a {
@@ -107,7 +107,7 @@
 }
 
 .titlebox blockquote p:hover {
-  background-color: #4dd0e1;
+  background-color: #ffb74d;
 }
 
 .titlebox blockquote p a {
@@ -126,7 +126,7 @@
 }
 
 .titlebox blockquote p a:hover {
-  background-color: #4dd0e1;
+  background-color: #ffb74d;
   color: #fff;
 }
 
@@ -170,7 +170,7 @@
 
 .titlebox blockquote ul:first-of-type li:not(:first-of-type):hover a {
   font-weight: bold;
-  color: #4dd0e1;
+  color: #ffb74d;
 }
 
 .titlebox blockquote ul:first-of-type li:not(:first-of-type) a {
@@ -238,7 +238,7 @@
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:not(:first-of-type) a:hover {
-  color: #ff007e;
+  color: #ff9800;
 }
 
 .titlebox blockquote ul:nth-of-type(2) li:nth-of-type(2)::before {
@@ -266,11 +266,11 @@
 }
 
 .res-nightmode .flair-fan {
-  color: #ff99cc !important;
+  color: #ff9800 !important;
 }
 
 .flair-fan {
-  color: #ff007e;
+  color: #ff9800;
 }
 
 .res-nightmode .flair-fan,
@@ -284,7 +284,7 @@
 
 .res-nightmode button,
 button {
-  color: #00bcd4 !important;
+  color: #ff9800 !important;
 }
 
 .titlebox a.option {
@@ -331,7 +331,7 @@ button {
 
 .side a[href="/r/kpop/wiki/rules"] {
   color: rgba(0, 0, 0, 0.87) !important;
-  background: #ffab40 radial-gradient(circle, rgba(255, 209, 128, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+  background: #ffd740 radial-gradient(circle, rgba(255, 229, 127, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -343,7 +343,7 @@ button {
 }
 
 .side a[href="/r/kpop/wiki/rules"]:hover {
-  background-color: #ff9100 !important;
+  background-color: #ffc400 !important;
 }
 
 .commentarea .menuarea .spacer + .spacer form {
@@ -383,7 +383,7 @@ button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="
   border: 0 !important;
   border-radius: 2px !important;
   font-weight: bold;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
   letter-spacing: normal;
   line-height: 36px;
   text-align: center;
@@ -437,7 +437,7 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 .submit-link .morelink a, .submit-text .morelink a, .side a[href="/r/kpop/wiki/relatedsubs"], .side a[href="/r/kpop/wiki/usefulsites"],
 .submit-page button[type="submit"], #sr-form .save-button button, .save-button > button:nth-child(1) {
   color: #fff !important;
-  background: #00bcd4 radial-gradient(circle, rgba(77, 208, 225, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+  background: #ff9800 radial-gradient(circle, rgba(255, 183, 77, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -451,7 +451,7 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 
 .submit-link .morelink a:hover, .submit-text .morelink a:hover, .side a[href="/r/kpop/wiki/relatedsubs"]:hover, .side a[href="/r/kpop/wiki/usefulsites"]:hover,
 .submit-page button[type="submit"]:hover, #sr-form .save-button button:hover, .save-button > button:nth-child(1):hover {
-  background-color: #0097a7 !important;
+  background-color: #f57c00 !important;
 }
 
 .submit-page button[type="submit"], #sr-form .save-button button, .save-button > button:nth-child(1) {
@@ -464,7 +464,7 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 
 .submit-page button[type="submit"]:focus:not(:active), #sr-form .save-button button:focus:not(:active), .save-button > button:nth-child(1):focus:not(:active) {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  background-color: #4dd0e1 !important;
+  background-color: #ffb74d !important;
 }
 
 #searchexpando {
@@ -487,13 +487,13 @@ button:active, .commentarea .menuarea .spacer + .spacer form:active, #REScomment
 
 .res-nightmode .linkinfo,
 .linkinfo {
-  background-color: #ffd180 !important;
+  background-color: #ffe57f !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .res-nightmode .content.submit .info-notice,
 .content.submit .info-notice {
-  background-color: rgba(77, 208, 225, 0.38) !important;
+  background-color: rgba(255, 183, 77, 0.38) !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
@@ -1115,7 +1115,7 @@ ul.tabmenu.formtab li a::before {
   z-index: -1;
   height: 2px;
   content: '';
-  background: #ffab40;
+  background: #ffd740;
   -webkit-transition: right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1156,7 +1156,7 @@ textarea {
   border-width: 1px;
   border-color: #757575;
   border-radius: 2px;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -1169,7 +1169,7 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-  border-color: #ffab40 !important;
+  border-color: #ffd740 !important;
 }
 
 .res-nightmode input[type="text"],
@@ -1228,7 +1228,7 @@ textarea {
 }
 
 .res-nightmode .RESDialogSmall.livePreview > h3 {
-  background-color: #00bcd4;
+  background-color: #ff9800;
   color: #fff;
 }
 
@@ -1238,7 +1238,7 @@ textarea {
 
 .RESDialogSmall.livePreview > h3 {
   height: 40px;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 .RESDialogSmall.livePreview .gearIcon {
@@ -1396,8 +1396,8 @@ input[type="checkbox"]:disabled {
 }
 
 .login-form-side input[type="checkbox"]:checked + label::before, .c-checkbox input[type="checkbox"]:checked + label::before, .flairtoggle input[type="checkbox"]:checked + label::before, .sr_style_toggle input[type="checkbox"]:checked + label::before, .linefield input[type="checkbox"]:checked + label::before, .roundfield-content input[type="checkbox"]:checked + label::before {
-  border-color: #00bcd4 !important;
-  background: #00bcd4 url(%%spritesheet%%) -246px -138px;
+  border-color: #ff9800 !important;
+  background: #ff9800 url(%%spritesheet%%) -246px -138px;
   -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1408,7 +1408,7 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton.enabled {
-  background-color: #4dd0e1;
+  background-color: #ffb74d;
 }
 
 .res-nightmode .toggleButton:not(.enabled)::before {
@@ -1416,7 +1416,7 @@ input[type="checkbox"]:disabled {
 }
 
 .res-nightmode .toggleButton.enabled::before {
-  background-color: #4dd0e1;
+  background-color: #ffb74d;
 }
 
 .toggleButton {
@@ -1427,7 +1427,7 @@ input[type="checkbox"]:disabled {
 }
 
 .toggleButton.enabled {
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 .toggleButton::before {
@@ -1448,7 +1448,7 @@ input[type="checkbox"]:disabled {
 .toggleButton.enabled::before {
   left: unset !important;
   right: 0 !important;
-  background-color: #0097a7;
+  background-color: #f57c00;
   opacity: 1 !important;
 }
 
@@ -1890,17 +1890,17 @@ h6,
 }
 
 #siteTable > .thing .title {
-  color: #2196f3;
+  color: #ff9800;
   line-height: 1.35;
   margin: 0;
 }
 
 #siteTable > .thing .title:hover {
-  color: #64b5f6;
+  color: #ffb74d;
 }
 
 #siteTable > .thing .title:active {
-  color: #1976d2;
+  color: #f57c00;
 }
 
 #siteTable > .thing .title:visited {
@@ -2069,7 +2069,7 @@ div.content {
 
 input[name=uh] ~ a::after {
   position: absolute;
-  top: -40px;
+  top: -39px;
   right: -16px;
   z-index: -1;
   width: 100vw;
@@ -2300,7 +2300,7 @@ input[name=uh][value^="9"] ~ a::after {
   margin: 0;
   padding: 0 5px;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ffab40 !important;
+  background-color: #ffd740 !important;
 }
 
 .userbarShow form.logout {
@@ -2445,7 +2445,7 @@ html.res #header-bottom-right {
 }
 
 #RESSearchMenuItem:hover {
-  color: rgba(0, 188, 212, 0.38) !important;
+  color: rgba(255, 152, 0, 0.38) !important;
   background-color: transparent !important;
 }
 
@@ -2491,7 +2491,7 @@ html.res #header-bottom-right {
 #header-bottom-left .pagename a:hover::after {
   font-size: 16px;
   content: '케이팝';
-  color: #ff007e;
+  color: #ff9800;
 }
 
 #header-bottom-left .pagename:hover a {
@@ -2509,7 +2509,7 @@ html.res #header-bottom-right {
 
 #header-bottom-left .tabmenu li a {
   color: rgba(255, 255, 255, 0.7) !important;
-  background: transparent radial-gradient(circle, rgba(255, 209, 128, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
+  background: transparent radial-gradient(circle, rgba(255, 229, 127, 0.3) 15%, transparent 30%) no-repeat 50% 50%/0 !important;
   -webkit-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   -moz-transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
   transition: background 0.3s cubic-bezier(0, 0, 0.2, 1), color 0.6s cubic-bezier(0, 0, 0.2, 1) !important;
@@ -2533,7 +2533,7 @@ html.res #header-bottom-right {
 }
 
 .res-nightmode #header-bottom-left .tabmenu li.selected a {
-  border-bottom-color: #ffab40;
+  border-bottom-color: #ffd740;
   border-bottom-style: solid;
   border-width: 0 0 2px;
 }
@@ -2767,7 +2767,7 @@ html.res #header-bottom-right {
 
 label + #moresearchinfo {
   margin-top: 10px;
-  border-color: #ffab40;
+  border-color: #ffd740;
 }
 
 .submit-link,
@@ -3103,7 +3103,7 @@ label + #moresearchinfo {
 }
 
 * {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
   outline: none;
 }
 
@@ -3115,17 +3115,17 @@ label + #moresearchinfo {
 
 .res-nightmode body a,
 body a {
-  color: #2196f3;
+  color: #ff9800;
 }
 
 .res-nightmode body a:hover,
 body a:hover {
-  color: #64b5f6;
+  color: #ffb74d;
 }
 
 .res-nightmode body a:active,
 body a:active {
-  color: #1976d2;
+  color: #f57c00;
 }
 
 .res-nightmode body a:visited,
@@ -3283,7 +3283,7 @@ body::before {
 
 .res-nightmode #BigEditor .RESDialogSmall h3 {
   color: #fff;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 #BigEditor .RESDialogSmall {
@@ -3295,7 +3295,7 @@ body::before {
 #BigEditor .RESDialogSmall h3 {
   height: 38px;
   color: #fff;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 #BigEditor .RESDialogSmall .md h3 {
@@ -3419,7 +3419,7 @@ html.res-commentBoxes.res-commentBoxes-rounded .comment {
 }
 
 .comment .entry.RES-keyNav-activeElement {
-  border-right-color: #00bcd4;
+  border-right-color: #ff9800;
 }
 
 html.res-nightmode .RES-keyNav-activeElement,
@@ -3432,7 +3432,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .new-comment .usertext-body {
   margin: 15px 0;
   border-color: transparent;
-  background-color: rgba(77, 208, 225, 0.12);
+  background-color: rgba(255, 183, 77, 0.12);
 }
 
 .linklisting .md,
@@ -3468,7 +3468,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 .flair-settings + .tabmenu li.selected a {
   color: #fff !important;
   font-size: inherit;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 .flair-settings + .tabmenu #tab-grant a.choice {
@@ -3509,7 +3509,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 #search input[type="text"] {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
 .combined-search-page .search-result-group {
@@ -3609,8 +3609,8 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 .linefield table input[type="radio"]:not([id*="spam"]):checked + label::before {
-  border-color: #00bcd4;
-  background-image: radial-gradient(circle, #00bcd4 50%, transparent 50%);
+  border-color: #ff9800;
+  background-image: radial-gradient(circle, #ff9800 50%, transparent 50%);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -webkit-animation: radio-toggle 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3667,7 +3667,7 @@ ul#image-preview-list .preview img {
 
 .res-nightmode ul.tabmenu.formtab li.selected a {
   color: #fff !important;
-  background-color: #00bcd4 !important;
+  background-color: #ff9800 !important;
 }
 
 ul.tabmenu.formtab {
@@ -3689,7 +3689,7 @@ ul.tabmenu.formtab li a:hover {
 ul.tabmenu.formtab li.selected a {
   color: #fff !important;
   font-size: inherit;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 ul.tabmenu.formtab a.link-button.choice {
@@ -3807,7 +3807,7 @@ ul.tabmenu.formtab a.text-button.choice {
   color: #fff;
   text-decoration: none;
   background: none;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 
 .wiki-page .wiki-page-content {
@@ -3828,7 +3828,7 @@ a[href$="/spoiler"]:hover {
 .linkflair-spoiler .linkflairlabel {
   background-color: transparent;
   border: none;
-  color: #00bcd4;
+  color: #ff9800;
   font-size: 16px;
   vertical-align: -4px;
 }
@@ -3852,9 +3852,9 @@ body:not(.comments-page) .linkflair-spoiler a.title {
 .res-nightmode body:not(.comments-page) .linkflair-spoiler a.title:hover,
 body:not(.comments-page) .linkflair-spoiler a.title:hover {
   background: transparent !important;
-  color: #00bcd4 !important;
+  color: #ff9800 !important;
 }
 
 .stickied .title {
-  color: #ff007e !important;
+  color: #ff9800 !important;
 }
