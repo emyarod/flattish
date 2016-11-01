@@ -23,6 +23,14 @@
   background-position: -120px -70px;
 }
 
+.titlebox blockquote p:nth-of-type(4) {
+  background-position: -225px 5px;
+}
+
+.res-nightmode .titlebox blockquote p:nth-of-type(4) {
+  background-position: -225px -30px;
+}
+
 .titlebox blockquote ul:nth-of-type(1) {
   background-position: -180px -70px;
 }
