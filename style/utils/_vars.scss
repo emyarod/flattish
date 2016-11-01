@@ -9,37 +9,24 @@
 }
 
 // theme colors
-// $primary: get-color('cyan', '500');
-// $dark-primary: get-color('cyan', '700');
-// $light-primary: get-color('cyan', '300');
-// $accent: get-color('orange', 'A200');
-// $dark-accent: get-color('orange', 'A400');
-// $light-accent: get-color('orange', 'A100');
-
-$primary: get-color('orange', '900');
-$dark-primary: get-color('orange', '700');
-$light-primary: get-color('orange', '500');
-$accent: get-color('amber', 'A200');
-$dark-accent: get-color('amber', 'A400');
-$light-accent: get-color('amber', 'A100');
+$primary: get-color('cyan', '500');
+$dark-primary: get-color('cyan', '700');
+$light-primary: get-color('cyan', '300');
+$accent: get-color('orange', 'A200');
+$dark-accent: get-color('orange', 'A400');
+$light-accent: get-color('orange', 'A100');
 $black: #000;
 $white: #fff;
 
 // link color
-// $link-color: get-color('blue', '500');
-// $link-color-hover: get-color('blue', '300');
-// $link-color-active: get-color('blue', '700');
-$link-color: get-color('orange', '900');
-$link-color-hover: get-color('orange', '500');
-$link-color-active: get-color('orange', '700');
+$link-color: get-color('blue', '500');
+$link-color-hover: get-color('blue', '300');
+$link-color-active: get-color('blue', '700');
 $link-color-visited: get-color('deep-purple', '300');
 
-// $link-color-night: get-color('blue', '500');
-// $link-color-hover-night: get-color('blue', '300');
-// $link-color-active-night: get-color('blue', '700');
-$link-color-night: get-color('orange', '500');
-$link-color-hover-night: get-color('orange', '300');
-$link-color-active-night: get-color('orange', '700');
+$link-color-night: get-color('blue', '500');
+$link-color-hover-night: get-color('blue', '300');
+$link-color-active-night: get-color('blue', '700');
 $link-color-visited-night: get-color('deep-purple', '300');
 
 // vote arrows
@@ -47,10 +34,8 @@ $upvote: #c60c30;
 $downvote: #063c6d;
 
 // rkp
-// $pink: #ff007e;
-// $pink-night: #f9c;
-$pink: get-color('orange', '900');
-$pink-night: get-color('orange', '900');
+$pink: #ff007e;
+$pink-night: #f9c;
 
 // misc
 $nsfw: get-color('red', 'A200');
