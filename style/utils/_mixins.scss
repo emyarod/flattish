@@ -165,4 +165,9 @@
     #{$sticky-selector} { background-position: $shows-bgp; }
     #{$sticky-selector-night} { background-position: $shows-night-bgp; }
   }
+
+  @if $image == 'townhall' {
+    #{$sticky-selector} { background-position: $townhall-bgp; }
+    #{$sticky-selector-night} { background-position: $townhall-night-bgp; }
+  }
 }

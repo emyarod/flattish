@@ -138,10 +138,14 @@ $pinned-map: (
     image: 'calendar',
   ),
   topic4: (
+    type: 'link',
+    image: 'townhall',
+  ),
+  topic5: (
     type: 'menu',
     image: 'media',
   ),
-  topic5: (
+  topic6: (
     type: 'menu',
     image: 'shows',
   ),
@@ -162,3 +166,5 @@ $media-bgp: -180px -70px;
 $media-night-bgp: -180px -130px;
 $shows-bgp: 0 -190px;
 $shows-night-bgp: -60px -190px;
+$townhall-bgp: -225px 5px;
+$townhall-night-bgp: -225px -30px;
