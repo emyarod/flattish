@@ -82,7 +82,7 @@ button, .titlebox a.option, .res-fancy-toggle-button, .submit-page button[type="
   border: 0 !important;
   border-radius: 2px !important;
   font-weight: bold;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Arial", sans-serif;
   letter-spacing: normal;
   line-height: 36px;
   text-align: center;
@@ -881,6 +881,10 @@ ul.tabmenu.formtab li.selected a::before {
   right: 0;
 }
 
+.tabmenu li.res-tabmenu-button {
+  height: 100%;
+}
+
 .res-nightmode input[type="text"],
 .res-nightmode input[type="password"],
 .res-nightmode input[type="url"],
@@ -892,7 +896,7 @@ textarea {
   border-width: 1px;
   border-color: #757575;
   border-radius: 2px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Arial", sans-serif;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -2903,7 +2907,7 @@ label + #moresearchinfo {
 }
 
 * {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Arial", sans-serif;
   outline: none;
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3332,7 +3336,7 @@ html.res-nightmode .RES-keyNav-activeElement .md-container,
 }
 
 #search input[type="text"] {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Arial", sans-serif;
 }
 
 .combined-search-page .search-result-group {
