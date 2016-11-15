@@ -67,3 +67,7 @@ ul.tabmenu.formtab li a {
 ul.tabmenu.formtab li.selected a {
   @include selected-tab;
 }
+
+.tabmenu li.res-tabmenu-button {
+  height: 100%;
+}
