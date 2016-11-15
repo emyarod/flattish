@@ -898,6 +898,10 @@ ul.tabmenu.formtab li.selected a::before {
   right: 0;
 }
 
+.tabmenu li.res-tabmenu-button {
+  height: 100%;
+}
+
 .res-nightmode input[type="text"],
 .res-nightmode input[type="password"],
 .res-nightmode input[type="url"],
