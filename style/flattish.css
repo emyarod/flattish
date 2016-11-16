@@ -681,7 +681,8 @@ select option {
   background-position: -130px -117px !important;
 }
 
-.expando-button {
+div.expando-button,
+a.expando-button {
   position: relative;
   top: 2px;
   width: 25px;
@@ -694,67 +695,115 @@ select option {
   cursor: pointer;
 }
 
-.expando-button:hover {
+div.expando-button:hover,
+a.expando-button:hover {
   border-color: rgba(0, 0, 0, 0.54);
 }
 
-.expando-button.collapsed::before, .expando-button.collapsed::after, .expando-button.collapsed:hover::before, .expando-button.collapsed:hover::after, .expando-button.expanded::before, .expando-button.expanded::after, .expando-button.expanded:hover::before, .expando-button.expanded:hover::after {
+div.expando-button.collapsed::before, div.expando-button.collapsed::after, div.expando-button.collapsed:hover::before, div.expando-button.collapsed:hover::after, div.expando-button.expanded::before, div.expando-button.expanded::after, div.expando-button.expanded:hover::before, div.expando-button.expanded:hover::after,
+a.expando-button.collapsed::before,
+a.expando-button.collapsed::after,
+a.expando-button.collapsed:hover::before,
+a.expando-button.collapsed:hover::after,
+a.expando-button.expanded::before,
+a.expando-button.expanded::after,
+a.expando-button.expanded:hover::before,
+a.expando-button.expanded:hover::after {
   background: rgba(0, 0, 0, 0.38) !important;
   content: "";
   position: absolute;
   display: block;
 }
 
-.expando-button.collapsed::before, .expando-button.collapsed:hover::before, .expando-button.expanded::before, .expando-button.expanded:hover::before {
+div.expando-button.collapsed::before, div.expando-button.collapsed:hover::before, div.expando-button.expanded::before, div.expando-button.expanded:hover::before,
+a.expando-button.collapsed::before,
+a.expando-button.collapsed:hover::before,
+a.expando-button.expanded::before,
+a.expando-button.expanded:hover::before {
   width: 7px !important;
   height: 1px !important;
   top: 17px;
   left: 14px;
 }
 
-.expando-button.collapsed::after, .expando-button.collapsed:hover::after, .expando-button.expanded::after, .expando-button.expanded:hover::after {
+div.expando-button.collapsed::after, div.expando-button.collapsed:hover::after, div.expando-button.expanded::after, div.expando-button.expanded:hover::after,
+a.expando-button.collapsed::after,
+a.expando-button.collapsed:hover::after,
+a.expando-button.expanded::after,
+a.expando-button.expanded:hover::after {
   width: 1px;
   height: 7px;
   top: 14px;
   left: 17px;
 }
 
-.expando-button.collapsed::after, .expando-button.expanded::after {
+div.expando-button.collapsed::after, div.expando-button.expanded::after,
+a.expando-button.collapsed::after,
+a.expando-button.expanded::after {
   -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.expando-button.collapsed::after {
+div.expando-button.collapsed::after,
+a.expando-button.collapsed::after {
   -webkit-animation: minustoplus 0.5s ease 1;
   -moz-animation: minustoplus 0.5s ease 1;
   animation: minustoplus 0.5s ease 1;
 }
 
-.expando-button.expanded::after {
+div.expando-button.expanded::after,
+a.expando-button.expanded::after {
   -webkit-animation: minustoplus 0.5s ease 1 reverse;
   -moz-animation: minustoplus 0.5s ease 1 reverse;
   animation: minustoplus 0.5s ease 1 reverse;
   transform: rotate(90deg);
 }
 
-.expando-button.video.collapsed, .expando-button.video.collapsed:hover, .expando-button.video.expanded, .expando-button.video.expanded:hover {
+div.expando-button.video.collapsed, div.expando-button.video.collapsed:hover, div.expando-button.video.expanded, div.expando-button.video.expanded:hover,
+a.expando-button.video.collapsed,
+a.expando-button.video.collapsed:hover,
+a.expando-button.video.expanded,
+a.expando-button.video.expanded:hover {
   background-position: -176px -63px;
 }
 
-.expando-button.image {
+div.expando-button.expando-button-loading,
+a.expando-button.expando-button-loading {
+  top: unset;
+  width: 25px;
+  height: 25px;
+  max-width: unset;
+  max-height: unset;
+  background-position: -176px -63px;
+}
+
+div.expando-button.image,
+a.expando-button.image {
   box-sizing: unset;
 }
 
-.expando-button.image.collapsed, .expando-button.image.collapsed:hover, .expando-button.image.expanded, .expando-button.image.expanded:hover {
+div.expando-button.image.collapsed, div.expando-button.image.collapsed:hover, div.expando-button.image.expanded, div.expando-button.image.expanded:hover,
+a.expando-button.image.collapsed,
+a.expando-button.image.collapsed:hover,
+a.expando-button.image.expanded,
+a.expando-button.image.expanded:hover {
   background-position: -68px 0 !important;
 }
 
-.expando-button.gallery.collapsed, .expando-button.gallery.collapsed:hover, .expando-button.gallery.expanded, .expando-button.gallery.expanded:hover {
+div.expando-button.gallery.collapsed, div.expando-button.gallery.collapsed:hover, div.expando-button.gallery.expanded, div.expando-button.gallery.expanded:hover,
+a.expando-button.gallery.collapsed,
+a.expando-button.gallery.collapsed:hover,
+a.expando-button.gallery.expanded,
+a.expando-button.gallery.expanded:hover {
   background-position: 0 0 !important;
 }
 
-.expando-button.selftext.collapsed, .expando-button.selftext.collapsed:hover, .expando-button.selftext.expanded, .expando-button.selftext.expanded:hover {
+div.expando-button.selftext.collapsed, div.expando-button.selftext.collapsed:hover, div.expando-button.selftext.expanded, div.expando-button.selftext.expanded:hover,
+a.expando-button.selftext.collapsed,
+a.expando-button.selftext.collapsed:hover,
+a.expando-button.selftext.expanded,
+a.expando-button.selftext.expanded:hover {
   background-position: -107px -117px;
 }
 
@@ -1021,6 +1070,8 @@ select option {
 .expando-button.selftext.collapsed:hover,
 .expando-button.selftext.expanded,
 .expando-button.selftext.expanded:hover,
+a.expando-button.expando-button-loading,
+a.expando-button.expando-button-loading:hover,
 .res-nightmode .thumbnail.self,
 .res-nightmode .thumbnail.nsfw,
 .res-nightmode .thumbnail.default,
@@ -1066,7 +1117,8 @@ th {
 }
 
 .res-nightmode tbody tr:hover {
-  background-color: #101010;
+  /*background-color: #101010;*/
+  background-color: #ff007e;
 }
 
 tbody tr {
@@ -1076,7 +1128,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #eeeeee;
+  background-color: #ff99cb;
 }
 
 .res-nightmode td {
