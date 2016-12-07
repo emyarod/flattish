@@ -2175,147 +2175,471 @@ input[name=uh] ~ a::after {
 }
 
 input[name=uh][value^="a"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header1%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header1%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="b"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header2%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header2%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="c"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header3%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header3%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="d"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header4%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header4%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="e"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header5%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header5%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="f"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header6%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header6%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="g"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header7%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header7%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="h"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header8%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header8%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="i"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header9%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header9%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="j"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header10%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header10%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="k"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header11%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header11%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="l"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header12%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header12%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="m"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header13%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header13%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="n"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header14%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header14%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="o"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header15%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header15%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="p"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header16%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header16%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="q"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header17%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header17%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="r"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header18%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header18%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="s"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header19%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header19%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="t"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header20%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header20%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="u"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header21%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header21%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="v"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header22%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header22%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="w"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header23%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header23%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="x"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header24%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header24%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="y"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header25%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header25%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="z"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header26%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header26%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="0"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header27%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header27%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="1"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header28%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header28%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="2"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header29%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header29%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="3"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header30%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header30%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="4"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header31%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header31%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="5"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header32%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header32%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="6"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header33%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header33%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="7"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header34%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header34%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="8"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header35%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header35%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 input[name=uh][value^="9"] ~ a::after {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%header36%%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.57) 0%, transparent 35%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%snow%%), url(%%header36%%);
+  background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+  background-repeat: repeat;
+  animation: snowfall 4s linear infinite;
+}
+
+@keyframes snowfall {
+  to {
+    background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0;
+  }
 }
 
 .res-nightmode #sr-header-area,
