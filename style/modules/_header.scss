@@ -1,5 +1,3 @@
-// main: ../flattish.scss
-
 #header {
   height: 223px;
   border: 0;
@@ -78,8 +76,19 @@
 
       // styles
       #{$selectors} {
-        background-image: $scrim,url(%%#{nth($header-images, $i)}%%);
-      };
+        @if $holiday {
+          background-image: $scrim,url(%%snow%%),url(%%snow%%),url(%%snow%%),url(%%snow%%),url(%%#{nth($header-images, $i)}%%);
+          background-position: 0 0, 0 0, 0 0, 50px 50px, 150px 10px, 0 0;
+          background-repeat: repeat;
+          animation: snowfall 4s linear infinite;
+
+          @keyframes snowfall {
+            to { background-position: 0 0, 600px 600px, 600px 600px, 1300px 1300px, 400px 600px, 0 0; }
+          }
+        } @else {
+          background-image: $scrim,url(%%#{nth($header-images, $i)}%%);
+        }
+      }
 
       // clear lists for next iteration
       $group: ();
