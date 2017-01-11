@@ -40,6 +40,7 @@ $(document).ready(() => {
     'img/sprites/dropdown.png',
     'img/sprites/dropdown-night.png',
     'img/sprites/hide.png',
+    'img/sprites/hidpi/hidpi.png',
     'img/sprites/save.png',
     'img/sprites/spritesheet.png',
     'img/sprites/stickies.png',
