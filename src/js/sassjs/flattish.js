@@ -34,6 +34,7 @@
       'components/_tooltips.scss',
       'components/_typography.scss',
       'components/_vote-arrows.scss',
+      'components/_hidpi.scss',
       'modules/content/_sitetable.scss',
       'modules/_content.scss',
       'modules/header/_header-bottom-left.scss',
