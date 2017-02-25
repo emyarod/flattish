@@ -24,7 +24,7 @@
   @include transform(translateZ(0));
   @include backface-visibility(hidden);
 
-  &::before {
+  &::after {
     position: absolute;
     left: 0;
     right: 100%;
@@ -36,9 +36,9 @@
     @include transition(right 0.2s $animation-curve-default);
   }
 
-  &:hover::before,
-  &:focus::before,
-  &:active::before {
+  &:hover::after,
+  &:focus::after,
+  &:active::after {
     right: 0;
   }
 }
@@ -46,7 +46,7 @@
 @mixin selected-tab {
   border: 0;
 
-  &::before { right: 0; }
+  &::after { right: 0; }
 }
 
 // header-bottom-left, flair page, and submit page

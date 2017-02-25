@@ -3,5 +3,5 @@ node_modules
 
 .sass-cache
 *.css.map
-vendors
 dist
+*.css
