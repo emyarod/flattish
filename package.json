@@ -17,12 +17,20 @@
     "gulp-sass": "^2.3.2",
     "jquery-bez": "^1.0.11",
     "node-sass": "^3.10.1",
+    "rimraf": "^2.6.1",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "to-markdown": "^3.0.0",
     "webpack-stream": "^3.2.0"
   },
   "scripts": {
+    "clean": "rimraf ./dist && mkdir dist",
+    "minify-css": "node-sass --include-path node_modules/bourbon/app/assets/stylesheets --include-path style --output-style compressed style/flattish.scss dist/flattish.min.css",
+    "readme": "cp README.md dist",
+    "images": "cp -R img/headers img/sprites img/sidebar.png dist",
+    "debug": "node-sass --include-path node_modules/bourbon/app/assets/stylesheets --include-path style --output-style expanded style -o style",
+    "dev": "node-sass --include-path node_modules/bourbon/app/assets/stylesheets --output-style compressed -w style/flattish.scss style/flattish.min.css",
+    "build": "npm run clean && npm run minify-css && npm run readme && npm run images",
     "test": "gulp && git status"
   },
   "repository": {
