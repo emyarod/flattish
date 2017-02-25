@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "CSS theme for reddit",
   "main": "app/main/app.js",
-  "dependencies": {},
+  "dependencies": {
+    "bourbon": "^4.3.3"
+  },
   "devDependencies": {
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
