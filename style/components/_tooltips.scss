@@ -1,9 +1,9 @@
-// main: ../flattish.scss
-
-// need to provide width of tooltip after content is added
-// need to provide width of object to which the pseudoelement is attached
-// need to provide text within tooltip
-// default for 20x20 icons
+/**
+ * need to provide width of tooltip after content is added
+ * need to provide width of object to which the pseudoelement is attached
+ * need to provide text within tooltip
+ * default for 20x20 icons
+ */
 
 $tooltip-selector-map: (
   // sidebar
@@ -109,7 +109,6 @@ $font-size-tooltip: 14px;
 	.res-nightmode #{$selector-name} {
 		background-position: $background-night-position;
 	}
-
 }
 
 #{$spritesheet-tooltip-selectors} {

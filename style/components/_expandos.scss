@@ -80,8 +80,7 @@
 	}
 }
 
-div.expando-button,
-a.expando-button {
+.expando-button {
   // base styles
 	position: relative;
 	top: 2px;
@@ -145,16 +144,6 @@ a.expando-button {
 		&.expanded:hover {
 			background-position: -176px -63px;
 		}
-	}
-
-	// wiki expandos
-	&.expando-button-loading {
-		top: unset;
-		width: 25px;
-		height: 25px;
-		max-width: unset;
-		max-height: unset;
-		background-position: -176px -63px;
 	}
 
 	// image expandos

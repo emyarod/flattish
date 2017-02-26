@@ -1,5 +1,3 @@
-// main: ../../flattish.scss
-
 // danger
 #remember-me .recover-password:hover {
   font-size: 0;
@@ -27,6 +25,8 @@
 // sidebar login card
 .res-nightmode .login-form-side .submit {
 	background-color: transparent !important;
+
+	&:hover { border-radius: 2px !important; }
 }
 
 #login_login-main {

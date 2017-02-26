@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "CSS theme for reddit",
   "main": "app/main/app.js",
+<<<<<<< HEAD
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -23,6 +24,23 @@
     "webpack-stream": "^3.2.0"
   },
   "scripts": {
+=======
+  "dependencies": {
+    "bourbon": "^4.3.3"
+  },
+  "devDependencies": {
+    "node-sass": "^3.10.1",
+    "rimraf": "^2.6.1"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist && mkdir dist",
+    "minify-css": "node-sass --include-path node_modules/bourbon/app/assets/stylesheets --include-path style --output-style compressed style/flattish.scss dist/flattish.min.css",
+    "readme": "cp README.md dist",
+    "images": "cp -R img/headers img/sprites img/sidebar.png dist",
+    "debug": "node-sass --include-path node_modules/bourbon/app/assets/stylesheets --include-path style --output-style expanded style -o style",
+    "dev": "node-sass --include-path node_modules/bourbon/app/assets/stylesheets --output-style compressed -w style/flattish.scss style/flattish.min.css",
+    "build": "npm run clean && npm run minify-css && npm run readme && npm run images",
+>>>>>>> experimental
     "test": "gulp && git status"
   },
   "repository": {

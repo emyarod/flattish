@@ -1,11 +1,10 @@
-// main: ../flattish.scss
-
 $card-selectors-map: (
 	// sitetable promoted link
 	promoted-link: (
 		selector-name: '.link.promotedlink.promoted, .link.promotedlink.external',
 		depth: 1
 	),
+
 	// compose page
 	compose-message: (
 		selector-name: '#compose-message',

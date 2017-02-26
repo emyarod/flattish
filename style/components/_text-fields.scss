@@ -1,5 +1,3 @@
-// main: ../flattish.scss
-
 // shared styles
 .res-nightmode input[type="text"],
 .res-nightmode input[type="password"],
@@ -9,9 +7,12 @@ input[type="text"],
 input[type="password"],
 input[type="url"],
 textarea {
-  border-width: 1px;
-  border-color: get-color("grey", "600");
-  border-radius: 2px;
+  border : {
+    width: 1px;
+    color: get-color('grey', '600');
+    radius: 2px;
+  }
+
   font-family: $font-stack;
   background-color: transparent !important;
   box-shadow: none !important;
@@ -36,11 +37,6 @@ textarea {
 }
 
 // macros menu
-.RESMacroDropdown,
-.RESMacroDropdownTitle.openMacro ~ .RESMacroDropdown {
-  // right: 16px !important; // thx RES
-}
-
 .res-nightmode .RESMacroDropdown {
   border: 0;
   background-color: $dark-cards !important;
@@ -67,7 +63,6 @@ textarea {
 
 // text editor container
 .usertext-edit {
-
   textarea {
     width: 100%;
     margin-bottom: 9px !important; // override global reddit styles

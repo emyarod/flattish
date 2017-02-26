@@ -1,4 +1,15 @@
-// main: ../../flattish.scss
+// promoted links
+.organic-listing {
+	overflow: inherit;
+	border: 0;
+
+	.link.promotedlink {
+		&.promoted,
+		&.external {
+			width: 100%;
+		}
+	}
+}
 
 .organic-listing {
 	overflow: inherit;
@@ -11,9 +22,7 @@
 }
 
 // temporary empty state
-#noresults {
-	padding: 16px;
-}
+#noresults { padding: 16px; }
 
 // post rank
 .rank { display: none; }

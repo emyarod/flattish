@@ -1,5 +1,3 @@
-// main: ../flattish.scss
-
 // sidebar image
 @if $sidebar-img {
   .titlebox::before {
@@ -130,7 +128,7 @@
         height: 40px;
         border-color: transparent;
         border-style: solid;
-        @include border-width(0 0 0 60px);
+        border-width: 0 0 0 60px;
         padding: 0;
         line-height: 40px;
         font-size: 14px;
